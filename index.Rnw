@@ -19,6 +19,8 @@
 \usepackage{pdflscape}
 \usepackage{tabu}
 \usepackage{threeparttable}
+\usepackage{csquotes}% display/block quotes
+\usepackage{fullpage}
 
 \usepackage[numbers]{natbib}
 
@@ -207,18 +209,15 @@ The {\bf true negative rate}, also known as {\bf specificity}, is the probabilit
 
 National Research Council 2009:
 
-> much forensic evidence—including, for example, bitemarks and firearm and toolmark identifications—is introduced in criminal trials without any meaningful scientific validation, determination of error rates, or reliability testing to explain the limits of the discipline.
+\begin{displayquote} much forensic evidence—including, for example, bitemarks and firearm and toolmark identifications—is introduced in criminal trials without any meaningful scientific validation, determination of error rates, or reliability testing to explain the limits of the discipline.\end{displayquote}
 
-PCAST (2015)
+PCAST (2015) identified two important gaps:
 
-identified two important gaps:
-
-> (1) the need for clarity on the scientific meaning of "reliable principles and methods" and "scientific validity" in the context of certain forensic disciplines, and (2) the need to evaluate specific forensic methods to determine whether they have been scientifically established to be valid and reliable.\
+\begin{displayquote} (1) the need for clarity on the scientific meaning of "reliable principles and methods" and "scientific validity" in the context of certain forensic disciplines, and (2) the need to evaluate specific forensic methods to determine whether they have been scientifically established to be valid and reliable.\end{displayquote}
 
 PCAST Report (2016):
 
-> In an online experiment, researchers asked mock jurors to estimate the frequency that a qualified, experienced forensic scientist would mistakenly conclude that two samples of specified types came from the same person when they actually came from two different people. The mock jurors believed such errors are likely to occur about 1 in 5.5 million for fingerprint analysis comparison; 1 in 1 million for bitemark comparison; 1 in 1 million for hair comparison; and 1 in 100 thousand for handwriting comparison.
-
+\begin{displayquote} In an online experiment, researchers asked mock jurors to estimate the frequency that a qualified, experienced forensic scientist would mistakenly conclude that two samples of specified types came from the same person when they actually came from two different people. The mock jurors believed such errors are likely to occur about 1 in 5.5 million for fingerprint analysis comparison; 1 in 1 million for bitemark comparison; 1 in 1 million for hair comparison; and 1 in 100 thousand for handwriting comparison.\end{displayquote}
 
 
 \section{Studies}
@@ -253,9 +252,19 @@ Totals: &	697 &	5 &	8 &	0\\
 
 number of firearms very small 
 
+\section{Other Thoughts/Interesting finds}
+\begin{itemize}
+\item Full pipeline errors
+  \begin{itemize}
+    \item \svp{\citet{edmondGuideInterpretingForensic2014} is a fingerprint study that discusses the potential for errors at any stage in the process and the limitations of error rate studies as they are currently performed.}
+    \item \svp{\citet{hozoDecisionMakingWhenData2008} calls for what seems to be full pipeline analysis of errors, with included components tailored to the goals of the research. Focused primarily on clinical trials, so a good portion of the paper doesn't apply...}
+  \end{itemize}
+  
+\item \svp{It may be worth comparing/contrasting AFTE guidelines to SWGTREAD and other disciplines (SWGTREAD has a few extra categories that make it interesting \citep{swgtread-conclusions-2013}) and Uniform Language Testimony and Reporting guidelines - e.g. \citet{ULTR-latent} and \citet{ULTR-firearms-pattern} (all of the ULTR guidelines are at \url{https://www.justice.gov/olp/uniform-language-testimony-and-reports}).}
+\item \svp{Inconclusives also show up in diagnostic medicine (x-rays, mammograms, scans). Is the statistical treatment there any different given that typically there are better defined populations and some available statistical information on those populations? It's also worth noting that you can recall the patient and do additional (informative) testing with people; with forensic evidence, you can't get better data than what you had initially. }
 
-
-
+\item \svp{From my read of \citet{tukeyConclusionsVsDecisions}, it seems to be an argument for inconclusives (e.g. doing nothing). It may be worth differentiating the error rate calculation (Conclusion) from action taken by the legal system (Decisions). }
+\end{itemize}
 <<output-all-figs, eval = F, include = F>>=
 thisdoc <- readLines("index.Rnw")
 
