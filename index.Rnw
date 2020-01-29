@@ -1,0 +1,345 @@
+\documentclass[doubleblind]{elsarticle}
+
+\usepackage{lineno,hyperref}
+\modulolinenumbers[5]
+
+\usepackage{amsmath,amsthm}
+\usepackage{graphicx,psfrag,epsf}
+\usepackage{enumerate}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{adjustbox}
+\usepackage[table]{xcolor}
+\usepackage{wrapfig}
+\usepackage{subfig}
+\usepackage{float}
+% \usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+
+\usepackage[numbers]{natbib}
+
+\newenvironment{definition}[1]% environment name 
+{% begin code 
+  \par\vspace{.75\baselineskip}\noindent 
+  \textbf{Definition (#1)}\begin{itshape}% 
+  \par\vspace{.5\baselineskip}\noindent\ignorespaces 
+}% 
+{% end code 
+  \end{itshape}\ignorespacesafterend 
+}
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+
+\journal{Forensic Science International}
+%%%%%%%%%%%%%%%%%%%%%%%
+%% Elsevier bibliography styles
+%%%%%%%%%%%%%%%%%%%%%%%
+%% To change the style, put a % in front of the second line of the current style and
+%% remove the % from the second line of the style you would like to use.
+%%%%%%%%%%%%%%%%%%%%%%%
+
+%% Numbered
+%\bibliographystyle{model1-num-names}
+
+%% Numbered without titles
+%\bibliographystyle{model1a-num-names}
+
+%% Harvard
+% \bibliographystyle{model2-names.bst}\biboptions{authoryear}
+
+%% Vancouver numbered
+%\usepackage{numcompress}\bibliographystyle{model3-num-names}
+
+%% Vancouver name/year
+%\usepackage{numcompress}\bibliographystyle{model4-names}\biboptions{authoryear}
+
+%% APA style
+% \bibliographystyle{model5-names}\biboptions{authoryear}
+
+%% AMA style
+%\usepackage{numcompress}\bibliographystyle{model6-num-names}
+
+%% `Elsevier LaTeX' style
+\bibliographystyle{elsarticle-num-names}
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\begin{frontmatter}
+
+\title{Treatment of Inconclusives in the AFTE Range of Identifications\tnoteref{t1}}
+
+\tnotetext[t1]{This work was partially funded by the Center for Statistics and Applications in Forensic Evidence (CSAFE) through Cooperative Agreement \#70NANB15H176 between NIST and Iowa State University, which includes activities carried out at Carnegie Mellon University, University of California Irvine, and University of Virginia.}
+
+
+%% Group authors per affiliation:
+% \author{Elsevier\fnref{myfootnote}}
+% \address{Radarweg 29, Amsterdam}
+% \fntext[myfootnote]{Since 1880.}
+
+%% or include affiliations in footnotes:
+% \author[mymainaddress,mysecondaryaddress]{Elsevier Inc}
+% \ead[url]{www.elsevier.com}
+% 
+% \author[mysecondaryaddress]{Global Customer Service\corref{mycorrespondingauthor}}
+% \cortext[mycorrespondingauthor]{Corresponding author}
+% \ead{support@elsevier.com}
+% 
+% \address[mymainaddress]{1600 John F Kennedy Boulevard, Philadelphia}
+% \address[mysecondaryaddress]{360 Park Avenue South, New York}
+
+\author[isu,csafe]{Heike Hofmann}
+\author[isu,csafe]{Alicia Carriquiry Hofmann}
+\cortext[corauthor]{Corresponding author}\ead{srvander@iastate.edu}
+\author[unl]{Susan Vanderplas\corref{corauthor}}
+\address[isu]{Statistics Department, Iowa State University\\2438 Osborne Dr, Ames, IA 50011}
+\address[csafe]{Center for Statistical Applications in Forensic Evidence, Iowa State University\\613 Morrill Rd, Ames, IA 50011}
+\address[unl]{University of Nebraska-Lincoln}   
+
+\begin{abstract}
+The treatment of inconclusives in the assessment of errors has been a long-standing issue with far-reaching implications in the legal system. 
+\end{abstract}
+
+\begin{keyword}
+forensic science, black box studies, proficeincy testing
+\end{keyword}
+
+\end{frontmatter}
+
+
+
+\newcommand{\hh}[1]{{\textcolor{orange}{#1}}}
+\newcommand{\svp}[1]{{\textcolor{teal}{#1}}}
+\noindent
+
+
+<<echo = FALSE, message = FALSE, warning = FALSE>>=
+library(knitr)
+knitr::opts_chunk$set(
+  message = FALSE,
+  warning = FALSE,
+  error = FALSE,
+  collapse = TRUE,
+  comment = "",
+  fig.height = 6,
+  fig.width = 6,
+  dpi = 600,
+  fig.align = "center",
+  out.width = "\\textwidth",
+  cache = TRUE,
+  fig.path = "figures/",
+  echo = FALSE
+)
+options(knitr.table.format = "latex")
+
+library(stringr)
+
+library(tidyverse)
+library(scales)
+library(multidplyr) # install_github("hadley/multidplyr")
+library(bulletxtrctr) # install_github("csafe-isu/bulletxtrctr")
+library(gridExtra)
+library(kableExtra)
+@
+
+
+Examiners visually classify similarity of toolmark and firearm evidence according to the AFTE theory of identification \citep{identification} as one of identification, inconclusive or exclusion. Exact guidelines for this classification vary from lab to lab; some labs will exclude only on the basis of non-matching class characteristics, such as direction of the twist in rifling, land length or number of lands, or type of rifling. In other labs, CMS (consecutively matching striae) as defined by \citeauthor{biasotti} \citep{biasotti} is used as a measure to quantify the similarity of two lands. In virtually all labs, individual characteristics used to identify matching bullets are derived from visual assessment; some class characteristics may be directly measured, but these are not sufficient for individualization. 
+
+% Identification using 3D Scanning Technology
+
+
+
+\noindent\fbox{%
+    \parbox{\textwidth}{%
+\begin{enumerate}
+\item Identification\hfill\newline
+Agreement of a combination of individual characteristics and all discernible class characteristics where the extent of agreement exceeds that which can occur in the comparison of toolmarks made by different tools and is consistent with the agreement demonstrated by toolmarks known to have been produced by the same tool.
+
+
+\item Inconclusive 
+\begin{enumerate}
+\item Some agreement of individual characteristics and all discernible class characteristics, but insufficient for an identification.
+\item Agreement of all discernible class characteristics without agreement or disagreement of individual characteristics due to an absence, insufficiency, or lack of reproducibility.
+\item Agreement of all discernible class characteristics and disagreement of individual characteristics, but insufficient for an elimination.
+\end{enumerate}
+
+\item Elimination \hfill\newline
+Significant disagreement of discernible class characteristics and/or individual characteristics.
+
+\item Unsuitable \hfill\newline
+Unsuitable for examination.
+\end{enumerate}
+    }%
+}
+
+\citet{Dror:2018fp} have started the discussion to treat inconclusive results as an examiner's conscious decision to not decide on an identification or elimination. 
+This view has drawn some criticism \citep{Biedermann:2018hr}.
+
+In this paper we want to highlight the treatment of inconclusives in the assessment of error rates from a statistical point of view. We believe that this -- rather than further dividing the different opinions -- provides a unifying framework.
+
+
+
+\section{Background}
+
+The identification process -- i.e. the assessment of whether two samples come from the same source (were made by the same tool, the same shoe, the same finger, shot through the same barrel) or from different sources -- is quite complex. 
+In order to assess how well this process is functioning, studies with known ground truth have to be employed because casework does not allow for an assessment of correctness.
+
+There are different kinds of studies: closed set studies, open set studies, blind testing. 
+
+Ground truth and error rates: 
+
+Ground truth is the knowledge of whether two samples come from the same source or come in fact from two different sources. This knowledge is only available to the body setting up the test.   We distinguish between known matches (same source samples) and known non-matches (samples from different sources).
+In particular, ground truth in case work is not known.
+
+Once a study is run and test samples have been assessed by forensic examiners, error rates can be calculated. Differences between reported results and ground truth are considered to be errors in the identification process. A detailed discussion on the the exact procedure on how to deal with inconclusive results in calculating error rates is provided in section XXX.
+
+The {\bf true positive rate}, also known as {\bf sensitivity}, is the probability that two samples from the same source are identified in the examination process as a match, $P(\text{identification mde} \mid \text{same source samples})$. 
+
+The {\bf true negative rate}, also known as {\bf specificity}, is the probability that two samples from different sources result in an elimination in the examination process, $P(\text{elimination mde} \mid \text{different sources samples})$. 
+
+\section{Error Rate Calculation}
+
+National Research Council 2009:
+
+> much forensic evidence—including, for example, bitemarks and firearm and toolmark identifications—is introduced in criminal trials without any meaningful scientific validation, determination of error rates, or reliability testing to explain the limits of the discipline.
+
+PCAST (2015)
+
+identified two important gaps:
+
+> (1) the need for clarity on the scientific meaning of "reliable principles and methods" and "scientific validity" in the context of certain forensic disciplines, and (2) the need to evaluate specific forensic methods to determine whether they have been scientifically established to be valid and reliable.\
+
+PCAST Report (2016):
+
+> In an online experiment, researchers asked mock jurors to estimate the frequency that a qualified, experienced forensic scientist would mistakenly conclude that two samples of specified types came from the same person when they actually came from two different people. The mock jurors believed such errors are likely to occur about 1 in 5.5 million for fingerprint analysis comparison; 1 in 1 million for bitemark comparison; 1 in 1 million for hair comparison; and 1 in 100 thousand for handwriting comparison.
+
+
+
+\section{Studies}
+
+Baldwin \cite{Baldwin:2014bb}, Keisler \cite{keisler}, Lyons \cite{lyons}, Hare, Fadul \cite{fadul}, Brundage-Hamby \citet{Hamby:2018hu}, Duez \cite{Duez:2017kha}, Chumbley \cite{Macziewski:2016jw}
+
+confidence interval used in Baldwin: Pearson-Clopper, applied to Keisler sensitivity and specificity:
+
+<<r functions, echo=FALSE>>=
+clopper <- function(alpha, success, trials) {
+  lower <- qbeta(alpha/2, success, trials-success+1)
+  upper <- qbeta(1-alpha/2, success+1, trials-success)
+  c(lower, upper)
+}
+
+# Keisler sensitivity
+clopper(0.05, 1508, 1512)
+# Keisler specificity
+clopper(0.05, 805, 1008)
+@
+
+Brundage-Hamby:
+
+\begin{tabular}{lrrrr}
+Test Series	& \# Examiners Participating in Test &	\# Examiners Reporting Inconclusives	& \#Inconclusively Identified Bullets	& \#Incorrectly Identified Bullets \\
+Brundage &	67 &	1 &	1 &	0\\
+Hamby &	630 &	4 &	7 &	0\\
+Totals: &	697 &	5 &	8 &	0\\
+\end{tabular}
+
+\section{Discussion and Conclusions}
+
+number of firearms very small 
+
+
+
+
+<<output-all-figs, eval = F, include = F>>=
+thisdoc <- readLines("index.Rnw")
+
+# First, get figures that aren't in code chunks
+# Haven't really tested this part - regex may need work
+raw_figures <- tibble(
+  line_start = which(str_detect(thisdoc, "\\begin\\{figure\\}")), 
+  line_end = which(str_detect(thisdoc, "\\end\\{figure\\}")),
+  subfloats = purrr::map2(line_start, line_end, 
+                          ~str_extract(thisdoc[.x:.y], "\\includegraphics(?:\\[.*\\])?\\{(.*)\\}") %>%
+                            str_replace("\\includegraphics(?:\\[.*\\])?\\{(.*)\\}", "\\1"))
+)
+
+# Code chunk figures
+chunk_figures <- tibble(
+  line_start = which(str_detect(thisdoc, "^<<.*>>=$")),
+  line_end = which(str_detect(thisdoc, "^@$")),
+  chunk_name = str_replace(thisdoc[line_start], "<<([0-9A-z-]*?),?((?:.*=.*){1,})>>=", "\\1")
+) %>% 
+  mutate(
+    chunk_name = ifelse(chunk_name == "", "unnamed-chunk", chunk_name),
+  ) %>% 
+  mutate(
+    subfloats = purrr::map2(line_start, chunk_name, ~thisdoc[.x] %>%
+                              str_extract("fig\\.subcap ?= ?.*?\\),") %>%
+                              str_replace("fig\\.subcap ?= ?", "") %>%
+                              str_replace(",$", "") %>%
+                              parse(text=.) %>% eval %>% length() %>% 
+                              seq(1, ., by = 1) %>%
+                              sprintf("figures/%s-%d.pdf", .y, .))
+  )
+
+# Knitr included graphics figures
+chunk_incl_figures <- tibble(
+  line_start = which(str_detect(thisdoc, "^<<.*>>=$")),
+  line_end = which(str_detect(thisdoc, "^@$")),
+  chunk_name = str_replace(thisdoc[line_start], "<<([0-9A-z-]*?),?((?:.*=.*){1,})>>=", "\\1")
+) %>% 
+  mutate(
+    chunk_name = ifelse(chunk_name == "", "unnamed-chunk", chunk_name),
+  ) %>% 
+  mutate(
+    subfloats = purrr::map2(line_start, line_end, function(.x, .y) {
+      thisdoc[.x:.y] %>%
+        paste(collapse = " ") %>%
+        str_extract(., "include_graphics\\(c?\\(?.*?\\)?\\)") %>%
+        str_replace("include_graphics\\(", "") %>%
+        str_extract_all('\\"[\\.A-z0-9 /-]*?\\"') %>%
+        parse(text = .) %>% eval() %>%
+        str_remove_all("\\\\|\"")
+    })
+  )
+
+# All figures
+figs <- bind_rows(raw_figures, chunk_figures, chunk_incl_figures) %>%
+  arrange(line_start) %>%
+  mutate(subfloats = purrr::map(subfloats, function(x) data_frame(file = x, exists = file.exists(x)))) %>%
+  tidyr::unnest() %>%
+  filter(exists) %>%
+  mutate(fig_num = group_indices(., line_start, line_end)) %>%
+  group_by(fig_num) %>%
+  mutate(rn = row_number(),
+         maxrn = n(),
+         fig_label = letters[rn],
+         fig_label = ifelse(maxrn > 1, fig_label, ""),
+         fileext = tools::file_ext(file),
+         fig_label = sprintf("Figure_%d%s.%s", fig_num, fig_label, fileext))
+
+if (!dir.exists("separate_fig_files")) dir.create("separate_fig_files")
+file.copy(figs$file, file.path("separate_fig_files", figs$fig_label), overwrite = T)
+
+@
+\section{References}
+
+\bibliography{bibfile}
+
+\end{document}
+
+% <!--include marginal distributions of training data and compare to test data-->
+
+<< echo=FALSE, eval=FALSE>>=
+training <- read.csv("data/features-hamby.csv")
+gtrain <- training %>% 
+  select(profile1_id, profile2_id, study1, study2, match, ccf:sum_peaks) %>%
+  gather(feature, value, ccf:sum_peaks)
+# now compare to test data
+@
