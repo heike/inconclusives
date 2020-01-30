@@ -207,6 +207,10 @@ The {\bf true negative rate}, also known as {\bf specificity}, is the probabilit
 
 \section{Error Rate Calculation}
 
+
+
+
+
 National Research Council 2009:
 
 \begin{displayquote} much forensic evidence—including, for example, bitemarks and firearm and toolmark identifications—is introduced in criminal trials without any meaningful scientific validation, determination of error rates, or reliability testing to explain the limits of the discipline.\end{displayquote}
@@ -218,6 +222,8 @@ PCAST (2015) identified two important gaps:
 PCAST Report (2016):
 
 \begin{displayquote} In an online experiment, researchers asked mock jurors to estimate the frequency that a qualified, experienced forensic scientist would mistakenly conclude that two samples of specified types came from the same person when they actually came from two different people. The mock jurors believed such errors are likely to occur about 1 in 5.5 million for fingerprint analysis comparison; 1 in 1 million for bitemark comparison; 1 in 1 million for hair comparison; and 1 in 100 thousand for handwriting comparison.\end{displayquote}
+
+
 
 
 \section{Studies}
