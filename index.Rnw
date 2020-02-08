@@ -363,11 +363,12 @@ P (\text{different source} \mid \text{elimination made}) &=&  \frac{205}{205} &=
 
 \subsection{Brundage-Hamby  \citet{Hamby:2018hu}}
 
-\begin{tabular}{lrrrr}
-Test Series	& \# Examiners Participating in Test &	\# Examiners Reporting Inconclusives	& \#Inconclusively Identified Bullets	& \#Incorrectly Identified Bullets \\
+\begin{tabular}{lrrrr}\hline
+Test Series	& \#Examiners &	\#Examiners 	& \#Inconclusively 	& \#Incorrectly  \\
+& & Reporting Inconclusives & Identified Bullets & Identified Bullets \\ \hline
 Brundage &	67 &	1 &	1 &	0\\
 Hamby &	630 &	4 &	7 &	0\\
-Totals: &	697 &	5 &	8 &	0\\
+Totals: &	697 &	5 &	8 &	0\\ \hline
 \end{tabular}
 
 
