@@ -283,13 +283,15 @@ clopper(0.05, 805, 1008)
 
 \subsection{Baldwin Study \cite{Baldwin:2014bb}}
 
-setup of the study: 25 firearms,   each kit consists of 15 comparisons of 3 knowns to 1 questioned cartridge case. For all participants 5 of the sets were from Known same-source firearms and 10 of the sets were from Known different source firearms. {\bf ``We instructed all participants to refrain from sharing or discussing the contents or results of their sample sets and answers to minimize the risk of revealing the design".} \hh{this is a weakness of the design,  but it also fixes the frequencies of same source and different source occurrences and with it the probabilities for the events:}
+Each kit consists of 15 sets of 3 known cartridge cases and 1 questioned. For all participants 5 of the sets were from same-source and 10 of the sets were from different sources. {\bf ``We instructed all participants to refrain from sharing or discussing the contents or results of their sample sets and answers to minimize the risk of revealing the design".} \hh{this is a weakness of the design,  but it also fixes the frequencies of same source and different source occurrences and with it the probabilities for the events:}
+
+A total of 25 firearms was used for the study, such that within each kit no firearm was re-used for either knowns or questioned cartridge cases, i.e. no additional information could be gained by comparing any cartridge cases across sets.
 
 \[
 P(\text{same source}) = \frac{1}{3},  \ \ \ P(\text{different source}) = \frac{2}{3}
 \]
 
-218 participants sent evaluations: \hfill\newline
+218 participants provided evaluations of the kits: \hfill\newline
 
 \begin{tabular}{lrrrr}\hline
 & \# Pairs & Elimination & \multirow{2}{1.5in}{Inconclusives or no response} & Identification\\
@@ -333,7 +335,7 @@ P (\text{different source} \mid \text{inconclusive or elimination}) &=& \frac{73
 
 \subsection{Keisler \cite{keisler}}
 
-Each test kit consisted of 20 pairs of cartridge cases. Each set consisted of 12 same source pairs and 8 pairs from different sources.
+Each test kit consisted of sets of 20 pairs of cartridge cases,  12 of the pairs were from the same source and 8 pairs were from different sources.
 
 126 participants reported results:
 
