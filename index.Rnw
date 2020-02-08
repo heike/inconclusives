@@ -264,7 +264,7 @@ In the presence of studies, we can use existing data to evaluate the conditional
 
 \section{Studies}
 
-Baldwin \cite{Baldwin:2014bb}, Keisler \cite{keisler}, Lyons \cite{lyons}, Hare, Fadul \cite{fadul}, Brundage-Hamby \citet{Hamby:2018hu}, Duez \cite{Duez:2017kha}, Chumbley \cite{Macziewski:2016jw}
+Baldwin , Keisler , Lyons \cite{lyons}, Hare, Fadul \cite{fadul}, Brundage-Hamby, Duez \cite{Duez:2017kha}, Chumbley \cite{Macziewski:2016jw}
 
 confidence interval used in Baldwin: Pearson-Clopper, applied to Keisler sensitivity and specificity:
 
@@ -281,7 +281,7 @@ clopper(0.05, 1508, 1512)
 clopper(0.05, 805, 1008)
 @
 
-Baldwin Study:
+\subsection{Baldwin Study \cite{Baldwin:2014bb}}
 
 setup of the study: 25 firearms,   each kit consists of 15 comparisons of 3 knowns to 1 questioned cartridge case. For all participants 5 of the sets were from Known same-source firearms and 10 of the sets were from Known different source firearms. {\bf ``We instructed all participants to refrain from sharing or discussing the contents or results of their sample sets and answers to minimize the risk of revealing the design".} \hh{this is a weakness of the design,  but it also fixes the frequencies of same source and different source occurrences and with it the probabilities for the events:}
 
@@ -289,13 +289,15 @@ setup of the study: 25 firearms,   each kit consists of 15 comparisons of 3 know
 P(\text{same source}) = \frac{1}{3},  \ \ \ P(\text{different source}) = \frac{2}{3}
 \]
 
-218 participants sent evaluations:
+218 participants sent evaluations: \hfill\newline
 
-\begin{tabular}{lrrrr}
-& \# Pairs & Elimination & Inconclusives or no response & Identification\\
+\begin{tabular}{lrrrr}\hline
+& \# Pairs & Elimination & \multirow{2}{1.5in}{Inconclusives or no response} & Identification\\
+\\ \hline
 Known Matches & 1090 & 4 & 11 & 1075\\
-Known Non-Matches & 2180 & 1421 & 735+2 & 22\\
-\end{tabular}
+Known Non-Matches & 2180 & 1421 & 735+2 & 22\\ \hline
+\end{tabular}\hfill\newline
+
 
 Each of the above evaluations is actually based on a comparison on three known same source  cartridge cases to one questioned.
 
@@ -317,7 +319,47 @@ P (\text{different source} \mid \text{elimination made}) &=&  \frac{1421}{1421+4
 \end{eqnarray*}
 
 
-Brundage-Hamby:
+It seems that firearms examiners are more willing to bet on identifications than on exclusions. In fact, even if inconclusives and eliminations are combined, the error rate of making a false elimination is 0.0069, only a third of the error of a false identification:
+
+\begin{eqnarray*}
+\arraycolsep=1.4pt\def\arraystretch{2.2}
+\begin{array}{rcccr}
+P (\text{same source} \mid \text{inconclusive or elimination}) &=& \frac{11+4}{748+1425} &=& 0.0069 \\
+P (\text{different source} \mid \text{inconclusive or elimination}) &=& \frac{737+1421}{748+1425} &=& 0.9931 
+\end{array}
+\end{eqnarray*}
+
+
+
+\subsection{Keisler \cite{keisler}}
+
+Each test kit consisted of 20 pairs of cartridge cases. Each set consisted of 12 same source pairs and 8 pairs from different sources.
+
+126 participants reported results:
+
+\begin{tabular}{lrrrr}\hline
+& \# Pairs & Elimination & \multirow{2}{1.5in}{Inconclusives} & Identification\\
+\\ \hline
+Known Matches & 1512 & 0 & 4 & 1508\\
+Known Non-Matches & 1008 & 805 & 203 & 0\\ \hline
+\end{tabular}\hfill\newline
+
+The set of conditional probabilities is calculated as:
+
+\begin{eqnarray*}
+\arraycolsep=1.4pt\def\arraystretch{2.2}
+\begin{array}{rcccr}
+P (\text{same source} \mid \text{identification made}) &=&  \frac{1508}{1508} &=& 1 \\
+P (\text{different source} \mid \text{identification made}) &=&  \frac{0}{1508} &=& 0 \\[10pt]
+P (\text{same source} \mid \text{inconclusive}) &=& \frac{4}{203+4} &=& 0.0193 \\
+P (\text{different source} \mid \text{inconclusive}) &=& \frac{203}{203+4} &=& 0.9807 \\[10pt]
+P (\text{same source} \mid \text{elimination made}) &=& \frac{0}{205} &=& 0 \\
+P (\text{different source} \mid \text{elimination made}) &=&  \frac{205}{205} &=& 1 \\
+\end{array}
+\end{eqnarray*}
+
+
+\subsection{Brundage-Hamby  \citet{Hamby:2018hu}}
 
 \begin{tabular}{lrrrr}
 Test Series	& \# Examiners Participating in Test &	\# Examiners Reporting Inconclusives	& \#Inconclusively Identified Bullets	& \#Incorrectly Identified Bullets \\
@@ -325,6 +367,7 @@ Brundage &	67 &	1 &	1 &	0\\
 Hamby &	630 &	4 &	7 &	0\\
 Totals: &	697 &	5 &	8 &	0\\
 \end{tabular}
+
 
 \section{Discussion and Conclusions}
 
