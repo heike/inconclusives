@@ -247,6 +247,9 @@ Using \autoref{tab:generic-results}, we can then calculate the following conditi
 \item [P(same source \vbar examiner makes an exclusion)] The probability that two items come from the same source given that the examiner makes an exclusion. We will refer to this using the shorthand $P(SS|Exclusion)$. This is the second error that an examiner could make during an evaluation, and is termed a \emph{false negative} or a \emph{miss}. The probability or rate of such errors is termed the \emph{false negative rate} or \emph{miss rate}. 
 \item [P(different source \vbar examiner makes an exclusion)] The probability that the two items come from different sources, given that the examiner makes an exclusion. We will refer to this using the shorthand  $P(DS|Exclusion)$. This is the second of two correct decisions which could be made during an evaluation and is known as a \emph{true negative} and the rate at which it occurs is known as the \emph{true negative rate} or the \emph{specificity}. 
 \end{description}
+
+\svp{Add in a table with the rates and how they are calculated using quantities in \autoref{tab:general-results}}
+
 % 
 % \begin{description}
 % \item [true positive rate] (also known as {\bf sensitivity}), is the probability that two samples from the same source are identified in the examination process as a match, $P(\text{identification mde} \mid \text{same source samples})$. 
