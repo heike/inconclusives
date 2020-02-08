@@ -4,6 +4,7 @@
 \modulolinenumbers[5]
 
 \usepackage{amsmath,amsthm}
+\usepackage{amstext}
 \usepackage{graphicx,psfrag,epsf}
 \usepackage{enumerate}
 \usepackage{booktabs}
@@ -72,6 +73,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
+\noindent
 
 \begin{frontmatter}
 
@@ -205,11 +207,11 @@ The {\bf true positive rate}, also known as {\bf sensitivity}, is the probabilit
 
 The {\bf true negative rate}, also known as {\bf specificity}, is the probability that two samples from different sources result in an elimination in the examination process, $P(\text{elimination mde} \mid \text{different sources samples})$. 
 
+
+
+
+
 \section{Error Rate Calculation}
-
-
-
-
 
 National Research Council 2009:
 
@@ -223,6 +225,24 @@ PCAST Report (2016):
 
 \begin{displayquote} In an online experiment, researchers asked mock jurors to estimate the frequency that a qualified, experienced forensic scientist would mistakenly conclude that two samples of specified types came from the same person when they actually came from two different people. The mock jurors believed such errors are likely to occur about 1 in 5.5 million for fingerprint analysis comparison; 1 in 1 million for bitemark comparison; 1 in 1 million for hair comparison; and 1 in 100 thousand for handwriting comparison.\end{displayquote}
 
+
+
+
+\hh{The fundamental quantity in question is the probability that two pieces of evidence come from the same source or from different sources. In a legal setting the opinion provided by the expert is the major provider of information. So given expert testimony, how does or should the evaluation of the above probability change?  }
+
+\begin{eqnarray*}
+P(\text{same source} \mid \text{identification made}) = \\ 
+P (\text{identification made} \mid \text{same source}) \times 
+\frac{P(\text{same source})}{P(\text{identification made})}
+\end{eqnarray*}
+
+The probability to make an identification  could be either reported directly or calculated as a composite of true positive and false positive rates:
+
+\[
+P(\text{identification made}) = TPR \times P(\text{same source}) + FPR \times P(\text{different source}) 
+\]
+
+In the presence of studies, we can use existing data to evaluate the conditional probability of same source versus different sources given an expert's testimony directly.
 
 
 
@@ -244,6 +264,47 @@ clopper(0.05, 1508, 1512)
 # Keisler specificity
 clopper(0.05, 805, 1008)
 @
+
+Baldwin Study:
+
+setup of the study: 25 firearms,   each kit consists of 15 comparisons of 3 knowns to 1 questioned cartridge case. For all participants 5 of the sets were from Known same-source firearms and 10 of the sets were from Known different source firearms. {\bf ``We instructed all participants to refrain from sharing or discussing the contents or results of their sample sets and answers to minimize the risk of revealing the design".} \hh{this is a weakness of the design,  but it also fixes the frequencies of same source and different source occurrences and with it the probabilities for the events:}
+
+\[
+P(\text{same source}) = \frac{1}{3},  \ \ \ P(\text{different source}) = \frac{2}{3}
+\]
+
+218 participants sent evaluations:
+
+\begin{tabular}{lrrrr}
+& \# Pairs & Elimination & Inconclusives or no response & Identification\\
+Known Matches & 1090 & 4 & 11 & 1075\\
+Known Non-Matches & 2180 & 1421 & 735+2 & 22\\
+\end{tabular}
+
+Each of the above evaluations is actually based on a comparison on three known same source  cartridge cases to one questioned.
+
+For 3234 comparisons, FTEs evaluated how many of the known cartridge cases were usable for an evaluation: all three specimens were used in 3018 cases, two were used in 207 cases, and only one was used in nine cases.
+
+
+The probability of same source given an identification is made is 
+
+\begin{eqnarray*}
+P (\text{same source} \mid \text{identification made}) &=&  \frac{1075}{1075+ 22} = 0.9799 \\
+P (\text{different source} \mid \text{identification made}) &=&  \frac{22}{1075+ 22} = 0.0201 \\
+\end{eqnarray*}
+
+
+\begin{eqnarray*}
+P (\text{same source} \mid \text{inconclusive}) &=& \frac{11}{737+11} = 0.0147 \\
+P (\text{different source} \mid \text{inconclusive}) &=& \frac{737}{737+11} = 0.9853 \\
+\end{eqnarray*}
+
+
+\begin{eqnarray*}
+P (\text{same source} \mid \text{elimination made}) &=& \frac{4}{1421+4} = 0.0028 \\
+P (\text{different source} \mid \text{elimination made}) &=&  \frac{1421}{1421+4} = 0.9972 \\
+\end{eqnarray*}
+
 
 Brundage-Hamby:
 
