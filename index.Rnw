@@ -154,7 +154,6 @@ library(kableExtra)
 
 
 Examiners visually classify similarity of toolmark and firearm evidence according to the AFTE theory of identification \citep{identification} as one of identification, inconclusive or exclusion. Exact guidelines for this classification vary from lab to lab; some labs will exclude only on the basis of non-matching class characteristics, such as direction of the twist in rifling, land length or number of lands, or type of rifling. In other labs, CMS (consecutively matching striae) as defined by \citeauthor{biasotti} \citep{biasotti} is used as a measure to quantify the similarity of two lands. In virtually all labs, individual characteristics used to identify matching bullets are derived from visual assessment; some class characteristics may be directly measured, but these are not sufficient for individualization. 
-
 % Identification using 3D Scanning Technology
 
 
@@ -186,14 +185,24 @@ Unsuitable for examination.
 \citet{Dror:2018fp} have started the discussion to treat inconclusive results as an examiner's conscious decision to not decide on an identification or elimination. 
 This view has drawn some criticism \citep{Biedermann:2018hr}.
 
-In this paper we want to highlight the treatment of inconclusives in the assessment of error rates from a statistical point of view. We believe that this -- rather than further dividing the different opinions -- provides a unifying framework.
+In this paper we want to highlight the treatment of inconclusives in the assessment of error rates from a statistical point of view. % We believe that this -- rather than further dividing the different opinions -- provides a unifying framework.
+
+% \section{Background}
+
+The identification process -- i.e. the assessment of whether two samples come from the same source (were made by the same tool, the same shoe, the same finger, shot through the same barrel) or from different sources -- is quite complex. As a result, studies which attempt to gain insight into the identification process must also navigate these complexities, ideally without becoming too complicated to reasonably execute. 
+
+There are several considerations when designing a study of the identification process:
+\begin{description}
+\item [Closed vs. Open Set] A closed set study is one in which all unknown samples come from the same source as a known which is also included in the test set. Conversely, an open set study is one in which unknown samples may originate from sources which are not part of the known samples provided in the test set.
+\item [White box vs. Black Box] A white-box study is one which makes an attempt to understand \emph{why} an examiner came to the decision, in contrast to a black box study, which only evaluates the correctness of the decision (and not the reasoning behind it). 
+\item [Blind testing] A blind (or blinded) study is one in which the participant (in this case the examiner) does not know that they are being tested; that is, a study which appears to be part of a case, rather than research. \citet{pcast2016} recommended that the use of blind testing be increased, as error rates derived from blind studies better generalize to casework.
+\item [Number of knowns from different sources] Some studies \citep{keisler} provide only one known exemplar (or a set of multiple exemplars from the same source). Other studies, such as \citep{hamby,Hamby:2018hu} and the Houston FSC and Phoenix studies from \citet{case-validation}, include multiple different sources as knowns. %Typically, these studies can be completed with the assumption that once an unknown matches one known, it will not match any other knowns. \svp{Add in the issues with this later}
+\item [Study length] Most crime labs are understaffed and maintain a fairly large backlog of cases; as a consequence, examiner time is limited. While examiners should participate in these studies, because they benefit the discipline as a whole, they must balance the competing demands of a large and consequential workload. As such, studies which require examiners to make a large number of comparisons may be less likely to have sufficient participants to generalize to the wider discipline.
+\end{description}
 
 
 
-\section{Background}
-
-The identification process -- i.e. the assessment of whether two samples come from the same source (were made by the same tool, the same shoe, the same finger, shot through the same barrel) or from different sources -- is quite complex. 
-In order to assess how well this process is functioning, studies with known ground truth have to be employed because casework does not allow for an assessment of correctness.
+In order to assess how well this process is functioning, studies with known ground truth have to be employed because casework does not allow for an assessment of correctness. 
 
 There are different kinds of studies: closed set studies, open set studies, blind testing. 
 
