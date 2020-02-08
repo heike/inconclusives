@@ -158,7 +158,7 @@ Examiners visually classify similarity of toolmark and firearm evidence accordin
 % Identification using 3D Scanning Technology
 
 
-
+\begin{table}[hbt]
 \noindent\fbox{%
     \parbox{\textwidth}{%
 \begin{enumerate}
@@ -181,7 +181,8 @@ Unsuitable for examination.
 \end{enumerate}
     }%
 }
-
+\caption{\label{tab:afte} AFTE Rules of Toolmark Identifications \citep{identification}.}
+\end{table}
 \citet{Dror:2018fp} have started the discussion to treat inconclusive results as an examiner's conscious decision to not decide on an identification or elimination. 
 This view has drawn some criticism \citep{Biedermann:2018hr}.
 
@@ -228,19 +229,34 @@ PCAST Report (2016):
 
 
 
-\hh{The fundamental quantity in question is the probability that two pieces of evidence come from the same source or from different sources. In a legal setting the opinion provided by the expert is the major provider of information. So given expert testimony, how does or should the evaluation of the above probability change?  }
+\hh{In the absence of knowing the truth we have to resort to working within a probabilistic framework to assess the likelihood of certain events. Some (XXX? quantify?) evidence is based on questions of pattern matching: does the shoe print from the crime scene match a particular shoe? was the bullet found at a crime scene fired from a particular weapon? does the breech face impression on a cartridge case from the crime scene match the breech face of a particular weapon frame?}
+
+\hh{
+In these situations the fundamental quantity in question is the probability that two pieces of evidence come from the same source or from different sources. In a legal setting the opinion provided by the expert guides this assessment. So given expert testimony, how does or should the evaluation of the above probability change?  }
+
+The AFTE theory of firearms and toolmarks identification as shown in \autoref{tab:afte} allows an expert to come to three main conclusions: make an identification, i.e. two pieces of evidence are thought to come from the same source, make an elimination, i.e. two pieces of evidence are tought to come from different sources, or an inconclusive, i.e. the evidence does not allow either an identification or an elimination. 
+
+Given these three outcomes, we are interested for each the probability of same source and different sources, resulting in a total of six ($3 \times 2$) conditional probabilities. In a perfect world, we would expect the following probabilities:
 
 \begin{eqnarray*}
-P(\text{same source} \mid \text{identification made}) = \\ 
-P (\text{identification made} \mid \text{same source}) \times 
-\frac{P(\text{same source})}{P(\text{identification made})}
+\arraycolsep=1.4pt\def\arraystretch{1.1}
+\begin{array}{rcr}
+P (\text{same source} \mid \text{identification made}) &=&  1 \\
+P (\text{different source} \mid \text{identification made}) &=&  0 \\[10pt]
+P (\text{same source} \mid \text{inconclusive}) &=& 0.5 \\
+P (\text{different source} \mid \text{inconclusive}) &=& 0.5 \\[10pt]
+P (\text{same source} \mid \text{elimination made}) &=& 0\\
+P (\text{different source} \mid \text{elimination made}) &=&  1 \\
+\end{array}
 \end{eqnarray*}
 
-The probability to make an identification  could be either reported directly or calculated as a composite of true positive and false positive rates:
 
-\[
-P(\text{identification made}) = TPR \times P(\text{same source}) + FPR \times P(\text{different source}) 
-\]
+
+%The probability to make an identification  could be either reported directly or calculated as a composite of true positive and false positive rates:
+
+% \[
+% P(\text{identification made}) = TPR \times P(\text{same source}) + FPR \times P(\text{different source}) 
+% \]
 
 In the presence of studies, we can use existing data to evaluate the conditional probability of same source versus different sources given an expert's testimony directly.
 
@@ -286,23 +302,18 @@ Each of the above evaluations is actually based on a comparison on three known s
 For 3234 comparisons, FTEs evaluated how many of the known cartridge cases were usable for an evaluation: all three specimens were used in 3018 cases, two were used in 207 cases, and only one was used in nine cases.
 
 
-The probability of same source given an identification is made is 
+The set of conditional probabilities is calculated as:
 
 \begin{eqnarray*}
-P (\text{same source} \mid \text{identification made}) &=&  \frac{1075}{1075+ 22} = 0.9799 \\
-P (\text{different source} \mid \text{identification made}) &=&  \frac{22}{1075+ 22} = 0.0201 \\
-\end{eqnarray*}
-
-
-\begin{eqnarray*}
-P (\text{same source} \mid \text{inconclusive}) &=& \frac{11}{737+11} = 0.0147 \\
-P (\text{different source} \mid \text{inconclusive}) &=& \frac{737}{737+11} = 0.9853 \\
-\end{eqnarray*}
-
-
-\begin{eqnarray*}
-P (\text{same source} \mid \text{elimination made}) &=& \frac{4}{1421+4} = 0.0028 \\
-P (\text{different source} \mid \text{elimination made}) &=&  \frac{1421}{1421+4} = 0.9972 \\
+\arraycolsep=1.4pt\def\arraystretch{2.2}
+\begin{array}{rcccr}
+P (\text{same source} \mid \text{identification made}) &=&  \frac{1075}{1075+ 22} &=& 0.9799 \\
+P (\text{different source} \mid \text{identification made}) &=&  \frac{22}{1075+ 22} &=& 0.0201 \\[10pt]
+P (\text{same source} \mid \text{inconclusive}) &=& \frac{11}{737+11} &=& 0.0147 \\
+P (\text{different source} \mid \text{inconclusive}) &=& \frac{737}{737+11} &=& 0.9853 \\[10pt]
+P (\text{same source} \mid \text{elimination made}) &=& \frac{4}{1421+4} &=& 0.0028 \\
+P (\text{different source} \mid \text{elimination made}) &=&  \frac{1421}{1421+4} &=& 0.9972 \\
+\end{array}
 \end{eqnarray*}
 
 
