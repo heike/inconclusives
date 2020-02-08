@@ -196,7 +196,7 @@ As a result, studies which attempt to gain insight into the identification proce
 
 There are several considerations when designing a study of the identification process:
 \begin{description}
-\item [Closed vs. Open Set] A closed set study is one in which all unknown samples come from the same source as a known which is also included in the test set. Conversely, an open set study is one in which unknown samples may originate from sources which are not part of the known samples provided in the test set.
+\item [Closed vs. Open Set] A closed set study is one in which all questioned samples share the same source as one set of  knowns in the test set. Conversely, an open set study is one in which questioned samples may originate from sources which are not part of the known samples provided in the test set.
 \item [White box vs. Black Box] A white-box study is one which makes an attempt to understand \emph{why} an examiner came to the decision, in contrast to a black box study, which only evaluates the correctness of the decision (and not the reasoning behind it). 
 \item [Blind testing] A blind (or blinded) study is one in which the participant (in this case the examiner) does not know that they are being tested; that is, a study which appears to be part of a case, rather than research. \citet{pcast2016} recommended that the use of blind testing be increased, as error rates derived from blind studies better generalize to casework.
 \item [Number of knowns from different sources] Some studies \citep{keisler} provide only one known exemplar (or a set of multiple exemplars from the same source). Other studies, such as \citep{hamby,Hamby:2018hu} and the Houston FSC and Phoenix studies from \citet{case-validation}, include multiple different sources as knowns. %Typically, these studies can be completed with the assumption that once an unknown matches one known, it will not match any other knowns. \svp{Add in the issues with this later}
@@ -380,7 +380,7 @@ P (\text{different source} \mid \text{inconclusive or elimination}) &=& \frac{73
 
 
 
-\subsection{Keisler \cite{keisler}}
+\subsection{Keisler Study \cite{keisler}}
 
 Each test kit consisted of sets of 20 pairs of cartridge cases,  12 of the pairs were from the same source and 8 pairs were from different sources.
 
@@ -408,7 +408,12 @@ P (\text{different source} \mid \text{elimination made}) &=&  \frac{205}{205} &=
 \end{eqnarray*}
 
 
-\subsection{Brundage-Hamby  \citet{Hamby:2018hu}}
+\subsection{Brundage-Hamby Study \cite{Hamby:2018hu}}
+
+The Brundage-Hamby study consists of sets of 20 known samples and 15 questioned samples. The 20 known samples are 2 bullets from each of ten consecutively manufactured barrels. The Brundage-Hamby study is a closed set study, i.e. the 15 questioned bullets are known to be fired from one of these ten barrels, and examiners are asked to identify which of the knowns a questioned bullet matches. 
+The study was originally reported on by Brundage in 1998 \cite{brundage}
+
+Results reported in the 2018 paper: 
 
 \begin{tabular}{lrrrr}\hline
 Test Series	& \#Examiners &	\#Examiners 	& \#Inconclusively 	& \#Incorrectly  \\
@@ -417,6 +422,10 @@ Brundage &	67 &	1 &	1 &	0\\
 Hamby &	630 &	4 &	7 &	0\\
 Totals: &	697 &	5 &	8 &	0\\ \hline
 \end{tabular}
+
+
+Technically, in a closed set such as the Brundage-Hamby study and studies with the same set-up (such as Fadul), we have 
+
 
 
 \section{Discussion and Conclusions}
