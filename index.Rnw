@@ -342,7 +342,7 @@ P (\text{different source} \mid \text{inconclusive or elimination}) &=& \frac{73
 
 
 
-\subsection{Keisler \cite{keisler}}
+\subsection{Keisler Study \cite{keisler}}
 
 Each test kit consisted of sets of 20 pairs of cartridge cases,  12 of the pairs were from the same source and 8 pairs were from different sources.
 
@@ -370,7 +370,9 @@ P (\text{different source} \mid \text{elimination made}) &=&  \frac{205}{205} &=
 \end{eqnarray*}
 
 
-\subsection{Brundage-Hamby  \citet{Hamby:2018hu}}
+\subsection{Brundage-Hamby Study \cite{Hamby:2018hu}}
+
+Results reported in the 2018 paper: 
 
 \begin{tabular}{lrrrr}\hline
 Test Series	& \#Examiners &	\#Examiners 	& \#Inconclusively 	& \#Incorrectly  \\
@@ -380,6 +382,20 @@ Hamby &	630 &	4 &	7 &	0\\
 Totals: &	697 &	5 &	8 &	0\\ \hline
 \end{tabular}
 
+
+
+
+The set of conditional probabilities is calculated as:
+
+\begin{eqnarray*}
+\arraycolsep=1.4pt\def\arraystretch{2.2}
+\begin{array}{rcccr}
+P (\text{same source} \mid \text{identification made}) &=&  \frac{1508}{1508} &=& 1 \\
+P (\text{different source} \mid \text{identification made}) &=&  \frac{0}{1508} &=& 0 \\[10pt]
+P (\text{same source} \mid \text{inconclusive}) &=& \frac{4}{203+4} &=& 0.0193 \\
+P (\text{different source} \mid \text{inconclusive}) &=& \frac{203}{203+4} &=& 0.9807 \\[10pt]
+\end{array}
+\end{eqnarray*}
 
 \section{Discussion and Conclusions}
 
