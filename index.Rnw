@@ -189,7 +189,10 @@ In this paper we want to highlight the treatment of inconclusives in the assessm
 
 % \section{Background}
 
-The identification process -- i.e. the assessment of whether two samples come from the same source (were made by the same tool, the same shoe, the same finger, shot through the same barrel) or from different sources -- is quite complex. As a result, studies which attempt to gain insight into the identification process must also navigate these complexities, ideally without becoming too complicated to reasonably execute. 
+The identification process -- i.e. the assessment of whether two samples come from the same source (were made by the same tool, the same shoe, the same finger, shot through the same barrel) or from different sources -- is quite complex. 
+In order to assess how well this process is functioning, studies with known ground truth have to be employed because casework does not allow for an assessment of correctness.  
+
+As a result, studies which attempt to gain insight into the identification process must also navigate these complexities, ideally without becoming too complicated to reasonably execute. \svp{This isn't quite right phrasing-wise, but I don't know where to put it just yet.}
 
 There are several considerations when designing a study of the identification process:
 \begin{description}
@@ -202,9 +205,6 @@ There are several considerations when designing a study of the identification pr
 
 
 
-In order to assess how well this process is functioning, studies with known ground truth have to be employed because casework does not allow for an assessment of correctness. 
-
-There are different kinds of studies: closed set studies, open set studies, blind testing. 
 
 Ground truth and error rates: 
 
