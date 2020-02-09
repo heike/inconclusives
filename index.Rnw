@@ -389,6 +389,9 @@ Most notably, we would expect inconclusive results to not show any dependence on
 
 In actual case work we are not able to assess the probabilities for same source or different source.  However, those probabilities are easily accessible in studies or in blinded proficiency testing,\svp{ as $P(SS)$ and $P(DS)$ in these studies are determined by the experimental design.}
 
+\hh{reporting of eliminations differs from lab to lab. Some labs do only allow firearm examiners to make eliminations based on differences in class characteristics. XXX quantify: baldwin, }
+
+
 %The probability to make an identification  could be either reported directly or calculated as a composite of true positive and false positive rates:
 
 % \[
@@ -401,7 +404,7 @@ In actual case work we are not able to assess the probabilities for same source 
 
 \section{Studies}
 
-Baldwin , Keisler , Lyons \cite{lyons}, Hare, Fadul \cite{fadul}, Brundage-Hamby, Duez \cite{Duez:2017kha}, Chumbley \cite{Macziewski:2016jw}
+Baldwin , Keisler , Lyons \cite{lyons}, Hare, Fadul \cite{fadul}, Brundage-Hamby, Duez , Chumbley - can't find any examiner evaluations for Chumbley
 
 confidence interval used in Baldwin: Pearson-Clopper, applied to Keisler sensitivity and specificity:
 
@@ -504,6 +507,51 @@ P (\text{same source} \mid \text{elimination made}) &=& \frac{0}{205} &=& 0 \\
 P (\text{different source} \mid \text{elimination made}) &=&  \frac{205}{205} &=& 1 \\
 \end{array}
 \end{eqnarray*}
+
+\subsection{Duez Study \cite{Duez:2017kha}}
+
+using virtual microscopy, each participant is asked to make eight evaluations of breech face impressions. 
+
+CCTS1: set of three knowns, four questioned breech face impressions. All questioned breech face impressions are from the same source as the knowns. 
+
+CCTS2: set of three knowns, four questioned breech face impressions. Two questioned breech face impressions are from the same source, two are from different sources.
+
+Both sets were evaluated 46 times each (10 trainees, 36 fully certified examiners). CCTS1 resulted in 46 x 4 correct identifications.
+
+The design of the experiment does not allow us to quantify all of the quantities to evaluate examiner performance unless we aggregate performance over both sets.
+
+Combined, the probability for a  same source pair is 2/8 and the probability for  a different source  pair is 0.75.
+
+\begin{tabular}{lrrr}\hline
+Totals & Identifications & Inconclusives & Eliminations\\ \hline
+same source & 335 & 1 & 0 \\
+different source & 2 & 25 & 85 \\ \hline
+\end{tabular}
+
+\begin{tabular}{lrrr}\hline
+Cond Prob & Identifications & Inconclusives & Eliminations\\ \hline
+same source & 0.9941 & 0.0385 & 0.0000 \\
+different source & 0.0059 & 0.9615 & 1.0000 \\ \hline
+\end{tabular}
+
+The probability of an inconclusive result is 26 out of 368, or 7.07\%.
+
+\begin{tabular}{lrrr}\hline
+Totals (Examiners) & Identifications & Inconclusives & Eliminations\\ \hline
+same source & 276 & 0 & 0 \\
+different source & 0 & 12 & 80 \\ \hline
+\end{tabular}
+
+\begin{tabular}{lrrr}\hline
+Totals (Trainees) & Identifications & Inconclusives & Eliminations\\ \hline
+same source & 59 & 13 & 0 \\
+different source & 1 & 1 & 5 \\ \hline
+\end{tabular}
+
+
+``13\% of examiners are not permitted to eliminate on individual characteristics (therefore, their conclusions of inconclusive are perfectly acceptable)."
+
+\hh{This is a very questionable conclusion.}
 
 
 \subsection{Brundage-Hamby Study \cite{Hamby:2018hu}}
