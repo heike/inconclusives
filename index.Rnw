@@ -668,7 +668,7 @@ Option 3 (Process error) & 0.0008 & ?\\ \hline
 Technically, participants are asked to compare each questioned bullet  to each set of two knowns for a  
 total of  \# questioned x \# different known source evaluations, resulting in  a total of 150 evaluations for each participant in the Brundage-Hamby study (15 same source  and 135 different source evaluations). 
 
-However, these evaluations are not independent of each other: once a bullet is successfully identified to a set of knowns, none of the other sets of knowns can possibly be a match. Additionally, Brundage and Hamby studies do only ask participants to report identifications. We can therefore not consider any implicit eliminations of different source evaluations.  
+However, these evaluations are not independent of each other: once a bullet is successfully identified to a set of knowns, none of the other sets of knowns can possibly be a match. Additionally, Brundage and Hamby studies only ask participants to report identifications. We can therefore not consider any implicit eliminations of different source evaluations.  
 
 %For any inconclusive results, we know that firearms examiners could not identify the correct barrel, but at the same time we do not know how many different source evaluations would have resulted in inconclusives. 
 
