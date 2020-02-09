@@ -12,17 +12,18 @@
 \usepackage{array}
 \usepackage{multirow}\usepackage{multicol}
 \usepackage{adjustbox}
-\usepackage[table]{xcolor}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{colortbl}
 \usepackage{wrapfig}
 \usepackage{subfig}
 \usepackage{float}
 % \usepackage{colortbl}
 \usepackage{pdflscape}
-\usepackage{tabu}
+\usepackage{tabu}\usepackage{tabularx}
 \usepackage{threeparttable}
 \usepackage{csquotes}% display/block quotes
 \usepackage{fullpage}
-
+\usepackage{pbox}
 \usepackage[numbers]{natbib}
 
 \newenvironment{definition}[1]% environment name 
@@ -120,6 +121,8 @@ forensic science, black box studies, proficeincy testing
 
 \newcommand{\hh}[1]{{\textcolor{orange}{#1}}}
 \newcommand{\svp}[1]{{\textcolor{teal}{#1}}}
+% boxes for illustrations
+
 \noindent
 
 
@@ -214,6 +217,28 @@ In particular, ground truth in case work is not known. \svp{move this up a bit?}
 %% Transition to error rates
 Once a study is run and test samples have been assessed by forensic examiners, error rates can be calculated. Differences between reported results and ground truth are considered to be errors in the identification process. %A detailed discussion on the the exact procedure on how to deal with inconclusive results in calculating error rates is provided in section XXX.
 
+
+
+\section{Error Rate Calculation}
+
+The need for scientific validation and experimentally-determined error rates has been identified in several reports evaluating the discipline of forensic science in the United States as critical for addressing problems within the field and improving the overall performance of the justice system.
+National Research Council 2009:
+
+\begin{displayquote} much forensic evidence—including, for example, bitemarks and firearm and toolmark identifications—is introduced in criminal trials without any meaningful scientific validation, determination of error rates, or reliability testing to explain the limits of the discipline.\end{displayquote}
+
+PCAST (2015) identified two important gaps:
+
+\begin{displayquote} (1) the need for clarity on the scientific meaning of "reliable principles and methods" and "scientific validity" in the context of certain forensic disciplines, and (2) the need to evaluate specific forensic methods to determine whether they have been scientifically established to be valid and reliable.\end{displayquote}
+
+Indeed, when jurors are left to form their own conclusions about the error rates of forensic pattern disciplines, they often come up with estimates which are far lower than empirical studies, suggesting that jurors consider forensic evidence (in the absence of error rates determined from scientific studies) as of more determinative value than is warranted by the evidence. The PCAST Report (2016) summarizes the effect:
+
+\begin{displayquote} In an online experiment, researchers asked mock jurors to estimate the frequency that a qualified, experienced forensic scientist would mistakenly conclude that two samples of specified types came from the same person when they actually came from two different people. The mock jurors believed such errors are likely to occur about 1 in 5.5 million for fingerprint analysis comparison; 1 in 1 million for bitemark comparison; 1 in 1 million for hair comparison; and 1 in 100 thousand for handwriting comparison.\end{displayquote}
+
+Unfortunately, the way in which error rates are computed and reported in the (relatively sparse) literature involving estimating these error rates experimentally is highly variable. In this paper, we will evaluate several studies to assess the technical accuracy and practical utility of the reported error rates. Before approaching the actual studies, it may be useful to explain the logic behind the probability calculations and define some basic notation to facilitate comparison of studies with different structure. 
+
+\subsection{Fundamentals of Probability}
+
+
 When discussing error rates, it is helpful to think in terms of conditional probability, that is, the probability of an event occurring, taking into account additional information. This additional information may be assumed for the sake of logical reasoning about the likelihood of different conditional events, or it may be known and used to update assessments of probabilities computed before the event was known. \svp{This is confusing and needs a lot of work}
 
 Mathematically, we would write the probability of an event $E$ conditional on another event $A$ as $P(E | A)$. 
@@ -235,23 +260,24 @@ The study data would consist of evaluations reported in the form of a table whic
 
 \begin{table}
 \centering
-\caption{An example results table for a generic experiment where comparisons can be broken down as either from the same source or from different sources, and examiners classify each comparison as an identification, an inconclusive, or an exclusion, as in the AFTE rules of identification. Define $S = a + b + c$ as the total number of same source comparisons, and $D = d + e + f$ as the total number of different-source comparisons. 
+\caption{An example results table for a generic experiment where comparisons can be broken down as either from the same source or from different sources, and examiners classify each comparison as an identification, an inconclusive, or an exclusion, as in the AFTE rules of identification. Define $S = a + b + c$ as the total number of same source comparisons, $D = d + e + f$ as the total number of different-source comparisons, and $N = S + D$ as the total number of comparisons. Then the probability of the occurrence of any cell in the interior of the table (a, b, c, d, e, or f) can be founc by dividing the respective letter by $N$, the total number of comparisons.
 %The total comparisons ($S = a + b + c$ for same source, $D = e + f + g$ for different source) are set by the experimenters (and thus, are fixed at the beginning of the experiment). \svp{I don't like how the table looks with this definition played out, so I'm not defining it for now...}
 }\label{tab:generic-results}
 {\tabulinesep=1.2mm
 \begin{tabu}{|c|ccc||c|}\hline
 & \multicolumn{3}{c||}{Examiner Conclusion} &\\\cline{2-4}
-Reality & Identification & Inconclusive & Exclusion & Total comparisons \\\hline
-Same source & $a$ & $b$ & $c$ & $ a + b + c$ \\
-Different source & $d$ & $e$ & $f$ & $d + e + f$ \\\hline
-Total evaluations & $ a + d$ & $b + e$ & $c + f$ &\\\hline
+Reality & Identification & Inconclusive & Exclusion & Comparison Totals \\\hline
+Same source & $a$ & $b$ & $c$ & $S = a + b + c$ \\
+Different source & $d$ & $e$ & $f$ & $D = d + e + f$ \\\hline\hline
+Conclusion totals & $ a + d$ & $b + e$ & $c + f$ & $N = S + D$\\\hline
 \end{tabu}}
 \end{table}
 
-\subsection{Some summary name... so that we can label this bit and reference it}\label{sec:probabilities}
+The \emph{joint probability} of any reality condition and any examiner conclusion can be found by taking the corresponding cell in \autoref{tab:generic-results} and dividing by $N$, the total number of comparisons evaluated in the study.
+
+\subsection{Conditional Error Rates}\label{sec:probabilities}
 Using \autoref{tab:generic-results}, we can then calculate the following conditional probabilities which relate to the results of an evaluation of two items:
 
-\svp{Might need to say something, somewhere, about how typical machine learning and decision theory doesn't deal in inconclusives... but I don't want to get into it in the description section below.}
 \newcommand{\vbar}{$ | $~}
 \begin{description}
 \item [P(same source \vbar examiner makes an identification)] The probability that, assuming the examiner makes an identification, the two items came from the same source. We will refer to this using the shorthand $P(SS|Identification)$. This would be one of two possible correct decisions made during an evaluation and is known as a \emph{true positive}; the rate or probability of this event is known as the \emph{true positive rate} or the \emph{sensitivity}.
@@ -262,48 +288,79 @@ Using \autoref{tab:generic-results}, we can then calculate the following conditi
 \item [P(different source \vbar examiner makes an exclusion)] The probability that the two items come from different sources, given that the examiner makes an exclusion. We will refer to this using the shorthand  $P(DS|Exclusion)$. This is the second of two correct decisions which could be made during an evaluation and is known as a \emph{true negative} and the rate at which it occurs is known as the \emph{true negative rate} or the \emph{specificity}. 
 \end{description}
 
-\svp{Add in a table with the rates and how they are calculated using quantities in \autoref{tab:generic-results}}
-
 Generic formulas for these probabilities can each be calculated from the quantities in \autoref{tab:generic-results}. A similar table is shown in \autoref{tab:generic-probabilities}, but instead of raw quantities describing evaluations, we have instead provided the conditional probabilities described at the beginning of this subsection (\autoref{sec:probabilities}). 
 
-\begin{table}
-\caption{Probabilities of interest, calculated using the quantities introduced in \autoref{tab:generic-results}. In each cell, probabilities shown are of $P(X | Y)$ where $X$ is the known type of comparison (e.g. reality), either same-source or different-source, and $Y$ is the examiner's decision (one of Identification, Inconclusive, or Exclusion. }\label{tab:generic-probabilities}
+\begin{table}\centering
+\caption{Probabilities of interest, calculated using the quantities introduced in \autoref{tab:generic-results}. In each cell in the main body of the table, probabilities shown are of $P(X | Y)$ where $X$ is the known type of comparison (e.g. reality), either same-source or different-source, and $Y$ is the examiner's decision (one of Identification, Inconclusive, or Exclusion. In the last row in the table, the marginal probabilities $P(Y)$ are shown, where $N$ is the total number of comparisons evaluated in the study. The joint probabilities (e.g. $P(X \text{ and } Y)$) described in \autoref{tab:generic-results} can be recovered from this table by multiplying any interior cell by the corresponding cell in the last row of the table. That is, $P(X \text{ and } Y) = P(X|Y) P(Y)$, which follows from \autoref{eqn:cond-prob}. }\label{tab:generic-probabilities}
 {\tabulinesep=1.2mm
-\begin{tabu}{|c|ccc||c|}\hline
-$P(X | Y)$ & \multicolumn{3}{c||}{$Y = $Examiner Conclusion} &\\\hline
-$X = $Reality & Identification & Inconclusive & Exclusion & Total comparisons \\\hline
-\multirow{2}{*}{Same source} & $P(SS|Identification)$ & $P(SS|Inconclusive)$ & $P(SS | Exclusion)$ & $P(SS)$ \\
-& $=\displaystyle\frac{a}{a + d}$ & $=\displaystyle\frac{b}{b + e}$ & $=\displaystyle\frac{c}{c + f}$ & $=\displaystyle\frac{S}{S + D}$\\\hline
-\multirow{2}{*}{Different source} & $P(DS|Identification)$ & $P(DS|Inconclusive)$ & $P(DS | Exclusion)$ & $P(DS)$\\ 
- & $=\displaystyle\frac{d}{a + d}$ & $=\displaystyle\frac{e}{b + e}$ & $=\displaystyle\frac{f}{c + f}$ & $=\displaystyle\frac{D}{S + D}$ \\\hline
+\begin{tabu}{|c|ccc|}\hline
+$P(X | Y)$ & \multicolumn{3}{c|}{$Y = $Examiner Conclusion} \\\hline
+$X = $Reality & Identification & Inconclusive & Exclusion \\\hline
+\multirow{2}{*}{Same source} & $P(SS|Identification)$ & $P(SS|Inconclusive)$ & $P(SS | Exclusion)$ \\
+& $=\displaystyle\frac{a}{a + d}$ & $=\displaystyle\frac{b}{b + e}$ & $=\displaystyle\frac{c}{c + f}$ \\\hline
+\multirow{2}{*}{Different source} & $P(DS|Identification)$ & $P(DS|Inconclusive)$ & $P(DS | Exclusion)$\\ 
+ & $=\displaystyle\frac{d}{a + d}$ & $=\displaystyle\frac{e}{b + e}$ & $=\displaystyle\frac{f}{c + f}$ \\\hline\hline
+\multirow{2}{*}{$P(Y)$} & $P(Identification)$ & $P(Inconclusive)$& $P(Exclusion)$\\
+& $=\displaystyle\frac{a + d}{N}$ & $=\displaystyle\frac{b+e}{N}$ & $=\displaystyle\frac{c+f}{N}$ \\\hline
 \end{tabu}
 }
 \end{table}
 
+Given this series of different conditional probabilities, we now must determine which quantities are useful when evaluating the performance of examiner
+
+The set of conditional probabilities in \autoref{tab:generic-probabilities} are all equally important in the assessment of the process of evidence examination. However, standard evaluations of classification algorithms (or human decision making), such as false positive and false negative rates, or sensitivity and specificity \svp{XXX cite...?} generally involve classification states which precisely mirror reality; these problems do not usually involve inconclusive classifications. More precisely, in most classification problems, the number of real classes is the same as the number of possible decisions; in forensics, there is an asymmetry caused by the addition of the inconclusive decision. This difference between forensic evaluation and classification problems which are more commonly evaluated provides an unfortunate opportunity for confusion when using the same methods for assessing forensic decision making. 
+
+\autoref{tab:error-rate-illustrated} shows several different possible error rate calculations, using the general structure of \autoref{tab:generic-results}.
+
+
+
+
+\newcommand{\redsq}[2][1.15em]{\protect\fcolorbox{black}{red!50}{\makebox[#1][c]{#2\vphantom{dp}}}}
+\newcommand{\graysq}[2][1.15em]{\protect\fcolorbox{black}{black!30}{\makebox[#1][c]{#2\vphantom{dp}}}}
+\newcommand{\whitesq}[2][1.15em]{\protect\fcolorbox{black}{white!100}{\makebox[#1][c]{#2\vphantom{dp}}}}
+% \newcommand{\blacksq}{\fcolorbox{black}{black!100}{\phantom{x}}}
+\newcommand{\xsq}{\protect\fcolorbox{black}{white!100}{\makebox[1.25em][c]{x\vphantom{dp}}}}
+
+\begin{table}\protect\caption{Different ways to calculate the overall error rate. An arrangement of two rows of three boxes then resembles the interior cells of \autoref{tab:generic-results}, where \pbox{10em}{\mbox{\whitesq{a}\whitesq{b}\whitesq{c}}\\\mbox{\whitesq{d}\whitesq{e}\whitesq{f}}} are the six conditional quantities under discussion. Let \pbox{1.65em}{\whitesq{}} indicate a correct decision, indicating that the box is to be included in the denominator of the calculation, \pbox{1.65em}{\graysq{}} indicate that the box is to be conditionally excluded from the calculation via \autoref{eqn:cond-prob}, and \pbox{1.65em}{\redsq{}} indicate an incorrect decision, indicating that the box is to be included in the numerator and denominator of the calculation. 
+}
+\begin{tabularx}{\linewidth}{llcl}
+\# & Type & Illustration & $P(Error) = $\\
+0 & No Inconcl. & \pbox{5em}{\whitesq{a}\redsq{c}\\\redsq{d}\whitesq{f}} & $P(DS\text{ and }Ident.) + P(SS\text{ and }Excl.) = \displaystyle\frac{c + d}{a + c + d + f}$\\\\
+1 & \pbox[l]{8em}{Inconclusives\\as Correct} & \pbox{5em}{\whitesq{a}\whitesq{b}\redsq{c}\\\redsq{d}\whitesq{e}\whitesq{f}} & $P(DS\text{ and }Ident.) + P(SS\text{ and }Excl.) = \displaystyle\frac{c+d}{N}$\\\\
+2 & \pbox[l]{8em}{Condition on\\Not Inconcl} & \pbox{5em}{\whitesq{a}\graysq{b}\redsq{c}\\\redsq{d}\graysq{e}\whitesq{f}} & $\displaystyle\frac{P(DS\text{ and }Ident.) + P(SS \text{ and } Excl.)}{P(Ident.) + P(Excl.)} = \displaystyle\frac{c + d}{a + d + c + f}$\\\\
+3 & \pbox[l]{8em}{Inconclusives\\as Incorrect} & \pbox{5em}{\whitesq{a}\redsq{b}\redsq{c}\\\redsq{d}\redsq{e}\whitesq{f}} & $P(DS\text{ and }Ident.) + P(SS\text{ and }Excl.) + P(Inconcl.) = \displaystyle\frac{b + c + d + e}{N}$\\
+\end{tabularx}\label{tab:overall-err-rate}
+\end{table}
+
+In \autoref{tab:overall-err-rate}, option 0 corresponds to a definition of the overall error rate of a binary, symmetric decision process (2 actual states, 2 possible decisions), which for simplicity assumes that the two actual states are SS (same source) and DS (different source) and the two decisions are Identification and Exclusion. In this case, the overall error rate is the sum of the false positives and the false negatives, divided by the number of overall comparisons. However, if an inconclusive category is introduced which does not correspond to a real state, then we have to decide how to handle them. By AFTE's Theory of Identification, inconclusive classifications are not errors (option 1 in \autoref{tab:overall-err-rate}); however, this leads to an apparent contradiction, because \svp{XXX need to fix this when I'm not quite so tired}
+Another reasonable solution would be to calculate the conditional probability of an error given that the classification was not inconclusive, as in option 2 of \autoref{tab:overall-err-rate}. Note that if we condition on the decision being either identification or exclusion, the probability calculations for scenarios 0 and 2 in \autoref{tab:overall-err-rate} are identical; the only difference between the two is the setup of the scenario: In \autoref{eqn:overall-error-conditional} we allow for inconclusives as a decision category but restrict them from the calculation of the error rate entirely. \svp{XXX need to explain scenario 3 and conclude it's the best option to cover the errors in the examination process as a whole.}
+
+% What is unfortunately common in error rate studies, however, is a calculation of a different sort: Instead of calculating the conditional probability of an error given that the classification was not inconclusive, the inconclusives are included in the denominator of the calculation and excluded from the numerator. 
+% \begin{equation}\label{eqn:overall-error-wrong}
+% \text{(misleading)} P(Error) = P(Exclusion \text{ and } SS) + P(Identification \text{ and} DS) = \frac{c + d}{a + b + c + d + e + f}
+% \end{equation}
+% In \autoref{eqn:overall-error-wrong}, the conditional probabilities are reversed - instead of considering the probability of reality given the examiner decisions, the examiner's decision is conditioned on the known status of the comparison. This reversal is misleading in the treatment of inconclusives. To demonstrate this inconsistency, consider \autoref{tab:overall-error-misleading}, which has shaded cells corresponding to predictions which are not counted in the error rate. 
 % 
-% \begin{description}
-% \item [true positive rate] (also known as {\bf sensitivity}), is the probability that two samples from the same source are identified in the examination process as a match, $P(\text{identification mde} \mid \text{same source samples})$. 
-% \item [true negative rate], (also known as {\bf specificity}), is the probability that two samples from different sources result in an elimination in the examination process, $P(\text{elimination mde} \mid \text{different sources samples})$. 
-% \end{description}
+% \begin{table}\centering
+% \caption{A common method for calculating the error rate of forensic identifications when examiners can decide a comparison is an identification, inconclusive, or an exclusion. Rates are calculated 
+% }\label{tab:overall-error-misleading}
+% {\tabulinesep=1.2mm
+% \begin{tabu}{|c|ccc||c|}\hline
+% & \multicolumn{3}{c||}{Examiner Conclusion} &\\\cline{2-4}
+% Reality & Identification & Inconclusive & Exclusion & Comparison Totals \\\hline
+% Same source & $a$ & $b$ &\cellcolor{gray} $c$ & $S = a + b + c$ \\
+% Different source & \cellcolor{gray}$d$ & $e$ & $f$ & $D = d + e + f$ \\\hline
+% \end{tabu}}
+% \end{table}
 
 
+\svp{Introduce positive predictive value, e.g. \citet{med-pos-pred-value}}
 
+In the next section, we will examine the results from a number of studies of error rates in a selection of commonly-cited firearms examination error rate studies. 
 
-\section{Error Rate Calculation}
+% What rates are reported in studies of examiner accuracy vary considerably: some studies report only the $P(SS|identification)$ accuracy and $P(DS|identification)$ accuracy, without considering any inconclusives or missed identifications; this may be a practical decision because the design of the study does not allow for the calculation of these rates, but in other cases, the information is just not reported at all. In other studies, inconclusive results are counted as correct identifications \citep{}
 
-National Research Council 2009:
-
-\begin{displayquote} much forensic evidence—including, for example, bitemarks and firearm and toolmark identifications—is introduced in criminal trials without any meaningful scientific validation, determination of error rates, or reliability testing to explain the limits of the discipline.\end{displayquote}
-
-PCAST (2015) identified two important gaps:
-
-\begin{displayquote} (1) the need for clarity on the scientific meaning of "reliable principles and methods" and "scientific validity" in the context of certain forensic disciplines, and (2) the need to evaluate specific forensic methods to determine whether they have been scientifically established to be valid and reliable.\end{displayquote}
-
-PCAST Report (2016):
-
-\begin{displayquote} In an online experiment, researchers asked mock jurors to estimate the frequency that a qualified, experienced forensic scientist would mistakenly conclude that two samples of specified types came from the same person when they actually came from two different people. The mock jurors believed such errors are likely to occur about 1 in 5.5 million for fingerprint analysis comparison; 1 in 1 million for bitemark comparison; 1 in 1 million for hair comparison; and 1 in 100 thousand for handwriting comparison.\end{displayquote}
-
-
+\subsection{Quantities of interest and practical significance}
 
 
 \hh{In the absence of knowing the truth we have to resort to working within a probabilistic framework to assess the likelihood of certain events. Some (XXX? quantify?) evidence is based on questions of pattern matching: does the shoe print from the crime scene match a particular shoe? was the bullet found at a crime scene fired from a particular weapon? does the breech face impression on a cartridge case from the crime scene match the breech face of a particular weapon frame?}
@@ -313,23 +370,24 @@ In these situations the fundamental quantity in question is the probability that
 
 The AFTE theory of firearms and toolmarks identification as shown in \autoref{tab:afte} allows an expert to come to three main conclusions: make an identification, i.e. two pieces of evidence are thought to come from the same source, make an elimination, i.e. two pieces of evidence are tought to come from different sources, or an inconclusive, i.e. the evidence does not allow either an identification or an elimination. 
 
-Given these three outcomes, we are interested for each the probability of same source and different sources, resulting in a total of six ($3 \times 2$) conditional probabilities. In a perfect world, we would expect the following probabilities:
+Given these three outcomes, we are interested for each the probability of same source and different sources, resulting in a total of six ($3 \times 2$) conditional probabilities. In a perfect world, we would expect the probabilities shown in \autoref{tab:ideal-probabilities}:
 
-\begin{eqnarray*}
-\arraycolsep=1.4pt\def\arraystretch{1.1}
-\begin{array}{rcr}
-P (\text{same source} \mid \text{identification made}) &=&  1 \\
-P (\text{different source} \mid \text{identification made}) &=&  0 \\[10pt]
-P (\text{same source} \mid \text{inconclusive}) &=&  P (\text{same source})\\
-P (\text{different source} \mid \text{inconclusive}) &=& P (\text{different source}) \\[10pt]
-P (\text{same source} \mid \text{elimination made}) &=& 0\\
-P (\text{different source} \mid \text{elimination made}) &=&  1 \\
-\end{array}
-\end{eqnarray*}
+
+\begin{table}
+\caption{Expected conditional probabilities in a perfect world.}\label{tab:ideal-probabilities}
+{\tabulinesep=1.2mm
+\begin{tabu}{|c|ccc|}\hline
+$P(X | Y)$ & \multicolumn{3}{c|}{$Y = $Examiner Conclusion} \\\hline
+$X = $Reality & Identification & Inconclusive & Exclusion \\\hline
+Same source & $P(SS|Identification) = 1 $& $P(SS|Inconclusive) = P(SS)$ & $P(SS | Exclusion) = 0$ \\
+Different source & $P(DS|Identification) = 0$ & $P(DS|Inconclusive) = P(DS)$ & $P(DS | Exclusion)= 1$ \\\hline
+\end{tabu}
+}
+\end{table}
 
 Most notably, we would expect inconclusive results to not show any dependence on the type of comparison unless there is some evidence provided by experts that one type of conclusion is more difficult to make than another.
 
-In actual case work we are not able to assess the probabilities for same source or different source.  However, those probabilities are easily accessible in studies or in blinded proficiency testing. 
+In actual case work we are not able to assess the probabilities for same source or different source.  However, those probabilities are easily accessible in studies or in blinded proficiency testing,\svp{ as $P(SS)$ and $P(DS)$ in these studies are determined by the experimental design.}
 
 %The probability to make an identification  could be either reported directly or calculated as a composite of true positive and false positive rates:
 
@@ -337,7 +395,7 @@ In actual case work we are not able to assess the probabilities for same source 
 % P(\text{identification made}) = TPR \times P(\text{same source}) + FPR \times P(\text{different source}) 
 % \]
 
-In the presence of studies, we can use existing data to evaluate the conditional probability of same source versus different sources given an expert's testimony directly.
+\svp{By examining these studies}, we can use existing data to evaluate the conditional probability of same source versus different sources given an expert's testimony directly.
 
 
 
@@ -403,7 +461,7 @@ P (\text{different source} \mid \text{elimination made}) &=&  \frac{1421}{1421+4
 \begin{array}{lrrr}
 P(X \mid Y) & \multicolumn{3}{c}{Y \text{ Expert conclusion}} \\
 & \text{Identification} & \text{Inconclusive} & \text{Elimination} \\ \hline
-X = \text{same source} &  \frac{1075}{1075+ 22} = 0.9799 & \frac{11}{737+11} = 0.0147 & \frac{4}{1421+4} =  0.0028 & \\
+X = \text{same source} &  \frac{1075}{1075+ 22} = 0.9799 & \frac{11}{737+11} = 0.0147 & \frac{4}{1421+4} =  0.0028 \\
 X = \text{different source} & \\
 \end{array}
 \]
