@@ -664,7 +664,18 @@ Option 3 (Process error) & 0.0008 & ?\\ \hline
 }
 \end{table}
 
-
+\begin{table}[hbt]
+\centering
+\caption{Conditional probabilities from Brundage-Hamby Study.}\label{tab:hamby}
+{\tabulinesep=1.2mm
+\begin{tabu}{|c|ccc|}\hline
+$P(X | Y)$ & \multicolumn{3}{c|}{$Y = $Examiner Conclusion} \\\hline
+$X = $Reality & Identification & Inconclusive & Elimination \\\hline
+Same source & ? & ? & ? \\
+Different source & ? & ? & ? \\\hline
+\end{tabu}
+}
+\end{table}
 Technically, participants are asked to compare each questioned bullet  to each set of two knowns for a  
 total of  \# questioned x \# different known source evaluations, resulting in  a total of 150 evaluations for each participant in the Brundage-Hamby study (15 same source  and 135 different source evaluations). 
 
