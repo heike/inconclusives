@@ -491,6 +491,11 @@ different source & 1 & 1 & 5 \\ \hline
 \end{tabular}
 
 
+``13\% of examiners are not permitted to eliminate on individual characteristics (therefore, their conclusions of inconclusive are perfectly acceptable)."
+
+\hh{This is a very questionable conclusion.}
+
+
 \subsection{Brundage-Hamby Study \cite{Hamby:2018hu}}
 
 The Brundage-Hamby study consists of sets of 20 known samples and 15 questioned samples. The 20 known samples are 2 bullets from each of ten consecutively manufactured barrels. The Brundage-Hamby study is a closed set study, i.e. the 15 questioned bullets are known to be fired from one of these ten barrels, and examiners are asked to identify which of the knowns a questioned bullet matches. 
