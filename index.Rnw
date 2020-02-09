@@ -347,10 +347,11 @@ Under AFTE's Theory of Identification, however, inconclusive results are accepta
 %In order to successfully accommodate this, we would likely calculate $P(Elimination | SS) = c/S$ as the false negative rate, and $P(Identification|DS) = d/D$ as the false positive rate (Note that the conditioning in these probabilities is flipped; instead of considering each column in the table as a separate group, these probabilities are conditioned on rows). Combining these two rates to get an overall error rate produces the equation for Option 1 in \autoref{tab:overall-err-rate}. 
 What this means in real terms, is that inconclusives are effectively counted as identifications if they are actually from the same source, but counted as eliminations if they are actually from a different source. When the goal is to assess the error rate of the examiner under the prevailing guidelines of the AFTE Theory of Identification, this is a reasonable option for assessing error rates of firearm and toolmark examiners, with the slightly odd side-effect that an examiner who marks every comparison as inconclusive does not provide any useful actionable information, but effectively has a zero error rate. 
 
-When viewed within the framework of the legal system, error rates calculated using option 2  are  not considering any error introduced by the evidence itself. If a firearm does not mark well, a firearms examiner might not be able to make an identification or an elimination through no fault of theirs. However, 
+When viewed within the framework of the legal system, error rates calculated using option 2  are  not considering any error introduced by the evidence itself. If e.g. a firearm does not mark well, a firearms examiner might not be able to make an identification or an elimination through no fault of theirs. However, 
 from the wider perspective of the \emph{system}, it is  important to look at the overall error rate of the entire process. This requires that we consider the errors from the perspective of the real-world state: two pieces of evidence are  either from the same source or originate from different sources; an inability to distinguish between those options is an error in the \emph{process} even it if is not an error made on the part of the examiner. 
 
-Reflecting this, option 3 of \autoref{tab:overall-err-rate} includes the inconclusives as errors. Practically, option 3 reflects the error of the examination process (rather than the examiner as an individual). To illustrate why this is the case, consider that an examiner may, upon inspection of a fired bullet, find that there are insufficient individualizing characteristics to make an identification. This does not reflective negatively on the examiner's skill; it is merely a consequence of the contact made between the bullet and the barrel during the firing process. Nonetheless, even though a pair of evidence originated from the same physical source, it is not possible to evaluate the evidence and make an identification. The inconclusives are representative of the errors involved in the process of evidence recording, rather than the evaluation. 
+Option 3 of \autoref{tab:overall-err-rate} reflects this global view by counting  inconclusives as errors. Practically, option 3 reflects the error of the examination process rather than the examiner as an individual. To illustrate why this is the case, consider that an examiner may, upon inspection of a fired bullet, find that there are insufficient individualizing characteristics to make an identification. This does not reflective negatively on the examiner's skill; it is merely a consequence of the contact made between the bullet and the barrel during the firing process. Nonetheless, even though a pair of evidence originated from the same physical source, it is not possible to evaluate the evidence and make an identification. The inconclusives are representative of the errors involved in the process of evidence recording, rather than the evaluation. 
+
 
 \subsection{Positive Predictive Value}
 In \autoref{sec:conditional-prob}, we briefly discussed two different sets of conditional probabilities. The difference between $P(Identification | SS)$ and $P(SS|Identification)$ is subtle but important: $P(Identification | SS)$ is the probability that an examiner will make an identification if the evidence is from the same source, that is, $P(Identification|SS) = a/S$. In contrast, $P(SS|Identification)$ is the probability that if the examiner makes an identification, the evidence is actually from the same source. More generally, $P(Identification|SS)$ is predicting the examiner's behavior given the experimental stimuli, while $P(SS|Identification)$ is predicting the state of reality given the examiner's decision. 
@@ -428,7 +429,7 @@ A total of 25 firearms was used for the study, such that within each kit no fire
 
 218 participants provided evaluations of the kits, evaluation results are shown in \autoref{tab:baldwin-totals}.
 
-\begin{table}{hbt}
+\begin{table}[hbt]
 \centering
 \caption{Reported number of evaluations  from Baldwin Study.}\label{tab:baldwin-totals}
 {\tabulinesep=1.2mm
@@ -436,8 +437,8 @@ A total of 25 firearms was used for the study, such that within each kit no fire
  & \multicolumn{3}{c|}{$Y = $Examiner Conclusion} \\\hline
  & Identification & Inconclusive  & Elimination &  \\
 $X = $Reality&&or no response&&Totals\\\hline
-Same source & 4 & 11 & 1075 & 1090\\
-Different source & 1480 & 735+2 & 22 & 2180\\\hline
+Same source & 1075  & 11 & 4 & 1090\\
+Different source & 22 & 735+2 & 1480 & 2180\\\hline
 \end{tabu}
 }
 \end{table}
@@ -446,12 +447,24 @@ Different source & 1480 & 735+2 & 22 & 2180\\\hline
 Each of the above evaluations is  based on a comparison of one questioned cartridge case to three known same source  cartridge cases.
 
 
+\begin{table}[hbt]
+\centering
+\caption{Error rate assessment for Baldwin Study.}\label{tab:baldwin-errors}
+{\tabulinesep=1.2mm
+\begin{tabu}{|l|rr|}\hline
+ & Missed Identification & Missed Elimination  \\ \hline
+Option 2 (FTE error) & 0.0037  & 0.0101\\
+Option 3 (Process error) & 0.0138 & 0.3482\\ \hline
+\end{tabu}
+}
+\end{table}
+
 
 The resulting set of conditional probabilities is shown in \autoref{tab:baldwin}
 
 \begin{table}[hbt]
 \centering
-\caption{Conditional probabilities from Baldwin Study.}\label{tab:baldwin}
+\caption{Predictive probabilities from Baldwin Study.}\label{tab:baldwin}
 {\tabulinesep=1.2mm
 \begin{tabu}{|c|ccc|}\hline
 $P(X | Y)$ & \multicolumn{3}{c|}{$Y = $Examiner Conclusion} \\\hline
@@ -506,6 +519,19 @@ Different source & 805 & 203 & 0 & 1008 \\\hline
 }
 \end{table}
 
+\begin{table}[hbt]
+\centering
+\caption{Error rate assessment for Keisler Study.}\label{tab:keisler-errors}
+{\tabulinesep=1.2mm
+\begin{tabu}{|l|rr|}\hline
+ & Missed Identification & Missed Elimination  \\ \hline
+Option 2 (FTE error) & 0.0000  & 0.0000\\
+Option 3 (Process error) & 0.0026 & 0.2014\\ \hline
+\end{tabu}
+}
+\end{table}
+
+
 The resulting set of conditional probabilities is shown in \autoref{tab:keisler}.
 
 \begin{table}[hbt]
@@ -547,13 +573,26 @@ Combined, the probability for a  same source pair is 2/8 and the probability for
 Evaluations (Examiner+Trainee) & \multicolumn{3}{c|}{$Y = $Examiner Conclusion} \\\hline
 $X = $Reality & Identification & Inconclusive & Elimination & Totals \\\hline
 Same source & 276+59 & 0+1 & 0+0 & 276+60 \\
-Different source & 0+2 & 12+13 & 80+5 & 92 + 12 \\\hline
+Different source & 0+2 & 12+13 & 80+5 & 92 + 20 \\\hline
 \end{tabu}
 }
 \end{table}
 
+\begin{table}[hbt]
+\centering
+\caption{Error rate assessment for Duez Study for certified examiners/trainees.}\label{tab:duez-errors}
+{\tabulinesep=1.2mm
+\begin{tabu}{|l|rr|}\hline
+ & Missed Identification & Missed Elimination  \\ \hline
+Option 2 (FTE error) & 0.0000/0.0000  & 0.0000/0.1000\\
+Option 3 (Process error) & 0.0000/0.0167 & 0.1304/0.7500\\ \hline
+\end{tabu}
+}
+\end{table}
 
-The resulting conditional probabilities are shown in \autoref{tab:duez}. 
+\autoref{tab:duez-errors} shows the two sets of error rates for the Duez study. The error rate of certified examiners in making eliminations is much lower than that of the ten trainees. This is reflected in the error rates of the overall process. The process errors are much smaller for certified firearms examiners than for trainees. However, the probability to miss eliminations is again high, lab rules contribute to this error (see discussion below).
+
+The set of conditional probabilities are shown in \autoref{tab:duez}. 
 The differences in certified examiners and trainees are not large, so we are only showing the aggregates. Certified examiners have a perfect identification rate, only evaluations of different source pairs lead to inconclusives. 
 
 \begin{table}[hbt]
