@@ -290,13 +290,14 @@ Given these three outcomes, we are interested for each the probability of same s
 \begin{array}{rcr}
 P (\text{same source} \mid \text{identification made}) &=&  1 \\
 P (\text{different source} \mid \text{identification made}) &=&  0 \\[10pt]
-P (\text{same source} \mid \text{inconclusive}) &=& 0.5 \\
-P (\text{different source} \mid \text{inconclusive}) &=& 0.5 \\[10pt]
+P (\text{same source} \mid \text{inconclusive}) &=&  P (\text{same source})\\
+P (\text{different source} \mid \text{inconclusive}) &=& P (\text{different source}) \\[10pt]
 P (\text{same source} \mid \text{elimination made}) &=& 0\\
 P (\text{different source} \mid \text{elimination made}) &=&  1 \\
 \end{array}
 \end{eqnarray*}
 
+Most notably, we would expect inconclusive results to not show any dependence on the type of comparison unless there is some evidence provided by experts that one type of conclusion is more difficult to make than another.
 
 
 %The probability to make an identification  could be either reported directly or calculated as a composite of true positive and false positive rates:
