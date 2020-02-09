@@ -156,7 +156,7 @@ library(kableExtra)
 @
 
 
-Examiners visually classify similarity of toolmark and firearm evidence according to the AFTE theory of identification \citep{identification} as one of identification, inconclusive or exclusion. Exact guidelines for this classification vary from lab to lab; some labs will exclude only on the basis of non-matching class characteristics, such as direction of the twist in rifling, land length or number of lands, or type of rifling. In other labs, CMS (consecutively matching striae) as defined by \citeauthor{biasotti} \citep{biasotti} is used as a measure to quantify the similarity of two lands. In virtually all labs, individual characteristics used to identify matching bullets are derived from visual assessment; some class characteristics may be directly measured, but these are not sufficient for individualization. 
+Examiners visually classify similarity of toolmark and firearm evidence according to the AFTE theory of identification \citep{identification} as one of identification, inconclusive or elimination. Exact guidelines for this classification vary from lab to lab; some labs will exclude only on the basis of non-matching class characteristics, such as direction of the twist in rifling, land length or number of lands, or type of rifling. In other labs, CMS (consecutively matching striae) as defined by \citeauthor{biasotti} \citep{biasotti} is used as a measure to quantify the similarity of two lands. In virtually all labs, individual characteristics used to identify matching bullets are derived from visual assessment; some class characteristics may be directly measured, but these are not sufficient for individualization. 
 % Identification using 3D Scanning Technology
 
 
@@ -260,13 +260,13 @@ The study data would consist of evaluations reported in the form of a table whic
 
 \begin{table}
 \centering
-\caption{An example results table for a generic experiment where comparisons can be broken down as either from the same source or from different sources, and examiners classify each comparison as an identification, an inconclusive, or an exclusion, as in the AFTE rules of identification. Define $S = a + b + c$ as the total number of same source comparisons, $D = d + e + f$ as the total number of different-source comparisons, and $N = S + D$ as the total number of comparisons. Then the probability of the occurrence of any cell in the interior of the table (a, b, c, d, e, or f) can be founc by dividing the respective letter by $N$, the total number of comparisons.
+\caption{An example results table for a generic experiment where comparisons can be broken down as either from the same source or from different sources, and examiners classify each comparison as an identification, an inconclusive, or an elimination, as in the AFTE rules of identification. Define $S = a + b + c$ as the total number of same source comparisons, $D = d + e + f$ as the total number of different-source comparisons, and $N = S + D$ as the total number of comparisons. Then the probability of the occurrence of any cell in the interior of the table (a, b, c, d, e, or f) can be founc by dividing the respective letter by $N$, the total number of comparisons.
 %The total comparisons ($S = a + b + c$ for same source, $D = e + f + g$ for different source) are set by the experimenters (and thus, are fixed at the beginning of the experiment). \svp{I don't like how the table looks with this definition played out, so I'm not defining it for now...}
 }\label{tab:generic-results}
 {\tabulinesep=1.2mm
 \begin{tabu}{|c|ccc||c|}\hline
 & \multicolumn{3}{c||}{Examiner Conclusion} &\\\cline{2-4}
-Reality & Identification & Inconclusive & Exclusion & Comparison Totals \\\hline
+Reality & Identification & Inconclusive & Elimination & Comparison Totals \\\hline
 Same source & $a$ & $b$ & $c$ & $S = a + b + c$ \\
 Different source & $d$ & $e$ & $f$ & $D = d + e + f$ \\\hline\hline
 Conclusion totals & $ a + d$ & $b + e$ & $c + f$ & $N = S + D$\\\hline
@@ -284,23 +284,23 @@ Using \autoref{tab:generic-results}, we can then calculate the following conditi
 \item [P(different source \vbar examiner makes an identification)] The probability that the two items come from different sources, given that the examiner makes an identification. We will refer to this using the shorthand  $P(DS|Identification)$. This is one of two errors an examiner might make during an evaluation; the error is sometimes called a \emph{false positive}, with the probability or error rate termed the \emph{false positive rate}. \svp{something to make this relatable}\vspace{1em}
 \item [P(same source \vbar examiner reports an inconclusive)] The probability that two items come from the same source given that the examiner reports the comparison as inconclusive. We will refer to this using the shorthand $P(SS|Inconclusive)$. 
 \item [P(different source \vbar examiner makes an identification)] The probability that the two items come from different sources, given that the examiner reports the comparison as inconclusive. We will refer to this using the shorthand  $P(DS|Inconclusive)$. \vspace{1em}
-\item [P(same source \vbar examiner makes an exclusion)] The probability that two items come from the same source given that the examiner makes an exclusion. We will refer to this using the shorthand $P(SS|Exclusion)$. This is the second error that an examiner could make during an evaluation, and is termed a \emph{false negative} or a \emph{miss}. The probability or rate of such errors is termed the \emph{false negative rate} or \emph{miss rate}. 
-\item [P(different source \vbar examiner makes an exclusion)] The probability that the two items come from different sources, given that the examiner makes an exclusion. We will refer to this using the shorthand  $P(DS|Exclusion)$. This is the second of two correct decisions which could be made during an evaluation and is known as a \emph{true negative} and the rate at which it occurs is known as the \emph{true negative rate} or the \emph{specificity}. 
+\item [P(same source \vbar examiner makes an elimination)] The probability that two items come from the same source given that the examiner makes an elimination. We will refer to this using the shorthand $P(SS|Elimination)$. This is the second error that an examiner could make during an evaluation, and is termed a \emph{false negative} or a \emph{miss}. The probability or rate of such errors is termed the \emph{false negative rate} or \emph{miss rate}. 
+\item [P(different source \vbar examiner makes an elimination)] The probability that the two items come from different sources, given that the examiner makes an elimination. We will refer to this using the shorthand  $P(DS|Elimination)$. This is the second of two correct decisions which could be made during an evaluation and is known as a \emph{true negative} and the rate at which it occurs is known as the \emph{true negative rate} or the \emph{specificity}. 
 \end{description}
 
 Generic formulas for these probabilities can each be calculated from the quantities in \autoref{tab:generic-results}. A similar table is shown in \autoref{tab:generic-probabilities}, but instead of raw quantities describing evaluations, we have instead provided the conditional probabilities described at the beginning of this subsection (\autoref{sec:probabilities}). 
 
 \begin{table}\centering
-\caption{Probabilities of interest, calculated using the quantities introduced in \autoref{tab:generic-results}. In each cell in the main body of the table, probabilities shown are of $P(X | Y)$ where $X$ is the known type of comparison (e.g. reality), either same-source or different-source, and $Y$ is the examiner's decision (one of Identification, Inconclusive, or Exclusion. In the last row in the table, the marginal probabilities $P(Y)$ are shown, where $N$ is the total number of comparisons evaluated in the study. The joint probabilities (e.g. $P(X \text{ and } Y)$) described in \autoref{tab:generic-results} can be recovered from this table by multiplying any interior cell by the corresponding cell in the last row of the table. That is, $P(X \text{ and } Y) = P(X|Y) P(Y)$, which follows from \autoref{eqn:cond-prob}. }\label{tab:generic-probabilities}
+\caption{Probabilities of interest, calculated using the quantities introduced in \autoref{tab:generic-results}. In each cell in the main body of the table, probabilities shown are of $P(X | Y)$ where $X$ is the known type of comparison (e.g. reality), either same-source or different-source, and $Y$ is the examiner's decision (one of Identification, Inconclusive, or Elimination. In the last row in the table, the marginal probabilities $P(Y)$ are shown, where $N$ is the total number of comparisons evaluated in the study. The joint probabilities (e.g. $P(X \text{ and } Y)$) described in \autoref{tab:generic-results} can be recovered from this table by multiplying any interior cell by the corresponding cell in the last row of the table. That is, $P(X \text{ and } Y) = P(X|Y) P(Y)$, which follows from \autoref{eqn:cond-prob}. }\label{tab:generic-probabilities}
 {\tabulinesep=1.2mm
 \begin{tabu}{|c|ccc|}\hline
 $P(X | Y)$ & \multicolumn{3}{c|}{$Y = $Examiner Conclusion} \\\hline
-$X = $Reality & Identification & Inconclusive & Exclusion \\\hline
-\multirow{2}{*}{Same source} & $P(SS|Identification)$ & $P(SS|Inconclusive)$ & $P(SS | Exclusion)$ \\
+$X = $Reality & Identification & Inconclusive & Elimination \\\hline
+\multirow{2}{*}{Same source} & $P(SS|Identification)$ & $P(SS|Inconclusive)$ & $P(SS | Elimination)$ \\
 & $=\displaystyle\frac{a}{a + d}$ & $=\displaystyle\frac{b}{b + e}$ & $=\displaystyle\frac{c}{c + f}$ \\\hline
-\multirow{2}{*}{Different source} & $P(DS|Identification)$ & $P(DS|Inconclusive)$ & $P(DS | Exclusion)$\\ 
+\multirow{2}{*}{Different source} & $P(DS|Identification)$ & $P(DS|Inconclusive)$ & $P(DS | Elimination)$\\ 
  & $=\displaystyle\frac{d}{a + d}$ & $=\displaystyle\frac{e}{b + e}$ & $=\displaystyle\frac{f}{c + f}$ \\\hline\hline
-\multirow{2}{*}{$P(Y)$} & $P(Identification)$ & $P(Inconclusive)$& $P(Exclusion)$\\
+\multirow{2}{*}{$P(Y)$} & $P(Identification)$ & $P(Inconclusive)$& $P(Elimination)$\\
 & $=\displaystyle\frac{a + d}{N}$ & $=\displaystyle\frac{b+e}{N}$ & $=\displaystyle\frac{c+f}{N}$ \\\hline
 \end{tabu}
 }
@@ -310,7 +310,7 @@ Given this series of different conditional probabilities, we now must determine 
 
 The set of conditional probabilities in \autoref{tab:generic-probabilities} are all equally important in the assessment of the process of evidence examination. However, standard evaluations of classification algorithms (or human decision making), such as false positive and false negative rates, or sensitivity and specificity \svp{XXX cite...?} generally involve classification states which precisely mirror reality; these problems do not usually involve inconclusive classifications. More precisely, in most classification problems, the number of real classes is the same as the number of possible decisions; in forensics, there is an asymmetry caused by the addition of the inconclusive decision. This difference between forensic evaluation and classification problems which are more commonly evaluated provides an unfortunate opportunity for confusion when using the same methods for assessing forensic decision making. 
 
-\autoref{tab:error-rate-illustrated} shows several different possible error rate calculations, using the general structure of \autoref{tab:generic-results}.
+\autoref{tab:overall-err-rate} shows several different possible error rate calculations, using the general structure of \autoref{tab:generic-results}.
 
 
 
@@ -326,28 +326,34 @@ The set of conditional probabilities in \autoref{tab:generic-probabilities} are 
 \begin{tabularx}{\linewidth}{llcl}
 \# & Type & Illustration & $P(Error) = $\\
 0 & No Inconcl. & \pbox{5em}{\whitesq{a}\redsq{c}\\\redsq{d}\whitesq{f}} & $P(DS\text{ and }Ident.) + P(SS\text{ and }Excl.) = \displaystyle\frac{c + d}{a + c + d + f}$\\\\
-1 & \pbox[l]{8em}{Inconclusives\\as Correct} & \pbox{5em}{\whitesq{a}\whitesq{b}\redsq{c}\\\redsq{d}\whitesq{e}\whitesq{f}} & $P(DS\text{ and }Ident.) + P(SS\text{ and }Excl.) = \displaystyle\frac{c+d}{N}$\\\\
-2 & \pbox[l]{8em}{Condition on\\Not Inconcl} & \pbox{5em}{\whitesq{a}\graysq{b}\redsq{c}\\\redsq{d}\graysq{e}\whitesq{f}} & $\displaystyle\frac{P(DS\text{ and }Ident.) + P(SS \text{ and } Excl.)}{P(Ident.) + P(Excl.)} = \displaystyle\frac{c + d}{a + d + c + f}$\\\\
+1 & \pbox[l]{8em}{Condition on\\Not Inconcl} & \pbox{5em}{\whitesq{a}\graysq{b}\redsq{c}\\\redsq{d}\graysq{e}\whitesq{f}} & $\displaystyle\frac{P(DS\text{ and }Ident.) + P(SS \text{ and } Excl.)}{P(Ident.) + P(Excl.)} = \displaystyle\frac{c + d}{a + d + c + f}$\\\\
+2 & \pbox[l]{8em}{Inconclusives\\as Correct} & \pbox{5em}{\whitesq{a}\whitesq{b}\redsq{c}\\\redsq{d}\whitesq{e}\whitesq{f}} & $P(DS\text{ and }Ident.) + P(SS\text{ and }Excl.) = \displaystyle\frac{c+d}{N}$\\\\
 3 & \pbox[l]{8em}{Inconclusives\\as Incorrect} & \pbox{5em}{\whitesq{a}\redsq{b}\redsq{c}\\\redsq{d}\redsq{e}\whitesq{f}} & $P(DS\text{ and }Ident.) + P(SS\text{ and }Excl.) + P(Inconcl.) = \displaystyle\frac{b + c + d + e}{N}$\\
 \end{tabularx}\label{tab:overall-err-rate}
 \end{table}
 
-In \autoref{tab:overall-err-rate}, option 0 corresponds to a definition of the overall error rate of a binary, symmetric decision process (2 actual states, 2 possible decisions), which for simplicity assumes that the two actual states are SS (same source) and DS (different source) and the two decisions are Identification and Exclusion. In this case, the overall error rate is the sum of the false positives and the false negatives, divided by the number of overall comparisons. However, if an inconclusive category is introduced which does not correspond to a real state, then we have to decide how to handle them. By AFTE's Theory of Identification, inconclusive classifications are not errors (option 1 in \autoref{tab:overall-err-rate}); however, this leads to an apparent contradiction, because \svp{XXX need to fix this when I'm not quite so tired}
-Another reasonable solution would be to calculate the conditional probability of an error given that the classification was not inconclusive, as in option 2 of \autoref{tab:overall-err-rate}. Note that if we condition on the decision being either identification or exclusion, the probability calculations for scenarios 0 and 2 in \autoref{tab:overall-err-rate} are identical; the only difference between the two is the setup of the scenario: In \autoref{eqn:overall-error-conditional} we allow for inconclusives as a decision category but restrict them from the calculation of the error rate entirely. \svp{XXX need to explain scenario 3 and conclude it's the best option to cover the errors in the examination process as a whole.}
+In \autoref{tab:overall-err-rate}, option 0 corresponds to a definition of the overall error rate of a binary, symmetric decision process (2 actual states, 2 possible decisions), which for simplicity assumes that the two actual states are SS (same source) and DS (different source) and the two decisions are Identification and Elimination. In this case, the overall error rate is the sum of the false positives and the false negatives, divided by the number of overall comparisons. However, if an inconclusive category is introduced which does not correspond to a real state, then we have to decide how to handle them. 
+
+One reasonable solution to the  would be to calculate the conditional probability of an error given that the classification was not inconclusive, as in option 1 of \autoref{tab:overall-err-rate}. Note that if we condition on the decision being either identification or elimination, the probability calculations for scenarios 0 and 1 in \autoref{tab:overall-err-rate} are identical; the only difference between the two is the setup of the scenario: In \autoref{eqn:overall-error-conditional} we allow for inconclusives as a decision category but restrict them from the calculation of the error rate entirely. This solution does entirely ignore inconclusives, though, and as they are part of the process and can be included in examiner testimony (usually phrased as ``could not be excluded"), this elimination from consideration is not entirely justifiable. 
+
+Under AFTE's Theory of Identification, inconclusive classifications are not errors. Option 1 in \autoref{tab:overall-err-rate} demonstrates how some studies perform error rate calculations using this principle: inconclusives are included as identifications in false positive rate calculations, and also included as eliminations when calculating the  however, this leads to an apparent contradiction, because they are also not correct identifications; as a result, while inconclusives count in the denominator in both calculations, they are not generally included in the numerator of either the error rate or the success rate. This is not an issue if properly handled, but, typically papers use methods which were intended for binary classification, reporting the false negative rate and the false positive rate; this leads to error rates which are unintentionally misleading and unrealistically low. These error rates can be interpreted as the errors made by the examiner, rather than the errors made in the \emph{process} - if striae are not actually engraved on a bullet because of the firing process, or if RACs are not visible in shoe prints, this is not an error made by the examiner, but it is an error in that evidence which originates from the same source cannot be used to make an identification. \svp{this sentence doesn't fit but also needs to go in here somewhere.}
+
+
+Another reasonable solution is to \svp{XXX need to explain scenario 3 and conclude it's the best option to cover the errors in the examination process as a whole.}
 
 % What is unfortunately common in error rate studies, however, is a calculation of a different sort: Instead of calculating the conditional probability of an error given that the classification was not inconclusive, the inconclusives are included in the denominator of the calculation and excluded from the numerator. 
 % \begin{equation}\label{eqn:overall-error-wrong}
-% \text{(misleading)} P(Error) = P(Exclusion \text{ and } SS) + P(Identification \text{ and} DS) = \frac{c + d}{a + b + c + d + e + f}
+% \text{(misleading)} P(Error) = P(Elimination \text{ and } SS) + P(Identification \text{ and} DS) = \frac{c + d}{a + b + c + d + e + f}
 % \end{equation}
 % In \autoref{eqn:overall-error-wrong}, the conditional probabilities are reversed - instead of considering the probability of reality given the examiner decisions, the examiner's decision is conditioned on the known status of the comparison. This reversal is misleading in the treatment of inconclusives. To demonstrate this inconsistency, consider \autoref{tab:overall-error-misleading}, which has shaded cells corresponding to predictions which are not counted in the error rate. 
 % 
 % \begin{table}\centering
-% \caption{A common method for calculating the error rate of forensic identifications when examiners can decide a comparison is an identification, inconclusive, or an exclusion. Rates are calculated 
+% \caption{A common method for calculating the error rate of forensic identifications when examiners can decide a comparison is an identification, inconclusive, or an eliination. Rates are calculated 
 % }\label{tab:overall-error-misleading}
 % {\tabulinesep=1.2mm
 % \begin{tabu}{|c|ccc||c|}\hline
 % & \multicolumn{3}{c||}{Examiner Conclusion} &\\\cline{2-4}
-% Reality & Identification & Inconclusive & Exclusion & Comparison Totals \\\hline
+% Reality & Identification & Inconclusive & Elimination & Comparison Totals \\\hline
 % Same source & $a$ & $b$ &\cellcolor{gray} $c$ & $S = a + b + c$ \\
 % Different source & \cellcolor{gray}$d$ & $e$ & $f$ & $D = d + e + f$ \\\hline
 % \end{tabu}}
@@ -378,9 +384,9 @@ Given these three outcomes, we are interested for each the probability of same s
 {\tabulinesep=1.2mm
 \begin{tabu}{|c|ccc|}\hline
 $P(X | Y)$ & \multicolumn{3}{c|}{$Y = $Examiner Conclusion} \\\hline
-$X = $Reality & Identification & Inconclusive & Exclusion \\\hline
-Same source & $P(SS|Identification) = 1 $& $P(SS|Inconclusive) = P(SS)$ & $P(SS | Exclusion) = 0$ \\
-Different source & $P(DS|Identification) = 0$ & $P(DS|Inconclusive) = P(DS)$ & $P(DS | Exclusion)= 1$ \\\hline
+$X = $Reality & Identification & Inconclusive & Elimination \\\hline
+Same source & $P(SS|Identification) = 1 $& $P(SS|Inconclusive) = P(SS)$ & $P(SS | Elimination) = 0$ \\
+Different source & $P(DS|Identification) = 0$ & $P(DS|Inconclusive) = P(DS)$ & $P(DS | Elimination)= 1$ \\\hline
 \end{tabu}
 }
 \end{table}
@@ -469,7 +475,7 @@ X = \text{different source} & \\
 \end{array}
 \]
 
-It seems that firearms examiners are more willing to bet on identifications than on exclusions. In fact, even if inconclusives and eliminations are combined, the error rate of making a false elimination is 0.0069, only a third of the error of a false identification:
+It seems that firearms examiners are more willing to bet on identifications than on eliminations. In fact, even if inconclusives and eliminations are combined, the error rate of making a false elimination is 0.0069, only a third of the error of a false identification:
 
 \begin{eqnarray*}
 \arraycolsep=1.4pt\def\arraystretch{2.2}
