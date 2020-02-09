@@ -573,7 +573,7 @@ Combined, the probability for a  same source pair is 2/8 and the probability for
 Evaluations (Examiner+Trainee) & \multicolumn{3}{c|}{$Y = $Examiner Conclusion} \\\hline
 $X = $Reality & Identification & Inconclusive & Elimination & Totals \\\hline
 Same source & 276+59 & 0+1 & 0+0 & 276+60 \\
-Different source & 0+2 & 12+13 & 80+5 & 92 + 20 \\\hline
+Different source & 0+2 & 12+13 & 80+5 & 92+20 \\\hline
 \end{tabu}
 }
 \end{table}
@@ -643,7 +643,7 @@ Results reported in the 2018 paper are shown in \autoref{tab:hamby-totals}.
 \caption{\label{tab:hamby-totals} Evaluations reported from the combined Brundage-Hamby studies. Note the focus on identifications. }
 {\tabulinesep=1.2mm
 \begin{tabu}{|c|rrr|r|}\hline
-Evaluations (Examiner+Trainee) & \multicolumn{3}{c|}{$Y = $Examiner Conclusion} \\\hline
+Evaluations & \multicolumn{3}{c|}{$Y = $Examiner Conclusion} \\\hline
 $X = $Reality & Identification & Inconclusive & Elimination & Totals \\\hline
 Same source & 10447 & 8 & 0 & 10455 \\
 Different source & ? & ? & ? & ? \\\hline
@@ -652,6 +652,17 @@ Different source & ? & ? & ? & ? \\\hline
 
 \end{table}
 
+\begin{table}[hbt]
+\centering
+\caption{Error rate assessment for Brundage-Hamby Study.}\label{tab:hamby-errors}
+{\tabulinesep=1.2mm
+\begin{tabu}{|l|rr|}\hline
+ & Missed Identification & Missed Elimination  \\ \hline
+Option 2 (FTE error) & 0.0000  & ? \\
+Option 3 (Process error) & 0.0008 & ?\\ \hline
+\end{tabu}
+}
+\end{table}
 
 
 Technically, participants are asked to compare each questioned bullet  to each set of two knowns for a  
