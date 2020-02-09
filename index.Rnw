@@ -415,18 +415,21 @@ Each kit consists of 15 sets of 3 known cartridge cases and 1 questioned. For al
 
 A total of 25 firearms was used for the study, such that within each kit no firearm was re-used for either knowns or questioned cartridge cases, i.e. no additional information could be gained by comparing any cartridge cases across sets.
 
-\[
-P(\text{same source}) = P(SS) = \frac{1}{3},  \ \ \ P(\text{different source}) = P(DS) = \frac{2}{3}
-\]
+218 participants provided evaluations of the kits, evaluation results are shown in \autoref{tab:baldwin-totals}.
 
-218 participants provided evaluations of the kits: \hfill\newline
-
-\begin{tabular}{lrrrr}\hline
-& \# Evaluations & Elimination & \multirow{2}{1in}{Inconclusives or no response} & Identification\\
-\\ \hline
-Same source & 1090 & 4 & 11 & 1075\\
-Different source & 2180 & 1421 & 735+2 & 22\\ \hline
-\end{tabular}\hfill\newline
+\begin{table}{hbt}
+\centering
+\caption{Reported number of evaluations  from Baldwin Study.}\label{tab:baldwin-totals}
+{\tabulinesep=1.2mm
+\begin{tabu}{|c|rrr|r|}\hline
+ & \multicolumn{3}{c|}{$Y = $Examiner Conclusion} \\\hline
+$X = $Reality & Identification & Inconclusive  & Elimination & Totals \\
+&&or no response&&\hline
+Same source & 4 & 11 & 1075 & 1090\\
+Different source & 1480 & 735+2 & 22 & 2180\\\hline
+\end{tabu}
+}
+\end{table}
 
 
 Each of the above evaluations is  based on a comparison of one questioned cartridge case to three known same source  cartridge cases.
@@ -435,30 +438,28 @@ Each of the above evaluations is  based on a comparison of one questioned cartri
 For 3234 comparisons, FTEs evaluated how many of the known cartridge cases were usable for an evaluation: all three specimens were used in 3018 cases, two were used in 207 cases, and only one was used in nine cases.
 
 
-The set of conditional probabilities is calculated as:
+The resulting set of conditional probabilities is shown in \autoref{tab:baldwin}
 
+\begin{table}[hbt]
+\centering
+\caption{Conditional probabilities from Baldwin Study.}\label{tab:baldwin}
+{\tabulinesep=1.2mm
+\begin{tabu}{|c|ccc|}\hline
+$P(X | Y)$ & \multicolumn{3}{c|}{$Y = $Examiner Conclusion} \\\hline
+$X = $Reality & Identification & Inconclusive & Elimination \\\hline
+Same source & 0.9799 & 0.0147 & 0.0028 \\
+Different source & 0.0201 & 0.9853 & 0.9972 \\\hline
+\end{tabu}
+}
+\end{table}
+
+It seems that firearms examiners are more willing to bet on identifications than on eliminations. Based on the set up of the study, we would expect the probabilities for same and different source given an inconclusive result is reported to be: 
 \begin{eqnarray*}
-\arraycolsep=1.4pt\def\arraystretch{2.2}
-\begin{array}{rcccr}
-P (\text{same source} \mid \text{identification made}) &=&  \frac{1075}{1075+ 22} &=& 0.9799 \\
-P (\text{different source} \mid \text{identification made}) &=&  \frac{22}{1075+ 22} &=& 0.0201 \\[10pt]
-P (\text{same source} \mid \text{inconclusive}) &=& \frac{11}{737+11} &=& 0.0147 \\
-P (\text{different source} \mid \text{inconclusive}) &=& \frac{737}{737+11} &=& 0.9853 \\[10pt]
-P (\text{same source} \mid \text{elimination made}) &=& \frac{4}{1421+4} &=& 0.0028 \\
-P (\text{different source} \mid \text{elimination made}) &=&  \frac{1421}{1421+4} &=& 0.9972 \\
-\end{array}
+P(\text{same source} \mid \text{Inconclusive}) &=& P(\text{same source}) = \frac{1}{3},  \\
+P(\text{different source} \mid \text{Inconclusive}) &=& P(\text{different source}) = \frac{2}{3}
 \end{eqnarray*}
 
-\[
-\begin{array}{lrrr}
-P(X \mid Y) & \multicolumn{3}{c}{Y \text{ Expert conclusion}} \\
-& \text{Identification} & \text{Inconclusive} & \text{Elimination} \\ \hline
-X = \text{same source} &  \frac{1075}{1075+ 22} = 0.9799 & \frac{11}{737+11} = 0.0147 & \frac{4}{1421+4} =  0.0028 \\
-X = \text{different source} & \\
-\end{array}
-\]
-
-It seems that firearms examiners are more willing to bet on identifications than on eliminations. In fact, even if inconclusives and eliminations are combined, the error rate of making a false elimination is 0.0069, only a third of the error of a false identification:
+In fact, even if inconclusives and eliminations are combined, the error rate of making a false elimination is 0.0069, only a third of the error of a false identification:
 
 \begin{eqnarray*}
 \arraycolsep=1.4pt\def\arraystretch{2.2}
