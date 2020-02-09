@@ -346,7 +346,7 @@ In the presence of studies, we can use existing data to evaluate the conditional
 
 \section{Studies}
 
-Baldwin , Keisler , Lyons \cite{lyons}, Hare, Fadul \cite{fadul}, Brundage-Hamby, Duez \cite{Duez:2017kha}, Chumbley \cite{Macziewski:2016jw}
+Baldwin , Keisler , Lyons \cite{lyons}, Hare, Fadul \cite{fadul}, Brundage-Hamby, Duez , Chumbley - can't find any examiner evaluations for Chumbley
 
 confidence interval used in Baldwin: Pearson-Clopper, applied to Keisler sensitivity and specificity:
 
