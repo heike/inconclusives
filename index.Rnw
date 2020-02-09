@@ -275,7 +275,7 @@ Conclusion totals & $ a + d$ & $b + e$ & $c + f$ & $N = S + D$\\\hline
 
 The \emph{joint probability} of any reality condition and any examiner conclusion can be found by taking the corresponding cell in \autoref{tab:generic-results} and dividing by $N$, the total number of comparisons evaluated in the study.
 
-\subsection{Conditional Error Rates}\label{sec:probabilities}
+\subsection{Conditional Error Rates}\label{sec:conditional-prob}
 Using \autoref{tab:generic-results}, we can then calculate the following conditional probabilities which relate to the results of an evaluation of two items:
 
 \newcommand{\vbar}{$ | $~}
@@ -288,7 +288,7 @@ Using \autoref{tab:generic-results}, we can then calculate the following conditi
 \item [P(different source \vbar examiner makes an elimination)] The probability that the two items come from different sources, given that the examiner makes an elimination. We will refer to this using the shorthand  $P(DS|Elimination)$. This is the second of two correct decisions which could be made during an evaluation and is known as a \emph{true negative} and the rate at which it occurs is known as the \emph{true negative rate} or the \emph{specificity}. 
 \end{description}
 
-Generic formulas for these probabilities can each be calculated from the quantities in \autoref{tab:generic-results}. A similar table is shown in \autoref{tab:generic-probabilities}, but instead of raw quantities describing evaluations, we have instead provided the conditional probabilities described at the beginning of this subsection (\autoref{sec:probabilities}). 
+Generic formulas for these probabilities can each be calculated from the quantities in \autoref{tab:generic-results}. A similar table is shown in \autoref{tab:generic-probabilities}, but instead of raw quantities describing evaluations, we have instead provided the conditional probabilities described at the beginning of this subsection (\autoref{sec:conditional-prob}). 
 
 \begin{table}\centering
 \caption{Probabilities of interest, calculated using the quantities introduced in \autoref{tab:generic-results}. In each cell in the main body of the table, probabilities shown are of $P(X | Y)$ where $X$ is the known type of comparison (e.g. reality), either same-source or different-source, and $Y$ is the examiner's decision (one of Identification, Inconclusive, or Elimination. In the last row in the table, the marginal probabilities $P(Y)$ are shown, where $N$ is the total number of comparisons evaluated in the study. The joint probabilities (e.g. $P(X \text{ and } Y)$) described in \autoref{tab:generic-results} can be recovered from this table by multiplying any interior cell by the corresponding cell in the last row of the table. That is, $P(X \text{ and } Y) = P(X|Y) P(Y)$, which follows from \autoref{eqn:cond-prob}. }\label{tab:generic-probabilities}
@@ -341,15 +341,14 @@ Under AFTE's Theory of Identification, however, inconclusive classifications are
 
 Reflecting this, option 3 of \autoref{tab:overall-err-rate} includes the inconclusives as errors. Practically, option 3 reflects the error of the examination process (rather than the examiner as an individual). To illustrate why this is the case, consider that an examiner may, upon inspection of a fired bullet, find that there are insufficient individualizing characteristics to make an identification. This does not reflective negatively on the examiner's skill; it is merely a consequence of the contact made between the bullet and the barrel during the firing process. Nonetheless, even though a pair of evidence originated from the same physical source, it is not possible to evaluate the evidence and make an identification. The inconclusives are representative of the errors involved in the process of evidence recording, rather than the evaluation. 
 
+\subsection{Positive Predictive Value}
+In \autoref{sec:conditional-prob}, we briefly discussed two different sets of conditional probabilities. The difference between $P(Identification | SS)$ and $P(SS|Identification)$ is subtle but important: $P(Identification | SS)$ is the probability that an examiner will make an identification if the evidence is from the same source, that is, $P(Identification|SS) = a/S$. In contrast, $P(SS|Identification)$ is the probability that if the examiner makes an identification, the evidence is actually from the same source. More generally, $P(Identification|SS)$ is predicting the examiner's behavior given the experimental stimuli, while $P(SS|Identification)$ is predicting the state of reality given the examiner's decision. 
 
+In legal settings, it is the state of reality that is under debate; the examiner's opinion is testimony and is information we already have. This probability is also known as \emph{positive predictive value (PPV)} and is used to characterize the performance of a process\citep{med-pos-pred-value}. In medical contexts, this is often the performance of a test for a disease; in forensics, the process includes evidence creation as well as the examination. The medical context is perhaps more approachable: a given test will have a sensitivity (true positive rate) and a specificity (true negative rate) that combined would yield the accuracy rate. However, if you as a patient are sent for a test which yields a positive result, what you care about is not the accuracy rate (because when testing for rare diseases the true negatives are much more common than true positives); it is the probability that, given your positive result, you actually have the disease. In tests for rare diseases which are highly accurate, the positive predictive value can be fairly small, because false positives are more common than the incidence rate of the disease.
 
-\svp{Introduce positive predictive value, e.g. \citet{med-pos-pred-value}}
+In the next section, we will examine the results from a number of studies of the error rate of firearms examinations, identifying the results which are reported, converting these results (where possible) into the format used in \autoref{tab:generic-results}, and calculating the conditional probabilities in the format of \autoref{tab:generic-probabilities}. Prior to that, however, it may be useful to develop one more idea: in a perfect world with examiners who are all-knowing, what should the results of these studies look like?
 
-In the next section, we will examine the results from a number of studies of error rates in a selection of commonly-cited firearms examination error rate studies. 
-
-% What rates are reported in studies of examiner accuracy vary considerably: some studies report only the $P(SS|identification)$ accuracy and $P(DS|identification)$ accuracy, without considering any inconclusives or missed identifications; this may be a practical decision because the design of the study does not allow for the calculation of these rates, but in other cases, the information is just not reported at all. In other studies, inconclusive results are counted as correct identifications \citep{}
-
-\subsection{Quantities of interest and practical significance}
+\subsection{Ideal study probabilities}
 
 
 \hh{In the absence of knowing the truth we have to resort to working within a probabilistic framework to assess the likelihood of certain events. Some (XXX? quantify?) evidence is based on questions of pattern matching: does the shoe print from the crime scene match a particular shoe? was the bullet found at a crime scene fired from a particular weapon? does the breech face impression on a cartridge case from the crime scene match the breech face of a particular weapon frame?}
@@ -582,6 +581,10 @@ P (\text{different source} \mid \text{elimination made}) &=&  ? \\
 \section{Discussion and Conclusions}
 
 number of firearms very small 
+
+positive predictive value (control group) vs. post-test rate (for an individual case)
+
+Implications for court process - examiner states error rate, defense asks for inconclusive rate (established during controlled testing?) and elimination rate
 
 \section{Other Thoughts/Interesting finds}
 \begin{itemize}
