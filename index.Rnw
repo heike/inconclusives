@@ -216,39 +216,69 @@ Once a study is run and test samples have been assessed by forensic examiners, e
 
 When discussing error rates, it is helpful to think in terms of conditional probability, that is, the probability of an event occurring, taking into account additional information. This additional information may be assumed for the sake of logical reasoning about the likelihood of different conditional events, or it may be known and used to update assessments of probabilities computed before the event was known. \svp{This is confusing and needs a lot of work}
 
-Mathematically, we would write the probability of an event $E$ conditional on another event $A$ as $P(E | A)$. Mathematically, conditional probability is a function of the probability of the both events: $P(E \text{ and } A) = P(E|A) P(A)$, so $$P(E|A) = \frac{P(E \text{ and } A)}{P(A)}.$$ That is, the probability of both $E$ and $A$ occurring is equal to the probability of $E$ given that $A$ has occurred, multiplied by the probability that $A$ has occurred. If there are only two possible outcomes, $A$ and $B$, then, using basic logic (or the law of total probability), we can write the probability of an event $E$ as $P(E) = P(E|A) P(A) + P(E|B) P(B)$. That is, if we know the probabilities of $A$ and $B$, and the probability of $E$ conditioned on both $A$ and $B$, we can calculate the probability of $E$ directly. 
+Mathematically, we would write the probability of an event $E$ conditional on another event $A$ as $P(E | A)$. 
+Mathematically, conditional probability is a function of the probability of the both events: 
+\begin{align}P(E \text{ and } A) &= P(E|A) P(A), \text{ so}\nonumber\\
+P(E|A) &= \frac{P(E \text{ and } A)}{P(A)}.\label{eqn:cond-prob}
+\end{align}
 
-\svp{Bayes rule}
+That is, the probability of both $E$ and $A$ occurring is equal to the probability of $E$ given that $A$ has occurred, multiplied by the probability that $A$ has occurred. 
+If there are only two possible outcomes, $A$ and $B$, then, using basic logic (or the law of total probability), we can write the probability of an event $E$ as $$P(E) = P(E|A) P(A) + P(E|B) P(B).$$ That is, if we know the probabilities of $A$ and $B$, and the probability of $E$ conditioned on $A$ and $B$ (separately), we can calculate the probability of $E$ directly. 
 
-During the analysis of the outcomes of examiner evaluations in a well-designed study, one might reasonably be interested in several different quantities. During the study design, experimenters determine the probability of a same-source evaluation (and the complementary probability of a different-source evaluation); this is a function of the study design. In our example above, a same-source evaluation might correspond to event $A$ and a different-source evaluation to event $B$. 
+% There is one last piece of this probability puzzle that is necessary before we begin a discussion of specific error rates, and that is known as Bayes theorem \svp{cite?}. 
+% \svp{Bayes rule}
+
+During the analysis of the outcomes of examiner evaluations in a (well-designed) study, we might reasonably be interested in several different quantities which are all connected to the calculation and reporting of error rates. 
+During the study design, experimenters determine the probability of a same-source evaluation (and the complementary probability of a different-source evaluation); this is a function of the study design. In our example above, a same-source evaluation might correspond to event $A$ and a different-source evaluation to event $B$. \svp{This may need to come later during the calculation stage?}
 
 The study data would consist of evaluations reported in the form of a table which might look like the generic table shown in \autoref{tab:generic-results}.
 
 \begin{table}
-\caption{An example results table for a generic experiment where comparisons can be broken down as either from the same source or from different sources, and examiners classify each comparison as an identification, an inconclusive, or an exclusion, as in the AFTE rules of identification.}\label{tab:generic-results}
-\begin{tabular}{c|ccc|c}
-& \multicolumn{3}{c}{Examiner Conclusion} &\\\cline{2-5}
+\centering
+\caption{An example results table for a generic experiment where comparisons can be broken down as either from the same source or from different sources, and examiners classify each comparison as an identification, an inconclusive, or an exclusion, as in the AFTE rules of identification. Define $S = a + b + c$ as the total number of same source comparisons, and $D = d + e + f$ as the total number of different-source comparisons. 
+%The total comparisons ($S = a + b + c$ for same source, $D = e + f + g$ for different source) are set by the experimenters (and thus, are fixed at the beginning of the experiment). \svp{I don't like how the table looks with this definition played out, so I'm not defining it for now...}
+}\label{tab:generic-results}
+{\tabulinesep=1.2mm
+\begin{tabu}{|c|ccc||c|}\hline
+& \multicolumn{3}{c||}{Examiner Conclusion} &\\\cline{2-4}
 Reality & Identification & Inconclusive & Exclusion & Total comparisons \\\hline
 Same source & $a$ & $b$ & $c$ & $ a + b + c$ \\
 Different source & $d$ & $e$ & $f$ & $d + e + f$ \\\hline
-Total evaluations & $ a + d$ & $b + e$ & $c + f$ \\
-\end{tabular}
+Total evaluations & $ a + d$ & $b + e$ & $c + f$ &\\\hline
+\end{tabu}}
 \end{table}
 
+\subsection{Some summary name... so that we can label this bit and reference it}\label{sec:probabilities}
 Using \autoref{tab:generic-results}, we can then calculate the following conditional probabilities which relate to the results of an evaluation of two items:
 
 \svp{Might need to say something, somewhere, about how typical machine learning and decision theory doesn't deal in inconclusives... but I don't want to get into it in the description section below.}
-\newcommand{\vbar}{$ | $}
+\newcommand{\vbar}{$ | $~}
 \begin{description}
 \item [P(same source \vbar examiner makes an identification)] The probability that, assuming the examiner makes an identification, the two items came from the same source. We will refer to this using the shorthand $P(SS|Identification)$. This would be one of two possible correct decisions made during an evaluation and is known as a \emph{true positive}; the rate or probability of this event is known as the \emph{true positive rate} or the \emph{sensitivity}.
-\item [P(different source \vbar examiner makes an identification)] The probability that the two items come from different sources, given that the examiner makes an identification. We will refer to this using the shorthand  $P(DS|Identification)$. This is one of two errors an examiner might make during an evaluation; the error is sometimes called a \emph{false positive}, with the probability or error rate termed the \emph{false positive rate}. \svp{something to make this relatable}\\\vspace{1em}
+\item [P(different source \vbar examiner makes an identification)] The probability that the two items come from different sources, given that the examiner makes an identification. We will refer to this using the shorthand  $P(DS|Identification)$. This is one of two errors an examiner might make during an evaluation; the error is sometimes called a \emph{false positive}, with the probability or error rate termed the \emph{false positive rate}. \svp{something to make this relatable}\vspace{1em}
 \item [P(same source \vbar examiner reports an inconclusive)] The probability that two items come from the same source given that the examiner reports the comparison as inconclusive. We will refer to this using the shorthand $P(SS|Inconclusive)$. 
-\item [P(different source \vbar examiner makes an identification)] The probability that the two items come from different sources, given that the examiner reports the comparison as inconclusive. We will refer to this using the shorthand  $P(DS|Inconclusive)$. \\\vspace{1em}
+\item [P(different source \vbar examiner makes an identification)] The probability that the two items come from different sources, given that the examiner reports the comparison as inconclusive. We will refer to this using the shorthand  $P(DS|Inconclusive)$. \vspace{1em}
 \item [P(same source \vbar examiner makes an exclusion)] The probability that two items come from the same source given that the examiner makes an exclusion. We will refer to this using the shorthand $P(SS|Exclusion)$. This is the second error that an examiner could make during an evaluation, and is termed a \emph{false negative} or a \emph{miss}. The probability or rate of such errors is termed the \emph{false negative rate} or \emph{miss rate}. 
 \item [P(different source \vbar examiner makes an exclusion)] The probability that the two items come from different sources, given that the examiner makes an exclusion. We will refer to this using the shorthand  $P(DS|Exclusion)$. This is the second of two correct decisions which could be made during an evaluation and is known as a \emph{true negative} and the rate at which it occurs is known as the \emph{true negative rate} or the \emph{specificity}. 
 \end{description}
 
-\svp{Add in a table with the rates and how they are calculated using quantities in \autoref{tab:general-results}}
+\svp{Add in a table with the rates and how they are calculated using quantities in \autoref{tab:generic-results}}
+
+Generic formulas for these probabilities can each be calculated from the quantities in \autoref{tab:generic-results}. A similar table is shown in \autoref{tab:generic-probabilities}, but instead of raw quantities describing evaluations, we have instead provided the conditional probabilities described at the beginning of this subsection (\autoref{sec:probabilities}). 
+
+\begin{table}
+\caption{Probabilities of interest, calculated using the quantities introduced in \autoref{tab:generic-results}. In each cell, probabilities shown are of $P(X | Y)$ where $X$ is the known type of comparison (e.g. reality), either same-source or different-source, and $Y$ is the examiner's decision (one of Identification, Inconclusive, or Exclusion. }\label{tab:generic-probabilities}
+{\tabulinesep=1.2mm
+\begin{tabu}{|c|ccc||c|}\hline
+$P(X | Y)$ & \multicolumn{3}{c||}{$Y = $Examiner Conclusion} &\\\hline
+$X = $Reality & Identification & Inconclusive & Exclusion & Total comparisons \\\hline
+\multirow{2}{*}{Same source} & $P(SS|Identification)$ & $P(SS|Inconclusive)$ & $P(SS | Exclusion)$ & $P(SS)$ \\
+& $=\displaystyle\frac{a}{a + d}$ & $=\displaystyle\frac{b}{b + e}$ & $=\displaystyle\frac{c}{c + f}$ & $=\displaystyle\frac{S}{S + D}$\\\hline
+\multirow{2}{*}{Different source} & $P(DS|Identification)$ & $P(DS|Inconclusive)$ & $P(DS | Exclusion)$ & $P(DS)$\\ 
+ & $=\displaystyle\frac{d}{a + d}$ & $=\displaystyle\frac{e}{b + e}$ & $=\displaystyle\frac{f}{c + f}$ & $=\displaystyle\frac{D}{S + D}$ \\\hline
+\end{tabu}
+}
+\end{table}
 
 % 
 % \begin{description}
