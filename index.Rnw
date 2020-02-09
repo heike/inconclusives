@@ -299,7 +299,7 @@ P (\text{different source} \mid \text{elimination made}) &=&  1 \\
 
 Most notably, we would expect inconclusive results to not show any dependence on the type of comparison unless there is some evidence provided by experts that one type of conclusion is more difficult to make than another.
 
-In actual case work we are not able to assess the probabilities for same source or different source.  However, those probabilities could be determined in blinded proficiency testing. 
+In actual case work we are not able to assess the probabilities for same source or different source.  However, those probabilities are easily accessible in studies or in blinded proficiency testing. 
 
 %The probability to make an identification  could be either reported directly or calculated as a composite of true positive and false positive rates:
 
@@ -343,7 +343,7 @@ P(\text{same source}) = \frac{1}{3},  \ \ \ P(\text{different source}) = \frac{2
 218 participants provided evaluations of the kits: \hfill\newline
 
 \begin{tabular}{lrrrr}\hline
-& \# Pairs & Elimination & \multirow{2}{1.5in}{Inconclusives or no response} & Identification\\
+& \# Pairs & Elimination & \multirow{2}{1in}{Inconclusives or no response} & Identification\\
 \\ \hline
 Known Matches & 1090 & 4 & 11 & 1075\\
 Known Non-Matches & 2180 & 1421 & 735+2 & 22\\ \hline
@@ -369,6 +369,14 @@ P (\text{different source} \mid \text{elimination made}) &=&  \frac{1421}{1421+4
 \end{array}
 \end{eqnarray*}
 
+\[
+\begin{array}{lrrr}
+P(X \mid Y) & \multicolumn{3}{c}{Y \text{ Expert conclusion}} \\
+& \text{Identification} & \text{Inconclusive} & \text{Elimination} \\ \hline
+X = \text{same source} &  \frac{1075}{1075+ 22} = 0.9799 & \frac{11}{737+11} = 0.0147 & \frac{4}{1421+4} =  0.0028 & \\
+X = \text{different source} & \\
+\end{array}
+\]
 
 It seems that firearms examiners are more willing to bet on identifications than on exclusions. In fact, even if inconclusives and eliminations are combined, the error rate of making a false elimination is 0.0069, only a third of the error of a false identification:
 
