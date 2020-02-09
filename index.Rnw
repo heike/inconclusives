@@ -299,6 +299,7 @@ P (\text{different source} \mid \text{elimination made}) &=&  1 \\
 
 Most notably, we would expect inconclusive results to not show any dependence on the type of comparison unless there is some evidence provided by experts that one type of conclusion is more difficult to make than another.
 
+In actual case work we are not able to assess the probabilities for same source or different source.  However, those probabilities could be determined in blinded proficiency testing. 
 
 %The probability to make an identification  could be either reported directly or calculated as a composite of true positive and false positive rates:
 
