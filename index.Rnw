@@ -26,6 +26,8 @@
 \usepackage{pbox}
 \usepackage[numbers]{natbib}
 
+\setlength{\parindent}{0cm} % remove paragraph indent
+
 \newenvironment{definition}[1]% environment name 
 {% begin code 
   \par\vspace{.75\baselineskip}\noindent 
