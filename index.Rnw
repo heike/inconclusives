@@ -578,36 +578,52 @@ The probability of an inconclusive result is 26 out of 368, or 7.07\%.
 \subsection{Brundage-Hamby Study \cite{Hamby:2018hu}}
 
 The Brundage-Hamby study consists of sets of 20 known samples and 15 questioned samples. The 20 known samples are 2 bullets from each of ten consecutively manufactured barrels. The Brundage-Hamby study is a closed set study, i.e. the 15 questioned bullets are known to be fired from one of these ten barrels, and examiners are asked to identify which of the knowns a questioned bullet matches. 
-The study was originally reported on by Brundage in 1998 \cite{brundage} and updates on the study with increasing number of responses have been published several times since then \citet{Hamby:2018hu}. 
-The design has also been copied in \citet{fadul} for cartridge cases.
+The study was originally reported on by Brundage in 1998 \cite{brundage} and updates on the study with increasing number of responses have been published several times since  \cite{hamby:2009, Hamby:2018hu}. 
+The design has also been copied for a study of cartridge cases of the same firearms in \citet{fadul}.
 
-Results reported in the 2018 paper: 
+Results reported in the 2018 paper are shown in \autoref{tab:hamby-totals}.
 
-\begin{tabular}{lrrrr}\hline
-Test Series	& \#Examiners &	\#Examiners 	& \#Inconclusively 	& \#Incorrectly  \\
-& & Reporting Inconclusives & Identified Bullets & Identified Bullets \\ \hline
-Brundage &	67 &	1 &	1 &	0\\
-Hamby &	630 &	4 &	7 &	0\\
-Totals: &	697 &	5 &	8 &	0\\ \hline
-\end{tabular}
+\begin{table}
+% \begin{tabular}{lrrrr}\hline
+% Test Series	& \#Examiners &	\#Examiners 	& \#Inconclusively 	& \#Incorrectly  \\
+% & & Reporting Inconclusives & Identified Bullets & Identified Bullets \\ \hline
+% Brundage &	67 &	1 &	1 &	0\\
+% Hamby &	630 &	4 &	7 &	0\\
+% Totals: &	697 &	5 &	8 &	0\\ \hline
+% \end{tabular}
+\centering
+\caption{\label{tab:hamby-totals} Evaluations reported from the combined Brundage-Hamby studies. Note the focus on identifications. }
+{\tabulinesep=1.2mm
+\begin{tabu}{|c|rrr|r|}\hline
+Evaluations (Examiner+Trainee) & \multicolumn{3}{c|}{$Y = $Examiner Conclusion} \\\hline
+$X = $Reality & Identification & Inconclusive & Elimination & Totals \\\hline
+Same source & 10447 & 8 & 0 & 10455 \\
+Different source & ? & ? & ? & ? \\\hline
+\end{tabu}
+}
+
+\end{table}
+
+
 
 Technically, participants are asked to compare each questioned bullet  to each set of two knowns for a  
 total of  \# questioned x \# different known source evaluations, resulting in  a total of 150 evaluations for each participant in the Brundage-Hamby study (15 same source  and 135 different source evaluations). 
 
-However, this evaluations are not independent of each other: once a bullet is successfully identified to a set of knowns, none of the other sets of knowns can possibly be a match. Additionally, Brundage and Hamby studies do only ask participants to report identifications. We will therefore not consider any implicit eliminations of different source evaluations.  
-For any inconclusive results, we know that firearms examiners could not identify the correct barrel, but at the same time we do not know how many different source evaluations would have resulted in inconclusives. 
+However, these evaluations are not independent of each other: once a bullet is successfully identified to a set of knowns, none of the other sets of knowns can possibly be a match. Additionally, Brundage and Hamby studies do only ask participants to report identifications. We can therefore not consider any implicit eliminations of different source evaluations.  
 
-\begin{eqnarray*}
-\arraycolsep=1.4pt\def\arraystretch{2.2}
-\begin{array}{rcccr}
-P (\text{same source} \mid \text{identification made}) &=&  \frac{10455}{10455} &=& 1 \\
-P (\text{different source} \mid \text{identification made}) &=&  \frac{0}{10455} &=& 0 \\[10pt]
-P (\text{same source} \mid \text{inconclusive}) &=& \frac{8}{8 + \text{\#non-reported inconclusives for different source}} = ? \\
-P (\text{different source} \mid \text{inconclusive}) &=& ? \\[10pt]
-P (\text{same source} \mid \text{elimination made}) &=& ? \\
-P (\text{different source} \mid \text{elimination made}) &=&  ? \\
-\end{array}
-\end{eqnarray*}
+%For any inconclusive results, we know that firearms examiners could not identify the correct barrel, but at the same time we do not know how many different source evaluations would have resulted in inconclusives. 
+
+% \begin{eqnarray*}
+% \arraycolsep=1.4pt\def\arraystretch{2.2}
+% \begin{array}{rcccr}
+% P (\text{same source} \mid \text{identification made}) &=&  \frac{10455}{10455} &=& 1 \\
+% P (\text{different source} \mid \text{identification made}) &=&  \frac{0}{10455} &=& 0 \\[10pt]
+% P (\text{same source} \mid \text{inconclusive}) &=& \frac{8}{8 + \text{\#non-reported inconclusives for different source}} = ? \\
+% P (\text{different source} \mid \text{inconclusive}) &=& ? \\[10pt]
+% P (\text{same source} \mid \text{elimination made}) &=& ? \\
+% P (\text{different source} \mid \text{elimination made}) &=&  ? \\
+% \end{array}
+% \end{eqnarray*}
 
 
 \section{Discussion and Conclusions}
