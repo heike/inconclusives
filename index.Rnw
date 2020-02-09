@@ -100,7 +100,7 @@
 % \address[mysecondaryaddress]{360 Park Avenue South, New York}
 
 \author[isu,csafe]{Heike Hofmann}
-\author[isu,csafe]{Alicia Carriquiry Hofmann}
+\author[isu,csafe]{Alicia Carriquiry}
 \cortext[corauthor]{Corresponding author}\ead{srvander@iastate.edu}
 \author[unl]{Susan Vanderplas\corref{corauthor}}
 \address[isu]{Statistics Department, Iowa State University\\2438 Osborne Dr, Ames, IA 50011}
@@ -423,15 +423,16 @@ P(\text{same source}) = \frac{1}{3},  \ \ \ P(\text{different source}) = \frac{2
 218 participants provided evaluations of the kits: \hfill\newline
 
 \begin{tabular}{lrrrr}\hline
-& \# Pairs & Elimination & \multirow{2}{1in}{Inconclusives or no response} & Identification\\
+& \# Evaluations & Elimination & \multirow{2}{1in}{Inconclusives or no response} & Identification\\
 \\ \hline
 Known Matches & 1090 & 4 & 11 & 1075\\
 Known Non-Matches & 2180 & 1421 & 735+2 & 22\\ \hline
 \end{tabular}\hfill\newline
 
 
-Each of the above evaluations is actually based on a comparison on three known same source  cartridge cases to one questioned.
+Each of the above evaluations is  based on a comparison of one questioned cartridge case to three known same source  cartridge cases.
 
+\hh{useful information, but not sure where to put it}
 For 3234 comparisons, FTEs evaluated how many of the known cartridge cases were usable for an evaluation: all three specimens were used in 3018 cases, two were used in 207 cases, and only one was used in nine cases.
 
 
