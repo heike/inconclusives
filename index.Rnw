@@ -416,7 +416,7 @@ Each kit consists of 15 sets of 3 known cartridge cases and 1 questioned. For al
 A total of 25 firearms was used for the study, such that within each kit no firearm was re-used for either knowns or questioned cartridge cases, i.e. no additional information could be gained by comparing any cartridge cases across sets.
 
 \[
-P(\text{same source}) = \frac{1}{3},  \ \ \ P(\text{different source}) = \frac{2}{3}
+P(\text{same source}) = P(SS) = \frac{1}{3},  \ \ \ P(\text{different source}) = P(DS) = \frac{2}{3}
 \]
 
 218 participants provided evaluations of the kits: \hfill\newline
