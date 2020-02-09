@@ -609,6 +609,38 @@ P (\text{different source} \mid \text{elimination made}) &=&  ? \\
 \end{array}
 \end{eqnarray*}
 
+\subsection{Lyons Study}
+This study involved the use of 10 consecutively manufactured extractors. First, the researchers established that there were sufficient individualizing characteristics to identify cartridges ejected by the same tool, and that there were sufficient individualizing characteristics to exclude cartridges ejected by sequentially manufactured tools. Then, they assembled 20 kits with pairs of 2 cartridges from each of the 10 extractors (the knowns) and 10 or 12 unknown cartridges, such that each known corresponded to an unknown, with some replication in most of the kits. Thus, the setup of this study is similar to the Hamby studies, which had 35 bullets each; 20 knowns from 10 barrels and 15 unknowns. As with the Hamby studies, as a closed set study with multiple knowns, it is not possible to determine the total number of different source comparisons. 
+
+It should be noted that there are some methodological problems with the Lyons study - examiners who did not initially include all 12 unknown evaluations were given the chance to correct results; in addition, not every examiner evaluated the same number of unknowns. Excluding these results might provide different estimates, but we have chosen to use the numbers as reported in the paper for this calculation.
+
+\begin{table}[hbt]
+\centering
+\caption{Evaluation results from Lyons Study. Note that because all unknowns match to a known, we can infer that there are at least the same number of different-source identifications as there are same-source eliminations. }\label{tab:lyons-totals}
+{\tabulinesep=1.2mm
+\begin{tabu}{|c|rrr|r|}\hline
+Evaluations & \multicolumn{3}{c|}{$Y = $Examiner Conclusion} \\\hline
+$X = $Reality & Identification & Inconclusive & Elimination & Totals \\\hline
+Same source & 174\footnotemark &  1 & 3 & 178 \\
+Different source & 3 & ? & ? & ? \\\hline
+\end{tabu}
+}
+\end{table}
+\footnotetext{\citet{lyons} reports 175 correct identifications, but it is clear from the discussion that one of those same source identifications was actually an inconclusive. 12 answer sheets with 12 correct identifications, one with 10 (out of 10) correct identifications, one with 9 correct identifications and 3 errors, and one with 11 correct identifications and one inconclusive. So 12*12 + 10 + 9 + 11 = 174. }
+
+
+\begin{table}[hbt]
+\centering
+\caption{Conditional probabilities from Lyons Study. Note that because we cannot calculate the total number of different-source comparisons, we do not have the ability to estimate any probabilities which condition on examiner conclusions of inconclusive or elimination.}\label{tab:lyons}
+{\tabulinesep=1.2mm
+\begin{tabu}{|c|ccc|}\hline
+$P(X | Y)$ & \multicolumn{3}{c|}{$Y = $Examiner Conclusion} \\\hline
+$X = $Reality & Identification & Inconclusive & Elimination \\\hline
+Same source & 0.9831 & ? & ? \\
+Different source & 0.0169 & ? & ? \\\hline
+\end{tabu}
+}
+\end{table}
 
 \section{Discussion and Conclusions}
 
