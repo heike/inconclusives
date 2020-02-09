@@ -415,50 +415,49 @@ Each kit consists of 15 sets of 3 known cartridge cases and 1 questioned. For al
 
 A total of 25 firearms was used for the study, such that within each kit no firearm was re-used for either knowns or questioned cartridge cases, i.e. no additional information could be gained by comparing any cartridge cases across sets.
 
-\[
-P(\text{same source}) = P(SS) = \frac{1}{3},  \ \ \ P(\text{different source}) = P(DS) = \frac{2}{3}
-\]
+218 participants provided evaluations of the kits, evaluation results are shown in \autoref{tab:baldwin-totals}.
 
-218 participants provided evaluations of the kits: \hfill\newline
-
-\begin{tabular}{lrrrr}\hline
-& \# Evaluations & Elimination & \multirow{2}{1in}{Inconclusives or no response} & Identification\\
-\\ \hline
-Same source & 1090 & 4 & 11 & 1075\\
-Different source & 2180 & 1421 & 735+2 & 22\\ \hline
-\end{tabular}\hfill\newline
+\begin{table}{hbt}
+\centering
+\caption{Reported number of evaluations  from Baldwin Study.}\label{tab:baldwin-totals}
+{\tabulinesep=1.2mm
+\begin{tabu}{|c|rrr|r|}\hline
+ & \multicolumn{3}{c|}{$Y = $Examiner Conclusion} \\\hline
+ & Identification & Inconclusive  & Elimination &  \\
+$X = $Reality&&or no response&&Totals\\\hline
+Same source & 4 & 11 & 1075 & 1090\\
+Different source & 1480 & 735+2 & 22 & 2180\\\hline
+\end{tabu}
+}
+\end{table}
 
 
 Each of the above evaluations is  based on a comparison of one questioned cartridge case to three known same source  cartridge cases.
 
-\hh{useful information, but not sure where to put it}
-For 3234 comparisons, FTEs evaluated how many of the known cartridge cases were usable for an evaluation: all three specimens were used in 3018 cases, two were used in 207 cases, and only one was used in nine cases.
 
 
-The set of conditional probabilities is calculated as:
+The resulting set of conditional probabilities is shown in \autoref{tab:baldwin}
 
+\begin{table}[hbt]
+\centering
+\caption{Conditional probabilities from Baldwin Study.}\label{tab:baldwin}
+{\tabulinesep=1.2mm
+\begin{tabu}{|c|ccc|}\hline
+$P(X | Y)$ & \multicolumn{3}{c|}{$Y = $Examiner Conclusion} \\\hline
+$X = $Reality & Identification & Inconclusive & Elimination \\\hline
+Same source & 0.9799 & 0.0147 & 0.0028 \\
+Different source & 0.0201 & 0.9853 & 0.9972 \\\hline
+\end{tabu}
+}
+\end{table}
+
+It seems that firearms examiners are more willing to bet on identifications than on eliminations. Based on the set up of the study, we would expect the probabilities for same and different source given an inconclusive result is reported to be: 
 \begin{eqnarray*}
-\arraycolsep=1.4pt\def\arraystretch{2.2}
-\begin{array}{rcccr}
-P (\text{same source} \mid \text{identification made}) &=&  \frac{1075}{1075+ 22} &=& 0.9799 \\
-P (\text{different source} \mid \text{identification made}) &=&  \frac{22}{1075+ 22} &=& 0.0201 \\[10pt]
-P (\text{same source} \mid \text{inconclusive}) &=& \frac{11}{737+11} &=& 0.0147 \\
-P (\text{different source} \mid \text{inconclusive}) &=& \frac{737}{737+11} &=& 0.9853 \\[10pt]
-P (\text{same source} \mid \text{elimination made}) &=& \frac{4}{1421+4} &=& 0.0028 \\
-P (\text{different source} \mid \text{elimination made}) &=&  \frac{1421}{1421+4} &=& 0.9972 \\
-\end{array}
+P(\text{same source} \mid \text{Inconclusive}) &=& P(\text{same source}) = \frac{1}{3},  \\
+P(\text{different source} \mid \text{Inconclusive}) &=& P(\text{different source}) = \frac{2}{3}
 \end{eqnarray*}
 
-\[
-\begin{array}{lrrr}
-P(X \mid Y) & \multicolumn{3}{c}{Y \text{ Expert conclusion}} \\
-& \text{Identification} & \text{Inconclusive} & \text{Elimination} \\ \hline
-X = \text{same source} &  \frac{1075}{1075+ 22} = 0.9799 & \frac{11}{737+11} = 0.0147 & \frac{4}{1421+4} =  0.0028 \\
-X = \text{different source} & \\
-\end{array}
-\]
-
-It seems that firearms examiners are more willing to bet on identifications than on eliminations. In fact, even if inconclusives and eliminations are combined, the error rate of making a false elimination is 0.0069, only a third of the error of a false identification:
+In fact, even if inconclusives and eliminations are combined, the error rate of making a false elimination is 0.0069, only a third of the error of a false identification:
 
 \begin{eqnarray*}
 \arraycolsep=1.4pt\def\arraystretch{2.2}
@@ -468,34 +467,50 @@ P (\text{different source} \mid \text{inconclusive or elimination}) &=& \frac{73
 \end{array}
 \end{eqnarray*}
 
+\hh{useful information, but not sure where to put it - probably for evaluating the error in the process}
+Only cartridge cases caught with the cartridge catching device (XXX name?) were used to assemble kits. No other pre-scanning of usability for comparisons was done. 
+
+For 3234 comparisons, FTEs evaluated how many of the known cartridge cases were usable for an evaluation: all three specimens were used in 3018 cases, two were used in 207 cases, and only one was used in nine cases.
+
+
 
 
 \subsection{Keisler Study \cite{keisler}}
 
 Each test kit consisted of sets of 20 pairs of cartridge cases,  12 of the pairs were from the same source and 8 pairs were from different sources.
 
-126 participants reported results:
+126 participants reported results as shown in \autoref{tab:keisler-totals}.
 
-\begin{tabular}{lrrrr}\hline
-& \# Pairs & Elimination & Inconclusives & Identification\\
-\\ \hline
-Known Matches & 1512 & 0 & 4 & 1508\\
-Known Non-Matches & 1008 & 805 & 203 & 0\\ \hline
-\end{tabular}\hfill\newline
 
-The set of conditional probabilities is calculated as:
+\begin{table}[hbt]
+\centering
+\caption{Evaluation results from Keisler Study.}\label{tab:keisler-totals}
+{\tabulinesep=1.2mm
+\begin{tabu}{|c|rrr|r|}\hline
+Evaluations & \multicolumn{3}{c|}{$Y = $Examiner Conclusion} \\\hline
+$X = $Reality & Identification & Inconclusive & Elimination & Totals \\\hline
+Same source & 0 & 4 & 1508 & 1512 \\
+Different source & 805 & 203 & 0 & 1008 \\\hline
+\end{tabu}
+}
+\end{table}
 
-\begin{eqnarray*}
-\arraycolsep=1.4pt\def\arraystretch{2.2}
-\begin{array}{rcccr}
-P (\text{same source} \mid \text{identification made}) &=&  \frac{1508}{1508} &=& 1 \\
-P (\text{different source} \mid \text{identification made}) &=&  \frac{0}{1508} &=& 0 \\[10pt]
-P (\text{same source} \mid \text{inconclusive}) &=& \frac{4}{203+4} &=& 0.0193 \\
-P (\text{different source} \mid \text{inconclusive}) &=& \frac{203}{203+4} &=& 0.9807 \\[10pt]
-P (\text{same source} \mid \text{elimination made}) &=& \frac{0}{205} &=& 0 \\
-P (\text{different source} \mid \text{elimination made}) &=&  \frac{205}{205} &=& 1 \\
-\end{array}
-\end{eqnarray*}
+The resulting set of conditional probabilities is shown in \autoref{tab:keisler}.
+
+\begin{table}[hbt]
+\centering
+\caption{Conditional probabilities from Keisler Study.}\label{tab:keisler}
+{\tabulinesep=1.2mm
+\begin{tabu}{|c|ccc|}\hline
+$P(X | Y)$ & \multicolumn{3}{c|}{$Y = $Examiner Conclusion} \\\hline
+$X = $Reality & Identification & Inconclusive & Elimination \\\hline
+Same source & 1.0000 & 0.0193 & 0.0000 \\
+Different source & 0.0000 & 0.9807 & 1.0000 \\\hline
+\end{tabu}
+}
+\end{table}
+
+Again, inconclusive results are much more indicative of different source results than they should be  based on the setup of the study; we would expect same source results with a probability of 0.60 given an inconclusive result. 
 
 \subsection{Duez Study \cite{Duez:2017kha}}
 
@@ -511,36 +526,51 @@ The design of the experiment does not allow us to quantify all of the quantities
 
 Combined, the probability for a  same source pair is 2/8 and the probability for  a different source  pair is 0.75.
 
-\begin{tabular}{lrrr}\hline
-Totals & Identifications & Inconclusives & Eliminations\\ \hline
-same source & 335 & 1 & 0 \\
-different source & 2 & 25 & 85 \\ \hline
-\end{tabular}
+\autoref{tab:duez-totals} shows results from 56 evaluations (46 examiners, 10 trainees).
 
-\begin{tabular}{lrrr}\hline
-Cond Prob & Identifications & Inconclusives & Eliminations\\ \hline
-same source & 0.9941 & 0.0385 & 0.0000 \\
-different source & 0.0059 & 0.9615 & 1.0000 \\ \hline
-\end{tabular}
+\begin{table}[hbt]
+\centering
+\caption{Evaluation results from Duez Study.}\label{tab:duez-totals}
+{\tabulinesep=1.2mm
+\begin{tabu}{|c|rrr|r|}\hline
+Evaluations (Examiner+Trainee) & \multicolumn{3}{c|}{$Y = $Examiner Conclusion} \\\hline
+$X = $Reality & Identification & Inconclusive & Elimination & Totals \\\hline
+Same source & 276+59 & 0+1 & 0+0 & 276+60 \\
+Different source & 0+2 & 12+13 & 80+5 & 92 + 12 \\\hline
+\end{tabu}
+}
+\end{table}
 
+
+The resulting conditional probabilities are shown in \autoref{tab:duez}. 
+The differences in certified examiners and trainees are not large, so we are only showing the aggregates. Certified examiners have a perfect identification rate, only evaluations of different source pairs lead to inconclusives. 
+
+\begin{table}[hbt]
+\centering
+\caption{Conditional probabilities from Duez Study.}\label{tab:duez}
+{\tabulinesep=1.2mm
+\begin{tabu}{|c|ccc|}\hline
+$P(X | Y)$ & \multicolumn{3}{c|}{$Y = $Examiner Conclusion} \\\hline
+$X = $Reality & Identification & Inconclusive & Elimination \\\hline
+Same source & 0.9941 & 0.0385 & 0.0000 \\
+Different source & 0.0059 & 0.9615 & 1.0000 \\\hline
+\end{tabu}
+}
+\end{table}
+Again, the probability of same source pairs given examiners reported an inconclusive result is much lower than the expect 25\% based on the setup of the study.
+
+The authors report that
+``13\% of examiners are not permitted to eliminate on individual characteristics
+(therefore, their conclusions of inconclusive are perfectly acceptable)."
+
+\hh{It is interesting to note that 7 of the examiners did not report eliminations due to  lab rules. These rules seem to be in contradiction to community accepted AFTE rules and need to be considered during reporting and testimony evaluations. XXX Bias against defense. XXX Needless to say that we do not agree with the authors' assessment that conclusions of inconclusives are perfectly acceptable.}
+
+
+
+\hh{useful but maybe later.}
 The probability of an inconclusive result is 26 out of 368, or 7.07\%.
 
-\begin{tabular}{lrrr}\hline
-Totals (Examiners) & Identifications & Inconclusives & Eliminations\\ \hline
-same source & 276 & 0 & 0 \\
-different source & 0 & 12 & 80 \\ \hline
-\end{tabular}
 
-\begin{tabular}{lrrr}\hline
-Totals (Trainees) & Identifications & Inconclusives & Eliminations\\ \hline
-same source & 59 & 13 & 0 \\
-different source & 1 & 1 & 5 \\ \hline
-\end{tabular}
-
-
-``13\% of examiners are not permitted to eliminate on individual characteristics (therefore, their conclusions of inconclusive are perfectly acceptable)."
-
-\hh{This is a very questionable conclusion.}
 
 
 \subsection{Brundage-Hamby Study \cite{Hamby:2018hu}}
