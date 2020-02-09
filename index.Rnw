@@ -320,14 +320,16 @@ Given these three outcomes, we are interested for each the probability of same s
 \begin{array}{rcr}
 P (\text{same source} \mid \text{identification made}) &=&  1 \\
 P (\text{different source} \mid \text{identification made}) &=&  0 \\[10pt]
-P (\text{same source} \mid \text{inconclusive}) &=& 0.5 \\
-P (\text{different source} \mid \text{inconclusive}) &=& 0.5 \\[10pt]
+P (\text{same source} \mid \text{inconclusive}) &=&  P (\text{same source})\\
+P (\text{different source} \mid \text{inconclusive}) &=& P (\text{different source}) \\[10pt]
 P (\text{same source} \mid \text{elimination made}) &=& 0\\
 P (\text{different source} \mid \text{elimination made}) &=&  1 \\
 \end{array}
 \end{eqnarray*}
 
+Most notably, we would expect inconclusive results to not show any dependence on the type of comparison unless there is some evidence provided by experts that one type of conclusion is more difficult to make than another.
 
+In actual case work we are not able to assess the probabilities for same source or different source.  However, those probabilities are easily accessible in studies or in blinded proficiency testing. 
 
 %The probability to make an identification  could be either reported directly or calculated as a composite of true positive and false positive rates:
 
@@ -371,7 +373,7 @@ P(\text{same source}) = \frac{1}{3},  \ \ \ P(\text{different source}) = \frac{2
 218 participants provided evaluations of the kits: \hfill\newline
 
 \begin{tabular}{lrrrr}\hline
-& \# Pairs & Elimination & \multirow{2}{1.5in}{Inconclusives or no response} & Identification\\
+& \# Pairs & Elimination & \multirow{2}{1in}{Inconclusives or no response} & Identification\\
 \\ \hline
 Known Matches & 1090 & 4 & 11 & 1075\\
 Known Non-Matches & 2180 & 1421 & 735+2 & 22\\ \hline
@@ -397,6 +399,14 @@ P (\text{different source} \mid \text{elimination made}) &=&  \frac{1421}{1421+4
 \end{array}
 \end{eqnarray*}
 
+\[
+\begin{array}{lrrr}
+P(X \mid Y) & \multicolumn{3}{c}{Y \text{ Expert conclusion}} \\
+& \text{Identification} & \text{Inconclusive} & \text{Elimination} \\ \hline
+X = \text{same source} &  \frac{1075}{1075+ 22} = 0.9799 & \frac{11}{737+11} = 0.0147 & \frac{4}{1421+4} =  0.0028 & \\
+X = \text{different source} & \\
+\end{array}
+\]
 
 It seems that firearms examiners are more willing to bet on identifications than on exclusions. In fact, even if inconclusives and eliminations are combined, the error rate of making a false elimination is 0.0069, only a third of the error of a false identification:
 
@@ -417,7 +427,7 @@ Each test kit consisted of sets of 20 pairs of cartridge cases,  12 of the pairs
 126 participants reported results:
 
 \begin{tabular}{lrrrr}\hline
-& \# Pairs & Elimination & \multirow{2}{1.5in}{Inconclusives} & Identification\\
+& \# Pairs & Elimination & Inconclusives & Identification\\
 \\ \hline
 Known Matches & 1512 & 0 & 4 & 1508\\
 Known Non-Matches & 1008 & 805 & 203 & 0\\ \hline
@@ -441,7 +451,8 @@ P (\text{different source} \mid \text{elimination made}) &=&  \frac{205}{205} &=
 \subsection{Brundage-Hamby Study \cite{Hamby:2018hu}}
 
 The Brundage-Hamby study consists of sets of 20 known samples and 15 questioned samples. The 20 known samples are 2 bullets from each of ten consecutively manufactured barrels. The Brundage-Hamby study is a closed set study, i.e. the 15 questioned bullets are known to be fired from one of these ten barrels, and examiners are asked to identify which of the knowns a questioned bullet matches. 
-The study was originally reported on by Brundage in 1998 \cite{brundage}
+The study was originally reported on by Brundage in 1998 \cite{brundage} and updates on the study with increasing number of responses have been published several times since then \citet{Hamby:2018hu}. 
+The design has also been copied in \citet{fadul} for cartridge cases.
 
 Results reported in the 2018 paper: 
 
@@ -453,9 +464,23 @@ Hamby &	630 &	4 &	7 &	0\\
 Totals: &	697 &	5 &	8 &	0\\ \hline
 \end{tabular}
 
+Technically, participants are asked to compare each questioned bullet  to each set of two knowns for a  
+total of  \# questioned x \# different known source evaluations, resulting in  a total of 150 evaluations for each participant in the Brundage-Hamby study (15 same source  and 135 different source evaluations). 
 
-Technically, in a closed set such as the Brundage-Hamby study and studies with the same set-up (such as Fadul), we have 
+However, this evaluations are not independent of each other: once a bullet is successfully identified to a set of knowns, none of the other sets of knowns can possibly be a match. Additionally, Brundage and Hamby studies do only ask participants to report identifications. We will therefore not consider any implicit eliminations of different source evaluations.  
+For any inconclusive results, we know that firearms examiners could not identify the correct barrel, but at the same time we do not know how many different source evaluations would have resulted in inconclusives. 
 
+\begin{eqnarray*}
+\arraycolsep=1.4pt\def\arraystretch{2.2}
+\begin{array}{rcccr}
+P (\text{same source} \mid \text{identification made}) &=&  \frac{10455}{10455} &=& 1 \\
+P (\text{different source} \mid \text{identification made}) &=&  \frac{0}{10455} &=& 0 \\[10pt]
+P (\text{same source} \mid \text{inconclusive}) &=& \frac{8}{8 + \text{\#non-reported inconclusives for different source}} = ? \\
+P (\text{different source} \mid \text{inconclusive}) &=& ? \\[10pt]
+P (\text{same source} \mid \text{elimination made}) &=& ? \\
+P (\text{different source} \mid \text{elimination made}) &=&  ? \\
+\end{array}
+\end{eqnarray*}
 
 
 \section{Discussion and Conclusions}
