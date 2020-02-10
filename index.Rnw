@@ -427,7 +427,8 @@ Each kit consists of 15 sets of 3 known cartridge cases and 1 questioned. For al
 
 A total of 25 firearms was used for the study, such that within each kit no firearm was re-used for either knowns or questioned cartridge cases, i.e. no additional information could be gained by comparing any cartridge cases across sets.
 
-218 participants provided evaluations of the kits, evaluation results are shown in \autoref{tab:baldwin-totals}.
+218 participants provided evaluations of the kits, evaluation results are shown in \autoref{tab:baldwin-totals}. Each of these evaluations is  based on a comparison of one questioned cartridge case to three known same source  cartridge cases.
+
 
 \begin{table}[hbt]
 \centering
@@ -445,7 +446,6 @@ Percent & 33.5\% & 22.9\% & 45.4\% & 100.0\\\hline
 \end{table}
 
 
-Each of the above evaluations is  based on a comparison of one questioned cartridge case to three known same source  cartridge cases.
 
 
 \begin{table}[hbt]
@@ -514,9 +514,9 @@ Each test kit consisted of sets of 20 pairs of cartridge cases,  12 of the pairs
 \begin{tabu}{|c|rrr|r|}\hline
 Evaluations & \multicolumn{3}{c|}{$Y = $Examiner Conclusion} \\\hline
 $X = $Reality & Identification & Inconclusive & Elimination & Totals \\\hline
-Same source & 0 & 4 & 1508 & 1512 \\
-Different source & 805 & 203 & 0 & 1008 \\\hline
-Percent & 31.9\% & 8.2\% & 59.8\% & 100.0 \\\hline
+Same source & 1508 & 4 & 4 & 1512 \\
+Different source & 0 & 203 & 805 & 1008 \\\hline
+Percent & 59.8\% & 8.2\% & 31.9\% & 100.0 \\\hline
 \end{tabu}
 }
 \end{table}
@@ -534,7 +534,7 @@ Option 3 (Process error) & 0.0026 & 0.2014\\ \hline
 \end{table}
 
 
-The resulting set of conditional probabilities is shown in \autoref{tab:keisler}.
+The resulting set of conditional probabilities is given in \autoref{tab:keisler}.
 
 \begin{table}[hbt]
 \centering
@@ -563,9 +563,9 @@ Both sets were evaluated 46 times each (10 trainees, 36 fully certified examiner
 
 The design of the experiment does not allow us to quantify all of the quantities to evaluate examiner performance unless we aggregate performance over both sets.
 
-Combined, the probability for a  same source pair is 2/8 and the probability for  a different source  pair is 0.75.
+Combined, the probability for a  same source pair is 6/8 or 75\% and the probability for  a different source  pair is 2/8 or 25\%.
 
-\autoref{tab:duez-totals} shows results from 56 evaluations (46 examiners, 10 trainees).
+\autoref{tab:duez-totals} shows results reported by 56 participants (46 examiners, 10 trainees).
 
 \begin{table}[hbt]
 \centering
@@ -610,7 +610,7 @@ Different source & 0.0059 & 0.9615 & 1.0000 \\\hline
 \end{tabu}
 }
 \end{table}
-Again, the probability of same source pairs given examiners reported an inconclusive result is much lower than the expect 25\% based on the setup of the study.
+Again, the probability of same source pairs given examiners reported an inconclusive result is much lower than the expect 75\% based on the setup of the study.
 
 The authors report that
 ``13\% of examiners are not permitted to eliminate on individual characteristics
@@ -619,9 +619,6 @@ The authors report that
 \hh{It is interesting to note that 7 of the examiners did not report eliminations due to  lab rules. These rules seem to be in contradiction to community accepted AFTE rules and need to be considered during reporting and testimony evaluations. XXX Bias against defense. XXX Needless to say that we do not agree with the authors' assessment that conclusions of inconclusives are perfectly acceptable.}
 
 
-
-\hh{useful but maybe later.}
-The probability of an inconclusive result is 26 out of 368, or 7.07\%.
 
 
 
