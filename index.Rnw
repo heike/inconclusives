@@ -439,6 +439,7 @@ A total of 25 firearms was used for the study, such that within each kit no fire
 $X = $Reality&&or no response&&Totals\\\hline
 Same source & 1075  & 11 & 4 & 1090\\
 Different source & 22 & 735+2 & 1480 & 2180\\\hline
+Percent & 33.5\% & 22.9\% & 45.4\% & 100.0\\\hline
 \end{tabu}
 }
 \end{table}
@@ -492,7 +493,7 @@ P (\text{different source} \mid \text{inconclusive or elimination}) &=& \frac{73
 \end{eqnarray*}
 
 \hh{useful information, but not sure where to put it - probably for evaluating the error in the process}
-Only cartridge cases caught with the cartridge catching device (XXX name?) were used to assemble kits. No other pre-scanning of usability for comparisons was done. 
+Only cartridge cases caught with the cartridge catching device (XXX name?) were used to assemble kits. No other pre-screening of usability for comparisons was done. 
 
 For 3234 comparisons, FTEs evaluated how many of the known cartridge cases were usable for an evaluation: all three specimens were used in 3018 cases, two were used in 207 cases, and only one was used in nine cases.
 
@@ -515,6 +516,7 @@ Evaluations & \multicolumn{3}{c|}{$Y = $Examiner Conclusion} \\\hline
 $X = $Reality & Identification & Inconclusive & Elimination & Totals \\\hline
 Same source & 0 & 4 & 1508 & 1512 \\
 Different source & 805 & 203 & 0 & 1008 \\\hline
+Percent & 31.9\% & 8.2\% & 59.8\% & 100.0 \\\hline
 \end{tabu}
 }
 \end{table}
@@ -574,6 +576,7 @@ Evaluations (Examiner+Trainee) & \multicolumn{3}{c|}{$Y = $Examiner Conclusion} 
 $X = $Reality & Identification & Inconclusive & Elimination & Totals \\\hline
 Same source & 276+59 & 0+1 & 0+0 & 276+60 \\
 Different source & 0+2 & 12+13 & 80+5 & 92+20 \\\hline
+Percent & 75.2\% & 5.8\% & 19.0\% & 100.0\\\hline
 \end{tabu}
 }
 \end{table}
@@ -649,7 +652,6 @@ Same source & 10447 & 8 & 0 & 10455 \\
 Different source & ? & ? & ? & ? \\\hline
 \end{tabu}
 }
-
 \end{table}
 
 \begin{table}[hbt]
