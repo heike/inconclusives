@@ -514,7 +514,7 @@ Each test kit consisted of sets of 20 pairs of cartridge cases,  12 of the pairs
 \begin{tabu}{|c|rrr|r|}\hline
 Evaluations & \multicolumn{3}{c|}{$Y = $Examiner Conclusion} \\\hline
 $X = $Reality & Identification & Inconclusive & Elimination & Totals \\\hline
-Same source & 1508 & 4 & 4 & 1512 \\
+Same source & 1508 & 4 & 0 & 1512 \\
 Different source & 0 & 203 & 805 & 1008 \\\hline
 Percent & 59.8\% & 8.2\% & 31.9\% & 100.0 \\\hline
 \end{tabu}
