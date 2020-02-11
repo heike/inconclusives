@@ -439,8 +439,8 @@ A total of 25 firearms was used for the study, such that within each kit no fire
  & Identification & Inconclusive  & Elimination &  \\
 $X = $Reality&&or no response&&Totals\\\hline
 Same source & 1075  & 11 & 4 & 1090\\
-Different source & 22 & 735+2 & 1480 & 2180\\\hline
-Percent & 33.5\% & 22.9\% & 45.4\% & 100.0\\\hline
+Different source & 22 & 735+2 & 1421 & 2180\\\hline
+Percent & 33.5\% & 22.9\% & 43.6\% & 100.0\\\hline
 \end{tabu}
 }
 \end{table}
