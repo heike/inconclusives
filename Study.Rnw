@@ -1,0 +1,58 @@
+\documentclass{article}
+\usepackage{fullpage}
+\usepackage{geometry}
+\usepackage{tabularx,tabu,multicol,multirow}
+\usepackage{amsmath,amssymb,amsthm}
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
+
+
+\newsavebox{\fmbox}
+\newenvironment{fmpage}[1]
+{\begin{lrbox}{\fmbox}\begin{minipage}[t]{#1}}
+{\end{minipage}\end{lrbox}\fbox{\usebox{\fmbox}}}
+
+\begin{document}
+\noindent\begin{fmpage}{\textwidth}\centering
+{\large\bf Study Name}\\
+\emph{Authors}\\
+A study of fired bullets/cartridge cases/consecutively manufactured extractors/...\\
+\begin{tabularx}{\textwidth}{XllX}\hline
+\multirow{2}{*}{\bf Study Type} & \multicolumn{2}{c}{\bf Test Set} & \multirow{2}{*}{\bf Participants}\\
+& \# Knowns & \# Unknowns & \\\hline
+Closed set & 10 & 10~or~12 & 15 examiners\\
+\end{tabularx}
+\end{fmpage}
+
+\noindent\begin{fmpage}{\textwidth}
+\begin{tabularx}{\textwidth}{Y|ccc||Y}
+\multicolumn{5}{c}{\large\bf\centering Observed Counts}\\\hline
+& \multicolumn{3}{c||}{Examiner Conclusion} &\\\cline{2-4}
+Reality & Identification & Inconclusive & Elimination & Comparison Totals \\\hline
+Same source & $a$ & $b$ & $c$ & $S = a + b + c$ \\
+Different source & $d$ & $e$ & $f$ & $D = d + e + f$ \\\hline\hline
+Conclusion totals & $ a + d$ & $b + e$ & $c + f$ & $N = S + D$
+\end{tabularx}
+\end{fmpage}\vspace{1em}
+\noindent\begin{fmpage}{\textwidth}
+\begin{tabularx}{\textwidth}{Y|YYY}
+\multicolumn{4}{c}{\large\bf\centering Conditional Probabilities}\\\hline
+$P(X | Y)$ & \multicolumn{3}{c}{$\mathbf{Y = }$\bf Examiner Conclusion} \\\hline
+\bf$\mathbf{X = }$Reality & Identification & Inconclusive & Elimination \\\hline
+\multirow{2}{*}{Same source} & $P(SS|Ident)$ & $P(SS|Inconcl.)$ & $P(SS | Elim.)$ \\
+& $=\displaystyle\frac{a}{a + d}$ & $=\displaystyle\frac{b}{b + e}$ & $=\displaystyle\frac{c}{c + f}$ \\\hline
+\multirow{2}{*}{Different source} & $P(DS|Ident)$ & $P(DS|Inconcl.)$ & $P(DS | Elim.)$\\ 
+ & $=\displaystyle\frac{d}{a + d}$ & $=\displaystyle\frac{e}{b + e}$ & $=\displaystyle\frac{f}{c + f}$ \\\hline\hline
+\multirow{2}{*}{$P(Y)$} & $P(Ident)$ & $P(Inconcl.)$& $P(Elim.)$\\
+& $=\displaystyle\frac{a + d}{N}$ & $=\displaystyle\frac{b+e}{N}$ & $=\displaystyle\frac{c+f}{N}$
+\end{tabularx}
+\end{fmpage}\vspace{1em}
+\noindent\begin{fmpage}{\textwidth}
+\centering{\large\bf Reported Error Rates}
+\begin{tabu}{lrr}
+ & Missed Identification & Missed Elimination  \\
+Option 2 (FTE error) & 0.0037  & 0.0101\\
+Option 3 (Process error) & 0.0138 & 0.3482\\ 
+\end{tabu}
+\end{fmpage}
+
+\end{document}
