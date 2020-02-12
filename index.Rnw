@@ -17,6 +17,7 @@
 \usepackage{csquotes}% display/block quotes
 
 \setlength{\parindent}{0cm} % remove paragraph indent
+\usepackage[skip=\baselineskip]{parskip}
 
 \newenvironment{definition}[1]% environment name 
 {% begin code 
