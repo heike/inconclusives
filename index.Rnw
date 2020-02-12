@@ -237,6 +237,25 @@ In this paper, we \svp{discuss} the treatment of inconclusives in the assessment
 
 \subsection{Evaluating Classification Decisions}
 
+\svp{When an examiner assesses a set of evidence (generally, a pair of items, one of known provenance and one of unknown provenance) and decides whether the evidence is an identification, inconclusive, or an elimination, they are \emph{classifying} the evidence according to a classification scheme. 
+Classification problems are common - medical tests will classify samples into cancerous or benign, and toddlers will sort blocks into red, green, and blue piles. 
+We assess the accuracy of a classification problem using \emph{success rates} and \emph{error rates}, that is, with numerical quantities indicating how often the classification scheme produces correct and incorrect results.
+}
+
+\svp{Consider, for a moment, the problem of a toddler sorting colored blocks into red, green, and blue piles. 
+To assess the child's accuracy rate, we could count up all of the blocks which are not in the correct pile and divide by the total number of blocks to get the \emph{overall accuracy rate}.
+If, however, blue blocks are much more common than red or green blocks, the overall error rate may not tell us much about whether the toddler is sorting correctly; in the extreme case, the toddler might pile all of the blocks together, call the pile blue, and have a (relatively) low error rate.
+This occurs because the relative rarity of red and green blocks in this scenario causes the overall error rate to provide relatively little information about the toddler's color classification skills.
+We might, instead, want to consider conditional error rates: that is, what are the classification error rates for each color of block, considered separately?
+In our extreme example, we would have 100\% error rates for the red and green classes (because each of these blocks was assigned the blue label), and 0\% error rate for the blue class (because all blue blocks are in the correct category).
+}
+\svp{
+The conditional error rates based on the real color of the block, that is, the label that is known a priori, provide one way to look at the data more carefully. 
+These error rates provide information about the probability that a block of a specified color is assigned the correct label, that is, probabilities specific to the source.
+Another way to consider the data would be to examine the probabilities that, given the label assigned to the block, the block is classified as red, green, or blue. 
+These probabilities, which are specific to the conclusion, provide different information: given that the block is in the blue pile, what is the probability that it is actually blue?
+}
+\svp{We will term these \emph{conditional probabilities} {\bf source-specific} probabilities (probabilities depending on the real class of the evidence) and {\bf conclusion-specific} probabilities (probabilities which depend on the conclusion or label assigned to the evidence).}
 
 When discussing error rates, it is helpful to think in terms of conditional probability, that is, the probability of an event occurring, taking into account additional information. This additional information may be assumed for the sake of logical reasoning about the likelihood of different conditional events, or it may be known and used to update assessments of probabilities computed before the event was known. \svp{This is confusing and needs a lot of work}
 
