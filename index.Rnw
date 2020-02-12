@@ -646,7 +646,7 @@ Results reported in the 2018 paper are shown in \autoref{tab:hamby-totals}.
 Evaluations & \multicolumn{3}{c|}{$Y = $Examiner Conclusion} \\\hline
 $X = $Reality & Identification & Inconclusive & Elimination & Totals \\\hline
 Same source & 10447 & 8 & 0 & 10455 \\
-Different source & ? & ? & ? & ? \\\hline
+Different source & 0 & ? & ? & 47047.5 \\\hline
 \end{tabu}
 }
 \end{table}
@@ -670,31 +670,16 @@ Option 3 (Process error) & 0.0008 & ?\\ \hline
 \begin{tabu}{|c|ccc|}\hline
 $P(X | Y)$ & \multicolumn{3}{c|}{$Y = $Examiner Conclusion} \\\hline
 $X = $Reality & Identification & Inconclusive & Elimination \\\hline
-Same source & ? & ? & ? \\
-Different source & ? & ? & ? \\\hline
+Same source & 1.000 & ? & ? \\
+Different source & 0.000 & ? & ? \\\hline
 \end{tabu}
 }
 \end{table}
-Technically, participants are asked to compare each questioned bullet  to each set of two knowns for a  
-total of  \# questioned x \# different known source evaluations, resulting in  a total of  150 evaluations for each participant in the Brundage-Hamby study (15 same source  and 135 different source evaluations). 
+The answer sheets for Brundage-Hamby sets only asks for reports of identifications for each of the questioned bullets. While the number of same source comparison is obviously one for each questioned bullets, i.e.\ each participant made exactly fifteen same source comparisons. However, the number of different source comparisons that were made  is an open question. Technically, there are nine different source comparisons for each questioned bullet for a total of 135 different source comparisons.  
+However, these evaluations are not independent of each other: once a bullet is successfully identified to a set of knowns, none of the other sets of knowns can possibly be a match. Rather than having to make a call on a match, the evaluation shifts to a confirmation of an elimination. We will assume that an examiner will need to make an average of 4.5 different source comparisons before making an identification, resulting in an average of 67.5 different source comparisons for the whole set, and an approximate 47047.5 different source comparisons, in which no identification was reported (see \autoref{app:brundage} for mathematical details).
+What is still missing is any information on eliminations versus inconclusive results for different source comparisons.
 
-However, these evaluations are not independent of each other: once a bullet is successfully identified to a set of knowns, none of the other sets of knowns can possibly be a match. Additionally, Brundage and Hamby studies only ask participants to report identifications. We can therefore not consider any implicit eliminations of different source evaluations.  
 
-\hh{effective sample size?}
-
-%For any inconclusive results, we know that firearms examiners could not identify the correct barrel, but at the same time we do not know how many different source evaluations would have resulted in inconclusives. 
-
-% \begin{eqnarray*}
-% \arraycolsep=1.4pt\def\arraystretch{2.2}
-% \begin{array}{rcccr}
-% P (\text{same source} \mid \text{identification made}) &=&  \frac{10455}{10455} &=& 1 \\
-% P (\text{different source} \mid \text{identification made}) &=&  \frac{0}{10455} &=& 0 \\[10pt]
-% P (\text{same source} \mid \text{inconclusive}) &=& \frac{8}{8 + \text{\#non-reported inconclusives for different source}} = ? \\
-% P (\text{different source} \mid \text{inconclusive}) &=& ? \\[10pt]
-% P (\text{same source} \mid \text{elimination made}) &=& ? \\
-% P (\text{different source} \mid \text{elimination made}) &=&  ? \\
-% \end{array}
-% \end{eqnarray*}
 
 \subsection{Lyons Study}
 This study involved the use of 10 consecutively manufactured extractors. First, the researchers established that there were sufficient individualizing characteristics to identify cartridges ejected by the same tool, and that there were sufficient individualizing characteristics to exclude cartridges ejected by sequentially manufactured tools. Then, they assembled 20 kits with pairs of 2 cartridges from each of the 10 extractors (the knowns) and 10 or 12 unknown cartridges, such that each known corresponded to an unknown, with some replication in most of the kits. Thus, the setup of this study is similar to the Hamby studies, which had 35 bullets each; 20 knowns from 10 barrels and 15 unknowns. As with the Hamby studies, as a closed set study with multiple knowns, it is not possible to determine the total number of different source comparisons. 
@@ -827,7 +812,7 @@ file.copy(figs$file, file.path("separate_fig_files", figs$fig_label), overwrite 
 \bibliography{bibfile}
 
 \section{Supplemental Material}
-\subsection{All possible Brundage-Hamby Sets}
+\subsection{All possible Brundage-Hamby Sets}\label{app:brundage}
 Brundage-Hamby sets consist of a set of 20 known bullets (two each from the ten consecutively manufactured barrels) and 15 questioned bullets.
 \citet{brundage} outlines the construction of sets of questioned bullets in detail as follows: ten bullets are chosen, one from each of the ten barrels. The remaining five bullets are picked at random from the barrels, such that at most three questioned bullets are from the same barrel. 
 
