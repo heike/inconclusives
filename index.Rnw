@@ -1,30 +1,20 @@
 \documentclass[doubleblind]{elsarticle}
 
-\usepackage{lineno,hyperref}
 \modulolinenumbers[5]
 
-\usepackage{amsmath,amsthm}
-\usepackage{amstext}
-\usepackage{graphicx,psfrag,epsf}
-\usepackage{enumerate}
-\usepackage{booktabs}
-\usepackage{longtable}
-\usepackage{array}
-\usepackage{multirow}\usepackage{multicol}
-\usepackage{adjustbox}
+\usepackage{lineno,hyperref}
+
+\usepackage{amsmath,amsthm,amstext}
+\usepackage{graphicx,psfrag,epsf,wrapfig,subfig,float}
 \usepackage[dvipsnames]{xcolor}
-\usepackage{colortbl}
-\usepackage{wrapfig}
-\usepackage{subfig}
-\usepackage{float}
-% \usepackage{colortbl}
-\usepackage{pdflscape}
-\usepackage{tabu}\usepackage{tabularx}
-\usepackage{threeparttable}
-\usepackage{csquotes}% display/block quotes
-\usepackage{fullpage}
+\usepackage{booktabs,longtable,multirow,multicol,tabu,tabularx,threeparttable,colortbl,array}
+\usepackage{adjustbox}
+\usepackage{pdflscape,fullpage}
 \usepackage{pbox}
 \usepackage[numbers]{natbib}
+\usepackage{enumerate}
+
+\usepackage{csquotes}% display/block quotes
 
 \setlength{\parindent}{0cm} % remove paragraph indent
 
