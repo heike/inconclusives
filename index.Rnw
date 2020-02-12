@@ -357,6 +357,20 @@ Diff source & $d/(a+d)$ & $e/(b+e)$ & $f/(c+f)$ & $D/N$\\\hline
 % }
 \end{table}
 
+\svp{Using the same data from \autoref{tab:generic-results}, we could also calculate source-specific probabilities as shown in \autoref{tab:source-spec-prob}.}
+
+\begin{table}\centering
+\caption{Source-specific probabilities, calculated using the quantities introduced in \autoref{tab:generic-results}. In each cell in the main body of the table, probabilities shown are the probability of conclusion $Y$ (one of Identification, Inconclusive, or Elimination) if the source is $X$ (same, different). In the last row in the table, the marginal probabilities $P(Y)$ are shown, that is, the unconditional probability that the examiner's decision is $Y$. In the last column of the table, the marginal probabilities $P(X)$ are shown; these are determined by the experimental design.
+%The joint probabilities (e.g. $P(X \text{ and } Y)$) described in \autoref{tab:generic-results} can be recovered from this table by multiplying any interior cell by the corresponding cell in the last row of the table. That is, $P(X \text{ and } Y) = P(X|Y) P(Y)$, which follows from \autoref{eqn:cond-prob}. 
+}\label{tab:conclusion-spec-prob}
+\begin{tabularx}{\textwidth}{Y|ccc|Y}
+\multicolumn{5}{c}{\bf Source-Specific Probabilities}\\
+\multicolumn{1}{c}{} & Identification & Inconclusive & \multicolumn{1}{c}{Elimination} & Source Prop.\\\hline
+Same source & $a/S$ & $b/S$ & $c/S$ & $S/N$\\
+Diff source & $d/D$ & $e/D$ & $f/D$ & $D/N$\\\hline
+\multicolumn{1}{Y}{Concl. prop.} & $(a + d)/N$ & $(b + e)/N$ & \multicolumn{1}{c}{$(c + f)/N$} & \multicolumn{1}{Y}{}\\\hline\hline
+\end{tabularx}
+\end{table}
 \svp{A google sheets workbook for performing these calculations is available at \url{http://bit.ly/FTE-error-rate}.}
 
 
@@ -375,14 +389,9 @@ Diff source & $d/(a+d)$ & $e/(b+e)$ & $f/(c+f)$ & $D/N$\\\hline
 % 
 % Generic formulas for these probabilities can each be calculated from the quantities in \autoref{tab:generic-results}. A similar table is shown in \autoref{tab:conclusion-spec-prob}, but instead of raw quantities describing evaluations, we have instead provided the conditional probabilities described at the beginning of this subsection (\autoref{sec:conditional-prob}). 
 
+\subsection{What makes an error?}
+The set\svp{s} of conditional probabilities in \autoref{tab:conclusion-spec-prob} and \autoref{tab:source-spec-prob} are important in the assessment of the process of evidence examination. However, standard evaluations of classification algorithms (or human decision making), such as false positive and false negative rates, or sensitivity and specificity \svp{XXX cite...?} generally involve classification states which precisely mirror reality; these problems do not usually involve inconclusive classifications. More precisely, in most classification problems, the number of real classes is the same as the number of possible decisions; in forensics, there is an asymmetry caused by the addition of the inconclusive decision. This difference between forensic evaluation and classification problems which are more commonly evaluated provides an unfortunate opportunity for confusion when using the same methods for assessing forensic decision making. 
 
-
-Given this series of different conditional probabilities, we now must determine which quantities are useful when evaluating the performance of examiner
-
-The set of conditional probabilities in \autoref{tab:conclusion-spec-prob} are all important in the assessment of the process of evidence examination. However, standard evaluations of classification algorithms (or human decision making), such as false positive and false negative rates, or sensitivity and specificity \svp{XXX cite...?} generally involve classification states which precisely mirror reality; these problems do not usually involve inconclusive classifications. More precisely, in most classification problems, the number of real classes is the same as the number of possible decisions; in forensics, there is an asymmetry caused by the addition of the inconclusive decision. This difference between forensic evaluation and classification problems which are more commonly evaluated provides an unfortunate opportunity for confusion when using the same methods for assessing forensic decision making. 
-
-
-\svp{This needs a better transition and should probably be in another section}
 \autoref{tab:overall-err-rate} shows several different  error rate calculations, using the general structure of \autoref{tab:generic-results}. Each of these calculations has a  different meaning and interpretation; as a result, it is important to consider which error rate best suits the purpose of a  study \hh{and its interpretation in the larger framework of pattern evidence}.
 
 
