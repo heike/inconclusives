@@ -362,7 +362,7 @@ Diff source & $d/(a+d)$ & $e/(b+e)$ & $f/(c+f)$ & $D/N$\\\hline
 \begin{table}\centering
 \caption{Source-specific probabilities, calculated using the quantities introduced in \autoref{tab:generic-results}. In each cell in the main body of the table, probabilities shown are the probability of conclusion $Y$ (one of Identification, Inconclusive, or Elimination) if the source is $X$ (same, different). In the last row in the table, the marginal probabilities $P(Y)$ are shown, that is, the unconditional probability that the examiner's decision is $Y$. In the last column of the table, the marginal probabilities $P(X)$ are shown; these are determined by the experimental design.
 %The joint probabilities (e.g. $P(X \text{ and } Y)$) described in \autoref{tab:generic-results} can be recovered from this table by multiplying any interior cell by the corresponding cell in the last row of the table. That is, $P(X \text{ and } Y) = P(X|Y) P(Y)$, which follows from \autoref{eqn:cond-prob}. 
-}\label{tab:conclusion-spec-prob}
+}\label{tab:source-spec-prob}
 \begin{tabularx}{\textwidth}{Y|ccc|Y}
 \multicolumn{5}{c}{\bf Source-Specific Probabilities}\\
 \multicolumn{1}{c}{} & Identification & Inconclusive & \multicolumn{1}{c}{Elimination} & Source Prop.\\\hline
