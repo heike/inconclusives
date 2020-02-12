@@ -257,6 +257,12 @@ These probabilities, which are specific to the conclusion, provide different inf
 }
 \svp{We will term these \emph{conditional probabilities} {\bf source-specific} probabilities (probabilities depending on the real class of the evidence) and {\bf conclusion-specific} probabilities (probabilities which depend on the conclusion or label assigned to the evidence).}
 
+\svp{Conditional probabilities or error rates are frequently used to describe evidence, and must be interpreted correctly. 
+Incorrectly equating conditional probabilities is the source of the prosecutor's fallacy\cite{thompsonInterpretationStatisticalEvidence1987}, and similar errors can be made when considering conditional error rates.}
+\svp{Translating our toddler block scenario to forensic evidence, we have two states of reality: the evidence originates from the same source, or the evidence originates from different sources. 
+Additionally, using the AFTE Theory of Identification, we have three possible categories\footnote{We will assume the decision about whether evidence is suitable for comparison is made at an earlier stage of the process}: Identification, Inconclusive, and Elimination. 
+Thus, our source-specific accuracy rates would be the probability that (if the evidence came from the same source) the examiner assigns the label Identification, Inconclusive, or Elimination, respectively. Figure \ref{fig:same-source}}
+
 When discussing error rates, it is helpful to think in terms of conditional probability, that is, the probability of an event occurring, taking into account additional information. This additional information may be assumed for the sake of logical reasoning about the likelihood of different conditional events, or it may be known and used to update assessments of probabilities computed before the event was known. \svp{This is confusing and needs a lot of work}
 
 Mathematically, we would write the probability of an event $E$ conditional on another event $A$ as $P(E | A)$. 
