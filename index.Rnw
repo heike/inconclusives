@@ -1,8 +1,8 @@
 \documentclass[doubleblind]{elsarticle}
 
-\modulolinenumbers[5]
 
 \usepackage{lineno,hyperref}
+\modulolinenumbers[5]
 
 \usepackage{amsmath,amsthm,amstext}
 \usepackage{graphicx,psfrag,epsf,wrapfig,subfig,float}
