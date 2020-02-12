@@ -1,10 +1,11 @@
 \documentclass{article}
-\usepackage{fullpage}
 \usepackage{geometry}
+\usepackage{fullpage}
 \usepackage{tabularx,tabu,multicol,multirow}
 \usepackage{amsmath,amssymb,amsthm}
+\usepackage{capt-of}
 \newcolumntype{Y}{>{\centering\arraybackslash}X}
-
+\renewcommand\tabularxcolumn[1]{m{#1}}% for vertical centering text in X column
 
 \newsavebox{\fmbox}
 \newenvironment{fmpage}[1]
@@ -13,9 +14,9 @@
 
 \begin{document}
 \noindent\begin{fmpage}{\textwidth}\centering
-{\large\bf Study Name}\\
+\captionof{table}{{\large\bf Study Name}}
 \emph{Authors}\\
-A study of fired bullets/cartridge cases/consecutively manufactured extractors/...\\
+A study of fired bullets/cartridge cases/consecutively manufactured extractors/...
 \begin{tabularx}{\textwidth}{XllX}\hline
 \multirow{2}{*}{\bf Study Type} & \multicolumn{2}{c}{\bf Test Set} & \multirow{2}{*}{\bf Participants}\\
 & \# Knowns & \# Unknowns & \\\hline
@@ -24,35 +25,70 @@ Closed set & 10 & 10~or~12 & 15 examiners\\
 \end{fmpage}
 
 \noindent\begin{fmpage}{\textwidth}
-\begin{tabularx}{\textwidth}{Y|ccc||Y}
-\multicolumn{5}{c}{\large\bf\centering Observed Counts}\\\hline
-& \multicolumn{3}{c||}{Examiner Conclusion} &\\\cline{2-4}
-Reality & Identification & Inconclusive & Elimination & Comparison Totals \\\hline
-Same source & $a$ & $b$ & $c$ & $S = a + b + c$ \\
-Different source & $d$ & $e$ & $f$ & $D = d + e + f$ \\\hline\hline
-Conclusion totals & $ a + d$ & $b + e$ & $c + f$ & $N = S + D$
+\begin{tabularx}{\textwidth}{Y|ccc|Y}
+\multicolumn{5}{c}{\bf Experiment Count Data}\\
+\multicolumn{1}{c}{} & Identification & Inconclusive & \multicolumn{1}{c}{Elimination} & Source Total\\\hline
+Same Source & a & b & c & S = a + b + c\\
+Diff Source & d & e & f & D = e + f + g\\\hline
+\multicolumn{1}{Y}{Concl. Total} & a + d & b + e & \multicolumn{1}{c}{c + f} & \multicolumn{1}{Y}{N = S + D}\\\hline\hline
+
+\multicolumn{5}{c}{}\\
+
+\multicolumn{5}{c}{\bf Conclusion-Specific Probabilities}\\
+\multicolumn{1}{c}{} & Identification & Inconclusive & \multicolumn{1}{c}{Elimination} & Source Prop.\\\hline
+Same source & $a/(a+d)$ & $b/(b+e)$ & $c/(c+f)$ & $S/N$\\
+Diff source & $d/(a+d)$ & $e/(b+e)$ & $f/(c+f)$ & $D/N$\\\hline
+\multicolumn{1}{Y}{Concl. prop.} & $(a + d)/N$ & $(b + e)/N$ & \multicolumn{1}{c}{$(c + f)/N$} & \multicolumn{1}{Y}{}\\\hline\hline
+
+\multicolumn{5}{c}{}\\
+\multicolumn{5}{c}{\bf Source-Specific Probabilities}\\
+\multicolumn{1}{c}{} & Identification & Inconclusive & \multicolumn{1}{c}{Elimination} & Source Prop.\\\hline
+Same source & $a/S$ & $b/S$ & $c/S$ & $S/N$\\
+Diff source & $d/D$ & $e/D$ & $f/D$ & $D/N$\\\hline
+\multicolumn{1}{Y}{Concl. prop.} & $(a + d)/N$ & $(b + e)/N$ & \multicolumn{1}{c}{$(c + f)/N$} & \multicolumn{1}{Y}{}\\\hline\hline
 \end{tabularx}
-\end{fmpage}\vspace{1em}
-\noindent\begin{fmpage}{\textwidth}
-\begin{tabularx}{\textwidth}{Y|YYY}
-\multicolumn{4}{c}{\large\bf\centering Conditional Probabilities}\\\hline
-$P(X | Y)$ & \multicolumn{3}{c}{$\mathbf{Y = }$\bf Examiner Conclusion} \\\hline
-\bf$\mathbf{X = }$Reality & Identification & Inconclusive & Elimination \\\hline
-\multirow{2}{*}{Same source} & $P(SS|Ident)$ & $P(SS|Inconcl.)$ & $P(SS | Elim.)$ \\
-& $=\displaystyle\frac{a}{a + d}$ & $=\displaystyle\frac{b}{b + e}$ & $=\displaystyle\frac{c}{c + f}$ \\\hline
-\multirow{2}{*}{Different source} & $P(DS|Ident)$ & $P(DS|Inconcl.)$ & $P(DS | Elim.)$\\ 
- & $=\displaystyle\frac{d}{a + d}$ & $=\displaystyle\frac{e}{b + e}$ & $=\displaystyle\frac{f}{c + f}$ \\\hline\hline
-\multirow{2}{*}{$P(Y)$} & $P(Ident)$ & $P(Inconcl.)$& $P(Elim.)$\\
-& $=\displaystyle\frac{a + d}{N}$ & $=\displaystyle\frac{b+e}{N}$ & $=\displaystyle\frac{c+f}{N}$
+
+\begin{tabularx}{\textwidth}{lX|cc|Y}
+\multicolumn{5}{c}{}\\
+\multicolumn{5}{c}{\bf Reported Error Rates}\\
+Opt. & \multicolumn{1}{c}{Meaning} & Missed Identification & \multicolumn{1}{c}{Missed Elimination} & Total \\\hline
+2 & FTE error & $c/S$ & $d/D$ & $(c + d)/N$\\
+3 & Process error & $(b + c)/S$ & $(d + e)/D$ & $(b + c + d + e)/N$ \\
 \end{tabularx}
-\end{fmpage}\vspace{1em}
-\noindent\begin{fmpage}{\textwidth}
-\centering{\large\bf Reported Error Rates}
-\begin{tabu}{lrr}
- & Missed Identification & Missed Elimination  \\
-Option 2 (FTE error) & 0.0037  & 0.0101\\
-Option 3 (Process error) & 0.0138 & 0.3482\\ 
-\end{tabu}
 \end{fmpage}
+
+
+
+% \noindent\begin{fmpage}{\textwidth}
+% \begin{tabularx}{\textwidth}{Y|ccc||Y}
+% \multicolumn{5}{c}{\large\bf\centering Observed Counts}\\\hline
+% & \multicolumn{3}{c||}{Examiner Conclusion} &\\\cline{2-4}
+% Reality & Identification & Inconclusive & Elimination & Comparison Totals \\\hline
+% Same source & $a$ & $b$ & $c$ & $S = a + b + c$ \\
+% Different source & $d$ & $e$ & $f$ & $D = d + e + f$ \\\hline\hline
+% Conclusion totals & $ a + d$ & $b + e$ & $c + f$ & $N = S + D$
+% \end{tabularx}
+% \end{fmpage}\vspace{1em}
+% \noindent\begin{fmpage}{\textwidth}
+% \begin{tabularx}{\textwidth}{Y|YYY}
+% \multicolumn{4}{c}{\large\bf\centering Conditional Probabilities}\\\hline
+% $P(X | Y)$ & \multicolumn{3}{c}{$\mathbf{Y = }$\bf Examiner Conclusion} \\\hline
+% \bf$\mathbf{X = }$Reality & Identification & Inconclusive & Elimination \\\hline
+% \multirow{2}{*}{Same source} & $P(SS|Ident)$ & $P(SS|Inconcl.)$ & $P(SS | Elim.)$ \\
+% & $=\displaystyle\frac{a}{a + d}$ & $=\displaystyle\frac{b}{b + e}$ & $=\displaystyle\frac{c}{c + f}$ \\\hline
+% \multirow{2}{*}{Different source} & $P(DS|Ident)$ & $P(DS|Inconcl.)$ & $P(DS | Elim.)$\\ 
+%  & $=\displaystyle\frac{d}{a + d}$ & $=\displaystyle\frac{e}{b + e}$ & $=\displaystyle\frac{f}{c + f}$ \\\hline\hline
+% \multirow{2}{*}{$P(Y)$} & $P(Ident)$ & $P(Inconcl.)$& $P(Elim.)$\\
+% & $=\displaystyle\frac{a + d}{N}$ & $=\displaystyle\frac{b+e}{N}$ & $=\displaystyle\frac{c+f}{N}$
+% \end{tabularx}
+% \end{fmpage}\vspace{1em}
+% \noindent\begin{fmpage}{\textwidth}
+% \centering{\large\bf Reported Error Rates}
+% \begin{tabu}{lrr}
+%  & Missed Identification & Missed Elimination  \\
+% Option 2 (FTE error) & 0.0037  & 0.0101\\
+% Option 3 (Process error) & 0.0138 & 0.3482\\ 
+% \end{tabu}
+% \end{fmpage}
 
 \end{document}
