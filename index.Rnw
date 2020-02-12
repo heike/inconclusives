@@ -186,37 +186,29 @@ Unsuitable for examination.
 }
 \caption{\label{tab:afte} AFTE Rules of Toolmark Identifications \citep{identification}.}
 \end{table}
-\citet{Dror:2018fp} have started the discussion to treat inconclusive results as an examiner's conscious decision to not decide on an identification or elimination. 
-This view has drawn some criticism \citep{Biedermann:2018hr}.
-
-In this paper we want to highlight the treatment of inconclusives in the assessment of error rates from a statistical point of view. % We believe that this -- rather than further dividing the different opinions -- provides a unifying framework.
-
 % \section{Background} % Identification
 
 The identification process -- i.e. the assessment of whether two samples come from the same source (were made by the same tool, the same shoe, the same finger, shot through the same barrel) or from different sources -- is quite complex. 
-In order to assess how well this process is functioning, studies with known ground truth have to be employed because casework does not allow for an assessment of correctness.  
-
-As a result, studies which attempt to gain insight into the identification process must also navigate these complexities, ideally without becoming too complicated to reasonably execute. \svp{This isn't quite right phrasing-wise, but I don't know where to put it just yet.}
+In order to assess how well this process is functioning, studies with known ground truth have to be employed \svp{as} casework does not allow for an assessment of correctness. 
+\svp{Ground truth, that is, the knowledge of whether two samples come from the same source or two different sources, is only available to the individual setting up the test; as casework is not so strictly controlled, we do not have information about ground truth and thus cannot use casework for error rate assessment.} % Rephrasing of 
+% Ground truth is the knowledge of whether two samples come from the same source or come in fact from two different sources. This knowledge is only available to the body setting up the test.   We distinguish between known matches (same source samples) and known non-matches (samples from different sources).
+% In particular, ground truth in case work is not known. \svp{move this up a bit?}
+\svp{Studies must control for or systematically vary the type of implement making the pattern, manufacturing order (in many cases), and similar factors, while also controlling the amount of information available to the examiner about the study design and structure. 
+When this information is not strictly controlled, examiners may use strategies (e.g. deductive reasoning) that are useful for the test but that do not apply to casework.}
+As a result, studies which attempt to gain insight into the identification process must also navigate these complexities, ideally without becoming too complicated to reasonably execute.
 
 There are several considerations when designing a study of the identification process:
 \begin{description}
 \item [Closed vs. Open Set] A closed set study is one in which all questioned samples share the same source as one set of  knowns in the test set. Conversely, an open set study is one in which questioned samples may originate from sources which are not part of the known samples provided in the test set.
 \item [White box vs. Black Box] A white-box study is one which makes an attempt to understand \emph{why} an examiner came to the decision, in contrast to a black box study, which only evaluates the correctness of the decision (and not the reasoning behind it). 
-\item [Blind testing] A blind (or blinded) study is one in which the participant (in this case the examiner) does not know that they are being tested; that is, a study which appears to be part of a case, rather than research. \citet{pcast2016} recommended that the use of blind testing be increased, as error rates derived from blind studies better generalize to casework.
+\item [Blind testing] A blind (or blinded) study is one in which the participant (in this case the examiner) does not know that they are being tested; that is, a study which appears to be part of a case, rather than research. \citet{pcast2016} recommended that the use of blind testing be increased, as error rates derived from blind studies better generalize to casework. 
 \item [Number of knowns from different sources] Some studies \citep{keisler} provide only one known exemplar (or a set of multiple exemplars from the same source). Other studies, such as \citep{brundage, hamby,Hamby:2018hu} and the Houston FSC and Phoenix studies from \citet{case-validation}, include multiple different sources as knowns. %Typically, these studies can be completed with the assumption that once an unknown matches one known, it will not match any other knowns. \svp{Add in the issues with this later}
 \item [Study length] Most crime labs are understaffed and maintain a fairly large backlog of cases; as a consequence, examiner time is limited. While examiners should participate in these studies, because they benefit the discipline as a whole, they must balance the competing demands of a large and consequential workload. As such, studies which require examiners to make a large number of comparisons may be less likely to have sufficient participants to generalize to the wider discipline.
 \end{description}
 
 
-
-
-Ground truth and error rates: 
-
-Ground truth is the knowledge of whether two samples come from the same source or come in fact from two different sources. This knowledge is only available to the body setting up the test.   We distinguish between known matches (same source samples) and known non-matches (samples from different sources).
-In particular, ground truth in case work is not known. \svp{move this up a bit?}
-
 %% Transition to error rates
-Once a study is run and test samples have been assessed by forensic examiners, error rates can be calculated. Differences between reported results and ground truth are considered to be errors in the identification process. %A detailed discussion on the the exact procedure on how to deal with inconclusive results in calculating error rates is provided in section XXX.
+Once a study is \svp{designed} and test samples have been assessed by forensic examiners, error rates can be calculated. Differences between reported results and ground truth are considered to be errors in the identification process. %A detailed discussion on the the exact procedure on how to deal with inconclusive results in calculating error rates is provided in section XXX.
 
 
 
@@ -235,7 +227,13 @@ Indeed, when jurors are left to form their own conclusions about the error rates
 
 \begin{displayquote} In an online experiment, researchers asked mock jurors to estimate the frequency that a qualified, experienced forensic scientist would mistakenly conclude that two samples of specified types came from the same person when they actually came from two different people. The mock jurors believed such errors are likely to occur about 1 in 5.5 million for fingerprint analysis comparison; 1 in 1 million for bitemark comparison; 1 in 1 million for hair comparison; and 1 in 100 thousand for handwriting comparison.\end{displayquote}
 
-Unfortunately, the way in which error rates are computed and reported in the (relatively sparse) literature involving estimating these error rates experimentally is highly variable. In this paper, we will evaluate several studies to assess the technical accuracy and practical utility of the reported error rates. Before approaching the actual studies, it may be useful to explain the logic behind the probability calculations and define some basic notation to facilitate comparison of studies with different structure. 
+Unfortunately, the way in which error rates are computed and reported in the (relatively sparse) literature involving estimating these error rates experimentally is highly variable. 
+\citet{Dror:2018fp} \svp{suggested treating} inconclusive results as an examiner's conscious decision to not decide on an identification or elimination. 
+This view has drawn some criticism \citep{Biedermann:2018hr}. 
+\svp{Inconclusives can be excluded from result calculations, included as correct results, or included as incorrect results; each of these decisions has an impact on the interpretation of the resulting error rates.}
+In this paper, we \svp{discuss} the treatment of inconclusives in the assessment of error rates from a statistical point of view, % We believe that this -- rather than further dividing the different opinions -- provides a unifying framework.
+\svp{examining previous error rate studies to assess the technical accuracy and practical utility of the reported error rates. }
+\svp{Before approaching the actual studies, it may be useful to explain the logic behind the probability calculations and define some basic notation to facilitate comparison of studies with different structure.}\svp{XXX probability hasn't been discussed yet - need to nail down terminology between probability and error rate and conditional error rate XXX}
 
 \subsection{Fundamentals of Probability}
 
