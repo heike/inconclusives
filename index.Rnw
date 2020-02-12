@@ -235,7 +235,7 @@ In this paper, we \svp{discuss} the treatment of inconclusives in the assessment
 \svp{examining previous error rate studies to assess the technical accuracy and practical utility of the reported error rates. }
 \svp{Before approaching the actual studies, it may be useful to explain the logic behind the probability calculations and define some basic notation to facilitate comparison of studies with different structure.}\svp{XXX probability hasn't been discussed yet - need to nail down terminology between probability and error rate and conditional error rate XXX}
 
-\subsection{Fundamentals of Probability}
+\subsection{Evaluating Classification Decisions}
 
 
 When discussing error rates, it is helpful to think in terms of conditional probability, that is, the probability of an event occurring, taking into account additional information. This additional information may be assumed for the sake of logical reasoning about the likelihood of different conditional events, or it may be known and used to update assessments of probabilities computed before the event was known. \svp{This is confusing and needs a lot of work}
