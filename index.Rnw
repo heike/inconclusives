@@ -308,6 +308,8 @@ $X = $Reality & Identification & Inconclusive & Elimination \\\hline
 }
 \end{table}
 
+\svp{A google sheets workbook for performing these calculations is available at \url{http://bit.ly/FTE-error-rate}.}
+
 Given this series of different conditional probabilities, we now must determine which quantities are useful when evaluating the performance of examiner
 
 The set of conditional probabilities in \autoref{tab:generic-probabilities} are all equally important in the assessment of the process of evidence examination. However, standard evaluations of classification algorithms (or human decision making), such as false positive and false negative rates, or sensitivity and specificity \svp{XXX cite...?} generally involve classification states which precisely mirror reality; these problems do not usually involve inconclusive classifications. More precisely, in most classification problems, the number of real classes is the same as the number of possible decisions; in forensics, there is an asymmetry caused by the addition of the inconclusive decision. This difference between forensic evaluation and classification problems which are more commonly evaluated provides an unfortunate opportunity for confusion when using the same methods for assessing forensic decision making. 
