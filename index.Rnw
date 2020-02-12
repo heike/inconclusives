@@ -729,6 +729,7 @@ Different source & 0.0169 & ? & ? \\\hline
 }
 \end{table}
 
+\subsection{Bunch \& Murphy Study \cite{bunch2003comprehensive}}
 \section{Discussion and Conclusions}
 
 number of firearms very small 
