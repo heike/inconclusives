@@ -445,8 +445,7 @@ In the next section, we will examine the results from a number of studies of the
 
 \hh{In the absence of knowing the truth we have to resort to working within a probabilistic framework to assess the likelihood of certain events. Some (XXX? quantify?) evidence is based on questions of pattern matching: does the shoe print from the crime scene match a particular shoe? was the bullet found at a crime scene fired from a particular weapon? does the breech face impression on a cartridge case from the crime scene match the breech face of a particular weapon frame?}
 
-\hh{
-In these situations the fundamental quantity in question is the probability that two pieces of evidence come from the same source or from different sources. In a legal setting the opinion provided by the expert guides this assessment. So given expert testimony, how does or should the evaluation of the above probability change?  }
+In these situations the fundamental quantity in question is the probability that two pieces of evidence come from the same source or from different sources. In a legal setting the opinion provided by the expert guides this assessment. So given expert testimony, how does or should the evaluation of the above probability change?  
 
 The AFTE theory of firearms and toolmarks identification as shown in \autoref{tab:afte} allows an expert to come to three main conclusions: make an identification, i.e. two pieces of evidence are thought to come from the same source, make an elimination, i.e. two pieces of evidence are tought to come from different sources, or an inconclusive, i.e. the evidence does not allow either an identification or an elimination. 
 
@@ -486,20 +485,58 @@ In actual case work we are not able to assess the probabilities for same source 
 
 Baldwin , Keisler , Lyons \cite{lyons}, Hare, Fadul \cite{fadul}, Brundage-Hamby, Duez , Chumbley - can't find any examiner evaluations for Chumbley
 
-confidence interval used in Baldwin: Pearson-Clopper, applied to Keisler sensitivity and specificity:
+\autoref{fig:cis} shows an overview  of the conditional probability of same source evidence given an examiner's conclusion for five published studies. Probabilities are shown with their respective 95\% (Pearson-Clopper) confidence intervals.  In light grey, expected probabilities are shown based on the distribution of same source/different source comparisons and the number of participants in each study.
 
-<<r functions, echo=FALSE>>=
+<<cis, echo=FALSE, fig.width=8, fig.height=4.5, fig.cap="Pearson-Clopper 95\\% confidence intervals for the probability of same source given examiner's conclusion.", out.width=".8\\textwidth">>=
 clopper <- function(alpha, success, trials) {
   lower <- qbeta(alpha/2, success, trials-success+1)
   upper <- qbeta(1-alpha/2, success+1, trials-success)
   c(lower, upper)
 }
 
-# Keisler sensitivity
-clopper(0.05, 1508, 1512)
-# Keisler specificity
-clopper(0.05, 805, 1008)
+library(tidyverse)
+studies <- read.csv("data/studies.csv")
+cis <- studies %>% group_by(Study, Decision) %>% 
+  filter(Type == "Observed") %>%
+  summarize(
+    pred_ss = sum(Number[Ground.truth=="Same Source"])/sum(Number),
+    pred_ss_lower = clopper(0.05, sum(Number[Ground.truth=="Same Source"]), sum(Number))[1],
+    pred_ss_upper = clopper(0.05, sum(Number[Ground.truth=="Same Source"]), sum(Number))[2]
+  )
+
+exp <- studies %>% 
+  filter(Decision == "Inconclusive") %>%
+  group_by(Study, Decision) %>% 
+  summarize(
+    exp_ss = Number[Type=="Expected"][1] * sum(Number[Type == "Observed"]),
+    exp_ss_lower = clopper(0.05, exp_ss, sum(Number[Type == "Observed"]))[1],
+    exp_ss_upper = clopper(0.05, exp_ss, sum(Number[Type == "Observed"]))[2],
+    exp_prob = exp_ss/sum(Number[Type == "Observed"])
+  )
+  
+
+cis %>% 
+  ungroup() %>%
+  mutate(
+    Decision = factor(Decision, levels=c("Identification", "Inconclusive", "Elimination")),
+    Study = factor(Study, levels=c("Baldwin", "Keisler", "Duez", "Hamby", "Lyons"))
+  ) %>%
+  ggplot(aes(x = pred_ss, y = Study)) +
+  facet_grid(Decision~.) +
+  geom_vline(xintercept=c(0,1), colour = "grey20", size=0.25) +
+  geom_errorbarh(
+    aes(xmin = pred_ss_lower, xmax=pred_ss_upper, y=Study), 
+    size=0.5, height = 0.5, colour = "grey20") +
+  geom_point() +
+  xlim(c(0,1)) +
+  xlab("Probability for same source given examiner's decision") +
+  theme_bw() +
+  geom_point(aes(x = exp_prob, y = Study), data = exp, colour="grey80") +
+  geom_errorbarh(
+    aes(xmin = exp_ss_lower, xmax=exp_ss_upper, y=Study, x = exp_ss_lower),
+    size=0.5, height = 0.5, colour = "grey80", data = exp)
 @
+
 
 \subsection{Baldwin Study \cite{Baldwin:2014bb}}
 
