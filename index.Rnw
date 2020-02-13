@@ -544,7 +544,7 @@ Each kit consists of 15 sets of 3 known cartridge cases and 1 questioned. For al
 
 A total of 25 firearms was used for the study, such that within each kit no firearm was re-used for either knowns or questioned cartridge cases, i.e. no additional information could be gained by comparing any cartridge cases across sets.
 
-218 participants provided evaluations of the kits, evaluation results are shown in \autoref{tab:baldwin-totals}. Each of these evaluations is  based on a comparison of one questioned cartridge case to three known same source  cartridge cases.
+218 participants (self-reporting as active forensic firearm examiners) provided evaluations of the kits, evaluation results are shown in \autoref{tab:baldwin-totals}. Each of these evaluations is  based on a comparison of one questioned cartridge case to three known same source  cartridge cases.
 
 
 \begin{table}[hbt]
@@ -616,8 +616,8 @@ Only cartridge cases caught with the cartridge catching device (XXX name?) were 
 
 For 3234 comparisons, FTEs evaluated how many of the known cartridge cases were usable for an evaluation: all three specimens were used in 3018 cases, two were used in 207 cases, and only one was used in nine cases.
 
-
-
+``A very important aspect of this work that needs to be clearly understood is that the study specifically asked participants not to use their laboratory or agency peer review process."
+`` Some [participants] indicated that the design of our study with all cartridges fired from the same model of firearm using the same type of ammunition would prohibit the use of a finding of elimination"
 
 \subsection{Keisler Study \cite{keisler}}
 
@@ -669,6 +669,8 @@ Different source & 0.0000 & 0.9807 & 1.0000 \\\hline
 \end{table}
 
 Again, inconclusive results are much more indicative of different source results than they should be  based on the setup of the study; we would expect same source results with a probability of 0.60 given an inconclusive result. 
+
+``on the response sheet participants were asked if their laboratory had a policy which does not allow examiners to exclude based on individual characteristics. ... many participants answered `yes' to the laboratory policy question and answered `inconclusive' on all within-class comparisons that could have been correctly excluded."
 
 \subsection{Duez Study \cite{Duez:2017kha}}
 
