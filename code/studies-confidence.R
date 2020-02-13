@@ -19,8 +19,11 @@ cis %>%
   ) %>%
   ggplot(aes(x = pred_ss, y = Study)) +
   facet_grid(Decision~.) +
-  geom_vline(xintercept=c(0,1), colour = "black", size=0.25) +
-  geom_errorbarh(aes(xmin = pred_ss_lower, xmax=pred_ss_upper, y=Study), size=0.5, height = 0.5) +
+  geom_vline(xintercept=c(0,1), colour = "grey20", size=0.25) +
+  geom_errorbarh(
+    aes(xmin = pred_ss_lower, xmax=pred_ss_upper, y=Study), 
+    size=0.5, height = 0.5, colour = "grey20") +
   geom_point() +
   xlim(c(0,1)) +
-  xlab("Probability for same source given examiner's decision")
+  xlab("Probability for same source given examiner's decision") +
+  theme_bw()
