@@ -1,4 +1,4 @@
-\documentclass[doubleblind]{elsarticle}
+\documentclass{elsarticle}
 
 
 \usepackage{lineno,hyperref}
@@ -17,7 +17,7 @@
 \usepackage{csquotes}% display/block quotes
 
 \setlength{\parindent}{0cm} % remove paragraph indent
-\usepackage[skip=\baselineskip]{parskip}
+\usepackage{parskip}
 
 \newenvironment{definition}[1]% environment name 
 {% begin code 
@@ -101,12 +101,12 @@
 % \address[mysecondaryaddress]{360 Park Avenue South, New York}
 
 \author[isu,csafe]{Heike Hofmann}
-\author[isu,csafe]{Alicia Carriquiry}
-\cortext[corauthor]{Corresponding author}\ead{srvander@iastate.edu}
-\author[unl]{Susan Vanderplas\corref{corauthor}}
+\author[isu,csafe]{Alicia Carriquiry\corref{corauthor}}
+\cortext[corauthor]{Corresponding author}\ead{alicia@iastate.edu}
+\author[unl]{Susan Vanderplas}
 \address[isu]{Statistics Department, Iowa State University\\2438 Osborne Dr, Ames, IA 50011}
 \address[csafe]{Center for Statistical Applications in Forensic Evidence, Iowa State University\\613 Morrill Rd, Ames, IA 50011}
-\address[unl]{University of Nebraska-Lincoln}   
+\address[unl]{Statistics Department, University of Nebraska Lincoln\\340 Hardin Hall North Wing, Lincoln, NE 68583-0963}   
 
 \begin{abstract}
 The treatment of inconclusives in the assessment of errors has been a long-standing issue with far-reaching implications in the legal system. 
@@ -163,7 +163,7 @@ Examiners visually classify similarity of toolmark and firearm evidence accordin
 
 \begin{table}[hbt]
 \noindent\fbox{%
-    \parbox{\textwidth}{%
+\parbox{.98\textwidth}{%
 \begin{enumerate}
 \item Identification\hfill\newline
 Agreement of a combination of individual characteristics and all discernible class characteristics where the extent of agreement exceeds that which can occur in the comparison of toolmarks made by different tools and is consistent with the agreement demonstrated by toolmarks known to have been produced by the same tool.
