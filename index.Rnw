@@ -244,7 +244,13 @@ The most common way to assess the accuracy of a classification method is to calc
 \caption{Tree Diagram illustrating the logic of source-specific error rates. We must first decide whether we are interested in same-source or different-source rates, and then examine the probabilities for each of the possible labels: Identification, Inconclusive, and Elimination.}\label{fig:FPR-specific-tree}
 \end{figure}
 
-The use of false positive and false negative rates to characterize a classification task is extremely common, however, there are alternate ways to evaluate a classification method. In medicine, in particular, it is common to evaluate tests based on the positive and negative predictive value. The \emph{positive predictive value}(PPV) is the probability that, if an examiner makes an identification, the evidence is from the same source, that is, $P(SS | Identification)$. The \emph{negative predictive value}(NPV) is the probability that, if an examiner makes an exclusion, the evidence is from different sources, or $P(DS | Exclusion)$. Predictive value assessments are extremely useful in understanding the implications of a particular classification label on the likelihood of reality. We can map out the conditional hierarchy using a decision tree, shown in \autoref{fig:PPV-specific-tree}. While PPV and NPV are typically calculated to assess success rather than error, we can of course consider the likelihood of same source evidence given an examiner exclusion (FOR, false omission rate), or the probability of different-source evidence given an examiner identification (FDR, false discovery rate). 
+The use of false positive and false negative rates to characterize a classification task is extremely common, however, there are alternate ways to evaluate a classification method. 
+% In medicine, in particular, it is common to evaluate tests based on the positive and negative predictive value. 
+The \emph{positive predictive value}(PPV) is the probability that, if an examiner makes an identification, the evidence is from the same source, that is, $P(SS | Identification)$. 
+The \emph{negative predictive value}(NPV) is the probability that, if an examiner makes an exclusion, the evidence is from different sources, or $P(DS | Exclusion)$. 
+Predictive value assessments are extremely useful in understanding the implications of a particular classification label on the likelihood of reality. 
+We can map out the conditional hierarchy using a decision tree, shown in \autoref{fig:PPV-specific-tree}. 
+While PPV and NPV are typically calculated to assess success rather than error, we can of course consider the probability of same source evidence given an examiner exclusion (FOR, false omission rate), or of different-source evidence given an examiner identification (FDR, false discovery rate). 
 
 \begin{figure}
 \centering
