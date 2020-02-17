@@ -1,0 +1,64 @@
+
+
+% When discussing error rates, it is helpful to think in terms of conditional probability, that is, the probability of an event occurring, taking into account additional information. This additional information may be assumed for the sake of logical reasoning about the likelihood of different conditional events, or it may be known and used to update assessments of probabilities computed before the event was known. \svp{This is confusing and needs a lot of work}
+% 
+% Mathematically, we would write the probability of an event $E$ conditional on another event $A$ as $P(E | A)$. 
+% Mathematically, conditional probability is a function of the probability of the both events: 
+% \begin{align}P(E \text{ and } A) &= P(E|A) P(A), \text{ so}\nonumber\\
+% P(E|A) &= \frac{P(E \text{ and } A)}{P(A)}.\label{eqn:cond-prob}
+% \end{align}
+% 
+% That is, the probability of both $E$ and $A$ occurring is equal to the probability of $E$ given that $A$ has occurred, multiplied by the probability that $A$ has occurred. 
+% If there are only two possible outcomes, $A$ and $B$, then, using basic logic (or the law of total probability), we can write the probability of an event $E$ as $$P(E) = P(E|A) P(A) + P(E|B) P(B).$$ That is, if we know the probabilities of $A$ and $B$, and the probability of $E$ conditioned on $A$ and $B$ (separately), we can calculate the probability of $E$ directly. 
+
+% There is one last piece of this probability puzzle that is necessary before we begin a discussion of specific error rates, and that is known as Bayes theorem \svp{cite?}. 
+% \svp{Bayes rule}
+% During the study design, experimenters determine the probability of a same-source evaluation (and the complementary probability of a different-source evaluation); this is a function of the study design. In our example above, a same-source evaluation might correspond to event $A$ and a different-source evaluation to event $B$. \svp{This may need to come later during the calculation stage?}
+
+
+When an examiner assesses a set of evidence (generally, a pair of items, one of known provenance and one of unknown provenance) and decides whether the evidence is an identification, inconclusive, or an elimination, they are \emph{classifying} the evidence according to a classification scheme.
+Classification problems are common - medical tests will classify samples into cancerous or benign, and toddlers will sort blocks into red, green, and blue piles.
+We assess the accuracy of a classification problem using \emph{success rates} and \emph{error rates}, that is, with numerical quantities indicating how often the classification scheme produces correct and incorrect results.
+
+
+Consider, for a moment, the problem of a toddler sorting colored blocks into red, green, and blue piles.
+To assess the child's accuracy rate, we could count up all of the blocks which are not in the correct pile and divide by the total number of blocks to get the \emph{overall accuracy rate}.
+If, however, blue blocks are much more common than red or green blocks, the overall error rate may not tell us much about whether the toddler is sorting correctly; in the extreme case, the toddler might pile all of the blocks together, call the pile blue, and have a (relatively) low error rate.
+This occurs because the relative rarity of red and green blocks in this scenario causes the overall error rate to provide relatively little information about the toddler's color classification skills.
+We might, instead, want to consider conditional error rates: that is, what are the classification error rates for each color of block, considered separately?
+In our extreme example, we would have 100\% error rates for the red and green classes (because each of these blocks was assigned the blue label), and 0\% error rate for the blue class (because all blue blocks are in the correct category).
+
+The conditional error rates based on the real color of the block, that is, the label that is known a priori, provide one way to look at the data more carefully.
+These error rates provide information about the probability that a block of a specified color is assigned the correct label, that is, probabilities specific to the source.
+Another way to consider the data would be to examine the probabilities that, given the label assigned to the block, the block is classified as red, green, or blue.
+These probabilities, which are specific to the conclusion, provide different information: given that the block is in the blue pile, what is the probability that it is actually blue?
+
+We will term these \emph{conditional probabilities} {\bf source-specific} probabilities (probabilities depending on the real class of the evidence) and {\bf conclusion-specific} probabilities (probabilities which depend on the conclusion or label assigned to the evidence).
+
+Conditional probabilities or error rates are frequently used to describe evidence, and must be interpreted correctly.
+Incorrectly equating conditional probabilities is the source of the prosecutor's fallacy\cite{thompsonInterpretationStatisticalEvidence1987}, and similar errors can be made when considering conditional error rates.
+Translating our toddler block scenario to forensic evidence, we have two states of reality: the evidence originates from the same source, or the evidence originates from different sources.
+Additionally, using the AFTE Theory of Identification, we have three possible categories\footnote{We will assume the decision about whether evidence is suitable for comparison is made at an earlier stage of the process}: Identification, Inconclusive, and Elimination.
+Thus, our source-specific accuracy rates would be the probability that (if the evidence came from the same source) the examiner assigns the label Identification, Inconclusive, or Elimination, respectively.
+
+During testimony, an examiner might report that the probability of making an identification is 98\% when comparing two items from the same source, or that the probability of making an identification if the items originated from different sources (e.g. a false identification) is 0.05\%. 
+In both cases, these are source-specific conditional probabilities.
+The problem with source-specific conditional probabilities is that we do not know, when considering evidence in a particular case, whether we have same-source or different-source evidence - we do not know ground truth for casework.
+Thus, source-specific conditional probabilities do not provide us with enough relevant information about the accuracy of an examination.
+What would be more informative in this situation, where we have the examiner's conclusion, but do not know whether the evidence is from same or different source(s), is the conclusion-specific conditional probabilities.
+
+
+% \subsection{Conditional Error Rates}\label{sec:conditional-prob}
+% Using \autoref{tab:generic-results}, we can then calculate the following conditional probabilities which relate to the results of an evaluation of two items:
+% 
+% \newcommand{\vbar}{$ | $~}
+% \begin{description}
+% \item [P(same source \vbar examiner makes an identification)] The probability that, assuming the examiner makes an identification, the two items came from the same source. We will refer to this using the shorthand $P(SS|Identification)$. This would be one of two possible correct decisions made during an evaluation and is known as a \emph{true positive}; the rate or probability of this event is known as the \emph{true positive rate} or the \emph{sensitivity}.
+% \item [P(different source \vbar examiner makes an identification)] The probability that the two items come from different sources, given that the examiner makes an identification. We will refer to this using the shorthand  $P(DS|Identification)$. This is one of two errors an examiner might make during an evaluation; the error is sometimes called a \emph{false positive}, with the probability or error rate termed the \emph{false positive rate}. \svp{something to make this relatable}\vspace{1em}
+% \item [P(same source \vbar examiner reports an inconclusive)] The probability that two items come from the same source given that the examiner reports the comparison as inconclusive. We will refer to this using the shorthand $P(SS|Inconclusive)$. 
+% \item [P(different source \vbar examiner makes an identification)] The probability that the two items come from different sources, given that the examiner reports the comparison as inconclusive. We will refer to this using the shorthand  $P(DS|Inconclusive)$. \vspace{1em}
+% \item [P(same source \vbar examiner makes an elimination)] The probability that two items come from the same source given that the examiner makes an elimination. We will refer to this using the shorthand $P(SS|Elimination)$. This is the second error that an examiner could make during an evaluation, and is termed a \emph{false negative} or a \emph{miss}. The probability or rate of such errors is termed the \emph{false negative rate} or \emph{miss rate}. 
+% \item [P(different source \vbar examiner makes an elimination)] The probability that the two items come from different sources, given that the examiner makes an elimination. We will refer to this using the shorthand  $P(DS|Elimination)$. This is the second of two correct decisions which could be made during an evaluation and is known as a \emph{true negative} and the rate at which it occurs is known as the \emph{true negative rate} or the \emph{specificity}. 
+% \end{description}
+% 
+% Generic formulas for these probabilities can each be calculated from the quantities in \autoref{tab:generic-results}. A similar table is shown in \autoref{tab:conclusion-spec-prob}, but instead of raw quantities describing evaluations, we have instead provided the conditional probabilities described at the beginning of this subsection (\autoref{sec:conditional-prob}). 

@@ -334,21 +334,6 @@ Diff source & $d/D$ & $e/D$ & $f/D$ & $D/N$\\\hline
 \end{table}
 \svp{A google sheets workbook for performing these calculations is available at \url{http://bit.ly/FTE-error-rate}.}
 
-
-% \subsection{Conditional Error Rates}\label{sec:conditional-prob}
-% Using \autoref{tab:generic-results}, we can then calculate the following conditional probabilities which relate to the results of an evaluation of two items:
-% 
-% \newcommand{\vbar}{$ | $~}
-% \begin{description}
-% \item [P(same source \vbar examiner makes an identification)] The probability that, assuming the examiner makes an identification, the two items came from the same source. We will refer to this using the shorthand $P(SS|Identification)$. This would be one of two possible correct decisions made during an evaluation and is known as a \emph{true positive}; the rate or probability of this event is known as the \emph{true positive rate} or the \emph{sensitivity}.
-% \item [P(different source \vbar examiner makes an identification)] The probability that the two items come from different sources, given that the examiner makes an identification. We will refer to this using the shorthand  $P(DS|Identification)$. This is one of two errors an examiner might make during an evaluation; the error is sometimes called a \emph{false positive}, with the probability or error rate termed the \emph{false positive rate}. \svp{something to make this relatable}\vspace{1em}
-% \item [P(same source \vbar examiner reports an inconclusive)] The probability that two items come from the same source given that the examiner reports the comparison as inconclusive. We will refer to this using the shorthand $P(SS|Inconclusive)$. 
-% \item [P(different source \vbar examiner makes an identification)] The probability that the two items come from different sources, given that the examiner reports the comparison as inconclusive. We will refer to this using the shorthand  $P(DS|Inconclusive)$. \vspace{1em}
-% \item [P(same source \vbar examiner makes an elimination)] The probability that two items come from the same source given that the examiner makes an elimination. We will refer to this using the shorthand $P(SS|Elimination)$. This is the second error that an examiner could make during an evaluation, and is termed a \emph{false negative} or a \emph{miss}. The probability or rate of such errors is termed the \emph{false negative rate} or \emph{miss rate}. 
-% \item [P(different source \vbar examiner makes an elimination)] The probability that the two items come from different sources, given that the examiner makes an elimination. We will refer to this using the shorthand  $P(DS|Elimination)$. This is the second of two correct decisions which could be made during an evaluation and is known as a \emph{true negative} and the rate at which it occurs is known as the \emph{true negative rate} or the \emph{specificity}. 
-% \end{description}
-% 
-% Generic formulas for these probabilities can each be calculated from the quantities in \autoref{tab:generic-results}. A similar table is shown in \autoref{tab:conclusion-spec-prob}, but instead of raw quantities describing evaluations, we have instead provided the conditional probabilities described at the beginning of this subsection (\autoref{sec:conditional-prob}). 
 In the next section, we will examine the results from a number of studies of the error rate of firearms examinations, identifying the results which are reported, converting these results (where possible) into the format used in \autoref{tab:generic-results}, and calculating the conditional probabilities in the format of \autoref{tab:conclusion-spec-prob}. Prior to that, however, it may be useful to develop one more idea: in a perfect world with examiners who are all-knowing, what should the results of these studies look like?
 
 \subsection{What makes an error?}
@@ -804,33 +789,6 @@ Opt. & \multicolumn{1}{c}{Meaning} & Missed Identification & \multicolumn{1}{c}{
 
 \footnotetext{\citet{lyons} reports 175 correct identifications, but it is clear from the discussion that one of those same source identifications was actually an inconclusive. 12 answer sheets with 12 correct identifications, one with 10 (out of 10) correct identifications, one with 9 correct identifications and 3 errors, and one with 11 correct identifications and one inconclusive. So 12*12 + 10 + 9 + 11 = 174. }
 
-% \begin{table}[hbt]
-% \centering
-% \caption{Evaluation results from Lyons Study. Note that because all unknowns match to a known, we can infer that there are at least the same number of different-source identifications as there are same-source eliminations. }\label{tab:lyons-totals}
-% {\tabulinesep=1.2mm
-% \begin{tabu}{|c|rrr|r|}\hline
-% Evaluations & \multicolumn{3}{c|}{$Y = $Examiner Conclusion} \\\hline
-% $X = $Reality & Identification & Inconclusive & Elimination & Totals \\\hline
-% Same source & 174\footnotemark &  1 & 3 & 178 \\
-% Different source & 3 & ? & ? & ? \\\hline
-% \end{tabu}
-% }
-% \end{table}
-% \footnotetext{\citet{lyons} reports 175 correct identifications, but it is clear from the discussion that one of those same source identifications was actually an inconclusive. 12 answer sheets with 12 correct identifications, one with 10 (out of 10) correct identifications, one with 9 correct identifications and 3 errors, and one with 11 correct identifications and one inconclusive. So 12*12 + 10 + 9 + 11 = 174. }
-% 
-% 
-% \begin{table}[hbt]
-% \centering
-% \caption{Conditional probabilities from Lyons Study. Note that because we cannot calculate the total number of different-source comparisons, we do not have the ability to estimate any probabilities which condition on examiner conclusions of inconclusive or elimination.}\label{tab:lyons}
-% {\tabulinesep=1.2mm
-% \begin{tabu}{|c|ccc|}\hline
-% $P(X | Y)$ & \multicolumn{3}{c|}{$Y = $Examiner Conclusion} \\\hline
-% $X = $Reality & Identification & Inconclusive & Elimination \\\hline
-% Same source & 0.9831 & ? & ? \\
-% Different source & 0.0169 & ? & ? \\\hline
-% \end{tabu}
-% }
-% \end{table}
 
 \subsection{Bunch \& Murphy Study \cite{bunch2003comprehensive}}
 \section{Discussion and Conclusions}
@@ -841,19 +799,6 @@ positive predictive value (control group) vs. post-test rate (for an individual 
 
 Implications for court process - examiner states error rate, defense asks for inconclusive rate (established during controlled testing?) and elimination rate
 
-\section{Other Thoughts/Interesting finds}
-\begin{itemize}
-\item Full pipeline errors
-  \begin{itemize}
-    \item \svp{\citet{edmondGuideInterpretingForensic2014} is a fingerprint study that discusses the potential for errors at any stage in the process and the limitations of error rate studies as they are currently performed.}
-    \item \svp{\citet{hozoDecisionMakingWhenData2008} calls for what seems to be full pipeline analysis of errors, with included components tailored to the goals of the research. Focused primarily on clinical trials, so a good portion of the paper doesn't apply...}
-  \end{itemize}
-  
-\item \svp{It may be worth comparing/contrasting AFTE guidelines to SWGTREAD and other disciplines (SWGTREAD has a few extra categories that make it interesting \citep{swgtread-conclusions-2013}) and Uniform Language Testimony and Reporting guidelines - e.g. \citet{ULTR-latent} and \citet{ULTR-firearms-pattern} (all of the ULTR guidelines are at \url{https://www.justice.gov/olp/uniform-language-testimony-and-reports}).}
-\item \svp{Inconclusives also show up in diagnostic medicine (x-rays, mammograms, scans). Is the statistical treatment there any different given that typically there are better defined populations and some available statistical information on those populations? It's also worth noting that you can recall the patient and do additional (informative) testing with people; with forensic evidence, you can't get better data than what you had initially. }
-
-\item \svp{From my read of \citet{tukeyConclusionsVsDecisions}, it seems to be an argument for inconclusives (e.g. doing nothing). It may be worth differentiating the error rate calculation focused on the examiner's decision from action taken by the legal system, which is a full-pipeline thing that includes systematic errors during evidence recording, collection, etc. (things the examiner doesn't control). What defendents care about is the full-scope conclusion, which includes consideration of all of the errors earlier in the pipeline. }
-\end{itemize}
 <<output-all-figs, eval = F, include = F>>=
 thisdoc <- readLines("index.Rnw")
 
