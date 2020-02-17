@@ -55,15 +55,23 @@ bunch_eval <- function(set) {
            f1 = as.numeric(set1), f2 = as.numeric(set2),
            idx = row_number(),
            match = set1 == set2,
+           # Set of ordered pairwise comparisons (by source)
            orderedf = map2_chr(as.numeric(set1), as.numeric(set2), 
                                function(x, y) sort(unique(c(x, y))) %>% paste(collapse = ",")),
+           # Calculate the highest source-source match found
            max_match = ifelse(match, f1, 0) %>% cummax %>% pmin(., i1 - 1),
+           # has the orderedf comparison been performed before?
            compared_before = map_lgl(idx, partial(prev_exists, x = orderedf))
     ) %>%
+    # Once a new source-source match is found, you still have to finish out the row
+    # with new comparisons, so group by row and take the min value
     group_by(i1) %>%
     mutate(min_match = min(max_match)) %>%
     ungroup() %>%
     mutate(full_row = pmin(f1, f2) <= min_match,
+           # If you've completed the full row of comparisons for that match
+           # and you have made the comparison before, you can infer the result
+           # from previous work
            inferred = full_row * compared_before)
  
   comparisons %>%
