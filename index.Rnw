@@ -257,26 +257,37 @@ While PPV and NPV are typically calculated to assess success rather than error, 
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth]{figures/Conclusion_Specific_Tree_Diagram.pdf}
-\caption{Tree Diagram illustrating the logic of positive and negative predictive value calculations. We must first select which conclusion we are interested in, and then examine the probability of each state of reality (same source or different sources) given that conclusion.}\label{fig:PPV-specific-tree}
+\caption{
+Tree Diagram illustrating the logic of positive and negative predictive value calculations. 
+We must first select which conclusion we are interested in, and then examine the probability of each state of reality (same source or different sources) given that conclusion.
+}\label{fig:PPV-specific-tree}
 \end{figure}
 
-The primary difference between the decision tree diagrams in Figure \ref{fig:FPR-specific-tree} and \ref{fig:PPV-specific-tree} is the conditioned state. When calculating the FPR and FNR, we condition on the source of the evidence and predict the examiner's classification, while when calculating PPV and NPV, we condition on the label assigned to the evidence by the examiner and predict the state of reality. The implications of the two sets of conditional probabilities are somewhat different as well. 
+The primary difference between the decision tree diagrams in Figure \ref{fig:FPR-specific-tree} and \ref{fig:PPV-specific-tree} is the conditioned state. 
+When calculating the FPR and FNR, we condition on the source of the evidence and predict the examiner's classification, while when calculating PPV and NPV, we condition on the label assigned to the evidence by the examiner and predict the state of reality. The implications of the two sets of conditional probabilities are somewhat different as well. 
 
-The medical context is perhaps a more approachable setting: a given test will have a sensitivity (true positive rate, TPR) and a specificity (true negative rate, TNR) that combined would yield the accuracy rate. However, if you as a patient are sent for a test which yields a positive result, what you care about is not the accuracy rate (because when testing for rare diseases the true negatives are much more common than true positives); it is the probability that, given your positive result, you actually have the disease. In tests for rare diseases which are highly accurate, the positive predictive value can be fairly small, because false positives are more common than the incidence rate of the disease.
+The medical context is perhaps a more approachable setting: a given test will have a sensitivity (true positive rate, TPR) and a specificity (true negative rate, TNR) that combined would yield the accuracy rate. 
+However, if you as a patient are sent for a test which yields a positive result, what you care about is not the accuracy rate (because when testing for rare diseases the true negatives are much more common than true positives); it is the probability that, given your positive result, you actually have the disease. 
+In tests for rare diseases which are highly accurate, the positive predictive value can be fairly small, because false positives are more common than the incidence rate of the disease.
 
-This difference is fairly critical when generalizing from designed studies to casework: in a designed study, the proportion of same-source and different-source comparisons is determined by the experimental design and is fixed, which makes the FPR and FNR (and the combined accuracy rate) reasonable metrics for comparison. However, we have no idea what the prevalence of same-source comparisons and different-source comparisons might be in casework. Thus, it is not particularly sensible to evaluate the accuracy of examiner performance on case work using metrics developed in designed experiments with fixed ratios of same-source and different-source comparisons.
+This difference is fairly critical when generalizing from designed studies to casework: in a designed study, the proportion of same-source and different-source comparisons is determined by the experimental design and is fixed, which makes the FPR and FNR (and the combined accuracy rate) reasonable metrics for comparison. 
+However, we have no idea what the prevalence of same-source comparisons and different-source comparisons might be in casework. 
+Thus, it is not particularly sensible to evaluate the accuracy of examiner performance on case work using metrics developed in designed experiments with fixed ratios of same-source and different-source comparisons.
 
-If we instead evaluate FTE accuracy using PPV and NPV, we avoid the need to know the prevalence of same-source and different-source comparisons; instead, we only need to know the examiner's conclusion from the evidence in the case. That is, in legal settings, it is the state of reality that is under debate; the examiner's opinion is testimony and is information we already have.
+If we instead evaluate FTE accuracy using PPV and NPV, we avoid the need to know the prevalence of same-source and different-source comparisons; instead, we only need to know the examiner's conclusion from the evidence in the case. 
+That is, in legal settings, it is the state of reality that is under debate; the examiner's opinion is testimony and is information we already have.
 
-
-%\thought{Would it be valid to use a PPV estimated from all FTEs, and then use the marginal probabilities from a single FTE in court? Probably not unless there was some guess of between-FTE variability in the PPV, right?}
-
-\svp{In order to calculate these different probabilities, we must first set up a hypothetical experiment, where participants complete $N$ total comparisons, broken down into $S$ same-source comparisons and $D$ different source comparisons.}
+\svp{
+In order to calculate these different probabilities, we must first set up a hypothetical experiment, where participants complete $N$ total comparisons, broken down into $S$ same-source comparisons and $D$ different source comparisons.
+}
 The study data would consist of evaluations reported in the form of a table \svp{which can be arranged in a form like the} generic table shown in \autoref{tab:generic-results}.
 
 \begin{table}
 \centering
-\caption{An example results table for a generic experiment where comparisons can be broken down as either from the same source or from different sources, and examiners classify each comparison as an identification, an inconclusive, or an elimination, as in the AFTE rules of identification. Define $S = a + b + c$ as the total number of same source comparisons, $D = d + e + f$ as the total number of different-source comparisons, and $N = S + D$ as the total number of comparisons. Then the probability of the occurrence of any cell in the interior of the table (a, b, c, d, e, or f) can be found by dividing the respective letter by $N$, the total number of comparisons.
+\caption{
+An example results table for a generic experiment where comparisons can be broken down as either from the same source or from different sources, and examiners classify each comparison as an identification, an inconclusive, or an elimination, as in the AFTE rules of identification. 
+Define $S = a + b + c$ as the total number of same source comparisons, $D = d + e + f$ as the total number of different-source comparisons, and $N = S + D$ as the total number of comparisons. 
+Then the probability of the occurrence of any cell in the interior of the table (a, b, c, d, e, or f) can be found by dividing the respective letter by $N$, the total number of comparisons.
 }\label{tab:generic-results}
 \begin{tabularx}{\textwidth}{Y|ccc|Y}
 \multicolumn{5}{c}{\bf Experiment Count Data}\\\hline
@@ -288,12 +299,14 @@ Diff Source & $d$ & $e$ & $f$ & $D = e + f + g$\\\hline
 \end{table}
 
 The \emph{joint probability} of any source condition and any examiner conclusion can be found by taking the corresponding cell in \autoref{tab:generic-results} and dividing by $N$, the total number of comparisons evaluated in the study. 
-\svp{Thus, the joint probability of a same-source comparison and examiner identification would be $a/N$, while the joint probability of a different-source comparison and examiner identification would be $d/N$. }
-
-\svp{Then, using the quantities in \autoref{tab:generic-results}, we can calculate the conclusion-specific probabilities as shown in \autoref{tab:fpr-fnr}.}
+Thus, the joint probability of a same-source comparison and examiner identification would be $a/N$, while the joint probability of a different-source comparison and examiner identification would be $d/N$. 
+Then, using the quantities in \autoref{tab:generic-results}, we can calculate the conclusion-specific probabilities as shown in \autoref{tab:fpr-fnr}.
 
 \begin{table}\centering
-\caption{Conclusion-specific probabilities, calculated using the quantities introduced in \autoref{tab:generic-results}. In each cell in the main body of the table, probabilities shown are the probability of source $X$, if the examiner's conclusion (one of Identification, Inconclusive, or Elimination) is $Y$. In the last row in the table, the marginal probabilities $P(Y)$ are shown, that is, the unconditional probability that the examiner's decision is $Y$. 
+\caption{
+Conclusion-specific probabilities, calculated using the quantities introduced in \autoref{tab:generic-results}. 
+In each cell in the main body of the table, probabilities shown are the probability of source $X$, if the examiner's conclusion (one of Identification, Inconclusive, or Elimination) is $Y$. 
+In the last row in the table, the marginal probabilities $P(Y)$ are shown, that is, the unconditional probability that the examiner's decision is $Y$. 
 }\label{tab:fpr-fnr}
 \begin{tabularx}{\textwidth}{Y|ccc|Y}
 \multicolumn{5}{c}{\bf Conclusion-Specific Probabilities}\\\hline
@@ -304,10 +317,14 @@ Diff source & $d/(a+d)$ & $e/(b+e)$ & $f/(c+f)$ & $D/N$\\\hline
 \end{tabularx}
 \end{table}
 
-\svp{Using the same data from \autoref{tab:generic-results}, we could also calculate predictive value probabilities as shown in \autoref{tab:pv-prob}.}
+Using the same data from \autoref{tab:generic-results}, we could also calculate predictive value probabilities as shown in \autoref{tab:pv-prob}.
 
 \begin{table}\centering
-\caption{Predictive value probabilities, calculated using the quantities introduced in \autoref{tab:generic-results}. In each cell in the main body of the table, probabilities shown are the probability of conclusion $Y$ (one of Identification, Inconclusive, or Elimination) if the source is $X$ (same, different). In the last row in the table, the marginal probabilities $P(Y)$ are shown, that is, the unconditional probability that the examiner's decision is $Y$. In the last column of the table, the marginal probabilities $P(X)$ are shown; these are determined by the experimental design.
+\caption{
+Predictive value probabilities, calculated using the quantities introduced in \autoref{tab:generic-results}. 
+In each cell in the main body of the table, probabilities shown are the probability of conclusion $Y$ (one of Identification, Inconclusive, or Elimination) if the source is $X$ (same, different). 
+In the last row in the table, the marginal probabilities $P(Y)$ are shown, that is, the unconditional probability that the examiner's decision is $Y$. 
+In the last column of the table, the marginal probabilities $P(X)$ are shown; these are determined by the experimental design.
 }\label{tab:pv-prob}
 \begin{tabularx}{\textwidth}{Y|ccc|Y}
 \multicolumn{5}{c}{\bf Predictive Value Probabilities}\\
@@ -319,17 +336,21 @@ Diff source & $d/D$ & $e/D$ & $f/D$ & $D/N$\\\hline
 \end{table}
 A google sheets workbook for performing these calculations is available at \url{http://bit.ly/FTE-error-rate}.
 
-
 Now that we have defined several different metrics for evaluating the errors made in a study, we will consider the role of inconclusives in pattern evidence examination. 
 
 \subsection{What makes an error?}
-The sets of conditional probabilities in \autoref{tab:fpr-fnr} and \autoref{tab:pv-prob} are important in the assessment of the process of evidence examination. However, standard evaluations of classification algorithms (or human decision making), such as false positive and false negative rates, or sensitivity and specificity \svp{XXX cite...?} generally involve classification states which mirror reality. More precisely, in most classification problems, the number of real classes is the same as the number of possible decisions. 
+The sets of conditional probabilities in \autoref{tab:fpr-fnr} and \autoref{tab:pv-prob} are important in the assessment of the process of evidence examination. 
+However, standard evaluations of classification algorithms (or human decision making), such as false positive and false negative rates, or sensitivity and specificity \svp{XXX cite...?} generally involve classification states which mirror reality. 
+More precisely, in most classification problems, the number of real classes is the same as the number of possible decisions. 
 \hh{The AFTE Rules of Identification introduce inconclusives as a  third decision into the process. Inconclusives do not correspond to a real state, we therefore} 
 have to decide how to handle them \hh{when assessing error rates}. 
 This difference between forensic evaluation and classification problems which are more commonly evaluated provides an unfortunate opportunity for confusion when using the same methods for assessing forensic decision making. 
 
-\autoref{tab:overall-err-rate} shows several different  error rate calculations, using the general structure of \autoref{tab:generic-results}. Each of these calculations has a  different meaning and interpretation; as a result, it is important to consider which error rate best suits the purpose of a  study \hh{and its interpretation in the larger framework of pattern evidence}. 
-In \autoref{tab:overall-err-rate}, option 0 corresponds to a definition of the overall error rate of a binary, symmetric decision process consisting of two actual states and two possible decisions. For  simplicity we will assume that the two actual states are SS (same source) and DS (different source) and the two decisions are Identification and Elimination. In this case, the overall error rate is the sum of the false positives and the false negatives, divided by the number of overall comparisons. 
+\autoref{tab:overall-err-rate} shows several different  error rate calculations, using the general structure of \autoref{tab:generic-results}. 
+Each of these calculations has a  different meaning and interpretation; as a result, it is important to consider which error rate best suits the purpose of a  study \hh{and its interpretation in the larger framework of pattern evidence}. 
+In \autoref{tab:overall-err-rate}, option 0 corresponds to a definition of the overall error rate of a binary, symmetric decision process consisting of two actual states and two possible decisions. 
+For  simplicity we will assume that the two actual states are SS (same source) and DS (different source) and the two decisions are Identification and Elimination. 
+In this case, the overall error rate is the sum of the false positives and the false negatives, divided by the number of overall comparisons. 
 
 
 
@@ -341,7 +362,9 @@ In \autoref{tab:overall-err-rate}, option 0 corresponds to a definition of the o
 \newcommand{\xsq}{\protect\fcolorbox{black}{white!100}{\makebox[1.25em][c]{x\vphantom{dp}}}}
 
 \begin{fmpage}{\textwidth}\protect\captionof{table}{Different ways to calculate the overall error rate.}
-Reading this table: An arrangement of two rows of three boxes then resembles the interior cells of \autoref{tab:generic-results}, where \pbox{10em}{\mbox{\whitesq{a}\whitesq{b}\whitesq{c}}\\\mbox{\whitesq{d}\whitesq{e}\whitesq{f}}} are the six conditional quantities under discussion. Let \pbox{1.65em}{\whitesq{}} ~correspond to a correct decision, indicating that the box is to be included in the denominator of the calculation, \pbox{1.65em}{\graysq{}} indicate that the box is to be conditionally excluded from the calculation, and \pbox{1.65em}{\redsq{}} correspond to an incorrect decision, indicating that the box is to be included in the numerator and denominator of the calculation. 
+Reading this table: 
+An arrangement of two rows of three boxes then resembles the interior cells of \autoref{tab:generic-results}, where \pbox{10em}{\mbox{\whitesq{a}\whitesq{b}\whitesq{c}}\\\mbox{\whitesq{d}\whitesq{e}\whitesq{f}}} are the six conditional quantities under discussion. 
+Let \pbox{1.65em}{\whitesq{}} ~correspond to a correct decision, indicating that the box is to be included in the denominator of the calculation, \pbox{1.65em}{\graysq{}} indicate that the box is to be conditionally excluded from the calculation, and \pbox{1.65em}{\redsq{}} correspond to an incorrect decision, indicating that the box is to be included in the numerator and denominator of the calculation. 
 
 \begin{tabularx}{\linewidth}{llcl}
 \# & Type & Illustration & $P(Error) = $\\
@@ -354,29 +377,45 @@ Reading this table: An arrangement of two rows of three boxes then resembles the
 
 
 
-One reasonable solution to the inconclusive problem would be to calculate the probability of an error given that the classification was not inconclusive, as in option 1 of \autoref{tab:overall-err-rate}. Note that if we condition on the decision being either identification or elimination, the probability calculations for scenarios 0 and 1 in \autoref{tab:overall-err-rate} are identical; the only difference between the two is the setup of the scenario: In scenario 1, we allow for inconclusives as a decision category but restrict them from the calculation of the error rate entirely; in scenario 0, inconclusives are not a valid conclusion. This solution does entirely ignore inconclusives, though, and as they are part of the process and can be included in examiner testimony (usually phrased as ``could not be excluded"), this elimination from consideration is not appropriate if the goal of a study is to assess the error rate of the entire evaluation process. \svp{\citet{koehlerProficiencyTestsEstimate2013} recommends using the option 1 approach for calculating error rates while  also tracking rates of inconclusive identifications ``for other purposes", perhaps including reporting during testimony.}\svp{The last clause needs work here XXX}
+One reasonable solution to the inconclusive problem would be to calculate the probability of an error given that the classification was not inconclusive, as in option 1 of \autoref{tab:overall-err-rate}. 
+Note that if we condition on the decision being either identification or elimination, the probability calculations for scenarios 0 and 1 in \autoref{tab:overall-err-rate} are identical; the only difference between the two is the setup of the scenario: 
+In scenario 1, we allow for inconclusives as a decision category but restrict them from the calculation of the error rate entirely; in scenario 0, inconclusives are not a valid conclusion. 
+This solution does entirely ignore inconclusives, though, and as they are part of the process and can be included in examiner testimony (usually phrased as ``could not be excluded"), this elimination from consideration is not appropriate if the goal of a study is to assess the error rate of the entire evaluation process. 
+\svp{\citet{koehlerProficiencyTestsEstimate2013} recommends using the option 1 approach for calculating error rates while  also tracking rates of inconclusive identifications ``for other purposes", perhaps including reporting during testimony.}\svp{The last clause needs work here XXX}
 
-Under AFTE's Theory of Identification, however, inconclusive results are acceptable outcomes and not considered errors; to give a very extreme example,  an examiner could report inconclusives for the rest of their career and never make an error. Option 2 shows this way of treating inconclusives as correct regardless of the actual state.
-%In order to successfully accommodate this, we would likely calculate $P(Elimination | SS) = c/S$ as the false negative rate, and $P(Identification|DS) = d/D$ as the false positive rate (Note that the conditioning in these probabilities is flipped; instead of considering each column in the table as a separate group, these probabilities are conditioned on rows). Combining these two rates to get an overall error rate produces the equation for Option 1 in \autoref{tab:overall-err-rate}. 
-What this means in real terms, is that inconclusives are effectively counted as identifications if they are actually from the same source, but counted as eliminations if they are actually from a different source. When the goal is to assess the error rate of the examiner under the prevailing guidelines of the AFTE Theory of Identification, this is a reasonable option for assessing error rates of firearm and toolmark examiners, with the slightly odd side-effect that an examiner who marks every comparison as inconclusive does not provide any useful actionable information, but effectively has a zero error rate. 
+Under AFTE's Theory of Identification, however, inconclusive results are acceptable outcomes and not considered errors; to give a very extreme example, an examiner could report inconclusives for the rest of their career and never make an error. Option 2 shows this way of treating inconclusives as correct regardless of the actual state.
+What this means in real terms, is that inconclusives are effectively counted as identifications if they are actually from the same source, but counted as eliminations if they are actually from a different source. 
+When the goal is to assess the error rate of the examiner under the prevailing guidelines of the AFTE Theory of Identification, this is a reasonable option for assessing error rates of firearm and toolmark examiners, with the slightly odd side-effect that an examiner who marks every comparison as inconclusive does not provide any useful actionable information, but effectively has a zero error rate. \svp{XXXthis is repeating something said above, though I'm not sure that's a bad thing XXX}
 
-When viewed within the framework of the legal system, error rates calculated using option 2  are  not considering any error introduced by the evidence itself. If e.g. a firearm does not mark well, a firearms examiner might not be able to make an identification or an elimination through no fault of theirs. However, 
-from the wider perspective of the \emph{system}, it is  important to look at the overall error rate of the entire process. This requires that we consider the errors from the perspective of the real-world state: two pieces of evidence are  either from the same source or originate from different sources; an inability to distinguish between those options is an error in the \emph{process} even it if is not an error made on the part of the examiner. 
+When viewed within the framework of the legal system, error rates calculated using option 2  are  not considering any error introduced by the evidence itself. 
+If e.g. a firearm does not mark well, a firearms examiner might not be able to make an identification or an elimination through no fault of theirs. 
+However, from the wider perspective of the \emph{system}, it is  important to look at the overall error rate of the entire process.
+This requires that we consider the errors from the perspective of the real-world state: two pieces of evidence are  either from the same source or originate from different sources; an inability to distinguish between those options is an error in the \emph{process} even it if is not an error made on the part of the examiner. 
 
-Option 3 of \autoref{tab:overall-err-rate} reflects this global view by counting  inconclusives as errors. Practically, option 3 reflects the error of the examination process rather than the examiner as an individual. To illustrate why this is the case, consider that an examiner may, upon inspection of a fired bullet, find that there are insufficient individualizing characteristics to make an identification. This does not reflective negatively on the examiner's skill; it is merely a consequence of the contact made between the bullet and the barrel during the firing process. Nonetheless, even though a pair of evidence originated from the same physical source, it is not possible to evaluate the evidence and make an identification. The inconclusives are representative of the errors involved in the process of evidence recording, rather than the evaluation. 
+Option 3 of \autoref{tab:overall-err-rate} reflects this global view by counting  inconclusives as errors. 
+Practically, option 3 reflects the error of the examination process rather than the examiner as an individual. 
+To illustrate why this is the case, consider that an examiner may, upon inspection of a fired bullet, find that there are insufficient individualizing characteristics to make an identification. 
+This does not reflective negatively on the examiner's skill; it is merely a consequence of the contact made between the bullet and the barrel during the firing process. 
+Nonetheless, even though a pair of evidence originated from the same physical source, it is not possible to evaluate the evidence and make an identification. The inconclusives are representative of the errors involved in the process of evidence recording, rather than the evaluation. 
 
-In the next section, we will examine the results from a number of studies of the error rate of firearms examinations, identifying the results which are reported, converting these results (where possible) into the format used in \autoref{tab:generic-results}, and calculating the conditional probabilities in the format of \autoref{tab:fpr-fnr} and \autoref{tab:pv-prob}. Prior to that, however, it may be useful to develop one more idea: in a perfect world with examiners who are all-knowing, what should the results of these studies look like?
+In the next section, we will examine the results from a number of studies of the error rate of firearms examinations, identifying the results which are reported, converting these results (where possible) into the format used in \autoref{tab:generic-results}, and calculating the conditional probabilities in the format of \autoref{tab:fpr-fnr} and \autoref{tab:pv-prob}. 
+Prior to that, however, it may be useful to develop one more idea: in a perfect world with examiners who are all-knowing, what should the results of these studies look like?\svp{XXX This could be a bit better transition XXX}
 
 
 \subsection{Ideal study probabilities}
 
-\hh{In the absence of knowing the truth we have to resort to working within a probabilistic framework to assess the likelihood of certain events. Some (XXX? quantify?) evidence is based on questions of pattern matching: does the shoe print from the crime scene match a particular shoe? was the bullet found at a crime scene fired from a particular weapon? does the breech face impression on a cartridge case from the crime scene match the breech face of a particular weapon frame?}
+\hh{In the absence of knowing the truth we have to resort to working within a probabilistic framework to assess the likelihood of certain events. 
+Some (XXX? quantify?) evidence is based on questions of pattern matching: does the shoe print from the crime scene match a particular shoe? was the bullet found at a crime scene fired from a particular weapon? does the breech face impression on a cartridge case from the crime scene match the breech face of a particular weapon frame?}
+\svp{Other evidence, such as DNA, is based on formal measurement, but produces a certain signature or pattern which can also be evaluated using probabilistic methods.}
 
-In these situations the fundamental quantity in question is the probability that two pieces of evidence come from the same source or from different sources. In a legal setting the opinion provided by the expert guides this assessment. So given expert testimony, how does or should the evaluation of the above probability change?  
+In these situations the fundamental quantity in question is the probability that two pieces of evidence come from the same source or from different sources. 
+In a legal setting the opinion provided by the expert guides this assessment. 
+So given expert testimony, how does or should the evaluation of the above probability change?  
 
 The AFTE theory of firearms and toolmarks identification as shown in \autoref{tab:afte} allows an expert to come to three main conclusions: make an identification, i.e. two pieces of evidence are thought to come from the same source, make an elimination, i.e. two pieces of evidence are tought to come from different sources, or an inconclusive, i.e. the evidence does not allow either an identification or an elimination. 
 
-Given these three outcomes, we are interested for each the probability of same source and different sources, resulting in a total of six ($3 \times 2$) conditional probabilities. In a perfect world, we would expect the probabilities shown in \autoref{tab:ideal-probabilities}:
+Given these three outcomes, we are interested for each the probability of same source and different sources, resulting in a total of six ($3 \times 2$) conditional probabilities. 
+In a perfect world, we would expect the probabilities shown in \autoref{tab:ideal-probabilities}:
 
 \begin{table}
 \caption{Expected conditional probabilities in a perfect world.}\label{tab:ideal-probabilities}
@@ -392,10 +431,12 @@ Different source & $P(DS|Identification) = 0$ & $P(DS|Inconclusive) = P(DS)$ & $
 
 Most notably, we would expect inconclusive results to not show any dependence on the type of comparison unless there is some evidence provided by experts that one type of conclusion is more difficult to make than another.
 
-In actual case work we are not able to assess the probabilities for same source or different source.  However, those probabilities are easily accessible in studies or in blinded proficiency testing,\svp{ as $P(SS)$ and $P(DS)$ in these studies are determined by the experimental design.}
+In actual case work we are not able to assess the probabilities for same source or different source.  
+However, those probabilities are easily accessible in formal studies or blinded proficiency testing,\svp{ as $P(SS)$ and $P(DS)$ in these studies are determined by the experimental design.}
 
+
+\svp{XXX I think this should go into a different section talking about convention, personally, even possibly citing \citet{spiegelmanAnalysisExperimentsForensic2013} about standard operating procedures.}
 \hh{reporting of eliminations differs from lab to lab. Some labs do only allow firearm examiners to make eliminations based on differences in class characteristics. XXX quantify: baldwin, }
-
 
 %The probability to make an identification  could be either reported directly or calculated as a composite of true positive and false positive rates:
 
@@ -411,7 +452,9 @@ In actual case work we are not able to assess the probabilities for same source 
 
 Baldwin , Keisler , Lyons \cite{lyons}, Hare, Fadul \cite{fadul}, Brundage-Hamby, Duez , Chumbley - can't find any examiner evaluations for Chumbley
 
-\autoref{fig:cis} shows an overview  of the conditional probability of same source evidence given an examiner's conclusion for five published studies. Probabilities are shown with their respective 95\% (Pearson-Clopper) confidence intervals.  In light grey, expected probabilities are shown based on the distribution of same source/different source comparisons and the number of participants in each study.
+\autoref{fig:cis} shows an overview  of the conditional probability of same source evidence given an examiner's conclusion for five published studies. 
+Probabilities are shown with their respective 95\% (Pearson-Clopper) confidence intervals.  
+In light grey, expected probabilities are shown based on the distribution of same source/different source comparisons and the number of participants in each study.
 
 <<cis, echo=FALSE, fig.width=8, fig.height=4.5, fig.cap="Pearson-Clopper 95\\% confidence intervals for the probability of same source given examiner's conclusion.", out.width=".8\\textwidth">>=
 clopper <- function(alpha, success, trials) {
@@ -466,11 +509,15 @@ cis %>%
 
 \subsection{Baldwin Study \cite{Baldwin:2014bb}}
 
-Each kit consists of 15 sets of 3 known cartridge cases and 1 questioned. For all participants 5 of the sets were from same-source and 10 of the sets were from different sources. {\bf ``We instructed all participants to refrain from sharing or discussing the contents or results of their sample sets and answers to minimize the risk of revealing the design".} \hh{this is a weakness of the design,  but it also fixes the frequencies of same source and different source occurrences and with it the probabilities for the events:}
+Each kit consists of 15 sets of 3 known cartridge cases and 1 questioned. 
+For all participants 5 of the sets were from same-source and 10 of the sets were from different sources. 
+{\bf ``We instructed all participants to refrain from sharing or discussing the contents or results of their sample sets and answers to minimize the risk of revealing the design".} 
+\hh{this is a weakness of the design,  but it also fixes the frequencies of same source and different source occurrences and with it the probabilities for the events:}
 
 A total of 25 firearms was used for the study, such that within each kit no firearm was re-used for either knowns or questioned cartridge cases, i.e. no additional information could be gained by comparing any cartridge cases across sets.
 
-218 participants (self-reporting as active forensic firearm examiners) provided evaluations of the kits, evaluation results are shown in \autoref{tab:baldwin-totals}. Each of these evaluations is  based on a comparison of one questioned cartridge case to three known same source  cartridge cases.
+218 participants (self-reporting as active forensic firearm examiners) provided evaluations of the kits, evaluation results are shown in \autoref{tab:baldwin-totals}. 
+Each of these evaluations is  based on a comparison of one questioned cartridge case to three known same source  cartridge cases.
 
 
 \begin{table}[hbt]
@@ -521,7 +568,8 @@ Different source & 0.0201 & 0.9853 & 0.9972 \\\hline
 
 
 
-It seems that firearms examiners are more willing to bet on identifications than on eliminations. Based on the set up of the study, we would expect the probabilities for same and different source given an inconclusive result is reported to be: 
+It seems that firearms examiners are more willing to bet on identifications than on eliminations. 
+Based on the set up of the study, we would expect the probabilities for same and different source given an inconclusive result is reported to be: 
 \begin{eqnarray*}
 P(\text{same source} \mid \text{Inconclusive}) &=& P(\text{same source}) = \frac{1}{3},  \\
 P(\text{different source} \mid \text{Inconclusive}) &=& P(\text{different source}) = \frac{2}{3}
