@@ -253,6 +253,7 @@ The \emph{negative predictive value}(NPV) is the probability that, if an examine
 Predictive value assessments are extremely useful in understanding the implications of a particular classification label on the likelihood of reality. 
 We can map out the conditional hierarchy using a decision tree, shown in \autoref{fig:PPV-specific-tree}. 
 While PPV and NPV are typically calculated to assess success rather than error, we can of course consider the probability of same source evidence given an examiner exclusion (FOR, false omission rate), or of different-source evidence given an examiner identification (FDR, false discovery rate). 
+\svp{In \citet{songEstimatingErrorRates2018}, the FDR is referred to as the false identification error rate, and the FOR is called the false exclusion error rate.}
 
 \begin{figure}
 \centering
@@ -263,7 +264,7 @@ We must first select which conclusion we are interested in, and then examine the
 }\label{fig:PPV-specific-tree}
 \end{figure}
 
-The primary difference between the decision tree diagrams in Figure \ref{fig:FPR-specific-tree} and \ref{fig:PPV-specific-tree} is the conditioned state. 
+The primary difference between the decision tree diagrams in Figure \ref{fig:FPR-specific-tree} and \ref{fig:PPV-specific-tree} is the conditioned variable. 
 When calculating the FPR and FNR, we condition on the source of the evidence and predict the examiner's classification, while when calculating PPV and NPV, we condition on the label assigned to the evidence by the examiner and predict the state of reality. The implications of the two sets of conditional probabilities are somewhat different as well. 
 
 The medical context is perhaps a more approachable setting: a given test will have a sensitivity (true positive rate, TPR) and a specificity (true negative rate, TNR) that combined would yield the accuracy rate. 
