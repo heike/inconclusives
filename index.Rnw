@@ -190,9 +190,7 @@ Unsuitable for examination.
 
 The identification process -- i.e. the assessment of whether two samples come from the same source (were made by the same tool, the same shoe, the same finger, shot through the same barrel) or from different sources -- is quite complex. 
 In order to assess how well this process is functioning, studies with known ground truth have to be employed \svp{as} casework does not allow for an assessment of correctness. 
-\svp{Ground truth, that is, the knowledge of whether two samples come from the same source or two different sources, is only available to the individual setting up the test; as casework is not so strictly controlled, we do not have information about ground truth and thus cannot use casework for error rate assessment.} % Rephrasing of 
-% Ground truth is the knowledge of whether two samples come from the same source or come in fact from two different sources. This knowledge is only available to the body setting up the test.   We distinguish between known matches (same source samples) and known non-matches (samples from different sources).
-% In particular, ground truth in case work is not known. \svp{move this up a bit?}
+Ground truth, that is, the knowledge of whether two samples come from the same source or two different sources, is only available to the individual setting up the test; as casework is not so strictly controlled, we do not have information about ground truth and thus cannot use casework for error rate assessment.
 \svp{Studies must control for or systematically vary the type of implement making the pattern, manufacturing order (in many cases), maintenance procedures, ammunition or marking surface, and many other factors (see \citet{spiegelmanAnalysisExperimentsForensic2013} for a thorough review of all of the physical factors which might be controlled for or varied in a comprehensive study). In addition to the physical evidence-generation process, experimenters must carefully control the amount of information participants have about the study design and structure. When this information is not strictly controlled, examiners may use deductive reasoning and other strategies that are useful for the test but that do not correspond to casework.}
 As a result, studies which attempt to gain insight into the identification process must also navigate these complexities, ideally without becoming too complicated to reasonably execute.
 
@@ -229,77 +227,41 @@ Indeed, when jurors are left to form their own conclusions about the error rates
 Unfortunately, the way in which error rates are computed and reported in the (relatively sparse) literature involving estimating these error rates experimentally is highly variable. 
 \citet{Dror:2018fp} \svp{suggested treating} inconclusive results as an examiner's conscious decision to not decide on an identification or elimination. 
 This view has drawn some criticism \citep{Biedermann:2018hr}. 
-\svp{Inconclusives can be excluded from result calculations, included as correct results, or included as incorrect results; each of these decisions has an impact on the interpretation of the resulting error rates.}
+Inconclusives can be excluded from result calculations, included as correct results, or included as incorrect results; each of these decisions has an impact on the interpretation of the resulting error rates.
 In this paper, we \svp{discuss} the treatment of inconclusives in the assessment of error rates from a statistical point of view, % We believe that this -- rather than further dividing the different opinions -- provides a unifying framework.
-\svp{examining previous error rate studies to assess the technical accuracy and practical utility of the reported error rates. }
-\svp{Before approaching the actual studies, it may be useful to explain the logic behind the probability calculations and define some basic notation to facilitate comparison of studies with different structure.}\svp{XXX probability hasn't been discussed yet - need to nail down terminology between probability and error rate and conditional error rate XXX}
+examining previous error rate studies to assess the technical accuracy and practical utility of the reported error rates. 
+Before approaching the actual studies, it may be useful to explain the logic behind the \svp{numerical} calculations and define some basic notation to facilitate comparison of studies with different structure.\svp{XXX probability hasn't been discussed yet - need to nail down terminology between probability and error rate and conditional error rate XXX}
 
 \subsection{Evaluating Classification Decisions}\label{sec:evaluating-classification-decisions}
+When an examiner assesses a set of evidence (generally, a pair of items, one of known provenance and one of unknown provenance) and decides whether the evidence is an identification, inconclusive, or an elimination, they are \emph{classifying} the evidence.% according to a classification scheme.
+We assess the accuracy of a classification method using \emph{success rates} and \emph{error rates}, that is, with numerical quantities indicating how often the process produces correct and incorrect results.
 
-\svp{When an examiner assesses a set of evidence (generally, a pair of items, one of known provenance and one of unknown provenance) and decides whether the evidence is an identification, inconclusive, or an elimination, they are \emph{classifying} the evidence according to a classification scheme. 
-Classification problems are common - medical tests will classify samples into cancerous or benign, and toddlers will sort blocks into red, green, and blue piles. 
-We assess the accuracy of a classification problem using \emph{success rates} and \emph{error rates}, that is, with numerical quantities indicating how often the classification scheme produces correct and incorrect results.
-}
-
-\svp{Consider, for a moment, the problem of a toddler sorting colored blocks into red, green, and blue piles. 
-To assess the child's accuracy rate, we could count up all of the blocks which are not in the correct pile and divide by the total number of blocks to get the \emph{overall accuracy rate}.
-If, however, blue blocks are much more common than red or green blocks, the overall error rate may not tell us much about whether the toddler is sorting correctly; in the extreme case, the toddler might pile all of the blocks together, call the pile blue, and have a (relatively) low error rate.
-This occurs because the relative rarity of red and green blocks in this scenario causes the overall error rate to provide relatively little information about the toddler's color classification skills.
-We might, instead, want to consider conditional error rates: that is, what are the classification error rates for each color of block, considered separately?
-In our extreme example, we would have 100\% error rates for the red and green classes (because each of these blocks was assigned the blue label), and 0\% error rate for the blue class (because all blue blocks are in the correct category).
-}
-\svp{
-The conditional error rates based on the real color of the block, that is, the label that is known a priori, provide one way to look at the data more carefully. 
-These error rates provide information about the probability that a block of a specified color is assigned the correct label, that is, probabilities specific to the source.
-Another way to consider the data would be to examine the probabilities that, given the label assigned to the block, the block is classified as red, green, or blue. 
-These probabilities, which are specific to the conclusion, provide different information: given that the block is in the blue pile, what is the probability that it is actually blue?
-}
-\svp{We will term these \emph{conditional probabilities} {\bf source-specific} probabilities (probabilities depending on the real class of the evidence) and {\bf conclusion-specific} probabilities (probabilities which depend on the conclusion or label assigned to the evidence).}
-
-\svp{Conditional probabilities or error rates are frequently used to describe evidence, and must be interpreted correctly. 
-Incorrectly equating conditional probabilities is the source of the prosecutor's fallacy\cite{thompsonInterpretationStatisticalEvidence1987}, and similar errors can be made when considering conditional error rates.}
-\svp{Translating our toddler block scenario to forensic evidence, we have two states of reality: the evidence originates from the same source, or the evidence originates from different sources. 
-Additionally, using the AFTE Theory of Identification, we have three possible categories\footnote{We will assume the decision about whether evidence is suitable for comparison is made at an earlier stage of the process}: Identification, Inconclusive, and Elimination. 
-Thus, our source-specific accuracy rates would be the probability that (if the evidence came from the same source) the examiner assigns the label Identification, Inconclusive, or Elimination, respectively. 
-Figure \ref{fig:source-specific-tree} shows a decision tree for the source-specific accuracy rates.}
+The most common way to assess the accuracy of a classification method is to calculate the false positive rate and the false negative rate. The \emph{false positive rate} is the probability that an examiner makes an identification from evidence which is from different sources(DS), $P(Identification | DS)$. The \emph{false negative rate} is the probability that an examiner makes an elimination from evidence which originates from the same source (SS), $P(Elimination | SS)$. In both of these cases, the error rate is calculated conditioned on the origin of the evidence. \autoref{fig:FPR-specific-tree} shows a decision tree describing the possible comparisons which can be made conditioned on ground truth. The terminal nodes describe the joint probability of an examiner classification and ground truth; the ground truth nodes describe the probability of same-source or different-source comparisons, which is determined by the experimental design. If we wanted to calculate the false positive rate, we would take the far-right terminal node, and compare the probability of that node to the probability of the different source node which is its parent. Mathematically, $$P(Identification | DS) = \frac{P(Identification \text{ and } DS)}{P(DS)}.$$
 
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth]{figures/Source_Specific_Tree_Diagram.pdf}
-\caption{Tree Diagram illustrating the logic of source-specific error rates. We must first decide whether we are interested in same-source or different-source rates, and then examine the probabilities for each of the possible labels: Identification, Inconclusive, and Elimination.}\label{fig:source-specific-tree}
+\caption{Tree Diagram illustrating the logic of source-specific error rates. We must first decide whether we are interested in same-source or different-source rates, and then examine the probabilities for each of the possible labels: Identification, Inconclusive, and Elimination.}\label{fig:FPR-specific-tree}
 \end{figure}
 
-\svp{During testimony, an examiner might report that the probability of making an identification is 98\% when comparing two items from the same source, or that the probability of making an identification if the items originated from different sources (e.g. a false identification) is 0.05\%. 
-In both cases, these are source-specific conditional probabilities.}
-\svp{The problem with source-specific conditional probabilities is that we do not know, when considering evidence in a particular case, whether we have same-source or different-source evidence - we do not know ground truth for casework.
-Thus, source-specific conditional probabilities do not provide us with enough relevant information about the accuracy of an examination.
-What would be more informative in this situation, where we have the examiner's conclusion, but do not know whether the evidence is from same or different source(s), is the conclusion-specific conditional probabilities.
-}
+The use of false positive and false negative rates to characterize a classification task is extremely common, however, there are alternate ways to evaluate a classification method. In medicine, in particular, it is common to evaluate tests based on the positive and negative predictive value. The \emph{positive predictive value}(PPV) is the probability that, if an examiner makes an identification, the evidence is from the same source, that is, $P(SS | Identification)$. The \emph{negative predictive value}(NPV) is the probability that, if an examiner makes an exclusion, the evidence is from different sources, or $P(DS | Exclusion)$. Predictive value assessments are extremely useful in understanding the implications of a particular classification label on the likelihood of reality. We can map out the conditional hierarchy using a decision tree, shown in \autoref{fig:PPV-specific-tree}. While PPV and NPV are typically calculated to assess success rather than error, we can of course consider the likelihood of same source evidence given an examiner exclusion (FOR, false omission rate), or the probability of different-source evidence given an examiner identification (FDR, false discovery rate). 
 
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth]{figures/Conclusion_Specific_Tree_Diagram.pdf}
-\caption{Tree Diagram illustrating the logic of conclusion-specific error rates. We must first select which conclusion we are interested in, and then examine the probability of each state of reality (same source or different sources) given that conclusion.}\label{fig:conclusion-specific-tree}
+\caption{Tree Diagram illustrating the logic of positive and negative predictive value calculations. We must first select which conclusion we are interested in, and then examine the probability of each state of reality (same source or different sources) given that conclusion.}\label{fig:PPV-specific-tree}
 \end{figure}
 
-\svp{
-\autoref{fig:conclusion-specific-tree} shows a tree diagram which can be used to examine the probability that reality (same or different source) corresponds to the label assigned by the examiner.
-}
+The primary difference between the decision tree diagrams in Figure \ref{fig:FPR-specific-tree} and \ref{fig:PPV-specific-tree} is the conditioned state. When calculating the FPR and FNR, we condition on the source of the evidence and predict the examiner's classification, while when calculating PPV and NPV, we condition on the label assigned to the evidence by the examiner and predict the state of reality. The implications of the two sets of conditional probabilities are somewhat different as well. 
 
-% When discussing error rates, it is helpful to think in terms of conditional probability, that is, the probability of an event occurring, taking into account additional information. This additional information may be assumed for the sake of logical reasoning about the likelihood of different conditional events, or it may be known and used to update assessments of probabilities computed before the event was known. \svp{This is confusing and needs a lot of work}
-% 
-% Mathematically, we would write the probability of an event $E$ conditional on another event $A$ as $P(E | A)$. 
-% Mathematically, conditional probability is a function of the probability of the both events: 
-% \begin{align}P(E \text{ and } A) &= P(E|A) P(A), \text{ so}\nonumber\\
-% P(E|A) &= \frac{P(E \text{ and } A)}{P(A)}.\label{eqn:cond-prob}
-% \end{align}
-% 
-% That is, the probability of both $E$ and $A$ occurring is equal to the probability of $E$ given that $A$ has occurred, multiplied by the probability that $A$ has occurred. 
-% If there are only two possible outcomes, $A$ and $B$, then, using basic logic (or the law of total probability), we can write the probability of an event $E$ as $$P(E) = P(E|A) P(A) + P(E|B) P(B).$$ That is, if we know the probabilities of $A$ and $B$, and the probability of $E$ conditioned on $A$ and $B$ (separately), we can calculate the probability of $E$ directly. 
+The medical context is perhaps a more approachable setting: a given test will have a sensitivity (true positive rate, TPR) and a specificity (true negative rate, TNR) that combined would yield the accuracy rate. However, if you as a patient are sent for a test which yields a positive result, what you care about is not the accuracy rate (because when testing for rare diseases the true negatives are much more common than true positives); it is the probability that, given your positive result, you actually have the disease. In tests for rare diseases which are highly accurate, the positive predictive value can be fairly small, because false positives are more common than the incidence rate of the disease.
 
-% There is one last piece of this probability puzzle that is necessary before we begin a discussion of specific error rates, and that is known as Bayes theorem \svp{cite?}. 
-% \svp{Bayes rule}
-% During the study design, experimenters determine the probability of a same-source evaluation (and the complementary probability of a different-source evaluation); this is a function of the study design. In our example above, a same-source evaluation might correspond to event $A$ and a different-source evaluation to event $B$. \svp{This may need to come later during the calculation stage?}
+This difference is fairly critical when generalizing from designed studies to casework: in a designed study, the proportion of same-source and different-source comparisons is determined by the experimental design and is fixed, which makes the FPR and FNR (and the combined accuracy rate) reasonable metrics for comparison. However, we have no idea what the prevalence of same-source comparisons and different-source comparisons might be in casework. Thus, it is not particularly sensible to evaluate the accuracy of examiner performance on case work using metrics developed in designed experiments with fixed ratios of same-source and different-source comparisons.
+
+If we instead evaluate FTE accuracy using PPV and NPV, we avoid the need to know the prevalence of same-source and different-source comparisons; instead, we only need to know the examiner's conclusion from the evidence in the case. That is, in legal settings, it is the state of reality that is under debate; the examiner's opinion is testimony and is information we already have.
+
+
+%\thought{Would it be valid to use a PPV estimated from all FTEs, and then use the marginal probabilities from a single FTE in court? Probably not unless there was some guess of between-FTE variability in the PPV, right?}
 
 \svp{In order to calculate these different probabilities, we must first set up a hypothetical experiment, where participants complete $N$ total comparisons, broken down into $S$ same-source comparisons and $D$ different source comparisons.}
 The study data would consist of evaluations reported in the form of a table \svp{which can be arranged in a form like the} generic table shown in \autoref{tab:generic-results}.
