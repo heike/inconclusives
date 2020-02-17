@@ -318,14 +318,14 @@ Diff source & $d/(a+d)$ & $e/(b+e)$ & $f/(c+f)$ & $D/N$\\\hline
 % }
 \end{table}
 
-\svp{Using the same data from \autoref{tab:generic-results}, we could also calculate source-specific probabilities as shown in \autoref{tab:source-spec-prob}.}
+\svp{Using the same data from \autoref{tab:generic-results}, we could also calculate predictive value probabilities as shown in \autoref{tab:pv-prob}.}
 
 \begin{table}\centering
-\caption{Source-specific probabilities, calculated using the quantities introduced in \autoref{tab:generic-results}. In each cell in the main body of the table, probabilities shown are the probability of conclusion $Y$ (one of Identification, Inconclusive, or Elimination) if the source is $X$ (same, different). In the last row in the table, the marginal probabilities $P(Y)$ are shown, that is, the unconditional probability that the examiner's decision is $Y$. In the last column of the table, the marginal probabilities $P(X)$ are shown; these are determined by the experimental design.
+\caption{Predictive value probabilities, calculated using the quantities introduced in \autoref{tab:generic-results}. In each cell in the main body of the table, probabilities shown are the probability of conclusion $Y$ (one of Identification, Inconclusive, or Elimination) if the source is $X$ (same, different). In the last row in the table, the marginal probabilities $P(Y)$ are shown, that is, the unconditional probability that the examiner's decision is $Y$. In the last column of the table, the marginal probabilities $P(X)$ are shown; these are determined by the experimental design.
 %The joint probabilities (e.g. $P(X \text{ and } Y)$) described in \autoref{tab:generic-results} can be recovered from this table by multiplying any interior cell by the corresponding cell in the last row of the table. That is, $P(X \text{ and } Y) = P(X|Y) P(Y)$, which follows from \autoref{eqn:cond-prob}. 
-}\label{tab:source-spec-prob}
+}\label{tab:pv-prob}
 \begin{tabularx}{\textwidth}{Y|ccc|Y}
-\multicolumn{5}{c}{\bf Source-Specific Probabilities}\\
+\multicolumn{5}{c}{\bf Predictive Value Probabilities}\\
 \multicolumn{1}{c}{} & Identification & Inconclusive & \multicolumn{1}{c}{Elimination} & Source Prop.\\\hline
 Same source & $a/S$ & $b/S$ & $c/S$ & $S/N$\\
 Diff source & $d/D$ & $e/D$ & $f/D$ & $D/N$\\\hline
@@ -349,11 +349,11 @@ Diff source & $d/D$ & $e/D$ & $f/D$ & $D/N$\\\hline
 % \end{description}
 % 
 % Generic formulas for these probabilities can each be calculated from the quantities in \autoref{tab:generic-results}. A similar table is shown in \autoref{tab:conclusion-spec-prob}, but instead of raw quantities describing evaluations, we have instead provided the conditional probabilities described at the beginning of this subsection (\autoref{sec:conditional-prob}). 
+In the next section, we will examine the results from a number of studies of the error rate of firearms examinations, identifying the results which are reported, converting these results (where possible) into the format used in \autoref{tab:generic-results}, and calculating the conditional probabilities in the format of \autoref{tab:conclusion-spec-prob}. Prior to that, however, it may be useful to develop one more idea: in a perfect world with examiners who are all-knowing, what should the results of these studies look like?
 
 \subsection{What makes an error?}
-The set\svp{s} of conditional probabilities in \autoref{tab:conclusion-spec-prob} and \autoref{tab:source-spec-prob} are important in the assessment of the process of evidence examination. However, standard evaluations of classification algorithms (or human decision making), such as false positive and false negative rates, or sensitivity and specificity \svp{XXX cite...?} generally involve classification states which mirror reality. More precisely, in most classification problems, the number of real classes is the same as the number of possible decisions. 
+The sets of conditional probabilities in \autoref{tab:conclusion-spec-prob} and \autoref{tab:pv-prob} are important in the assessment of the process of evidence examination. However, standard evaluations of classification algorithms (or human decision making), such as false positive and false negative rates, or sensitivity and specificity \svp{XXX cite...?} generally involve classification states which mirror reality. More precisely, in most classification problems, the number of real classes is the same as the number of possible decisions. 
 \hh{The AFTE Rules of Identification introduce inconclusives as a  third decision into the process. Inconclusives do not correspond to a real state, we therefore} 
-%However, if an inconclusive category is introduced which does not correspond to a real state, then we 
 have to decide how to handle them \hh{when assessing error rates}. 
 This difference between forensic evaluation and classification problems which are more commonly evaluated provides an unfortunate opportunity for confusion when using the same methods for assessing forensic decision making. 
 
@@ -394,12 +394,6 @@ from the wider perspective of the \emph{system}, it is  important to look at the
 Option 3 of \autoref{tab:overall-err-rate} reflects this global view by counting  inconclusives as errors. Practically, option 3 reflects the error of the examination process rather than the examiner as an individual. To illustrate why this is the case, consider that an examiner may, upon inspection of a fired bullet, find that there are insufficient individualizing characteristics to make an identification. This does not reflective negatively on the examiner's skill; it is merely a consequence of the contact made between the bullet and the barrel during the firing process. Nonetheless, even though a pair of evidence originated from the same physical source, it is not possible to evaluate the evidence and make an identification. The inconclusives are representative of the errors involved in the process of evidence recording, rather than the evaluation. 
 
 
-\subsection{Positive Predictive Value}
-In \autoref{sec:evaluating-classification-decisions}, we discuss two different sets of conditional probabilities: source-specific probabilities and conclusion-specific probabilities. The difference is subtle but important: source-specific probabilities give the probability that an examiner will make an identification if the evidence is from the same source. In contrast, conclusion-specific probabilities give the probability that if the examiner makes an identification, the evidence is actually from the same source. More generally, source-specific probabilities predict the examiner's behavior given the evidence, while $P(SS|Identification)$ is predicting the state of reality given the examiner's decision. 
-
-In legal settings, it is the state of reality that is under debate; the examiner's opinion is testimony and is information we already have. This probability is also known as \emph{positive predictive value (PPV)} and is used to characterize the performance of a process\citep{med-pos-pred-value}. In medical contexts, this is often the performance of a test for a disease; in forensics, the process includes evidence creation as well as the examination. The medical context is perhaps more approachable: a given test will have a sensitivity (true positive rate) and a specificity (true negative rate) that combined would yield the accuracy rate. However, if you as a patient are sent for a test which yields a positive result, what you care about is not the accuracy rate (because when testing for rare diseases the true negatives are much more common than true positives); it is the probability that, given your positive result, you actually have the disease. In tests for rare diseases which are highly accurate, the positive predictive value can be fairly small, because false positives are more common than the incidence rate of the disease.
-
-In the next section, we will examine the results from a number of studies of the error rate of firearms examinations, identifying the results which are reported, converting these results (where possible) into the format used in \autoref{tab:generic-results}, and calculating the conditional probabilities in the format of \autoref{tab:conclusion-spec-prob}. Prior to that, however, it may be useful to develop one more idea: in a perfect world with examiners who are all-knowing, what should the results of these studies look like?
 
 \subsection{Ideal study probabilities}
 
