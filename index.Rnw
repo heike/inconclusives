@@ -357,10 +357,10 @@ from the wider perspective of the \emph{system}, it is  important to look at the
 
 Option 3 of \autoref{tab:overall-err-rate} reflects this global view by counting  inconclusives as errors. Practically, option 3 reflects the error of the examination process rather than the examiner as an individual. To illustrate why this is the case, consider that an examiner may, upon inspection of a fired bullet, find that there are insufficient individualizing characteristics to make an identification. This does not reflective negatively on the examiner's skill; it is merely a consequence of the contact made between the bullet and the barrel during the firing process. Nonetheless, even though a pair of evidence originated from the same physical source, it is not possible to evaluate the evidence and make an identification. The inconclusives are representative of the errors involved in the process of evidence recording, rather than the evaluation. 
 
+In the next section, we will examine the results from a number of studies of the error rate of firearms examinations, identifying the results which are reported, converting these results (where possible) into the format used in \autoref{tab:generic-results}, and calculating the conditional probabilities in the format of \autoref{tab:fpr-fnr} and \autoref{tab:pv-prob}. Prior to that, however, it may be useful to develop one more idea: in a perfect world with examiners who are all-knowing, what should the results of these studies look like?
 
 
 \subsection{Ideal study probabilities}
-
 
 \hh{In the absence of knowing the truth we have to resort to working within a probabilistic framework to assess the likelihood of certain events. Some (XXX? quantify?) evidence is based on questions of pattern matching: does the shoe print from the crime scene match a particular shoe? was the bullet found at a crime scene fired from a particular weapon? does the breech face impression on a cartridge case from the crime scene match the breech face of a particular weapon frame?}
 
@@ -369,7 +369,6 @@ In these situations the fundamental quantity in question is the probability that
 The AFTE theory of firearms and toolmarks identification as shown in \autoref{tab:afte} allows an expert to come to three main conclusions: make an identification, i.e. two pieces of evidence are thought to come from the same source, make an elimination, i.e. two pieces of evidence are tought to come from different sources, or an inconclusive, i.e. the evidence does not allow either an identification or an elimination. 
 
 Given these three outcomes, we are interested for each the probability of same source and different sources, resulting in a total of six ($3 \times 2$) conditional probabilities. In a perfect world, we would expect the probabilities shown in \autoref{tab:ideal-probabilities}:
-
 
 \begin{table}
 \caption{Expected conditional probabilities in a perfect world.}\label{tab:ideal-probabilities}
