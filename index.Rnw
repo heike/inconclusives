@@ -230,10 +230,10 @@ This view has drawn some criticism \citep{Biedermann:2018hr}.
 Inconclusives can be excluded from result calculations, included as correct results, or included as incorrect results; each of these decisions has an impact on the interpretation of the resulting error rates.
 In this paper, we \svp{discuss} the treatment of inconclusives in the assessment of error rates from a statistical point of view, % We believe that this -- rather than further dividing the different opinions -- provides a unifying framework.
 examining previous error rate studies to assess the technical accuracy and practical utility of the reported error rates. 
-Before approaching the actual studies, it may be useful to explain the logic behind the \svp{numerical} calculations and define some basic notation to facilitate comparison of studies with different structure.\svp{XXX probability hasn't been discussed yet - need to nail down terminology between probability and error rate and conditional error rate XXX}
+Before approaching the actual studies, it may be useful to \svp{explore} the logic behind the \svp{numerical} calculations and define some basic notation to facilitate comparison of studies with different experimental designs.
 
 \subsection{Evaluating Classification Decisions}\label{sec:evaluating-classification-decisions}
-When an examiner assesses a set of evidence (generally, a pair of items, one of known provenance and one of unknown provenance) and decides whether the evidence is an identification, inconclusive, or an elimination, they are \emph{classifying} the evidence.% according to a classification scheme.
+When an examiner assesses a set of evidence (generally, a pair of items, one of known provenance and one of unknown provenance) and decides whether the evidence is an identification, inconclusive, or an elimination, they are \emph{classifying} the evidence.
 We assess the accuracy of a classification method using \emph{success rates} and \emph{error rates}, that is, with numerical quantities indicating how often the process produces correct and incorrect results.
 
 The most common way to assess the accuracy of a classification method is to calculate the false positive rate and the false negative rate. The \emph{false positive rate} is the probability that an examiner makes an identification from evidence which is from different sources(DS), $P(Identification | DS)$. The \emph{false negative rate} is the probability that an examiner makes an elimination from evidence which originates from the same source (SS), $P(Elimination | SS)$. In both of these cases, the error rate is calculated conditioned on the origin of the evidence. \autoref{fig:FPR-specific-tree} shows a decision tree describing the possible comparisons which can be made conditioned on ground truth. The terminal nodes describe the joint probability of an examiner classification and ground truth; the ground truth nodes describe the probability of same-source or different-source comparisons, which is determined by the experimental design. If we wanted to calculate the false positive rate, we would take the far-right terminal node, and compare the probability of that node to the probability of the different source node which is its parent. Mathematically, $$P(Identification | DS) = \frac{P(Identification \text{ and } DS)}{P(DS)}.$$
@@ -268,17 +268,8 @@ The study data would consist of evaluations reported in the form of a table \svp
 
 \begin{table}
 \centering
-\caption{An example results table for a generic experiment where comparisons can be broken down as either from the same source or from different sources, and examiners classify each comparison as an identification, an inconclusive, or an elimination, as in the AFTE rules of identification. Define $S = a + b + c$ as the total number of same source comparisons, $D = d + e + f$ as the total number of different-source comparisons, and $N = S + D$ as the total number of comparisons. Then the probability of the occurrence of any cell in the interior of the table (a, b, c, d, e, or f) can be founc by dividing the respective letter by $N$, the total number of comparisons.
-%The total comparisons ($S = a + b + c$ for same source, $D = e + f + g$ for different source) are set by the experimenters (and thus, are fixed at the beginning of the experiment). \svp{I don't like how the table looks with this definition played out, so I'm not defining it for now...}
+\caption{An example results table for a generic experiment where comparisons can be broken down as either from the same source or from different sources, and examiners classify each comparison as an identification, an inconclusive, or an elimination, as in the AFTE rules of identification. Define $S = a + b + c$ as the total number of same source comparisons, $D = d + e + f$ as the total number of different-source comparisons, and $N = S + D$ as the total number of comparisons. Then the probability of the occurrence of any cell in the interior of the table (a, b, c, d, e, or f) can be found by dividing the respective letter by $N$, the total number of comparisons.
 }\label{tab:generic-results}
-% {\tabulinesep=1.2mm
-% \begin{tabu}{|c|ccc||c|}\hline
-% & \multicolumn{3}{c||}{Examiner Conclusion} &\\\cline{2-4}
-% Reality & Identification & Inconclusive & Elimination & Comparison Totals \\\hline
-% Same source & $a$ & $b$ & $c$ & $S = a + b + c$ \\
-% Different source & $d$ & $e$ & $f$ & $D = d + e + f$ \\\hline\hline
-% Conclusion totals & $ a + d$ & $b + e$ & $c + f$ & $N = S + D$\\\hline
-% \end{tabu}}
 \begin{tabularx}{\textwidth}{Y|ccc|Y}
 \multicolumn{5}{c}{\bf Experiment Count Data}\\\hline
 \multicolumn{1}{c}{} & Identification & Inconclusive & \multicolumn{1}{c}{Elimination} & Source Total\\\hline
@@ -291,12 +282,11 @@ Diff Source & $d$ & $e$ & $f$ & $D = e + f + g$\\\hline
 The \emph{joint probability} of any source condition and any examiner conclusion can be found by taking the corresponding cell in \autoref{tab:generic-results} and dividing by $N$, the total number of comparisons evaluated in the study. 
 \svp{Thus, the joint probability of a same-source comparison and examiner identification would be $a/N$, while the joint probability of a different-source comparison and examiner identification would be $d/N$. }
 
-\svp{Then, using the quantities in \autoref{tab:generic-results}, we can calculate the conclusion-specific probabilities as shown in \autoref{tab:conclusion-spec-prob}.}
+\svp{Then, using the quantities in \autoref{tab:generic-results}, we can calculate the conclusion-specific probabilities as shown in \autoref{tab:fpr-fnr}.}
 
 \begin{table}\centering
 \caption{Conclusion-specific probabilities, calculated using the quantities introduced in \autoref{tab:generic-results}. In each cell in the main body of the table, probabilities shown are the probability of source $X$, if the examiner's conclusion (one of Identification, Inconclusive, or Elimination) is $Y$. In the last row in the table, the marginal probabilities $P(Y)$ are shown, that is, the unconditional probability that the examiner's decision is $Y$. 
-%The joint probabilities (e.g. $P(X \text{ and } Y)$) described in \autoref{tab:generic-results} can be recovered from this table by multiplying any interior cell by the corresponding cell in the last row of the table. That is, $P(X \text{ and } Y) = P(X|Y) P(Y)$, which follows from \autoref{eqn:cond-prob}. 
-}\label{tab:conclusion-spec-prob}
+}\label{tab:fpr-fnr}
 \begin{tabularx}{\textwidth}{Y|ccc|Y}
 \multicolumn{5}{c}{\bf Conclusion-Specific Probabilities}\\\hline
 \multicolumn{1}{c}{} & Identification & Inconclusive & \multicolumn{1}{c}{Elimination} & Source Prop.\\\hline
@@ -304,25 +294,12 @@ Same source & $a/(a+d)$ & $b/(b+e)$ & $c/(c+f)$ & $S/N$\\
 Diff source & $d/(a+d)$ & $e/(b+e)$ & $f/(c+f)$ & $D/N$\\\hline
 \multicolumn{1}{Y}{Conclusion prop.} & $(a + d)/N$ & $(b + e)/N$ & \multicolumn{1}{c}{$(c + f)/N$} & \multicolumn{1}{Y}{}\\\hline\hline
 \end{tabularx}
-% {\tabulinesep=1.2mm
-% \begin{tabu}{|c|ccc|}\hline
-%  & \multicolumn{3}{c|}{$Y = $Examiner Conclusion} \\\hline
-% $X = $Reality & Identification & Inconclusive & Elimination \\\hline
-% \multirow{2}{*}{Same source} & $P(SS|Identification)$ & $P(SS|Inconclusive)$ & $P(SS | Elimination)$ \\
-% & $=\displaystyle\frac{a}{a + d}$ & $=\displaystyle\frac{b}{b + e}$ & $=\displaystyle\frac{c}{c + f}$ \\\hline
-% \multirow{2}{*}{Different source} & $P(DS|Identification)$ & $P(DS|Inconclusive)$ & $P(DS | Elimination)$\\ 
-%  & $=\displaystyle\frac{d}{a + d}$ & $=\displaystyle\frac{e}{b + e}$ & $=\displaystyle\frac{f}{c + f}$ \\\hline\hline
-% \multirow{2}{*}{$P(Y)$} & $P(Identification)$ & $P(Inconclusive)$& $P(Elimination)$\\
-% & $=\displaystyle\frac{a + d}{N}$ & $=\displaystyle\frac{b+e}{N}$ & $=\displaystyle\frac{c+f}{N}$ \\\hline
-% \end{tabu}
-% }
 \end{table}
 
 \svp{Using the same data from \autoref{tab:generic-results}, we could also calculate predictive value probabilities as shown in \autoref{tab:pv-prob}.}
 
 \begin{table}\centering
 \caption{Predictive value probabilities, calculated using the quantities introduced in \autoref{tab:generic-results}. In each cell in the main body of the table, probabilities shown are the probability of conclusion $Y$ (one of Identification, Inconclusive, or Elimination) if the source is $X$ (same, different). In the last row in the table, the marginal probabilities $P(Y)$ are shown, that is, the unconditional probability that the examiner's decision is $Y$. In the last column of the table, the marginal probabilities $P(X)$ are shown; these are determined by the experimental design.
-%The joint probabilities (e.g. $P(X \text{ and } Y)$) described in \autoref{tab:generic-results} can be recovered from this table by multiplying any interior cell by the corresponding cell in the last row of the table. That is, $P(X \text{ and } Y) = P(X|Y) P(Y)$, which follows from \autoref{eqn:cond-prob}. 
 }\label{tab:pv-prob}
 \begin{tabularx}{\textwidth}{Y|ccc|Y}
 \multicolumn{5}{c}{\bf Predictive Value Probabilities}\\
@@ -332,12 +309,13 @@ Diff source & $d/D$ & $e/D$ & $f/D$ & $D/N$\\\hline
 \multicolumn{1}{Y}{Concl. prop.} & $(a + d)/N$ & $(b + e)/N$ & \multicolumn{1}{c}{$(c + f)/N$} & \multicolumn{1}{Y}{}\\\hline\hline
 \end{tabularx}
 \end{table}
-\svp{A google sheets workbook for performing these calculations is available at \url{http://bit.ly/FTE-error-rate}.}
+A google sheets workbook for performing these calculations is available at \url{http://bit.ly/FTE-error-rate}.
 
-In the next section, we will examine the results from a number of studies of the error rate of firearms examinations, identifying the results which are reported, converting these results (where possible) into the format used in \autoref{tab:generic-results}, and calculating the conditional probabilities in the format of \autoref{tab:conclusion-spec-prob}. Prior to that, however, it may be useful to develop one more idea: in a perfect world with examiners who are all-knowing, what should the results of these studies look like?
+
+Now that we have defined several different metrics for evaluating the errors made in a study, we will consider the role of inconclusives in pattern evidence examination. 
 
 \subsection{What makes an error?}
-The sets of conditional probabilities in \autoref{tab:conclusion-spec-prob} and \autoref{tab:pv-prob} are important in the assessment of the process of evidence examination. However, standard evaluations of classification algorithms (or human decision making), such as false positive and false negative rates, or sensitivity and specificity \svp{XXX cite...?} generally involve classification states which mirror reality. More precisely, in most classification problems, the number of real classes is the same as the number of possible decisions. 
+The sets of conditional probabilities in \autoref{tab:fpr-fnr} and \autoref{tab:pv-prob} are important in the assessment of the process of evidence examination. However, standard evaluations of classification algorithms (or human decision making), such as false positive and false negative rates, or sensitivity and specificity \svp{XXX cite...?} generally involve classification states which mirror reality. More precisely, in most classification problems, the number of real classes is the same as the number of possible decisions. 
 \hh{The AFTE Rules of Identification introduce inconclusives as a  third decision into the process. Inconclusives do not correspond to a real state, we therefore} 
 have to decide how to handle them \hh{when assessing error rates}. 
 This difference between forensic evaluation and classification problems which are more commonly evaluated provides an unfortunate opportunity for confusion when using the same methods for assessing forensic decision making. 
