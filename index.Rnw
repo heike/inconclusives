@@ -260,6 +260,8 @@ As before, we can map out the conditional hierarchy using a decision tree, shown
 Predictive value assessments are extremely useful in understanding the implications of a particular classification label; they inform us about the likely state of the physical evidence. 
 % \svp{In designed studies, this is known information; however, the PPV, NPV, FDR, and FOR are also useful for casework, where the true state of the evidence is unknown, as they are not conditioned on unknown information.} 
 
+\hh{XXX citation from evaluating PPV \citet{Casscells:1978ba, Manrai:2014fp} - along the lines: assessing PPVs is hard and unintuitive. }
+
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth]{figures/Conclusion_Specific_Tree_Diagram.pdf}
