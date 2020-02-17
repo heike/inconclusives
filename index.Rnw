@@ -369,8 +369,9 @@ In \autoref{tab:overall-err-rate}, option 0 corresponds to a definition of the o
 % \newcommand{\blacksq}{\fcolorbox{black}{black!100}{\phantom{x}}}
 \newcommand{\xsq}{\protect\fcolorbox{black}{white!100}{\makebox[1.25em][c]{x\vphantom{dp}}}}
 
-\begin{fmpage}{\textwidth}\protect\captionof{table}{Different ways to calculate the overall error rate. An arrangement of two rows of three boxes then resembles the interior cells of \autoref{tab:generic-results}, where \pbox{10em}{\mbox{\whitesq{a}\whitesq{b}\whitesq{c}}\\\mbox{\whitesq{d}\whitesq{e}\whitesq{f}}} are the six conditional quantities under discussion. Let \pbox{1.65em}{\whitesq{}} ~correspond to a correct decision, indicating that the box is to be included in the denominator of the calculation, \pbox{1.65em}{\graysq{}} indicate that the box is to be conditionally excluded from the calculation, and \pbox{1.65em}{\redsq{}} correspond to an incorrect decision, indicating that the box is to be included in the numerator and denominator of the calculation. 
-}
+\begin{fmpage}{\textwidth}\protect\captionof{table}{Different ways to calculate the overall error rate.}
+Reading this table: An arrangement of two rows of three boxes then resembles the interior cells of \autoref{tab:generic-results}, where \pbox{10em}{\mbox{\whitesq{a}\whitesq{b}\whitesq{c}}\\\mbox{\whitesq{d}\whitesq{e}\whitesq{f}}} are the six conditional quantities under discussion. Let \pbox{1.65em}{\whitesq{}} ~correspond to a correct decision, indicating that the box is to be included in the denominator of the calculation, \pbox{1.65em}{\graysq{}} indicate that the box is to be conditionally excluded from the calculation, and \pbox{1.65em}{\redsq{}} correspond to an incorrect decision, indicating that the box is to be included in the numerator and denominator of the calculation. 
+
 \begin{tabularx}{\linewidth}{llcl}
 \# & Type & Illustration & $P(Error) = $\\
 0 & No Inconcl. & \pbox{5em}{\whitesq{a}\redsq{c}\\\redsq{d}\whitesq{f}} & $P(DS\text{ and }Ident.) + P(SS\text{ and }Excl.) = \displaystyle\frac{c + d}{a + c + d + f}$\\\\
