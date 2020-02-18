@@ -1,5 +1,5 @@
 # Bunch and Murphy simulation
-
+library(tidyverse)
 # Packet 1 contains 10 fires from the same weapon
 # Packet 2 contains 1 from each of the other 9 glocks, plus one non-glock
 # Packets 3-8 contain
