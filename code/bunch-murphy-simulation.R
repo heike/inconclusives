@@ -80,7 +80,7 @@ bunch_eval <- function(set) {
               optional = sum(inferred))
 }
 
-res <- purrr::map_df(1:1000, function(i) {
+res <- purrr::map_df(1:10000, function(i) {
     tibble(kit = bunch_test_kits()) %>%
       mutate(eval = purrr::map(kit, bunch_eval)) %>%
       unnest(eval) %>%
@@ -89,6 +89,8 @@ res <- purrr::map_df(1:1000, function(i) {
                 all_pairwise_nonmatches = sum(nonmatches_all), min_pairwise_nonmatches = sum(nonmatches_min))
     
   })
+
+save(res, file = here::here("data/bunch-murphy-results.Rdata"))
 
 res %>%
   select(-iteration) %>%
@@ -100,8 +102,16 @@ res %>%
   # select(-iteration) %>%
   pivot_longer(cols = 2:5, names_to = "type", values_to = "comparisons") %>%
   extract(type, into = c("strategy", "source"), "(all|min)_pairwise_(matches|nonmatches)") %>%
-  mutate(source = str_replace_all(source, c("^matches" = "same source", "nonmatches" = "different source"))) %>%
+  mutate(source = str_replace_all(source, c("^matches" = "same source", "nonmatches" = "different source")),
+         strategy = str_replace_all(strategy, c("all" = "All possible", "min" = "Minimum possible"))) %>%
   pivot_wider(id_cols = c(iteration, strategy), names_from = source, values_from = comparisons) %>%
-  filter(strategy == "min") %>%
-  ggplot(aes(x = `same source`, y = `different source`)) + geom_jitter() + coord_fixed(ratio = .2) + 
-  scale_y_continuous(breaks = seq(150, 275, by = 5)) 
+  ggplot(aes(x = `same source`, y = `different source`, color = strategy)) + 
+  geom_jitter(alpha = .1) + 
+  scale_color_manual("Examination\nStrategy", values = c("purple4", "orange3")) + 
+  guides(color = guide_legend(override.aes = list(alpha = 1))) + 
+  ylab("Different Source Comparisons") + 
+  xlab("Same Source Comparisons") + 
+  ggtitle("Bunch and Murphy # Comparisons\nDistribution Breakdown") + 
+  coord_fixed(ratio = .5) + 
+  theme_bw() + 
+  theme(legend.position = c(1, 0), legend.justification = c(1.02, -.02))
