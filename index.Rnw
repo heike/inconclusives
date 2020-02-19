@@ -833,6 +833,38 @@ Opt. & \multicolumn{1}{c}{Meaning} & Missed Identification & \multicolumn{1}{c}{
 
 \subsection{Bunch \& Murphy Study \cite{bunch2003comprehensive}}
 
+Issues - assume the full number of possible pairwise comparisons (360) was completed; simulations show that in practice, if examiners used logic along with pairwise comparisons, the total number of required comparisons is between 186 and 289 (by simulation - should probably figure out if it's possible to get a hard floor without completely enumerating the sample space). This has pros (no possible information gained from examiners talking to each other), but also has problems - we can only provide bounded estimates for the number of comparisons done.
+
+<<hist-bunch-murphy, fig.width = 8, fig.height = 6>>=
+load(here::here("data/bunch-murphy-results.Rdata"))
+
+res %>%
+  select(-iteration) %>%
+  pivot_longer(cols = 1:4, names_to = "type", values_to = "comparisons") %>%
+  extract(type, into = c("strategy", "source"), "(all|min)_pairwise_(matches|nonmatches)") %>%
+  mutate(source = str_replace_all(source, c("^matches" = "same source", "nonmatches" = "different source"))) %>%
+  ggplot(aes(x = comparisons)) + geom_histogram() + facet_grid(strategy~source, scales = "free_x")
+@
+
+<<scatter-bunch-murphy, fig.width = 6, fig.height = 6>>=
+res %>%
+  # select(-iteration) %>%
+  pivot_longer(cols = 2:5, names_to = "type", values_to = "comparisons") %>%
+  extract(type, into = c("strategy", "source"), "(all|min)_pairwise_(matches|nonmatches)") %>%
+  mutate(source = str_replace_all(source, c("^matches" = "same source", "nonmatches" = "different source")),
+         strategy = str_replace_all(strategy, c("all" = "All possible", "min" = "Minimum possible"))) %>%
+  pivot_wider(id_cols = c(iteration, strategy), names_from = source, values_from = comparisons) %>%
+  ggplot(aes(x = `same source`, y = `different source`, color = strategy)) + 
+  geom_jitter(alpha = .1) + 
+  scale_color_manual("Examination\nStrategy", values = c("purple4", "orange3")) + 
+  guides(color = guide_legend(override.aes = list(alpha = 1))) + 
+  ylab("Different Source Comparisons") + 
+  xlab("Same Source Comparisons") + 
+  ggtitle("Bunch and Murphy # Comparisons\nDistribution Breakdown") + 
+  # coord_fixed(ratio = .5) + 
+  theme_bw() + 
+  theme(legend.position = c(1, 0), legend.justification = c(1.02, -.02))
+@
 
 \section{Discussion and Conclusions}
 

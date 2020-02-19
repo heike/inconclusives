@@ -115,3 +115,7 @@ res %>%
   coord_fixed(ratio = .5) + 
   theme_bw() + 
   theme(legend.position = c(1, 0), legend.justification = c(1.02, -.02))
+
+res
+res %>%
+  mutate(total_comparisons = all_pairwise_matches + all_pairwise_nonmatches, min_comparisons = min_pairwise_matches + min_pairwise_nonmatches)
