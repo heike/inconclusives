@@ -80,7 +80,7 @@ bunch_eval <- function(set) {
               optional = sum(inferred))
 }
 
-res <- purrr::map_df(1:10000, function(i) {
+res <- purrr::map_df(1:100000, function(i) {
     tibble(kit = bunch_test_kits()) %>%
       mutate(eval = purrr::map(kit, bunch_eval)) %>%
       unnest(eval) %>%
