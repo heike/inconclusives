@@ -113,7 +113,7 @@ The treatment of inconclusives in the assessment of errors has been a long-stand
 \end{abstract}
 
 \begin{keyword}
-forensic science, black box studies, proficeincy testing
+forensic science, black box studies, proficiency testing
 \end{keyword}
 
 \end{frontmatter}
@@ -189,7 +189,7 @@ Unsuitable for examination.
 % \section{Background} % Identification
 
 The identification process -- i.e. the assessment of whether two samples come from the same source (were made by the same tool, the same shoe, the same finger, shot through the same barrel) or from different sources -- is quite complex. 
-In order to assess how well this process is functioning, studies with known ground truth have to be employed \svp{as} casework does not allow for an assessment of correctness. 
+In order to assess how well the identification process is functioning, studies with known ground truth have to be employed \svp{as} casework does not allow for an assessment of correctness. 
 Ground truth, that is, the knowledge of whether two samples come from the same source or two different sources, is only available to the individual setting up the test; as casework is not so strictly controlled, we do not have information about ground truth and thus cannot use casework for error rate assessment.
 
 \section{Study Design Considerations}
@@ -238,14 +238,18 @@ examining previous error rate studies to assess the technical accuracy and pract
 Before approaching the actual studies, it may be useful to \svp{explore} the logic behind the \svp{numerical} calculations and define some basic notation to facilitate comparison of studies with different experimental designs.
 
 \subsection{Evaluating Classification Decisions}\label{sec:evaluating-classification-decisions}
-When an examiner assesses a set of evidence (generally, a pair of items, one of known provenance and one of unknown provenance) and decides whether the evidence is an identification, inconclusive, or an elimination, they are \emph{classifying} the evidence.
-We assess the accuracy of a classification method using \emph{success rates} and \emph{error rates}, that is, with numerical quantities indicating how often the process produces correct and incorrect results.
+When an examiner assesses a set of evidence (generally, a pair of items, one of known provenance and one of unknown provenance) and decides whether the evidence is an identification, inconclusive, or an elimination, they provide a \emph{classification} of the evidence in a set of given categories.  
+We \hh{XXX who is "we"? I don't think it's a good idea to have a them and we kind of description. } assess the accuracy of a classification method using \emph{success rates} and \emph{error rates}, that is, with numerical quantities indicating how often the process produces correct and incorrect results.
 
-The most common way to assess the accuracy of a classification method is to calculate the false positive rate and the false negative rate. The \emph{false positive rate} is the probability that an examiner makes an identification from evidence which is from different sources(DS), $P(Identification | DS)$. The \emph{false negative rate} is the probability that an examiner makes an elimination from evidence which originates from the same source (SS), $P(Elimination | SS)$. In both of these cases, the error rate is calculated conditioned on the origin of the evidence. \autoref{fig:FPR-specific-tree} shows a decision tree describing the possible comparisons which can be made conditioned on ground truth. The terminal nodes describe the joint probability of an examiner classification and ground truth; the ground truth nodes describe the probability of same-source or different-source comparisons, which is determined by the experimental design. If we wanted to calculate the false positive rate, we would take the far-right terminal node, and compare the probability of that node to the probability of the different source node which is its parent. Mathematically, $$P(Identification | DS) = \frac{P(Identification \text{ and } DS)}{P(DS)}.$$
+\hh{When assessing the accuracy of a classification \emph{success rates} and \emph{error rates} are of interest, i.e.\ the interest shifts from the classification to the numerical quantity indicating how often the process produces correct and incorrect results.}
+
+The most common way to assess the accuracy of a classification method is \hh{to calculate its \emph{sensitivity} and \emph{specificity}. Sensitivity, also called the true positive rate, is an examiner's ability to make an identification from same source evidence (SS). This can be expressed as the conditional probability $P (\text{identification}) \mid SS)$. Conversely, specificity, or the true negative rate, is an examiner's ability to make an elimination given evidence from different sources (DS), $P (\text{elimination}) \mid DS)$.}
+A related way of assess accuracy is to calculate the false positive rate and the false negative rate. The \emph{false positive rate} is the probability that an examiner makes an identification from evidence which is from different sources(DS), $P(Identification | DS)$. The \emph{false negative rate} is the probability that an examiner makes an elimination from evidence which originates from the same source (SS), $P(Elimination | SS)$. In both of these cases, the error rate is calculated conditioned on the origin of the evidence. \autoref{fig:FPR-specific-tree} shows a decision tree describing the possible comparisons which can be made conditioned on ground truth. The terminal nodes describe the joint probability of an examiner classification and ground truth; the ground truth nodes describe the probability of same-source or different-source comparisons, which is determined by the experimental design. If we wanted to calculate the false positive rate, we would take the far-right terminal node, and compare the probability of that node to the probability of the different source node which is its parent. Mathematically, $$P(Identification | DS) = \frac{P(Identification \text{ and } DS)}{P(DS)}.$$
 
 \begin{figure}
 \centering
-\includegraphics[width=\textwidth]{figures/Source_Specific_Tree_Diagram.pdf}
+%\includegraphics[width=\textwidth]{figures/Source_Specific_Tree_Diagram.pdf}
+\includegraphics[width=\textwidth]{figures/Source-specific-tree-diagram.pdf}
 \caption{Tree Diagram illustrating the logic of source-specific error rates. We must first decide whether we are interested in same-source or different-source rates, and then examine the probabilities for each of the possible labels: Identification, Inconclusive, and Elimination.}\label{fig:FPR-specific-tree}
 \end{figure}
 
@@ -264,7 +268,8 @@ Predictive value assessments are extremely useful in understanding the implicati
 
 \begin{figure}
 \centering
-\includegraphics[width=\textwidth]{figures/Conclusion_Specific_Tree_Diagram.pdf}
+\includegraphics[width=\textwidth]{figures/Conclusion-specific-tree-diagram.pdf}
+%\includegraphics[width=\textwidth]{figures/Conclusion_Specific_Tree_Diagram.pdf}
 \caption{
 Tree Diagram illustrating the logic of positive and negative predictive value calculations. 
 We must first select which conclusion we are interested in, and then examine the probability of each state of reality (same source or different sources) given that conclusion.
