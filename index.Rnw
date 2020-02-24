@@ -530,7 +530,7 @@ For all participants 5 of the sets were from same-source and 10 of the sets were
 A total of 25 firearms was used for the study, such that within each kit no firearm was re-used for either knowns or questioned cartridge cases, i.e. no additional information could be gained by comparing any cartridge cases across sets.
 
 218 participants (self-reporting as active forensic firearm examiners) provided evaluations of the kits, evaluation results are shown in \autoref{tab:baldwin-totals}. 
-Each of these evaluations is  based on a comparison of one questioned cartridge case to three known same source  cartridge cases.
+Each of these evaluations is  based on a comparison of one questioned cartridge case to three known same source  cartridge cases. \svp{This wording is slightly confusing - I understand it now, but had to puzzle over whether there was a single known source (with 3 replicates) or 3 knowns. }
 
 
 \begin{table}[hbt]
