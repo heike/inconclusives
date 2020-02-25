@@ -246,7 +246,7 @@ We \hh{XXX who is "we"? I don't think it's a good idea to have a them and we kin
 The most common way to assess the accuracy of a classification method is \hh{to calculate its \emph{sensitivity} and \emph{specificity}. Sensitivity, also called the true positive rate, is an examiner's ability to make an identification from same source evidence (SS). This can be expressed as the conditional probability $P (\text{identification}) \mid SS)$. Conversely, specificity, or the true negative rate, is an examiner's ability to make an elimination given evidence from different sources (DS), $P (\text{elimination}) \mid DS)$.}
 Another, often used, way of assessing accuracy of a classification method is to calculate the false positive rate and the false negative rate. The \emph{false positive rate} is the probability that an examiner makes an identification from evidence which is from different sources(DS), $P(Identification | DS)$. The \emph{false negative rate} is the probability that an examiner makes an elimination from evidence which originates from the same source (SS), $P(Elimination | SS)$. In all  of these assessments, the  rates are calculated by conditioning on the origin of the evidence. \hh{XXX The figure includes inconclusives - which we haven't talked about at this point. } \autoref{fig:FPR-specific-tree} shows a decision tree describing the possible comparisons which can be made conditioned on ground truth. \hh{XXX sorry for taking out the next paragraph - I'm not sure it helps in clarifying the math behind the tree. }
 %The terminal nodes \hh{XXX not defined} describe the joint probability of examiner classification and ground truth; the ground truth nodes describe \hh{XXX not sure how the nodes describe probabilities} the probability of same-source or different-source comparisons, which is determined by the experimental design. \hh{XXX No hypotheticals. Either we do or we don't.} If we wanted to calculate the false positive rate, we would take the far-right terminal node, and compare the probability of that node to the probability of the different source node which is its parent. 
-Mathematically, we calculate the rate of false positives as $$P(Identification | DS) = \frac{P(Identification \text{ and } DS)}{P(DS)}.$$
+Mathematically, we calculate the rate of false positives as $$ FPR = P(Identification | DS) = \frac{P(Identification \text{ and } DS)}{P(DS)}.$$
 
 \begin{figure}
 \centering
@@ -262,6 +262,9 @@ The \emph{positive predictive value}(PPV) is the probability that, if an examine
 The \emph{negative predictive value}(NPV) is the probability that, if an examiner makes an exclusion, the evidence is from different sources, or $P(DS | Exclusion)$. \svp{Its complement, the \emph{false omission rate}(FOR) is the probability that, if an examiner makes an exclusion, the evidence is actually from the same source.}
 \svp{In \citet{songEstimatingErrorRates2018}, the FDR is referred to as the false identification error rate, and the FOR is called the false exclusion error rate.}
 As before, we can map out the conditional hierarchy using a decision tree, shown in \autoref{fig:PPV-specific-tree}. 
+
+\hh{XXX I think we have too many rates in there with too close naming. Personally, I would not distinguish between False discovery and False positive rates. But they are defined differently. Help XXX}
+
 
 Predictive value assessments are extremely useful in understanding the implications of a particular classification label; they inform us about the likely state of the physical evidence. 
 % \svp{In designed studies, this is known information; however, the PPV, NPV, FDR, and FOR are also useful for casework, where the true state of the evidence is unknown, as they are not conditioned on unknown information.} 
