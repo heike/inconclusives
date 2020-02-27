@@ -302,7 +302,7 @@ We must first select which conclusion we are interested in, and then examine the
 These two forms of questions look deceptively similar, but lead to different mathematical equations. 
 This difficulty is not exclusive to evaluations of firearms evidence -- it is a known and pervasive pitfall in other application areas, such as medical diagnostics \cite{Casscells:1978ba, Manrai:2014fp}. }
 \hh{The distinction between these two sources of error rates }
-\srv{ is perhaps a bit more approachable in the setting of a medical context: a given test will have a sensitivity (true positive rate, TPR) and a specificity (true negative rate, TNR) that combined would yield the accuracy rate. 
+\svp{ is perhaps a bit more approachable in the setting of a medical context: a given test will have a sensitivity (true positive rate, TPR) and a specificity (true negative rate, TNR) that combined would yield the accuracy rate. 
 However, if you as a patient are sent for a test which yields a positive result, what you care about is 
 %not the accuracy rate (because when testing for rare diseases the true negatives are much more common than true positives); it 
 is the probability that, given your positive result, you actually have the disease. 
@@ -322,7 +322,7 @@ However, if you as a patient are sent for a test which yields a positive result,
 In tests for rare diseases which are highly accurate, the positive predictive value can be fairly small, because false positives are more common than the incidence rate of the disease.
 \hh{XXX moved the previous paragraphs up, but left out the rare probabilities.}
 
-\hh{XXX We need to say more about the marginal distributions and how to calulate PPV, if we want to keep the next paragraph.}
+\hh{XXX We need to say more about the marginal distributions and how to calulate PPV, if we want to keep the next paragraph. But we could also think about moving this into the discussion. Essentially, this is a descriptive version of Bayes theorem without mentioning Bayes or the fact that given the marginal distribution we can move from one conditional distribution to the other. We should make this explicit or leave out. At the moment I am leaning towards out.}
 
 This difference is fairly critical when generalizing from designed studies to casework: in a designed study, the proportion of same-source and different-source comparisons is determined by the experimental design and is fixed, which makes the FPR and FNR (and the combined accuracy rate) reasonable metrics for comparison. 
 However, we have no idea what the prevalence of same-source comparisons and different-source comparisons might be in casework. 
@@ -333,11 +333,20 @@ That is, in legal settings, it is the state of reality that is under debate; the
 
 \hh{Given the new paragraphs at the beginning of 2.4 - do we still need the above discussion? XXX }
 
-\subsection{Calculating error rates}
-\svp{
-In order to calculate these different probabilities, we must first set up a hypothetical  experiment, where participants complete $N$ total comparisons, broken down into $S$ same-source comparisons and $D$ different source comparisons.
-} \hh{XXX why hypothetical? XXX}
-The study data would consist of evaluations reported in the form of a table \svp{which can be arranged in a form like the} generic table shown in \autoref{tab:generic-results}.
+\hh{XXX Would it be fair to say that FPR and FNR allow us to assess examiners or the firearms matching process, while the predictive values allow us to evaluate the strength of the testimony? Maybe we do not want to go into detail on strength of evidence when the testimony is categorical. }
+
+
+\hh{XXX A sentence on why we need case studies to evaluate and assess all of these error rates. }
+
+\subsection{Assessment of error rates in case studies}
+
+In order to calculate these different probabilities and rates, let us assume that we have a (hypothetical)  \hh{XXX why hypothetical? XXX} experiment, where participants are asked to complete a total of $N$ comparisons, consisting of $S$ same-source comparisons and $D$ different source comparisons.
+
+\hh{Why do you write this so hypothetically? I thought we wanted to make this as real as possible.}
+\hh{A summary of these evaluations can then be reported}
+%The study data would consist of evaluations reported 
+in the form of a %table \svp{which can be arranged in a form like the} 
+generic table as shown in \autoref{tab:generic-results}.
 
 \begin{table}
 \centering
@@ -367,10 +376,10 @@ In the last row in the table, the marginal probabilities $P(Y)$ are shown, that 
 }\label{tab:fpr-fnr}
 \begin{tabularx}{\textwidth}{Y|ccc|Y}
 \multicolumn{5}{c}{\bf Conclusion-Specific Probabilities}\\\hline
-\multicolumn{1}{c}{} & Identification & Inconclusive & \multicolumn{1}{c}{Elimination} & Source Prop.\\\hline
+\multicolumn{1}{c}{} & Identification & Inconclusive & \multicolumn{1}{c}{Elimination} & Source Probability\\\hline
 Same source & $a/(a+d)$ & $b/(b+e)$ & $c/(c+f)$ & $S/N$\\
 Diff source & $d/(a+d)$ & $e/(b+e)$ & $f/(c+f)$ & $D/N$\\\hline
-\multicolumn{1}{Y}{Conclusion prop.} & $(a + d)/N$ & $(b + e)/N$ & \multicolumn{1}{c}{$(c + f)/N$} & \multicolumn{1}{Y}{}\\\hline\hline
+\multicolumn{1}{Y}{Conclusion probability} & $(a + d)/N$ & $(b + e)/N$ & \multicolumn{1}{c}{$(c + f)/N$} & \multicolumn{1}{Y}{1.0}\\\hline\hline
 \end{tabularx}
 \end{table}
 
