@@ -728,19 +728,39 @@ Combined, the probability for a  same source pair is 6/8 or 75\% and the probabi
 
 \autoref{tab:duez-totals} shows results reported by 56 participants (46 examiners, 10 trainees).
 
-\begin{table}[hbt]
-\centering
-\caption{Evaluation results from Duez Study.}\label{tab:duez-totals}
-{\tabulinesep=1.2mm
-\begin{tabu}{|c|rrr|r|}\hline
-Evaluations (Examiner+Trainee) & \multicolumn{3}{c|}{$Y = $Examiner Conclusion} \\\hline
-$X = $Reality & Identification & Inconclusive & Elimination & Totals \\\hline
+\noindent\begin{fmpage}{\textwidth}\centering
+\captionof{table}{Duez study}\label{tab:duez-summary}
+{\large\bf Development and Validation of a Virtual Examination Tool for Firearm Forensics}
+\emph{\citeauthor{Duez:2017kha} (\citeyear{Duez:2017kha})}\\
+\begin{tabularx}{\textwidth}{XllX}\hline
+\multirow{2}{*}{\bf Study Type} & \multicolumn{2}{c}{\bf Test Set} & \multirow{2}{*}{\bf Participants}\\
+& \# Knowns & \# Unknowns & \\\hline
+Closed set & 10 & 15 & 507 examiners\\
+\end{tabularx}
+\begin{tabularx}{\textwidth}{Y|ccc|Y}
+\multicolumn{5}{c}{\bf Experiment Count Data}\\
+\multicolumn{1}{c}{} & Identification & Inconclusive & \multicolumn{1}{c}{Elimination} & Source Total\\\hline
 Same source & 276+59 & 0+1 & 0+0 & 276+60 \\
-Different source & 0+2 & 12+13 & 80+5 & 92+20 \\\hline
-Percent & 75.2\% & 5.8\% & 19.0\% & 100.0\\\hline
-\end{tabu}
-}
-\end{table}
+Diff source & 0+2 & 12+13 & 80+5 & 92+20 \\\hline
+\multicolumn{1}{Y}{Concl. Total} & 276+61 & 12+14 & \multicolumn{1}{c}{80+5} & \multicolumn{1}{Y}{449}\\\hline\hline
+
+\multicolumn{5}{c}{}\\
+
+\multicolumn{5}{c}{\bf Conclusion-Specific Probabilities}\\
+\multicolumn{1}{c}{} & Identification & Inconclusive & \multicolumn{1}{c}{Elimination} & Source Prop.\\\hline
+Same source & 0.9941 & 0.0385 & 0.0000 \\
+Diff source & 0.0059 & 0.9615 & 1.0000 \\\hline
+\multicolumn{1}{Y}{Concl. prop.} & 0.1817 & ? & \multicolumn{1}{c}{?} & \multicolumn{1}{Y}{}\\\hline\hline
+
+\multicolumn{5}{c}{}\\
+\multicolumn{5}{c}{\bf Source-Specific Probabilities}\\
+\multicolumn{1}{c}{} & Identification & Inconclusive & \multicolumn{1}{c}{Elimination} & Source Prop.\\\hline
+Same source & 0.9992 & 0.0008 & 0 & 0.1818\\
+Diff source & 0 & ? & ? & 0.8282\\\hline
+\multicolumn{1}{Y}{Concl. prop.} & 0.1817 & ? & \multicolumn{1}{c}{?} & \multicolumn{1}{Y}{}\\\hline\hline
+\end{tabularx}
+\end{fmpage}
+
 
 \begin{table}[hbt]
 \centering
@@ -792,50 +812,41 @@ The design has also been copied for a study of cartridge cases of the same firea
 
 Results reported in the 2018 paper are shown in \autoref{tab:hamby-totals}.
 
-\begin{table}
-% \begin{tabular}{lrrrr}\hline
-% Test Series	& \#Examiners &	\#Examiners 	& \#Inconclusively 	& \#Incorrectly  \\
-% & & Reporting Inconclusives & Identified Bullets & Identified Bullets \\ \hline
-% Brundage &	67 &	1 &	1 &	0\\
-% Hamby &	630 &	4 &	7 &	0\\
-% Totals: &	697 &	5 &	8 &	0\\ \hline
-% \end{tabular}
-\centering
-\caption{\label{tab:hamby-totals} Evaluations reported from the combined Brundage-Hamby studies. Note the focus on identifications. }
-{\tabulinesep=1.2mm
-\begin{tabu}{|c|rrr|r|}\hline
-Evaluations & \multicolumn{3}{c|}{$Y = $Examiner Conclusion} \\\hline
-$X = $Reality & Identification & Inconclusive & Elimination & Totals \\\hline
-Same source & 10447 & 8 & 0 & 10455 \\
-Different source & 0 & ? & ? & 47047.5 \\\hline
-\end{tabu}
-}
-\end{table}
+\noindent\begin{fmpage}{\textwidth}\centering
+\captionof{table}{Evaluations, conditional error rates, and overall error rates from the combined Brundage-Hamby studies. Note the focus on identifications.}\label{tab:hamby-summary}
+{\large\bf A Worldwide Study of Bullets Fired From 10 Consecutively Rifled 9MM RUGER Pistol Barrels - Analysis of Examiner Error Rate}
+\emph{\citeauthor{Hamby:2018hu} (\citeyear{Hamby:2018hu})}\\
+\begin{tabularx}{\textwidth}{XllX}\hline
+\multirow{2}{*}{\bf Study Type} & \multicolumn{2}{c}{\bf Test Set} & \multirow{2}{*}{\bf Participants}\\
+& \# Knowns & \# Unknowns & \\\hline
+Closed set & 10 & 15 & 507 examiners\\
+\end{tabularx}
+\begin{tabularx}{\textwidth}{Y|ccc|Y}
+\multicolumn{5}{c}{\bf Experiment Count Data}\\
+\multicolumn{1}{c}{} & Identification & Inconclusive & \multicolumn{1}{c}{Elimination} & Source Total\\\hline
+Same Source & 10447 & 8 & 0 & 10455 \\
+Diff Source & 0 & ? & ? & 47047.5\footnotemark \\\hline
+\multicolumn{1}{Y}{Concl. Total} & 10447 & ? & \multicolumn{1}{c}{?} & \multicolumn{1}{Y}{57502.5}\\\hline\hline
 
-\begin{table}[hbt]
-\centering
-\caption{Error rate assessment for Brundage-Hamby Study.}\label{tab:hamby-errors}
-{\tabulinesep=1.2mm
-\begin{tabu}{|l|rr|}\hline
- & Missed Identification & Missed Elimination  \\ \hline
-Option 2 (FTE error) & 0.0000  & ? \\
-Option 3 (Process error) & 0.0008 & ?\\ \hline
-\end{tabu}
-}
-\end{table}
+\multicolumn{5}{c}{}\\
 
-\begin{table}[hbt]
-\centering
-\caption{Conditional probabilities from Brundage-Hamby Study.}\label{tab:hamby}
-{\tabulinesep=1.2mm
-\begin{tabu}{|c|ccc|}\hline
-$P(X | Y)$ & \multicolumn{3}{c|}{$Y = $Examiner Conclusion} \\\hline
-$X = $Reality & Identification & Inconclusive & Elimination \\\hline
-Same source & 1.000 & ? & ? \\
-Different source & 0.000 & ? & ? \\\hline
-\end{tabu}
-}
-\end{table}
+\multicolumn{5}{c}{\bf Conclusion-Specific Probabilities}\\
+\multicolumn{1}{c}{} & Identification & Inconclusive & \multicolumn{1}{c}{Elimination} & Source Prop.\\\hline
+Same source & 1 & ? & 0 & 0.1818\\
+Diff source & 0 & ? & 1\footnotemark & 0.8282\\\hline
+\multicolumn{1}{Y}{Concl. prop.} & 0.1817 & ? & \multicolumn{1}{c}{?} & \multicolumn{1}{Y}{}\\\hline\hline
+
+\multicolumn{5}{c}{}\\
+\multicolumn{5}{c}{\bf Source-Specific Probabilities}\\
+\multicolumn{1}{c}{} & Identification & Inconclusive & \multicolumn{1}{c}{Elimination} & Source Prop.\\\hline
+Same source & 0.9992 & 0.0008 & 0 & 0.1818\\
+Diff source & 0 & ? & ? & 0.8282\\\hline
+\multicolumn{1}{Y}{Concl. prop.} & 0.1817 & ? & \multicolumn{1}{c}{?} & \multicolumn{1}{Y}{}\\\hline\hline
+\end{tabularx}
+\end{fmpage}
+\footnotetext{This number is imputed based on the average number of pairwise comparisons an examiner would have to do to complete a Hamby study. Details can be found in the supplemental material.}
+\footnotetext{The elimination-specific conditional probabilities are only identifiable in this case because there were not any false eliminations. In any other situation, we would not be able to calculate these probabilities because we do not have the total number of eliminations.}
+
 The answer sheets for Brundage-Hamby sets only asks for reports of identifications for each of the questioned bullets. While the number of same source comparison is obviously one for each questioned bullets, i.e.\ each participant made exactly fifteen same source comparisons. However, the number of different source comparisons that were made  is an open question. Technically, there are nine different source comparisons for each questioned bullet for a total of 135 different source comparisons.  
 However, these evaluations are not independent of each other: once a bullet is successfully identified to a set of knowns, none of the other sets of knowns can possibly be a match. Rather than having to make a call on a match, the evaluation shifts to a confirmation of an elimination. We will assume that an examiner will need to make an average of 4.5 different source comparisons before making an identification, resulting in an average of 67.5 different source comparisons for the whole set, and an approximate 47047.5 different source comparisons, in which no identification was reported (see \autoref{app:brundage} for mathematical details).
 What is still missing is any information on eliminations versus inconclusive results for different source comparisons.
@@ -847,8 +858,8 @@ This study involved the use of 10 consecutively manufactured extractors. First, 
 
 It should be noted that there are some methodological problems with the Lyons study - examiners who did not initially include all 12 unknown evaluations were given the chance to correct results; in addition, not every examiner evaluated the same number of unknowns. Excluding these results might provide different estimates, but we have chosen to use the numbers as reported in the paper for this calculation.
 \noindent\begin{fmpage}{\textwidth}\centering
-\captionof{table}{{\large\bf The Identification of Consecutively Manufactured Extractors}}\label{tab:lyons-summary}
-\emph{\citeauthor{lyons} (\citeyear{lyons})}\\
+\captionof{table}{}\label{tab:lyons-summary}
+{\large\bf The Identification of Consecutively Manufactured Extractors}\emph{\citeauthor{lyons} (\citeyear{lyons})}\\
 \begin{tabularx}{\textwidth}{XllX}\hline
 \multirow{2}{*}{\bf Study Type} & \multicolumn{2}{c}{\bf Test Set} & \multirow{2}{*}{\bf Participants}\\
 & \# Knowns & \# Unknowns & \\\hline
