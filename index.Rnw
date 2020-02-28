@@ -239,7 +239,7 @@ Before approaching the actual studies, it may be useful to \svp{explore} the log
 
 \subsection{Evaluating Classification Decisions}\label{sec:evaluating-classification-decisions}
 When an examiner assesses a set of evidence (generally, a pair of items, one of known provenance and one of unknown provenance) and decides whether the evidence is an identification, inconclusive, or an elimination, they provide a \emph{classification} of the evidence in a set of given categories.  
-We \hh{XXX who is "we"? I don't think it's a good idea to have a them and we kind of description. } assess the accuracy of a classification method using \emph{success rates} and \emph{error rates}, that is, with numerical quantities indicating how often the process produces correct and incorrect results.
+The accuracy of a classification method is  often expressed in the form of \emph{success rates} and \emph{error rates}, that is, with numerical quantities indicating how often the process produces correct or incorrect results.
 
 
 
@@ -247,34 +247,36 @@ We \hh{XXX who is "we"? I don't think it's a good idea to have a them and we kin
 
 \hh{When assessing the accuracy of a classification \emph{success rates} and \emph{error rates} are of interest, i.e.\ the interest shifts from the classification to the numerical quantity indicating how often the process produces correct and incorrect results.}
 
-The most common way to assess the accuracy of a classification method is \hh{to calculate its \emph{sensitivity} and \emph{specificity}. Sensitivity, also called the true positive rate, is an examiner's ability to make an identification from same source evidence (SS). This can be expressed as the conditional probability $P (\text{identification}) \mid SS)$. Conversely, specificity, or the true negative rate, is an examiner's ability to make an elimination given evidence from different sources (DS), $P (\text{elimination}) \mid DS)$.}
+The most common way to assess the accuracy of a classification method is \hh{to calculate its \emph{sensitivity} and \emph{specificity}. Sensitivity, also called the true positive rate, is an examiner's ability to make an identification from same source evidence (SS). This can be expressed as the conditional probability $P (\text{Identification} \mid SS)$. Conversely, specificity, or the true negative rate, is an examiner's ability to make an elimination given evidence from different sources (DS), $P (\text{Elimination} \mid DS)$.}
 Another, often used, way of assessing accuracy of a classification method is to calculate the false positive rate and the false negative rate. The \emph{false positive rate} is the probability that an examiner makes an identification from evidence which is from different sources(DS), $P(Identification | DS)$.
-Mathematically, we calculate the false positive rate as $$ FPR = P(Identification | DS) = \frac{P(Identification \text{ and } DS)}{P(DS)}.$$
+Mathematically, we calculate the false positive rate as $$ FPR = P(\text{Identification} | DS) = \frac{P(\text{Identification and } DS)}{P(DS)}.$$
 
-The \emph{false negative rate} is the probability that an examiner makes an elimination from evidence which originates from the same source (SS), $P(Elimination | SS)$. In all  of these assessments, the  rates are calculated by conditioning on the origin of the evidence. \hh{XXX The figure includes inconclusives - which we haven't talked about at this point. } \autoref{fig:FPR-specific-tree} shows a decision tree describing the possible comparisons which can be made conditioned on ground truth. \hh{XXX sorry for taking out the next paragraph - I'm not sure it helps in clarifying the math behind the tree. }
+The \emph{false negative rate} is the probability that an examiner makes an elimination from evidence which originates from the same source (SS), $P(\text{Elimination} | SS)$. In all  of these assessments, the  rates are calculated by conditioning on the origin of the evidence. \hh{XXX The figure includes inconclusives - which we haven't talked about at this point. } \autoref{fig:FPR-specific-tree} shows a decision tree describing the possible comparisons which can be made conditioned on ground truth. %\hh{XXX sorry for taking out the next paragraph - I'm not sure it helps in clarifying the math behind the tree. }
 %The terminal nodes \hh{XXX not defined} describe the joint probability of examiner classification and ground truth; the ground truth nodes describe \hh{XXX not sure how the nodes describe probabilities} the probability of same-source or different-source comparisons, which is determined by the experimental design. \hh{XXX No hypotheticals. Either we do or we don't.} If we wanted to calculate the false positive rate, we would take the far-right terminal node, and compare the probability of that node to the probability of the different source node which is its parent. 
 
 \begin{figure}
 \centering
 %\includegraphics[width=\textwidth]{figures/Source_Specific_Tree_Diagram.pdf}
 \includegraphics[width=\textwidth]{figures/Source-specific-tree-diagram.pdf}
-\caption{Tree Diagram illustrating the logic of source-specific error rates. We must first decide whether we are interested in same-source or different-source rates, and then examine the probabilities for each of the possible labels: Identification, Inconclusive, and Elimination.}\label{fig:FPR-specific-tree}
+\caption{Tree Diagram illustrating the logic of source-specific error rates. Source-specific rates give the probability of an examiner's decision ( Identification, Inconclusive, or Elimination) given same-source and different-source evidence.}\label{fig:FPR-specific-tree}
 \end{figure}
 
 \subsection{Decision-specific assessment}
 
 The use of false positive and false negative rates to characterize a classification task is extremely common, however, there are alternate ways to evaluate a classification method. 
 % In medicine, in particular, it is common to evaluate tests based on the positive and negative predictive value. 
-The \emph{positive predictive value} (PPV) is the probability that, if an examiner makes an identification, the evidence is from the same source, that is, $P(SS | Identification)$. 
+The \emph{positive predictive value} (PPV) is the probability that, if an examiner makes an identification, the evidence is from the same source, that is, $P(SS | \text{Identification})$. 
 \svp{Its complement, the \emph{false discovery rate} (FDR), is the probability that if an examiner makes an identification, the evidence is from different sources.}
-The \emph{negative predictive value}(NPV) is the probability that, if an examiner makes an exclusion, the evidence is from different sources, or $P(DS | Exclusion)$. \svp{Its complement, the \emph{false omission rate} (FOR) is the probability that, if an examiner makes an exclusion, the evidence is actually from the same source.}
+The \emph{negative predictive value} (NPV) is the probability that, if an examiner makes an elimination, the evidence is from different sources, or $P(DS | \text{ Elimination})$. \svp{Its complement, the \emph{false omission rate} (FOR) is the probability that, if an examiner makes an elimination, the evidence is actually from the same source.}
 \svp{In \citet{songEstimatingErrorRates2018}, the FDR is referred to as the false identification error rate, and the FOR is called the false exclusion error rate.}
 As before, we can map out the conditional hierarchy using a decision tree, shown in \autoref{fig:PPV-specific-tree}. 
 
-\hh{XXX I think we have too many rates in there with too close naming. Personally, I would not distinguish between False discovery and False positive rates. But they are defined differently. Help XXX - I have added names to the figures. This might help a bit with the problem. But I think it still is a problem.}
+\hh{To reduce confusion with the naming or rates and predictive values we have labelled nodes in the trees of \autoref{fig:FPR-specific-tree} and \autoref{fig:PPV-specific-tree} correspondingly. }
+
+%\hh{XXX I think we have too many rates in there with too close naming. Personally, I would not distinguish between False discovery and False positive rates. But they are defined differently. Help XXX - I have added names to the figures. This might help a bit with the problem. But I think it still is a problem.}
 
 
-Predictive value assessments are extremely useful in understanding the implications of a particular classification label; they inform us about the likely state of the physical evidence. 
+Predictive value assessments are used in assessing the implications of a particular classification label; they inform us about the likely state of the physical evidence. 
 % \svp{In designed studies, this is known information; however, the PPV, NPV, FDR, and FOR are also useful for casework, where the true state of the evidence is unknown, as they are not conditioned on unknown information.} 
 
 
@@ -284,8 +286,8 @@ Predictive value assessments are extremely useful in understanding the implicati
 \includegraphics[width=\textwidth]{figures/Conclusion-specific-tree-diagram.pdf}
 %\includegraphics[width=\textwidth]{figures/Conclusion_Specific_Tree_Diagram.pdf}
 \caption{
-Tree Diagram illustrating the logic of positive and negative predictive value calculations. 
-We must first select which conclusion we are interested in, and then examine the probability of each state of reality (same source or different sources) given that conclusion.
+Tree Diagram illustrating the logic of positive and negative predictive value calculations. Decision-specific values give the probability of evidence coming from the same source or different sources given an examiner's testimony.
+%We must first select which conclusion we are interested in, and then examine the probability of each state of reality (same source or different sources) given that conclusion.
 }\label{fig:PPV-specific-tree}
 \end{figure}
 
@@ -302,11 +304,11 @@ We must first select which conclusion we are interested in, and then examine the
 These two forms of questions look deceptively similar, but lead to different mathematical equations. 
 This difficulty is not exclusive to evaluations of firearms evidence -- it is a known and pervasive pitfall in other application areas, such as medical diagnostics \cite{Casscells:1978ba, Manrai:2014fp}. }
 \hh{The distinction between these two sources of error rates }
-\svp{ is perhaps a bit more approachable in the setting of a medical context: a given test will have a sensitivity (true positive rate, TPR) and a specificity (true negative rate, TNR) that combined would yield the accuracy rate. 
-However, if you as a patient are sent for a test which yields a positive result, what you care about is 
+\svp{ is perhaps a bit more approachable in the setting of a medical context: a given test has a sensitivity (true positive rate, TPR) and a specificity (true negative rate, TNR) that combined determine the overall accuracy rate. 
+However, if you as a patient are sent for a test which yields a positive result, what you really care about  
 %not the accuracy rate (because when testing for rare diseases the true negatives are much more common than true positives); it 
 is the probability that, given your positive result, you actually have the disease. 
-}  \hh{are sent for? that looks weird to my German eyes}
+}  
 
 \hh{Mathematically, the source-specific error rates, }
 %When calculating the
@@ -316,11 +318,6 @@ FPR and FNR, \hh{are calculated by conditioning on the source of of the evidence
 
 %The implications of the two sets of conditional probabilities are somewhat different as well. 
 
-\hh{XXX next few paragraphs earlier?}
-The medical context is perhaps a more approachable setting: a given test will have a sensitivity (true positive rate, TPR) and a specificity (true negative rate, TNR) that combined would yield the accuracy rate. 
-However, if you as a patient are sent for a test which yields a positive result, what you care about is not the accuracy rate (because when testing for rare diseases the true negatives are much more common than true positives); it is the probability that, given your positive result, you actually have the disease. 
-In tests for rare diseases which are highly accurate, the positive predictive value can be fairly small, because false positives are more common than the incidence rate of the disease.
-\hh{XXX moved the previous paragraphs up, but left out the rare probabilities.}
 
 \hh{XXX We need to say more about the marginal distributions and how to calulate PPV, if we want to keep the next paragraph. But we could also think about moving this into the discussion. Essentially, this is a descriptive version of Bayes theorem without mentioning Bayes or the fact that given the marginal distribution we can move from one conditional distribution to the other. We should make this explicit or leave out. At the moment I am leaning towards out.}
 
@@ -904,6 +901,9 @@ Opt. & \multicolumn{1}{c}{Meaning} & Missed Identification & \multicolumn{1}{c}{
 
 
 \section{Discussion and Conclusions}
+
+\svp{when testing for rare diseases the true negatives are much more common than true positives
+In tests for rare diseases which are highly accurate, the positive predictive value can be fairly small, because false positives are more common than the incidence rate of the disease.}
 
 number of firearms very small 
 
