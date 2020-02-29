@@ -617,7 +617,7 @@ Opt. & \multicolumn{1}{c}{Meaning} & Missed Identification & \multicolumn{1}{c}{
 \end{fmpage}
 \footnotetext{Two comparisons were not reported and have been imputed as inconclusives.}
 
-The resulting sets of conditional probabilities are shown in \autoref{tab:baldwin-summary}
+The resulting sets of conditional probabilities are shown in \autoref{tab:baldwin-summary}.
 
 It seems that firearms examiners are more willing to bet on identifications than on eliminations. 
 Based on the set up of the study, we would expect the probabilities for same and different source given an inconclusive result is reported to be: 
