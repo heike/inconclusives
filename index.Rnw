@@ -4,7 +4,7 @@
 \usepackage{lineno,hyperref}
 \modulolinenumbers[5]
 
-\usepackage{amsmath,amsthm,amstext}
+\usepackage{amsmath,amsthm,amstext, amsfonts}
 \usepackage{graphicx,psfrag,epsf,wrapfig,subfig,float,capt-of}
 \usepackage[dvipsnames]{xcolor}
 \usepackage{booktabs,longtable,multirow,multicol,tabu,tabularx,threeparttable,colortbl,array}
@@ -101,9 +101,9 @@
 % \address[mysecondaryaddress]{360 Park Avenue South, New York}
 
 \author[isu,csafe]{Heike Hofmann}
-\author[isu,csafe]{Alicia Carriquiry}
 \author[unl]{Susan Vanderplas\corref{corauthor}}
 \cortext[corauthor]{Corresponding author}\ead{susan.vanderplas@unl.edu}
+\author[isu,csafe]{Alicia Carriquiry}
 \address[isu]{Statistics Department, Iowa State University\\2438 Osborne Dr, Ames, IA 50011}
 \address[csafe]{Center for Statistical Applications in Forensic Evidence, Iowa State University\\613 Morrill Rd, Ames, IA 50011}
 \address[unl]{Statistics Department, University of Nebraska Lincoln\\340 Hardin Hall North Wing, Lincoln, NE 68583-0963}   
@@ -191,27 +191,6 @@ Unsuitable for examination.
 The identification process -- i.e. the assessment of whether two samples come from the same source (were made by the same tool, the same shoe, the same finger, shot through the same barrel) or from different sources -- is quite complex. 
 In order to assess how well the identification process is functioning, studies with known ground truth have to be employed \svp{as} casework does not allow for an assessment of correctness. 
 Ground truth, that is, the knowledge of whether two samples come from the same source or two different sources, is only available to the individual setting up the test; as casework is not so strictly controlled, we do not have information about ground truth and thus cannot use casework for error rate assessment.
-
-\section{Study Design Considerations}
-
-\svp{Studies must control for or systematically vary the type of implement making the pattern, manufacturing order (in many cases), maintenance procedures, ammunition or marking surface, and many other factors (see \citet{spiegelmanAnalysisExperimentsForensic2013} for a thorough review of all of the physical factors which might be controlled for or varied in a comprehensive study). In addition to the physical evidence-generation process, experimenters must carefully control the amount of information participants have about the study design and structure. When this information is not strictly controlled, examiners may use deductive reasoning and other strategies that are useful for the test but that do not correspond to casework.}
-As a result, studies which attempt to gain insight into the identification process must also navigate these complexities, ideally without becoming too complicated to reasonably execute.
-
-There are several considerations when designing a study of the identification process:
-\begin{description}
-\item [Closed vs. Open Set] A closed set study is one in which all questioned samples share the same source as one set of  knowns in the test set. Conversely, an open set study is one in which questioned samples may originate from sources which are not part of the known samples provided in the test set.
-\item [White box vs. Black Box] A white-box study is one which makes an attempt to understand \emph{why} an examiner came to the decision, in contrast to a black box study, which only evaluates the correctness of the decision (and not the reasoning behind it). 
-\item [Blind testing] A blind (or blinded) study is one in which the participant (in this case the examiner) does not know that they are being tested; that is, a study which appears to be part of a case, rather than research. 
-\citet{pcast2016} recommended that the use of blind testing be increased, as error rates derived from blind studies better generalize to casework. 
-\svp{\citet{spiegelmanAnalysisExperimentsForensic2013} also suggest blind testing as a method to increase the external validity of studies beyond assessing the proficiency of individual examiners.} 
-\svp{Note that this is different from the definition of a blind study used in \citet{bunch2003comprehensive}; in that paper, the use of the terms blind and double blind do not conform to the generally accepted definitions.}
-\item [Number of knowns from different sources] Some studies \citep{keisler} provide only one known exemplar (or a set of multiple exemplars from the same source). Other studies, such as \citep{brundage, hamby,Hamby:2018hu} and the Houston FSC and Phoenix studies from \citet{case-validation}, include multiple different sources as knowns. %Typically, these studies can be completed with the assumption that once an unknown matches one known, it will not match any other knowns. \svp{Add in the issues with this later}
-\item [Study length] Most crime labs are understaffed and maintain a fairly large backlog of cases; as a consequence, examiner time is limited. While examiners should participate in these studies, because they benefit the discipline as a whole, they must balance the competing demands of a large and consequential workload. As such, studies which require examiners to make a large number of comparisons may be less likely to have sufficient participants to generalize to the wider discipline.
-\end{description}
-
-%% Transition to error rates
-Once a study is \svp{designed} and test samples have been assessed by forensic examiners, error rates can be calculated. Differences between reported results and ground truth are considered to be errors in the identification process. %A detailed discussion on the the exact procedure on how to deal with inconclusive results in calculating error rates is provided in section XXX.
-
 
 
 \section{Error Rate Calculation}
@@ -325,28 +304,52 @@ FPR and FNR, \hh{are calculated by conditioning on the source of of the evidence
 
 \hh{XXX A sentence on why we need case studies to evaluate and assess all of these error rates. }
 
-\subsection{Assessment of error rates in case studies}
+\hh{XXX We haven't talked about inconclusives yet - we should put a teaser here that we are going to come back to that.}
 
-In order to calculate these different probabilities and rates, let us assume that we have a (hypothetical)  \hh{XXX why hypothetical? XXX} experiment, where participants are asked to complete a total of $N$ comparisons, consisting of $S$ same-source comparisons and $D$ different source comparisons.
 
-\hh{Why do you write this so hypothetically? I thought we wanted to make this as real as possible.}
+\section{Study Design Considerations}
+
+\svp{Studies must control for or systematically vary the type of implement making the pattern, manufacturing order (in many cases), maintenance procedures, ammunition or marking surface, and many other factors (see \citet{spiegelmanAnalysisExperimentsForensic2013} for a thorough review of all of the physical factors which might be controlled for or varied in a comprehensive study). In addition to the physical evidence-generation process, experimenters must carefully control the amount of information participants have about the study design and structure. When this information is not strictly controlled, examiners may use deductive reasoning and other strategies that are useful for the test but that do not correspond to casework.}
+As a result, studies which attempt to gain insight into the identification process must also navigate these complexities, ideally without becoming too complicated to reasonably execute.
+
+There are several considerations when designing a study of the identification process:
+\begin{description}
+\item [Closed vs. Open Set] A closed set study is one in which all questioned samples share the same source as one set of  knowns in the test set. Conversely, an open set study is one in which questioned samples may originate from sources which are not part of the known samples provided in the test set.
+\item [White box vs. Black Box] A white-box study is one which makes an attempt to understand \emph{why} an examiner came to the decision, in contrast to a black box study, which only evaluates the correctness of the decision (and not the reasoning behind it). 
+\item [Blind testing] A blind (or blinded) study is one in which the participant (in this case the examiner) does not know that they are being tested; that is, a study which appears to be part of a case, rather than research. 
+\citet{pcast2016} recommended that the use of blind testing be increased, as error rates derived from blind studies better generalize to casework. 
+\svp{\citet{spiegelmanAnalysisExperimentsForensic2013} also suggest blind testing as a method to increase the external validity of studies beyond assessing the proficiency of individual examiners.} 
+\svp{Note that this is different from the definition of a blind study used in \citet{bunch2003comprehensive}; in that paper, the use of the terms blind and double blind do not conform to the generally accepted definitions.}
+\item [Number of knowns from different sources] Some studies \citep{keisler} provide only one known exemplar (or a set of multiple exemplars from the same source). Other studies, such as \citep{brundage, hamby,Hamby:2018hu} and the Houston FSC and Phoenix studies from \citet{case-validation}, include multiple different sources as knowns. %Typically, these studies can be completed with the assumption that once an unknown matches one known, it will not match any other knowns. \svp{Add in the issues with this later}
+\item [Study length] Most crime labs are understaffed and maintain a fairly large backlog of cases; as a consequence, examiner time is limited. While examiners should participate in these studies, because they benefit the discipline as a whole, they must balance the competing demands of a large and consequential workload. As such, studies which require examiners to make a large number of comparisons may be less likely to have sufficient participants to generalize to the wider discipline.
+\end{description}
+
+%% Transition to error rates
+Once a study is \svp{designed} and test samples have been assessed by forensic examiners, error rates can be calculated. Differences between reported results and ground truth are considered to be errors in the identification process. %A detailed discussion on the the exact procedure on how to deal with inconclusive results in calculating error rates is provided in section XXX.
+
+
+
+
+\section{Assessment of error rates in case studies}
+
+In order to calculate the two sets of conditional probabilities, let us assume that we have the results from a generic experiment, where participants were asked to complete a total of $N$ comparisons, consisting of $S$ same-source comparisons and $D$ different source comparisons.
 \hh{A summary of these evaluations can then be reported}
 %The study data would consist of evaluations reported 
 in the form of a %table \svp{which can be arranged in a form like the} 
-generic table as shown in \autoref{tab:generic-results}.
+ table as shown in \autoref{tab:generic-results}.
 
 \begin{table}
 \centering
 \caption{
-An example results table for a generic experiment where comparisons can be broken down as either from the same source or from different sources, and examiners classify each comparison as an identification, an inconclusive, or an elimination, as  specifiedin the AFTE rules of identification. 
+An example results table for a generic experiment where comparisons can be broken down as either from the same source or from different sources, and examiners classify each comparison as an identification, an inconclusive, or an elimination, as  specified in the AFTE rules of identification. 
 Define $S = a + b + c$ as the total number of same source comparisons, $D = d + e + f$ as the total number of different-source comparisons, and $N = S + D$ as the total number of comparisons. 
-Then the probability of the occurrence of any cell in the interior of the table (a, b, c, d, e, or f) can be found by dividing the respective letter by $N$, the total number of comparisons.
+Then the probability of the occurrence of any cell in the interior of the table $(a, b, c, d, e, \text{ or } f)$ can be found by dividing the respective letter by $N$, the total number of comparisons.
 }\label{tab:generic-results}
 \begin{tabularx}{\textwidth}{Y|ccc|Y}
 \multicolumn{5}{c}{\bf Experiment Count Data}\\\hline
 \multicolumn{1}{c}{} & Identification & Inconclusive & \multicolumn{1}{c}{Elimination} & Source Total\\\hline
-Same Source & $a$ & $b$ & $c$ & $S = a + b + c$\\
-Diff Source & $d$ & $e$ & $f$ & $D = e + f + g$\\\hline
+Same Source & $\mathbb{a}$ & $\mathbb{b}$ & $\mathbb{c}$ & $S = a + b + c$\\
+Diff Source & $\mathbb{d}$ & $\mathbb{e}$ & $\mathbb{f}$ & $D = e + f + g$\\\hline
 \multicolumn{1}{Y}{Conclusion Total} & $a + d$ & $b + e$ & \multicolumn{1}{c}{$c + f$} & \multicolumn{1}{Y}{$N = S + D$}\\\hline\hline
 \end{tabularx}
 \end{table}
@@ -381,10 +384,10 @@ In the last column of the table, the marginal probabilities $P(X)$ are shown; th
 }\label{tab:pv-prob}
 \begin{tabularx}{\textwidth}{Y|ccc|Y}
 \multicolumn{5}{c}{\bf Predictive Value Probabilities}\\
-\multicolumn{1}{c}{} & Identification & Inconclusive & \multicolumn{1}{c}{Elimination} & Source Prop.\\\hline
+\multicolumn{1}{c}{} & Identification & Inconclusive & \multicolumn{1}{c}{Elimination} & Source Probability\\\hline
 Same source & $a/S$ & $b/S$ & $c/S$ & $S/N$\\
 Diff source & $d/D$ & $e/D$ & $f/D$ & $D/N$\\\hline
-\multicolumn{1}{Y}{Concl. prop.} & $(a + d)/N$ & $(b + e)/N$ & \multicolumn{1}{c}{$(c + f)/N$} & \multicolumn{1}{Y}{}\\\hline\hline
+\multicolumn{1}{Y}{Conclusion probability} & $(a + d)/N$ & $(b + e)/N$ & \multicolumn{1}{c}{$(c + f)/N$} & \multicolumn{1}{Y}{1.0}\\\hline\hline
 \end{tabularx}
 \end{table}
 A google sheets workbook for performing these calculations is available at \url{http://bit.ly/FTE-error-rate}.
@@ -438,7 +441,7 @@ This solution does entirely ignore inconclusives, though, and as they are part o
 
 Under AFTE's Theory of Identification, however, inconclusive results are acceptable outcomes and not considered errors; to give a very extreme example, an examiner could report inconclusives for the rest of their career and never make an error. Option 2 shows this way of treating inconclusives as correct regardless of the actual state.
 What this means in real terms, is that inconclusives are effectively counted as identifications if they are actually from the same source, but counted as eliminations if they are actually from a different source. 
-When the goal is to assess the error rate of the examiner under the prevailing guidelines of the AFTE Theory of Identification, this is a reasonable option for assessing error rates of firearm and toolmark examiners, with the slightly odd side-effect that an examiner who marks every comparison as inconclusive does not provide any useful actionable information, but effectively has a zero error rate. \svp{XXXthis is repeating something said above, though I'm not sure that's a bad thing XXX}
+When the goal is to assess the error rate of the examiner under the prevailing guidelines of the AFTE Theory of Identification, this is a reasonable option for assessing error rates of firearm and toolmark examiners, with the slightly odd side-effect that an examiner who marks every comparison as inconclusive does not provide any useful actionable information, but effectively has a zero error rate. \svp{XXX this is repeating something said above, though I'm not sure that's a bad thing XXX}
 
 When viewed within the framework of the legal system, error rates calculated using option 2  are  not considering any error introduced by the evidence itself. 
 If e.g. a firearm does not mark well, a firearms examiner might not be able to make an identification or an elimination through no fault of theirs. 
@@ -455,7 +458,7 @@ In the next section, we will examine the results from a number of studies of the
 Prior to that, however, it may be useful to develop one more idea: in a perfect world with examiners who are all-knowing, what should the results of these studies look like?\svp{XXX This could be a bit better transition XXX}
 
 
-\subsection{Ideal study probabilities}
+\subsection{Ideal study probabilities}\label{sec:ideal}
 
 \hh{In the absence of knowing the truth we have to resort to working within a probabilistic framework to assess the likelihood of certain events. 
 Some (XXX? quantify?) evidence is based on questions of pattern matching: does the shoe print from the crime scene match a particular shoe? was the bullet found at a crime scene fired from a particular weapon? does the breech face impression on a cartridge case from the crime scene match the breech face of a particular weapon frame?}
@@ -509,7 +512,7 @@ Baldwin , Keisler , Lyons \cite{lyons}, Hare, Fadul \cite{fadul}, Brundage-Hamby
 Probabilities are shown with their respective 95\% (Pearson-Clopper) confidence intervals.  
 In light grey, expected probabilities are shown based on the distribution of same source/different source comparisons and the number of participants in each study.
 
-<<cis, echo=FALSE, fig.width=8, fig.height=4.5, fig.cap="Pearson-Clopper 95\\% confidence intervals for the probability of same source given examiner's conclusion.", out.width=".8\\textwidth">>=
+<<cis, echo=FALSE, fig.width=8, fig.height=4.5, fig.cap="Pearson-Clopper 95\\% confidence intervals for the probability of same source evidence given an examiner's conclusion. Expected values for each of the probabilities as discussed in \\autoref{sec:ideal} are shown as grey targets. Some of the studies do not allow an assessment of all of the predictive values.", out.width=".8\\textwidth">>=
 clopper <- function(alpha, success, trials) {
   lower <- qbeta(alpha/2, success, trials-success+1)
   upper <- qbeta(1-alpha/2, success+1, trials-success)
@@ -527,36 +530,51 @@ cis <- studies %>% group_by(Study, Decision) %>%
   )
 
 exp <- studies %>% 
-  filter(Decision == "Inconclusive") %>%
+#  filter(Decision == "Inconclusive") %>%
   group_by(Study, Decision) %>% 
   summarize(
     exp_ss = Number[Type=="Expected"][1] * sum(Number[Type == "Observed"]),
     exp_ss_lower = clopper(0.05, exp_ss, sum(Number[Type == "Observed"]))[1],
     exp_ss_upper = clopper(0.05, exp_ss, sum(Number[Type == "Observed"]))[2],
     exp_prob = exp_ss/sum(Number[Type == "Observed"])
+  ) %>% 
+  ungroup(Study) %>%
+  mutate(
+    Study = factor(Study, 
+                    levels=c("Baldwin", "Keisler", "Duez", "Hamby", "Lyons"))
   )
   
 
+DontKnow <- data.frame(pred_ss = 0.5, 
+                                   xmin=c(0,0,0,0), 
+                                   xmax=c(1,1,1,1), 
+                                   Study = c("Lyons", "Hamby", "Lyons", "Hamby"), 
+                                   Decision=rep(c("Inconclusive", "Elimination"), each=2))
 cis %>% 
   ungroup() %>%
   mutate(
-    Decision = factor(Decision, levels=c("Identification", "Inconclusive", "Elimination")),
-    Study = factor(Study, levels=c("Baldwin", "Keisler", "Duez", "Hamby", "Lyons"))
+    Decision = factor(Decision, levels=c("Identification", "Inconclusive", "Elimination"))
   ) %>%
   ggplot(aes(x = pred_ss, y = Study)) +
   facet_grid(Decision~.) +
-  geom_vline(xintercept=c(0,1), colour = "grey20", size=0.25) +
-  geom_errorbarh(
-    aes(xmin = pred_ss_lower, xmax=pred_ss_upper, y=Study), 
-    size=0.5, height = 0.5, colour = "grey20") +
-  geom_point() +
   xlim(c(0,1)) +
   xlab("Probability for same source given examiner's decision") +
   theme_bw() +
-  geom_point(aes(x = exp_prob, y = Study), data = exp, colour="grey80") +
+#  geom_point(aes(x = exp_prob, y = Study), data = exp, colour="red", size=4.5) +
+#  geom_point(aes(x = exp_prob, y = Study), data = exp, colour="white", size=3.5) +
+  geom_point(aes(x = exp_prob, y = Study), data = exp, colour="grey50", size=2.5) +
+  geom_point(aes(x = exp_prob, y = Study), data = exp, colour="white", size = 1.5) +
+  geom_point(aes(x = exp_prob, y = Study), data = exp, colour="grey50", size=.5) +
+    geom_vline(xintercept=c(0,1), colour = "grey20", size=0.25) +
   geom_errorbarh(
-    aes(xmin = exp_ss_lower, xmax=exp_ss_upper, y=Study, x = exp_ss_lower),
-    size=0.5, height = 0.5, colour = "grey80", data = exp)
+    aes(xmin = pred_ss_lower, xmax=pred_ss_upper, y=Study), 
+    size=0.5, height = 0.5, colour = "grey20", alpha =0.9) +
+  geom_point() +
+  geom_errorbarh(aes(xmin=xmin, xmax=xmax, y=Study), 
+                 data = DontKnow, linetype=2) +
+  geom_point(data = DontKnow, shape='?', size = 3.5)
+
+
 @
 
 
