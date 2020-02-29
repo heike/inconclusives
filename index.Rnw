@@ -733,7 +733,7 @@ the differences in certified examiners and trainees are not large, so only the a
 \begin{tabularx}{\textwidth}{XllX}\hline
 \multirow{2}{*}{\bf Study Type} & \multicolumn{2}{c}{\bf Test Set} & \multirow{2}{*}{\bf Participants}\\
 & \# Knowns & \# Unknowns & \\\hline
-Open set & ? & ? & 36+10 examiners\\
+Open set & ? & ? & 46+10 examiners\\
 \end{tabularx}
 \begin{tabularx}{\textwidth}{Y|ccc|Y}
 \multicolumn{5}{c}{\bf Experiment Count Data}\\
