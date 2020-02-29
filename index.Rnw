@@ -157,7 +157,7 @@ library(kableExtra)
 @
 
 
-Examiners visually classify similarity of toolmark and firearm evidence according to the AFTE theory of identification \citep{identification} as one of identification, inconclusive or elimination. Exact guidelines for this classification vary from lab to lab; some labs will exclude only on the basis of non-matching class characteristics, such as direction of the twist in rifling, land length or number of lands, or type of rifling. In other labs, CMS (consecutively matching striae) as defined by \citeauthor{biasotti} \citep{biasotti} is used as a measure to quantify the similarity of two lands. In virtually all labs, individual characteristics used to identify matching bullets are derived from visual assessment; some class characteristics may be directly measured, but these are not sufficient for individualization. 
+Examiners visually classify similarity of toolmark and firearm evidence according to the AFTE theory of identification \citep{identification} as one of identification, inconclusive or elimination (See \autoref{tab:afte} for definition of each conclusions). Exact guidelines for this classification vary from lab to lab; some labs will exclude only on the basis of non-matching class characteristics, such as direction of the twist in rifling, land length or number of lands, or type of rifling. In other labs, CMS (consecutively matching striae) as defined by \citeauthor{biasotti} \citep{biasotti} is used as a measure to quantify the similarity of two lands. In virtually all labs, individual characteristics used to identify matching bullets are derived from visual assessment; some class characteristics may be directly measured, but these are not sufficient for individualization. 
 % Identification using 3D Scanning Technology
 
 
@@ -189,13 +189,13 @@ Unsuitable for examination.
 % \section{Background} % Identification
 
 The identification process -- i.e. the assessment of whether two samples come from the same source (were made by the same tool, the same shoe, the same finger, shot through the same barrel) or from different sources -- is quite complex. 
-In order to assess how well the identification process is functioning, studies with known ground truth have to be employed \svp{as} casework does not allow for an assessment of correctness. 
+In order to assess how well the identification process is functioning, studies with known ground truth have to be employed, as casework does not allow for an assessment of correctness. 
 Ground truth, that is, the knowledge of whether two samples come from the same source or two different sources, is only available to the individual setting up the test; as casework is not so strictly controlled, we do not have information about ground truth and thus cannot use casework for error rate assessment.
 
 
 \section{Error Rate Calculation}
 
-The need for scientific validation and experimentally-determined error rates has been identified in several reports evaluating the discipline of forensic science in the United States as critical for addressing problems within the field and improving the overall performance of the justice system.
+The need for scientific validation and experimentally-determined error rates has been identified in several reports evaluating the discipline of forensic science in the United States as critical for addressing problems within the field and improving the overall performance of the justice system. 
 National Research Council 2009:
 
 \begin{displayquote} much forensic evidence—including, for example, bitemarks and firearm and toolmark identifications—is introduced in criminal trials without any meaningful scientific validation, determination of error rates, or reliability testing to explain the limits of the discipline.\end{displayquote}
@@ -208,13 +208,18 @@ Indeed, when jurors are left to form their own conclusions about the error rates
 
 \begin{displayquote} In an online experiment, researchers asked mock jurors to estimate the frequency that a qualified, experienced forensic scientist would mistakenly conclude that two samples of specified types came from the same person when they actually came from two different people. The mock jurors believed such errors are likely to occur about 1 in 5.5 million for fingerprint analysis comparison; 1 in 1 million for bitemark comparison; 1 in 1 million for hair comparison; and 1 in 100 thousand for handwriting comparison.\end{displayquote}
 
-Unfortunately, the way in which error rates are computed and reported in the (relatively sparse) literature involving estimating these error rates experimentally is highly variable. 
-\citet{Dror:2018fp} \svp{suggested treating} inconclusive results as an examiner's conscious decision to not decide on an identification or elimination. 
+\svp{In addition to these reports which clearly identify the need for error rate studies, it is often essential to have clearly quantified known or potential error rates\citep{giannelliDaubertInterpretingFederal1993} in order for testimony about the results of forensic examinations to be admitted into evidence.}
+
+Unfortunately, the methods used to establish error rates experimentally and the interpretations of those error rates in the literature are highly variable. 
+\svp{In part, this variability is due to the mismatch between the evidence evaluation standards used by different forensic disciplines and the actual origin of the evidence. 
+For instance, the AFTE theory of identification has 4 possible conclusions; 3 of which are typically used in comparisons\footnote{The fourth category, unsuitable for examination, is one which should be used when evaluating single pieces of recovered evidence; it does not result from the comparison of an unknown source to a known source.} 
+As there are more possible classifications than source categories (same or different), it is understandable that the treatment of inconclusives when calculating error rates is the subject of some debate. } 
+For instance, \citet{Dror:2018fp} \svp{suggests treating} inconclusive results as an examiner's conscious decision to not decide on an identification or elimination. 
 This view has drawn some criticism \citep{Biedermann:2018hr,biedermannAreInconclusiveDecisions2019}. 
 Inconclusives can be excluded from result calculations, included as correct results, or included as incorrect results; each of these decisions has an impact on the interpretation of the resulting error rates.
 In this paper, we \svp{discuss} the treatment of inconclusives in the assessment of error rates from a statistical point of view, % We believe that this -- rather than further dividing the different opinions -- provides a unifying framework.
 examining previous error rate studies to assess the technical accuracy and practical utility of the reported error rates. 
-Before approaching the actual studies, it may be useful to \svp{explore} the logic behind the \svp{numerical} calculations and define some basic notation to facilitate comparison of studies with different experimental designs.
+Before approaching the actual studies, we will define some basic notation to facilitate comparison of studies with different experimental designs and briefly \svp{explore} the logic behind the \svp{numerical} calculations.%order
 
 \subsection{Evaluating Classification Decisions}\label{sec:evaluating-classification-decisions}
 When an examiner assesses a set of evidence (generally, a pair of items, one of known provenance and one of unknown provenance) and decides whether the evidence is an identification, inconclusive, or an elimination, they provide a \emph{classification} of the evidence in a set of given categories.  
@@ -226,9 +231,14 @@ The accuracy of a classification method is  often expressed in the form of \emph
 
 \hh{When assessing the accuracy of a classification \emph{success rates} and \emph{error rates} are of interest, i.e.\ the interest shifts from the classification to the numerical quantity indicating how often the process produces correct and incorrect results.}
 
-The most common way to assess the accuracy of a classification method is \hh{to calculate its \emph{sensitivity} and \emph{specificity}. Sensitivity, also called the true positive rate, is an examiner's ability to make an identification from same source evidence (SS). This can be expressed as the conditional probability $P (\text{Identification} \mid SS)$. Conversely, specificity, or the true negative rate, is an examiner's ability to make an elimination given evidence from different sources (DS), $P (\text{Elimination} \mid DS)$.}
+The most common way to assess the accuracy of a classification method is \hh{to calculate its \emph{sensitivity} and \emph{specificity}. 
+Sensitivity, also called the true positive rate, is an examiner's ability to make an identification from same source evidence (SS). 
+This can be expressed as the conditional probability $P (\text{Identification} \mid SS)$. 
+Conversely, specificity, or the true negative rate, is an examiner's ability to make an elimination given evidence from different sources (DS), $P (\text{Elimination} \mid DS)$.} 
+Mathematically, we calculate the true negative rate as $$ TNR = P(\text{Elimination} | DS) = \frac{P(\text{Elimination and } DS)}{P(DS)}.$$
+\svp{That is, the conditional probability of an event \emph{given} another event is the probability that the two events both occur, divided by the probability of the second event. }\svp{XXX not sure this is needed, but Eryn was recommending words instead of equations, so it is worth a try...}
+
 Another, often used, way of assessing accuracy of a classification method is to calculate the false positive rate and the false negative rate. The \emph{false positive rate} is the probability that an examiner makes an identification from evidence which is from different sources(DS), $P(Identification | DS)$.
-Mathematically, we calculate the false positive rate as $$ FPR = P(\text{Identification} | DS) = \frac{P(\text{Identification and } DS)}{P(DS)}.$$
 
 The \emph{false negative rate} is the probability that an examiner makes an elimination from evidence which originates from the same source (SS), $P(\text{Elimination} | SS)$. In all  of these assessments, the  rates are calculated by conditioning on the origin of the evidence. \hh{XXX The figure includes inconclusives - which we haven't talked about at this point. } \autoref{fig:FPR-specific-tree} shows a decision tree describing the possible comparisons which can be made conditioned on ground truth. %\hh{XXX sorry for taking out the next paragraph - I'm not sure it helps in clarifying the math behind the tree. }
 %The terminal nodes \hh{XXX not defined} describe the joint probability of examiner classification and ground truth; the ground truth nodes describe \hh{XXX not sure how the nodes describe probabilities} the probability of same-source or different-source comparisons, which is determined by the experimental design. \hh{XXX No hypotheticals. Either we do or we don't.} If we wanted to calculate the false positive rate, we would take the far-right terminal node, and compare the probability of that node to the probability of the different source node which is its parent. 
