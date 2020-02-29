@@ -128,6 +128,7 @@ forensic science, black box studies, proficiency testing
 \noindent
 
 
+\renewcommand{\thefootnote}{\roman{footnote}}
 <<echo = FALSE, message = FALSE, warning = FALSE>>=
 library(knitr)
 knitr::opts_chunk$set(
@@ -239,17 +240,11 @@ Conversely, specificity, or the true negative rate, is an examiner's ability to 
 Mathematically, we calculate the true negative rate as the conditional probability of an event \emph{given} another event is the probability that the two events both occur, divided by the probability of the second event, i.e.
 $$ TNR = P(\text{Elimination} | DS) = \frac{P(\text{Elimination and } DS)}{P(DS)}.$$
 
-<<<<<<< HEAD
 Another common method of assessing accuracy of a classification method is to calculate the false positive rate and the false negative rate. The \emph{false positive rate} is the probability that an examiner makes an identification from evidence which is from different sources(DS), $P(Identification | DS)$.
 
 The \emph{false negative rate} is the probability that an examiner makes an elimination from evidence which originates from the same source (SS), $P(\text{Elimination} | SS)$. 
 In all  of these assessments, the  rates are calculated by conditioning on the origin of the evidence; this process is shown graphically in \autoref{fig:FPR-specific-tree} using a decision tree to describe the comparisons which can be made conditioned on ground truth. %\hh{XXX The figure includes inconclusives - which we haven't talked about at this point. } 
-=======
-Another commonly used way of assessing accuracy of a classification method is to calculate the false positive rate and the false negative rate. The \emph{false positive rate} is the probability that an examiner makes an identification from evidence which is from different sources(DS), i.e. $FPR = P(Identification | DS)$.
 
-The \emph{false negative rate} is the probability that an examiner makes an elimination from evidence which originates from the same source (SS), i.e. $FNR = P(\text{Elimination} | SS)$. In all  of these assessments, the  rates are calculated by conditioning on the origin of the evidence. \hh{XXX The figure includes inconclusives - which we haven't talked about at this point. } \autoref{fig:FPR-specific-tree} shows a decision tree describing the possible comparisons which can be made conditioned on ground truth. %\hh{XXX sorry for taking out the next paragraph - I'm not sure it helps in clarifying the math behind the tree. }
-%The terminal nodes \hh{XXX not defined} describe the joint probability of examiner classification and ground truth; the ground truth nodes describe \hh{XXX not sure how the nodes describe probabilities} the probability of same-source or different-source comparisons, which is determined by the experimental design. \hh{XXX No hypotheticals. Either we do or we don't.} If we wanted to calculate the false positive rate, we would take the far-right terminal node, and compare the probability of that node to the probability of the different source node which is its parent. 
->>>>>>> a0a2a23045ddc723e34172dc26ffbf06b2f7a4e2
 
 \begin{figure}
 \centering
@@ -261,25 +256,8 @@ The \emph{false negative rate} is the probability that an examiner makes an elim
 
 The use of false positive and false negative rates to characterize a classification task is extremely common, however, there are alternate ways to evaluate a classification method. 
 % In medicine, in particular, it is common to evaluate tests based on the positive and negative predictive value. 
-<<<<<<< HEAD
 The \emph{positive predictive value} (PPV) is the probability that, if an examiner makes an identification, the evidence is from the same source, that is, $P(SS | \text{Identification})$. 
 Its complement, the \emph{false discovery rate} (FDR), is the probability that if an examiner makes an identification, the evidence is from different sources.
-=======
-The \emph{positive predictive value} (PPV) is the probability that, if an examiner makes an identification, the evidence is from the same source, that is, $PPV = P(SS | \text{Identification})$. 
-\svp{Its complement, the \emph{false discovery rate} (FDR), is the probability that if an examiner makes an identification, the evidence is from different sources.}
-The \emph{negative predictive value} (NPV) is the probability that, if an examiner makes an elimination, the evidence is from different sources, or $P(DS | \text{ Elimination})$. \svp{Its complement, the \emph{false omission rate} (FOR) is the probability that, if an examiner makes an elimination, the evidence is actually from the same source.}
-\svp{In \citet{songEstimatingErrorRates2018}, the FDR is referred to as the false identification error rate, and the FOR is called the false exclusion error rate.}
-As before, we can map out the conditional hierarchy using a decision tree, shown in \autoref{fig:PPV-specific-tree}. 
-
-\hh{To reduce confusion with the naming or rates and predictive values we have labelled nodes in the trees of \autoref{fig:FPR-specific-tree} and \autoref{fig:PPV-specific-tree} correspondingly. }
-
-%\hh{XXX I think we have too many rates in there with too close naming. Personally, I would not distinguish between False discovery and False positive rates. But they are defined differently. Help XXX - I have added names to the figures. This might help a bit with the problem. But I think it still is a problem.}
-
-
-Predictive value assessments are used in assessing the implications of a particular classification label; they inform us about the likely state of the physical evidence. 
-% \svp{In designed studies, this is known information; however, the PPV, NPV, FDR, and FOR are also useful for casework, where the true state of the evidence is unknown, as they are not conditioned on unknown information.} 
-
->>>>>>> a0a2a23045ddc723e34172dc26ffbf06b2f7a4e2
 
 The \emph{negative predictive value} (NPV) is the probability that, if an examiner makes an elimination, the evidence is from different sources, or $P(DS | \text{ Elimination})$. 
 Its complement, the \emph{false omission rate} (FOR) is the probability that, if an examiner makes an elimination, the evidence is actually from the same source\footnote{
@@ -304,36 +282,31 @@ Predictive value assessments are used in assessing the implications of a particu
 \subsection{Practical impact of error rates}
 
 Mathematically, the primary difference between the decision tree diagrams in Figure \ref{fig:FPR-specific-tree} and \ref{fig:PPV-specific-tree} is the conditioned variable. 
+The source-specific error rates,FPR and FNR, are calculated by conditioning on the source of of the evidence (same-source/different source) and give the probability for an examiner's conclusion.
+PPV and NPV, are calculated by conditioning on an examiner's conclusion and give the probability of evidence being same-source or different source.
 
 From a practical point of view, the question of whether source-specific or decision-specific rates are of interest, is where in the overall (legal) decision process we are: 
 \begin{itemize}
-\item as a firearms and toolmark examiner or a lab director, we are interested in assessing accuracy based on ground truth, i.e. we are interested in source-specific rates to answer questions of the form: given this evidence, are  trained firearms examiner  more likely than trainees to come to the correct conclusion? (Case studies later show that yes, that is the case.)
-\item as part of courtroom proceedings, we -- the jury, lawyers, and judges -- are interested in assessing accuracy of testimonies, i.e. we are interested in conclusion-specific rates to answer questions of the form: given an expert testified to the evidence as being an identification, what is the probability that the evidence actually does come from the same source?
+\item as a firearms and toolmark examiner or a lab director, we are interested in assessing accuracy based on ground truth, i.e. we are interested in source-specific rates to answer questions of the form: given this evidence, are  trained firearms examiner more likely than trainees to come to the correct conclusion? (Case studies later show that yes, that is the case.) \svp{Alternately, lab directors might want to know if all of the examiners employed by the lab are performing above a certain threshold for both same-source and different-source comparisons.}
+\item as part of courtroom proceedings, we -- the jury, lawyers, and judges -- are interested in assessing accuracy of testimonies, i.e. we are interested in conclusion-specific rates to answer questions of the form: given an expert testified to the evidence as being an identification, what is the probability that the evidence actually does come from the same source? \svp{In this situation, we can update the overall error rate by conditioning on the examiner's conclusion, providing more specific evidence about the scenario under investigation. As we only know the examiner's testimony (and not ground truth), we must work with the conclusion-specific rates. }
 \end{itemize}
 These two forms of questions look deceptively similar, but lead to different mathematical equations. 
 This difficulty is not exclusive to evaluations of firearms evidence -- it is a known and pervasive pitfall in other application areas, such as medical diagnostics \cite{Casscells:1978ba, Manrai:2014fp}.
 The distinction between these two sources of error rates is perhaps a bit more approachable in the setting of a medical context: a given test has a sensitivity (true positive rate, TPR) and a specificity (true negative rate, TNR) that combined determine the overall accuracy rate. 
-However, if you as a patient are sent for a test which yields a positive result, what you really care about  
-%not the accuracy rate (because when testing for rare diseases the true negatives are much more common than true positives); it 
-is the probability that, given your positive result, you actually have the disease. 
+However, if you as a patient receive a positive test result, what you really care about is the probability that, given your positive result, you actually have the disease. 
+
+% \hh{XXX We haven't talked about inconclusives yet - we should put a teaser here that we are going to come back to that.}
+\svp{One additional complication to this evaluation is the treatment of inconclusives: under AFTE guidelines, inconclusives are not errors, but it has been argued that in at least some sense, inconclusives are systematic errors, because the conclusion does not match the known information\citep{koehlerFingerprintErrorRates2007}.
+We will address this complication in \autoref{sec:inconclusive}.
+}
   
+% \hh{XXX A sentence on why we need case studies to evaluate and assess all of these error rates. }
 
-\hh{Mathematically, the source-specific error rates, }
-%When calculating the
-FPR and FNR, \hh{are calculated by conditioning on the source of of the evidence (same-source/different source) and give the probability for an examiner's conclusion.} 
-%we condition on the source of the evidence and predict the examiner's classification, while 
-\hh{PPV and NPV, are calculated by conditioning on an examiner's conclusion and give the probability of }  
-%the state of reality.
-\hh{evidence being same-source or different source.}
+\svp{In case work, because ground truth is not known, we cannot definitively know that an examiner's evaluation is correct. 
+For that reason, we need designed studies to estimate the error rates of examinations in situations where ground truth is known. 
+As we rely on these designed studies to generalize to casework, it is of great importance that the studies be well designed so as to allow for the estimation of any of the success or error rates discussed above.
+}
 
-%The implications of the two sets of conditional probabilities are somewhat different as well. 
-
-
-
-
-\hh{XXX A sentence on why we need case studies to evaluate and assess all of these error rates. }
-
-\hh{XXX We haven't talked about inconclusives yet - we should put a teaser here that we are going to come back to that.}
 
 
 \section{Study Design Considerations}
@@ -359,7 +332,7 @@ Once a study is \svp{designed} and test samples have been assessed by forensic e
 
 
 
-\section{Assessment of error rates in case studies}
+\section{Assessment of error rates in case studies}\label{sec:inconclusive}
 
 In order to calculate the two sets of conditional probabilities, let us assume that we have the results from a generic experiment, where participants were asked to complete a total of $N$ comparisons, consisting of $S$ same-source comparisons and $D$ different source comparisons.
 \hh{A summary of these evaluations can then be reported}
@@ -380,23 +353,16 @@ An example results table for a generic experiment where comparisons can be broke
 Define $S = a + b + c$ as the total number of same source comparisons, $D = d + e + f$ as the total number of different-source comparisons, and $N = S + D$ as the total number of comparisons. 
 Then the probability of the occurrence of any cell in the interior of the table $(a, b, c, d, e, \text{ or } f)$ can be found by dividing the respective letter by $N$, the total number of comparisons.
 }\label{tab:generic-results}
-\begin{tabularx}{\textwidth}{Y|rrr|Y}
+\begin{tabularx}{\textwidth}{Y|YYY|Y}
 \multicolumn{5}{c}{\bf Experiment Count Data}\\\hline
-<<<<<<< HEAD
-\multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Total\\\hline
-Same Source & $\mathbb{a}$ & $\mathbb{b}$ & $\mathbb{c}$ & $S = a + b + c$\\
-Diff Source & $\mathbb{d}$ & $\mathbb{e}$ & $\mathbb{f}$ & $D = e + f + g$\\\hline
-\multicolumn{1}{Y}{Conclusion Total} & $a + d$ & $b + e$ & \multicolumn{1}{r}{$c + f$} & \multicolumn{1}{Y}{$N = S + D$}\\\hline\hline
-=======
 \multicolumn{1}{c}{} & Identification & Inconclusive & \multicolumn{1}{c}{Elimination} & Source Total\\\hline
-Same Source & $\bm{a}$ \includegraphics[width=.25cm]{figures/a.pdf} & 
-              $\bm{b}$ \includegraphics[width=.3cm]{figures/b.pdf} & 
-              $\bm{c}$ \includegraphics[width=.35cm]{figures/c.pdf} & $S = a + b + c$\\
-Diff Source & $\bm{d}$ \includegraphics[width=.25cm]{figures/d.pdf} & 
-              $\bm{e}$ \includegraphics[width=.3cm]{figures/e.pdf} & 
-              $\bm{f}$ \includegraphics[width=.35cm]{figures/f.pdf} &  $D = e + f + g$\\\hline
+Same Source & \begin{minipage}[c]{1em}$\bm{a}$ \end{minipage}\begin{minipage}[c]{1em} \includegraphics[width=.25cm]{figures/a.pdf} \end{minipage} & 
+              \begin{minipage}[c]{1em}$\bm{b}$ \end{minipage}\begin{minipage}[c]{1em} \includegraphics[width=.3cm]{figures/b.pdf} \end{minipage} & 
+              \begin{minipage}[c]{1em}$\bm{c}$ \end{minipage}\begin{minipage}[c]{1em} \includegraphics[width=.35cm]{figures/c.pdf} \end{minipage}& $S = a + b + c$\\
+Diff Source & \begin{minipage}[c]{1em}$\bm{d}$ \end{minipage}\begin{minipage}[c]{1em} \includegraphics[width=.25cm]{figures/d.pdf} \end{minipage}& 
+              \begin{minipage}[c]{1em}$\bm{e}$ \end{minipage}\begin{minipage}[c]{1em} \includegraphics[width=.3cm]{figures/e.pdf} \end{minipage}& 
+              \begin{minipage}[c]{1em}$\bm{f}$ \end{minipage}\begin{minipage}[c]{1em} \includegraphics[width=.35cm]{figures/f.pdf} \end{minipage}&  $D = e + f + g$\\\hline
 \multicolumn{1}{Y}{Conclusion Total} & $a + d$ & $b + e$ & \multicolumn{1}{c}{$c + f$} & \multicolumn{1}{Y}{$N = S + D$}\\\hline\hline
->>>>>>> a0a2a23045ddc723e34172dc26ffbf06b2f7a4e2
 \end{tabularx}
 \end{table}
 
@@ -415,11 +381,7 @@ In the last row in the table, the marginal probabilities $P(Y)$ are shown, that 
 \multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Probability\\\hline
 Same source & $a/(a+d)$ & $b/(b+e)$ & $c/(c+f)$ & $S/N$\\
 Diff source & $d/(a+d)$ & $e/(b+e)$ & $f/(c+f)$ & $D/N$\\\hline
-<<<<<<< HEAD
-\multicolumn{1}{Y}{Conclusion probability} & $(a + d)/N$ & $(b + e)/N$ & \multicolumn{1}{r}{$(c + f)/N$} & \multicolumn{1}{Y}{1.0}\\\hline\hline
-=======
 \multicolumn{1}{Y}{Conclusion probability} & $(a + d)/N$ & $(b + e)/N$ & \multicolumn{1}{c}{$(c + f)/N$} & \multicolumn{1}{Y}{1.00}\\\hline\hline
->>>>>>> a0a2a23045ddc723e34172dc26ffbf06b2f7a4e2
 \end{tabularx}
 \end{table}
 
@@ -437,11 +399,7 @@ In the last column of the table, the marginal probabilities $P(X)$ are shown; th
 \multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Probability\\\hline
 Same source & $a/S$ & $b/S$ & $c/S$ & $S/N$\\
 Diff source & $d/D$ & $e/D$ & $f/D$ & $D/N$\\\hline
-<<<<<<< HEAD
-\multicolumn{1}{Y}{Conclusion probability} & $(a + d)/N$ & $(b + e)/N$ & \multicolumn{1}{r}{$(c + f)/N$} & \multicolumn{1}{Y}{1.0}\\\hline\hline
-=======
 \multicolumn{1}{Y}{Conclusion probability} & $(a + d)/N$ & $(b + e)/N$ & \multicolumn{1}{c}{$(c + f)/N$} & \multicolumn{1}{Y}{1.00}\\\hline\hline
->>>>>>> a0a2a23045ddc723e34172dc26ffbf06b2f7a4e2
 \end{tabularx}
 \end{table}
 A google sheets workbook for performing these calculations is available at \url{http://bit.ly/FTE-error-rate}.
@@ -463,7 +421,9 @@ For  simplicity we will assume that the two actual states are SS (same source) a
 In this case, the overall error rate is the sum of the false positives and the false negatives, divided by the number of overall comparisons. 
 
 
-
+\newcommand{\redsqd}[2][.8em]{\protect\fcolorbox{black}{red!50}{\makebox[#1][c]{#2\vphantom{a}}}}
+\newcommand{\graysqd}[2][.8em]{\protect\fcolorbox{black}{black!30}{\makebox[#1][c]{#2\vphantom{a}}}}
+\newcommand{\whitesqd}[2][.8em]{\protect\fcolorbox{black}{white!100}{\makebox[#1][c]{#2\vphantom{a}}}}
 
 \newcommand{\redsq}[2][1.15em]{\protect\fcolorbox{black}{red!50}{\makebox[#1][c]{#2\vphantom{dp}}}}
 \newcommand{\graysq}[2][1.15em]{\protect\fcolorbox{black}{black!30}{\makebox[#1][c]{#2\vphantom{dp}}}}
@@ -471,10 +431,13 @@ In this case, the overall error rate is the sum of the false positives and the f
 % \newcommand{\blacksq}{\fcolorbox{black}{black!100}{\phantom{x}}}
 \newcommand{\xsq}{\protect\fcolorbox{black}{white!100}{\makebox[1.25em][c]{x\vphantom{dp}}}}
 
-\begin{fmpage}{\textwidth}\protect\captionof{table}{Different ways to calculate the overall error rate.}
+\begin{fmpage}{\textwidth}\protect\captionof{table}{Different ways to calculate the overall error rate.\\
 Reading this table: 
-An arrangement of two rows of three boxes then resembles the interior cells of \autoref{tab:generic-results}, where \pbox{10em}{\mbox{\whitesq{a}\whitesq{b}\whitesq{c}}\\\mbox{\whitesq{d}\whitesq{e}\whitesq{f}}} are the six conditional quantities under discussion. 
-Let \pbox{1.65em}{\whitesq{}} ~correspond to a correct decision, indicating that the box is to be included in the denominator of the calculation, \pbox{1.65em}{\graysq{}} indicate that the box is to be conditionally excluded from the calculation, and \pbox{1.65em}{\redsq{}} correspond to an incorrect decision, indicating that the box is to be included in the numerator and denominator of the calculation. 
+An arrangement of two rows of three boxes then resembles the interior cells of \autoref{tab:generic-results}. Let \pbox{1.65em}{\small\whitesqd{}} ~correspond to a correct decision, indicating that the box is to be included in the denominator of the calculation, \pbox{1.65em}{\graysqd{}} indicate that the box is to be conditionally excluded from the calculation, and \pbox{1.65em}{\redsqd{}} correspond to an incorrect decision, indicating that the box is to be included in the numerator and denominator of the calculation. 
+}
+
+%, where \pbox{10em}{\mbox{\whitesq{a}\whitesq{b}\whitesq{c}}\\\mbox{\whitesq{d}\whitesq{e}\whitesq{f}}} are the six conditional quantities under discussion. 
+
 
 \begin{tabularx}{\linewidth}{llcl}
 \# & Type & Illustration & $P(Error) = $\\
