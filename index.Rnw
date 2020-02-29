@@ -238,14 +238,13 @@ Conversely, specificity, or the true negative rate, is an examiner's ability to 
 Mathematically, we calculate the true negative rate as $$ TNR = P(\text{Elimination} | DS) = \frac{P(\text{Elimination and } DS)}{P(DS)}.$$
 \svp{That is, the conditional probability of an event \emph{given} another event is the probability that the two events both occur, divided by the probability of the second event. }\svp{XXX not sure this is needed, but Eryn was recommending words instead of equations, so it is worth a try...}
 
-Another, often used, way of assessing accuracy of a classification method is to calculate the false positive rate and the false negative rate. The \emph{false positive rate} is the probability that an examiner makes an identification from evidence which is from different sources(DS), $P(Identification | DS)$.
+Another common method of assessing accuracy of a classification method is to calculate the false positive rate and the false negative rate. The \emph{false positive rate} is the probability that an examiner makes an identification from evidence which is from different sources(DS), $P(Identification | DS)$.
 
-The \emph{false negative rate} is the probability that an examiner makes an elimination from evidence which originates from the same source (SS), $P(\text{Elimination} | SS)$. In all  of these assessments, the  rates are calculated by conditioning on the origin of the evidence. \hh{XXX The figure includes inconclusives - which we haven't talked about at this point. } \autoref{fig:FPR-specific-tree} shows a decision tree describing the possible comparisons which can be made conditioned on ground truth. %\hh{XXX sorry for taking out the next paragraph - I'm not sure it helps in clarifying the math behind the tree. }
-%The terminal nodes \hh{XXX not defined} describe the joint probability of examiner classification and ground truth; the ground truth nodes describe \hh{XXX not sure how the nodes describe probabilities} the probability of same-source or different-source comparisons, which is determined by the experimental design. \hh{XXX No hypotheticals. Either we do or we don't.} If we wanted to calculate the false positive rate, we would take the far-right terminal node, and compare the probability of that node to the probability of the different source node which is its parent. 
+The \emph{false negative rate} is the probability that an examiner makes an elimination from evidence which originates from the same source (SS), $P(\text{Elimination} | SS)$. 
+In all  of these assessments, the  rates are calculated by conditioning on the origin of the evidence; this process is shown graphically in \autoref{fig:FPR-specific-tree} using a decision tree to describe the comparisons which can be made conditioned on ground truth. %\hh{XXX The figure includes inconclusives - which we haven't talked about at this point. } 
 
 \begin{figure}
 \centering
-%\includegraphics[width=\textwidth]{figures/Source_Specific_Tree_Diagram.pdf}
 \includegraphics[width=\textwidth]{figures/Source-specific-tree-diagram.pdf}
 \caption{Tree Diagram illustrating the logic of source-specific error rates. Source-specific rates give the probability of an examiner's decision ( Identification, Inconclusive, or Elimination) given same-source and different-source evidence.}\label{fig:FPR-specific-tree}
 \end{figure}
@@ -255,20 +254,12 @@ The \emph{false negative rate} is the probability that an examiner makes an elim
 The use of false positive and false negative rates to characterize a classification task is extremely common, however, there are alternate ways to evaluate a classification method. 
 % In medicine, in particular, it is common to evaluate tests based on the positive and negative predictive value. 
 The \emph{positive predictive value} (PPV) is the probability that, if an examiner makes an identification, the evidence is from the same source, that is, $P(SS | \text{Identification})$. 
-\svp{Its complement, the \emph{false discovery rate} (FDR), is the probability that if an examiner makes an identification, the evidence is from different sources.}
-The \emph{negative predictive value} (NPV) is the probability that, if an examiner makes an elimination, the evidence is from different sources, or $P(DS | \text{ Elimination})$. \svp{Its complement, the \emph{false omission rate} (FOR) is the probability that, if an examiner makes an elimination, the evidence is actually from the same source.}
-\svp{In \citet{songEstimatingErrorRates2018}, the FDR is referred to as the false identification error rate, and the FOR is called the false exclusion error rate.}
+Its complement, the \emph{false discovery rate} (FDR), is the probability that if an examiner makes an identification, the evidence is from different sources.
+
+The \emph{negative predictive value} (NPV) is the probability that, if an examiner makes an elimination, the evidence is from different sources, or $P(DS | \text{ Elimination})$. 
+Its complement, the \emph{false omission rate} (FOR) is the probability that, if an examiner makes an elimination, the evidence is actually from the same source\footnote{
+In \citet{songEstimatingErrorRates2018}, the FDR is referred to as the false identification error rate, and the FOR is called the false exclusion error rate.}.
 As before, we can map out the conditional hierarchy using a decision tree, shown in \autoref{fig:PPV-specific-tree}. 
-
-\hh{To reduce confusion with the naming or rates and predictive values we have labelled nodes in the trees of \autoref{fig:FPR-specific-tree} and \autoref{fig:PPV-specific-tree} correspondingly. }
-
-%\hh{XXX I think we have too many rates in there with too close naming. Personally, I would not distinguish between False discovery and False positive rates. But they are defined differently. Help XXX - I have added names to the figures. This might help a bit with the problem. But I think it still is a problem.}
-
-
-Predictive value assessments are used in assessing the implications of a particular classification label; they inform us about the likely state of the physical evidence. 
-% \svp{In designed studies, this is known information; however, the PPV, NPV, FDR, and FOR are also useful for casework, where the true state of the evidence is unknown, as they are not conditioned on unknown information.} 
-
-
 
 \begin{figure}
 \centering
@@ -280,24 +271,27 @@ Tree Diagram illustrating the logic of positive and negative predictive value ca
 }\label{fig:PPV-specific-tree}
 \end{figure}
 
+To reduce confusion with the naming or rates and predictive values we have labeled nodes in the trees of \autoref{fig:FPR-specific-tree} and \autoref{fig:PPV-specific-tree} \svp{corresponding to the rates defined in the text.}
+Predictive value assessments are used in assessing the implications of a particular classification label; they inform us about the likely state of the physical evidence. 
+\svp{This makes the PPV, NPV, FDR, and FOR more appropriate for use when evaluating casework, where the true state of the evidence is unknown: these rates are not conditioned on unknown information, but instead use the available information (the examiner's decision) to provide updated information about the probability of an error or a correct decision.}
+\svp{For the same reason, the source-specific assessments are more useful when evaluating the performance of individuals on a designed test, because ground truth is known (and thus, can be conditioned upon) in designed studies.}
+
 \subsection{Practical impact of error rates}
 
+Mathematically, the primary difference between the decision tree diagrams in Figure \ref{fig:FPR-specific-tree} and \ref{fig:PPV-specific-tree} is the conditioned variable. 
 
-\hh{Mathematically,} the primary difference between the decision tree diagrams in Figure \ref{fig:FPR-specific-tree} and \ref{fig:PPV-specific-tree} is the conditioned variable. 
-
-\hh{From a practical point of view, the question of whether source-specific or decision-specific rates are of interest, is where in the overall (legal) decision process we are: 
+From a practical point of view, the question of whether source-specific or decision-specific rates are of interest, is where in the overall (legal) decision process we are: 
 \begin{itemize}
 \item as a firearms and toolmark examiner or a lab director, we are interested in assessing accuracy based on ground truth, i.e. we are interested in source-specific rates to answer questions of the form: given this evidence, are  trained firearms examiner  more likely than trainees to come to the correct conclusion? (Case studies later show that yes, that is the case.)
 \item as part of courtroom proceedings, we -- the jury, lawyers, and judges -- are interested in assessing accuracy of testimonies, i.e. we are interested in conclusion-specific rates to answer questions of the form: given an expert testified to the evidence as being an identification, what is the probability that the evidence actually does come from the same source?
 \end{itemize}
 These two forms of questions look deceptively similar, but lead to different mathematical equations. 
-This difficulty is not exclusive to evaluations of firearms evidence -- it is a known and pervasive pitfall in other application areas, such as medical diagnostics \cite{Casscells:1978ba, Manrai:2014fp}. }
-\hh{The distinction between these two sources of error rates }
-\svp{ is perhaps a bit more approachable in the setting of a medical context: a given test has a sensitivity (true positive rate, TPR) and a specificity (true negative rate, TNR) that combined determine the overall accuracy rate. 
+This difficulty is not exclusive to evaluations of firearms evidence -- it is a known and pervasive pitfall in other application areas, such as medical diagnostics \cite{Casscells:1978ba, Manrai:2014fp}.
+The distinction between these two sources of error rates is perhaps a bit more approachable in the setting of a medical context: a given test has a sensitivity (true positive rate, TPR) and a specificity (true negative rate, TNR) that combined determine the overall accuracy rate. 
 However, if you as a patient are sent for a test which yields a positive result, what you really care about  
 %not the accuracy rate (because when testing for rare diseases the true negatives are much more common than true positives); it 
 is the probability that, given your positive result, you actually have the disease. 
-}  
+  
 
 \hh{Mathematically, the source-specific error rates, }
 %When calculating the
@@ -355,12 +349,12 @@ An example results table for a generic experiment where comparisons can be broke
 Define $S = a + b + c$ as the total number of same source comparisons, $D = d + e + f$ as the total number of different-source comparisons, and $N = S + D$ as the total number of comparisons. 
 Then the probability of the occurrence of any cell in the interior of the table $(a, b, c, d, e, \text{ or } f)$ can be found by dividing the respective letter by $N$, the total number of comparisons.
 }\label{tab:generic-results}
-\begin{tabularx}{\textwidth}{Y|ccc|Y}
+\begin{tabularx}{\textwidth}{Y|rrr|Y}
 \multicolumn{5}{c}{\bf Experiment Count Data}\\\hline
-\multicolumn{1}{c}{} & Identification & Inconclusive & \multicolumn{1}{c}{Elimination} & Source Total\\\hline
+\multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Total\\\hline
 Same Source & $\mathbb{a}$ & $\mathbb{b}$ & $\mathbb{c}$ & $S = a + b + c$\\
 Diff Source & $\mathbb{d}$ & $\mathbb{e}$ & $\mathbb{f}$ & $D = e + f + g$\\\hline
-\multicolumn{1}{Y}{Conclusion Total} & $a + d$ & $b + e$ & \multicolumn{1}{c}{$c + f$} & \multicolumn{1}{Y}{$N = S + D$}\\\hline\hline
+\multicolumn{1}{Y}{Conclusion Total} & $a + d$ & $b + e$ & \multicolumn{1}{r}{$c + f$} & \multicolumn{1}{Y}{$N = S + D$}\\\hline\hline
 \end{tabularx}
 \end{table}
 
@@ -374,12 +368,12 @@ Conclusion-specific probabilities, calculated using the quantities introduced in
 In each cell in the main body of the table, probabilities shown are the probability of source $X$, if the examiner's conclusion (one of Identification, Inconclusive, or Elimination) is $Y$. 
 In the last row in the table, the marginal probabilities $P(Y)$ are shown, that is, the unconditional probability that the examiner's decision is $Y$. 
 }\label{tab:fpr-fnr}
-\begin{tabularx}{\textwidth}{Y|ccc|Y}
+\begin{tabularx}{\textwidth}{Y|rrr|Y}
 \multicolumn{5}{c}{\bf Conclusion-Specific Probabilities}\\\hline
-\multicolumn{1}{c}{} & Identification & Inconclusive & \multicolumn{1}{c}{Elimination} & Source Probability\\\hline
+\multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Probability\\\hline
 Same source & $a/(a+d)$ & $b/(b+e)$ & $c/(c+f)$ & $S/N$\\
 Diff source & $d/(a+d)$ & $e/(b+e)$ & $f/(c+f)$ & $D/N$\\\hline
-\multicolumn{1}{Y}{Conclusion probability} & $(a + d)/N$ & $(b + e)/N$ & \multicolumn{1}{c}{$(c + f)/N$} & \multicolumn{1}{Y}{1.0}\\\hline\hline
+\multicolumn{1}{Y}{Conclusion probability} & $(a + d)/N$ & $(b + e)/N$ & \multicolumn{1}{r}{$(c + f)/N$} & \multicolumn{1}{Y}{1.0}\\\hline\hline
 \end{tabularx}
 \end{table}
 
@@ -392,12 +386,12 @@ In each cell in the main body of the table, probabilities shown are the probabil
 In the last row in the table, the marginal probabilities $P(Y)$ are shown, that is, the unconditional probability that the examiner's decision is $Y$. 
 In the last column of the table, the marginal probabilities $P(X)$ are shown; these are determined by the experimental design.
 }\label{tab:pv-prob}
-\begin{tabularx}{\textwidth}{Y|ccc|Y}
+\begin{tabularx}{\textwidth}{Y|rrr|Y}
 \multicolumn{5}{c}{\bf Predictive Value Probabilities}\\
-\multicolumn{1}{c}{} & Identification & Inconclusive & \multicolumn{1}{c}{Elimination} & Source Probability\\\hline
+\multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Probability\\\hline
 Same source & $a/S$ & $b/S$ & $c/S$ & $S/N$\\
 Diff source & $d/D$ & $e/D$ & $f/D$ & $D/N$\\\hline
-\multicolumn{1}{Y}{Conclusion probability} & $(a + d)/N$ & $(b + e)/N$ & \multicolumn{1}{c}{$(c + f)/N$} & \multicolumn{1}{Y}{1.0}\\\hline\hline
+\multicolumn{1}{Y}{Conclusion probability} & $(a + d)/N$ & $(b + e)/N$ & \multicolumn{1}{r}{$(c + f)/N$} & \multicolumn{1}{Y}{1.0}\\\hline\hline
 \end{tabularx}
 \end{table}
 A google sheets workbook for performing these calculations is available at \url{http://bit.ly/FTE-error-rate}.
@@ -604,41 +598,39 @@ Each of these evaluations is  based on a comparison of one questioned cartridge 
 \captionof{table}{Baldwin study results, conclusion-specific and source-specific probabilities, and reported overall error rates. }\label{tab:baldwin-summary}
 {\large\bf A Study of False-Positive and False-Negative Error Rates in Cartridge Case Comparisons}
 \emph{\citeauthor{Baldwin:2014bb} (\citeyear{Baldwin:2014bb})}\\
-\begin{tabularx}{\textwidth}{XllX}\hline
+\begin{tabularx}{\textwidth}{XrrX}\hline
 \multirow{2}{*}{\bf Study Type} & \multicolumn{2}{c}{\bf Test Set} & \multirow{2}{*}{\bf Participants}\\
 & \# Same Source Comparisons & \# Different Source Comparisons & \\\hline
 Open set & 5 & 10 & 218 examiners\\
 \end{tabularx}
-\end{fmpage}
 
-\noindent\begin{fmpage}{\textwidth}
-\begin{tabularx}{\textwidth}{Y|ccc|Y}
+\begin{tabularx}{\textwidth}{Y|rrr|Y}
 \multicolumn{5}{c}{\bf Experiment Count Data}\\
-\multicolumn{1}{c}{} & Identification & Inconclusive & \multicolumn{1}{c}{Elimination} & Source Total\\\hline
+\multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Total\\\hline
 Same Source & 1075  & 11 & 4 & 1090\\
 Diff Source & 22 & 735+2\footnotemark & 1421 & 2180\\\hline
-\multicolumn{1}{Y}{Concl. Total} & 1097 & 748 & \multicolumn{1}{c}{1432} & \multicolumn{1}{Y}{3270}\\\hline\hline
+\multicolumn{1}{Y}{Concl. Total} & 1097 & 748 & \multicolumn{1}{r}{1432} & \multicolumn{1}{Y}{3270}\\\hline\hline
 
 \multicolumn{5}{c}{}\\
 
 \multicolumn{5}{c}{\bf Conclusion-Specific Probabilities}\\
-\multicolumn{1}{c}{} & Identification & Inconclusive & \multicolumn{1}{c}{Elimination} & Source Prop.\\\hline
+\multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Probability\\\hline
 Same source & 0.9799 & 0.0147 & 0.0028 & 0.3333\\
 Diff source & 0.0201 & 0.9853 & 0.9972 & 0.6667\\\hline
-\multicolumn{1}{Y}{Concl. prop.} & 0.3355 & 0.0101 & \multicolumn{1}{c}{0.4379} & \multicolumn{1}{Y}{}\\\hline\hline
+\multicolumn{1}{Y}{Conclusion Probability} & 0.3355 & 0.0101 & \multicolumn{1}{r}{0.4379} & \multicolumn{1}{Y}{}\\\hline\hline
 
 \multicolumn{5}{c}{}\\
 \multicolumn{5}{c}{\bf Source-Specific Probabilities}\\
-\multicolumn{1}{c}{} & Identification & Inconclusive & \multicolumn{1}{c}{Elimination} & Source Prop.\\\hline
+\multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Probability\\\hline
 Same source & 0.9799 & 0.1470 & 0.0028 & 0.3333\\
 Diff source & 0.0201 & 0.9853 & 0.9923 & 0.6667\\\hline
-\multicolumn{1}{Y}{Concl. prop.} & 0.3355 & 0.0101 & \multicolumn{1}{c}{0.4379} & \multicolumn{1}{Y}{}\\\hline\hline
+\multicolumn{1}{Y}{Conclusion Probability} & 0.3355 & 0.0101 & \multicolumn{1}{r}{0.4379} & \multicolumn{1}{Y}{}\\\hline\hline
 \end{tabularx}
 
-\begin{tabularx}{\textwidth}{lX|cc|Y}
+\begin{tabularx}{\textwidth}{lX|rr|Y}
 \multicolumn{5}{c}{}\\
 \multicolumn{5}{c}{\bf Reported Error Rates}\\
-Opt. & \multicolumn{1}{c}{Meaning} & Missed Identification & \multicolumn{1}{c}{Missed Elimination} & Total \\\hline
+Opt. & \multicolumn{1}{c}{Meaning} & Missed Identification & \multicolumn{1}{r}{Missed Elimination} & Total \\\hline
 2 & FTE error & 0.0037  & 0.0101 & 0.0080\\
 3 & Process error & 0.0138 & 0.3482 & 0.2367 \\
 \end{tabularx}
@@ -679,41 +671,41 @@ Each test kit consisted of sets of 20 pairs of cartridge cases,  12 of the pairs
 126 participants reported results as shown in \autoref{tab:keisler-summary}.
 
 \noindent\begin{fmpage}{\textwidth}\centering
-\captionof{table}{{\large\bf Study Name}}
-\emph{Authors}\\
+\captionof{table}{{\large\bf Isolated Pairs Research Study}}
+\emph{\citeauthor{keisler} (\citeyear{keisler})}\\
 A study of fired bullets/cartridge cases/consecutively manufactured extractors/...
-\begin{tabularx}{\textwidth}{XllX}\hline
+\begin{tabularx}{\textwidth}{XrrX}\hline
 \multirow{2}{*}{\bf Study Type} & \multicolumn{2}{c}{\bf Test Set} & \multirow{2}{*}{\bf Participants}\\
 & \# Same Source Comparisons & \# Different Source Comparisons & \\\hline
 Open set & 12 & 8 & 126 examiners\\
 \end{tabularx}
-\begin{tabularx}{\textwidth}{Y|ccc|Y}
+\begin{tabularx}{\textwidth}{Y|rrr|Y}
 \multicolumn{5}{c}{\bf Experiment Count Data}\\
-\multicolumn{1}{c}{} & Identification & Inconclusive & \multicolumn{1}{c}{Elimination} & Source Total\\\hline
-Same source & 1508 & 4 & 0 & 1512 \\
-Diff source & 0 & 203 & 805 & 1008 \\\hline
-\multicolumn{1}{Y}{Concl. Total} & 1508 & 207 & \multicolumn{1}{c}{805} & \multicolumn{1}{Y}{2520}\\\hline\hline
+\multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Total\\\hline
+Same source & 1508 & 4 & 0.0000 & 1512 \\
+Diff source & 0.0000 & 203 & 805 & 1008 \\\hline
+\multicolumn{1}{Y}{Concl. Total} & 1508 & 207 & \multicolumn{1}{r}{805} & \multicolumn{1}{Y}{2520}\\\hline\hline
 
 \multicolumn{5}{c}{}\\
 
 \multicolumn{5}{c}{\bf Conclusion-Specific Probabilities}\\
-\multicolumn{1}{c}{} & Identification & Inconclusive & \multicolumn{1}{c}{Elimination} & Source Prop.\\\hline
-Same source & 1 & 0.0197 & 0.0000 & 0.6000\\
-Diff source & 0 & 0.9803 & 1 & 0.4000\\\hline
-\multicolumn{1}{Y}{Concl. prop.} & 0.5984 & 0.0821 & \multicolumn{1}{c}{0.3194} & \multicolumn{1}{Y}{}\\\hline\hline
+\multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Probability\\\hline
+Same source & 1.0000 & 0.0197 & 0.0000 & 0.6000\\
+Diff source & 0.0000 & 0.9803 & 1.0000 & 0.4000\\\hline
+\multicolumn{1}{Y}{Conclusion Probability} & 0.5984 & 0.0821 & \multicolumn{1}{r}{0.3194} & \multicolumn{1}{Y}{}\\\hline\hline
 
 \multicolumn{5}{c}{}\\
 \multicolumn{5}{c}{\bf Source-Specific Probabilities}\\
-\multicolumn{1}{c}{} & Identification & Inconclusive & \multicolumn{1}{c}{Elimination} & Source Prop.\\\hline
+\multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Probability\\\hline
 Same source & 0.9974 & 0.0028 & 0.0000 & 0.6000\\
-Diff source & 0 & 0.2014 & 0..7976 & 0.4000 \\\hline
-\multicolumn{1}{Y}{Concl. prop.} & 0.5984 & 0.0821 & \multicolumn{1}{c}{0.3194} & \multicolumn{1}{Y}{}\\\hline\hline
+Diff source & 0.0000 & 0.2014 & 0..7976 & 0.4000 \\\hline
+\multicolumn{1}{Y}{Conclusion Probability} & 0.5984 & 0.0821 & \multicolumn{1}{r}{0.3194} & \multicolumn{1}{Y}{}\\\hline\hline
 \end{tabularx}
 
-\begin{tabularx}{\textwidth}{lX|cc|Y}
+\begin{tabularx}{\textwidth}{lX|rr|Y}
 \multicolumn{5}{c}{}\\
 \multicolumn{5}{c}{\bf Reported Error Rates}\\
-Opt. & \multicolumn{1}{c}{Meaning} & Missed Identification & \multicolumn{1}{c}{Missed Elimination} & Total \\\hline
+Opt. & \multicolumn{1}{c}{Meaning} & Missed Identification & \multicolumn{1}{r}{Missed Elimination} & Total \\\hline
 2 & FTE error & 0.0000 & 0.0000  & 0.0000 \\
 3 & Process error & 0.0026 & 0.2014 & 0.0821 \\
 \end{tabularx}
@@ -744,38 +736,38 @@ The top of \autoref{tab:duez-summary} shows results reported by 56 participants 
 the differences in certified examiners and trainees are not large, so only the aggregate results are shown. Certified examiners have a perfect identification rate, only evaluations of different source pairs lead to inconclusives. }\label{tab:duez-summary}
 {\large\bf Development and Validation of a Virtual Examination Tool for Firearm Forensics}
 \emph{\citeauthor{Duez:2017kha} (\citeyear{Duez:2017kha})}\\
-\begin{tabularx}{\textwidth}{XllX}\hline
+\begin{tabularx}{\textwidth}{XrrX}\hline
 \multirow{2}{*}{\bf Study Type} & \multicolumn{2}{c}{\bf Test Set} & \multirow{2}{*}{\bf Participants}\\
 & \# Same Source Comparisons & \# Different Source Comparisons & \\\hline
 Open set & ? & ? & 46+10 examiners\\
 \end{tabularx}
-\begin{tabularx}{\textwidth}{Y|ccc|Y}
+\begin{tabularx}{\textwidth}{Y|rrr|Y}
 \multicolumn{5}{c}{\bf Experiment Count Data}\\
-\multicolumn{1}{c}{} & Identification & Inconclusive & \multicolumn{1}{c}{Elimination} & Source Total\\\hline
+\multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Total\\\hline
 Same source & 276+59 & 0+1 & 0+0 & 276+60 \\
 Diff source & 0+2 & 12+13 & 80+5 & 92+20 \\\hline
-\multicolumn{1}{Y}{Concl. Total} & 276+61 & 12+14 & \multicolumn{1}{c}{80+5} & \multicolumn{1}{Y}{449}\\\hline\hline
+\multicolumn{1}{Y}{Concl. Total} & 276+61 & 12+14 & \multicolumn{1}{r}{80+5} & \multicolumn{1}{Y}{449}\\\hline\hline
 
 \multicolumn{5}{c}{}\\
 
 \multicolumn{5}{c}{\bf Conclusion-Specific Probabilities}\\
-\multicolumn{1}{c}{} & Identification & Inconclusive & \multicolumn{1}{c}{Elimination} & Source Prop.\\\hline
-Same source & 0.9941 & 0.0385 & 0 & 0.7483 \\
-Diff source & 0.0059 & 0.9615 & 1 & 0.2517 \\\hline
-\multicolumn{1}{Y}{Concl. prop.} & 0.7506 & 0.0579 & \multicolumn{1}{c}{0.1915} & \multicolumn{1}{Y}{}\\\hline\hline
+\multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Probability\\\hline
+Same source & 0.9941 & 0.0385 & 0.0000 & 0.7483 \\
+Diff source & 0.0059 & 0.9615 & 1.0000 & 0.2517 \\\hline
+\multicolumn{1}{Y}{Conclusion Probability} & 0.7506 & 0.0579 & \multicolumn{1}{r}{0.1915} & \multicolumn{1}{Y}{}\\\hline\hline
 
 \multicolumn{5}{c}{}\\
 \multicolumn{5}{c}{\bf Source-Specific Probabilities}\\
-\multicolumn{1}{c}{} & Identification & Inconclusive & \multicolumn{1}{c}{Elimination} & Source Prop.\\\hline
-Same source & 0.9970 & 0.0030 & 0 & 0.7483\\
+\multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Probability\\\hline
+Same source & 0.9970 & 0.0030 & 0.0000 & 0.7483\\
 Diff source & 0.0179 & 0.2232 & 0.7589 & 0.2517\\\hline
-\multicolumn{1}{Y}{Concl. prop.} & 0.7506 & 0.0579 & \multicolumn{1}{c}{0.1915} & \multicolumn{1}{Y}{}\\\hline\hline
+\multicolumn{1}{Y}{Conclusion Probability} & 0.7506 & 0.0579 & \multicolumn{1}{r}{0.1915} & \multicolumn{1}{Y}{}\\\hline\hline
 \end{tabularx}
 
-\begin{tabularx}{\textwidth}{lX|cc|Y}
+\begin{tabularx}{\textwidth}{lX|rr|Y}
 \multicolumn{5}{c}{}\\
 \multicolumn{5}{c}{\bf Reported Error Rates}\\
-Opt. & \multicolumn{1}{c}{Meaning} & Missed Identification & \multicolumn{1}{c}{Missed Elimination} & Total \\\hline
+Opt. & \multicolumn{1}{c}{Meaning} & Missed Identification & \multicolumn{1}{r}{Missed Elimination} & Total \\\hline
 2 & FTE error & 0.0000/0.0000  & 0.0000/0.1000 & 0.0000/0.0125\\
 3 & Process error & 0.0000/0.0167 & 0.1304/0.7500 & 0.0325/0.2000\\ \hline
 \end{tabularx}
@@ -808,38 +800,38 @@ Results reported in the 2018 paper are shown at the top of \autoref{tab:hamby-su
 \captionof{table}{Evaluations, conditional error rates, and overall error rates from the combined Brundage-Hamby studies. Note the focus on identifications.}\label{tab:hamby-summary}
 {\large\bf A Worldwide Study of Bullets Fired From 10 Consecutively Rifled 9MM RUGER Pistol Barrels - Analysis of Examiner Error Rate}
 \emph{\citeauthor{Hamby:2018hu} (\citeyear{Hamby:2018hu})}\\
-\begin{tabularx}{\textwidth}{XllX}\hline
+\begin{tabularx}{\textwidth}{XrrX}\hline
 \multirow{2}{*}{\bf Study Type} & \multicolumn{2}{c}{\bf Test Set} & \multirow{2}{*}{\bf Participants}\\
 & \# Knowns & \# Unknowns & \\\hline
 Closed set & 10 & 15 & 507 examiners\\
 \end{tabularx}
-\begin{tabularx}{\textwidth}{Y|ccc|Y}
+\begin{tabularx}{\textwidth}{Y|rrr|Y}
 \multicolumn{5}{c}{\bf Experiment Count Data}\\
-\multicolumn{1}{c}{} & Identification & Inconclusive & \multicolumn{1}{c}{Elimination} & Source Total\\\hline
-Same Source & 10447 & 8 & 0 & 10455 \\
-Diff Source & 0 & ? & ? & 47047.5\footnotemark \\\hline
-\multicolumn{1}{Y}{Concl. Total} & 10447 & ? & \multicolumn{1}{c}{?} & \multicolumn{1}{Y}{57502.5}\\\hline\hline
+\multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Total\\\hline
+Same Source & 10447 & 8 & 0.0000 & 10455 \\
+Diff Source & 0.0000 & ? & ? & 47047.5\footnotemark \\\hline
+\multicolumn{1}{Y}{Concl. Total} & 10447 & ? & \multicolumn{1}{r}{?} & \multicolumn{1}{Y}{57502.5}\\\hline\hline
 
 \multicolumn{5}{c}{}\\
 
 \multicolumn{5}{c}{\bf Conclusion-Specific Probabilities}\\
-\multicolumn{1}{c}{} & Identification & Inconclusive & \multicolumn{1}{c}{Elimination} & Source Prop.\\\hline
-Same source & 1 & ? & 0 & 0.1818\\
-Diff source & 0 & ? & 1\footnotemark & 0.8282\\\hline
-\multicolumn{1}{Y}{Concl. prop.} & 0.1817 & ? & \multicolumn{1}{c}{?} & \multicolumn{1}{Y}{}\\\hline\hline
+\multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Probability\\\hline
+Same source & 1.0000 & ? & 0.0000 & 0.1818\\
+Diff source & 0.0000 & ? & 1\footnotemark & 0.8282\\\hline
+\multicolumn{1}{Y}{Conclusion Probability} & 0.1817 & ? & \multicolumn{1}{r}{?} & \multicolumn{1}{Y}{}\\\hline\hline
 
 \multicolumn{5}{c}{}\\
 \multicolumn{5}{c}{\bf Source-Specific Probabilities}\\
-\multicolumn{1}{c}{} & Identification & Inconclusive & \multicolumn{1}{c}{Elimination} & Source Prop.\\\hline
-Same source & 0.9992 & 0.0008 & 0 & 0.1818\\
-Diff source & 0 & ? & ? & 0.8282\\\hline
-\multicolumn{1}{Y}{Concl. prop.} & 0.1817 & ? & \multicolumn{1}{c}{?} & \multicolumn{1}{Y}{}\\\hline\hline
+\multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Probability\\\hline
+Same source & 0.9992 & 0.0008 & 0.0000 & 0.1818\\
+Diff source & 0.0000 & ? & ? & 0.8282\\\hline
+\multicolumn{1}{Y}{Conclusion Probability} & 0.1817 & ? & \multicolumn{1}{r}{?} & \multicolumn{1}{Y}{}\\\hline\hline
 \end{tabularx}
 
-\begin{tabularx}{\textwidth}{lX|cc|Y}
+\begin{tabularx}{\textwidth}{lX|rr|Y}
 \multicolumn{5}{c}{}\\
 \multicolumn{5}{c}{\bf Reported Error Rates}\\
-Opt. & \multicolumn{1}{c}{Meaning} & Missed Identification & \multicolumn{1}{c}{Missed Elimination} & Total \\\hline
+Opt. & \multicolumn{1}{c}{Meaning} & Missed Identification & \multicolumn{1}{r}{Missed Elimination} & Total \\\hline
 2 & FTE error & ? & ? & ?\\
 3 & Process error & ? & ? & ? \\
 \end{tabularx}
@@ -861,38 +853,38 @@ It should be noted that there are some methodological problems with the Lyons st
 \noindent\begin{fmpage}{\textwidth}\centering
 \captionof{table}{}\label{tab:lyons-summary}
 {\large\bf The Identification of Consecutively Manufactured Extractors}\emph{\citeauthor{lyons} (\citeyear{lyons})}\\
-\begin{tabularx}{\textwidth}{XllX}\hline
+\begin{tabularx}{\textwidth}{XrrX}\hline
 \multirow{2}{*}{\bf Study Type} & \multicolumn{2}{c}{\bf Test Set} & \multirow{2}{*}{\bf Participants}\\
 & \# Knowns & \# Unknowns & \\\hline
 Closed set & 10 & 10~or~12 & 15 examiners\\
 \end{tabularx}
-\begin{tabularx}{\textwidth}{Y|ccc|Y}
+\begin{tabularx}{\textwidth}{Y|rrr|Y}
 \multicolumn{5}{c}{\bf Experiment Count Data}\\
-\multicolumn{1}{c}{} & Identification & Inconclusive & \multicolumn{1}{c}{Elimination} & Source Total\\\hline
+\multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Total\\\hline
 Same Source & 174\footnotemark &  1 & 3 & 178 \\
 Diff Source & 3 & ? & ? & ? \\\hline
-\multicolumn{1}{Y}{Concl. Total} & 177 & ? & \multicolumn{1}{c}{?} & \multicolumn{1}{Y}{?}\\\hline\hline
+\multicolumn{1}{Y}{Concl. Total} & 177 & ? & \multicolumn{1}{r}{?} & \multicolumn{1}{Y}{?}\\\hline\hline
 
 \multicolumn{5}{c}{}\\
 
 \multicolumn{5}{c}{\bf Conclusion-Specific Probabilities}\\
-\multicolumn{1}{c}{} & Identification & Inconclusive & \multicolumn{1}{c}{Elimination} & Source Prop.\\\hline
+\multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Probability\\\hline
 Same source & 0.9831 & ? & ? & ?\\
 Diff source & 0.0169 & ? & ? & ?\\\hline
-\multicolumn{1}{Y}{Concl. prop.} & ? & ? & \multicolumn{1}{c}{?} & \multicolumn{1}{Y}{}\\\hline\hline
+\multicolumn{1}{Y}{Conclusion Probability} & ? & ? & \multicolumn{1}{r}{?} & \multicolumn{1}{Y}{}\\\hline\hline
 
 \multicolumn{5}{c}{}\\
 \multicolumn{5}{c}{\bf Source-Specific Probabilities}\\
-\multicolumn{1}{c}{} & Identification & Inconclusive & \multicolumn{1}{c}{Elimination} & Source Prop.\\\hline
+\multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Probability\\\hline
 Same source & 0.9775 & 0.0056 & 0.1685 & ?\\
 Diff source & ? & ? & ? & ?\\\hline
-\multicolumn{1}{Y}{Concl. prop.} & ? & ? & \multicolumn{1}{c}{?} & \multicolumn{1}{Y}{}\\\hline\hline
+\multicolumn{1}{Y}{Conclusion Probability} & ? & ? & \multicolumn{1}{r}{?} & \multicolumn{1}{Y}{}\\\hline\hline
 \end{tabularx}
 
-\begin{tabularx}{\textwidth}{lX|cc|Y}
+\begin{tabularx}{\textwidth}{lX|rr|Y}
 \multicolumn{5}{c}{}\\
 \multicolumn{5}{c}{\bf Reported Error Rates}\\
-Opt. & \multicolumn{1}{c}{Meaning} & Missed Identification & \multicolumn{1}{c}{Missed Elimination} & Total \\\hline
+Opt. & \multicolumn{1}{c}{Meaning} & Missed Identification & \multicolumn{1}{r}{Missed Elimination} & Total \\\hline
 2 & FTE error & 0.0169 & ? & ?\\
 3 & Process error & 0.0225 & ? & ? \\
 \end{tabularx}
@@ -1004,9 +996,9 @@ Using this strategy, a total of 1452 different sets can be constructed. These se
 \begin{tabular}{|r|ccc|l|} \hline
  &  one questioned & two questioned & three questioned  & number of \\
 \# barrels & bullet matches & bullets match & bullets match & possibilities\\ \hline
-I & 5 & 5 & 0 & 252 = ${10 \choose 5}{5 \choose 5}$\\
-II & 6 & 3 & 1 & 840\\
-III & 7 & 1 & 2 & 360\\ \hline
+I & 5 & 5 & 0.0000 & 252 = ${10 \choose 5}{5 \choose 5}$\\
+II & 6 & 3 & 1.0000 & 840\\
+III & 7 & 1.0000 & 2 & 360\\ \hline
 \end{tabular}
 \end{table}
 
