@@ -573,9 +573,9 @@ A total of 25 firearms was used for the study, such that within each kit no fire
 Each of these evaluations is  based on a comparison of one questioned cartridge case to three known same source  cartridge cases. \svp{This wording is slightly confusing - I understand it now, but had to puzzle over whether there was a single known source (with 3 replicates) or 3 knowns. }
 
 \noindent\begin{fmpage}{\textwidth}\centering
-\captionof{table}{{\large\bf Study Name}}
-\emph{Authors}\\
-A study of fired bullets/cartridge cases/consecutively manufactured extractors/...
+\captionof{table}{Baldwin study results, conclusion-specific and source-specific probabilities, and reported overall error rates. }\label{tab:baldwin-summary}
+{\large\bf A Study of False-Positive and False-Negative Error Rates in Cartridge Case Comparisons}
+\emph{\citeauthor{Baldwin:2014bb} (\citeyear{Baldwin:2014bb})}\\
 \begin{tabularx}{\textwidth}{XllX}\hline
 \multirow{2}{*}{\bf Study Type} & \multicolumn{2}{c}{\bf Test Set} & \multirow{2}{*}{\bf Participants}\\
 & \# Same Source Comparisons & \# Different Source Comparisons & \\\hline
@@ -587,82 +587,37 @@ Open set & 5 & 10 & 218 examiners\\
 \begin{tabularx}{\textwidth}{Y|ccc|Y}
 \multicolumn{5}{c}{\bf Experiment Count Data}\\
 \multicolumn{1}{c}{} & Identification & Inconclusive & \multicolumn{1}{c}{Elimination} & Source Total\\\hline
-Same Source & a & b & c & S = a + b + c\\
-Diff Source & d & e & f & D = e + f + g\\\hline
-\multicolumn{1}{Y}{Concl. Total} & a + d & b + e & \multicolumn{1}{c}{c + f} & \multicolumn{1}{Y}{N = S + D}\\\hline\hline
+Same Source & 1075  & 11 & 4 & 1090\\
+Diff Source & 22 & 735+2\footnotemark & 1421 & 2180\\\hline
+\multicolumn{1}{Y}{Concl. Total} & 1097 & 748 & \multicolumn{1}{c}{1432} & \multicolumn{1}{Y}{3270}\\\hline\hline
 
 \multicolumn{5}{c}{}\\
 
 \multicolumn{5}{c}{\bf Conclusion-Specific Probabilities}\\
 \multicolumn{1}{c}{} & Identification & Inconclusive & \multicolumn{1}{c}{Elimination} & Source Prop.\\\hline
-Same source & $a/(a+d)$ & $b/(b+e)$ & $c/(c+f)$ & $S/N$\\
-Diff source & $d/(a+d)$ & $e/(b+e)$ & $f/(c+f)$ & $D/N$\\\hline
-\multicolumn{1}{Y}{Concl. prop.} & $(a + d)/N$ & $(b + e)/N$ & \multicolumn{1}{c}{$(c + f)/N$} & \multicolumn{1}{Y}{}\\\hline\hline
+Same source & 0.9799 & 0.0147 & 0.0028 & 0.3333\\
+Diff source & 0.0201 & 0.9853 & 0.9972 & 0.6667\\\hline
+\multicolumn{1}{Y}{Concl. prop.} & 0.3355 & 0.0101 & \multicolumn{1}{c}{0.4379} & \multicolumn{1}{Y}{}\\\hline\hline
 
 \multicolumn{5}{c}{}\\
 \multicolumn{5}{c}{\bf Source-Specific Probabilities}\\
 \multicolumn{1}{c}{} & Identification & Inconclusive & \multicolumn{1}{c}{Elimination} & Source Prop.\\\hline
-Same source & $a/S$ & $b/S$ & $c/S$ & $S/N$\\
-Diff source & $d/D$ & $e/D$ & $f/D$ & $D/N$\\\hline
-\multicolumn{1}{Y}{Concl. prop.} & $(a + d)/N$ & $(b + e)/N$ & \multicolumn{1}{c}{$(c + f)/N$} & \multicolumn{1}{Y}{}\\\hline\hline
+Same source & 0.9799 & 0.1470 & 0.0028 & 0.3333\\
+Diff source & 0.0201 & 0.9853 & 0.9923 & 0.6667\\\hline
+\multicolumn{1}{Y}{Concl. prop.} & 0.3355 & 0.0101 & \multicolumn{1}{c}{0.4379} & \multicolumn{1}{Y}{}\\\hline\hline
 \end{tabularx}
 
 \begin{tabularx}{\textwidth}{lX|cc|Y}
 \multicolumn{5}{c}{}\\
 \multicolumn{5}{c}{\bf Reported Error Rates}\\
 Opt. & \multicolumn{1}{c}{Meaning} & Missed Identification & \multicolumn{1}{c}{Missed Elimination} & Total \\\hline
-2 & FTE error & $c/S$ & $d/D$ & $(c + d)/N$\\
-3 & Process error & $(b + c)/S$ & $(d + e)/D$ & $(b + c + d + e)/N$ \\
+2 & FTE error & 0.0037  & 0.0101 & 0.0080\\
+3 & Process error & 0.0138 & 0.3482 & 0.2367 \\
 \end{tabularx}
 \end{fmpage}
+\footnotetext{Two comparisons were not reported and have been imputed as inconclusives.}
 
-\begin{table}[hbt]
-\centering
-\caption{Reported number of evaluations  from Baldwin Study.}\label{tab:baldwin-totals}
-{\tabulinesep=1.2mm
-\begin{tabu}{|c|rrr|r|}\hline
- & \multicolumn{3}{c|}{$Y = $Examiner Conclusion} \\\hline
- & Identification & Inconclusive  & Elimination &  \\
-$X = $Reality&&or no response&&Totals\\\hline
-Same source & 1075  & 11 & 4 & 1090\\
-Different source & 22 & 735+2 & 1421 & 2180\\\hline
-Percent & 33.5\% & 22.9\% & 43.6\% & 100.0\\\hline
-\end{tabu}
-}
-\end{table}
-
-
-
-
-\begin{table}[hbt]
-\centering
-\caption{Error rate assessment for Baldwin Study.}\label{tab:baldwin-errors}
-{\tabulinesep=1.2mm
-\begin{tabu}{|l|rr|}\hline
- & Missed Identification & Missed Elimination  \\ \hline
-Option 2 (FTE error) & 0.0037  & 0.0101\\
-Option 3 (Process error) & 0.0138 & 0.3482\\ \hline
-\end{tabu}
-}
-\end{table}
-
-
-The resulting set of conditional probabilities is shown in \autoref{tab:baldwin}
-
-\begin{table}[hbt]
-\centering
-\caption{Predictive probabilities from Baldwin Study.}\label{tab:baldwin}
-{\tabulinesep=1.2mm
-\begin{tabu}{|c|ccc|}\hline
-$P(X | Y)$ & \multicolumn{3}{c|}{$Y = $Examiner Conclusion} \\\hline
-$X = $Reality & Identification & Inconclusive & Elimination \\\hline
-Same source & 0.9799 & 0.0147 & 0.0028 \\
-Different source & 0.0201 & 0.9853 & 0.9972 \\\hline
-\end{tabu}
-}
-\end{table}
-
-
+The resulting sets of conditional probabilities are shown in \autoref{tab:baldwin-summary}
 
 It seems that firearms examiners are more willing to bet on identifications than on eliminations. 
 Based on the set up of the study, we would expect the probabilities for same and different source given an inconclusive result is reported to be: 
@@ -731,7 +686,7 @@ Diff source & 0 & 0.2014 & 0..7976 & 0.4000 \\\hline
 \multicolumn{5}{c}{}\\
 \multicolumn{5}{c}{\bf Reported Error Rates}\\
 Opt. & \multicolumn{1}{c}{Meaning} & Missed Identification & \multicolumn{1}{c}{Missed Elimination} & Total \\\hline
-2 & FTE error & 0.0000 & 0.0000  & 0.0000
+2 & FTE error & 0.0000 & 0.0000  & 0.0000 \\
 3 & Process error & 0.0026 & 0.2014 & 0.0821 \\
 \end{tabularx}
 \end{fmpage}
