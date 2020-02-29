@@ -4,7 +4,8 @@
 \usepackage{lineno,hyperref}
 \modulolinenumbers[5]
 
-\usepackage{amsmath,amsthm,amstext, amsfonts}
+\usepackage{amsmath,amsthm,amstext}
+\usepackage{bm}
 \usepackage{graphicx,psfrag,epsf,wrapfig,subfig,float,capt-of}
 \usepackage[dvipsnames]{xcolor}
 \usepackage{booktabs,longtable,multirow,multicol,tabu,tabularx,threeparttable,colortbl,array}
@@ -235,13 +236,20 @@ The most common way to assess the accuracy of a classification method is \hh{to 
 Sensitivity, also called the true positive rate, is an examiner's ability to make an identification from same source evidence (SS). 
 This can be expressed as the conditional probability $P (\text{Identification} \mid SS)$. 
 Conversely, specificity, or the true negative rate, is an examiner's ability to make an elimination given evidence from different sources (DS), $P (\text{Elimination} \mid DS)$.} 
-Mathematically, we calculate the true negative rate as $$ TNR = P(\text{Elimination} | DS) = \frac{P(\text{Elimination and } DS)}{P(DS)}.$$
-\svp{That is, the conditional probability of an event \emph{given} another event is the probability that the two events both occur, divided by the probability of the second event. }\svp{XXX not sure this is needed, but Eryn was recommending words instead of equations, so it is worth a try...}
+Mathematically, we calculate the true negative rate as the conditional probability of an event \emph{given} another event is the probability that the two events both occur, divided by the probability of the second event, i.e.
+$$ TNR = P(\text{Elimination} | DS) = \frac{P(\text{Elimination and } DS)}{P(DS)}.$$
 
+<<<<<<< HEAD
 Another common method of assessing accuracy of a classification method is to calculate the false positive rate and the false negative rate. The \emph{false positive rate} is the probability that an examiner makes an identification from evidence which is from different sources(DS), $P(Identification | DS)$.
 
 The \emph{false negative rate} is the probability that an examiner makes an elimination from evidence which originates from the same source (SS), $P(\text{Elimination} | SS)$. 
 In all  of these assessments, the  rates are calculated by conditioning on the origin of the evidence; this process is shown graphically in \autoref{fig:FPR-specific-tree} using a decision tree to describe the comparisons which can be made conditioned on ground truth. %\hh{XXX The figure includes inconclusives - which we haven't talked about at this point. } 
+=======
+Another commonly used way of assessing accuracy of a classification method is to calculate the false positive rate and the false negative rate. The \emph{false positive rate} is the probability that an examiner makes an identification from evidence which is from different sources(DS), i.e. $FPR = P(Identification | DS)$.
+
+The \emph{false negative rate} is the probability that an examiner makes an elimination from evidence which originates from the same source (SS), i.e. $FNR = P(\text{Elimination} | SS)$. In all  of these assessments, the  rates are calculated by conditioning on the origin of the evidence. \hh{XXX The figure includes inconclusives - which we haven't talked about at this point. } \autoref{fig:FPR-specific-tree} shows a decision tree describing the possible comparisons which can be made conditioned on ground truth. %\hh{XXX sorry for taking out the next paragraph - I'm not sure it helps in clarifying the math behind the tree. }
+%The terminal nodes \hh{XXX not defined} describe the joint probability of examiner classification and ground truth; the ground truth nodes describe \hh{XXX not sure how the nodes describe probabilities} the probability of same-source or different-source comparisons, which is determined by the experimental design. \hh{XXX No hypotheticals. Either we do or we don't.} If we wanted to calculate the false positive rate, we would take the far-right terminal node, and compare the probability of that node to the probability of the different source node which is its parent. 
+>>>>>>> a0a2a23045ddc723e34172dc26ffbf06b2f7a4e2
 
 \begin{figure}
 \centering
@@ -253,8 +261,25 @@ In all  of these assessments, the  rates are calculated by conditioning on the o
 
 The use of false positive and false negative rates to characterize a classification task is extremely common, however, there are alternate ways to evaluate a classification method. 
 % In medicine, in particular, it is common to evaluate tests based on the positive and negative predictive value. 
+<<<<<<< HEAD
 The \emph{positive predictive value} (PPV) is the probability that, if an examiner makes an identification, the evidence is from the same source, that is, $P(SS | \text{Identification})$. 
 Its complement, the \emph{false discovery rate} (FDR), is the probability that if an examiner makes an identification, the evidence is from different sources.
+=======
+The \emph{positive predictive value} (PPV) is the probability that, if an examiner makes an identification, the evidence is from the same source, that is, $PPV = P(SS | \text{Identification})$. 
+\svp{Its complement, the \emph{false discovery rate} (FDR), is the probability that if an examiner makes an identification, the evidence is from different sources.}
+The \emph{negative predictive value} (NPV) is the probability that, if an examiner makes an elimination, the evidence is from different sources, or $P(DS | \text{ Elimination})$. \svp{Its complement, the \emph{false omission rate} (FOR) is the probability that, if an examiner makes an elimination, the evidence is actually from the same source.}
+\svp{In \citet{songEstimatingErrorRates2018}, the FDR is referred to as the false identification error rate, and the FOR is called the false exclusion error rate.}
+As before, we can map out the conditional hierarchy using a decision tree, shown in \autoref{fig:PPV-specific-tree}. 
+
+\hh{To reduce confusion with the naming or rates and predictive values we have labelled nodes in the trees of \autoref{fig:FPR-specific-tree} and \autoref{fig:PPV-specific-tree} correspondingly. }
+
+%\hh{XXX I think we have too many rates in there with too close naming. Personally, I would not distinguish between False discovery and False positive rates. But they are defined differently. Help XXX - I have added names to the figures. This might help a bit with the problem. But I think it still is a problem.}
+
+
+Predictive value assessments are used in assessing the implications of a particular classification label; they inform us about the likely state of the physical evidence. 
+% \svp{In designed studies, this is known information; however, the PPV, NPV, FDR, and FOR are also useful for casework, where the true state of the evidence is unknown, as they are not conditioned on unknown information.} 
+
+>>>>>>> a0a2a23045ddc723e34172dc26ffbf06b2f7a4e2
 
 The \emph{negative predictive value} (NPV) is the probability that, if an examiner makes an elimination, the evidence is from different sources, or $P(DS | \text{ Elimination})$. 
 Its complement, the \emph{false omission rate} (FOR) is the probability that, if an examiner makes an elimination, the evidence is actually from the same source\footnote{
@@ -342,6 +367,12 @@ In order to calculate the two sets of conditional probabilities, let us assume t
 in the form of a %table \svp{which can be arranged in a form like the} 
  table as shown in \autoref{tab:generic-results}.
 
+\begin{figure}
+\centering
+\includegraphics[width=.5\textwidth]{figures/shape-overview.pdf}
+\caption{\label{fig:shape-overview} some text.}
+\end{figure}
+
 \begin{table}
 \centering
 \caption{
@@ -351,10 +382,21 @@ Then the probability of the occurrence of any cell in the interior of the table 
 }\label{tab:generic-results}
 \begin{tabularx}{\textwidth}{Y|rrr|Y}
 \multicolumn{5}{c}{\bf Experiment Count Data}\\\hline
+<<<<<<< HEAD
 \multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Total\\\hline
 Same Source & $\mathbb{a}$ & $\mathbb{b}$ & $\mathbb{c}$ & $S = a + b + c$\\
 Diff Source & $\mathbb{d}$ & $\mathbb{e}$ & $\mathbb{f}$ & $D = e + f + g$\\\hline
 \multicolumn{1}{Y}{Conclusion Total} & $a + d$ & $b + e$ & \multicolumn{1}{r}{$c + f$} & \multicolumn{1}{Y}{$N = S + D$}\\\hline\hline
+=======
+\multicolumn{1}{c}{} & Identification & Inconclusive & \multicolumn{1}{c}{Elimination} & Source Total\\\hline
+Same Source & $\bm{a}$ \includegraphics[width=.25cm]{figures/a.pdf} & 
+              $\bm{b}$ \includegraphics[width=.3cm]{figures/b.pdf} & 
+              $\bm{c}$ \includegraphics[width=.35cm]{figures/c.pdf} & $S = a + b + c$\\
+Diff Source & $\bm{d}$ \includegraphics[width=.25cm]{figures/d.pdf} & 
+              $\bm{e}$ \includegraphics[width=.3cm]{figures/e.pdf} & 
+              $\bm{f}$ \includegraphics[width=.35cm]{figures/f.pdf} &  $D = e + f + g$\\\hline
+\multicolumn{1}{Y}{Conclusion Total} & $a + d$ & $b + e$ & \multicolumn{1}{c}{$c + f$} & \multicolumn{1}{Y}{$N = S + D$}\\\hline\hline
+>>>>>>> a0a2a23045ddc723e34172dc26ffbf06b2f7a4e2
 \end{tabularx}
 \end{table}
 
@@ -373,7 +415,11 @@ In the last row in the table, the marginal probabilities $P(Y)$ are shown, that 
 \multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Probability\\\hline
 Same source & $a/(a+d)$ & $b/(b+e)$ & $c/(c+f)$ & $S/N$\\
 Diff source & $d/(a+d)$ & $e/(b+e)$ & $f/(c+f)$ & $D/N$\\\hline
+<<<<<<< HEAD
 \multicolumn{1}{Y}{Conclusion probability} & $(a + d)/N$ & $(b + e)/N$ & \multicolumn{1}{r}{$(c + f)/N$} & \multicolumn{1}{Y}{1.0}\\\hline\hline
+=======
+\multicolumn{1}{Y}{Conclusion probability} & $(a + d)/N$ & $(b + e)/N$ & \multicolumn{1}{c}{$(c + f)/N$} & \multicolumn{1}{Y}{1.00}\\\hline\hline
+>>>>>>> a0a2a23045ddc723e34172dc26ffbf06b2f7a4e2
 \end{tabularx}
 \end{table}
 
@@ -391,7 +437,11 @@ In the last column of the table, the marginal probabilities $P(X)$ are shown; th
 \multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Probability\\\hline
 Same source & $a/S$ & $b/S$ & $c/S$ & $S/N$\\
 Diff source & $d/D$ & $e/D$ & $f/D$ & $D/N$\\\hline
+<<<<<<< HEAD
 \multicolumn{1}{Y}{Conclusion probability} & $(a + d)/N$ & $(b + e)/N$ & \multicolumn{1}{r}{$(c + f)/N$} & \multicolumn{1}{Y}{1.0}\\\hline\hline
+=======
+\multicolumn{1}{Y}{Conclusion probability} & $(a + d)/N$ & $(b + e)/N$ & \multicolumn{1}{c}{$(c + f)/N$} & \multicolumn{1}{Y}{1.00}\\\hline\hline
+>>>>>>> a0a2a23045ddc723e34172dc26ffbf06b2f7a4e2
 \end{tabularx}
 \end{table}
 A google sheets workbook for performing these calculations is available at \url{http://bit.ly/FTE-error-rate}.
@@ -483,8 +533,8 @@ In a perfect world, we would expect the probabilities shown in \autoref{tab:idea
 \begin{tabu}{|c|ccc|}\hline
 $P(X | Y)$ & \multicolumn{3}{c|}{$Y = $Examiner Conclusion} \\\hline
 $X = $Reality & Identification & Inconclusive & Elimination \\\hline
-Same source & $P(SS|Identification) = 1 $& $P(SS|Inconclusive) = P(SS)$ & $P(SS | Elimination) = 0$ \\
-Different source & $P(DS|Identification) = 0$ & $P(DS|Inconclusive) = P(DS)$ & $P(DS | Elimination)= 1$ \\\hline
+Same source & $P(SS|\text{Identification}) = 1 $& $P(SS|\text{Inconclusive}) = P(SS)$ & $P(SS | \text{Elimination}) = 0$ \\
+Different source & $P(DS| \text{Identification}) = 0$ & $P(DS| \text{Inconclusive}) = P(DS)$ & $P(DS | \text{Elimination})= 1$ \\\hline
 \end{tabu}
 }
 \end{table}
