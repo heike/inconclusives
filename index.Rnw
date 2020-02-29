@@ -276,8 +276,9 @@ Tree Diagram illustrating the logic of positive and negative predictive value ca
 
 To reduce confusion with the naming or rates and predictive values we have labeled nodes in the trees of \autoref{fig:FPR-specific-tree} and \autoref{fig:PPV-specific-tree} \svp{corresponding to the rates defined in the text.}
 Predictive value assessments are used in assessing the implications of a particular classification label; they inform us about the likely state of the physical evidence. 
-\svp{This makes the PPV, NPV, FDR, and FOR more appropriate for use when evaluating casework, where the true state of the evidence is unknown: these rates are not conditioned on unknown information, but instead use the available information (the examiner's decision) to provide updated information about the probability of an error or a correct decision.}
-\svp{For the same reason, the source-specific assessments are more useful when evaluating the performance of individuals on a designed test, because ground truth is known (and thus, can be conditioned upon) in designed studies.}
+\svp{This makes the PPV, NPV, FDR, and FOR more appropriate for use when evaluating casework, where the true state of the evidence is unknown.
+While mathematically it makes sense to condition on unknown quantities, in practice it is much more informative to condition on quantities whose values are known.}
+\svp{For the same reason, the source-specific assessments may be useful when evaluating the performance of individuals on a designed test, because ground truth is known (and thus, can be conditioned upon) in designed studies.}
 
 \subsection{Practical impact of error rates}
 
@@ -454,23 +455,26 @@ One reasonable solution to the inconclusive problem would be to calculate the pr
 Note that if we condition on the decision being either identification or elimination, the probability calculations for scenarios 0 and 1 in \autoref{tab:overall-err-rate} are identical; the only difference between the two is the setup of the scenario: 
 In scenario 1, we allow for inconclusives as a decision category but restrict them from the calculation of the error rate entirely; in scenario 0, inconclusives are not a valid conclusion. 
 This solution does entirely ignore inconclusives, though, and as they are part of the process and can be included in examiner testimony (usually phrased as ``could not be excluded"), this elimination from consideration is not appropriate if the goal of a study is to assess the error rate of the entire evaluation process. 
-\svp{\citet{koehlerProficiencyTestsEstimate2013} recommends using the option 1 approach for calculating error rates while  also tracking rates of inconclusive identifications ``for other purposes", perhaps including reporting during testimony.}\svp{The last clause needs work here XXX}
+\citet{koehlerProficiencyTestsEstimate2013} recommends using the option 1 approach for calculating error rates while  also tracking rates of inconclusive identifications ``for other purposes". 
 
 Under AFTE's Theory of Identification, however, inconclusive results are acceptable outcomes and not considered errors; to give a very extreme example, an examiner could report inconclusives for the rest of their career and never make an error. Option 2 shows this way of treating inconclusives as correct regardless of the actual state.
 What this means in real terms, is that inconclusives are effectively counted as identifications if they are actually from the same source, but counted as eliminations if they are actually from a different source. 
-When the goal is to assess the error rate of the examiner under the prevailing guidelines of the AFTE Theory of Identification, this is a reasonable option for assessing error rates of firearm and toolmark examiners, with the slightly odd side-effect that an examiner who marks every comparison as inconclusive does not provide any useful actionable information, but effectively has a zero error rate. \svp{XXX this is repeating something said above, though I'm not sure that's a bad thing XXX}
+When the goal is to assess the error rate of the examiner under the prevailing guidelines of the AFTE Theory of Identification, this is a reasonable option for assessing error rates of firearm and toolmark examiners, with the slightly odd side-effect that an examiner who marks every comparison as inconclusive does not provide any useful actionable information, but effectively has a zero error rate.
 
 When viewed within the framework of the legal system, error rates calculated using option 2  are  not considering any error introduced by the evidence itself. 
-If e.g. a firearm does not mark well, a firearms examiner might not be able to make an identification or an elimination through no fault of theirs. 
+If e.g. a firearm does not mark well, a firearms examiner might not be able to make an identification or an elimination \svp{for reasons having nothing to do with the examiner's skill}. 
 However, from the wider perspective of the \emph{system}, it is  important to look at the overall error rate of the entire process.
-This requires that we consider the errors from the perspective of the real-world state: two pieces of evidence are  either from the same source or originate from different sources; an inability to distinguish between those options is an error in the \emph{process} even it if is not an error made on the part of the examiner. 
+This requires that we consider the errors from the perspective of the real-world state: two pieces of evidence are  either from the same source or originate from different sources; an inability to distinguish between those options is an error in the \emph{process} even it if is not an error made on the part of the examiner. \svp{This is consistent with an observation in \citet{koehlerFingerprintErrorRates2007} in an assessment of errors in fingerprint identification (though he goes on to use an approach more consistent with option 1). }
 
 Option 3 of \autoref{tab:overall-err-rate} reflects this global view by counting  inconclusives as errors. 
-Practically, option 3 reflects the error of the examination process rather than the examiner as an individual. 
-To illustrate why this is the case, consider that an examiner may, upon inspection of a fired bullet, find that there are insufficient individualizing characteristics to make an identification. 
-This does not reflective negatively on the examiner's skill; it is merely a consequence of the contact made between the bullet and the barrel during the firing process. 
-Nonetheless, even though a pair of evidence originated from the same physical source, it is not possible to evaluate the evidence and make an identification. The inconclusives are representative of the errors involved in the process of evidence recording, rather than the evaluation. 
+Practically, option 3 reflects the error of the \emph{examination process} rather than the examiner as an individual. 
+To illustrate why this is the case, consider that an examiner may, upon inspection of a fired bullet, find that there are insufficient individualizing characteristics to make an identification. \svp{XXX we need to make this a comparison example XXX}  \svp{XXX Also, can we get a better definition of unsuitable? XXX}
+This does not reflective negatively on the examiner's skill; it is merely a consequence of the contact made between the \svp{ammunition and the gun components} %change b/c we have cartridges in there too
+during the firing process. 
+Nonetheless, even though a pair of objects originated from the same physical source, it is not possible to evaluate the evidence and make an identification. 
+The inconclusives are representative of the errors involved in the process of evidence recording, rather than the evaluation. 
 
+\svp{XXX this transition is a bit rough. Might be worth a bit of a preview between inconclusive and ``ideal" study probabilities, because the connection isn't very obvious from this point in the paper... XXX}
 In the next section, we will examine the results from a number of studies of the error rate of firearms examinations, identifying the results which are reported, converting these results (where possible) into the format used in \autoref{tab:generic-results}, and calculating the conditional probabilities in the format of \autoref{tab:fpr-fnr} and \autoref{tab:pv-prob}. 
 Prior to that, however, it may be useful to develop one more idea: in a perfect world with examiners who are all-knowing, what should the results of these studies look like?\svp{XXX This could be a bit better transition XXX}
 
