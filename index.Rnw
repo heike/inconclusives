@@ -4,7 +4,8 @@
 \usepackage{lineno,hyperref}
 \modulolinenumbers[5]
 
-\usepackage{amsmath,amsthm,amstext, amsfonts}
+\usepackage{amsmath,amsthm,amstext}
+\usepackage{bm}
 \usepackage{graphicx,psfrag,epsf,wrapfig,subfig,float,capt-of}
 \usepackage[dvipsnames]{xcolor}
 \usepackage{booktabs,longtable,multirow,multicol,tabu,tabularx,threeparttable,colortbl,array}
@@ -348,6 +349,12 @@ In order to calculate the two sets of conditional probabilities, let us assume t
 in the form of a %table \svp{which can be arranged in a form like the} 
  table as shown in \autoref{tab:generic-results}.
 
+\begin{figure}
+\centering
+\includegraphics[width=.5\textwidth]{figures/shape-overview.pdf}
+\caption{\label{fig:shape-overview} some text.}
+\end{figure}
+
 \begin{table}
 \centering
 \caption{
@@ -358,8 +365,12 @@ Then the probability of the occurrence of any cell in the interior of the table 
 \begin{tabularx}{\textwidth}{Y|ccc|Y}
 \multicolumn{5}{c}{\bf Experiment Count Data}\\\hline
 \multicolumn{1}{c}{} & Identification & Inconclusive & \multicolumn{1}{c}{Elimination} & Source Total\\\hline
-Same Source & $\mathbb{a}$ & $\mathbb{b}$ & $\mathbb{c}$ & $S = a + b + c$\\
-Diff Source & $\mathbb{d}$ & $\mathbb{e}$ & $\mathbb{f}$ & $D = e + f + g$\\\hline
+Same Source & $\bm{a}$ \includegraphics[width=.25cm]{figures/a.pdf} & 
+              $\bm{b}$ \includegraphics[width=.3cm]{figures/b.pdf} & 
+              $\bm{c}$ \includegraphics[width=.35cm]{figures/c.pdf} & $S = a + b + c$\\
+Diff Source & $\bm{d}$ \includegraphics[width=.25cm]{figures/d.pdf} & 
+              $\bm{e}$ \includegraphics[width=.3cm]{figures/e.pdf} & 
+              $\bm{f}$ \includegraphics[width=.35cm]{figures/f.pdf} &  $D = e + f + g$\\\hline
 \multicolumn{1}{Y}{Conclusion Total} & $a + d$ & $b + e$ & \multicolumn{1}{c}{$c + f$} & \multicolumn{1}{Y}{$N = S + D$}\\\hline\hline
 \end{tabularx}
 \end{table}
@@ -379,7 +390,7 @@ In the last row in the table, the marginal probabilities $P(Y)$ are shown, that 
 \multicolumn{1}{c}{} & Identification & Inconclusive & \multicolumn{1}{c}{Elimination} & Source Probability\\\hline
 Same source & $a/(a+d)$ & $b/(b+e)$ & $c/(c+f)$ & $S/N$\\
 Diff source & $d/(a+d)$ & $e/(b+e)$ & $f/(c+f)$ & $D/N$\\\hline
-\multicolumn{1}{Y}{Conclusion probability} & $(a + d)/N$ & $(b + e)/N$ & \multicolumn{1}{c}{$(c + f)/N$} & \multicolumn{1}{Y}{1.0}\\\hline\hline
+\multicolumn{1}{Y}{Conclusion probability} & $(a + d)/N$ & $(b + e)/N$ & \multicolumn{1}{c}{$(c + f)/N$} & \multicolumn{1}{Y}{1.00}\\\hline\hline
 \end{tabularx}
 \end{table}
 
@@ -397,7 +408,7 @@ In the last column of the table, the marginal probabilities $P(X)$ are shown; th
 \multicolumn{1}{c}{} & Identification & Inconclusive & \multicolumn{1}{c}{Elimination} & Source Probability\\\hline
 Same source & $a/S$ & $b/S$ & $c/S$ & $S/N$\\
 Diff source & $d/D$ & $e/D$ & $f/D$ & $D/N$\\\hline
-\multicolumn{1}{Y}{Conclusion probability} & $(a + d)/N$ & $(b + e)/N$ & \multicolumn{1}{c}{$(c + f)/N$} & \multicolumn{1}{Y}{1.0}\\\hline\hline
+\multicolumn{1}{Y}{Conclusion probability} & $(a + d)/N$ & $(b + e)/N$ & \multicolumn{1}{c}{$(c + f)/N$} & \multicolumn{1}{Y}{1.00}\\\hline\hline
 \end{tabularx}
 \end{table}
 A google sheets workbook for performing these calculations is available at \url{http://bit.ly/FTE-error-rate}.
