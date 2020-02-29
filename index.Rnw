@@ -660,52 +660,50 @@ For 3234 comparisons, FTEs evaluated how many of the known cartridge cases were 
 
 Each test kit consisted of sets of 20 pairs of cartridge cases,  12 of the pairs were from the same source and 8 pairs were from different sources.
 
-126 participants reported results as shown in \autoref{tab:keisler-totals}.
+126 participants reported results as shown in \autoref{tab:keisler-summary}.
 
-
-\begin{table}[hbt]
-\centering
-\caption{Evaluation results from Keisler Study.}\label{tab:keisler-totals}
-{\tabulinesep=1.2mm
-\begin{tabu}{|c|rrr|r|}\hline
-Evaluations & \multicolumn{3}{c|}{$Y = $Examiner Conclusion} \\\hline
-$X = $Reality & Identification & Inconclusive & Elimination & Totals \\\hline
+\noindent\begin{fmpage}{\textwidth}\centering
+\captionof{table}{{\large\bf Study Name}}
+\emph{Authors}\\
+A study of fired bullets/cartridge cases/consecutively manufactured extractors/...
+\begin{tabularx}{\textwidth}{XllX}\hline
+\multirow{2}{*}{\bf Study Type} & \multicolumn{2}{c}{\bf Test Set} & \multirow{2}{*}{\bf Participants}\\
+& \# Same Source Comparisons & \# Different Source Comparisons & \\\hline
+Open set & 12 & 8 & 126 examiners\\
+\end{tabularx}
+\begin{tabularx}{\textwidth}{Y|ccc|Y}
+\multicolumn{5}{c}{\bf Experiment Count Data}\\
+\multicolumn{1}{c}{} & Identification & Inconclusive & \multicolumn{1}{c}{Elimination} & Source Total\\\hline
 Same source & 1508 & 4 & 0 & 1512 \\
-Different source & 0 & 203 & 805 & 1008 \\\hline
-Percent & 59.8\% & 8.2\% & 31.9\% & 100.0 \\\hline
-\end{tabu}
-}
-\end{table}
+Diff source & 0 & 203 & 805 & 1008 \\\hline
+\multicolumn{1}{Y}{Concl. Total} & 1508 & 207 & \multicolumn{1}{c}{805} & \multicolumn{1}{Y}{2520}\\\hline\hline
 
-\begin{table}[hbt]
-\centering
-\caption{Error rate assessment for Keisler Study.}\label{tab:keisler-errors}
-{\tabulinesep=1.2mm
-\begin{tabu}{|l|rr|}\hline
- & Missed Identification & Missed Elimination  \\ \hline
-Option 2 (FTE error) & 0.0000  & 0.0000\\
-Option 3 (Process error) & 0.0026 & 0.2014\\ \hline
-\end{tabu}
-}
-\end{table}
+\multicolumn{5}{c}{}\\
 
+\multicolumn{5}{c}{\bf Conclusion-Specific Probabilities}\\
+\multicolumn{1}{c}{} & Identification & Inconclusive & \multicolumn{1}{c}{Elimination} & Source Prop.\\\hline
+Same source & 1 & 0.0197 & 0.0000 & 0.6000\\
+Diff source & 0 & 0.9803 & 1 & 0.4000\\\hline
+\multicolumn{1}{Y}{Concl. prop.} & 0.5984 & 0.0821 & \multicolumn{1}{c}{0.3194} & \multicolumn{1}{Y}{}\\\hline\hline
 
-The resulting set of conditional probabilities is given in \autoref{tab:keisler}.
+\multicolumn{5}{c}{}\\
+\multicolumn{5}{c}{\bf Source-Specific Probabilities}\\
+\multicolumn{1}{c}{} & Identification & Inconclusive & \multicolumn{1}{c}{Elimination} & Source Prop.\\\hline
+Same source & 0.9974 & 0.0028 & 0.0000 & 0.6000\\
+Diff source & 0 & 0.2014 & 0..7976 & 0.4000 \\\hline
+\multicolumn{1}{Y}{Concl. prop.} & 0.5984 & 0.0821 & \multicolumn{1}{c}{0.3194} & \multicolumn{1}{Y}{}\\\hline\hline
+\end{tabularx}
 
-\begin{table}[hbt]
-\centering
-\caption{Conditional probabilities from Keisler Study.}\label{tab:keisler}
-{\tabulinesep=1.2mm
-\begin{tabu}{|c|ccc|}\hline
-$P(X | Y)$ & \multicolumn{3}{c|}{$Y = $Examiner Conclusion} \\\hline
-$X = $Reality & Identification & Inconclusive & Elimination \\\hline
-Same source & 1.0000 & 0.0193 & 0.0000 \\
-Different source & 0.0000 & 0.9807 & 1.0000 \\\hline
-\end{tabu}
-}
-\end{table}
+\begin{tabularx}{\textwidth}{lX|cc|Y}
+\multicolumn{5}{c}{}\\
+\multicolumn{5}{c}{\bf Reported Error Rates}\\
+Opt. & \multicolumn{1}{c}{Meaning} & Missed Identification & \multicolumn{1}{c}{Missed Elimination} & Total \\\hline
+2 & FTE error & 0.0000 & 0.0000  & 0.0000
+3 & Process error & 0.0026 & 0.2014 & 0.0821 \\
+\end{tabularx}
+\end{fmpage}
 
-Again, inconclusive results are much more indicative of different source results than they should be  based on the setup of the study; we would expect same source results with a probability of 0.60 given an inconclusive result. 
+The resulting set of conditional probabilities is given in \autoref{tab:keisler-summary}. Again, inconclusive results are much more indicative of different source results than they should be  based on the setup of the study; we would expect same source results with a probability of 0.60 given an inconclusive result. 
 
 ``on the response sheet participants were asked if their laboratory had a policy which does not allow examiners to exclude based on individual characteristics. ... many participants answered `yes' to the laboratory policy question and answered `inconclusive' on all within-class comparisons that could have been correctly excluded."
 
@@ -732,7 +730,7 @@ the differences in certified examiners and trainees are not large, so only the a
 \emph{\citeauthor{Duez:2017kha} (\citeyear{Duez:2017kha})}\\
 \begin{tabularx}{\textwidth}{XllX}\hline
 \multirow{2}{*}{\bf Study Type} & \multicolumn{2}{c}{\bf Test Set} & \multirow{2}{*}{\bf Participants}\\
-& \# Knowns & \# Unknowns & \\\hline
+& \# Same Source Comparisons & \# Different Source Comparisons & \\\hline
 Open set & ? & ? & 46+10 examiners\\
 \end{tabularx}
 \begin{tabularx}{\textwidth}{Y|ccc|Y}
@@ -762,10 +760,9 @@ Diff source & 0.0179 & 0.2232 & 0.7589 & 0.2517\\\hline
 \multicolumn{5}{c}{}\\
 \multicolumn{5}{c}{\bf Reported Error Rates}\\
 Opt. & \multicolumn{1}{c}{Meaning} & Missed Identification & \multicolumn{1}{c}{Missed Elimination} & Total \\\hline
-2 & FTE error & 0.0000/0.0000  & 0.0000/0.1000 & ?\\
-3 & Process error & 0.0000/0.0167 & 0.1304/0.7500 & ?\\ \hline
+2 & FTE error & 0.0000/0.0000  & 0.0000/0.1000 & 0.0000/0.0125\\
+3 & Process error & 0.0000/0.0167 & 0.1304/0.7500 & 0.0325/0.2000\\ \hline
 \end{tabularx}
-\svp{XXX find total error rates, if reported}
 \end{fmpage}
 
 \autoref{tab:duez-summary} shows the two sets of error rates for the Duez study. The error rate of certified examiners in making eliminations is much lower than that of the ten trainees. This is reflected in the error rates of the overall process. The process errors are much smaller for certified firearms examiners than for trainees. However, the probability to miss eliminations is again high, lab rules contribute to this error (see discussion below).
