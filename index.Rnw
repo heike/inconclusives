@@ -572,6 +572,49 @@ A total of 25 firearms was used for the study, such that within each kit no fire
 218 participants (self-reporting as active forensic firearm examiners) provided evaluations of the kits, evaluation results are shown in \autoref{tab:baldwin-totals}. 
 Each of these evaluations is  based on a comparison of one questioned cartridge case to three known same source  cartridge cases. \svp{This wording is slightly confusing - I understand it now, but had to puzzle over whether there was a single known source (with 3 replicates) or 3 knowns. }
 
+\noindent\begin{fmpage}{\textwidth}\centering
+\captionof{table}{{\large\bf Study Name}}
+\emph{Authors}\\
+A study of fired bullets/cartridge cases/consecutively manufactured extractors/...
+\begin{tabularx}{\textwidth}{XllX}\hline
+\multirow{2}{*}{\bf Study Type} & \multicolumn{2}{c}{\bf Test Set} & \multirow{2}{*}{\bf Participants}\\
+& \# Same Source Comparisons & \# Different Source Comparisons & \\\hline
+Open set & 5 & 10 & 218 examiners\\
+\end{tabularx}
+\end{fmpage}
+
+\noindent\begin{fmpage}{\textwidth}
+\begin{tabularx}{\textwidth}{Y|ccc|Y}
+\multicolumn{5}{c}{\bf Experiment Count Data}\\
+\multicolumn{1}{c}{} & Identification & Inconclusive & \multicolumn{1}{c}{Elimination} & Source Total\\\hline
+Same Source & a & b & c & S = a + b + c\\
+Diff Source & d & e & f & D = e + f + g\\\hline
+\multicolumn{1}{Y}{Concl. Total} & a + d & b + e & \multicolumn{1}{c}{c + f} & \multicolumn{1}{Y}{N = S + D}\\\hline\hline
+
+\multicolumn{5}{c}{}\\
+
+\multicolumn{5}{c}{\bf Conclusion-Specific Probabilities}\\
+\multicolumn{1}{c}{} & Identification & Inconclusive & \multicolumn{1}{c}{Elimination} & Source Prop.\\\hline
+Same source & $a/(a+d)$ & $b/(b+e)$ & $c/(c+f)$ & $S/N$\\
+Diff source & $d/(a+d)$ & $e/(b+e)$ & $f/(c+f)$ & $D/N$\\\hline
+\multicolumn{1}{Y}{Concl. prop.} & $(a + d)/N$ & $(b + e)/N$ & \multicolumn{1}{c}{$(c + f)/N$} & \multicolumn{1}{Y}{}\\\hline\hline
+
+\multicolumn{5}{c}{}\\
+\multicolumn{5}{c}{\bf Source-Specific Probabilities}\\
+\multicolumn{1}{c}{} & Identification & Inconclusive & \multicolumn{1}{c}{Elimination} & Source Prop.\\\hline
+Same source & $a/S$ & $b/S$ & $c/S$ & $S/N$\\
+Diff source & $d/D$ & $e/D$ & $f/D$ & $D/N$\\\hline
+\multicolumn{1}{Y}{Concl. prop.} & $(a + d)/N$ & $(b + e)/N$ & \multicolumn{1}{c}{$(c + f)/N$} & \multicolumn{1}{Y}{}\\\hline\hline
+\end{tabularx}
+
+\begin{tabularx}{\textwidth}{lX|cc|Y}
+\multicolumn{5}{c}{}\\
+\multicolumn{5}{c}{\bf Reported Error Rates}\\
+Opt. & \multicolumn{1}{c}{Meaning} & Missed Identification & \multicolumn{1}{c}{Missed Elimination} & Total \\\hline
+2 & FTE error & $c/S$ & $d/D$ & $(c + d)/N$\\
+3 & Process error & $(b + c)/S$ & $(d + e)/D$ & $(b + c + d + e)/N$ \\
+\end{tabularx}
+\end{fmpage}
 
 \begin{table}[hbt]
 \centering
