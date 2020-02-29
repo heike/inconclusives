@@ -101,9 +101,9 @@
 % \address[mysecondaryaddress]{360 Park Avenue South, New York}
 
 \author[isu,csafe]{Heike Hofmann}
-\author[isu,csafe]{Alicia Carriquiry\corref{corauthor}}
-\cortext[corauthor]{Corresponding author}\ead{alicia@iastate.edu}
-\author[unl]{Susan Vanderplas}
+\author[isu,csafe]{Alicia Carriquiry}
+\author[unl]{Susan Vanderplas\corref{corauthor}}
+\cortext[corauthor]{Corresponding author}\ead{susan.vanderplas@unl.edu}
 \address[isu]{Statistics Department, Iowa State University\\2438 Osborne Dr, Ames, IA 50011}
 \address[csafe]{Center for Statistical Applications in Forensic Evidence, Iowa State University\\613 Morrill Rd, Ames, IA 50011}
 \address[unl]{Statistics Department, University of Nebraska Lincoln\\340 Hardin Hall North Wing, Lincoln, NE 68583-0963}   
@@ -314,23 +314,13 @@ is the probability that, given your positive result, you actually have the disea
 %When calculating the
 FPR and FNR, \hh{are calculated by conditioning on the source of of the evidence (same-source/different source) and give the probability for an examiner's conclusion.} 
 %we condition on the source of the evidence and predict the examiner's classification, while 
-\hh{PPV and NPV, are calculated by conditioning on an examiner's conclusion and give the probability of }  the state of reality. \hh{XXX I'm not quite sure what the state of reality means, but I can't think of how to re-phrase just now.} 
+\hh{PPV and NPV, are calculated by conditioning on an examiner's conclusion and give the probability of }  
+%the state of reality.
+\hh{evidence being same-source or different source.}
 
 %The implications of the two sets of conditional probabilities are somewhat different as well. 
 
 
-\hh{XXX We need to say more about the marginal distributions and how to calulate PPV, if we want to keep the next paragraph. But we could also think about moving this into the discussion. Essentially, this is a descriptive version of Bayes theorem without mentioning Bayes or the fact that given the marginal distribution we can move from one conditional distribution to the other. We should make this explicit or leave out. At the moment I am leaning towards out.}
-
-This difference is fairly critical when generalizing from designed studies to casework: in a designed study, the proportion of same-source and different-source comparisons is determined by the experimental design and is fixed, which makes the FPR and FNR (and the combined accuracy rate) reasonable metrics for comparison. 
-However, we have no idea what the prevalence of same-source comparisons and different-source comparisons might be in casework. 
-Thus, it is not particularly sensible to evaluate the accuracy of examiner performance on case work using metrics developed in designed experiments with fixed ratios of same-source and different-source comparisons.
-
-If we instead evaluate FTE accuracy using PPV and NPV, we avoid the need to know the prevalence of same-source and different-source comparisons; instead, we only need to know the examiner's conclusion from the evidence in the case. 
-That is, in legal settings, it is the state of reality that is under debate; the examiner's opinion is testimony and is information we already have.
-
-\hh{Given the new paragraphs at the beginning of 2.4 - do we still need the above discussion? XXX }
-
-\hh{XXX Would it be fair to say that FPR and FNR allow us to assess examiners or the firearms matching process, while the predictive values allow us to evaluate the strength of the testimony? Maybe we do not want to go into detail on strength of evidence when the testimony is categorical. }
 
 
 \hh{XXX A sentence on why we need case studies to evaluate and assess all of these error rates. }
@@ -1020,3 +1010,19 @@ gtrain <- training %>%
   gather(feature, value, ccf:sum_peaks)
 # now compare to test data
 @
+
+
+from section 2.4
+
+\hh{XXX We need to say more about the marginal distributions and how to calulate PPV, if we want to keep the next paragraph. But we could also think about moving this into the discussion. Essentially, this is a descriptive version of Bayes theorem without mentioning Bayes or the fact that given the marginal distribution we can move from one conditional distribution to the other. We should make this explicit or leave out. At the moment I am leaning towards out.}
+
+This difference is fairly critical when generalizing from designed studies to casework: in a designed study, the proportion of same-source and different-source comparisons is determined by the experimental design and is fixed, which makes the FPR and FNR (and the combined accuracy rate) reasonable metrics for comparison. 
+However, we have no idea what the prevalence of same-source comparisons and different-source comparisons might be in casework. 
+Thus, it is not particularly sensible to evaluate the accuracy of examiner performance on case work using metrics developed in designed experiments with fixed ratios of same-source and different-source comparisons.
+
+If we instead evaluate FTE accuracy using PPV and NPV, we avoid the need to know the prevalence of same-source and different-source comparisons; instead, we only need to know the examiner's conclusion from the evidence in the case. 
+That is, in legal settings, it is the state of reality that is under debate; the examiner's opinion is testimony and is information we already have.
+
+\hh{Given the new paragraphs at the beginning of 2.4 - do we still need the above discussion? XXX }
+
+\hh{XXX Would it be fair to say that FPR and FNR allow us to assess examiners or the firearms matching process, while the predictive values allow us to evaluate the strength of the testimony? Maybe we do not want to go into detail on strength of evidence when the testimony is categorical. }
