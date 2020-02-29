@@ -723,16 +723,17 @@ The design of the experiment does not allow us to quantify all of the quantities
 
 Combined, the probability for a  same source pair is 6/8 or 75\% and the probability for  a different source  pair is 2/8 or 25\%.
 
-\autoref{tab:duez-totals} shows results reported by 56 participants (46 examiners, 10 trainees).
+The top of \autoref{tab:duez-summary} shows results reported by 56 participants (46 examiners, 10 trainees).
 
 \noindent\begin{fmpage}{\textwidth}\centering
-\captionof{table}{Duez study}\label{tab:duez-summary}
+\captionof{table}{Duez study results, conclusion-specific and source-specific probablities, and reported overall error rates. For the conditional probabilities, 
+the differences in certified examiners and trainees are not large, so only the aggregate results are shown. Certified examiners have a perfect identification rate, only evaluations of different source pairs lead to inconclusives. }\label{tab:duez-summary}
 {\large\bf Development and Validation of a Virtual Examination Tool for Firearm Forensics}
 \emph{\citeauthor{Duez:2017kha} (\citeyear{Duez:2017kha})}\\
 \begin{tabularx}{\textwidth}{XllX}\hline
 \multirow{2}{*}{\bf Study Type} & \multicolumn{2}{c}{\bf Test Set} & \multirow{2}{*}{\bf Participants}\\
 & \# Knowns & \# Unknowns & \\\hline
-Closed set & 10 & 15 & 507 examiners\\
+Open set & ? & ? & 36+10 examiners\\
 \end{tabularx}
 \begin{tabularx}{\textwidth}{Y|ccc|Y}
 \multicolumn{5}{c}{\bf Experiment Count Data}\\
@@ -745,50 +746,31 @@ Diff source & 0+2 & 12+13 & 80+5 & 92+20 \\\hline
 
 \multicolumn{5}{c}{\bf Conclusion-Specific Probabilities}\\
 \multicolumn{1}{c}{} & Identification & Inconclusive & \multicolumn{1}{c}{Elimination} & Source Prop.\\\hline
-Same source & 0.9941 & 0.0385 & 0.0000 \\
-Diff source & 0.0059 & 0.9615 & 1.0000 \\\hline
-\multicolumn{1}{Y}{Concl. prop.} & 0.1817 & ? & \multicolumn{1}{c}{?} & \multicolumn{1}{Y}{}\\\hline\hline
+Same source & 0.9941 & 0.0385 & 0 & 0.7483 \\
+Diff source & 0.0059 & 0.9615 & 1 & 0.2517 \\\hline
+\multicolumn{1}{Y}{Concl. prop.} & 0.7506 & 0.0579 & \multicolumn{1}{c}{0.1915} & \multicolumn{1}{Y}{}\\\hline\hline
 
 \multicolumn{5}{c}{}\\
 \multicolumn{5}{c}{\bf Source-Specific Probabilities}\\
 \multicolumn{1}{c}{} & Identification & Inconclusive & \multicolumn{1}{c}{Elimination} & Source Prop.\\\hline
-Same source & 0.9992 & 0.0008 & 0 & 0.1818\\
-Diff source & 0 & ? & ? & 0.8282\\\hline
-\multicolumn{1}{Y}{Concl. prop.} & 0.1817 & ? & \multicolumn{1}{c}{?} & \multicolumn{1}{Y}{}\\\hline\hline
+Same source & 0.9970 & 0.0030 & 0 & 0.7483\\
+Diff source & 0.0179 & 0.2232 & 0.7589 & 0.2517\\\hline
+\multicolumn{1}{Y}{Concl. prop.} & 0.7506 & 0.0579 & \multicolumn{1}{c}{0.1915} & \multicolumn{1}{Y}{}\\\hline\hline
 \end{tabularx}
+
+\begin{tabularx}{\textwidth}{lX|cc|Y}
+\multicolumn{5}{c}{}\\
+\multicolumn{5}{c}{\bf Reported Error Rates}\\
+Opt. & \multicolumn{1}{c}{Meaning} & Missed Identification & \multicolumn{1}{c}{Missed Elimination} & Total \\\hline
+2 & FTE error & 0.0000/0.0000  & 0.0000/0.1000 & ?\\
+3 & Process error & 0.0000/0.0167 & 0.1304/0.7500 & ?\\ \hline
+\end{tabularx}
+\svp{XXX find total error rates, if reported}
 \end{fmpage}
 
+\autoref{tab:duez-summary} shows the two sets of error rates for the Duez study. The error rate of certified examiners in making eliminations is much lower than that of the ten trainees. This is reflected in the error rates of the overall process. The process errors are much smaller for certified firearms examiners than for trainees. However, the probability to miss eliminations is again high, lab rules contribute to this error (see discussion below).
 
-\begin{table}[hbt]
-\centering
-\caption{Error rate assessment for Duez Study for certified examiners/trainees.}\label{tab:duez-errors}
-{\tabulinesep=1.2mm
-\begin{tabu}{|l|rr|}\hline
- & Missed Identification & Missed Elimination  \\ \hline
-Option 2 (FTE error) & 0.0000/0.0000  & 0.0000/0.1000\\
-Option 3 (Process error) & 0.0000/0.0167 & 0.1304/0.7500\\ \hline
-\end{tabu}
-}
-\end{table}
-
-\autoref{tab:duez-errors} shows the two sets of error rates for the Duez study. The error rate of certified examiners in making eliminations is much lower than that of the ten trainees. This is reflected in the error rates of the overall process. The process errors are much smaller for certified firearms examiners than for trainees. However, the probability to miss eliminations is again high, lab rules contribute to this error (see discussion below).
-
-The set of conditional probabilities are shown in \autoref{tab:duez}. 
-The differences in certified examiners and trainees are not large, so we are only showing the aggregates. Certified examiners have a perfect identification rate, only evaluations of different source pairs lead to inconclusives. 
-
-\begin{table}[hbt]
-\centering
-\caption{Conditional probabilities from Duez Study.}\label{tab:duez}
-{\tabulinesep=1.2mm
-\begin{tabu}{|c|ccc|}\hline
-$P(X | Y)$ & \multicolumn{3}{c|}{$Y = $Examiner Conclusion} \\\hline
-$X = $Reality & Identification & Inconclusive & Elimination \\\hline
-Same source & 0.9941 & 0.0385 & 0.0000 \\
-Different source & 0.0059 & 0.9615 & 1.0000 \\\hline
-\end{tabu}
-}
-\end{table}
-Again, the probability of same source pairs given examiners reported an inconclusive result is much lower than the expect 75\% based on the setup of the study.
+The set of conditional probabilities are shown at the bottom of \autoref{tab:duez-summary}. As in other studies, the probability of same source pairs given examiners reported an inconclusive result is much lower than the expect 75\% based on the setup of the study.
 
 The authors report that
 ``13\% of examiners are not permitted to eliminate on individual characteristics
@@ -796,7 +778,7 @@ The authors report that
 
 \hh{It is interesting to note that 7 of the examiners did not report eliminations due to  lab rules. These rules seem to be in contradiction to community accepted AFTE rules and need to be considered during reporting and testimony evaluations. XXX Bias against defense. XXX Needless to say that we do not agree with the authors' assessment that conclusions of inconclusives are perfectly acceptable.}
 
-
+\svp{The problems with ... ``The study was blind in that examiners did not know the true source of the cartridge cases."}
 
 
 
@@ -807,7 +789,7 @@ The Brundage-Hamby study consists of sets of 20 known samples and 15 questioned 
 The study was originally reported on by Brundage in 1998 \cite{brundage} and updates on the study with increasing number of responses have been published several times since  \cite{hamby, Hamby:2018hu}. 
 The design has also been copied for a study of cartridge cases of the same firearms in \citet{fadul}.
 
-Results reported in the 2018 paper are shown in \autoref{tab:hamby-totals}.
+Results reported in the 2018 paper are shown at the top of \autoref{tab:hamby-summary}.
 
 \noindent\begin{fmpage}{\textwidth}\centering
 \captionof{table}{Evaluations, conditional error rates, and overall error rates from the combined Brundage-Hamby studies. Note the focus on identifications.}\label{tab:hamby-summary}
@@ -840,6 +822,15 @@ Same source & 0.9992 & 0.0008 & 0 & 0.1818\\
 Diff source & 0 & ? & ? & 0.8282\\\hline
 \multicolumn{1}{Y}{Concl. prop.} & 0.1817 & ? & \multicolumn{1}{c}{?} & \multicolumn{1}{Y}{}\\\hline\hline
 \end{tabularx}
+
+\begin{tabularx}{\textwidth}{lX|cc|Y}
+\multicolumn{5}{c}{}\\
+\multicolumn{5}{c}{\bf Reported Error Rates}\\
+Opt. & \multicolumn{1}{c}{Meaning} & Missed Identification & \multicolumn{1}{c}{Missed Elimination} & Total \\\hline
+2 & FTE error & ? & ? & ?\\
+3 & Process error & ? & ? & ? \\
+\end{tabularx}
+\svp{XXX need to figure out how to summarize this since the paper is a mess}
 \end{fmpage}
 \footnotetext{This number is imputed based on the average number of pairwise comparisons an examiner would have to do to complete a Hamby study. Details can be found in the supplemental material.}
 \footnotetext{The elimination-specific conditional probabilities are only identifiable in this case because there were not any false eliminations. In any other situation, we would not be able to calculate these probabilities because we do not have the total number of eliminations.}
