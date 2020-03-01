@@ -613,15 +613,11 @@ cis %>%
 
 \subsection{Baldwin Study \cite{Baldwin:2014bb}}
 
-Each kit consists of 15 sets of 3 known cartridge cases and 1 questioned. 
-For all participants 5 of the sets were from same-source and 10 of the sets were from different sources. 
-{\bf ``We instructed all participants to refrain from sharing or discussing the contents or results of their sample sets and answers to minimize the risk of revealing the design".} 
-\hh{this is a weakness of the design,  but it also fixes the frequencies of same source and different source occurrences and with it the probabilities for the events:}
+Design of the study: each kit consists of 15 sets of 3 known cartridge cases and 1 questioned cartridge case. In 5 of the 15 sets the questioned cartridge was from the same source as the knowns, while the other 10 questioned cartridges were from different sources as their respective knowns.
 
-A total of 25 firearms was used for the study, such that within each kit no firearm was re-used for either knowns or questioned cartridge cases, i.e. no additional information could be gained by comparing any cartridge cases across sets.
+25 firearms were used for the study, such that within each kit no firearm was re-used for either knowns or questioned cartridge cases, i.e. no additional information could be gained by comparing any cartridge cases across sets.
 
-218 participants (self-reporting as active forensic firearm examiners) provided evaluations of the kits, evaluation results are shown in \autoref{tab:baldwin-totals}. 
-Each of these evaluations is  based on a comparison of one questioned cartridge case to three known same source  cartridge cases. \svp{This wording is slightly confusing - I understand it now, but had to puzzle over whether there was a single known source (with 3 replicates) or 3 knowns. }
+218 active firearms examiners participated in the study. Results are summarized in \autoref{tab:baldwin-summary}. 
 
 \noindent\begin{fmpage}{\textwidth}\centering
 \captionof{table}{Baldwin study results, conclusion-specific and source-specific probabilities, and reported overall error rates. }\label{tab:baldwin-summary}
@@ -666,9 +662,13 @@ Opt. & \multicolumn{1}{c}{Meaning} & Missed Identification & \multicolumn{1}{r}{
 \end{fmpage}
 \footnotetext{Two comparisons were not reported and are considered to be inconclusives.}
 
-The resulting sets of conditional probabilities are shown in \autoref{tab:baldwin-summary}.
+\hh{XXX we could take this and move to the discussion.}
 
-It seems that firearms examiners are more willing to bet on identifications than on eliminations. 
+Baldwin Discussion:
+\begin{itemize}
+\item
+\hh{The fixed number of same source and different source sets in each kit is a weakness of the design in the Baldwin study. If a participant becomes aware of this fact, the additional information would help in reducing uncertainty about comparisons and might contribute to a reduced error rate. To mitigate this risk, participants were instructed ``to refrain from sharing or discussing the contents or results of their sample sets" (Baldwin et al), but in practice this is out of the hand of the tester. }
+\item It seems that firearms examiners are more willing to bet on identifications than on eliminations. 
 Based on the set up of the study, we would expect the probabilities for same and different source given an inconclusive result is reported to be: 
 \begin{eqnarray*}
 P(\text{same source} \mid \text{Inconclusive}) &=& P(\text{same source}) = \frac{1}{3},  \\
@@ -684,6 +684,7 @@ P (\text{same source} \mid \text{inconclusive or elimination}) &=& \frac{11+4}{7
 P (\text{different source} \mid \text{inconclusive or elimination}) &=& \frac{737+1421}{748+1425} &=& 0.9931 
 \end{array}
 \end{eqnarray*}
+\end{itemize}
 
 \hh{useful information, but not sure where to put it - probably for evaluating the error in the process}
 Only cartridge cases caught with the cartridge catching device (XXX name?) were used to assemble kits. No other pre-screening of usability for comparisons was done. 
@@ -692,6 +693,9 @@ For 3234 comparisons, FTEs evaluated how many of the known cartridge cases were 
 
 ``A very important aspect of this work that needs to be clearly understood is that the study specifically asked participants not to use their laboratory or agency peer review process."
 `` Some [participants] indicated that the design of our study with all cartridges fired from the same model of firearm using the same type of ammunition would prohibit the use of a finding of elimination"
+
+
+
 
 \subsection{Keisler Study \cite{keisler}}
 
