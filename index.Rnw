@@ -721,8 +721,8 @@ Open set & 12 & 8 & 126 examiners\\
 \begin{tabularx}{\textwidth}{Y|rrr|Y}
 \multicolumn{5}{c}{\bf Experiment Count Data}\\
 \multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Total\\\hline
-Same source & 1508 & 4 & 0.0000 & 1512 \\
-Different source & 0.0000 & 203 & 805 & 1008 \\\hline
+Same source & 1508 & 4 & 0 & 1512 \\
+Different source & 0 & 203 & 805 & 1008 \\\hline
 \multicolumn{1}{Y}{Concl. Total} & 1508 & 207 & \multicolumn{1}{r}{805} & \multicolumn{1}{Y}{2520}\\\hline\hline
 
 \multicolumn{5}{c}{}\\
@@ -784,7 +784,7 @@ the differences in certified examiners and trainees are not large, so only the a
 \begin{tabularx}{\textwidth}{XrrX}\hline
 \multirow{2}{*}{\bf Study Type} & \multicolumn{2}{c}{\bf Test Set} & \multirow{2}{*}{\bf Participants}\\
 & \# Same Source Comparisons & \# Different Source Comparisons & \\\hline
-Open set & 336 & 112 & 46+10 examiners\\
+Open set & 6 & 2 & 46+10 examiners\\
 \end{tabularx}
 \begin{tabularx}{\textwidth}{Y|rrr|Y}
 \multicolumn{5}{c}{\bf Experiment Count Data}\\
@@ -853,8 +853,8 @@ Closed set & 10 & 15 & 507 examiners\\
 \begin{tabularx}{\textwidth}{Y|rrr|Y}
 \multicolumn{5}{c}{\bf Experiment Count Data}\\
 \multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Total\\\hline
-Same Source & 10447 & 8 & 0.0000 & 10455 \\
-Different source & 0.0000 & ? & ? & 47047.5\footnotemark \\\hline
+Same Source & 10447 & 8 & 0 & 10455 \\
+Different source & 0 & ? & ? & 47047.5\footnotemark \\\hline
 \multicolumn{1}{Y}{Concl. Total} & 10447 & ? & \multicolumn{1}{r}{?} & \multicolumn{1}{Y}{57502.5}\\\hline\hline
 
 \multicolumn{5}{c}{}\\
@@ -897,7 +897,7 @@ This study involved the use of 10 consecutively manufactured extractors. First, 
 It should be noted that there are some methodological problems with the Lyons study - examiners who did not initially include all 12 unknown evaluations were given the chance to correct results; in addition, not every examiner evaluated the same number of unknowns. Excluding these results might provide different estimates, but we have chosen to use the numbers as reported in the paper for this calculation.
 \noindent\begin{fmpage}{\textwidth}\centering
 \captionof{table}{}\label{tab:lyons-summary}
-{\large\bf The Identification of Consecutively Manufactured Extractors}\emph{\citeauthor{lyons} (\citeyear{lyons})}\\
+{\large\bf The Identification of Consecutively Manufactured Extractors} \emph{\citeauthor{lyons} (\citeyear{lyons})}\\
 \begin{tabularx}{\textwidth}{XrrX}\hline
 \multirow{2}{*}{\bf Study Type} & \multicolumn{2}{c}{\bf Test Set} & \multirow{2}{*}{\bf Participants}\\
 & \# Knowns & \# Unknowns & \\\hline
@@ -935,7 +935,7 @@ Opt. & \multicolumn{1}{c}{Meaning} & Missed Identification & \multicolumn{1}{r}{
 \end{tabularx}
 \end{fmpage}
 
-\footnotetext{\citet{lyons} reports 175 correct identifications, but it is clear from the discussion that one of those same source identifications was actually an inconclusive. 12 answer sheets with 12 correct identifications, one with 10 (out of 10) correct identifications, one with 9 correct identifications and 3 errors, and one with 11 correct identifications and one inconclusive. So 12*12 + 10 + 9 + 11 = 174. }
+\footnotetext{\citet{lyons} reports 175 correct identifications, but it is clear from the discussion that one of those same source identifications was actually an inconclusive. 12 answer sheets with 12 correct identifications, one with 10 (out of 10) correct identifications, one with 9 correct identifications and 3 errors, and one with 11 correct identifications and one inconclusive. So 12$\cdot$12 + 10 + 9 + 11 = 174. }
 
 
 \subsection{Bunch \& Murphy Study \cite{bunch2003comprehensive}}
