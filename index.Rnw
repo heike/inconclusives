@@ -347,16 +347,16 @@ Once a study is designed and test samples have been assessed by forensic examine
 
 \section{Assessment of error rates in case studies}\label{sec:inconclusive}
 
-In order to calculate the two sets of conditional probabilities, let us assume that we have the results from a generic experiment, where participants were asked to complete a total of $N$ comparisons, consisting of $S$ same-source comparisons and $D$ different source comparisons.
+In order to calculate the two sets of conditional probabilities, let us assume that we have the results from a generic experiment, where participants (forensic toolmark examiners) were asked to complete a total of $N$ comparisons, consisting of $S$ same-source comparisons and $D$ different source comparisons.
 \hh{A summary of these evaluations can then be reported}
 %The study data would consist of evaluations reported 
 in the form of a %table \svp{which can be arranged in a form like the} 
- table as shown in \autoref{tab:generic-results}.
+ table as shown in \autoref{tab:generic-results}. \hh{Note that the table is nothing but a summary of all the different \autoref{fig:shape-overview}. }
 
 \begin{figure}
 \centering
 \includegraphics[width=.5\textwidth]{figures/shape-overview.pdf}
-\caption{\label{fig:shape-overview} some text.}
+\caption{\label{fig:shape-overview} Sketch of the relationship between  ground truth of evidence (dots) and examiners' decisions (shaded areas). In a perfect scenario dots only appear on the shaded area of the same color. Any dots on differently colored backgrounds indicate an error in the examination process. }
 \end{figure}
 
 \begin{table}
