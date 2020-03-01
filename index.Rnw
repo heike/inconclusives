@@ -664,7 +664,7 @@ Opt. & \multicolumn{1}{c}{Meaning} & Missed Identification & \multicolumn{1}{r}{
 3 & Process error & 0.0138 & 0.3482 & 0.2367 \\
 \end{tabularx}
 \end{fmpage}
-\footnotetext{Two comparisons were not reported and have been imputed as inconclusives.}
+\footnotetext{Two comparisons were not reported and are considered to be inconclusives.}
 
 The resulting sets of conditional probabilities are shown in \autoref{tab:baldwin-summary}.
 
