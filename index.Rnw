@@ -701,7 +701,7 @@ Each test kit consisted of sets of 20 pairs of cartridge cases, where 12 of the 
 \noindent\begin{fmpage}{\textwidth}\centering
 \captionof{table}{{\large\bf Isolated Pairs Research Study}}
 \emph{\citeauthor{keisler} (\citeyear{keisler})}\\
-A study of fired bullets/cartridge cases/consecutively manufactured extractors/...
+A study of Smith \& Wesson cartridge cases.
 \begin{tabularx}{\textwidth}{XrrX}\hline
 \multirow{2}{*}{\bf Study Type} & \multicolumn{2}{c}{\bf Test Set} & \multirow{2}{*}{\bf Participants}\\
 & \# Same Source Comparisons & \# Different Source Comparisons & \\\hline
