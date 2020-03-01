@@ -695,8 +695,7 @@ For 3234 comparisons, FTEs evaluated how many of the known cartridge cases were 
 
 \subsection{Keisler Study \cite{keisler}}
 
-Each test kit consisted of sets of 20 pairs of cartridge cases,  12 of the pairs were from the same source and 8 pairs were from different sources.
-
+Each test kit consisted of sets of 20 pairs of cartridge cases, where 12 of the pairs were from the same source and 8 pairs were from different sources, constructed using 9 Smith & Wesson pistols. \svp{Participants were instructed to only compare single pairs.}
 126 participants reported results as shown in \autoref{tab:keisler-summary}.
 
 \noindent\begin{fmpage}{\textwidth}\centering
@@ -740,9 +739,11 @@ Opt. & \multicolumn{1}{c}{Meaning} & Missed Identification & \multicolumn{1}{r}{
 \end{tabularx}
 \end{fmpage}
 
-The resulting set of conditional probabilities is given in \autoref{tab:keisler-summary}. Again, inconclusive results are much more indicative of different source results than they should be  based on the setup of the study; we would expect same source results with a probability of 0.60 given an inconclusive result. 
+The resulting sets of conditional probabilities are given in the middle two tables of \autoref{tab:keisler-summary}. Again, inconclusive results are much more indicative of different source results than they should be  based on the setup of the study; we would expect same source results with a probability of 0.60 given an inconclusive result. 
 
-``on the response sheet participants were asked if their laboratory had a policy which does not allow examiners to exclude based on individual characteristics. ... many participants answered `yes' to the laboratory policy question and answered `inconclusive' on all within-class comparisons that could have been correctly excluded."
+\svp{The design of the Keisler study is ideal - it allows for the calculation of all of the error and success rates, all conditional probabilities, and precise identification of the number of same-source and different-source comparisons conducted by each examiner. }
+\svp{One major flaw in the Keisler study (that is by no means unique to this study) is the acknowledgement that
+``on the response sheet participants were asked if their laboratory had a policy which does not allow examiners to exclude based on individual characteristics. ... many participants answered `yes' to the laboratory policy question and answered `inconclusive' on all within-class comparisons that could have been correctly excluded." }
 
 \subsection{Duez Study \cite{Duez:2017kha}}
 
