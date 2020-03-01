@@ -231,7 +231,7 @@ For instance, \citet{Dror:2018fp} \svp{suggests treating} inconclusive results a
 This view has drawn some criticism \citep{Biedermann:2018hr,biedermannAreInconclusiveDecisions2019}. 
 Inconclusives can be excluded from result calculations, included as correct results, or included as incorrect results; each of these decisions has an impact on the interpretation of the resulting error rates.
 In this paper, we \svp{discuss} the treatment of inconclusives in the assessment of error rates from a statistical point of view, % We believe that this -- rather than further dividing the different opinions -- provides a unifying framework.
-examining previous error rate studies to assess the technical accuracy and practical utility of the reported error rates. 
+examining previous error rate studies to assess the technical accuracy and practical utility of the Overall Error Rates. 
 Before approaching the actual studies, we will define some basic notation to facilitate comparison of studies with different experimental designs and briefly \svp{explore} the logic behind the \svp{numerical} calculations.%order
 
 \subsection{Evaluating Classification Decisions}\label{sec:evaluating-classification-decisions}
@@ -350,8 +350,7 @@ Once a study is designed and test samples have been assessed by forensic examine
 In order to calculate the two sets of conditional probabilities, let us assume that we have the results from a generic experiment, where participants (forensic toolmark examiners) were asked to complete a total of $N$ comparisons, consisting of $S$ same-source comparisons and $D$ different source comparisons.
 \hh{A summary of these evaluations can then be reported}
 %The study data would consist of evaluations reported 
-in the form of a %table \svp{which can be arranged in a form like the} 
- table as shown in \autoref{tab:generic-results}. \hh{Note that the table is nothing but a summary of all the different \autoref{fig:shape-overview}. }
+in the form of  \autoref{tab:generic-results}. \hh{Note that the table is nothing but a summary of all the possible combinations of examiners' decisions and actual state of the evidence as sketched out in \autoref{fig:shape-overview}. }
 
 \begin{figure}
 \centering
@@ -362,9 +361,9 @@ in the form of a %table \svp{which can be arranged in a form like the}
 \begin{table}
 \centering
 \caption{
-An example results table for a generic experiment where comparisons can be broken down as either from the same source or from different sources, and examiners classify each comparison as an identification, an inconclusive, or an elimination, as  specified in the AFTE rules of identification. 
-Define $S = a + b + c$ as the total number of same source comparisons, $D = d + e + f$ as the total number of different-source comparisons, and $N = S + D$ as the total number of comparisons. 
-Then the probability of the occurrence of any cell in the interior of the table $(a, b, c, d, e, \text{ or } f)$ can be found by dividing the respective letter by $N$, the total number of comparisons.
+An example results table for a generic experiment where comparisons can be distinguished as either of same source pairs or of pairs from different sources, and examiners classify each comparison as an identification, an inconclusive, or an elimination, as  specified in the AFTE rules of identification. 
+Let $S$ be the total number of same source comparisons, then $S = a + b + c$. Similarly, $D$, the total number of different source comparisons, can be written as $D = d + e + f$. The sum of $S$ and $D$ is the total number  of comparisons, $N$. 
+%The probability of the occurrence of any cell in the interior of the table $(a, b, c, d, e, \text{ or } f)$ can be found by dividing the respective letter by $N$, the total number of comparisons.
 }\label{tab:generic-results}
 \begin{tabularx}{\textwidth}{Y|YYY|Y}
 \multicolumn{5}{c}{\bf Experiment Count Data}\\\hline
@@ -389,7 +388,7 @@ Conclusion-specific probabilities, calculated using the quantities introduced in
 In each cell in the main body of the table, probabilities shown are the probability of source $X$, if the examiner's conclusion (one of Identification, Inconclusive, or Elimination) is $Y$. 
 In the last row in the table, the marginal probabilities $P(Y)$ are shown, that is, the unconditional probability that the examiner's decision is $Y$. 
 }\label{tab:fpr-fnr}
-\begin{tabularx}{\textwidth}{Y|rrr|Y}
+\begin{tabularx}{\textwidth}{Y|ccc|Y}
 \multicolumn{5}{c}{\bf Conclusion-Specific Probabilities}\\\hline
 \multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Probability\\\hline
 Same source & $a/(a+d)$ & $b/(b+e)$ & $c/(c+f)$ & $S/N$\\
@@ -407,7 +406,7 @@ In each cell in the main body of the table, probabilities shown are the probabil
 In the last row in the table, the marginal probabilities $P(Y)$ are shown, that is, the unconditional probability that the examiner's decision is $Y$. 
 In the last column of the table, the marginal probabilities $P(X)$ are shown; these are determined by the experimental design.
 }\label{tab:pv-prob}
-\begin{tabularx}{\textwidth}{Y|rrr|Y}
+\begin{tabularx}{\textwidth}{Y|ccc|Y}
 \multicolumn{5}{c}{\bf Predictive Value Probabilities}\\
 \multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Probability\\\hline
 Same source & $a/S$ & $b/S$ & $c/S$ & $S/N$\\
@@ -488,8 +487,10 @@ The inconclusives are representative of the errors involved in the process of ev
 
 \svp{XXX this transition is a bit rough. Might be worth a bit of a preview between inconclusive and ``ideal" study probabilities, because the connection isn't very obvious from this point in the paper... XXX}
 In the next section, we will examine the results from a number of studies of the error rate of firearms examinations, identifying the results which are reported, converting these results (where possible) into the format used in \autoref{tab:generic-results}, and calculating the conditional probabilities in the format of \autoref{tab:fpr-fnr} and \autoref{tab:pv-prob}. 
-Prior to that, however, it may be useful to develop one more idea: in a perfect world with examiners who are all-knowing, what should the results of these studies look like?\svp{XXX This could be a bit better transition XXX}
-
+Prior to that, however, it may be useful to develop one more idea: in a perfect world, 
+%with examiners who are all-knowing, 
+what should the results of these studies look like?\svp{XXX This could be a bit better transition XXX}
+\hh{XXX we don't need all knowing examiners - then we don't have inconclusives e.g.}
 
 \subsection{Ideal study probabilities}\label{sec:ideal}
 
@@ -654,7 +655,7 @@ Different source & 0.0201 & 0.9853 & 0.9923 & 0.6667\\\hline
 
 \begin{tabularx}{\textwidth}{lX|rr|Y}
 \multicolumn{5}{c}{}\\
-\multicolumn{5}{c}{\bf Reported Error Rates}\\
+\multicolumn{5}{c}{\bf Overall Error Rates}\\
 Opt. & \multicolumn{1}{c}{Meaning} & Missed Identification & \multicolumn{1}{r}{Missed Elimination} & Total \\\hline
 2 & FTE error & 0.0037  & 0.0101 & 0.0080\\
 3 & Process error & 0.0138 & 0.3482 & 0.2367 \\
@@ -737,13 +738,13 @@ Different source & 0.0000 & 0.9803 & 1.0000 & 0.4000\\\hline
 \multicolumn{5}{c}{\bf Source-Specific Probabilities}\\
 \multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Probability\\\hline
 Same source & 0.9974 & 0.0028 & 0.0000 & 0.6000\\
-Different source & 0.0000 & 0.2014 & 0..7976 & 0.4000 \\\hline
+Different source & 0.0000 & 0.2014 & 0.7976 & 0.4000 \\\hline
 \multicolumn{1}{Y}{Conclusion Probability} & 0.5984 & 0.0821 & \multicolumn{1}{r}{0.3194} & \multicolumn{1}{Y}{}\\\hline\hline
 \end{tabularx}
 
 \begin{tabularx}{\textwidth}{lX|rr|Y}
 \multicolumn{5}{c}{}\\
-\multicolumn{5}{c}{\bf Reported Error Rates}\\
+\multicolumn{5}{c}{\bf Overall Error Rates}\\
 Opt. & \multicolumn{1}{c}{Meaning} & Missed Identification & \multicolumn{1}{r}{Missed Elimination} & Total \\\hline
 2 & FTE error & 0.0000 & 0.0000  & 0.0000 \\
 3 & Process error & 0.0026 & 0.2014 & 0.0821 \\
@@ -770,11 +771,11 @@ Keisler study discussion:
 \end{itemize}
 
 Both sets were evaluated by 56 participants (46 fully certified examiners and 10 trainees). CCTS1 resulted in 56 x 4 correct identifications.
-The design of the experiment does not allow us to quantify all of the quantities to evaluate examiner performance unless we aggregate performance over both sets.
+The design of the experiment does not allow us to quantify all of the quantities to evaluate examiner performance unless we aggregate performance over both sets. \autoref{tab:duez-summary} shows the results of this aggregation.
 
 %Combined, the probability for a  same source pair is 6/8 or 75\% and the probability for  a different source  pair is 2/8 or 25\%.
 
-The top of \autoref{tab:duez-summary} shows results reported by 56 participants (46 examiners, 10 trainees).
+%The top of  shows results reported by 56 participants (46 examiners, 10 trainees).
 
 \noindent\begin{fmpage}{\textwidth}\centering
 \captionof{table}{Duez study results, conclusion-specific and source-specific probablities, and reported overall error rates. For the conditional probabilities, 
@@ -811,16 +812,23 @@ Different source & 0.0179 & 0.2232 & 0.7589 & 0.2517\\\hline
 
 \begin{tabularx}{\textwidth}{lX|rr|Y}
 \multicolumn{5}{c}{}\\
-\multicolumn{5}{c}{\bf Reported Error Rates}\\
+\multicolumn{5}{c}{\bf Overall Error Rates}\\
 Opt. & \multicolumn{1}{c}{Meaning} & Missed Identification & \multicolumn{1}{r}{Missed Elimination} & Total \\\hline
 2 & FTE error & 0.0000/0.0000  & 0.0000/0.1000 & 0.0000/0.0125\\
 3 & Process error & 0.0000/0.0167 & 0.1304/0.7500 & 0.0325/0.2000\\ \hline
 \end{tabularx}
 \end{fmpage}
 
-\autoref{tab:duez-summary} shows the two sets of error rates for the Duez study. The error rate of certified examiners in making eliminations is much lower than that of the ten trainees. This is reflected in the error rates of the overall process. The process errors are much smaller for certified firearms examiners than for trainees. However, the probability to miss eliminations is again high, lab rules contribute to this error (see discussion below).
+Discussion Duez study
 
-The set of conditional probabilities are shown at the bottom of \autoref{tab:duez-summary}. As in other studies, the probability of same source pairs given examiners reported an inconclusive result is much lower than the expect 75\% based on the setup of the study.
+\begin{itemize}
+\item The error rate of certified examiners in making eliminations is much lower than that of the ten trainees. This is reflected in the error rates of the overall process. The process errors are much smaller for certified firearms examiners than for trainees. 
+\item However, the probability to miss eliminations is again high, lab rules contribute to this error (see discussion below).
+\item The set of conditional probabilities are shown at the bottom of \autoref{tab:duez-summary}. As in other studies, the probability of same source pairs given examiners reported an inconclusive result is much lower than the expect 75\% based on the setup of the study.
+\item \svp{The problems with ... ``The study was blind in that examiners did not know the true source of the cartridge cases."}
+\end{itemize}
+
+Treatment of the Inconclusives:
 
 The authors report that
 ``13\% of examiners are not permitted to eliminate on individual characteristics
@@ -828,18 +836,33 @@ The authors report that
 
 \hh{It is interesting to note that 7 of the examiners did not report eliminations due to  lab rules. These rules seem to be in contradiction to community accepted AFTE rules and need to be considered during reporting and testimony evaluations. XXX Bias against defense. XXX Needless to say that we do not agree with the authors' assessment that conclusions of inconclusives are perfectly acceptable.}
 
-\svp{The problems with ... ``The study was blind in that examiners did not know the true source of the cartridge cases."}
 
 
 
 
 \subsection{Brundage-Hamby Study \cite{Hamby:2018hu}}
 
-The Brundage-Hamby study consists of sets of 20 known samples and 15 questioned samples. The 20 known samples are 2 bullets from each of ten consecutively manufactured barrels. The Brundage-Hamby study is a closed set study, i.e. the 15 questioned bullets are known to be fired from one of these ten barrels, and examiners are asked to identify which of the knowns a questioned bullet matches. 
-The study was originally reported on by Brundage in 1998 \cite{brundage} and updates on the study with increasing number of responses have been published several times since  \cite{hamby, Hamby:2018hu}. 
-The design has also been copied for a study of cartridge cases of the same firearms in \citet{fadul}.
+The Brundage-Hamby study consists of sets of 20 test fires from known barrels and 15 questioned bullets. The 20 known test fires are 2 bullets from each of ten consecutively manufactured barrels. The Brundage-Hamby study is a closed set study, i.e. the 15 questioned bullets are known to be fired from one of these ten barrels. Participants (firearm examiners) are asked to identify which of the knowns a questioned bullet matches. 
 
-Results reported in the 2018 paper are shown at the top of \autoref{tab:hamby-summary}.
+The study was originally reported on by Brundage in 1998 \cite{brundage}. Updates on the study with increasing number of responses have been published several times since  \cite{hamby, Hamby:2018hu}. 
+The design of the Brundage-Hamby is well known in the forensics community and has  been copied in \citet{fadul} for a study of cartridge cases of the same firearms.
+
+Results reported in the 2019 paper are shown in \autoref{tab:hamby-summary}.
+
+Discussion of the study
+\begin{itemize}
+\item \hh{The design of the study does not allow for an assessment of all of the error and accuracy rates discussed in \section{sec:rates}, but shows a strong focus on evaluating identifications. }
+In particular, the answer sheets for Brundage-Hamby sets only asks for reports of identifications for each of the questioned bullets. 
+
+While the number of same source comparison is obviously one for each questioned bullet, i.e.\ each participant made exactly fifteen same source comparisons, the number of different source comparisons that were made  is an open question.
+
+Technically, there are nine different source comparisons for each questioned bullet for a total of 135 (nominal) different source comparisons.  
+
+However, these evaluations are not independent of each other: once a bullet is successfully identified to a pair of knowns, none of the other sets of knowns can possibly be a match. 
+Rather than having to make a call on a comparison, the evaluation shifts to a confirmation of an elimination. We will assume that an examiner will need to make an average of 4.5 different source comparisons before making an identification, resulting in an average of 67.5 different source comparisons for the whole set, and an approximate total of 47047.5 different source comparisons overall. See \autoref{app:brundage} for mathematical details.
+\item \hh{Given that only identifications had to be reported, we are also} missing  any information on the number of eliminations versus inconclusive results for different source comparisons. 
+\end{itemize}
+
 
 \noindent\begin{fmpage}{\textwidth}\centering
 \captionof{table}{Evaluations, conditional error rates, and overall error rates from the combined Brundage-Hamby studies. Note the focus on identifications.}\label{tab:hamby-summary}
@@ -875,19 +898,15 @@ Different source & 0.0000 & ? & ? & 0.8282\\\hline
 
 \begin{tabularx}{\textwidth}{lX|rr|Y}
 \multicolumn{5}{c}{}\\
-\multicolumn{5}{c}{\bf Reported Error Rates}\\
+\multicolumn{5}{c}{\bf Overall Error Rates}\\
 Opt. & \multicolumn{1}{c}{Meaning} & Missed Identification & \multicolumn{1}{r}{Missed Elimination} & Total \\\hline
-2 & FTE error & ? & ? & ?\\
+2 & FTE error & 0.0000 & ? & ?\\
 3 & Process error & ? & ? & ? \\
 \end{tabularx}
 \svp{XXX need to figure out how to summarize this since the paper is a mess}
 \end{fmpage}
 \footnotetext{This number is imputed based on the average number of pairwise comparisons an examiner would have to do to complete a Hamby study. Details can be found in the supplemental material.}
 \footnotetext{The elimination-specific conditional probabilities are only identifiable in this case because there were not any false eliminations. In any other situation, we would not be able to calculate these probabilities because we do not have the total number of eliminations.}
-
-The answer sheets for Brundage-Hamby sets only asks for reports of identifications for each of the questioned bullets. While the number of same source comparison is obviously one for each questioned bullets, i.e.\ each participant made exactly fifteen same source comparisons. However, the number of different source comparisons that were made  is an open question. Technically, there are nine different source comparisons for each questioned bullet for a total of 135 different source comparisons.  
-However, these evaluations are not independent of each other: once a bullet is successfully identified to a set of knowns, none of the other sets of knowns can possibly be a match. Rather than having to make a call on a match, the evaluation shifts to a confirmation of an elimination. We will assume that an examiner will need to make an average of 4.5 different source comparisons before making an identification, resulting in an average of 67.5 different source comparisons for the whole set, and an approximate 47047.5 different source comparisons, in which no identification was reported (see \autoref{app:brundage} for mathematical details).
-What is still missing is any information on eliminations versus inconclusive results for different source comparisons.
 
 
 
@@ -928,7 +947,7 @@ Different source & ? & ? & ? & ?\\\hline
 
 \begin{tabularx}{\textwidth}{lX|rr|Y}
 \multicolumn{5}{c}{}\\
-\multicolumn{5}{c}{\bf Reported Error Rates}\\
+\multicolumn{5}{c}{\bf Overall Error Rates}\\
 Opt. & \multicolumn{1}{c}{Meaning} & Missed Identification & \multicolumn{1}{r}{Missed Elimination} & Total \\\hline
 2 & FTE error & 0.0169 & ? & ?\\
 3 & Process error & 0.0225 & ? & ? \\
