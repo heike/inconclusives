@@ -699,7 +699,7 @@ For 3234 comparisons, FTEs evaluated how many of the known cartridge cases were 
 
 \subsection{Keisler Study \cite{keisler}}
 
-Each test kit consisted of sets of 20 pairs of cartridge cases, where 12 of the pairs were from the same source and 8 pairs were from different sources, constructed using 9 Smith & Wesson pistols. \svp{Participants were instructed to only compare single pairs.}
+Each test kit consisted of sets of 20 pairs of cartridge cases, where 12 of the pairs were from the same source and 8 pairs were from different sources, constructed using 9 Smith \& Wesson pistols. \svp{Participants were instructed to only compare single pairs.}
 126 participants reported results as shown in \autoref{tab:keisler-summary}.
 
 \noindent\begin{fmpage}{\textwidth}\centering
@@ -929,6 +929,85 @@ Opt. & \multicolumn{1}{c}{Meaning} & Missed Identification & \multicolumn{1}{r}{
 
 \subsection{Bunch \& Murphy Study \cite{bunch2003comprehensive}}
 
+\noindent\begin{fmpage}{\textwidth}\centering
+\captionof{table}{Results and summary tables for the Bunch and Murphy study. Values in this table are as reported in the study; however, due to the study's structure, it is possible to perform fewer comparisons, because not all comparisons are independent. Results for independent comparisons are shown in \autoref{tab:bunch-indep}}\label{tab:bunch-summary}
+{\large\bf A Comprehensive Validity Study for the Forensic Examination of Cartridge Cases}\emph{\citeauthor{bunch2003comprehensive} (\citeyear{bunch2003comprehensive})}\\
+\begin{tabularx}{\textwidth}{XrrX}\hline
+\multirow{2}{*}{\bf Study Type} & \multicolumn{2}{c}{\bf Test Set} & \multirow{2}{*}{\bf Participants}\\
+& \# Knowns & \# Unknowns & \\\hline
+Open set & variable & variable & 8 FBI examiners\\
+\end{tabularx}
+\begin{tabularx}{\textwidth}{Y|rrr|Y}
+\multicolumn{5}{c}{\bf Reported (Nominal) Count Data}\\
+\multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Total\\\hline
+Same Source & 70 & 0 & 0 & 70 \\
+Diff Source & 0 & 172 & 118 & 290 \\\hline
+\multicolumn{1}{Y}{Concl. Total} & 70 & 172 & \multicolumn{1}{r}{ 118} & \multicolumn{1}{Y}{}\\\hline\hline
+
+\multicolumn{5}{c}{}\\
+
+\multicolumn{5}{c}{\bf (Nominal) Conclusion-Specific Probabilities}\\
+\multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Probability\\\hline
+Same source & 1 & 0 & 0 & 0.2414\\
+Diff source & 0 & 1 & 1 & 0.7586\\\hline
+\multicolumn{1}{Y}{Conclusion Probability} & 0.2414 & 0.5931 & \multicolumn{1}{r}{0.4059} & \multicolumn{1}{Y}{}\\\hline\hline
+
+\multicolumn{5}{c}{}\\
+\multicolumn{5}{c}{\bf (Nominal) Source-Specific Probabilities}\\
+\multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Probability\\\hline
+Same source & 1.0000 & 0.0000 & 0.0000 & 0.2414\\
+Diff source & 0.0000 & 0.5931 & 0.4069 & 0.7586\\\hline
+\multicolumn{1}{Y}{Conclusion Probability} & 0.2414 & 0.5931 & \multicolumn{1}{r}{0.4059} & \multicolumn{1}{Y}{}\\\hline\hline
+\end{tabularx}
+
+\begin{tabularx}{\textwidth}{lX|rr|Y}
+\multicolumn{5}{c}{}\\
+\multicolumn{5}{c}{\bf (Nominal) Error Rates}\\
+Opt. & \multicolumn{1}{c}{Meaning} & Missed Identification & \multicolumn{1}{r}{Missed Elimination} & Total \\\hline
+2 & FTE error & 0.0000 & 0.0000 & 0.0000\\
+3 & Process error & 0.0000 & 0.5931 & 0.4778 \\
+\end{tabularx}
+\end{fmpage}
+
+
+\noindent\begin{fmpage}{\textwidth}\centering
+\captionof{table}{Results and summary tables for the Bunch and Murphy study, with only independent pairwise comparisons included. An independent comparison is one in which the examiner has no relevant prior information about either of the cartridges. These values were determined using simulation, using the sampling method described in the study, and evaluating comparisons sequentially to determine if they are independent of prior comparisons or if they are confirmatory. Results are derived from the subset of simulations which matched the reported values in the paper (70 total same source conclusions, with 290 total different source conclusions). 95\% bootstrap intervals are provided for quantities which can be estimated via simulation; quantities that cannot be estimated via simulation are marked as ??.}\label{tab:bunch-indep}
+{\large\bf A Comprehensive Validity Study for the Forensic Examination of Cartridge Cases}\emph{\citeauthor{bunch2003comprehensive} (\citeyear{bunch2003comprehensive})}\\
+\begin{tabularx}{\textwidth}{XrrX}\hline
+\multirow{2}{*}{\bf Study Type} & \multicolumn{2}{c}{\bf Test Set} & \multirow{2}{*}{\bf Participants}\\
+& \# Knowns & \# Unknowns & \\\hline
+Open set & variable & variable & 8 FBI examiners\\
+\end{tabularx}
+\begin{tabularx}{\textwidth}{Y|rrr|Y}
+\multicolumn{5}{c}{\bf Independent Comparisons}\\
+\multicolumn{5}{c}{Mean (95\% CI)}\\
+\multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Total\\\hline
+Same Source & 19.76 (17, 22) & 0 & 0 & 19.76 (17, 22) \\
+Diff Source & 0 & ?? & ?? & 290 \\\hline
+\multicolumn{1}{Y}{Concl. Total} & 70 & 172 & \multicolumn{1}{r}{ 118} & \multicolumn{1}{Y}{}\\\hline\hline
+\multicolumn{5}{c}{}\\
+\multicolumn{5}{c}{\bf Independent Comparisons: Conclusion-Specific Probabilities}\\
+\multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Probability\\\hline
+Same source & 1 & 0 & 0 & 0.1109 (0.0256, 0.2381)\\
+Diff source & 0 & 1 & 1 &  0.8891 (0.7619, 0.9744)\\\hline
+\multicolumn{1}{Y}{Conclusion Probability} & 0.2414 & 0.5931 & \multicolumn{1}{r}{0.4059} & \multicolumn{1}{Y}{}\\\hline\hline
+
+\multicolumn{5}{c}{}\\
+\multicolumn{5}{c}{\bf Independent Comparisons: Source-Specific Probabilities}\\
+\multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Probability\\\hline
+Same source & 1.0000 & 0.0000 & 0.0000 & 0.1109 (0.0256, 0.2381)\\
+Diff source & 0.0000 & ?? & ?? & 0.8891 (0.7619, 0.9744)\\\hline
+\multicolumn{1}{Y}{Conclusion Probability} & 0.2414 & 0.5931 & \multicolumn{1}{r}{0.4059} & \multicolumn{1}{Y}{}\\\hline\hline
+\end{tabularx}
+
+\begin{tabularx}{\textwidth}{lX|rr|Y}
+\multicolumn{5}{c}{}\\
+\multicolumn{5}{c}{\bf Independent Comparisons: Error Rates}\\
+Opt. & \multicolumn{1}{c}{Meaning} & Missed Identification & \multicolumn{1}{r}{Missed Elimination} & Total \\\hline
+2 & FTE error & 0.0000 & 0.0000 & 0.0000\\
+3 & Process error & 0.0000 & ?? & ?? \\
+\end{tabularx}
+\end{fmpage}
 
 \section{Discussion and Conclusions}
 
