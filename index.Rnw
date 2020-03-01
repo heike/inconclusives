@@ -372,7 +372,7 @@ Then the probability of the occurrence of any cell in the interior of the table 
 Same Source & \begin{minipage}[c]{1em}$\bm{a}$ \end{minipage}\begin{minipage}[c]{1em} \includegraphics[width=.25cm]{figures/a.pdf} \end{minipage} & 
               \begin{minipage}[c]{1em}$\bm{b}$ \end{minipage}\begin{minipage}[c]{1em} \includegraphics[width=.3cm]{figures/b.pdf} \end{minipage} & 
               \begin{minipage}[c]{1em}$\bm{c}$ \end{minipage}\begin{minipage}[c]{1em} \includegraphics[width=.35cm]{figures/c.pdf} \end{minipage}& $S = a + b + c$\\
-Diff Source & \begin{minipage}[c]{1em}$\bm{d}$ \end{minipage}\begin{minipage}[c]{1em} \includegraphics[width=.25cm]{figures/d.pdf} \end{minipage}& 
+Different source & \begin{minipage}[c]{1em}$\bm{d}$ \end{minipage}\begin{minipage}[c]{1em} \includegraphics[width=.25cm]{figures/d.pdf} \end{minipage}& 
               \begin{minipage}[c]{1em}$\bm{e}$ \end{minipage}\begin{minipage}[c]{1em} \includegraphics[width=.3cm]{figures/e.pdf} \end{minipage}& 
               \begin{minipage}[c]{1em}$\bm{f}$ \end{minipage}\begin{minipage}[c]{1em} \includegraphics[width=.35cm]{figures/f.pdf} \end{minipage}&  $D = e + f + g$\\\hline
 \multicolumn{1}{Y}{Conclusion Total} & $a + d$ & $b + e$ & \multicolumn{1}{c}{$c + f$} & \multicolumn{1}{Y}{$N = S + D$}\\\hline\hline
@@ -393,7 +393,7 @@ In the last row in the table, the marginal probabilities $P(Y)$ are shown, that 
 \multicolumn{5}{c}{\bf Conclusion-Specific Probabilities}\\\hline
 \multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Probability\\\hline
 Same source & $a/(a+d)$ & $b/(b+e)$ & $c/(c+f)$ & $S/N$\\
-Diff source & $d/(a+d)$ & $e/(b+e)$ & $f/(c+f)$ & $D/N$\\\hline
+Different source & $d/(a+d)$ & $e/(b+e)$ & $f/(c+f)$ & $D/N$\\\hline
 \multicolumn{1}{Y}{Conclusion probability} & $(a + d)/N$ & $(b + e)/N$ & \multicolumn{1}{r}{$(c + f)/N$} & \multicolumn{1}{Y}{1.00}\\\hline\hline
 \end{tabularx}
 \end{table}
@@ -411,7 +411,7 @@ In the last column of the table, the marginal probabilities $P(X)$ are shown; th
 \multicolumn{5}{c}{\bf Predictive Value Probabilities}\\
 \multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Probability\\\hline
 Same source & $a/S$ & $b/S$ & $c/S$ & $S/N$\\
-Diff source & $d/D$ & $e/D$ & $f/D$ & $D/N$\\\hline
+Different source & $d/D$ & $e/D$ & $f/D$ & $D/N$\\\hline
 \multicolumn{1}{Y}{Conclusion probability} & $(a + d)/N$ & $(b + e)/N$ & \multicolumn{1}{r}{$(c + f)/N$} & \multicolumn{1}{Y}{1.00}\\\hline\hline
 \end{tabularx}
 \end{table}
@@ -633,7 +633,7 @@ Open set & 5 & 10 & 218 examiners\\
 \multicolumn{5}{c}{\bf Experiment Count Data}\\
 \multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Total\\\hline
 Same Source & 1075  & 11 & 4 & 1090\\
-Diff Source & 22 & 735+2\footnotemark & 1421 & 2180\\\hline
+Different source & 22 & 735+2\footnotemark & 1421 & 2180\\\hline
 \multicolumn{1}{Y}{Concl. Total} & 1097 & 748 & \multicolumn{1}{r}{1432} & \multicolumn{1}{Y}{3270}\\\hline\hline
 
 \multicolumn{5}{c}{}\\
@@ -641,14 +641,14 @@ Diff Source & 22 & 735+2\footnotemark & 1421 & 2180\\\hline
 \multicolumn{5}{c}{\bf Conclusion-Specific Probabilities}\\
 \multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Probability\\\hline
 Same source & 0.9799 & 0.0147 & 0.0028 & 0.3333\\
-Diff source & 0.0201 & 0.9853 & 0.9972 & 0.6667\\\hline
+Different source & 0.0201 & 0.9853 & 0.9972 & 0.6667\\\hline
 \multicolumn{1}{Y}{Conclusion Probability} & 0.3355 & 0.0101 & \multicolumn{1}{r}{0.4379} & \multicolumn{1}{Y}{}\\\hline\hline
 
 \multicolumn{5}{c}{}\\
 \multicolumn{5}{c}{\bf Source-Specific Probabilities}\\
 \multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Probability\\\hline
 Same source & 0.9799 & 0.1470 & 0.0028 & 0.3333\\
-Diff source & 0.0201 & 0.9853 & 0.9923 & 0.6667\\\hline
+Different source & 0.0201 & 0.9853 & 0.9923 & 0.6667\\\hline
 \multicolumn{1}{Y}{Conclusion Probability} & 0.3355 & 0.0101 & \multicolumn{1}{r}{0.4379} & \multicolumn{1}{Y}{}\\\hline\hline
 \end{tabularx}
 
@@ -691,19 +691,26 @@ Only cartridge cases caught with the cartridge catching device (XXX name?) were 
 
 For 3234 comparisons, FTEs evaluated how many of the known cartridge cases were usable for an evaluation: all three specimens were used in 3018 cases, two were used in 207 cases, and only one was used in nine cases.
 
+
+
+\hh{Treatment of inconclusives:}
 ``A very important aspect of this work that needs to be clearly understood is that the study specifically asked participants not to use their laboratory or agency peer review process."
-`` Some [participants] indicated that the design of our study with all cartridges fired from the same model of firearm using the same type of ammunition would prohibit the use of a finding of elimination"
 
+``Some [participants] indicated that the design of our study with all cartridges fired from the same model of firearm using the same type of ammunition would prohibit the use of a finding of elimination, while others used a mixture of inconclusive and elimination or did not use inconclusive at all to indicate a finding other than identification. "
 
+``In this report we present our findings on these variations and suggest that this is an area for further study and discussion within the community."
 
 
 \subsection{Keisler Study \cite{keisler}}
 
-Each test kit consisted of sets of 20 pairs of cartridge cases, where 12 of the pairs were from the same source and 8 pairs were from different sources, constructed using 9 Smith \& Wesson pistols. \svp{Participants were instructed to only compare single pairs.}
+Each test kit consisted of sets of 20 pairs of cartridge cases from Smith \& Wesson pistols, where 12 of the pairs were from the same source and 8 pairs were from different sources. 
+
+Kits were assembled using only 9 Smith & Wesson pistols (i.e. there is a potential to gain additional information by making comparisons across sets). However, \svp{participants were instructed to only compare single pairs.} 
+
 126 participants reported results as shown in \autoref{tab:keisler-summary}.
 
 \noindent\begin{fmpage}{\textwidth}\centering
-\captionof{table}{{\large\bf Isolated Pairs Research Study}}
+\captionof{table}{{\large\bf Isolated Pairs Research Study} \label{tab:keisler-summary}}
 \emph{\citeauthor{keisler} (\citeyear{keisler})}\\
 A study of Smith \& Wesson cartridge cases.
 \begin{tabularx}{\textwidth}{XrrX}\hline
@@ -714,8 +721,8 @@ Open set & 12 & 8 & 126 examiners\\
 \begin{tabularx}{\textwidth}{Y|rrr|Y}
 \multicolumn{5}{c}{\bf Experiment Count Data}\\
 \multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Total\\\hline
-Same source & 1508 & 4 & 0.0000 & 1512 \\
-Diff source & 0.0000 & 203 & 805 & 1008 \\\hline
+Same source & 1508 & 4 & 0 & 1512 \\
+Different source & 0 & 203 & 805 & 1008 \\\hline
 \multicolumn{1}{Y}{Concl. Total} & 1508 & 207 & \multicolumn{1}{r}{805} & \multicolumn{1}{Y}{2520}\\\hline\hline
 
 \multicolumn{5}{c}{}\\
@@ -723,14 +730,14 @@ Diff source & 0.0000 & 203 & 805 & 1008 \\\hline
 \multicolumn{5}{c}{\bf Conclusion-Specific Probabilities}\\
 \multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Probability\\\hline
 Same source & 1.0000 & 0.0197 & 0.0000 & 0.6000\\
-Diff source & 0.0000 & 0.9803 & 1.0000 & 0.4000\\\hline
+Different source & 0.0000 & 0.9803 & 1.0000 & 0.4000\\\hline
 \multicolumn{1}{Y}{Conclusion Probability} & 0.5984 & 0.0821 & \multicolumn{1}{r}{0.3194} & \multicolumn{1}{Y}{}\\\hline\hline
 
 \multicolumn{5}{c}{}\\
 \multicolumn{5}{c}{\bf Source-Specific Probabilities}\\
 \multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Probability\\\hline
 Same source & 0.9974 & 0.0028 & 0.0000 & 0.6000\\
-Diff source & 0.0000 & 0.2014 & 0..7976 & 0.4000 \\\hline
+Different source & 0.0000 & 0.2014 & 0..7976 & 0.4000 \\\hline
 \multicolumn{1}{Y}{Conclusion Probability} & 0.5984 & 0.0821 & \multicolumn{1}{r}{0.3194} & \multicolumn{1}{Y}{}\\\hline\hline
 \end{tabularx}
 
@@ -743,25 +750,29 @@ Opt. & \multicolumn{1}{c}{Meaning} & Missed Identification & \multicolumn{1}{r}{
 \end{tabularx}
 \end{fmpage}
 
-The resulting sets of conditional probabilities are given in the middle two tables of \autoref{tab:keisler-summary}. Again, inconclusive results are much more indicative of different source results than they should be  based on the setup of the study; we would expect same source results with a probability of 0.60 given an inconclusive result. 
 
-\svp{The design of the Keisler study is ideal - it allows for the calculation of all of the error and success rates, all conditional probabilities, and precise identification of the number of same-source and different-source comparisons conducted by each examiner. }
-\svp{One major flaw in the Keisler study (that is by no means unique to this study) is the acknowledgement that
+Keisler study discussion:
+
+\begin{itemize}
+\item \hh{XXX there are two (minor) flaws: margins fixed and additional information. }
+\item Again, inconclusive results are much more indicative of different source results than they should be  based on the setup of the study; we would expect same source results with a probability of 0.60 given an inconclusive result. 
+\item \svp{The design of the Keisler study is ideal - it allows for the calculation of all of the error and success rates, all conditional probabilities, and precise identification of the number of same-source and different-source comparisons conducted by each examiner. }
+\item \svp{One major flaw in the Keisler study (that is by no means unique to this study) is the acknowledgement that
 ``on the response sheet participants were asked if their laboratory had a policy which does not allow examiners to exclude based on individual characteristics. ... many participants answered `yes' to the laboratory policy question and answered `inconclusive' on all within-class comparisons that could have been correctly excluded." }
+\end{itemize}
 
 \subsection{Duez Study \cite{Duez:2017kha}}
 
-using virtual microscopy, each participant is asked to make eight evaluations of breech face impressions. 
+\citet{Duez:2017kha} used virtual microscopy to evaluate scans of cartridge cases. Each participant was asked to make eight evaluations of breech face impressions. These consisted of two sets: 
+\begin{itemize}
+\item[CCTS1] set of three knowns, four questioned breech face impressions. All questioned breech face impressions are from the same source as the knowns. 
+\item[CCTS2] set of three knowns, four questioned breech face impressions. Two questioned breech face impressions are from the same source, two are from different sources.
+\end{itemize}
 
-CCTS1: set of three knowns, four questioned breech face impressions. All questioned breech face impressions are from the same source as the knowns. 
-
-CCTS2: set of three knowns, four questioned breech face impressions. Two questioned breech face impressions are from the same source, two are from different sources.
-
-Both sets were evaluated 46 times each (10 trainees, 36 fully certified examiners). CCTS1 resulted in 46 x 4 correct identifications.
-
+Both sets were evaluated by 56 participants (46 fully certified examiners and 10 trainees). CCTS1 resulted in 56 x 4 correct identifications.
 The design of the experiment does not allow us to quantify all of the quantities to evaluate examiner performance unless we aggregate performance over both sets.
 
-Combined, the probability for a  same source pair is 6/8 or 75\% and the probability for  a different source  pair is 2/8 or 25\%.
+%Combined, the probability for a  same source pair is 6/8 or 75\% and the probability for  a different source  pair is 2/8 or 25\%.
 
 The top of \autoref{tab:duez-summary} shows results reported by 56 participants (46 examiners, 10 trainees).
 
@@ -773,28 +784,28 @@ the differences in certified examiners and trainees are not large, so only the a
 \begin{tabularx}{\textwidth}{XrrX}\hline
 \multirow{2}{*}{\bf Study Type} & \multicolumn{2}{c}{\bf Test Set} & \multirow{2}{*}{\bf Participants}\\
 & \# Same Source Comparisons & \# Different Source Comparisons & \\\hline
-Open set & ? & ? & 46+10 examiners\\
+Open set & 6 & 2 & 46+10 examiners\\
 \end{tabularx}
 \begin{tabularx}{\textwidth}{Y|rrr|Y}
 \multicolumn{5}{c}{\bf Experiment Count Data}\\
 \multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Total\\\hline
 Same source & 276+59 & 0+1 & 0+0 & 276+60 \\
-Diff source & 0+2 & 12+13 & 80+5 & 92+20 \\\hline
-\multicolumn{1}{Y}{Concl. Total} & 276+61 & 12+14 & \multicolumn{1}{r}{80+5} & \multicolumn{1}{Y}{449}\\\hline\hline
+Different source & 0+2 & 12+13 & 80+5 & 92+20 \\\hline
+\multicolumn{1}{Y}{Conclusion Total} & 276+61 & 12+14 & \multicolumn{1}{r}{80+5} & \multicolumn{1}{Y}{449}\\\hline\hline
 
 \multicolumn{5}{c}{}\\
 
 \multicolumn{5}{c}{\bf Conclusion-Specific Probabilities}\\
 \multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Probability\\\hline
 Same source & 0.9941 & 0.0385 & 0.0000 & 0.7483 \\
-Diff source & 0.0059 & 0.9615 & 1.0000 & 0.2517 \\\hline
+Different source & 0.0059 & 0.9615 & 1.0000 & 0.2517 \\\hline
 \multicolumn{1}{Y}{Conclusion Probability} & 0.7506 & 0.0579 & \multicolumn{1}{r}{0.1915} & \multicolumn{1}{Y}{}\\\hline\hline
 
 \multicolumn{5}{c}{}\\
 \multicolumn{5}{c}{\bf Source-Specific Probabilities}\\
 \multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Probability\\\hline
 Same source & 0.9970 & 0.0030 & 0.0000 & 0.7483\\
-Diff source & 0.0179 & 0.2232 & 0.7589 & 0.2517\\\hline
+Different source & 0.0179 & 0.2232 & 0.7589 & 0.2517\\\hline
 \multicolumn{1}{Y}{Conclusion Probability} & 0.7506 & 0.0579 & \multicolumn{1}{r}{0.1915} & \multicolumn{1}{Y}{}\\\hline\hline
 \end{tabularx}
 
@@ -842,8 +853,8 @@ Closed set & 10 & 15 & 507 examiners\\
 \begin{tabularx}{\textwidth}{Y|rrr|Y}
 \multicolumn{5}{c}{\bf Experiment Count Data}\\
 \multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Total\\\hline
-Same Source & 10447 & 8 & 0.0000 & 10455 \\
-Diff Source & 0.0000 & ? & ? & 47047.5\footnotemark \\\hline
+Same Source & 10447 & 8 & 0 & 10455 \\
+Different source & 0 & ? & ? & 47047.5\footnotemark \\\hline
 \multicolumn{1}{Y}{Concl. Total} & 10447 & ? & \multicolumn{1}{r}{?} & \multicolumn{1}{Y}{57502.5}\\\hline\hline
 
 \multicolumn{5}{c}{}\\
@@ -851,14 +862,14 @@ Diff Source & 0.0000 & ? & ? & 47047.5\footnotemark \\\hline
 \multicolumn{5}{c}{\bf Conclusion-Specific Probabilities}\\
 \multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Probability\\\hline
 Same source & 1.0000 & ? & 0.0000 & 0.1818\\
-Diff source & 0.0000 & ? & 1\footnotemark & 0.8282\\\hline
+Different source & 0.0000 & ? & 1\footnotemark & 0.8282\\\hline
 \multicolumn{1}{Y}{Conclusion Probability} & 0.1817 & ? & \multicolumn{1}{r}{?} & \multicolumn{1}{Y}{}\\\hline\hline
 
 \multicolumn{5}{c}{}\\
 \multicolumn{5}{c}{\bf Source-Specific Probabilities}\\
 \multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Probability\\\hline
 Same source & 0.9992 & 0.0008 & 0.0000 & 0.1818\\
-Diff source & 0.0000 & ? & ? & 0.8282\\\hline
+Different source & 0.0000 & ? & ? & 0.8282\\\hline
 \multicolumn{1}{Y}{Conclusion Probability} & 0.1817 & ? & \multicolumn{1}{r}{?} & \multicolumn{1}{Y}{}\\\hline\hline
 \end{tabularx}
 
@@ -886,7 +897,7 @@ This study involved the use of 10 consecutively manufactured extractors. First, 
 It should be noted that there are some methodological problems with the Lyons study - examiners who did not initially include all 12 unknown evaluations were given the chance to correct results; in addition, not every examiner evaluated the same number of unknowns. Excluding these results might provide different estimates, but we have chosen to use the numbers as reported in the paper for this calculation.
 \noindent\begin{fmpage}{\textwidth}\centering
 \captionof{table}{}\label{tab:lyons-summary}
-{\large\bf The Identification of Consecutively Manufactured Extractors}\emph{\citeauthor{lyons} (\citeyear{lyons})}\\
+{\large\bf The Identification of Consecutively Manufactured Extractors} \emph{\citeauthor{lyons} (\citeyear{lyons})}\\
 \begin{tabularx}{\textwidth}{XrrX}\hline
 \multirow{2}{*}{\bf Study Type} & \multicolumn{2}{c}{\bf Test Set} & \multirow{2}{*}{\bf Participants}\\
 & \# Knowns & \# Unknowns & \\\hline
@@ -896,7 +907,7 @@ Closed set & 10 & 10~or~12 & 15 examiners\\
 \multicolumn{5}{c}{\bf Experiment Count Data}\\
 \multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Total\\\hline
 Same Source & 174\footnotemark &  1 & 3 & 178 \\
-Diff Source & 3 & ? & ? & ? \\\hline
+Different source & 3 & ? & ? & ? \\\hline
 \multicolumn{1}{Y}{Concl. Total} & 177 & ? & \multicolumn{1}{r}{?} & \multicolumn{1}{Y}{?}\\\hline\hline
 
 \multicolumn{5}{c}{}\\
@@ -904,14 +915,14 @@ Diff Source & 3 & ? & ? & ? \\\hline
 \multicolumn{5}{c}{\bf Conclusion-Specific Probabilities}\\
 \multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Probability\\\hline
 Same source & 0.9831 & ? & ? & ?\\
-Diff source & 0.0169 & ? & ? & ?\\\hline
+Different source & 0.0169 & ? & ? & ?\\\hline
 \multicolumn{1}{Y}{Conclusion Probability} & ? & ? & \multicolumn{1}{r}{?} & \multicolumn{1}{Y}{}\\\hline\hline
 
 \multicolumn{5}{c}{}\\
 \multicolumn{5}{c}{\bf Source-Specific Probabilities}\\
 \multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Probability\\\hline
 Same source & 0.9775 & 0.0056 & 0.1685 & ?\\
-Diff source & ? & ? & ? & ?\\\hline
+Different source & ? & ? & ? & ?\\\hline
 \multicolumn{1}{Y}{Conclusion Probability} & ? & ? & \multicolumn{1}{r}{?} & \multicolumn{1}{Y}{}\\\hline\hline
 \end{tabularx}
 
@@ -924,7 +935,7 @@ Opt. & \multicolumn{1}{c}{Meaning} & Missed Identification & \multicolumn{1}{r}{
 \end{tabularx}
 \end{fmpage}
 
-\footnotetext{\citet{lyons} reports 175 correct identifications, but it is clear from the discussion that one of those same source identifications was actually an inconclusive. 12 answer sheets with 12 correct identifications, one with 10 (out of 10) correct identifications, one with 9 correct identifications and 3 errors, and one with 11 correct identifications and one inconclusive. So 12*12 + 10 + 9 + 11 = 174. }
+\footnotetext{\citet{lyons} reports 175 correct identifications, but it is clear from the discussion that one of those same source identifications was actually an inconclusive. 12 answer sheets with 12 correct identifications, one with 10 (out of 10) correct identifications, one with 9 correct identifications and 3 errors, and one with 11 correct identifications and one inconclusive. So 12$\cdot$12 + 10 + 9 + 11 = 174. }
 
 
 \subsection{Bunch \& Murphy Study \cite{bunch2003comprehensive}}
