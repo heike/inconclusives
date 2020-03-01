@@ -383,7 +383,7 @@ In the last row in the table, the marginal probabilities $P(Y)$ are shown, that 
 \multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Probability\\\hline
 Same source & $a/(a+d)$ & $b/(b+e)$ & $c/(c+f)$ & $S/N$\\
 Diff source & $d/(a+d)$ & $e/(b+e)$ & $f/(c+f)$ & $D/N$\\\hline
-\multicolumn{1}{Y}{Conclusion probability} & $(a + d)/N$ & $(b + e)/N$ & \multicolumn{1}{c}{$(c + f)/N$} & \multicolumn{1}{Y}{1.00}\\\hline\hline
+\multicolumn{1}{Y}{Conclusion probability} & $(a + d)/N$ & $(b + e)/N$ & \multicolumn{1}{r}{$(c + f)/N$} & \multicolumn{1}{Y}{1.00}\\\hline\hline
 \end{tabularx}
 \end{table}
 
@@ -401,7 +401,7 @@ In the last column of the table, the marginal probabilities $P(X)$ are shown; th
 \multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Probability\\\hline
 Same source & $a/S$ & $b/S$ & $c/S$ & $S/N$\\
 Diff source & $d/D$ & $e/D$ & $f/D$ & $D/N$\\\hline
-\multicolumn{1}{Y}{Conclusion probability} & $(a + d)/N$ & $(b + e)/N$ & \multicolumn{1}{c}{$(c + f)/N$} & \multicolumn{1}{Y}{1.00}\\\hline\hline
+\multicolumn{1}{Y}{Conclusion probability} & $(a + d)/N$ & $(b + e)/N$ & \multicolumn{1}{r}{$(c + f)/N$} & \multicolumn{1}{Y}{1.00}\\\hline\hline
 \end{tabularx}
 \end{table}
 A google sheets workbook for performing these calculations is available at \url{http://bit.ly/FTE-error-rate}.
