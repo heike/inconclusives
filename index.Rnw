@@ -706,7 +706,7 @@ For 3234 comparisons, FTEs evaluated how many of the known cartridge cases were 
 
 Each test kit consisted of sets of 20 pairs of cartridge cases from Smith \& Wesson pistols, where 12 of the pairs were from the same source and 8 pairs were from different sources. 
 
-Kits were assembled using only 9 Smith & Wesson pistols (i.e. there is a potential to gain additional information by making comparisons across sets). However, \svp{participants were instructed to only compare single pairs.} 
+Kits were assembled using only 9 Smith \& Wesson pistols (i.e. there is a potential to gain additional information by making comparisons across sets). However, \svp{participants were instructed to only compare single pairs.} 
 
 126 participants reported results as shown in \autoref{tab:keisler-summary}.
 
@@ -910,7 +910,7 @@ Opt. & \multicolumn{1}{c}{Meaning} & Missed Identification & \multicolumn{1}{r}{
 
 
 
-\subsection{Lyons Study}
+\subsection{Lyons Study\cite{lyons}}
 This study involved the use of 10 consecutively manufactured extractors. First, the researchers established that there were sufficient individualizing characteristics to identify cartridges ejected by the same tool, and that there were sufficient individualizing characteristics to exclude cartridges ejected by sequentially manufactured tools. Then, they assembled 20 kits with pairs of 2 cartridges from each of the 10 extractors (the knowns) and 10 or 12 unknown cartridges, such that each known corresponded to an unknown, with some replication in most of the kits. Thus, the setup of this study is similar to the Hamby studies, which had 35 bullets each; 20 knowns from 10 barrels and 15 unknowns. As with the Hamby studies, as a closed set study with multiple knowns, it is not possible to determine the total number of different source comparisons. \svp{The study results are shown in \autoref{tab:lyons-summary}, along with computed conclusion-specific and source-specific probabilities and error rates.}
 
 It should be noted that there are some methodological problems with the Lyons study - examiners who did not initially include all 12 unknown evaluations were given the chance to correct results; in addition, not every examiner evaluated the same number of unknowns. Excluding these results might provide different estimates, but we have chosen to use the numbers as reported in the paper for this calculation.
