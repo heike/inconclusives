@@ -1041,14 +1041,24 @@ Opt. & \multicolumn{1}{c}{Meaning} & Missed Identification & \multicolumn{1}{r}{
 
 \section{Discussion and Conclusions}
 
-\svp{when testing for rare diseases the true negatives are much more common than true positives
-In tests for rare diseases which are highly accurate, the positive predictive value can be fairly small, because false positives are more common than the incidence rate of the disease.}
-
 number of firearms very small 
 
 positive predictive value (control group) vs. post-test rate (for an individual case)
 
 Implications for court process - examiner states error rate, defense asks for inconclusive rate (established during controlled testing?) and elimination rate
+
+\svp{Bias against the defense in inconclusives mirrors biases in admissibility of forensic evidence \cite{morenoWhatHappensWhen2004, epsteinPreferringWiseMan2014}}
+
+\svp{Focus of the discipline on the issues with identifiability, or error rates of the examiners, rather than the treatment of the entire process}
+
+\svp{Some mentions of quality considerations in \cite{epsteinPreferringWiseMan2014} - \cite{UNITEDSTATESAmerica2011} (fingerprints) - need for a precise standard of what makes something high-quality enough for analysis/comparison}
+
+\svp{Design problems: PCAST Report addendum\cite{pcast-addendum2017}: }
+\begin{quote}\svp{The firearms discipline clearly recognizes the importance of empirical studies. However, most of these studies used flawed designs. As described in the PCAST report, ``set-based" approaches can inflate examiners' performance by allowing them to take advantage of internal dependencies in the data. The most extreme example is the ``closed-set design", in which the correct source of each questioned sample is always present; studies using the closed-set design have under estimated the false-positive and inconclusive rates by more than 100-fold. This striking discrepancy seriously undermines the validity of the results and underscores the need to test methodsunder appropriate conditions. Other set-based designs also involve internal dependencies that provide hints to examiners, although not to the same extent as closed-set designs.}
+
+\svp{To date, there has been only one appropriately designed black-box study: a 2014 study commissioned by the Defense Forensic Science Center (DFSC) and conducted by the Ames Laboratory, which reported an upper 95\% confidence bound on the false-positive rate of 2.2\%.}
+\end{quote}
+
 
 <<output-all-figs, eval = F, include = F>>=
 thisdoc <- readLines("index.Rnw")
