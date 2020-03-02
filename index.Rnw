@@ -1047,7 +1047,7 @@ positive predictive value (control group) vs. post-test rate (for an individual 
 
 Implications for court process - examiner states error rate, defense asks for inconclusive rate (established during controlled testing?) and elimination rate
 
-\svp{Bias against the defense in inconclusives mirrors biases in admissibility of forensic evidence \cite{morenoWhatHappensWhen2004, epsteinPreferringWiseMan2014}}
+\svp{Bias against the defense in inconclusives mirrors biases in admissibility of forensic evidence \cite{morenoWhatHappensWhen2004, epsteinPreferringWiseMan2014, roachFORENSICSCIENCEMISCARRIAGES2009}}
 
 \svp{Focus of the discipline on the issues with identifiability, or error rates of the examiners, rather than the treatment of the entire process}
 
