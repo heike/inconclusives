@@ -206,7 +206,7 @@ In order to assess how well the identification process is functioning, studies w
 Ground truth, that is, the knowledge of whether two samples come from the same source or two different sources, is only available to the individual setting up the test; as casework is not so strictly controlled, we do not have information about ground truth and thus cannot use casework for error rate assessment.
 
 
-\section{Error Rate Calculation}
+\section{Error Rate Calculation}\label{sec:rates}
 
 The need for scientific validation and experimentally-determined error rates has been identified in several reports evaluating the discipline of forensic science in the United States as critical for addressing problems within the field and improving the overall performance of the justice system. 
 National Research Council 2009:
@@ -851,7 +851,8 @@ Results reported in the 2019 paper are shown in \autoref{tab:hamby-summary}.
 
 Discussion of the study
 \begin{itemize}
-\item \hh{The design of the study does not allow for an assessment of all of the error and accuracy rates discussed in \section{sec:rates}, but shows a strong focus on evaluating identifications. }
+\item \hh{The study is a closed set study. Closed set study designs go hand-in-hand with an unfortunate emphasis of identifications over eliminations. }
+\item \hh{The design of the study does not allow for an assessment of all of the error and accuracy rates discussed in \autoref{sec:rates}, but shows a strong focus on evaluating identifications. }
 In particular, the answer sheets for Brundage-Hamby sets only asks for reports of identifications for each of the questioned bullets. 
 
 While the number of same source comparison is obviously one for each questioned bullet, i.e.\ each participant made exactly fifteen same source comparisons, the number of different source comparisons that were made  is an open question.
@@ -911,9 +912,20 @@ Opt. & \multicolumn{1}{c}{Meaning} & Missed Identification & \multicolumn{1}{r}{
 
 
 \subsection{Lyons Study\cite{lyons}}
-This study involved the use of 10 consecutively manufactured extractors. First, the researchers established that there were sufficient individualizing characteristics to identify cartridges ejected by the same tool, and that there were sufficient individualizing characteristics to exclude cartridges ejected by sequentially manufactured tools. Then, they assembled 20 kits with pairs of 2 cartridges from each of the 10 extractors (the knowns) and 10 or 12 unknown cartridges, such that each known corresponded to an unknown, with some replication in most of the kits. Thus, the setup of this study is similar to the Hamby studies, which had 35 bullets each; 20 knowns from 10 barrels and 15 unknowns. As with the Hamby studies, as a closed set study with multiple knowns, it is not possible to determine the total number of different source comparisons. \svp{The study results are shown in \autoref{tab:lyons-summary}, along with computed conclusion-specific and source-specific probabilities and error rates.}
 
-It should be noted that there are some methodological problems with the Lyons study - examiners who did not initially include all 12 unknown evaluations were given the chance to correct results; in addition, not every examiner evaluated the same number of unknowns. Excluding these results might provide different estimates, but we have chosen to use the numbers as reported in the paper for this calculation.
+This study involved the use of 10 consecutively manufactured extractors (manufactureed by Caspian Arms Ltd).
+
+Then, they assembled 20 kits with pairs of 2 cartridges from each of the 10 extractors (the knowns) and 12 questioned cartridges \hh{XXX let's distinguish between design and implementation - design involved 12 questioned cartridge cases}, such that each known corresponded to an unknown, with some replication in most of the kits. Thus, the setup of this study is similar to the Brundage-Hamby study. This study suffers from the same problems as the Brundage-Hamby study: it is a closed set study with multiple knowns and asks for identifications only. We can therefore only estimate a fraction of the relevant error rates. 
+It is also not possible to determine the total number of independent different source comparisons. 
+\svp{The study results are shown in \autoref{tab:lyons-summary}, along with computed conclusion-specific and source-specific probabilities and error rates.}
+
+Discussion of the Lyons study:
+\begin{itemize}
+\item First, the researchers established that there were sufficient individualizing characteristics to identify cartridges ejected by the same tool, and that there were sufficient individualizing characteristics to exclude cartridges ejected by sequentially manufactured tools. 
+\item It should be noted that there are some methodological problems with the Lyons study - examiners who did not initially include all 12 unknown evaluations were given the chance to correct results; in addition, not every examiner evaluated the same number of unknowns. Excluding these results might provide different estimates, but we have chosen to use the numbers as reported in the paper for this calculation.
+\end{itemize}
+>>>>>>> lyons
+
 \noindent\begin{fmpage}{\textwidth}\centering
 \captionof{table}{}\label{tab:lyons-summary}
 {\large\bf The Identification of Consecutively Manufactured Extractors} \emph{\citeauthor{lyons} (\citeyear{lyons})}\\
