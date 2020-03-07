@@ -82,11 +82,11 @@ bunch_eval <- function(set) {
 
 res <- purrr::map_df(1:100000, function(i) {
     tibble(kit = bunch_test_kits()) %>%
-      mutate(eval = purrr::map(kit, bunch_eval)) %>%
-      unnest(eval) %>%
-      summarize(iteration = i, 
-                all_pairwise_matches = sum(matches_all), min_pairwise_matches = sum(matches_min), 
-                all_pairwise_nonmatches = sum(nonmatches_all), min_pairwise_nonmatches = sum(nonmatches_min))
+      mutate(eval = purrr::map(kit, bunch_eval)) #%>%
+      # unnest(eval) %>%
+      # summarize(iteration = i, 
+      #           all_pairwise_matches = sum(matches_all), min_pairwise_matches = sum(matches_min), 
+      #           all_pairwise_nonmatches = sum(nonmatches_all), min_pairwise_nonmatches = sum(nonmatches_min))
     
   })
 
@@ -119,3 +119,35 @@ res %>%
 res
 res %>%
   mutate(total_comparisons = all_pairwise_matches + all_pairwise_nonmatches, min_comparisons = min_pairwise_matches + min_pairwise_nonmatches)
+
+# Add in FBI rules - can't exclude on class characteristic matches
+
+res3 <-res2[(0:(length(res2$kit)-1))%%8 <=5, ] %>% unnest(eval)
+res3 <- rename(res3, matches_indep = matches_min, nonmatches_indep = nonmatches_min)
+res3$set <- floor((1:length(res3) - 1)/6)
+
+res3 %>% group_by(set) %>% select(-1) %>% summarize_all(sum) %>% filter(matches_all == 25) -> our_res
+res3[res3$set == 1, ]$kit
+our_res %>% select(-set) %>% select(matches_indep, nonmatches_indep) %>% summarize_each(list(~quantile(., c(0.025)), ~mean(.), ~quantile(., .975)))
+
+
+res3 %>% group_by(set) %>% select(-1) %>% summarize_all(sum) %>% filter(matches_all == 30) -> our_res
+res3[res3$set == 1, ]$kit
+our_res %>% select(-set) %>% select(matches_indep, nonmatches_indep) %>% summarize_each(list(~quantile(., c(0.025)), ~mean(.), ~quantile(., .975)))
+
+# 95% bootstrap interval for # required DS comparisons by # reported SS comparisons
+res3 %>% group_by(set) %>% select(-1) %>% summarize_all(sum) %>% filter(matches_all < 30, matches_all > 20) %>%
+  group_by(matches_all) %>% 
+  summarize(lb = quantile(nonmatches_indep, 0.025), mean = mean(nonmatches_indep), ub = quantile(nonmatches_indep, 0.975)) %>%
+  ggplot(aes(x = matches_all)) + 
+  geom_point(aes(y = mean)) + 
+  geom_segment(aes(x = matches_all, xend = matches_all, y = lb, yend = ub)) + 
+  scale_x_continuous(breaks = seq(20, 30, 2))
+
+res3 %>% group_by(set) %>% select(-1) %>% summarize_all(sum) %>% filter(matches_all == 25) %>%
+  select(matches_indep, nonmatches_indep) %>% summarize_each(list(~quantile(., c(0.025)), ~mean(.), ~quantile(., .975))) %>%
+  select(matches("nonmatches"), matches("^matches")) %>%
+  pivot_longer(cols = 1:6, names_to = "match_type", values_to = "value") %>%
+  separate(match_type, into = c("match", "val"), sep = "_indep_") %>%
+  pivot_wider(id_cols = "match", names_from = "val", values_from = "value")
+
