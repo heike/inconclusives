@@ -170,7 +170,7 @@ library(kableExtra)
 
 
 
-Examiners visually classify similarity of toolmark and firearm evidence according to the AFTE theory of identification \citep{identification} as one of identification, inconclusive or elimination (See \autoref{tab:afte} for definition of each conclusions). Exact guidelines for this classification vary from lab to lab; some labs will exclude only on the basis of non-matching class characteristics, such as direction of the twist in rifling, land length or number of lands, or type of rifling. In other labs, CMS (consecutively matching striae) as defined by \citeauthor{biasotti} \citep{biasotti} is used as a measure to quantify the similarity of two lands. In virtually all labs, individual characteristics used to identify matching bullets are derived from visual assessment; some class characteristics may be directly measured, but these are not sufficient for individualization. 
+Examiners visually classify similarity of toolmark and firearm evidence according to the AFTE theory of identification \citep{identification} as one of identification, inconclusive or elimination -- see \autoref{tab:afte} for a definition of each of the conclusions. Exact guidelines for this classification vary from lab to lab; some labs will exclude only on the basis of non-matching class characteristics, such as direction of the twist in rifling, land length or number of lands, or type of rifling. In other labs, CMS (consecutively matching striae) as defined by \citeauthor{biasotti} \citep{biasotti} is used as a measure to quantify the similarity of two lands. In virtually all labs, individual characteristics used to identify matching bullets are derived from visual assessment. %; some class characteristics may be directly measured, but these are not sufficient for individualization. 
 % Identification using 3D Scanning Technology
 
 
@@ -180,7 +180,6 @@ Examiners visually classify similarity of toolmark and firearm evidence accordin
 \begin{enumerate}
 \item Identification\hfill\newline
 Agreement of a combination of individual characteristics and all discernible class characteristics where the extent of agreement exceeds that which can occur in the comparison of toolmarks made by different tools and is consistent with the agreement demonstrated by toolmarks known to have been produced by the same tool.
-
 
 \item Inconclusive 
 \begin{enumerate}
@@ -202,9 +201,12 @@ Unsuitable for examination.
 % \section{Background} % Identification
 
 The identification process -- i.e. the assessment of whether two samples come from the same source (were made by the same tool, the same shoe, the same finger, shot through the same barrel) or from different sources -- is quite complex. 
-In order to assess how well the identification process is functioning, studies with known ground truth have to be employed, as casework does not allow for an assessment of correctness. 
-Ground truth, that is, the knowledge of whether two samples come from the same source or two different sources, is only available to the individual setting up the test; as casework is not so strictly controlled, we do not have information about ground truth and thus cannot use casework for error rate assessment.
+In order to assess the accuracy of the identification process, we have to make use of studies where ground truth is known. 
 
+By ground truth we mean the knowledge of whether two samples come from the same source or two different sources. Ground truth in studies is only available to the individual setting up the test but not to any of the participants. 
+In casework ground truth is not known, it therefore does not allow for an assessment of error rates of the identification process.
+
+\hh{XXX Blind testing - prevent differences in the process due to knowledge that one is being tested.}
 
 \section{Error Rate Calculation}\label{sec:rates}
 
@@ -221,18 +223,20 @@ Indeed, when jurors are left to form their own conclusions about the error rates
 
 \begin{displayquote} In an online experiment, researchers asked mock jurors to estimate the frequency that a qualified, experienced forensic scientist would mistakenly conclude that two samples of specified types came from the same person when they actually came from two different people. The mock jurors believed such errors are likely to occur about 1 in 5.5 million for fingerprint analysis comparison; 1 in 1 million for bitemark comparison; 1 in 1 million for hair comparison; and 1 in 100 thousand for handwriting comparison.\end{displayquote}
 
-\svp{In addition to these reports which clearly identify the need for error rate studies, it is often essential to have clearly quantified known or potential error rates\citep{giannelliDaubertInterpretingFederal1993} in order for testimony about the results of forensic examinations to be admitted into evidence.}
+In addition to these reports which clearly identify the need for error rate studies, it is often essential to have clearly quantified known or potential error rates\citep{giannelliDaubertInterpretingFederal1993} in order for testimony about the results of forensic examinations to be admitted into evidence.
 
 Unfortunately, the methods used to establish error rates experimentally and the interpretations of those error rates in the literature are highly variable. 
-\svp{In part, this variability is due to the mismatch between the evidence evaluation standards used by different forensic disciplines and the actual origin of the evidence. 
-For instance, the AFTE theory of identification has 4 possible conclusions; 3 of which are typically used in comparisons\footnote{The fourth category, unsuitable for examination, is one which should be used when evaluating single pieces of recovered evidence; it does not result from the comparison of an unknown source to a known source.} 
-As there are more possible classifications than source categories (same or different), it is understandable that the treatment of inconclusives when calculating error rates is the subject of some debate. } 
-For instance, \citet{Dror:2018fp} \svp{suggests treating} inconclusive results as an examiner's conscious decision to not decide on an identification or elimination. 
+In part, this variability is due to the mismatch between the evidence evaluation standards used by different forensic disciplines and the actual origin of the evidence. 
+For instance, the AFTE theory of identification has four possible conclusions; three of which are typically used in comparisons\footnote{The fourth category, unsuitable for examination, is one which should be used when evaluating single pieces of recovered evidence; it does not result from the comparison of an unknown source to a known source.} 
+As there are more possible classifications than source categories (same or different), it is understandable that the treatment of inconclusives when calculating error rates is the subject of some debate. 
+For instance, \citet{Dror:2018fp} suggests treating inconclusive results as an examiner's conscious decision to not decide on an identification or elimination. \hh{XXX what is the consequence of that? }
 This view has drawn some criticism \citep{Biedermann:2018hr,biedermannAreInconclusiveDecisions2019}. 
+
+\hh{XXX should we cite a paper for each one of these decisions?}
 Inconclusives can be excluded from result calculations, included as correct results, or included as incorrect results; each of these decisions has an impact on the interpretation of the resulting error rates.
-In this paper, we \svp{discuss} the treatment of inconclusives in the assessment of error rates from a statistical point of view, % We believe that this -- rather than further dividing the different opinions -- provides a unifying framework.
+In this paper, we discuss the treatment of inconclusives in the assessment of error rates from a statistical point of view, % We believe that this -- rather than further dividing the different opinions -- provides a unifying framework.
 examining previous error rate studies to assess the technical accuracy and practical utility of the Overall Error Rates. 
-Before approaching the actual studies, we will define some basic notation to facilitate comparison of studies with different experimental designs and briefly \svp{explore} the logic behind the \svp{numerical} calculations.%order
+Before approaching the actual studies, we will define some basic notation to facilitate comparison of studies with different experimental designs and briefly explore the logic behind the numerical calculations.%order
 
 \subsection{Evaluating Classification Decisions}\label{sec:evaluating-classification-decisions}
 When an examiner assesses a set of evidence (generally, a pair of items, one of known provenance and one of unknown provenance) and decides whether the evidence is an identification, inconclusive, or an elimination, they provide a \emph{classification} of the evidence in a set of given categories.  
