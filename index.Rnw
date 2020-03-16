@@ -253,10 +253,10 @@ Sensitivity, also called the true positive rate (TPR), is an examiner's ability 
 Sensitivity can be expressed as the conditional probability $P (\text{Identification} \mid SS)$. 
 Conversely, specificity, or the true negative rate (TNR), is an examiner's ability to make an elimination given evidence from different sources (DS), $P (\text{Elimination} \mid DS)$.} 
 \hh{Mathematically, we calculate the true negative rate as the conditional probability of the examiner making an elimination \emph{given} the pair under examination is from different sources. 
-A conditional probability} of an event \emph{given} another event is the probability that the two events both occur, divided by the probability of the second event, i.e.:
+A conditional probability} of an event \emph{given} another event is the probability that the two events both occur, divided by the probability of the second event, \hh{specifically for the true negative rate}:
 $$ TNR = P(\text{Elimination} | DS) = \frac{P(\text{Elimination and } DS)}{P(DS)}.$$
 
-Another common method of assessing accuracy of a classification method is to calculate the false positive rate (FPR) and the false negative rate (FNR). The \emph{false positive rate} is the probability that an examiner makes an identification from evidence which is from different sources(DS), $FPR = P(Identification | DS)$.
+Another common method of assessing accuracy of a classification method is to calculate the false positive rate (FPR) and the false negative rate (FNR). The \emph{false positive rate} is the probability that an examiner makes an identification from evidence which is from different sources(DS), $FPR = P(\text{Identification} | DS)$.
 
 The \emph{false negative rate} is the probability that an examiner makes an elimination from evidence which originates from the same source (SS), $FNR = P(\text{Elimination} | SS)$. 
 In all  of these assessments, the  rates are calculated by conditioning on the origin of the evidence; this process is shown graphically in \autoref{fig:FPR-specific-tree} using a decision tree to describe the comparisons which can be made conditioned on ground truth. %\hh{XXX The figure includes inconclusives - which we haven't talked about at this point. } 
@@ -270,7 +270,8 @@ In all  of these assessments, the  rates are calculated by conditioning on the o
 
 \subsection{Decision-specific assessment}
 
-The use of false positive and false negative rates to characterize a classification task is extremely common, however, there are alternate ways to evaluate a classification method. 
+%The use of false positive and false negative rates to characterize a classification task is extremely common, however, there are alternate ways to evaluate a classification method.
+An alternate way to evaluate a classification method is to assess 
 % In medicine, in particular, it is common to evaluate tests based on the positive and negative predictive value. 
 The \emph{positive predictive value} (PPV) is the probability that, if an examiner makes an identification, the evidence is from the same source, that is, $P(SS | \text{Identification})$. 
 Its complement, the \emph{false discovery rate} (FDR), is the probability that if an examiner makes an identification, the evidence is from different sources.
