@@ -590,6 +590,11 @@ clopper <- function(alpha, success, trials) {
 
 library(tidyverse)
 studies <- read.csv("data/studies.csv")
+studies <- studies %>% mutate(
+    Study = factor(Study, 
+                    levels=c("Baldwin (2014)", "Keisler (2018)", "Duez (2018)", "Hamby (2019)", "Lyons (2009)"))
+  )
+
 cis <- studies %>% group_by(Study, Decision) %>% 
   filter(Type == "Observed") %>%
   summarize(
@@ -606,19 +611,15 @@ exp <- studies %>%
     exp_ss_lower = clopper(0.05, exp_ss, sum(Number[Type == "Observed"]))[1],
     exp_ss_upper = clopper(0.05, exp_ss, sum(Number[Type == "Observed"]))[2],
     exp_prob = exp_ss/sum(Number[Type == "Observed"])
-  ) %>% 
-  ungroup(Study) %>%
-  mutate(
-    Study = factor(Study, 
-                    levels=c("Baldwin", "Keisler", "Duez", "Hamby", "Lyons"))
-  )
+  ) 
   
+DontKnow <- data.frame(
+  pred_ss = 0.5, 
+  xmin=c(0,0,0,0), 
+  xmax=c(1,1,1,1), 
+  Study = c("Lyons (2009)", "Hamby (2019)", "Lyons (2009)", "Hamby (2019)"), 
+  Decision=rep(c("Inconclusive", "Elimination"), each=2))
 
-DontKnow <- data.frame(pred_ss = 0.5, 
-                                   xmin=c(0,0,0,0), 
-                                   xmax=c(1,1,1,1), 
-                                   Study = c("Lyons", "Hamby", "Lyons", "Hamby"), 
-                                   Decision=rep(c("Inconclusive", "Elimination"), each=2))
 cis %>% 
   ungroup() %>%
   mutate(
@@ -646,12 +647,50 @@ cis %>%
 
 @
 
+\hh{XXX not sure where this figure should go - plopping it in here for now. }
+\hh{\autoref{fig:inconclusives} are too high for different source comparisons.}
+
+<<inconclusives, echo=FALSE, fig.width=8, fig.height=4.5,
+fig.cap='Percentage of inconlusive decisions by same-source/different source comparisons. The percentage of inconclusives for same source comparisons is generally low (with a 95 percent confidence interval well below 5 percent). Different source comparisons end up in inconclusive results significantly more often. The Baldwin study has a particularly high percentage of inconclusive results', out.width=".8\\textwidth">>=
+
+inc <- studies %>% group_by(Study, Ground.truth) %>% 
+  filter(Type == "Observed") %>%
+  summarize(
+    Comparisons = sum(Number),
+    Inconclusive = sum(Number[Decision=="Inconclusive"]),
+    inc_lower = clopper(0.05, Inconclusive, Comparisons)[1]*100,
+    inc_upper = clopper(0.05, Inconclusive, Comparisons)[2]*100
+  )
+
+DontKnow <- data.frame(
+  x = 17.5, 
+  xmin=c(0,0,0,0), 
+  xmax=35*c(1,1,1,1), 
+  Study = c("Lyons (2009)", "Hamby (2019)", "Lyons (2009)", "Hamby (2019)"), 
+  Ground.truth="Different Source")
+
+inc %>% 
+  ggplot(aes(x = Inconclusive/Comparisons*100, y = Study)) +
+  geom_errorbarh(aes(xmin = inc_lower, xmax=inc_upper, y=Study),
+                 size=0.5, height = 0.5, colour = "grey20", alpha =0.9) +
+  geom_point() +
+  theme_bw() +
+  facet_grid(Ground.truth~.) +
+  xlab("Percentage of inconclusive decisions") +
+  geom_errorbarh(aes(x = 0, xmin=xmin, xmax=xmax, y=Study),
+                 data = DontKnow, linetype=2,
+                 size=0.5, height = 0.5, colour = "grey20", alpha =0.9) +
+  geom_point(x = 17.5,  data = DontKnow, shape='?', size = 3.5)
+@
+
 \svp{XXX Looking at the predictive value of an inconclusive result led us to the following unexpected (and ugly) realization: Examiners are willing to gamble on an indentification much more than they are willing to gamble on an elimination. This is a clear bias toward the prosecution.}
 \svp{XXX Inconclusives bias}
 
 \section{Studies}
 
 Baldwin , Keisler , Lyons \cite{lyons}, Hare, Fadul \cite{fadul}, Brundage-Hamby, Duez , Chumbley - can't find any examiner evaluations for Chumbley
+\hh{XXX except for Fadul we are discussing all of the above studies. Fadul should be included still. Probably in the discussion of Brundage \& Hamby.}
+
 
 \autoref{fig:cis} shows an overview  of the conditional probability of same source evidence given an examiner's conclusion for five published studies. 
 Probabilities are shown with their respective 95\% (Pearson-Clopper) confidence intervals.  
