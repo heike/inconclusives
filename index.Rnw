@@ -548,8 +548,31 @@ However, those probabilities are easily accessible in formal studies or blinded 
 
 \subsection{An Overview of Study Error Rates}
 
-\svp{We surveyed a number of studies which are commonly cited in Daubert evidence hearings as well as in the literature to validate the process of firearm and toolmark analysis.}
+\svp{ 
+Tables describing the results of each of the studies surveyed in this paper, the source-specific and conclusion-specific error rates, and the overall error rates can be found in \autoref{sec:supplement}. 
+Here, we summarize the primary findings from our survey of the available literature; while we did not attempt to include every study ever performed, we did aim to include studies which are frequently cited in research or legal proceedings, as well as all studies mentioned in the PCAST and NAS reports concerning firearm and toolmark analysis. XXX make sure that's actually true }
+\svp{
+Our findings mirror the list of experimental design flaws identified in the 2017 addendum to the PCAST report\cite{pcast-addendum2017}. 
+}
+\begin{displayquote}
+As described in the PCAST report, ``set-based" approaches can inflate examiners performance by allowing them to take advantage of internal dependencies in the data. The most extreme example is the ``closed-set design", in which the correct source of each questioned sample is always present; studies using the closed-set design have underestimated the false-positive and inconclusive rates by more than 100-fold. This striking discrepancy seriously undermines the validity of the results and underscores the need to test methods under appropriate conditions. Other set-based designs also involve internal dependencies that provide hints to examiners, although not to the same extent as closed-set designs.
+\end{displayquote}
 
+\svp{
+The response identifies only one study\cite{Baldwin:2014bb} as appropriately designed to evaluate the validity and reliability of firearms analysis methods. 
+Since that response was issued in \citeyear{pcast-addendum2017}, there have been two more studies which are also well-designed according to the criteria in the report: \cite{keisler} and \cite{Duez:2017kha}. 
+All three ``good" studies used slightly different designs, but maintained certain essentials: each kit consisted of multiple comparisons composed of one or more samples from exactly one known source and one unknown source.
+These designs substantially reduce or eliminate the internal dependencies which provide ``hints" to examiners by ensuring that each comparison of samples is considered independently.
+In addition, studies with similar designs ensure that it is possible to exactly enumerate the number of same-source and different-source comparisons\footnote{At least, it is possible with the additional assumption that a comparison between a multiple items from the same source and an unknown should count as a single comparison.}.
+In what is likely a coincidence, all three studies are also limited to cartridge case comparisons.
+}
+
+\svp{
+Study designs that were less reliable, such as \cite{lyons}, \cite{Hamby:2018hu} (and the similarly designed \cite{fadul}), and \cite{bunch2003comprehensive}. 
+Of these, the study by \citeauthor{bunch2003comprehensive} is perhaps the least flawed: while it has internal dependencies due to the inclusion of multiple knowns, and while the number of same-source and different-source comparisons cannot be fully determined, it does have one feature not found in even the well designed studies.
+Specifically, \citeauthor{bunch2003comprehensive} varies the composition of the test kits, so that no kit had the same composition in terms of same and different-source comparisons. 
+XXX Why hamby/fadul suck, and why lyons sucks even more.
+}
 \svp{XXX Good, bad, and ugly study designs, and limits on possible conclusions. Mention of the prosecution bias of many common study designs which only allow for the calculation of the false positive rate.}
 
 \svp{XXX Overall Error Rate Plot and discussion XXX}
@@ -771,7 +794,7 @@ Implications for court process - examiner states error rate, defense asks for in
 
 \bibliography{bibfile}
 
-\section{Supplemental Material}
+\section{Supplemental Material}\label{sec:supplement}
 \subsection{Baldwin Study}
 
 \svp{The Baldwin study was designed such that each test} kit consists of 15 sets of 3 known cartridge cases and 1 questioned cartridge case. In 5 of the 15 sets the questioned cartridge was from the same source as the knowns, while the other 10 questioned cartridges were from different sources as their respective knowns.
