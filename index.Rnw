@@ -587,14 +587,14 @@ exp <- studies %>%
   ungroup(Study) %>%
   mutate(
     Study = factor(Study, 
-                    levels=c("Baldwin", "Keisler", "Duez", "Hamby", "Lyons"))
+                    levels=c("Baldwin (2014)", "Keisler (2018)", "Duez (2018)", "Hamby (2019)", "Lyons (2009)"))
   )
   
 
 DontKnow <- data.frame(pred_ss = 0.5, 
                                    xmin=c(0,0,0,0), 
                                    xmax=c(1,1,1,1), 
-                                   Study = c("Lyons", "Hamby", "Lyons", "Hamby"), 
+                                   Study = c("Lyons (2009)", "Hamby (2019)", "Lyons (2009)", "Hamby (2019)"), 
                                    Decision=rep(c("Inconclusive", "Elimination"), each=2))
 cis %>% 
   ungroup() %>%
