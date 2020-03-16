@@ -650,8 +650,7 @@ cis %>%
 \hh{XXX not sure where this figure should go - plopping it in here for now. }
 \hh{\autoref{fig:inconclusives} are too high for different source comparisons.}
 
-<<inconclusives, echo=FALSE, fig.width=8, fig.height=4.5,
-fig.cap='Percentage of inconlusive decisions by same-source/different source comparisons. The percentage of inconclusives for same source comparisons is generally low (with a 95 percent confidence interval well below 5 percent). Different source comparisons end up in inconclusive results significantly more often. The Baldwin study has a particularly high percentage of inconclusive results', out.width=".8\\textwidth">>=
+<<inconclusives, echo=FALSE, fig.width=8, fig.height=4.5,fig.cap="Percentage of inconlusive decisions by same-source/different source comparisons. The percentage of inconclusives for same source comparisons is generally low (with a 95\\% confidence interval well below 5\\%). Different source comparisons end up in inconclusive results significantly more often. The Baldwin study has a particularly high percentage of inconclusive results", out.width=".8\\textwidth">>=
 
 inc <- studies %>% group_by(Study, Ground.truth) %>% 
   filter(Type == "Observed") %>%
