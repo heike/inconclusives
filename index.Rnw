@@ -1079,85 +1079,19 @@ Implications for court process - examiner states error rate, defense asks for in
 \svp{To date, there has been only one appropriately designed black-box study: a 2014 study commissioned by the Defense Forensic Science Center (DFSC) and conducted by the Ames Laboratory, which reported an upper 95\% confidence bound on the false-positive rate of 2.2\%.}
 \end{quote}
 
-
-<<output-all-figs, eval = F, include = F>>=
-thisdoc <- readLines("index.Rnw")
-
-# First, get figures that aren't in code chunks
-# Haven't really tested this part - regex may need work
-raw_figures <- tibble(
-  line_start = which(str_detect(thisdoc, "\\begin\\{figure\\}")), 
-  line_end = which(str_detect(thisdoc, "\\end\\{figure\\}")),
-  subfloats = purrr::map2(line_start, line_end, 
-                          ~str_extract(thisdoc[.x:.y], "\\includegraphics(?:\\[.*\\])?\\{(.*)\\}") %>%
-                            str_replace("\\includegraphics(?:\\[.*\\])?\\{(.*)\\}", "\\1"))
-)
-
-# Code chunk figures
-chunk_figures <- tibble(
-  line_start = which(str_detect(thisdoc, "^<<.*>>=$")),
-  line_end = which(str_detect(thisdoc, "^@$")),
-  chunk_name = str_replace(thisdoc[line_start], "<<([0-9A-z-]*?),?((?:.*=.*){1,})>>=", "\\1")
-) %>% 
-  mutate(
-    chunk_name = ifelse(chunk_name == "", "unnamed-chunk", chunk_name),
-  ) %>% 
-  mutate(
-    subfloats = purrr::map2(line_start, chunk_name, ~thisdoc[.x] %>%
-                              str_extract("fig\\.subcap ?= ?.*?\\),") %>%
-                              str_replace("fig\\.subcap ?= ?", "") %>%
-                              str_replace(",$", "") %>%
-                              parse(text=.) %>% eval %>% length() %>% 
-                              seq(1, ., by = 1) %>%
-                              sprintf("figures/%s-%d.pdf", .y, .))
-  )
-
-# Knitr included graphics figures
-chunk_incl_figures <- tibble(
-  line_start = which(str_detect(thisdoc, "^<<.*>>=$")),
-  line_end = which(str_detect(thisdoc, "^@$")),
-  chunk_name = str_replace(thisdoc[line_start], "<<([0-9A-z-]*?),?((?:.*=.*){1,})>>=", "\\1")
-) %>% 
-  mutate(
-    chunk_name = ifelse(chunk_name == "", "unnamed-chunk", chunk_name),
-  ) %>% 
-  mutate(
-    subfloats = purrr::map2(line_start, line_end, function(.x, .y) {
-      thisdoc[.x:.y] %>%
-        paste(collapse = " ") %>%
-        str_extract(., "include_graphics\\(c?\\(?.*?\\)?\\)") %>%
-        str_replace("include_graphics\\(", "") %>%
-        str_extract_all('\\"[\\.A-z0-9 /-]*?\\"') %>%
-        parse(text = .) %>% eval() %>%
-        str_remove_all("\\\\|\"")
-    })
-  )
-
-# All figures
-figs <- bind_rows(raw_figures, chunk_figures, chunk_incl_figures) %>%
-  arrange(line_start) %>%
-  mutate(subfloats = purrr::map(subfloats, function(x) data_frame(file = x, exists = file.exists(x)))) %>%
-  tidyr::unnest() %>%
-  filter(exists) %>%
-  mutate(fig_num = group_indices(., line_start, line_end)) %>%
-  group_by(fig_num) %>%
-  mutate(rn = row_number(),
-         maxrn = n(),
-         fig_label = letters[rn],
-         fig_label = ifelse(maxrn > 1, fig_label, ""),
-         fileext = tools::file_ext(file),
-         fig_label = sprintf("Figure_%d%s.%s", fig_num, fig_label, fileext))
-
-if (!dir.exists("separate_fig_files")) dir.create("separate_fig_files")
-file.copy(figs$file, file.path("separate_fig_files", figs$fig_label), overwrite = T)
-
-@
 \section{References}
 
 \bibliography{bibfile}
 
 \section{Supplemental Material}
-\subsection{All possible Brundage-Hamby Sets}\label{app:brundage}
+\subsection{Baldwin Study}
+
+\subsection{Keisler Study}
+
+\subsection{Duez Study}
+
+\subsection{Brundage-Hamby Study}
+\subsubsection{Enumeration of all possible Brundage-Hamby set comparisons}\label{app:brundage}
 Brundage-Hamby sets consist of a set of 20 known bullets (two each from the ten consecutively manufactured barrels) and 15 questioned bullets.
 \citet{brundage} outlines the construction of sets of questioned bullets in detail as follows: ten bullets are chosen, one from each of the ten barrels. The remaining five bullets are picked at random from the barrels, such that at most three questioned bullets are from the same barrel. 
 
@@ -1189,6 +1123,11 @@ sets %>%
   ylab("Number of sets") +
   scale_x_continuous(breaks=c(49, 54.5, 61,  67.5, 74, 80.5, 86), labels=c("49", "54.5", "61", "67.5", "74", "80.5",  "86"))
 @
+
+\subsection{Bunch \& Murphy Study}
+
+\subsection{Lyons Study}
+
 
 \end{document}
 
