@@ -558,6 +558,71 @@ However, those probabilities are easily accessible in formal studies or blinded 
 
 \svp{XXX Introduce PPV/NPV as a fix for error rates and inconclusive percentages - easier to understand and use in court}
 
+<<cis, echo=FALSE, fig.width=8, fig.height=4.5, fig.cap="Pearson-Clopper 95\\% confidence intervals for the probability of same source evidence given an examiner's conclusion. Expected values for each of the probabilities as discussed in \\autoref{sec:ideal} are shown as grey targets. Some of the studies do not allow an assessment of all of the predictive values.", out.width=".8\\textwidth">>=
+clopper <- function(alpha, success, trials) {
+  lower <- qbeta(alpha/2, success, trials-success+1)
+  upper <- qbeta(1-alpha/2, success+1, trials-success)
+  c(lower, upper)
+}
+
+library(tidyverse)
+studies <- read.csv("data/studies.csv")
+cis <- studies %>% group_by(Study, Decision) %>% 
+  filter(Type == "Observed") %>%
+  summarize(
+    pred_ss = sum(Number[Ground.truth=="Same Source"])/sum(Number),
+    pred_ss_lower = clopper(0.05, sum(Number[Ground.truth=="Same Source"]), sum(Number))[1],
+    pred_ss_upper = clopper(0.05, sum(Number[Ground.truth=="Same Source"]), sum(Number))[2]
+  )
+
+exp <- studies %>% 
+#  filter(Decision == "Inconclusive") %>%
+  group_by(Study, Decision) %>% 
+  summarize(
+    exp_ss = Number[Type=="Expected"][1] * sum(Number[Type == "Observed"]),
+    exp_ss_lower = clopper(0.05, exp_ss, sum(Number[Type == "Observed"]))[1],
+    exp_ss_upper = clopper(0.05, exp_ss, sum(Number[Type == "Observed"]))[2],
+    exp_prob = exp_ss/sum(Number[Type == "Observed"])
+  ) %>% 
+  ungroup(Study) %>%
+  mutate(
+    Study = factor(Study, 
+                    levels=c("Baldwin", "Keisler", "Duez", "Hamby", "Lyons"))
+  )
+  
+
+DontKnow <- data.frame(pred_ss = 0.5, 
+                                   xmin=c(0,0,0,0), 
+                                   xmax=c(1,1,1,1), 
+                                   Study = c("Lyons", "Hamby", "Lyons", "Hamby"), 
+                                   Decision=rep(c("Inconclusive", "Elimination"), each=2))
+cis %>% 
+  ungroup() %>%
+  mutate(
+    Decision = factor(Decision, levels=c("Identification", "Inconclusive", "Elimination"))
+  ) %>%
+  ggplot(aes(x = pred_ss, y = Study)) +
+  facet_grid(Decision~.) +
+  xlim(c(0,1)) +
+  xlab("Probability for same source given examiner's decision") +
+  theme_bw() +
+#  geom_point(aes(x = exp_prob, y = Study), data = exp, colour="red", size=4.5) +
+#  geom_point(aes(x = exp_prob, y = Study), data = exp, colour="white", size=3.5) +
+  geom_point(aes(x = exp_prob, y = Study), data = exp, colour="grey50", size=2.5) +
+  geom_point(aes(x = exp_prob, y = Study), data = exp, colour="white", size = 1.5) +
+  geom_point(aes(x = exp_prob, y = Study), data = exp, colour="grey50", size=.5) +
+    geom_vline(xintercept=c(0,1), colour = "grey20", size=0.25) +
+  geom_errorbarh(
+    aes(xmin = pred_ss_lower, xmax=pred_ss_upper, y=Study), 
+    size=0.5, height = 0.5, colour = "grey20", alpha =0.9) +
+  geom_point() +
+  geom_errorbarh(aes(xmin=xmin, xmax=xmax, y=Study), 
+                 data = DontKnow, linetype=2) +
+  geom_point(data = DontKnow, shape='?', size = 3.5)
+
+
+@
+
 \svp{XXX Looking at the predictive value of an inconclusive result led us to the following unexpected (and ugly) realization: Examiners are willing to gamble on an indentification much more than they are willing to gamble on an elimination. This is a clear bias toward the prosecution.}
 \svp{XXX Inconclusives bias}
 
