@@ -208,7 +208,7 @@ In casework ground truth is not known, it therefore does not allow for an assess
 
 \hh{XXX Blind testing - prevent differences in the process due to knowledge that one is being tested.}
 
-\section{Error Rate Calculation}\label{sec:rates}
+\section{Calculating Error Rates}\label{sec:rates}
 
 The need for scientific validation and experimentally-determined error rates has been identified in several reports evaluating the discipline of forensic science in the United States as critical for addressing problems within the field and improving the overall performance of the justice system. 
 National Research Council 2009:
@@ -345,10 +345,14 @@ Note that the definition of blind studies as used above is different from the de
 \item [Study length] Most crime labs are understaffed and maintain a fairly large backlog of cases; as a consequence, examiner time is limited. While examiners should participate in these studies, they must balance the competing demands of a large and consequential workload \svp{and the benefit to FTE community}. As such, studies which require examiners to make a large number of comparisons may be less likely to find sufficient participants to generate an acceptable sample size.
 \end{description}
 
+\svp{Many of these considerations can be boiled down to limiting the examiner's knowledge about the study as much as possible, so that (ideally) the only information provided is the information in each pairwise comparison. 
+Blind studies, for instance, remove the knowledge that evidence is from a designed test and not casework. 
+Open set studies, which are preferable, remove the knowledge an examiner might have about whether a comparison is guaranteed to match one of the provided knowns. 
+Studies with designs that limit the number of comparisons by allowing only a single known source and a single unknown source prevent the examiner from using any sort of deductive reasoning. 
+Even studies which have a single known source and multiple unknown sources provide only limited additional information, and only in the case where two or more of the unknown sources match each other.}
+
 %% Transition to error rates
 Once a study is designed and test samples have been assessed by forensic examiners, error rates can be calculated. \svp{In the next section, we examine what error rates mean and how they are computed in the context of a generic case study. With the notation defined in the generic case study section, we then explore a number of different studies with different designs, assessing which error rates can be calculated and/or estimated, and which cannot due to deficiencies in experimental design.}
-
-
 
 
 \section{Assessment of error rates in case studies}\label{sec:inconclusive}
@@ -542,7 +546,20 @@ However, those probabilities are easily accessible in formal studies or blinded 
 
 \svp{By examining these studies}, we can use existing data to evaluate the conditional probability of same source versus different sources given an expert's testimony directly.
 
+\subsection{An Overview of Study Error Rates}
 
+\svp{We surveyed a number of studies which are commonly cited in Daubert evidence hearings as well as in the literature to validate the process of firearm and toolmark analysis.}
+
+\svp{XXX Good, bad, and ugly study designs, and limits on possible conclusions. Mention of the prosecution bias of many common study designs which only allow for the calculation of the false positive rate.}
+
+\svp{XXX Overall Error Rate Plot and discussion XXX}
+
+\svp{XXX Percent of inconclusives plot and discussion}
+
+\svp{XXX Introduce PPV/NPV as a fix for error rates and inconclusive percentages - easier to understand and use in court}
+
+\svp{XXX Looking at the predictive value of an inconclusive result led us to the following unexpected (and ugly) realization: Examiners are willing to gamble on an indentification much more than they are willing to gamble on an elimination. This is a clear bias toward the prosecution.}
+\svp{XXX Inconclusives bias}
 
 \section{Studies}
 
@@ -551,71 +568,6 @@ Baldwin , Keisler , Lyons \cite{lyons}, Hare, Fadul \cite{fadul}, Brundage-Hamby
 \autoref{fig:cis} shows an overview  of the conditional probability of same source evidence given an examiner's conclusion for five published studies. 
 Probabilities are shown with their respective 95\% (Pearson-Clopper) confidence intervals.  
 In light grey, expected probabilities are shown based on the distribution of same source/different source comparisons and the number of participants in each study.
-
-<<cis, echo=FALSE, fig.width=8, fig.height=4.5, fig.cap="Pearson-Clopper 95\\% confidence intervals for the probability of same source evidence given an examiner's conclusion. Expected values for each of the probabilities as discussed in \\autoref{sec:ideal} are shown as grey targets. Some of the studies do not allow an assessment of all of the predictive values.", out.width=".8\\textwidth">>=
-clopper <- function(alpha, success, trials) {
-  lower <- qbeta(alpha/2, success, trials-success+1)
-  upper <- qbeta(1-alpha/2, success+1, trials-success)
-  c(lower, upper)
-}
-
-library(tidyverse)
-studies <- read.csv("data/studies.csv")
-cis <- studies %>% group_by(Study, Decision) %>% 
-  filter(Type == "Observed") %>%
-  summarize(
-    pred_ss = sum(Number[Ground.truth=="Same Source"])/sum(Number),
-    pred_ss_lower = clopper(0.05, sum(Number[Ground.truth=="Same Source"]), sum(Number))[1],
-    pred_ss_upper = clopper(0.05, sum(Number[Ground.truth=="Same Source"]), sum(Number))[2]
-  )
-
-exp <- studies %>% 
-#  filter(Decision == "Inconclusive") %>%
-  group_by(Study, Decision) %>% 
-  summarize(
-    exp_ss = Number[Type=="Expected"][1] * sum(Number[Type == "Observed"]),
-    exp_ss_lower = clopper(0.05, exp_ss, sum(Number[Type == "Observed"]))[1],
-    exp_ss_upper = clopper(0.05, exp_ss, sum(Number[Type == "Observed"]))[2],
-    exp_prob = exp_ss/sum(Number[Type == "Observed"])
-  ) %>% 
-  ungroup(Study) %>%
-  mutate(
-    Study = factor(Study, 
-                    levels=c("Baldwin", "Keisler", "Duez", "Hamby", "Lyons"))
-  )
-  
-
-DontKnow <- data.frame(pred_ss = 0.5, 
-                                   xmin=c(0,0,0,0), 
-                                   xmax=c(1,1,1,1), 
-                                   Study = c("Lyons", "Hamby", "Lyons", "Hamby"), 
-                                   Decision=rep(c("Inconclusive", "Elimination"), each=2))
-cis %>% 
-  ungroup() %>%
-  mutate(
-    Decision = factor(Decision, levels=c("Identification", "Inconclusive", "Elimination"))
-  ) %>%
-  ggplot(aes(x = pred_ss, y = Study)) +
-  facet_grid(Decision~.) +
-  xlim(c(0,1)) +
-  xlab("Probability for same source given examiner's decision") +
-  theme_bw() +
-#  geom_point(aes(x = exp_prob, y = Study), data = exp, colour="red", size=4.5) +
-#  geom_point(aes(x = exp_prob, y = Study), data = exp, colour="white", size=3.5) +
-  geom_point(aes(x = exp_prob, y = Study), data = exp, colour="grey50", size=2.5) +
-  geom_point(aes(x = exp_prob, y = Study), data = exp, colour="white", size = 1.5) +
-  geom_point(aes(x = exp_prob, y = Study), data = exp, colour="grey50", size=.5) +
-    geom_vline(xintercept=c(0,1), colour = "grey20", size=0.25) +
-  geom_errorbarh(
-    aes(xmin = pred_ss_lower, xmax=pred_ss_upper, y=Study), 
-    size=0.5, height = 0.5, colour = "grey20", alpha =0.9) +
-  geom_point() +
-  geom_errorbarh(aes(xmin=xmin, xmax=xmax, y=Study), 
-                 data = DontKnow, linetype=2) +
-  geom_point(data = DontKnow, shape='?', size = 3.5)
-
-
-@
 
 
 \subsection{Baldwin Study \cite{Baldwin:2014bb}}
