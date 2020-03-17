@@ -727,13 +727,15 @@ errors %>% gather(Type, Number, AFTE, Process) %>%
     err_upper = clopper(0.05, Number, Comparisons)[2]*100  
   ) %>%
   ggplot(aes(x = Number/Comparisons*100, y = Study)) +
-  geom_point(aes(shape=Type, colour = Type)) +
-  facet_grid(.~Error, scale = "free_x") +
+  geom_point(aes(shape=Type, colour = Type, y = as.numeric(Study)+0.3*(as.numeric(Type)-1.5)) ) +
+  facet_grid(.~Error, scale = "free_x") + #, space="free") +
   theme_bw() +
   theme(legend.position = "bottom") +
-  ylab("Error Percentage") +
+  xlab("Error Percentages") +
   xlim(c(0, NA)) +
-  geom_errorbarh(aes(xmin=err_lower, xmax=err_upper, colour = Type))
+  geom_errorbarh(aes(xmin=err_lower, xmax=err_upper, colour = Type, y=as.numeric(Study)+0.3*(as.numeric(Type)-1.5)),
+                 size=0.5, height = 0.3,  alpha =0.9) +
+  scale_y_continuous(breaks=1:5, labels=levels(errors$Study), minor_breaks = NULL)
 @
 
 \section{Studies}
