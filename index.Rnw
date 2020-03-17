@@ -685,6 +685,57 @@ inc %>%
 \svp{XXX Looking at the predictive value of an inconclusive result led us to the following unexpected (and ugly) realization: Examiners are willing to gamble on an indentification much more than they are willing to gamble on an elimination. This is a clear bias toward the prosecution.}
 \svp{XXX Inconclusives bias}
 
+
+<<errors, echo=FALSE, fig.width=8, fig.height=4.5,fig.cap="Overall error rates.", out.width=".8\\textwidth">>=
+errors <- studies %>% 
+  mutate(
+    AFTE = (Ground.truth=="Same Source" & Decision != "Elimination") | 
+      (Ground.truth=="Different Source" & Decision != "Identification"),
+    Process = ((Ground.truth=="Same Source" & Decision == "Identification") | 
+      (Ground.truth=="Different Source" & Decision == "Elimination"))
+         ) %>%
+  group_by(Study, Ground.truth) %>% 
+  filter(Type == "Observed") %>%
+  summarize(
+    Comparisons = sum(Number),
+    AFTE = sum(Number[!AFTE]),
+    Process = sum(Number[!Process])
+  ) %>% 
+  mutate(
+    Error = c("Missed Elimination", "Missed Identification")[as.numeric(Ground.truth=="Same Source")+1]
+  )
+
+errors %>% gather(Type, Number, AFTE, Process) %>% 
+  mutate(Type = factor(Type, levels=c("Process", "AFTE"))) %>%
+  ggplot(aes(weight = Number/Comparisons*100, x = Study)) +
+  geom_bar(aes(fill=Type), colour = "grey20") +
+  facet_grid(.~Error, scale = "free_x") +
+  theme_bw() +
+  theme(legend.position = "bottom") +
+  ylab("Error Percentage") +
+  coord_flip() + 
+  scale_fill_manual(values=c("white", "grey20"))
+@
+
+
+<<errors2, echo=FALSE, fig.width=8, fig.height=4.5,fig.cap="Overall error rates. Approach 2. Needs some work, but I like it better than the bars.", out.width=".8\\textwidth">>=
+errors %>% gather(Type, Number, AFTE, Process) %>% 
+  mutate(Type = factor(Type, levels=c("AFTE", "Process"))) %>%
+  group_by(Type, Study, Error) %>%
+  mutate(
+    err_lower = clopper(0.05, Number, Comparisons)[1]*100,
+    err_upper = clopper(0.05, Number, Comparisons)[2]*100  
+  ) %>%
+  ggplot(aes(x = Number/Comparisons*100, y = Study)) +
+  geom_point(aes(shape=Type, colour = Type)) +
+  facet_grid(.~Error, scale = "free_x") +
+  theme_bw() +
+  theme(legend.position = "bottom") +
+  ylab("Error Percentage") +
+  xlim(c(0, NA)) +
+  geom_errorbarh(aes(xmin=err_lower, xmax=err_upper, colour = Type))
+@
+
 \section{Studies}
 
 Baldwin , Keisler , Lyons \cite{lyons}, Hare, Fadul \cite{fadul}, Brundage-Hamby, Duez , Chumbley - can't find any examiner evaluations for Chumbley
