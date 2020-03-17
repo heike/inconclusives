@@ -718,6 +718,24 @@ inc %>%
 
 
 <<errors, echo=FALSE, fig.width=8, fig.height=4.5,fig.cap="Percentages of missed eliminations and missed identifications by study. 95\\% Pearson-Clopper confidence intervals are drawn around the error estimates.", out.width=".8\\textwidth">>=
+errors <- studies %>% 
+  mutate(
+    AFTE = (Ground.truth=="Same Source" & Decision != "Elimination") | 
+      (Ground.truth=="Different Source" & Decision != "Identification"),
+    Process = ((Ground.truth=="Same Source" & Decision == "Identification") | 
+      (Ground.truth=="Different Source" & Decision == "Elimination"))
+         ) %>%
+  group_by(Study, Ground.truth) %>% 
+  filter(Type == "Observed") %>%
+  summarize(
+    Comparisons = sum(Number),
+    AFTE = sum(Number[!AFTE]),
+    Process = sum(Number[!Process])
+  ) %>% 
+  mutate(
+    Error = c("Missed Elimination", "Missed Identification")[as.numeric(Ground.truth=="Same Source")+1]
+  )
+
 errors %>% gather(Type, Number, AFTE, Process) %>% 
   mutate(Type = factor(Type, levels=c("AFTE", "Process"))) %>%
   group_by(Type, Study, Error) %>%
@@ -735,7 +753,7 @@ errors %>% gather(Type, Number, AFTE, Process) %>%
   geom_errorbarh(aes(xmin=err_lower, xmax=err_upper, colour = Type, y=as.numeric(Study)+0.3*(as.numeric(Type)-1.5)),
                  size=0.5, height = 0.3,  alpha =0.9) +
   scale_y_continuous(breaks=1:5, labels=levels(errors$Study), minor_breaks = NULL) +
-  scale_colour_brewer(palette="Dark2") +
+  scale_colour_brewer(palette="Dark2") 
   
 @
 
