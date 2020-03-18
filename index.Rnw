@@ -569,10 +569,12 @@ In what is almost certainly a coincidence, all three studies are also limited to
 
 \svp{
 There are many other studies, such as \cite{lyons}, \cite{Hamby:2018hu} (and the similarly designed \cite{fadul}), and \cite{bunch2003comprehensive}, which use sub-optimal designs. 
-
+}
+\svp{
 Of these, the study by \citeauthor{bunch2003comprehensive} is perhaps the least flawed: while it has internal dependencies due to the inclusion of multiple knowns, and as a result, the number of same-source and different-source comparisons cannot be fully determined, it does have one feature not found in even the well designed studies.
 Specifically, \citeauthor{bunch2003comprehensive} varies the composition of the test kits, so that no kit had the same composition in terms of same and different-source comparisons. This ensures that even if examiners discuss the tests, they cannot gain any additional information from such discussions. 
-
+}
+\svp{
 The primary problem with \cite{bunch2003comprehensive} is that it includes multiple known exemplars. 
 As a result, it is possible to use logical reasoning to reduce the set of comparisons.
 For example, if an examiner is comparing unknown source A to known exemplars from sources 1 to 10, and A matches exemplars from source 2, it is not necessary to make comparisons to sources 3 - 10. 
@@ -580,23 +582,28 @@ This design ensures that it is not possible to count up the total number of diff
 Any study which includes multiple known sources in a single comparison set will have this limitation. 
 In \autoref{sec:supplement}, we use statistical simulation to explore the likely number of different-source comparisons performed in \cite{bunch2003comprehensive}; this assessment includes both the effect of deductive reasoning and the sampling procedure used to create the test kits. 
 We also perform a similar assessment for \cite{Hamby:2018hu}; the design of this study does not include the variability introduced by the test kit assembly procedure used in \cite{bunch2003comprehensive}. 
-
+}
+\svp{
 The design used in \cite{Hamby:2018hu} was originally found in \cite{brundagethesis} and dates back to \citeyear{brundagethesis}. 
 As such, it was a groundbreaking study, and its longevity makes it the most extensive study in forensic error rates in firearms (and possibly across pattern disciplines). 
 Unfortunately, the study is flawed in two major respects: it uses multiple known sources, and it is a closed set study. 
 The multiple known source problem was described above, but this problem is magnified when combined with the closed-set study design. 
-
+}
+\svp{
 In a closed-set design, the structure of the study helps examiners make the correct conclusion: if unknown source A is most similar to exemplars from source 8, then after the 10 comparisons are done, the examiner would rationally make an identification for source 8. 
 In an open-set study, the examiner might rate the same pairwise comparison as inconclusive, because there is no additional information suggesting that the unknown must match one of the provided knowns.
 In both the multiple known and closed set study designs, the use of deductive reasoning artificially reduces the error rates calculated using the study results.
-
+}
+\svp{
 It might be possible to modify the answer sheet so that examiners record each pairwise comparison. 
 Using this mechanism, it might be possible to at least assess the number of different-source comparisons performed. 
 Currently, studies patterned after \cite{brundagethesis,Hamby:2018hu} use an answer sheet where examiners are only asked to report which of the 10 knowns the questioned bullet matches. 
 Because the study does not ask examiners to report eliminations, there is no way to assess elimination error rates or the overall error rate consisting of both missed identifications and false eliminations.
-
+}
+\svp{
 In addition to the design issues which plague the closed-set studies, the execution of some of these studies makes the data even less reliable. Methodological issues, such as those described in \cite{lyons}, where test sheets were returned to participants who misunderstood instructions, cast even more doubt on the utility of error rates derived from such studies and their ability to generalize to casework. 
-
+}
+\svp{
 While studies which use multiple known sources have been conducted for more than 25 years, such studies are inherently flawed. 
 Multiple-known studies are inherently biased: they provide evidence that examiners can make identifications accurately (and do not make many false eliminations), but do not quantify the probability that examiners make eliminations correctly. 
 As a result, when error rates derived from these studies are cited, they do not include errors which result from different source comparisons, which prevents evaluation of examiners on their ability to distinguish between different sources.
