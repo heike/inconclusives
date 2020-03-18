@@ -424,7 +424,7 @@ Different source & $d/D$ & $e/D$ & $f/D$ & $D/N$\\\hline
 \multicolumn{1}{Y}{Conclusion probability} & $(a + d)/N$ & $(b + e)/N$ & \multicolumn{1}{r}{$(c + f)/N$} & \multicolumn{1}{Y}{1.00}\\\hline\hline
 \end{tabularx}
 \end{table}
-A google sheets workbook for performing these calculations is available at \url{http://bit.ly/FTE-error-rate}.
+A google sheets workbook for performing these calculations is available at \url{http://bit.ly/FTE-error-rate-worksheet}.
 
 Now that we have defined several different metrics for evaluating the errors made in a study, we will consider the role of inconclusives in pattern evidence examination. 
 
@@ -564,7 +564,7 @@ Shortly after the report was issued, two more studies were published which also 
 All three ``good" studies used slightly different designs, but maintained certain essentials: each kit consisted of multiple comparisons composed of one or more samples from exactly one known source and one unknown source.
 These designs substantially reduce or eliminate the internal dependencies which provide ``hints" to examiners by ensuring that each comparison of samples is considered independently.
 In addition, studies with similar designs ensure that it is possible to exactly enumerate the number of same-source and different-source comparisons\footnote{At least, it is possible with the additional assumption that a comparison between a multiple items from the same source and an unknown should count as a single comparison.}.
-In what is likely a coincidence, all three studies are also limited to cartridge case comparisons.
+In what is almost certainly a coincidence, all three studies are also limited to cartridge case comparisons.
 }
 
 \svp{
