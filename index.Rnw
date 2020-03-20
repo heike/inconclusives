@@ -251,19 +251,18 @@ The accuracy of a classification method is  often expressed in the form of \emph
 
 %\hh{When assessing the accuracy of a classification \emph{success rates} and \emph{error rates} are of interest, i.e.\ the interest shifts from the classification to the numerical quantity indicating how often the process produces correct and incorrect results.}
 
-The most common way to assess the accuracy of a classification method is \hh{to calculate its \emph{sensitivity} and \emph{specificity}. 
+The most common way to assess the accuracy of a classification method is to calculate its \emph{sensitivity} and \emph{specificity}. 
 Sensitivity, also called the true positive rate (TPR), is an examiner's ability to make an identification when examining same source evidence (SS). 
 Sensitivity can be expressed as the conditional probability $P (\text{Identification} \mid SS)$. 
-Conversely, specificity, or the true negative rate (TNR), is an examiner's ability to make an elimination given evidence from different sources (DS), $P (\text{Elimination} \mid DS)$.} 
-\hh{Mathematically, we calculate the true negative rate as the conditional probability of the examiner making an elimination \emph{given} the pair under examination is from different sources. 
-A conditional probability} of an event \emph{given} another event is the probability that the two events both occur, divided by the probability of the second event, \hh{specifically for the true negative rate}:
+Conversely, specificity, or the true negative rate (TNR), is an examiner's ability to make an elimination given evidence from different sources (DS), $P (\text{Elimination} \mid DS)$. 
+Mathematically, we calculate the true negative rate as the conditional probability of the examiner making an elimination \emph{given} the pair under examination is from different sources. 
+A conditional probability of an event \emph{given} another event is the probability that the two events both occur, divided by the probability of the second event, specifically for the true negative rate:
 $$ TNR = P(\text{Elimination} | DS) = \frac{P(\text{Elimination and } DS)}{P(DS)}.$$
 
 Another common method of assessing accuracy of a classification method is to calculate the false positive rate (FPR) and the false negative rate (FNR). The \emph{false positive rate} is the probability that an examiner makes an identification from evidence which is from different sources(DS), $FPR = P(\text{Identification} | DS)$.
 
 The \emph{false negative rate} is the probability that an examiner makes an elimination from evidence which originates from the same source (SS), $FNR = P(\text{Elimination} | SS)$. 
-In all  of these assessments, the  rates are calculated by conditioning on the origin of the evidence; this process is shown graphically in \autoref{fig:FPR-specific-tree} using a decision tree to describe the comparisons which can be made conditioned on ground truth. %\hh{XXX The figure includes inconclusives - which we haven't talked about at this point. } 
-
+In all  of these assessments, the  rates are calculated by conditioning on the origin of the evidence; this process is shown graphically in \autoref{fig:FPR-specific-tree} using a decision tree to describe the comparisons which can be made conditioned on ground truth. 
 
 \begin{figure}
 \centering
