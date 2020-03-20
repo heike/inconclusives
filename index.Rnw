@@ -229,7 +229,10 @@ Unfortunately, the methods used to establish error rates experimentally and the 
 In part, this variability is due to the mismatch between the evidence evaluation standards used by different forensic disciplines and the actual origin of the evidence. 
 For instance, the AFTE theory of identification has four possible conclusions; three of which are typically used in comparisons\footnote{The fourth category, unsuitable for examination, is one which should be used when evaluating single pieces of recovered evidence; it does not result from the comparison of an unknown source to a known source.} 
 As there are more possible classifications than source categories (same or different), it is understandable that the treatment of inconclusives when calculating error rates is the subject of some debate. 
-For instance, \citet{Dror:2018fp} suggests treating inconclusive results as an examiner's conscious decision to not decide on an identification or elimination. \hh{XXX what is the consequence of that? }
+For instance, \citet{Dror:2018fp} suggests treating inconclusive results as equivalent to a ``decision with certainty that the quantity and quality of information are not sufficient to draw any conclusion regarding the source". 
+%an examiner's conscious decision to not decide on an identification or elimination. They explicitly say that inconclusives are not a decision not to decide in the section "Four Issues with Inconclusive Decisions"
+\svp{Using this framework, an examiner's default decision is inconclusive, which can be altered to identification or elimination given sufficient evidence in either direction.} %\hh{XXX what is the consequence of that? }
+\svp{This approach treats inconclusives as neither errors nor correct decisions, but implies that in the presence of a certain amount of data, an inconclusive is not an allowable decision and the examiner must make an identification or elimination.}
 This view has drawn some criticism \citep{Biedermann:2018hr,biedermannAreInconclusiveDecisions2019}. 
 
 \hh{XXX should we cite a paper for each one of these decisions?}
