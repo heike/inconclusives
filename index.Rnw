@@ -235,7 +235,7 @@ For instance, \citet{Dror:2018fp} suggests treating inconclusive results as equi
 \svp{This approach treats inconclusives as neither errors nor correct decisions, but implies that in the presence of a certain amount of data, an inconclusive is not an allowable decision and the examiner must make an identification or elimination.}
 This view has drawn some criticism \citep{Biedermann:2018hr,biedermannAreInconclusiveDecisions2019}. 
 
-\hh{XXX should we cite a paper for each one of these decisions?}
+\hh{XXX should we cite a paper for each one of these decisions?}\svp{I don't know if we could find a paper that does each of these. I'm not aware of any that actually use the "incorrect" option, and I don't think I've seen even the conditional option used.}
 Inconclusives can be excluded from result calculations, included as correct results, or included as incorrect results; each of these decisions has an impact on the interpretation of the resulting error rates.
 In this paper, we discuss the treatment of inconclusives in the assessment of error rates from a statistical point of view, % We believe that this -- rather than further dividing the different opinions -- provides a unifying framework.
 examining previous error rate studies to assess the technical accuracy and practical utility of the Overall Error Rates. 
