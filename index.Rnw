@@ -273,14 +273,14 @@ In all  of these assessments, the  rates are calculated by conditioning on the o
 \subsection{Decision-specific assessment}
 
 %The use of false positive and false negative rates to characterize a classification task is extremely common, however, there are alternate ways to evaluate a classification method.
-An alternate way to evaluate a classification method is to assess 
+An alternate way to evaluate a classification method is to assess \svp{the probability that given an examiner's decision, a certain state of ground truth exists.} \svp{XXX this is awkward... fix}
 % In medicine, in particular, it is common to evaluate tests based on the positive and negative predictive value. 
 The \emph{positive predictive value} (PPV) is the probability that, if an examiner makes an identification, the evidence is from the same source, that is, $P(SS | \text{Identification})$. 
 Its complement, the \emph{false discovery rate} (FDR), is the probability that if an examiner makes an identification, the evidence is from different sources.
 
 The \emph{negative predictive value} (NPV) is the probability that, if an examiner makes an elimination, the evidence is from different sources, or $P(DS | \text{ Elimination})$. 
-Its complement, the \emph{false omission rate} (FOR) is the probability that, if an examiner makes an elimination, the evidence is actually from the same source\footnote{
-In \citet{songEstimatingErrorRates2018}, the FDR is referred to as the false identification error rate, and the FOR is called the false exclusion error rate.}.
+Its complement, the \emph{false omission rate} (FOR) is the probability that, if an examiner makes an elimination, the evidence is actually from the same source.
+\footnote{In \citet{songEstimatingErrorRates2018}, the FDR is referred to as the false identification error rate, and the FOR is called the false exclusion error rate.}
 As before, we can map out the conditional hierarchy using a decision tree, shown in \autoref{fig:PPV-specific-tree}. 
 
 \begin{figure}
