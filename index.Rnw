@@ -690,7 +690,7 @@ cis %>%
 \hh{XXX not sure where this figure should go - plopping it in here for now. }
 \hh{\autoref{fig:inconclusives} are too high for different source comparisons.}
 
-<<inconclusives, echo=FALSE, fig.width=8, fig.height=4.5,fig.cap="Percentage of inconlusive decisions by same-source/different source comparisons. The percentage of inconclusives for same source comparisons is generally low (with a 95\\% confidence interval well below 5\\%). Different source comparisons end up in inconclusive results significantly more often. The Baldwin study has a particularly high percentage of inconclusive results", out.width=".8\\textwidth">>=
+<<inconclusives, echo=FALSE, fig.width=8, fig.height=3.75,fig.cap="Percentage of inconlusive decisions by same-source/different source comparisons. The percentage of inconclusives for same source comparisons is generally low (with a 95\\% confidence interval well below 5\\%). Different source comparisons end up in inconclusive results significantly more often. The Baldwin study has a particularly high percentage of inconclusive results", out.width=".8\\textwidth">>=
 
 inc <- studies %>% group_by(Study, Ground.truth) %>% 
   filter(Type == "Observed") %>%
@@ -727,7 +727,7 @@ inc %>%
 
 
 
-<<errors, echo=FALSE, fig.width=8, fig.height=4.5,fig.cap="Percentages of missed eliminations and missed identifications by study. 95\\% Pearson-Clopper confidence intervals are drawn around the error estimates.", out.width=".8\\textwidth">>=
+<<errors, echo=FALSE, fig.width=8, fig.height=3,fig.cap="Percentages of missed eliminations and missed identifications by study. 95\\% Pearson-Clopper confidence intervals are drawn around the error estimates.", out.width=".8\\textwidth">>=
 errors <- studies %>% 
   mutate(
     AFTE = (Ground.truth=="Same Source" & Decision != "Elimination") | 
@@ -938,7 +938,7 @@ Open set & 5 & 10 & 218 examiners\\
 \multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Total\\\hline
 Same Source & 1075  & 11 & 4 & 1090\\
 Different source & 22 & 735+2\footnotemark & 1421 & 2180\\\hline
-\multicolumn{1}{Y}{Concl. Total} & 1097 & 748 & \multicolumn{1}{r}{1432} & \multicolumn{1}{Y}{3270}\\\hline\hline
+\multicolumn{1}{Y}{Conclusion Total} & 1097 & 748 & \multicolumn{1}{r}{1432} & \multicolumn{1}{Y}{3270}\\\hline\hline
 
 \multicolumn{5}{c}{}\\
 
@@ -987,7 +987,7 @@ Open set & 12 & 8 & 126 examiners\\
 \multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Total\\\hline
 Same source & 1508 & 4 & 0 & 1512 \\
 Different source & 0 & 203 & 805 & 1008 \\\hline
-\multicolumn{1}{Y}{Concl. Total} & 1508 & 207 & \multicolumn{1}{r}{805} & \multicolumn{1}{Y}{2520}\\\hline\hline
+\multicolumn{1}{Y}{Conclusion Total} & 1508 & 207 & \multicolumn{1}{r}{805} & \multicolumn{1}{Y}{2520}\\\hline\hline
 
 \multicolumn{5}{c}{}\\
 
@@ -1081,6 +1081,7 @@ The study was originally reported on by Brundage in 1998 \cite{brundage}. Update
 The design of the Brundage-Hamby is well known in the forensics community and has  been copied in \citet{fadul} for a study of cartridge cases of the same firearms.
 
 Results reported in the 2019 paper are shown in \autoref{tab:hamby-summary}.
+
 \noindent\begin{fmpage}{\textwidth}\centering
 \captionof{table}{Evaluations, conditional error rates, and overall error rates from the combined Brundage-Hamby studies. Note the focus on identifications.}\label{tab:hamby-summary}
 {\large\bf A Worldwide Study of Bullets Fired From 10 Consecutively Rifled 9MM RUGER Pistol Barrels - Analysis of Examiner Error Rate}
@@ -1095,7 +1096,7 @@ Closed set & 10 & 15 & 507 examiners\\
 \multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Total\\\hline
 Same Source & 10447 & 8 & 0 & 10455 \\
 Different source & 0 & ? & ? & 47047.5\footnotemark \\\hline
-\multicolumn{1}{Y}{Concl. Total} & 10447 & ? & \multicolumn{1}{r}{?} & \multicolumn{1}{Y}{57502.5}\\\hline\hline
+\multicolumn{1}{Y}{Conclusion Total} & 10447 & ? & \multicolumn{1}{r}{?} & \multicolumn{1}{Y}{57502.5}\\\hline\hline
 
 \multicolumn{5}{c}{}\\
 
@@ -1174,7 +1175,7 @@ Open set & variable & variable & 8 FBI examiners\\
 \multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Total\\\hline
 Same Source & 70 & 0 & 0 & 70 \\
 Diff Source & 0 & 172 & 118 & 290 \\\hline
-\multicolumn{1}{Y}{Concl. Total} & 70 & 172 & \multicolumn{1}{r}{ 118} & \multicolumn{1}{Y}{}\\\hline\hline
+\multicolumn{1}{Y}{Conclusion Total} & 70 & 172 & \multicolumn{1}{r}{ 118} & \multicolumn{1}{Y}{}\\\hline\hline
 
 \multicolumn{5}{c}{}\\
 
@@ -1217,7 +1218,7 @@ Open set & variable & variable & 8 FBI examiners\\
 \multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Total\\\hline
 Same Source & 19.76 (17, 22) & 0 & 0 & 19.76 (17, 22) \\
 Diff Source & 0 & ?? & ?? & 290 \\\hline
-\multicolumn{1}{Y}{Concl. Total} & 70 & 172 & \multicolumn{1}{r}{ 118} & \multicolumn{1}{Y}{}\\\hline\hline
+\multicolumn{1}{Y}{Conclusion Total} & 70 & 172 & \multicolumn{1}{r}{ 118} & \multicolumn{1}{Y}{}\\\hline\hline
 \multicolumn{5}{c}{}\\
 \multicolumn{5}{c}{\bf Independent Comparisons: Conclusion-Specific Probabilities}\\
 \multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Probability\\\hline
@@ -1263,7 +1264,7 @@ Closed set & 10 & 10~or~12 & 15 examiners\\
 \multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Total\\\hline
 Same Source & 174\footnotemark &  1 & 3 & 178 \\
 Different source & 3 & ? & ? & ? \\\hline
-\multicolumn{1}{Y}{Concl. Total} & 177 & ? & \multicolumn{1}{r}{?} & \multicolumn{1}{Y}{?}\\\hline\hline
+\multicolumn{1}{Y}{Conclusion Total} & 177 & ? & \multicolumn{1}{r}{?} & \multicolumn{1}{Y}{?}\\\hline\hline
 
 \multicolumn{5}{c}{}\\
 
