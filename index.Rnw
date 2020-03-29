@@ -1146,7 +1146,7 @@ III & 7 & 1.0000 & 2 & 360\\ \hline
 
 \autoref{fig:histogram} shows the histogram of the total number of different source comparisons before and identification is made.
 
-<<histogram, fig.width=8, fig.height = 4, outwidth=".5\\textwidth", warning=FALSE, message=FALSE, fig.caption="Histogram of the total number of different source comparisons before an identification is made.", fig.label="fig:histogram">>=
+<<histogram, fig.width=6, fig.height = 3, outwidth=".5\\textwidth", warning=FALSE, message=FALSE, fig.caption="Histogram of the total number of different source comparisons before an identification is made.", fig.label="fig:histogram">>=
 library(tidyverse)
 sets <- read.csv("data/allpossible-hambysets.csv")
 sets$ds <- rowSums(sets-1)
