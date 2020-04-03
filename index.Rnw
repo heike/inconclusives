@@ -211,11 +211,11 @@ In casework ground truth is not known, it therefore does not allow for an assess
 \section{Calculating Error Rates}\label{sec:rates}
 
 The need for scientific validation and experimentally-determined error rates has been identified in several reports evaluating the discipline of forensic science in the United States as critical for addressing problems within the field and improving the overall performance of the justice system. 
-National Research Council 2009:
+According to the \citet{nrc:2009}:
 
 \begin{displayquote} much forensic evidence—including, for example, bitemarks and firearm and toolmark identifications—is introduced in criminal trials without any meaningful scientific validation, determination of error rates, or reliability testing to explain the limits of the discipline.\end{displayquote}
 
-PCAST (2015) identified two important gaps:
+The \citet{pcast2016} identified two important gaps:
 
 \begin{displayquote} (1) the need for clarity on the scientific meaning of "reliable principles and methods" and "scientific validity" in the context of certain forensic disciplines, and (2) the need to evaluate specific forensic methods to determine whether they have been scientifically established to be valid and reliable.\end{displayquote}
 
