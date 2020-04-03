@@ -1138,9 +1138,9 @@ Using this strategy, a total of 1452 different sets can be constructed. These se
 \begin{tabular}{|r|ccc|l|} \hline
  &  one questioned & two questioned & three questioned  & number of \\
 \# barrels & bullet matches & bullets match & bullets match & possibilities\\ \hline
-I & 5 & 5 & 0.0000 & 252 = ${10 \choose 5}{5 \choose 5}$\\
-II & 6 & 3 & 1.0000 & 840\\
-III & 7 & 1.0000 & 2 & 360\\ \hline
+I & 5 & 5 & 0 & 252 = ${10 \choose 5}{5 \choose 5}$\\
+II & 6 & 3 & 1 & 840\\
+III & 7 & 1 & 2 & 360\\ \hline
 \end{tabular}
 \end{table}
 
@@ -1205,7 +1205,7 @@ Opt. & \multicolumn{1}{c}{Meaning} & Missed Identification & \multicolumn{1}{r}{
 \subsubsection{Results with Imputation}
 
 \noindent\begin{fmpage}{\textwidth}\centering
-\captionof{table}{Results and summary tables for the Bunch and Murphy study, with only independent pairwise comparisons included. An independent comparison is one in which the examiner has no relevant prior information about either of the cartridges. These values were determined using simulation, using the sampling method described in the study, and evaluating comparisons sequentially to determine if they are independent of prior comparisons or if they are confirmatory. Results are derived from the subset of simulations which matched the reported values in the paper (70 total same source conclusions, with 290 total different source conclusions). 95\% bootstrap intervals are provided for quantities which can be estimated via simulation; quantities that cannot be estimated via simulation are marked as ??.}\label{tab:bunch-indep}
+\captionof{table}{Results and summary tables for the Bunch and Murphy study, with only independent pairwise comparisons included. An independent comparison is one in which the examiner has no relevant prior information about either of the cartridges. These values were determined using simulation, using the sampling method described in the study, and evaluating comparisons sequentially to determine if they are independent of prior comparisons or if they are confirmatory. Results are derived from the subset of simulations which matched the reported values in the paper (70 total same source conclusions, with 290 total different source conclusions). 95\% bootstrap intervals are provided for quantities  estimated via simulation; quantities that cannot be estimated via simulation are marked as ??.}\label{tab:bunch-indep}
 {\large\bf A Comprehensive Validity Study for the Forensic Examination of Cartridge Cases}\emph{\citeauthor{bunch2003comprehensive} (\citeyear{bunch2003comprehensive})}\\
 \begin{tabularx}{\textwidth}{XrrX}\hline
 \multirow{2}{*}{\bf Study Type} & \multicolumn{2}{c}{\bf Test Set} & \multirow{2}{*}{\bf Participants}\\
@@ -1216,21 +1216,21 @@ Open set & variable & variable & 8 FBI examiners\\
 \multicolumn{5}{c}{\bf Independent Comparisons}\\
 \multicolumn{5}{c}{Mean (95\% CI)}\\
 \multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Total\\\hline
-Same Source & 19.76 (17, 22) & 0 & 0 & 19.76 (17, 22) \\
+Same Source & 19.76 [17, 22] & 0 & 0 & 19.76 [17, 22] \\
 Diff Source & 0 & ?? & ?? & 290 \\\hline
 \multicolumn{1}{Y}{Conclusion Total} & 70 & 172 & \multicolumn{1}{r}{ 118} & \multicolumn{1}{Y}{}\\\hline\hline
 \multicolumn{5}{c}{}\\
 \multicolumn{5}{c}{\bf Independent Comparisons: Conclusion-Specific Probabilities}\\
 \multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Probability\\\hline
-Same source & 1 & 0 & 0 & 0.1109 (0.0256, 0.2381)\\
-Diff source & 0 & 1 & 1 &  0.8891 (0.7619, 0.9744)\\\hline
-\multicolumn{1}{Y}{Conclusion Probability} & 0.2414 & 0.5931 & \multicolumn{1}{r}{0.4059} & \multicolumn{1}{Y}{}\\\hline\hline
+Same source & 1 & 0 & 0 & 0.1109 [0.0256, 0.2381]\\
+Diff source & 0 & 1 & 1 & 0.8891 [0.7619, 0.9744]\\\hline
+            \multicolumn{1}{Y}{Conclusion Probability} & 0.2414 & 0.5931 & \multicolumn{1}{r}{0.4059} & \multicolumn{1}{Y}{}\\\hline\hline
 
 \multicolumn{5}{c}{}\\
 \multicolumn{5}{c}{\bf Independent Comparisons: Source-Specific Probabilities}\\
 \multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Probability\\\hline
-Same source & 1.0000 & 0.0000 & 0.0000 & 0.1109 (0.0256, 0.2381)\\
-Diff source & 0.0000 & ?? & ?? & 0.8891 (0.7619, 0.9744)\\\hline
+Same source & 1.0000 & 0.0000 & 0.0000 & 0.1109 [0.0256, 0.2381]\\
+Diff source & 0.0000 & ?? & ?? & 0.8891 [0.7619, 0.9744]\\\hline
 \multicolumn{1}{Y}{Conclusion Probability} & 0.2414 & 0.5931 & \multicolumn{1}{r}{0.4059} & \multicolumn{1}{Y}{}\\\hline\hline
 \end{tabularx}
 
