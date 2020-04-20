@@ -549,6 +549,36 @@ However, those probabilities are easily accessible in formal studies or blinded 
 
 \svp{By examining these studies}, we can use existing data to evaluate the conditional probability of same source versus different sources given an expert's testimony directly.
 
+
+
+
+
+
+
+\section{Studies}
+
+\hh{
+The structure of this section is supposed to mirror the theoretical introduction of different error rates and other aspects of faults in the identification process.
+
+\begin{enumerate}
+\item Description of studies
+\item How do we calculate error rates in practice and problems related to that that prevent us from having actual numbers in some studies and simulation approaches
+\item source-specific error rates
+\item conclusion-specific error rates
+\item inconclusives
+\end{enumerate}
+XXX should we move the individual discussion points for studies into the overall discussion or weave the weaknesses of each study into our assessment here?
+}
+
+
+\subsection{Overview and description of studies}
+
+\hh{Which studies are included and why?}
+
+Baldwin , Keisler , Lyons \cite{lyons}, Hare, Fadul \cite{fadul}, Brundage-Hamby, Duez , Chumbley - can't find any examiner evaluations for Chumbley
+\hh{XXX except for Fadul we are discussing all of the above studies. Fadul should be included still. Probably in the discussion of Brundage \& Hamby.}
+
+
 \subsection{An Overview of Study Error Rates}
 
 \svp{ 
@@ -617,9 +647,58 @@ That is, the fundamental structure of these studies only provides information ab
 
 \svp{XXX Overall Error Rate Plot and discussion XXX}
 
+\autoref{fig:errors} shows the overall error rates for all studies
+
+<<errors, echo=FALSE, fig.width=8, fig.height=3,fig.cap="Percentages of missed eliminations and missed identifications by study. 95\\% Pearson-Clopper confidence intervals are drawn around the error estimates.", out.width=".8\\textwidth">>=
+errors <- studies %>% 
+  mutate(
+    AFTE = (Ground.truth=="Same Source" & Decision != "Elimination") | 
+      (Ground.truth=="Different Source" & Decision != "Identification"),
+    Process = ((Ground.truth=="Same Source" & Decision == "Identification") | 
+      (Ground.truth=="Different Source" & Decision == "Elimination"))
+         ) %>%
+  group_by(Study, Ground.truth) %>% 
+  filter(Type == "Observed") %>%
+  summarize(
+    Comparisons = sum(Number),
+    AFTE = sum(Number[!AFTE]),
+    Process = sum(Number[!Process])
+  ) %>% 
+  mutate(
+    Error = c("Missed Elimination", "Missed Identification")[as.numeric(Ground.truth=="Same Source")+1]
+  )
+
+errors %>% gather(Type, Number, AFTE, Process) %>% 
+  mutate(Type = factor(Type, levels=c("AFTE", "Process"))) %>%
+  group_by(Type, Study, Error) %>%
+  mutate(
+    err_lower = clopper(0.05, Number, Comparisons)[1]*100,
+    err_upper = clopper(0.05, Number, Comparisons)[2]*100  
+  ) %>%
+  ggplot(aes(x = Number/Comparisons*100, y = Study)) +
+  geom_point(aes(shape=Type, colour = Type, y = as.numeric(Study)+0.3*(as.numeric(Type)-1.5)) ) +
+  facet_grid(.~Error, scale = "free_x") + #, space="free") +
+  theme_bw() +
+  theme(legend.position = "bottom") +
+  xlab("Error Percentages") +
+  xlim(c(0, NA)) +
+  geom_errorbarh(aes(xmin=err_lower, xmax=err_upper, colour = Type, y=as.numeric(Study)+0.3*(as.numeric(Type)-1.5)),
+                 size=0.5, height = 0.3,  alpha =0.9) +
+  scale_y_continuous(breaks=1:5, labels=levels(errors$Study), minor_breaks = NULL) +
+  scale_colour_brewer(palette="Dark2") 
+  
+@
+
+
 \svp{XXX Percent of inconclusives plot and discussion}
 
 \svp{XXX Introduce PPV/NPV as a fix for error rates and inconclusive percentages - easier to understand and use in court}
+
+\subsection{Source-specific error rates}
+
+
+
+\subsection{Conclusion-specific error rates}
 
 <<cis, echo=FALSE, fig.width=8, fig.height=4.5, fig.cap="Pearson-Clopper 95\\% confidence intervals for the probability of same source evidence given an examiner's conclusion. Expected values for each of the probabilities as discussed in \\autoref{sec:ideal} are shown as grey targets. Some of the studies do not allow an assessment of all of the predictive values.", out.width=".8\\textwidth">>=
 clopper <- function(alpha, success, trials) {
@@ -686,8 +765,12 @@ cis %>%
 
 
 @
+\autoref{fig:cis} shows an overview  of the conditional probability of same source evidence given an examiner's conclusion for five published studies. 
+Probabilities are shown with their respective 95\% (Pearson-Clopper) confidence intervals.  
+In light grey, expected probabilities are shown based on the distribution of same source/different source comparisons and the number of participants in each study.
 
-\hh{XXX not sure where this figure should go - plopping it in here for now. }
+\subsection{Inconclusives}
+
 \hh{\autoref{fig:inconclusives} are too high for different source comparisons.}
 
 <<inconclusives, echo=FALSE, fig.width=8, fig.height=3.75,fig.cap="Percentage of inconlusive decisions by same-source/different source comparisons. The percentage of inconclusives for same source comparisons is generally low (with a 95\\% confidence interval well below 5\\%). Different source comparisons end up in inconclusive results significantly more often. The Baldwin study has a particularly high percentage of inconclusive results", out.width=".8\\textwidth">>=
@@ -724,58 +807,6 @@ inc %>%
 
 \svp{XXX Looking at the predictive value of an inconclusive result led us to the following unexpected (and ugly) realization: Examiners are willing to gamble on an indentification much more than they are willing to gamble on an elimination. This is a clear bias toward the prosecution.}
 \svp{XXX Inconclusives bias}
-
-
-
-<<errors, echo=FALSE, fig.width=8, fig.height=3,fig.cap="Percentages of missed eliminations and missed identifications by study. 95\\% Pearson-Clopper confidence intervals are drawn around the error estimates.", out.width=".8\\textwidth">>=
-errors <- studies %>% 
-  mutate(
-    AFTE = (Ground.truth=="Same Source" & Decision != "Elimination") | 
-      (Ground.truth=="Different Source" & Decision != "Identification"),
-    Process = ((Ground.truth=="Same Source" & Decision == "Identification") | 
-      (Ground.truth=="Different Source" & Decision == "Elimination"))
-         ) %>%
-  group_by(Study, Ground.truth) %>% 
-  filter(Type == "Observed") %>%
-  summarize(
-    Comparisons = sum(Number),
-    AFTE = sum(Number[!AFTE]),
-    Process = sum(Number[!Process])
-  ) %>% 
-  mutate(
-    Error = c("Missed Elimination", "Missed Identification")[as.numeric(Ground.truth=="Same Source")+1]
-  )
-
-errors %>% gather(Type, Number, AFTE, Process) %>% 
-  mutate(Type = factor(Type, levels=c("AFTE", "Process"))) %>%
-  group_by(Type, Study, Error) %>%
-  mutate(
-    err_lower = clopper(0.05, Number, Comparisons)[1]*100,
-    err_upper = clopper(0.05, Number, Comparisons)[2]*100  
-  ) %>%
-  ggplot(aes(x = Number/Comparisons*100, y = Study)) +
-  geom_point(aes(shape=Type, colour = Type, y = as.numeric(Study)+0.3*(as.numeric(Type)-1.5)) ) +
-  facet_grid(.~Error, scale = "free_x") + #, space="free") +
-  theme_bw() +
-  theme(legend.position = "bottom") +
-  xlab("Error Percentages") +
-  xlim(c(0, NA)) +
-  geom_errorbarh(aes(xmin=err_lower, xmax=err_upper, colour = Type, y=as.numeric(Study)+0.3*(as.numeric(Type)-1.5)),
-                 size=0.5, height = 0.3,  alpha =0.9) +
-  scale_y_continuous(breaks=1:5, labels=levels(errors$Study), minor_breaks = NULL) +
-  scale_colour_brewer(palette="Dark2") 
-  
-@
-
-\section{Studies}
-
-Baldwin , Keisler , Lyons \cite{lyons}, Hare, Fadul \cite{fadul}, Brundage-Hamby, Duez , Chumbley - can't find any examiner evaluations for Chumbley
-\hh{XXX except for Fadul we are discussing all of the above studies. Fadul should be included still. Probably in the discussion of Brundage \& Hamby.}
-
-
-\autoref{fig:cis} shows an overview  of the conditional probability of same source evidence given an examiner's conclusion for five published studies. 
-Probabilities are shown with their respective 95\% (Pearson-Clopper) confidence intervals.  
-In light grey, expected probabilities are shown based on the distribution of same source/different source comparisons and the number of participants in each study.
 
 
 \subsection{Baldwin Study \cite{Baldwin:2014bb}}
