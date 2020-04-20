@@ -969,7 +969,7 @@ Open set & 5 & 10 & 218 examiners\\
 \multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Total\\\hline
 Same Source & 1075  & 11 & 4 & 1090\\
 Different source & 22 & 735+2\footnotemark & 1421 & 2180\\\hline
-\multicolumn{1}{Y}{Conclusion Total} & 1097 & 748 & \multicolumn{1}{r}{1432} & \multicolumn{1}{Y}{3270}\\\hline\hline
+\multicolumn{1}{Y}{Conclusion Total} & 1097 & 748 & \multicolumn{1}{r}{1425} & \multicolumn{1}{Y}{3270}\\\hline\hline
 
 \multicolumn{5}{c}{}\\
 
@@ -977,14 +977,14 @@ Different source & 22 & 735+2\footnotemark & 1421 & 2180\\\hline
 \multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Probability\\\hline
 Same source & 0.9799 & 0.0147 & 0.0028 & 0.3333\\
 Different source & 0.0201 & 0.9853 & 0.9972 & 0.6667\\\hline
-\multicolumn{1}{Y}{Conclusion Probability} & 0.3355 & 0.0101 & \multicolumn{1}{r}{0.4379} & \multicolumn{1}{Y}{}\\\hline\hline
+\multicolumn{1}{Y}{Conclusion Probability} & 0.3355 & 0.2287 & \multicolumn{1}{r}{0.4358} & \multicolumn{1}{Y}{1.0000}\\\hline\hline
 
 \multicolumn{5}{c}{}\\
 \multicolumn{5}{c}{\bf Source-Specific Probabilities}\\
 \multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Probability\\\hline
-Same source & 0.9799 & 0.1470 & 0.0028 & 0.3333\\
-Different source & 0.0201 & 0.9853 & 0.9923 & 0.6667\\\hline
-\multicolumn{1}{Y}{Conclusion Probability} & 0.3355 & 0.0101 & \multicolumn{1}{r}{0.4379} & \multicolumn{1}{Y}{}\\\hline\hline
+Same source & 0.9862 & 0.0101 & 0.0037 & 0.3333\\
+Different source & 0.0101 & 0.3381 & 0.6518 & 0.6667\\\hline
+\multicolumn{1}{Y}{Conclusion Probability} & 0.3355 & 0.2287 & \multicolumn{1}{r}{0.4358} & \multicolumn{1}{Y}{1.0000}\\\hline\hline
 \end{tabularx}
 
 \begin{tabularx}{\textwidth}{lX|rr|Y}
