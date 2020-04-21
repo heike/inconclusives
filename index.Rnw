@@ -559,7 +559,8 @@ However, those probabilities are easily accessible in formal studies or blinded 
 
 \hh{
 The structure of this section is supposed to mirror the theoretical introduction of different error rates and other aspects of faults in the identification process.
-
+}
+\hh{
 \begin{enumerate}
 \item Description of studies
 \item How do we calculate error rates in practice and problems related to that that prevent us from having actual numbers in some studies and simulation approaches
@@ -571,78 +572,81 @@ XXX should we move the individual discussion points for studies into the overall
 }
 
 
-\subsection{Overview and description of studies}
+\subsection{Error Rate Studies}
+\svp{
+Here, we summarize the primary findings from our survey of the available literature; while we did not attempt to include every study ever performed, we did aim to include studies which are frequently cited in research or legal proceedings, as well as all studies mentioned in the PCAST and NAS reports concerning firearm and toolmark analysis. XXX make sure that's actually true }
 
-\hh{Which studies are included and why?}
-
-Baldwin , Keisler , Lyons \cite{lyons}, Hare, Fadul \cite{fadul}, Brundage-Hamby, Duez , Chumbley - can't find any examiner evaluations for Chumbley
-\hh{XXX except for Fadul we are discussing all of the above studies. Fadul should be included still. Probably in the discussion of Brundage \& Hamby.}
-
-
-\subsection{An Overview of Study Error Rates}
+\begin{description}
+\item[Baldwin]\citep{Baldwin:2014bb} is a study of Ruger SR9 cartridge cases. It is an open-set study with 15 comparisons of 3 knowns to 1 questioned cartridge case. Participants received sets with 10 different-source and 5 same-source comparisons.
+\item[Keisler]\citep{keisler} is a study of cartridge case comparisons. It is an open set study with 20 comparisons of 1 known to 1 questioned cartridge cases. 126 participants received sets with 12 same-source and 8 different-source comparisons.
+\item[Brundage-Hamby] \citep{Hamby:2018hu} is a closed-set study of 10 consecutively manufactured Ruger P-95 barrels. 507 participants received sets consisting of 10 standards (2 bullets each) and 15 questioned bullets. 
+\item[Lyons]\citep{lyons} is a closed-set study of 10 consecutively manufactured Colt 1911A1 extractors. Participants received a set of 10 standards and 12 questioned cases. The design of this study is similar to \citep{Hamby:2018hu}.
+\item[Duez]\citep{Duez:2017kha} is an open-set study of breech face comparisons using virtual microscopy. Each of 56 participants (46 trained, 10 trainees) received two test sets consisting of one standard (3 scans) and 4 questioned scans In one set, all questioned scans were from the same source as the standard; in the second set, there were two different-source questioned scans and two same-source questioned scans.
+\item[Bunch \& Murphy]\citep{bunch2003comprehensive} is an open-set study of consecutively manufactured Glock breechfaces. In this study, each of 8 participants received 10 cartridge cases and was required to evaluate each possible pairwise comparison. In this study, the number of same-source and different-source cartridge cases varied by test kit from 10 same-source cartridges to 10 different-source cartridges.
+\item[Fadul]\citep{fadul} is a closed-set study of the breech face striations/impressions produced by 10 consecutively manufactured slides. Participants received a set of 10 standards and 15 questioned cases. The design of this study is similar to \citep{Hamby:2018hu}.
+\item [Chumbley]\citep{chumbleyValidationToolMark2010} 
+\end{description}
 
 \svp{ 
-Tables describing the results of each of the studies surveyed in this paper, the source-specific and conclusion-specific error rates, and the overall error rates can be found in \autoref{sec:supplement}. 
-Here, we summarize the primary findings from our survey of the available literature; while we did not attempt to include every study ever performed, we did aim to include studies which are frequently cited in research or legal proceedings, as well as all studies mentioned in the PCAST and NAS reports concerning firearm and toolmark analysis. XXX make sure that's actually true }
-\svp{
-Our findings mirror the list of experimental design flaws identified in the 2017 addendum to the PCAST report\cite{pcast-addendum2017}. 
+Tables describing the results of each of the studies surveyed in this paper, the source-specific and conclusion-specific error rates, and the overall error rates can be found in \ref{sec:supplement}. 
 }
+
+\svp{
+Of the nine studies identified, one \citep{aoas2} presents a method for quantitative comparison of bullets with no experimental lab-based examiner assessments. 
+Two other studies \citep{chumbleyValidationToolMark2010, fadul} did not provide sufficient detail about examiner conclusions to conduct even a partial analysis.
+}
+
+\svp{In the next sections, we discuss the design and results of each study, including calculation and comparison of source- and decision-specific error rates. }
+
+\subsection{Consequences of Study Designs for Error Rate Estimation}
+\svp{Our survey of the most commonly cited studies reveals a list of experimental design concerns similar to those identified in the 2017 addendum to the PCAST report\cite{pcast-addendum2017}}. 
+
 \begin{displayquote}
 As described in the PCAST report, ``set-based" approaches can inflate examiners performance by allowing them to take advantage of internal dependencies in the data. The most extreme example is the ``closed-set design", in which the correct source of each questioned sample is always present; studies using the closed-set design have underestimated the false-positive and inconclusive rates by more than 100-fold. This striking discrepancy seriously undermines the validity of the results and underscores the need to test methods under appropriate conditions. Other set-based designs also involve internal dependencies that provide hints to examiners, although not to the same extent as closed-set designs.
 \end{displayquote}
 
-\svp{
 The PCAST response, isued in \citeyear{pcast-addendum2017}, identifies only one study\cite{Baldwin:2014bb} as appropriately designed to evaluate the validity and reliability of firearms analysis methods. 
-Shortly after the report was issued, two more studies were published which also meet the criteria for reliable studies in the report: \cite{keisler} and \cite{Duez:2017kha}. 
+Shortly after the report was issued, two more studies were published which also meet the criteria for reliable studies in the report: \citet{keisler} and \citet{Duez:2017kha}. 
 All three ``good" studies used slightly different designs, but maintained certain essentials: each kit consisted of multiple comparisons composed of one or more samples from exactly one known source and one unknown source.
 These designs substantially reduce or eliminate the internal dependencies which provide ``hints" to examiners by ensuring that each comparison of samples is considered independently.
 In addition, studies with similar designs ensure that it is possible to exactly enumerate the number of same-source and different-source comparisons\footnote{At least, it is possible with the additional assumption that a comparison between a multiple items from the same source and an unknown should count as a single comparison.}.
-In what is almost certainly a coincidence, all three studies are also limited to cartridge case comparisons.
-}
+In what is almost certainly a coincidence, all three studies are also limited to cartridge case comparisons. \svp{As a result, however, we could not identify any studies which assess the error rates of bullet or toolmark examination in a manner that would produce reliable and generalizable measurements.}
 
-\svp{
-There are many other studies, such as \cite{lyons}, \cite{Hamby:2018hu} (and the similarly designed \cite{fadul}), and \cite{bunch2003comprehensive}, which use sub-optimal designs. 
-}
-\svp{
+
+\svp{As a result, admissibility hearings on other types of toolmark evidence must cite studies which use less reliable designs: } \citet{lyons}, \citet{Hamby:2018hu} (and the similarly designed \citet{fadul}), and \citet{bunch2003comprehensive}. 
 Of these, the study by \citeauthor{bunch2003comprehensive} is perhaps the least flawed: while it has internal dependencies due to the inclusion of multiple knowns, and as a result, the number of same-source and different-source comparisons cannot be fully determined, it does have one feature not found in even the well designed studies.
 Specifically, \citeauthor{bunch2003comprehensive} varies the composition of the test kits, so that no kit had the same composition in terms of same and different-source comparisons. This ensures that even if examiners discuss the tests, they cannot gain any additional information from such discussions. 
-}
-\svp{
+
 The primary problem with \cite{bunch2003comprehensive} is that it includes multiple known exemplars. 
 As a result, it is possible to use logical reasoning to reduce the set of comparisons.
 For example, if an examiner is comparing unknown source A to known exemplars from sources 1 to 10, and A matches exemplars from source 2, it is not necessary to make comparisons to sources 3 - 10. 
 This design ensures that it is not possible to count up the total number of different-source comparisons performed; as a result, we cannot compute the decision-specific error rates or the source-specific error rates for different-source comparisons. 
 Any study which includes multiple known sources in a single comparison set will have this limitation. 
-In \autoref{sec:supplement}, we use statistical simulation to explore the likely number of different-source comparisons performed in \cite{bunch2003comprehensive}; this assessment includes both the effect of deductive reasoning and the sampling procedure used to create the test kits. 
+In \ref{sec:bunchmurphysim}, we use statistical simulation to explore the likely number of different-source comparisons performed in \cite{bunch2003comprehensive}; this assessment includes both the effect of deductive reasoning and the sampling procedure used to create the test kits. 
 We also perform a similar assessment for \cite{Hamby:2018hu}; the design of this study does not include the variability introduced by the test kit assembly procedure used in \cite{bunch2003comprehensive}. 
-}
-\svp{
+
 The design used in \cite{Hamby:2018hu} was originally found in \cite{brundagethesis} and dates back to \citeyear{brundagethesis}. 
 As such, it was a groundbreaking study, and its longevity makes it the most extensive study in forensic error rates in firearms (and possibly across pattern disciplines). 
 Unfortunately, the study is flawed in two major respects: it uses multiple known sources, and it is a closed set study. 
 The multiple known source problem was described above, but this problem is magnified when combined with the closed-set study design. 
-}
-\svp{
+
 In a closed-set design, the structure of the study helps examiners make the correct conclusion: if unknown source A is most similar to exemplars from source 8, then after the 10 comparisons are done, the examiner would rationally make an identification for source 8. 
 In an open-set study, the examiner might rate the same pairwise comparison as inconclusive, because there is no additional information suggesting that the unknown must match one of the provided knowns.
 In both the multiple known and closed set study designs, the use of deductive reasoning artificially reduces the error rates calculated using the study results.
-}
-\svp{
+    
 It might be possible to modify the answer sheet so that examiners record each pairwise comparison. 
 Using this mechanism, it might be possible to at least assess the number of different-source comparisons performed. 
 Currently, studies patterned after \cite{brundagethesis,Hamby:2018hu} use an answer sheet where examiners are only asked to report which of the 10 knowns the questioned bullet matches. 
 Because the study does not ask examiners to report eliminations, there is no way to assess elimination error rates or the overall error rate consisting of both missed identifications and false eliminations.
-}
-\svp{
+
 In addition to the design issues which plague the closed-set studies, the execution of some of these studies makes the data even less reliable. Methodological issues, such as those described in \cite{lyons}, where test sheets were returned to participants who misunderstood instructions, cast even more doubt on the utility of error rates derived from such studies and their ability to generalize to casework. 
-}
-\svp{
+
 While studies which use multiple known sources have been conducted for more than 25 years, such studies are inherently flawed. 
 Multiple-known studies are inherently biased: they provide evidence that examiners can make identifications accurately (and do not make many false eliminations), but do not quantify the probability that examiners make eliminations correctly. 
 As a result, when error rates derived from these studies are cited, they do not include errors which result from different source comparisons, which prevents evaluation of examiners on their ability to distinguish between different sources.
 This fundamentally biases these studies so that in court they provide useful (but misleading) information to the prosecution while offering nothing useful to the defense.
 That is, the fundamental structure of these studies only provides information about how accurate examiners are when providing evidence against the defendent.
-}
+
 % \svp{XXX Good, bad, and ugly study designs, and limits on possible conclusions. Mention of the prosecution bias of many common study designs which only allow for the calculation of the false positive rate.}
 
 \svp{XXX Overall Error Rate Plot and discussion XXX}
@@ -945,6 +949,7 @@ Implications for court process - examiner states error rate, defense asks for in
 
 \bibliography{bibfile}
 
+\appendix
 \section{Supplemental Material}\label{sec:supplement}
 \subsection{Baldwin Study}
 
@@ -1233,7 +1238,7 @@ Opt. & \multicolumn{1}{c}{Meaning} & Missed Identification & \multicolumn{1}{r}{
 \end{tabularx}
 \end{fmpage}
 
-\subsubsection{Results with Imputation}
+\subsubsection{Results with Imputation}\label{sec:bunchmurphysim}
 
 \noindent\begin{fmpage}{\textwidth}\centering
 \captionof{table}{Results and summary tables for the Bunch and Murphy study, with only independent pairwise comparisons included. An independent comparison is one in which the examiner has no relevant prior information about either of the cartridges. These values were determined using simulation, using the sampling method described in the study, and evaluating comparisons sequentially to determine if they are independent of prior comparisons or if they are confirmatory. Results are derived from the subset of simulations which matched the reported values in the paper (70 total same source conclusions, with 290 total different source conclusions). 95\% bootstrap intervals are provided for quantities  estimated via simulation; quantities that cannot be estimated via simulation are marked as ??.}\label{tab:bunch-indep}
