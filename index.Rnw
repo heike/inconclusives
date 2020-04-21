@@ -727,7 +727,17 @@ errors <- studies %>%
 
 \subsection{Overall Error Rates}
 
+\svp{
 \autoref{fig:errors} shows the overall error rates for the six studies of examiner error rates investigated in this paper. 
+Both AFTE errors (which do not consider inconclusives as errors and represent examiner errors) and process errors (which include inconclusives and represent errors attributable to evidence quality and lab policy) are shown; examiner error rates are low for both missed elimination and missed identifications in most studies (though intervals reveal the effect of sample size, which was also noted in e.g. \citet{pcast-addendum2017}. 
+Process errors, however, occur at much higher rates and are particularly concerning for missed eliminations. There is consistently a much larger discrepancy between the two error rates for eliminations than for identifications; this phenomena is examined in more detail in \autoref{sec:inconclusives}.
+Some of the discrepancy between the examiner and process error rates for missed eliminations can be explained by lab policies that only allow eliminations based on mismatches in class characteristics. 
+It should be noted that these policies directly contradict the AFTE Theory of Identification, which allows for eliminations based on ``significant disagreement of discernible class characteristics and/or individual characteristics". 
+The Bunch \& Murphy study, for instance, was conducted at the FBI, where all examiners followed the same lab policy precluding eliminations based on class characteristic mismatches; as a result, the study has the largest difference between the two missed elimination rates.
+Other studies include examiners from many different labs and thus consist of some evaluations from labs which adhere to the class-characteristic elimination policy and some evaluations from labs which allow eliminations based on mismatch of individualizing characteristics.
+The rates reported in this section are calculated directly from information reported in the papers, with no imputation; as such, they represent the best possible case for error rates. 
+Less optimistic estimates of error rates that account for the use of deductive reasoning can be found in \ref{app:sim}.
+}
 
 <<errors, echo=FALSE, fig.width=8, fig.height=3,fig.cap="Percentages of missed eliminations and missed identifications by study. 95\\% Pearson-Clopper confidence intervals are drawn around the error estimates. Missed eliminations cannot be calculated for closed-set studies.", out.width=".8\\textwidth">>=
 
@@ -753,11 +763,11 @@ errors %>% gather(Type, Number, AFTE, Process) %>%
   
 @
 
-
+\svp{Technically these aren't really overall error rates, but they are the most commonly reported.}
 
 
 \subsection{Source-specific error rates}
-<<source-spec-cis, echo=FALSE, fig.width=8, fig.height=4.5, fig.cap="Pearson-Clopper 95\\% confidence intervals for the probability of same source evidence given an examiner's conclusion. Expected values for each of the probabilities as discussed in \\autoref{sec:ideal} are shown as grey targets. Some of the studies do not allow an assessment of all of the predictive values.", out.width=".8\\textwidth">>=
+<<source-spec-cis, echo=FALSE, fig.width=8, fig.height=4.5, fig.cap="Pearson-Clopper 95\\% confidence intervals for the probability of same source evidence given an examiner's conclusion. Expected values for each of the probabilities as discussed in \\autoref{sec:ideal} are shown as grey targets. No assessments can be made about different-source specific probabilities when the total number of comparisons cannot be determined.", out.width=".8\\textwidth">>=
 
 source_spec_cis %>% 
   ungroup() %>%
@@ -782,7 +792,8 @@ source_spec_cis %>%
   geom_errorbar(aes(ymin=xmin, ymax=xmax, x=Study), 
                  data = DontKnow_source_spec, linetype=2, width = 0.5, colour = "grey20") +
   geom_point(data = DontKnow_source_spec, shape='?', size = 3.5, colour = "grey20") + 
-  coord_flip()
+  coord_flip() + 
+  theme(legend.position = "bottom")
 
 
 @
@@ -822,7 +833,7 @@ cis %>%
 Probabilities are shown with their respective 95\% (Pearson-Clopper) confidence intervals.  
 In light grey, expected probabilities are shown based on the distribution of same source/different source comparisons and the number of participants in each study.
 
-\subsection{Inconclusives}
+\subsection{Inconclusives}\label{sec:inconclusives}
 
 \hh{\autoref{fig:inconclusives} are too high for different source comparisons.}
 
