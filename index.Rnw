@@ -623,7 +623,7 @@ For example, if an examiner is comparing unknown source A to known exemplars fro
 This design ensures that it is not possible to count up the total number of different-source comparisons performed; as a result, we cannot compute the decision-specific error rates or the source-specific error rates for different-source comparisons. 
 Any study which includes multiple known sources in a single comparison set will have this limitation. 
 In \ref{sec:bunchmurphysim}, we use statistical simulation to explore the likely number of different-source comparisons performed in \cite{bunch2003comprehensive}; this assessment includes both the effect of deductive reasoning and the sampling procedure used to create the test kits. 
-We also perform a similar assessment for \cite{Hamby:2018hu}; the design of this study does not include the variability introduced by the test kit assembly procedure used in \cite{bunch2003comprehensive}. 
+We also perform a similar assessment for \cite{Hamby:2018hu} in \ref{sec:brundage}; the design of this study does not include the variability introduced by the test kit assembly procedure used in \cite{bunch2003comprehensive}. 
 
 The design used in \cite{Hamby:2018hu} was originally found in \cite{brundagethesis} and dates back to \citeyear{brundagethesis}. 
 As such, it was a groundbreaking study, and its longevity makes it the most extensive study in forensic error rates in firearms (and possibly across pattern disciplines). 
@@ -735,8 +735,8 @@ Some of the discrepancy between the examiner and process error rates for missed 
 It should be noted that these policies directly contradict the AFTE Theory of Identification, which allows for eliminations based on ``significant disagreement of discernible class characteristics and/or individual characteristics". 
 The Bunch \& Murphy study, for instance, was conducted at the FBI, where all examiners followed the same lab policy precluding eliminations based on class characteristic mismatches; as a result, the study has the largest difference between the two missed elimination rates.
 Other studies include examiners from many different labs and thus consist of some evaluations from labs which adhere to the class-characteristic elimination policy and some evaluations from labs which allow eliminations based on mismatch of individualizing characteristics.
-The rates reported in this section are calculated directly from information reported in the papers, with no imputation; as such, they represent the best possible case for error rates. 
-Less optimistic estimates of error rates that account for the use of deductive reasoning can be found in \ref{app:sim}.
+The rates reported in this section are calculated directly from information reported in the papers without adjustments accounting for the use of deductive reasoning; as such, they represent the best possible case for error rates in studies which include multiple knowns, such as \citet{Hamby:2018hu} and \citet{bunch2003comprehensive}. 
+Less optimistic estimates of error rates that account for the use of deductive reasoning can be found in \ref{sec:sim}.
 }
 
 <<errors, echo=FALSE, fig.width=8, fig.height=3,fig.cap="Percentages of missed eliminations and missed identifications by study. 95\\% Pearson-Clopper confidence intervals are drawn around the error estimates. Missed eliminations cannot be calculated for closed-set studies.", out.width=".8\\textwidth">>=
@@ -951,7 +951,7 @@ The authors report that
 Technically, there are nine different source comparisons for each questioned bullet for a total of 135 (nominal) different source comparisons.  
 
 However, these evaluations are not independent of each other: once a bullet is successfully identified to a pair of knowns, none of the other sets of knowns can possibly be a match. 
-Rather than having to make a call on a comparison, the evaluation shifts to a confirmation of an elimination. We will assume that an examiner will need to make an average of 4.5 different source comparisons before making an identification, resulting in an average of 67.5 different source comparisons for the whole set, and an approximate total of 47047.5 different source comparisons overall. See \ref{app:brundage} for mathematical details.
+Rather than having to make a call on a comparison, the evaluation shifts to a confirmation of an elimination. We will assume that an examiner will need to make an average of 4.5 different source comparisons before making an identification, resulting in an average of 67.5 different source comparisons for the whole set, and an approximate total of 47047.5 different source comparisons overall. See \ref{sec:brundage} for mathematical details.
 % \item \hh{Given that only identifications had to be reported, we are also} missing  any information on the number of eliminations versus inconclusive results for different source comparisons. 
 % \end{itemize}
 
@@ -994,16 +994,14 @@ Implications for court process - examiner states error rate, defense asks for in
 \section{References}
 
 \bibliography{bibfile}
-
+\clearpage
 \appendix
-\section{Supplemental Material}\label{sec:supplement}
-\subsection{Baldwin Study}
-
-\svp{The Baldwin study was designed such that each test} kit consists of 15 sets of 3 known cartridge cases and 1 questioned cartridge case. In 5 of the 15 sets the questioned cartridge was from the same source as the knowns, while the other 10 questioned cartridges were from different sources as their respective knowns.
+\section{Study Summaries and Results}\label{sec:supplement}
+\paragraph{Baldwin} \svp{The Baldwin study \cite{Baldwin:2014bb} was designed such that each test} kit consists of 15 sets of 3 known cartridge cases and 1 questioned cartridge case. In 5 of the 15 sets the questioned cartridge was from the same source as the knowns, while the other 10 questioned cartridges were from different sources as their respective knowns.
 
 25 firearms were used for the study, such that within each kit no firearm was re-used for either knowns or questioned cartridge cases, i.e. no additional information could be gained by comparing any cartridge cases across sets.
 
-218 active firearms examiners participated in the study. Results are summarized in \autoref{tab:baldwin-summary}. 
+Results are summarized in \autoref{tab:baldwin-summary}. 
 
 \noindent\begin{fmpage}{\textwidth}\centering
 \captionof{table}{Baldwin study results, conclusion-specific and source-specific probabilities, and reported overall error rates. }\label{tab:baldwin-summary}
@@ -1019,7 +1017,7 @@ Open set & 5 & 10 & 218 examiners\\
 \multicolumn{5}{c}{\bf Experiment Count Data}\\
 \multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Total\\\hline
 Same Source & 1075  & 11 & 4 & 1090\\
-Different source & 22 & 735+2\footnotemark & 1421 & 2180\\\hline
+Different source & 22 & 735+2\footnote{Two comparisons were not reported and are considered to be inconclusives.} & 1421 & 2180\\\hline
 \multicolumn{1}{Y}{Conclusion Total} & 1097 & 748 & \multicolumn{1}{r}{1425} & \multicolumn{1}{Y}{3270}\\\hline\hline
 
 \multicolumn{5}{c}{}\\
@@ -1046,14 +1044,13 @@ Opt. & \multicolumn{1}{c}{Meaning} & Missed Identification & \multicolumn{1}{r}{
 3 & Process error & 0.0138 & 0.3482 & 0.2367 \\
 \end{tabularx}
 \end{fmpage}
-\footnotetext{Two comparisons were not reported and are considered to be inconclusives.}
 
-\subsection{Keisler Study}
-\svp{The Keisler Study \cite{keisler} was designed so that} each test kit consisted of sets of 20 pairs of cartridge cases from Smith \& Wesson pistols, where 12 of the pairs were from the same source and 8 pairs were from different sources. 
+\clearpage
+\paragraph{Keisler} \svp{The Keisler Study \cite{keisler} was designed so that} each test kit consisted of sets of 20 pairs of cartridge cases from Smith \& Wesson pistols, where 12 of the pairs were from the same source and 8 pairs were from different sources. 
 
 Kits were assembled using only 9 Smith \& Wesson pistols (i.e. there is a potential to gain additional information by making comparisons across sets). However, \svp{participants were instructed to only compare single pairs.} 
 
-126 participants reported results as shown in \autoref{tab:keisler-summary}.
+Results from the study are shown in \autoref{tab:keisler-summary}.
 
 \noindent\begin{fmpage}{\textwidth}\centering
 \captionof{table}{{\large\bf Isolated Pairs Research Study} \label{tab:keisler-summary}}
@@ -1096,10 +1093,8 @@ Opt. & \multicolumn{1}{c}{Meaning} & Missed Identification & \multicolumn{1}{r}{
 \end{tabularx}
 \end{fmpage}
 
-
-\subsection{Duez Study}
-
-\citet{Duez:2017kha} used virtual microscopy to evaluate scans of cartridge cases. Each participant was asked to make eight evaluations of breech face impressions. These consisted of two sets: 
+\clearpage
+\paragraph{Duez} The Duez study \cite{Duez:2017kha} used virtual microscopy to evaluate scans of cartridge cases. Each participant was asked to make eight evaluations of breech face impressions. These consisted of two sets: 
 \begin{itemize}
 \item[CCTS1] set of three knowns, four questioned breech face impressions. All questioned breech face impressions are from the same source as the knowns. 
 \item[CCTS2] set of three knowns, four questioned breech face impressions. Two questioned breech face impressions are from the same source, two are from different sources.
@@ -1154,13 +1149,11 @@ Opt. & \multicolumn{1}{c}{Meaning} & Missed Identification & \multicolumn{1}{r}{
 \end{tabularx}
 \end{fmpage}
 
-\subsection{Brundage-Hamby Study}
-\subsubsection{Results}
-
-The Brundage-Hamby study consists of sets of 20 test fires from known barrels and 15 questioned bullets. The 20 known test fires are 2 bullets from each of ten consecutively manufactured barrels. The Brundage-Hamby study is a closed set study, i.e. the 15 questioned bullets are known to be fired from one of these ten barrels. Participants (firearm examiners) are asked to identify which of the knowns a questioned bullet matches. 
+\clearpage
+\paragraph{Brundage-Hamby} The Brundage-Hamby study consists of sets of 20 test fires from known barrels and 15 questioned bullets. The 20 known test fires are 2 bullets from each of ten consecutively manufactured barrels. The Brundage-Hamby study is a closed set study, i.e. the 15 questioned bullets are known to be fired from one of these ten barrels. Participants (firearm examiners) are asked to identify which of the knowns a questioned bullet matches. 
 
 The study was originally reported on by Brundage in 1998 \cite{brundage}. Updates on the study with increasing number of responses have been published several times since  \cite{hamby, Hamby:2018hu}. 
-The design of the Brundage-Hamby is well known in the forensics community and has  been copied in \citet{fadul} for a study of cartridge cases of the same firearms.
+The design of the Brundage-Hamby is well known in the forensics community and has been copied in \citet{fadul} for a study of cartridge cases of the same firearms. Slight modifications of the study design are also common \cite{lyons}. 
 
 Results reported in the 2019 paper are shown in \autoref{tab:hamby-summary}.
 
@@ -1177,7 +1170,7 @@ Closed set & 10 & 15 & 507 examiners\\
 \multicolumn{5}{c}{\bf Experiment Count Data}\\
 \multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Total\\\hline
 Same Source & 10447 & 8 & 0 & 10455 \\
-Different source & 0 & ? & ? & 47047.5\footnotemark \\\hline
+Different source & 0 & ? & ? & 47047.5\footnote{This number is imputed based on the average number of pairwise comparisons an examiner would have to do to complete a Hamby study. Details can be found in the supplemental material.} \\\hline
 \multicolumn{1}{Y}{Conclusion Total} & 10447 & ? & \multicolumn{1}{r}{?} & \multicolumn{1}{Y}{57502.5}\\\hline\hline
 
 \multicolumn{5}{c}{}\\
@@ -1185,7 +1178,7 @@ Different source & 0 & ? & ? & 47047.5\footnotemark \\\hline
 \multicolumn{5}{c}{\bf Conclusion-Specific Probabilities}\\
 \multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Probability\\\hline
 Same source & 1.0000 & ? & 0.0000 & 0.1818\\
-Different source & 0.0000 & ? & 1\footnotemark & 0.8282\\\hline
+Different source & 0.0000 & ? & 1\footnote{The elimination-specific conditional probabilities are only identifiable in this case because there were not any false eliminations. In any other situation, we would not be able to calculate these probabilities because we do not have the total number of eliminations.} & 0.8282\\\hline
 \multicolumn{1}{Y}{Conclusion Probability} & 0.1817 & ? & \multicolumn{1}{r}{?} & \multicolumn{1}{Y}{}\\\hline\hline
 
 \multicolumn{5}{c}{}\\
@@ -1201,49 +1194,14 @@ Different source & 0.0000 & ? & ? & 0.8282\\\hline
 \multicolumn{5}{c}{\bf Overall Error Rates}\\
 Opt. & \multicolumn{1}{c}{Meaning} & Missed Identification & \multicolumn{1}{r}{Missed Elimination} & Total \\\hline
 2 & FTE error & 0.0000 & ? & ?\\
-3 & Process error & ? & ? & ? \\
+3 & Process error & ? & ? & ? \\\hline
 \end{tabularx}
 \end{fmpage}
-\footnotetext{This number is imputed based on the average number of pairwise comparisons an examiner would have to do to complete a Hamby study. Details can be found in the supplemental material.}
-\footnotetext{The elimination-specific conditional probabilities are only identifiable in this case because there were not any false eliminations. In any other situation, we would not be able to calculate these probabilities because we do not have the total number of eliminations.}
 
-\subsubsection{Enumeration of all possible Brundage-Hamby set comparisons}\label{app:brundage}
-\svp{XXX Describe why this section exists as the lead-in to the results}
-Brundage-Hamby sets consist of a set of 20 known bullets (two each from the ten consecutively manufactured barrels) and 15 questioned bullets.
-\citet{brundage} outlines the construction of sets of questioned bullets in detail as follows: ten bullets are chosen, one from each of the ten barrels. The remaining five bullets are picked at random from the barrels, such that at most three questioned bullets are from the same barrel. 
+\clearpage
+\paragraph{Bunch \& Murphy Study} \cite{bunch2003comprehensive}
+\svp{XXX description introduction to study?}
 
-Using this strategy, a total of 1452 different sets can be constructed. These sets have questioned bullets of three main forms, listed in \autoref{tab:sets} from the perspective of the number of barrels with one, two, or three matching questioned bullets. 
-
-\begin{table}
-\caption{\label{tab:sets}Number of all possible sets of questioned bullets for Brundage-Hamby sets.}
-\centering
-\begin{tabular}{|r|ccc|l|} \hline
- &  one questioned & two questioned & three questioned  & number of \\
-\# barrels & bullet matches & bullets match & bullets match & possibilities\\ \hline
-I & 5 & 5 & 0 & 252 = ${10 \choose 5}{5 \choose 5}$\\
-II & 6 & 3 & 1 & 840\\
-III & 7 & 1 & 2 & 360\\ \hline
-\end{tabular}
-\end{table}
-
-\autoref{fig:histogram} shows the histogram of the total number of different source comparisons before and identification is made.
-
-<<histogram, fig.width=6, fig.height = 3, outwidth=".5\\textwidth", warning=FALSE, message=FALSE, fig.caption="Histogram of the total number of different source comparisons before an identification is made.", fig.label="fig:histogram">>=
-library(tidyverse)
-sets <- read.csv("data/allpossible-hambysets.csv")
-sets$ds <- rowSums(sets-1)
-
-sets %>% 
-  ggplot(aes(x = ds)) + geom_histogram(binwidth=1, colour="grey50") +
-  theme_bw() +
-  xlab("Number of different source comparisons in a set before an identification is made") +
-  ylab("Number of sets") +
-  scale_x_continuous(breaks=c(49, 54.5, 61,  67.5, 74, 80.5, 86), labels=c("49", "54.5", "61", "67.5", "74", "80.5",  "86"))
-@
-
-\subsection{Bunch \& Murphy Study}
-
-\subsubsection{Results}
 \noindent\begin{fmpage}{\textwidth}\centering
 \captionof{table}{Results and summary tables for the Bunch and Murphy study. Values in this table are as reported in the study; however, due to the study's structure, it is possible to perform fewer comparisons, because not all comparisons are independent. Results for independent comparisons are shown in \autoref{tab:bunch-indep}}\label{tab:bunch-summary}
 {\large\bf A Comprehensive Validity Study for the Forensic Examination of Cartridge Cases}\emph{\citeauthor{bunch2003comprehensive} (\citeyear{bunch2003comprehensive})}\\
@@ -1283,51 +1241,8 @@ Opt. & \multicolumn{1}{c}{Meaning} & Missed Identification & \multicolumn{1}{r}{
 3 & Process error & 0.0000 & 0.5931 & 0.4778 \\
 \end{tabularx}
 \end{fmpage}
-
-\subsubsection{Results with Imputation}\label{sec:bunchmurphysim}
-
-\noindent\begin{fmpage}{\textwidth}\centering
-\captionof{table}{Results and summary tables for the Bunch and Murphy study, with only independent pairwise comparisons included. An independent comparison is one in which the examiner has no relevant prior information about either of the cartridges. These values were determined using simulation, using the sampling method described in the study, and evaluating comparisons sequentially to determine if they are independent of prior comparisons or if they are confirmatory. Results are derived from the subset of simulations which matched the reported values in the paper (70 total same source conclusions, with 290 total different source conclusions). 95\% bootstrap intervals are provided for quantities  estimated via simulation; quantities that cannot be estimated via simulation are marked as ??.}\label{tab:bunch-indep}
-{\large\bf A Comprehensive Validity Study for the Forensic Examination of Cartridge Cases}\emph{\citeauthor{bunch2003comprehensive} (\citeyear{bunch2003comprehensive})}\\
-\begin{tabularx}{\textwidth}{XrrX}\hline
-\multirow{2}{*}{\bf Study Type} & \multicolumn{2}{c}{\bf Test Set} & \multirow{2}{*}{\bf Participants}\\
-& \# Knowns & \# Unknowns & \\\hline
-Open set & variable & variable & 8 FBI examiners\\
-\end{tabularx}
-\begin{tabularx}{\textwidth}{Y|rrr|Y}
-\multicolumn{5}{c}{\bf Independent Comparisons}\\
-\multicolumn{5}{c}{Mean (95\% CI)}\\
-\multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Total\\\hline
-Same Source & 19.76 [17, 22] & 0 & 0 & 19.76 [17, 22] \\
-Diff Source & 0 & ?? & ?? & 290 \\\hline
-\multicolumn{1}{Y}{Conclusion Total} & 70 & 172 & \multicolumn{1}{r}{ 118} & \multicolumn{1}{Y}{}\\\hline\hline
-\multicolumn{5}{c}{}\\
-\multicolumn{5}{c}{\bf Independent Comparisons: Conclusion-Specific Probabilities}\\
-\multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Probability\\\hline
-Same source & 1 & 0 & 0 & 0.1109 [0.0256, 0.2381]\\
-Diff source & 0 & 1 & 1 & 0.8891 [0.7619, 0.9744]\\\hline
-            \multicolumn{1}{Y}{Conclusion Probability} & 0.2414 & 0.5931 & \multicolumn{1}{r}{0.4059} & \multicolumn{1}{Y}{}\\\hline\hline
-
-\multicolumn{5}{c}{}\\
-\multicolumn{5}{c}{\bf Independent Comparisons: Source-Specific Probabilities}\\
-\multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Probability\\\hline
-Same source & 1.0000 & 0.0000 & 0.0000 & 0.1109 [0.0256, 0.2381]\\
-Diff source & 0.0000 & ?? & ?? & 0.8891 [0.7619, 0.9744]\\\hline
-\multicolumn{1}{Y}{Conclusion Probability} & 0.2414 & 0.5931 & \multicolumn{1}{r}{0.4059} & \multicolumn{1}{Y}{}\\\hline\hline
-\end{tabularx}
-
-\begin{tabularx}{\textwidth}{lX|rr|Y}
-\multicolumn{5}{c}{}\\
-\multicolumn{5}{c}{\bf Independent Comparisons: Error Rates}\\
-Opt. & \multicolumn{1}{c}{Meaning} & Missed Identification & \multicolumn{1}{r}{Missed Elimination} & Total \\\hline
-2 & FTE error & 0.0000 & 0.0000 & 0.0000\\
-3 & Process error & 0.0000 & ?? & ?? \\
-\end{tabularx}
-\end{fmpage}
-
-\subsection{Lyons Study}
-
-This study involved the use of 10 consecutively manufactured extractors (manufactureed by Caspian Arms Ltd).
+\clearpage
+\paragraph{Lyons} The Lyons study \cite{lyons} examined marks made by 10 consecutively manufactured extractors (manufactured by Caspian Arms Ltd).
 
 Kits were assembled from 32 cartridge cases: 20 known cartridge cases from pairs of 2 cartridges from each of the 10 extractors (the knowns) and 12 questioned cartridges \hh{XXX let's distinguish between design and implementation - design involved 12 questioned cartridge cases}, such that each known corresponded to at least one questioned, with some replication in most of the kits (one kit accidentally only had ten questioned cartridges). Thus, the setup of this study is similar to the Brundage-Hamby study. This study suffers from the same problems as the Brundage-Hamby study: it is a closed set study with multiple knowns and asks for identifications only. We can therefore only estimate a fraction of the relevant error rates. 
 It is also not possible to determine the total number of independent different source comparisons. 
@@ -1344,7 +1259,7 @@ Closed set & 10 & 10~or~12 & 15 examiners\\
 \begin{tabularx}{\textwidth}{Y|rrr|Y}
 \multicolumn{5}{c}{\bf Experiment Count Data}\\
 \multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Total\\\hline
-Same Source & 174\footnotemark &  1 & 3 & 178 \\
+Same Source & 174\footnote{\citet{lyons} reports 175 correct identifications, but it is clear from the discussion that one of those same source identifications was actually an inconclusive. 12 answer sheets with 12 correct identifications, one with 10 (out of 10) correct identifications, one with 9 correct identifications and 3 errors, and one with 11 correct identifications and one inconclusive. So 12$\cdot$12 + 10 + 9 + 11 = 174. } &  1 & 3 & 178 \\
 Different source & 3 & ? & ? & ? \\\hline
 \multicolumn{1}{Y}{Conclusion Total} & 177 & ? & \multicolumn{1}{r}{?} & \multicolumn{1}{Y}{?}\\\hline\hline
 
@@ -1369,12 +1284,93 @@ Different source & ? & ? & ? & ?\\\hline
 \multicolumn{5}{c}{\bf Overall Error Rates}\\
 Opt. & \multicolumn{1}{c}{Meaning} & Missed Identification & \multicolumn{1}{r}{Missed Elimination} & Total \\\hline
 2 & FTE error & 0.0169 & ? & ?\\
-3 & Process error & 0.0225 & ? & ? \\
+3 & Process error & 0.0225 & ? & ? \\\hline
 \end{tabularx}
 \end{fmpage}
 
-\footnotetext{\citet{lyons} reports 175 correct identifications, but it is clear from the discussion that one of those same source identifications was actually an inconclusive. 12 answer sheets with 12 correct identifications, one with 10 (out of 10) correct identifications, one with 9 correct identifications and 3 errors, and one with 11 correct identifications and one inconclusive. So 12$\cdot$12 + 10 + 9 + 11 = 174. }
 
+\section{Simulation of comparisons in studies with multiple knowns}\label{sec:sim}
+
+\subsection{Enumeration of all possible Brundage-Hamby set comparisons}\label{sec:brundage}
+\svp{XXX Describe why this section exists as the lead-in to the results}
+Brundage-Hamby sets consist of a set of 20 known bullets (two each from the ten consecutively manufactured barrels) and 15 questioned bullets.
+\citet{brundage} outlines the construction of sets of questioned bullets in detail as follows: ten bullets are chosen, one from each of the ten barrels. The remaining five bullets are picked at random from the barrels, such that at most three questioned bullets are from the same barrel. 
+
+Using this strategy, a total of 1452 different sets can be constructed. These sets have questioned bullets of three main forms, listed in \autoref{tab:sets} from the perspective of the number of barrels with one, two, or three matching questioned bullets. 
+
+\begin{table}
+\caption{\label{tab:sets}Number of all possible sets of questioned bullets for Brundage-Hamby sets.}
+\centering
+\begin{tabular}{|r|ccc|l|} \hline
+ &  one questioned & two questioned & three questioned  & number of \\
+\# barrels & bullet matches & bullets match & bullets match & possibilities\\ \hline
+I & 5 & 5 & 0 & 252 = ${10 \choose 5}{5 \choose 5}$\\
+II & 6 & 3 & 1 & 840\\
+III & 7 & 1 & 2 & 360\\ \hline
+\end{tabular}
+\end{table}
+
+\autoref{fig:histogram} shows the histogram of the total number of different source comparisons before and identification is made.
+
+<<histogram, fig.width=6, fig.height = 3, outwidth=".5\\textwidth", warning=FALSE, message=FALSE, fig.caption="Histogram of the total number of different source comparisons before an identification is made.", fig.label="fig:histogram">>=
+library(tidyverse)
+sets <- read.csv("data/allpossible-hambysets.csv")
+sets$ds <- rowSums(sets-1)
+
+sets %>% 
+  ggplot(aes(x = ds)) + geom_histogram(binwidth=1, colour="grey50") +
+  theme_bw() +
+  xlab("Number of different source comparisons in a set before an identification is made") +
+  ylab("Number of sets") +
+  scale_x_continuous(breaks=c(49, 54.5, 61,  67.5, 74, 80.5, 86), labels=c("49", "54.5", "61", "67.5", "74", "80.5",  "86"))
+@
+
+
+\subsection{Bunch and Murphy simulation}\label{sec:bunchmurphysim}
+\svp{The exact composition of the test sets in Bunch \& Murphy is not known, though the process for assembling the test kits provides sufficient information to simulate the composition of the eight test kits used in the study.}
+\svp{From these simulated sets, we can identify any which match the reported values of 70 same-source and 290 possible different-source comparisons. Using these sets, we can then estimate the minimal number of comparisons which are necessary using deductive reasoning in addition to examination.
+XXX fill in the details of the deductive reasoning
+}
+
+
+\noindent\begin{fmpage}{\textwidth}\centering
+\captionof{table}{Results and summary tables for the Bunch and Murphy study, with only independent pairwise comparisons included. An independent comparison is one in which the examiner has no relevant prior information about either of the cartridges. These values were determined using simulation, using the sampling method described in the study, and evaluating comparisons sequentially to determine if they are independent of prior comparisons or if they are confirmatory. Results are derived from the subset of simulations which matched the reported values in the paper (70 total same source conclusions, with 290 total different source conclusions). 95\% bootstrap intervals are provided for quantities  estimated via simulation; quantities that cannot be estimated via simulation are marked as ??.}\label{tab:bunch-indep}
+{\large\bf A Comprehensive Validity Study for the Forensic Examination of Cartridge Cases}\emph{\citeauthor{bunch2003comprehensive} (\citeyear{bunch2003comprehensive})}\\
+\begin{tabularx}{\textwidth}{XrrX}\hline
+\multirow{2}{*}{\bf Study Type} & \multicolumn{2}{c}{\bf Test Set} & \multirow{2}{*}{\bf Participants}\\
+& \# Knowns & \# Unknowns & \\\hline
+Open set & variable & variable & 8 FBI examiners\\
+\end{tabularx}
+\begin{tabularx}{\textwidth}{Y|rrr|Y}
+\multicolumn{5}{c}{\bf Independent Comparisons}\\
+\multicolumn{5}{c}{Mean (95\% CI)}\\
+\multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Total\\\hline
+Same Source & 19.76 [17, 22] & 0 & 0 & 19.76 [17, 22] \\
+Diff Source & 0 & ?? & ?? & 154.22 [139, 171] \\\hline
+\multicolumn{1}{Y}{Conclusion Total} & 70 & 172 & \multicolumn{1}{r}{ 118} & \multicolumn{1}{Y}{}\\\hline\hline
+\multicolumn{5}{c}{}\\
+\multicolumn{5}{c}{\bf Independent Comparisons: Conclusion-Specific Probabilities}\\
+\multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Probability\\\hline
+Same source & 1 & 0 & 0 & 0.1109 [0.0256, 0.2381]\\
+Diff source & 0 & 1 & 1 & 0.8891 [0.7619, 0.9744]\\\hline
+            \multicolumn{1}{Y}{Conclusion Probability} & 0.2414 & 0.5931 & \multicolumn{1}{r}{0.4059} & \multicolumn{1}{Y}{}\\\hline\hline
+
+\multicolumn{5}{c}{}\\
+\multicolumn{5}{c}{\bf Independent Comparisons: Source-Specific Probabilities}\\
+\multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Probability\\\hline
+Same source & 1.0000 & 0.0000 & 0.0000 & 0.1109 [0.0256, 0.2381]\\
+Diff source & 0.0000 & ?? & ?? & 0.8891 [0.7619, 0.9744]\\\hline
+\multicolumn{1}{Y}{Conclusion Probability} & 0.2414 & 0.5931 & \multicolumn{1}{r}{0.4059} & \multicolumn{1}{Y}{}\\\hline\hline
+\end{tabularx}
+
+\begin{tabularx}{\textwidth}{lX|rr|Y}
+\multicolumn{5}{c}{}\\
+\multicolumn{5}{c}{\bf Independent Comparisons: Error Rates}\\
+Opt. & \multicolumn{1}{c}{Meaning} & Missed Identification & \multicolumn{1}{r}{Missed Elimination} & Total \\\hline
+2 & FTE error & 0.0000 & 0.0000 & 0.0000\\
+3 & Process error & 0.0000 & ?? & ?? \\
+\end{tabularx}
+\end{fmpage}
 
 \end{document}
 
@@ -1403,3 +1399,4 @@ That is, in legal settings, it is the state of reality that is under debate; the
 \hh{Given the new paragraphs at the beginning of 2.4 - do we still need the above discussion? XXX }
 
 \hh{XXX Would it be fair to say that FPR and FNR allow us to assess examiners or the firearms matching process, while the predictive values allow us to evaluate the strength of the testimony? Maybe we do not want to go into detail on strength of evidence when the testimony is categorical. }
+
