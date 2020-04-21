@@ -672,6 +672,14 @@ cis <- studies %>% group_by(Study, Decision) %>%
     pred_ss_upper = clopper(0.05, sum(Number[Ground.truth=="Same Source"]), sum(Number))[2]
   )
 
+source_spec_cis <- studies %>% group_by(Study, Ground.truth) %>% 
+  filter(Type == "Observed") %>%
+  mutate(
+    pred_ss = Number/sum(Number),
+    pred_ss_lower = map2_dbl(Number, sum(Number), ~clopper(0.05, .x, .y)[1]),
+    pred_ss_upper = map2_dbl(Number, sum(Number), ~clopper(0.05, .x, .y)[2])
+  )
+
 exp <- studies %>% 
 #  filter(Decision == "Inconclusive") %>%
   group_by(Study, Decision) %>% 
@@ -682,6 +690,15 @@ exp <- studies %>%
     exp_prob = exp_ss/sum(Number[Type == "Observed"])
   ) 
   
+DontKnow_source_spec <- tibble(
+  pred_ss = 0.5, 
+  xmin=c(0,0,0,0,0,0), 
+  xmax=c(1,1,1,1,1,1), 
+  Study = c("Lyons (2009)", "Hamby (2019)", "Lyons (2009)", "Hamby (2019)", "Lyons (2009)", "Hamby (2019)"), 
+  Decision=rep(c("Identification", "Inconclusive", "Elimination"), each=2),
+  Ground.truth = "Different Source") %>%
+  dplyr::mutate(Decision = factor(Decision, levels=c("Identification", "Inconclusive", "Elimination")))
+
 DontKnow <- data.frame(
   pred_ss = 0.5, 
   xmin=c(0,0,0,0), 
@@ -689,13 +706,6 @@ DontKnow <- data.frame(
   Study = c("Lyons (2009)", "Hamby (2019)", "Lyons (2009)", "Hamby (2019)"), 
   Decision=rep(c("Inconclusive", "Elimination"), each=2))
 
-@
-
-\subsection{Overall Error Rates}
-
-\autoref{fig:errors} shows the overall error rates for the six studies of examiner error rates investigated in this paper. 
-
-<<errors, echo=FALSE, fig.width=8, fig.height=3,fig.cap="Percentages of missed eliminations and missed identifications by study. 95\\% Pearson-Clopper confidence intervals are drawn around the error estimates. Missed eliminations cannot be calculated for closed-set studies.", out.width=".8\\textwidth">>=
 errors <- studies %>% 
   mutate(
     AFTE = (Ground.truth=="Same Source" & Decision != "Elimination") | 
@@ -713,6 +723,14 @@ errors <- studies %>%
   mutate(
     Error = c("Missed Elimination", "Missed Identification")[as.numeric(Ground.truth=="Same Source")+1]
   )
+@
+
+\subsection{Overall Error Rates}
+
+\autoref{fig:errors} shows the overall error rates for the six studies of examiner error rates investigated in this paper. 
+
+<<errors, echo=FALSE, fig.width=8, fig.height=3,fig.cap="Percentages of missed eliminations and missed identifications by study. 95\\% Pearson-Clopper confidence intervals are drawn around the error estimates. Missed eliminations cannot be calculated for closed-set studies.", out.width=".8\\textwidth">>=
+
 
 errors %>% gather(Type, Number, AFTE, Process) %>% 
   mutate(Type = factor(Type, levels=c("AFTE", "Process"))) %>%
@@ -739,7 +757,35 @@ errors %>% gather(Type, Number, AFTE, Process) %>%
 
 
 \subsection{Source-specific error rates}
+<<source-spec-cis, echo=FALSE, fig.width=8, fig.height=4.5, fig.cap="Pearson-Clopper 95\\% confidence intervals for the probability of same source evidence given an examiner's conclusion. Expected values for each of the probabilities as discussed in \\autoref{sec:ideal} are shown as grey targets. Some of the studies do not allow an assessment of all of the predictive values.", out.width=".8\\textwidth">>=
 
+source_spec_cis %>% 
+  ungroup() %>%
+  mutate(
+    Decision = factor(Decision, levels=c("Identification", "Inconclusive", "Elimination"))
+  ) %>%
+  ggplot(aes(y = pred_ss, x = Study, colour = Decision)) +
+  facet_grid(Ground.truth~.) +
+  ylim(c(0,1)) +
+  ylab("Probability of examiner decision given source") +
+  theme_bw() +
+#  geom_point(aes(x = exp_prob, y = Study), data = exp, colour="red", size=4.5) +
+#  geom_point(aes(x = exp_prob, y = Study), data = exp, colour="white", size=3.5) +
+  # geom_point(aes(x = exp_prob, y = Study), data = exp, colour="grey50", size=2.5) +
+  # geom_point(aes(x = exp_prob, y = Study), data = exp, colour="white", size = 1.5) +
+  # geom_point(aes(x = exp_prob, y = Study), data = exp, colour="grey50", size=.5) +
+  geom_hline(yintercept=c(0,1), colour = "grey20", size=0.25) +
+  geom_errorbar(position = position_dodge(width = 0.6),
+    aes(ymin = pred_ss_lower, ymax=pred_ss_upper, x=Study, group = Decision), 
+    size=0.5, width = 0.5, alpha =0.9) +
+  geom_point(position = position_dodge(width = 0.6)) +
+  geom_errorbar(aes(ymin=xmin, ymax=xmax, x=Study), 
+                 data = DontKnow_source_spec, linetype=2, width = 0.5, colour = "grey20") +
+  geom_point(data = DontKnow_source_spec, shape='?', size = 3.5, colour = "grey20") + 
+  coord_flip()
+
+
+@
 
 
 \subsection{Conclusion-specific error rates}
