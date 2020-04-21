@@ -120,11 +120,13 @@ res
 res %>%
   mutate(total_comparisons = all_pairwise_matches + all_pairwise_nonmatches, min_comparisons = min_pairwise_matches + min_pairwise_nonmatches)
 
+load("data/bunch-murphy-15000-sim.Rdata") # res2
+
 # Add in FBI rules - can't exclude on class characteristic matches
 
 res3 <-res2[(0:(length(res2$kit)-1))%%8 <=5, ] %>% unnest(eval)
 res3 <- rename(res3, matches_indep = matches_min, nonmatches_indep = nonmatches_min)
-res3$set <- floor((1:length(res3) - 1)/6)
+res3$set <- floor((1:nrow(res3) - 1)/6)
 
 res3 %>% group_by(set) %>% select(-1) %>% summarize_all(sum) %>% filter(matches_all == 25) -> our_res
 res3[res3$set == 1, ]$kit
@@ -151,3 +153,4 @@ res3 %>% group_by(set) %>% select(-1) %>% summarize_all(sum) %>% filter(matches_
   separate(match_type, into = c("match", "val"), sep = "_indep_") %>%
   pivot_wider(id_cols = "match", names_from = "val", values_from = "value")
 
+## How to handle distribution of inconclusives and eliminations? Assume same fraction? Allocate based on fraction of redundant comparisons that meet FBI definitions?
