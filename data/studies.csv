@@ -29,19 +29,29 @@ Lyons (2009),Same Source,Elimination,3,Observed
 Lyons (2009),Different Source,Identification,3,Observed
 Lyons (2009),Different Source,Inconclusive,NA,Observed
 Lyons (2009),Different Source,Elimination,NA,Observed
+Bunch & Murphy (2003),Same Source,Identification,70,Observed
+Bunch & Murphy (2003),Same Source,Inconclusive,0,Observed
+Bunch & Murphy (2003),Same Source,Elimination,0,Observed
+Bunch & Murphy (2003),Different Source,Identification,0,Observed
+Bunch & Murphy (2003),Different Source,Inconclusive,172,Observed
+Bunch & Murphy (2003),Different Source,Elimination,118,Observed
 Keisler (2018),Same Source,Elimination,0,Expected
 Keisler (2018),Same Source,Identification,1,Expected
+Keisler (2018),Same Source,Inconclusive,0.6,Expected
+Keisler (2018),Different Source,Inconclusive,0.4,Expected
 Duez (2018),Same Source,Elimination,0,Expected
 Duez (2018),Same Source,Identification,1,Expected
-Lyons (2009),Same Source,Elimination,0,Expected
-Lyons (2009),Same Source,Identification,1,Expected
+Duez (2018),Same Source,Inconclusive,0.75,Expected
+Duez (2018),Different Source,Inconclusive,0.25,Expected
 Baldwin (2014),Same Source,Elimination,0,Expected
 Baldwin (2014),Same Source,Identification,1,Expected
 Baldwin (2014),Same Source,Inconclusive,0.333333333,Expected
 Baldwin (2014),Different Source,Inconclusive,0.666666667,Expected
-Keisler (2018),Same Source,Inconclusive,0.6,Expected
-Keisler (2018),Different Source,Inconclusive,0.4,Expected
-Duez (2018),Same Source,Inconclusive,0.75,Expected
-Duez (2018),Different Source,Inconclusive,0.25,Expected
+Lyons (2009),Same Source,Elimination,0,Expected
+Lyons (2009),Same Source,Identification,1,Expected
 Hamby (2019),Same Source,Elimination,0,Expected
 Hamby (2019),Same Source,Identification,1,Expected
+Bunch & Murphy (2003),Same Source,Identification,1,Expected
+Bunch & Murphy (2003),Same Source,Elimination,0,Expected
+Bunch & Murphy (2003),Same Source,Inconclusive,0.2414,Expected
+Bunch & Murphy (2003),Different Source,Inconclusive,0.7586,Expected

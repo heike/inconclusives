@@ -634,12 +634,15 @@ In a closed-set design, the structure of the study helps examiners make the corr
 In an open-set study, the examiner might rate the same pairwise comparison as inconclusive, because there is no additional information suggesting that the unknown must match one of the provided knowns.
 In both the multiple known and closed set study designs, the use of deductive reasoning artificially reduces the error rates calculated using the study results.
     
-It might be possible to modify the answer sheet so that examiners record each pairwise comparison. 
+It might be possible to modify the answer sheet so that examiners record each pairwise comparison.
 Using this mechanism, it might be possible to at least assess the number of different-source comparisons performed. 
+\svp{However, revising the answer sheet would still not prevent the use of deductive reasoning, which gives examiners an advantage in the error rate studies that does not exist in casework.}
 Currently, studies patterned after \cite{brundagethesis,Hamby:2018hu} use an answer sheet where examiners are only asked to report which of the 10 knowns the questioned bullet matches. 
 Because the study does not ask examiners to report eliminations, there is no way to assess elimination error rates or the overall error rate consisting of both missed identifications and false eliminations.
 
 In addition to the design issues which plague the closed-set studies, the execution of some of these studies makes the data even less reliable. Methodological issues, such as those described in \cite{lyons}, where test sheets were returned to participants who misunderstood instructions, cast even more doubt on the utility of error rates derived from such studies and their ability to generalize to casework. 
+
+Finally, there are some methodological constraints that are common to most studies. Of the studies assessed in this paper, only \citet{bunch2003comprehensive} uses a variable percent of same and different source comparisons; without varying this percentage, it is possible that examiners could compare notes and gain additional information about the study results. Many studies (but not all) pre-screened kit components to ensure that sufficient markings were present to allow for identification - this differs from casework and artifically inflates the rate of successful identifications and eliminations. In almost all studies, participants use lab rules for determining whether eliminations could be made on individual characteristics; while \citet{Baldwin:2014bb} instructed participants to use a uniform set of rules, many participants reported that they did not adhere to these guidelines.
 
 While studies which use multiple known sources have been conducted for more than 25 years, such studies are inherently flawed. 
 Multiple-known studies are inherently biased: they provide evidence that examiners can make identifications accurately (and do not make many false eliminations), but do not quantify the probability that examiners make eliminations correctly. 
@@ -647,13 +650,52 @@ As a result, when error rates derived from these studies are cited, they do not 
 This fundamentally biases these studies so that in court they provide useful (but misleading) information to the prosecution while offering nothing useful to the defense.
 That is, the fundamental structure of these studies only provides information about how accurate examiners are when providing evidence against the defendent.
 
-% \svp{XXX Good, bad, and ugly study designs, and limits on possible conclusions. Mention of the prosecution bias of many common study designs which only allow for the calculation of the false positive rate.}
+<<data-setup, include = F>>=
+clopper <- function(alpha, success, trials) {
+  lower <- qbeta(alpha/2, success, trials-success+1)
+  upper <- qbeta(1-alpha/2, success+1, trials-success)
+  c(lower, upper)
+}
 
-\svp{XXX Overall Error Rate Plot and discussion XXX}
+library(tidyverse) 
+studies <- read.csv("data/studies.csv")
+studies <- studies %>% mutate(
+    Study = factor(Study, 
+                    levels=c("Baldwin (2014)", "Keisler (2018)", "Duez (2018)", "Bunch & Murphy (2003)", "Hamby (2019)", "Lyons (2009)"))
+  )
 
-\autoref{fig:errors} shows the overall error rates for all studies
+cis <- studies %>% group_by(Study, Decision) %>% 
+  filter(Type == "Observed") %>%
+  summarize(
+    pred_ss = sum(Number[Ground.truth=="Same Source"])/sum(Number),
+    pred_ss_lower = clopper(0.05, sum(Number[Ground.truth=="Same Source"]), sum(Number))[1],
+    pred_ss_upper = clopper(0.05, sum(Number[Ground.truth=="Same Source"]), sum(Number))[2]
+  )
 
-<<errors, echo=FALSE, fig.width=8, fig.height=3,fig.cap="Percentages of missed eliminations and missed identifications by study. 95\\% Pearson-Clopper confidence intervals are drawn around the error estimates.", out.width=".8\\textwidth">>=
+exp <- studies %>% 
+#  filter(Decision == "Inconclusive") %>%
+  group_by(Study, Decision) %>% 
+  summarize(
+    exp_ss = Number[Type=="Expected"][1] * sum(Number[Type == "Observed"]),
+    exp_ss_lower = clopper(0.05, exp_ss, sum(Number[Type == "Observed"]))[1],
+    exp_ss_upper = clopper(0.05, exp_ss, sum(Number[Type == "Observed"]))[2],
+    exp_prob = exp_ss/sum(Number[Type == "Observed"])
+  ) 
+  
+DontKnow <- data.frame(
+  pred_ss = 0.5, 
+  xmin=c(0,0,0,0), 
+  xmax=c(1,1,1,1), 
+  Study = c("Lyons (2009)", "Hamby (2019)", "Lyons (2009)", "Hamby (2019)"), 
+  Decision=rep(c("Inconclusive", "Elimination"), each=2))
+
+@
+
+\subsection{Overall Error Rates}
+
+\autoref{fig:errors} shows the overall error rates for the six studies of examiner error rates investigated in this paper. 
+
+<<errors, echo=FALSE, fig.width=8, fig.height=3,fig.cap="Percentages of missed eliminations and missed identifications by study. 95\\% Pearson-Clopper confidence intervals are drawn around the error estimates. Missed eliminations cannot be calculated for closed-set studies.", out.width=".8\\textwidth">>=
 errors <- studies %>% 
   mutate(
     AFTE = (Ground.truth=="Same Source" & Decision != "Elimination") | 
@@ -688,15 +730,13 @@ errors %>% gather(Type, Number, AFTE, Process) %>%
   xlim(c(0, NA)) +
   geom_errorbarh(aes(xmin=err_lower, xmax=err_upper, colour = Type, y=as.numeric(Study)+0.3*(as.numeric(Type)-1.5)),
                  size=0.5, height = 0.3,  alpha =0.9) +
-  scale_y_continuous(breaks=1:5, labels=levels(errors$Study), minor_breaks = NULL) +
+  scale_y_continuous(breaks=1:6, labels=levels(errors$Study), minor_breaks = NULL) +
   scale_colour_brewer(palette="Dark2") 
   
 @
 
 
-\svp{XXX Percent of inconclusives plot and discussion}
 
-\svp{XXX Introduce PPV/NPV as a fix for error rates and inconclusive percentages - easier to understand and use in court}
 
 \subsection{Source-specific error rates}
 
@@ -705,43 +745,6 @@ errors %>% gather(Type, Number, AFTE, Process) %>%
 \subsection{Conclusion-specific error rates}
 
 <<cis, echo=FALSE, fig.width=8, fig.height=4.5, fig.cap="Pearson-Clopper 95\\% confidence intervals for the probability of same source evidence given an examiner's conclusion. Expected values for each of the probabilities as discussed in \\autoref{sec:ideal} are shown as grey targets. Some of the studies do not allow an assessment of all of the predictive values.", out.width=".8\\textwidth">>=
-clopper <- function(alpha, success, trials) {
-  lower <- qbeta(alpha/2, success, trials-success+1)
-  upper <- qbeta(1-alpha/2, success+1, trials-success)
-  c(lower, upper)
-}
-
-library(tidyverse)
-studies <- read.csv("data/studies.csv")
-studies <- studies %>% mutate(
-    Study = factor(Study, 
-                    levels=c("Baldwin (2014)", "Keisler (2018)", "Duez (2018)", "Hamby (2019)", "Lyons (2009)"))
-  )
-
-cis <- studies %>% group_by(Study, Decision) %>% 
-  filter(Type == "Observed") %>%
-  summarize(
-    pred_ss = sum(Number[Ground.truth=="Same Source"])/sum(Number),
-    pred_ss_lower = clopper(0.05, sum(Number[Ground.truth=="Same Source"]), sum(Number))[1],
-    pred_ss_upper = clopper(0.05, sum(Number[Ground.truth=="Same Source"]), sum(Number))[2]
-  )
-
-exp <- studies %>% 
-#  filter(Decision == "Inconclusive") %>%
-  group_by(Study, Decision) %>% 
-  summarize(
-    exp_ss = Number[Type=="Expected"][1] * sum(Number[Type == "Observed"]),
-    exp_ss_lower = clopper(0.05, exp_ss, sum(Number[Type == "Observed"]))[1],
-    exp_ss_upper = clopper(0.05, exp_ss, sum(Number[Type == "Observed"]))[2],
-    exp_prob = exp_ss/sum(Number[Type == "Observed"])
-  ) 
-  
-DontKnow <- data.frame(
-  pred_ss = 0.5, 
-  xmin=c(0,0,0,0), 
-  xmax=c(1,1,1,1), 
-  Study = c("Lyons (2009)", "Hamby (2019)", "Lyons (2009)", "Hamby (2019)"), 
-  Decision=rep(c("Inconclusive", "Elimination"), each=2))
 
 cis %>% 
   ungroup() %>%
@@ -813,13 +816,10 @@ inc %>%
 \svp{XXX Inconclusives bias}
 
 
-\subsection{Baldwin Study \cite{Baldwin:2014bb}}
-
-
-Baldwin Discussion:
+\paragraph{Baldwin Study}\cite{Baldwin:2014bb}
 \begin{itemize}
 \item
-\hh{The fixed number of same source and different source sets in each kit is a weakness of the design in the Baldwin study. If a participant becomes aware of this fact, the additional information would help in reducing uncertainty about comparisons and might contribute to a reduced error rate. To mitigate this risk, participants were instructed ``to refrain from sharing or discussing the contents or results of their sample sets" (Baldwin et al), but in practice this is out of the hand of the tester. }
+% \hh{The fixed number of same source and different source sets in each kit is a weakness of the design in the Baldwin study. If a participant becomes aware of this fact, the additional information would help in reducing uncertainty about comparisons and might contribute to a reduced error rate. To mitigate this risk, participants were instructed ``to refrain from sharing or discussing the contents or results of their sample sets" (Baldwin et al), but in practice this is out of the hand of the tester. }
 \item It seems that firearms examiners are more willing to bet on identifications than on eliminations. 
 Based on the set up of the study, we would expect the probabilities for same and different source given an inconclusive result is reported to be: 
 \begin{eqnarray*}
@@ -853,28 +853,22 @@ For 3234 comparisons, FTEs evaluated how many of the known cartridge cases were 
 ``In this report we present our findings on these variations and suggest that this is an area for further study and discussion within the community."
 
 
-\subsection{Keisler Study \cite{keisler}}
-
-
-Keisler study discussion:
-
+\paragraph{Keisler Study} \cite{keisler}
 \begin{itemize}
-\item \hh{XXX there are two (minor) flaws: margins fixed and additional information. }
+% \item \hh{XXX there are two (minor) flaws: margins fixed and additional information. }
 \item Again, inconclusive results are much more indicative of different source results than they should be  based on the setup of the study; we would expect same source results with a probability of 0.60 given an inconclusive result. 
-\item \svp{The design of the Keisler study is ideal - it allows for the calculation of all of the error and success rates, all conditional probabilities, and precise identification of the number of same-source and different-source comparisons conducted by each examiner. }
-\item \svp{One major flaw in the Keisler study (that is by no means unique to this study) is the acknowledgement that
-``on the response sheet participants were asked if their laboratory had a policy which does not allow examiners to exclude based on individual characteristics. ... many participants answered `yes' to the laboratory policy question and answered `inconclusive' on all within-class comparisons that could have been correctly excluded." }
+% \item \svp{The design of the Keisler study is ideal - it allows for the calculation of all of the error and success rates, all conditional probabilities, and precise identification of the number of same-source and different-source comparisons conducted by each examiner. }
+% \item \svp{One major flaw in the Keisler study (that is by no means unique to this study) is the acknowledgement that
+% ``on the response sheet participants were asked if their laboratory had a policy which does not allow examiners to exclude based on individual characteristics. ... many participants answered `yes' to the laboratory policy question and answered `inconclusive' on all within-class comparisons that could have been correctly excluded." }
 \end{itemize}
 
-\subsection{Duez Study \cite{Duez:2017kha}}
-
-Discussion Duez study
+\paragraph{Duez Study}\cite{Duez:2017kha}
 
 \begin{itemize}
 \item The error rate of certified examiners in making eliminations is much lower than that of the ten trainees. This is reflected in the error rates of the overall process. The process errors are much smaller for certified firearms examiners than for trainees. 
 \item However, the probability to miss eliminations is again high, lab rules contribute to this error (see discussion below).
 \item The set of conditional probabilities are shown at the bottom of \autoref{tab:duez-summary}. As in other studies, the probability of same source pairs given examiners reported an inconclusive result is much lower than the expect 75\% based on the setup of the study.
-\item \svp{The problems with ... ``The study was blind in that examiners did not know the true source of the cartridge cases."}
+% \item \svp{The problems with ... ``The study was blind in that examiners did not know the true source of the cartridge cases."}
 \end{itemize}
 
 Treatment of the Inconclusives:
@@ -889,38 +883,33 @@ The authors report that
 
 
 
-\subsection{Brundage-Hamby Study \cite{Hamby:2018hu}}
+\paragraph{Brundage-Hamby Study }\cite{Hamby:2018hu}
+% \begin{itemize}
+% \item \hh{The study is a closed set study. Closed set study designs go hand-in-hand with an unfortunate emphasis of identifications over eliminations. }
+% \item \hh{The design of the study does not allow for an assessment of all of the error and accuracy rates discussed in \autoref{sec:rates}, but shows a strong focus on evaluating identifications. }
+% In particular, the answer sheets for Brundage-Hamby sets only asks for reports of identifications for each of the questioned bullets. 
 
-
-Discussion of the study
-\begin{itemize}
-\item \hh{The study is a closed set study. Closed set study designs go hand-in-hand with an unfortunate emphasis of identifications over eliminations. }
-\item \hh{The design of the study does not allow for an assessment of all of the error and accuracy rates discussed in \autoref{sec:rates}, but shows a strong focus on evaluating identifications. }
-In particular, the answer sheets for Brundage-Hamby sets only asks for reports of identifications for each of the questioned bullets. 
-
-While the number of same source comparison is obviously one for each questioned bullet, i.e.\ each participant made exactly fifteen same source comparisons, the number of different source comparisons that were made  is an open question.
+% While the number of same source comparison is obviously one for each questioned bullet, i.e.\ each participant made exactly fifteen same source comparisons, the number of different source comparisons that were made  is an open question.
 
 Technically, there are nine different source comparisons for each questioned bullet for a total of 135 (nominal) different source comparisons.  
 
 However, these evaluations are not independent of each other: once a bullet is successfully identified to a pair of knowns, none of the other sets of knowns can possibly be a match. 
-Rather than having to make a call on a comparison, the evaluation shifts to a confirmation of an elimination. We will assume that an examiner will need to make an average of 4.5 different source comparisons before making an identification, resulting in an average of 67.5 different source comparisons for the whole set, and an approximate total of 47047.5 different source comparisons overall. See \autoref{app:brundage} for mathematical details.
-\item \hh{Given that only identifications had to be reported, we are also} missing  any information on the number of eliminations versus inconclusive results for different source comparisons. 
-\end{itemize}
+Rather than having to make a call on a comparison, the evaluation shifts to a confirmation of an elimination. We will assume that an examiner will need to make an average of 4.5 different source comparisons before making an identification, resulting in an average of 67.5 different source comparisons for the whole set, and an approximate total of 47047.5 different source comparisons overall. See \ref{app:brundage} for mathematical details.
+% \item \hh{Given that only identifications had to be reported, we are also} missing  any information on the number of eliminations versus inconclusive results for different source comparisons. 
+% \end{itemize}
 
 
 
 
 
-\subsection{Lyons Study\cite{lyons}}
-
-Discussion of the Lyons study:
-\begin{itemize}
-\item First, the researchers established that there were sufficient individualizing characteristics to identify cartridges ejected by the same tool, and that there were sufficient individualizing characteristics to exclude cartridges ejected by sequentially manufactured tools. 
-\item It should be noted that there are some methodological problems with the Lyons study - examiners who did not initially include all 12 unknown evaluations were given the chance to correct results; in addition, not every examiner evaluated the same number of unknowns. Excluding these results might provide different estimates, but we have chosen to use the numbers as reported in the paper for this calculation.
-\end{itemize}
+% \paragraph{Lyons Study}\cite{lyons}
+% \begin{itemize}
+% \item First, the researchers established that there were sufficient individualizing characteristics to identify cartridges ejected by the same tool, and that there were sufficient individualizing characteristics to exclude cartridges ejected by sequentially manufactured tools. 
+% \item It should be noted that there are some methodological problems with the Lyons study - examiners who did not initially include all 12 unknown evaluations were given the chance to correct results; in addition, not every examiner evaluated the same number of unknowns. Excluding these results might provide different estimates, but we have chosen to use the numbers as reported in the paper for this calculation.
+% \end{itemize}
 
 
-\subsection{Bunch \& Murphy Study \cite{bunch2003comprehensive}}
+% \paragraph{Bunch \& Murphy Study} \cite{bunch2003comprehensive}
 
 % Issues - assume the full number of possible pairwise comparisons (360) was completed; simulations show that in practice, if examiners used logic along with pairwise comparisons, the total number of required comparisons is between 186 and 289 (by simulation - should probably figure out if it's possible to get a hard floor without completely enumerating the sample space). This has pros (no possible information gained from examiners talking to each other), but also has problems - we can only provide bounded estimates for the number of comparisons done.
 
