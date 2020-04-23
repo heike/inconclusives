@@ -1213,8 +1213,8 @@ Open set & variable & variable & 8 FBI examiners\\
 \begin{tabularx}{\textwidth}{Y|rrr|Y}
 \multicolumn{5}{c}{\bf Reported (Nominal) Count Data}\\
 \multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Total\\\hline
-Same Source & 70 & 0 & 0 & 70 \\
-Diff Source & 0 & 172 & 118 & 290 \\\hline
+Same source & 70 & 0 & 0 & 70 \\
+Diff source & 0 & 172 & 118 & 290 \\\hline
 \multicolumn{1}{Y}{Conclusion Total} & 70 & 172 & \multicolumn{1}{r}{ 118} & \multicolumn{1}{Y}{}\\\hline\hline
 
 \multicolumn{5}{c}{}\\
@@ -1223,14 +1223,14 @@ Diff Source & 0 & 172 & 118 & 290 \\\hline
 \multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Probability\\\hline
 Same source & 1 & 0 & 0 & 0.2414\\
 Diff source & 0 & 1 & 1 & 0.7586\\\hline
-\multicolumn{1}{Y}{Conclusion Probability} & 0.2414 & 0.5931 & \multicolumn{1}{r}{0.4059} & \multicolumn{1}{Y}{}\\\hline\hline
+\multicolumn{1}{Y}{Conclusion Probability} & 0.1944 & 0.4778 & \multicolumn{1}{r}{0.3278} & \multicolumn{1}{Y}{}\\\hline\hline
 
 \multicolumn{5}{c}{}\\
 \multicolumn{5}{c}{\bf (Nominal) Source-Specific Probabilities}\\
 \multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Probability\\\hline
 Same source & 1.0000 & 0.0000 & 0.0000 & 0.2414\\
 Diff source & 0.0000 & 0.5931 & 0.4069 & 0.7586\\\hline
-\multicolumn{1}{Y}{Conclusion Probability} & 0.2414 & 0.5931 & \multicolumn{1}{r}{0.4059} & \multicolumn{1}{Y}{}\\\hline\hline
+\multicolumn{1}{Y}{Conclusion Probability} & 0.1944 & 0.4778 & \multicolumn{1}{r}{0.3278} & \multicolumn{1}{Y}{}\\\hline\hline
 \end{tabularx}
 
 \begin{tabularx}{\textwidth}{lX|rr|Y}
@@ -1328,13 +1328,12 @@ sets %>%
 
 \subsection{Bunch and Murphy simulation}\label{sec:bunchmurphysim}
 \svp{The exact composition of the test sets in Bunch \& Murphy is not known, though the process for assembling the test kits provides sufficient information to simulate the composition of the eight test kits used in the study.}
-\svp{From these simulated sets, we can identify any which match the reported values of 70 same-source and 290 possible different-source comparisons. Using these sets, we can then estimate the minimal number of comparisons which are necessary using deductive reasoning in addition to examination.
-XXX fill in the details of the deductive reasoning
+\svp{Using the simulation method, we created 500,000 sets of 8 test kits; from these simulated sets, we identified any which match the reported values of 70 same-source and 290 possible different-source comparisons (287,536). We considered adding the restriction of 45 consecutively manufactured comparisons, but found that this reduced the number of simulations to 6,416; given that we do not assess the consecutively manufactured comparisons separately, adding this restriction was deemed unnecessary. Using these sets, we can then estimate the minimal number of comparisons which are necessary using deductive reasoning in addition to examination. R code to reproduce this simulation (and the deductive reasoning algorithm) can be found at \url{https://gist.github.com/srvanderplas/9cb0268df99e97a9ce327bb1489f7046}. 
 }
 
 
 \noindent\begin{fmpage}{\textwidth}\centering
-\captionof{table}{Results and summary tables for the Bunch and Murphy study, with only independent pairwise comparisons included. An independent comparison is one in which the examiner has no relevant prior information about either of the cartridges. These values were determined using simulation, using the sampling method described in the study, and evaluating comparisons sequentially to determine if they are independent of prior comparisons or if they are confirmatory. Results are derived from the subset of simulations which matched the reported values in the paper (70 total same source conclusions, with 290 total different source conclusions). 95\% bootstrap intervals are provided for quantities  estimated via simulation; quantities that cannot be estimated via simulation are marked as ??.}\label{tab:bunch-indep}
+\captionof{table}{Results and summary tables for the Bunch and Murphy study, with only independent pairwise comparisons included. An independent comparison is one in which the examiner has no relevant prior information about either of the cartridges. These values were determined using simulation, using the sampling method described in the study, and evaluating comparisons sequentially to determine if they are independent of prior comparisons or if they are confirmatory. Results are derived from the subset of simulations which matched the reported values in the paper (70 total same source conclusions, with 290 total different source conclusions). 95\% bootstrap intervals are provided for quantities  estimated via simulation. To allocate the inconclusives and eliminations, we used the rule stated in \cite{bunch2003comprehensive}: FBI examiners can exclude only on class characteristic mismatches. It should be noted that in none of the 287,536 simulations which matched the other set criteria did we find a set which had more than 109 class characteristic mismatches, suggesting that there may have been some eliminations made on individual characteristics, but as this cannot be confirmed, estimates of eliminations only include class characteristic mismatches.}\label{tab:bunch-indep}
 {\large\bf A Comprehensive Validity Study for the Forensic Examination of Cartridge Cases}\emph{\citeauthor{bunch2003comprehensive} (\citeyear{bunch2003comprehensive})}\\
 \begin{tabularx}{\textwidth}{XrrX}\hline
 \multirow{2}{*}{\bf Study Type} & \multicolumn{2}{c}{\bf Test Set} & \multirow{2}{*}{\bf Participants}\\
@@ -1345,30 +1344,30 @@ Open set & variable & variable & 8 FBI examiners\\
 \multicolumn{5}{c}{\bf Independent Comparisons}\\
 \multicolumn{5}{c}{Mean (95\% CI)}\\
 \multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Total\\\hline
-Same Source & 19.76 [17, 22] & 0 & 0 & 19.76 [17, 22] \\
-Diff Source & 0 & ?? & ?? & 154.22 [139, 171] \\\hline
-\multicolumn{1}{Y}{Conclusion Total} & 70 & 172 & \multicolumn{1}{r}{ 118} & \multicolumn{1}{Y}{}\\\hline\hline
+Same source & 28.7 [26, 31] & 0 & 0 & 28.7 [26, 31] \\
+Diff source & 0 & 156.5 [134, 181] & 42.5 [22, 64] & 199.1 [184, 217] \\\hline
+\multicolumn{1}{Y}{Conclusion Total} & 28.7 [26, 31] & 156.5 [134, 181] & \multicolumn{1}{r}{42.5 [22, 64] } & \multicolumn{1}{Y}{}\\\hline\hline
 \multicolumn{5}{c}{}\\
 \multicolumn{5}{c}{\bf Independent Comparisons: Conclusion-Specific Probabilities}\\
 \multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Probability\\\hline
-Same source & 1 & 0 & 0 & 0.1109 [0.0256, 0.2381]\\
-Diff source & 0 & 1 & 1 & 0.8891 [0.7619, 0.9744]\\\hline
-            \multicolumn{1}{Y}{Conclusion Probability} & 0.2414 & 0.5931 & \multicolumn{1}{r}{0.4059} & \multicolumn{1}{Y}{}\\\hline\hline
+Same source & 1.000 & 0.000 & 0.000 & 0.126 [0.110, 0.142]\\
+Diff source & 0.000 & 1.000 & 1.000 & 0.874 [0.858, 0.890] \\\hline
+\multicolumn{1}{Y}{Conclusion Probability} & 0.126 [0.110, 0.142] & 0.687 [0.597, 0.779] & \multicolumn{1}{r}{0.187 [0.095, 0.278]} & \multicolumn{1}{Y}{}\\\hline\hline
 
 \multicolumn{5}{c}{}\\
 \multicolumn{5}{c}{\bf Independent Comparisons: Source-Specific Probabilities}\\
 \multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Probability\\\hline
-Same source & 1.0000 & 0.0000 & 0.0000 & 0.1109 [0.0256, 0.2381]\\
-Diff source & 0.0000 & ?? & ?? & 0.8891 [0.7619, 0.9744]\\\hline
-\multicolumn{1}{Y}{Conclusion Probability} & 0.2414 & 0.5931 & \multicolumn{1}{r}{0.4059} & \multicolumn{1}{Y}{}\\\hline\hline
+Same source & 1.000 & 0.000 & 0.000 & 0.126 [0.110, 0.142]\\
+Diff source & 0.000 & 0.787 [0.682, 0.891] & 0.214 [0.109, 0.318] &  0.874 [0.858, 0.890] \\\hline
+\multicolumn{1}{Y}{Conclusion Probability} & 0.126 [0.110, 0.142] & 0.687 [0.597, 0.779] & \multicolumn{1}{r}{0.187 [0.095, 0.278]} & \multicolumn{1}{Y}{}\\\hline\hline
 \end{tabularx}
 
 \begin{tabularx}{\textwidth}{lX|rr|Y}
 \multicolumn{5}{c}{}\\
 \multicolumn{5}{c}{\bf Independent Comparisons: Error Rates}\\
 Opt. & \multicolumn{1}{c}{Meaning} & Missed Identification & \multicolumn{1}{r}{Missed Elimination} & Total \\\hline
-2 & FTE error & 0.0000 & 0.0000 & 0.0000\\
-3 & Process error & 0.0000 & ?? & ?? \\
+2 & FTE error & 0.000 & 0.000 & 0.000\\
+3 & Process error & 0.000 & 0.787 [0.682, 0.891] & 0.687 [0.587, 0.779] \\
 \end{tabularx}
 \end{fmpage}
 

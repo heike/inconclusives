@@ -45,6 +45,12 @@ prev_exists <- function(idx, x) {
   x[idx] %in% unique(x[1:(idx - 1)])
 }
 
+fbi_elim_calc <- function(x, y) {
+  x1 <- ifelse(x %in% c("S", "B"), x, "A")
+  y1 <- ifelse(y %in% c("S", "B"), y, "A")
+  x1 != y1
+}
+
 bunch_eval <- function(set) {
   idx <- 1:length(set)
   setf <- factor(set, levels = unique(set), ordered = T)
@@ -55,6 +61,7 @@ bunch_eval <- function(set) {
            f1 = as.numeric(set1), f2 = as.numeric(set2),
            idx = row_number(),
            match = set1 == set2,
+           fbi_elim = map2_lgl(set1, set2, fbi_elim_calc),
            # Set of ordered pairwise comparisons (by source)
            orderedf = map2_chr(as.numeric(set1), as.numeric(set2), 
                                function(x, y) sort(unique(c(x, y))) %>% paste(collapse = ",")),
@@ -77,21 +84,23 @@ bunch_eval <- function(set) {
   comparisons %>%
     summarize(matches_all = sum(match), matches_min = sum(match[!inferred]),
               nonmatches_all = sum(!match), nonmatches_min = sum(!match[!inferred]),
+              fbi_elim_all = sum(fbi_elim), fbi_elim_min = sum(fbi_elim[!inferred]),
               optional = sum(inferred))
 }
 
-res <- purrr::map_df(1:100000, function(i) {
+res <- purrr::map_df(1:500000, function(i) {
     tibble(kit = bunch_test_kits()) %>%
-      mutate(eval = purrr::map(kit, bunch_eval)) #%>%
+      mutate(eval = parallel::mclapply(kit, bunch_eval)) #%>%
       # unnest(eval) %>%
       # summarize(iteration = i, 
       #           all_pairwise_matches = sum(matches_all), min_pairwise_matches = sum(matches_min), 
       #           all_pairwise_nonmatches = sum(nonmatches_all), min_pairwise_nonmatches = sum(nonmatches_min))
     
   })
+res <- unnest(res, eval)
 
 save(res, file = here::here("data/bunch-murphy-results.Rdata"))
-
+  
 res %>%
   select(-iteration) %>%
   pivot_longer(cols = 1:4, names_to = "type", values_to = "comparisons") %>%
@@ -120,11 +129,13 @@ res
 res %>%
   mutate(total_comparisons = all_pairwise_matches + all_pairwise_nonmatches, min_comparisons = min_pairwise_matches + min_pairwise_nonmatches)
 
+# res2 <- res %>% rename(matches = matches_all, matches_indep = matches_min, nonmatches = nonmatches_all, nonmatches_indep = nonmatches_min, fbi_elim = fbi_elim_all, fbi_elim_indep = fbi_elim_min, optional = optional)
+
 load("data/bunch-murphy-15000-sim.Rdata") # res2
 
 # Add in FBI rules - can't exclude on class characteristic matches
 
-res3 <-res2[(0:(length(res2$kit)-1))%%8 <=5, ] %>% unnest(eval)
+res3 <-res2[(0:(nrow(res2)-1))%%8 <=5, ] #%>% unnest(eval)
 res3 <- rename(res3, matches_indep = matches_min, nonmatches_indep = nonmatches_min)
 res3$set <- floor((1:nrow(res3) - 1)/6)
 
@@ -153,4 +164,73 @@ res3 %>% group_by(set) %>% select(-1) %>% summarize_all(sum) %>% filter(matches_
   separate(match_type, into = c("match", "val"), sep = "_indep_") %>%
   pivot_wider(id_cols = "match", names_from = "val", values_from = "value")
 
-## How to handle distribution of inconclusives and eliminations? Assume same fraction? Allocate based on fraction of redundant comparisons that meet FBI definitions?
+## How to handle distribution of inconclusives and eliminations? Assume same fraction? 
+## Allocate based on fraction of redundant comparisons that meet FBI definitions?
+
+compute_consec_comparisons <- function(x) {
+  y <- suppressWarnings(as.numeric(x))
+  yidx <- which(!is.na(y))
+  tmp <- expand.grid(i = yidx, j = yidx) 
+  tmp2 <- tmp[tmp$i > tmp$j,]
+  tmp2$i <- y[tmp2$i]
+  tmp2$j <- y[tmp2$j]
+  sum(abs(tmp2$i - tmp2$j) == 1)
+  # crossing(i = which(!is.na(y)), j = which(!is.na(y))) %>% 7
+  #   filter(i > j) %>%
+  #   mutate(i = y[i], j = y[j]) %>%
+  #   mutate_each(as.numeric) %>% 
+  #   na.omit() %>%
+  #   mutate(diff = abs(i - j)) %>%
+  #   filter(diff == 1) %>%
+  #   count() %>%
+  #   as.numeric()
+}
+
+res2 <- res %>% 
+  mutate(sim_num = rep(1:500000, each = 8),
+         kit_num = rep(1:8, times = 500000)) %>%
+  mutate(consec_manuf = purrr::map_dbl(kit, compute_consec_comparisons))
+
+res3 <- res2 %>%
+  # select(kit_num <= 5) %>% # Select kits that don't have all matches or all nonmatches
+  group_by(sim_num) %>% 
+  select(-kit, -kit_num) %>%
+  summarise_all(sum) %>% 
+  filter(matches_all == 70, nonmatches_all == 290, consec_manuf == 42) %>%
+  select(sim_num) %>% 
+  left_join(res2) %>% # Keep only trials with 70 min matches, 290 nonmatches, and 
+                      # 42 consecutively manufactured comparisons
+  select(sim_num, kit_num, kit) %>%
+  mutate(eval = purrr::map(kit, bunch_eval)) %>%
+  unnest(eval)
+
+res3 %>% group_by(sim_num) %>% select(-kit) %>% summarize_all(sum) %>%
+  select(matches_min, nonmatches_min, fbi_elim_min) %>% 
+  summarize_each(list(~quantile(., c(0.025)), ~mean(.), ~quantile(., .975))) %>%
+  select(matches("nonmatches"), matches("^matches"), matches("^fbi")) %>%
+  pivot_longer(cols = 1:9, names_to = "match_type", values_to = "value") %>%
+  separate(match_type, into = c("match", "val"), sep = "_min_") %>%
+  pivot_wider(id_cols = "match", names_from = "val", values_from = "value")
+
+res4 <- res2 %>%
+  # select(kit_num <= 5) %>% # Select kits that don't have all matches or all nonmatches
+  group_by(sim_num) %>% 
+  select(-kit, -kit_num) %>%
+  summarise_all(sum) %>% 
+  filter(matches_all == 70, nonmatches_all == 290) %>%
+  select(sim_num) %>% 
+  left_join(res2) %>% # Keep only trials with 70 min matches, 290 nonmatches
+  select(sim_num, kit_num, kit) %>%
+  mutate(eval = purrr::map(kit, bunch_eval)) %>%
+  unnest(eval)
+
+
+res4 %>% group_by(sim_num) %>% select(-kit) %>% summarize_all(sum) %>%
+  select(matches_min, nonmatches_min, fbi_elim_min) %>% 
+  summarize_each(list(~quantile(., c(0.025)), ~mean(.), ~quantile(., .975))) %>%
+  select(matches("nonmatches"), matches("^matches"), matches("^fbi")) %>%
+  pivot_longer(cols = 1:9, names_to = "match_type", values_to = "value") %>%
+  separate(match_type, into = c("match", "val"), sep = "_min_") %>%
+  pivot_wider(id_cols = "match", names_from = "val", values_from = "value")
+
+range(res4$fbi_elim_all)
