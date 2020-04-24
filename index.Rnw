@@ -591,7 +591,7 @@ Here, we summarize the primary findings from our survey of the available literat
 \item[Duez]\citep{Duez:2017kha} is an open-set study of breech face comparisons using virtual microscopy. Each of 56 participants (46 trained, 10 trainees) received two test sets consisting of one standard (3 scans) and 4 questioned scans In one set, all questioned scans were from the same source as the standard; in the second set, there were two different-source questioned scans and two same-source questioned scans.
 \item[Bunch \& Murphy]\citep{bunch2003comprehensive} is an open-set study of consecutively manufactured Glock breechfaces. In this study, each of 8 participants received 10 cartridge cases and was required to evaluate each possible pairwise comparison. In this study, the number of same-source and different-source cartridge cases varied by test kit from 10 same-source cartridges to 10 different-source cartridges.
 \item[Fadul]\citep{fadul} is a closed-set study of the breech face striations/impressions produced by 10 consecutively manufactured slides. Participants received a set of 10 standards and 15 questioned cases. The design of this study is similar to \citep{Hamby:2018hu}.
-\item [Chumbley]\citep{chumbleyValidationToolMark2010} 
+\item [Chumbley]\citep{chumbleyValidationToolMark2010}\svp{XXX need to fill this in}
 \end{description}
 
 \svp{ 
