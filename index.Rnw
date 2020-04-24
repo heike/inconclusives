@@ -960,19 +960,19 @@ inc %>%
 \paragraph{Duez Study}\cite{Duez:2017kha}
 
 \begin{itemize}
-\item The error rate of certified examiners in making eliminations is much lower than that of the ten trainees. This is reflected in the error rates of the overall process. The process errors are much smaller for certified firearms examiners than for trainees. 
+\item The error rate of certified examiners in making eliminations is much lower than that of the ten trainees. This is reflected in the error rates of the overall process. The process errors are much smaller for certified firearms examiners than for trainees. \svp{XXX add to the conclusion?}
 \item However, the probability to miss eliminations is again high, lab rules contribute to this error (see discussion below).
 \item The set of conditional probabilities are shown at the bottom of \autoref{tab:duez-summary}. As in other studies, the probability of same source pairs given examiners reported an inconclusive result is much lower than the expect 75\% based on the setup of the study.
 % \item \svp{The problems with ... ``The study was blind in that examiners did not know the true source of the cartridge cases."}
 \end{itemize}
 
-Treatment of the Inconclusives:
-
-The authors report that
-``13\% of examiners are not permitted to eliminate on individual characteristics
-(therefore, their conclusions of inconclusive are perfectly acceptable)."
-
-\hh{It is interesting to note that 7 of the examiners did not report eliminations due to  lab rules. These rules seem to be in contradiction to community accepted AFTE rules and need to be considered during reporting and testimony evaluations. XXX Bias against defense. XXX Needless to say that we do not agree with the authors' assessment that conclusions of inconclusives are perfectly acceptable.}
+% Treatment of the Inconclusives:
+% 
+% The authors report that
+% ``13\% of examiners are not permitted to eliminate on individual characteristics
+% (therefore, their conclusions of inconclusive are perfectly acceptable)."
+% 
+% \hh{It is interesting to note that 7 of the examiners did not report eliminations due to  lab rules. These rules seem to be in contradiction to community accepted AFTE rules and need to be considered during reporting and testimony evaluations. XXX Bias against defense. XXX Needless to say that we do not agree with the authors' assessment that conclusions of inconclusives are perfectly acceptable.}
 
 
 
