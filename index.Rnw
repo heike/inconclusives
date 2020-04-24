@@ -968,7 +968,7 @@ Implications for court process - examiner states error rate, defense asks for in
 
 Results are summarized in \autoref{tab:baldwin-summary}. 
 
-\noindent\begin{fmpage}{\textwidth}\centering
+\noindent\begin{fmpage}{\textwidth}\centering % Checked for accuracy on 2020-04-24
 \captionof{table}{Baldwin study results, conclusion-specific and source-specific probabilities, and reported overall error rates. }\label{tab:baldwin-summary}
 {\large\bf A Study of False-Positive and False-Negative Error Rates in Cartridge Case Comparisons}
 \emph{\citeauthor{Baldwin:2014bb} (\citeyear{Baldwin:2014bb})}\\
@@ -1017,7 +1017,7 @@ Kits were assembled using only 9 Smith \& Wesson pistols (i.e. there is a potent
 
 Results from the study are shown in \autoref{tab:keisler-summary}.
 
-\noindent\begin{fmpage}{\textwidth}\centering
+\noindent\begin{fmpage}{\textwidth}\centering % Checked for numerical accuracy 2020-04-24
 \captionof{table}{{\large\bf Isolated Pairs Research Study} \label{tab:keisler-summary}}
 \emph{\citeauthor{keisler} (\citeyear{keisler})}\\
 A study of Smith \& Wesson cartridge cases.
@@ -1037,15 +1037,15 @@ Different source & 0 & 203 & 805 & 1008 \\\hline
 
 \multicolumn{5}{c}{\bf Conclusion-Specific Probabilities}\\
 \multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Probability\\\hline
-Same source & 1.0000 & 0.0197 & 0.0000 & 0.6000\\
-Different source & 0.0000 & 0.9803 & 1.0000 & 0.4000\\\hline
+Same source & 1.0000 & 0.0193 & 0.0000 & 0.6000\\
+Different source & 0.0000 & 0.9807 & 1.0000 & 0.4000\\\hline
 \multicolumn{1}{Y}{Conclusion Probability} & 0.5984 & 0.0821 & \multicolumn{1}{r}{0.3194} & \multicolumn{1}{Y}{}\\\hline\hline
 
 \multicolumn{5}{c}{}\\
 \multicolumn{5}{c}{\bf Source-Specific Probabilities}\\
 \multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Probability\\\hline
-Same source & 0.9974 & 0.0028 & 0.0000 & 0.6000\\
-Different source & 0.0000 & 0.2014 & 0.7976 & 0.4000 \\\hline
+Same source & 0.9974 & 0.0026 & 0.0000 & 0.6000\\
+Different source & 0.0000 & 0.2014 & 0.7986 & 0.4000 \\\hline
 \multicolumn{1}{Y}{Conclusion Probability} & 0.5984 & 0.0821 & \multicolumn{1}{r}{0.3194} & \multicolumn{1}{Y}{}\\\hline\hline
 \end{tabularx}
 
@@ -1072,7 +1072,7 @@ The design of the experiment does not allow us to quantify all of the quantities
 
 %The top of  shows results reported by 56 participants (46 examiners, 10 trainees).
 
-\noindent\begin{fmpage}{\textwidth}\centering
+\noindent\begin{fmpage}{\textwidth}\centering % Checked numbers 2020-04-24
 \captionof{table}{Duez study results, conclusion-specific and source-specific probablities, and reported overall error rates. For the conditional probabilities, 
 the differences in certified examiners and trainees are not large, so only the aggregate results are shown. Certified examiners have a perfect identification rate, only evaluations of different source pairs lead to inconclusives. }\label{tab:duez-summary}
 {\large\bf Development and Validation of a Virtual Examination Tool for Firearm Forensics}
@@ -1093,24 +1093,24 @@ Different source & 0+2 & 12+13 & 80+5 & 92+20 \\\hline
 
 \multicolumn{5}{c}{\bf Conclusion-Specific Probabilities}\\
 \multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Probability\\\hline
-Same source & 0.9941 & 0.0385 & 0.0000 & 0.7483 \\
-Different source & 0.0059 & 0.9615 & 1.0000 & 0.2517 \\\hline
-\multicolumn{1}{Y}{Conclusion Probability} & 0.7506 & 0.0579 & \multicolumn{1}{r}{0.1915} & \multicolumn{1}{Y}{}\\\hline\hline
+Same source & 0.9941 & 0.0385 & 0.0000 & 0.7500 \\
+Different source & 0.0059 & 0.9615 & 1.0000 & 0.2500 \\\hline
+\multicolumn{1}{Y}{Conclusion Probability} & 0.7522 & 0.0580 & \multicolumn{1}{r}{0.1897} & \multicolumn{1}{Y}{}\\\hline\hline
 
 \multicolumn{5}{c}{}\\
 \multicolumn{5}{c}{\bf Source-Specific Probabilities}\\
 \multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Probability\\\hline
-Same source & 0.9970 & 0.0030 & 0.0000 & 0.7483\\
-Different source & 0.0179 & 0.2232 & 0.7589 & 0.2517\\\hline
-\multicolumn{1}{Y}{Conclusion Probability} & 0.7506 & 0.0579 & \multicolumn{1}{r}{0.1915} & \multicolumn{1}{Y}{}\\\hline\hline
+Same source & 0.9970 & 0.0030 & 0.0000 & 0.7500\\
+Different source & 0.0179 & 0.2232 & 0.7589 & 0.2500\\\hline
+\multicolumn{1}{Y}{Conclusion Probability} & 0.7522 & 0.0809 & \multicolumn{1}{r}{0.1897} & \multicolumn{1}{Y}{}\\\hline\hline
 \end{tabularx}
 
 \begin{tabularx}{\textwidth}{lX|rr|Y}
 \multicolumn{5}{c}{}\\
 \multicolumn{5}{c}{\bf Overall Error Rates}\\
 Opt. & \multicolumn{1}{c}{Meaning} & Missed Identification & \multicolumn{1}{r}{Missed Elimination} & Total \\\hline
-2 & FTE error & 0.0000/0.0000  & 0.0000/0.1000 & 0.0000/0.0125\\
-3 & Process error & 0.0000/0.0167 & 0.1304/0.7500 & 0.0325/0.2000\\ \hline
+2 & FTE error & 0.0000/0.0000  & 0.0000/0.1000 & 0.0000/0.0303\\
+3 & Process error & 0.0000/0.0167 & 0.1304/0.7500 & 0.0326/0.2000\\ \hline
 \end{tabularx}
 \end{fmpage}
 
@@ -1122,7 +1122,7 @@ The design of the Brundage-Hamby is well known in the forensics community and ha
 
 Results reported in the 2019 paper are shown in \autoref{tab:hamby-summary}.
 
-\noindent\begin{fmpage}{\textwidth}\centering
+\noindent\begin{fmpage}{\textwidth}\centering % Checked numbers 2020-04-24
 \captionof{table}{Evaluations, conditional error rates, and overall error rates from the combined Brundage-Hamby studies. Note the focus on identifications.}\label{tab:hamby-summary}
 {\large\bf A Worldwide Study of Bullets Fired From 10 Consecutively Rifled 9MM RUGER Pistol Barrels - Analysis of Examiner Error Rate}
 \emph{\citeauthor{Hamby:2018hu} (\citeyear{Hamby:2018hu})}\\
@@ -1167,7 +1167,7 @@ Opt. & \multicolumn{1}{c}{Meaning} & Missed Identification & \multicolumn{1}{r}{
 \paragraph{Bunch \& Murphy Study} \cite{bunch2003comprehensive}
 \svp{XXX description introduction to study?}
 
-\noindent\begin{fmpage}{\textwidth}\centering
+\noindent\begin{fmpage}{\textwidth}\centering % Checked numbers 2020-04-24
 \captionof{table}{Results and summary tables for the Bunch and Murphy study. Values in this table are as reported in the study; however, due to the study's structure, it is possible to perform fewer comparisons, because not all comparisons are independent. Results for independent comparisons are shown in \autoref{tab:bunch-indep}}\label{tab:bunch-summary}
 {\large\bf A Comprehensive Validity Study for the Forensic Examination of Cartridge Cases}\emph{\citeauthor{bunch2003comprehensive} (\citeyear{bunch2003comprehensive})}\\
 \begin{tabularx}{\textwidth}{XrrX}\hline
@@ -1213,7 +1213,7 @@ Kits were assembled from 32 cartridge cases: 20 known cartridge cases from pairs
 It is also not possible to determine the total number of independent different source comparisons. 
 \svp{The study results are shown in \autoref{tab:lyons-summary}, along with computed conclusion-specific and source-specific probabilities and error rates.}
 
-\noindent\begin{fmpage}{\textwidth}\centering
+\noindent\begin{fmpage}{\textwidth}\centering % Checked numbers 2020-04-24
 \captionof{table}{}\label{tab:lyons-summary}
 {\large\bf The Identification of Consecutively Manufactured Extractors} \emph{\citeauthor{lyons} (\citeyear{lyons})}\\
 \begin{tabularx}{\textwidth}{XrrX}\hline
@@ -1239,7 +1239,7 @@ Different source & 0.0169 & ? & ? & ?\\\hline
 \multicolumn{5}{c}{}\\
 \multicolumn{5}{c}{\bf Source-Specific Probabilities}\\
 \multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Probability\\\hline
-Same source & 0.9775 & 0.0056 & 0.1685 & ?\\
+Same source & 0.9775 & 0.0056 & 0.0169 & ?\\
 Different source & ? & ? & ? & ?\\\hline
 \multicolumn{1}{Y}{Conclusion Probability} & ? & ? & \multicolumn{1}{r}{?} & \multicolumn{1}{Y}{}\\\hline\hline
 \end{tabularx}
