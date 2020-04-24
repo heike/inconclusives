@@ -725,12 +725,13 @@ errors <- studies %>%
   )
 @
 
-\subsection{Overall Error Rates}
+\subsection{Assessment of Classification Error}
 
 \svp{
-\autoref{fig:errors} shows the overall error rates for the six studies of examiner error rates investigated in this paper. 
+\autoref{fig:errors} shows the false positive and false negative rates for the six studies  investigated in this paper. 
 Both AFTE errors (which do not consider inconclusives as errors and represent examiner errors) and process errors (which include inconclusives and represent errors attributable to evidence quality and lab policy) are shown; examiner error rates are low for both missed elimination and missed identifications in most studies (though intervals reveal the effect of sample size, which was also noted in e.g. \citet{pcast-addendum2017}. 
-Process errors, however, occur at much higher rates and are particularly concerning for missed eliminations. There is consistently a much larger discrepancy between the two error rates for eliminations than for identifications; this phenomena is examined in more detail in \autoref{sec:inconclusives}.
+Process errors, however, occur at much higher rates and are particularly concerning for missed eliminations. 
+There is consistently a much larger discrepancy between the two error rates for eliminations than for identifications; this phenomena is examined in more detail in \autoref{sec:inconclusives}.
 Some of the discrepancy between the examiner and process error rates for missed eliminations can be explained by lab policies that only allow eliminations based on mismatches in class characteristics. 
 It should be noted that these policies directly contradict the AFTE Theory of Identification, which allows for eliminations based on ``significant disagreement of discernible class characteristics and/or individual characteristics". 
 The Bunch \& Murphy study, for instance, was conducted at the FBI, where all examiners followed the same lab policy precluding eliminations based on class characteristic mismatches; as a result, the study has the largest difference between the two missed elimination rates.
