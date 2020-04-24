@@ -736,7 +736,7 @@ It should be noted that these policies directly contradict the AFTE Theory of Id
 The Bunch \& Murphy study, for instance, was conducted at the FBI, where all examiners followed the same lab policy precluding eliminations based on class characteristic mismatches; as a result, the study has the largest difference between the two missed elimination rates.
 Other studies include examiners from many different labs and thus consist of some evaluations from labs which adhere to the class-characteristic elimination policy and some evaluations from labs which allow eliminations based on mismatch of individualizing characteristics.
 The rates reported in this section are calculated directly from information reported in the papers without adjustments accounting for the use of deductive reasoning; as such, they represent the best possible case for error rates in studies which include multiple knowns, such as \citet{Hamby:2018hu} and \citet{bunch2003comprehensive}. 
-Less optimistic estimates of error rates that account for the use of deductive reasoning can be found in \ref{sec:sim}.
+More realistic estimates of error rates that account for the use of deductive reasoning can be found in \ref{sec:sim}.
 }
 
 <<errors, echo=FALSE, fig.width=8, fig.height=3,fig.cap="Percentages of missed eliminations and missed identifications by study. 95\\% Pearson-Clopper confidence intervals are drawn around the error estimates. Missed eliminations cannot be calculated for closed-set studies.", out.width=".8\\textwidth">>=
@@ -763,10 +763,13 @@ errors %>% gather(Type, Number, AFTE, Process) %>%
   
 @
 
-\svp{Technically these aren't really overall error rates, but they are the most commonly reported.}
+% \svp{Technically these aren't really overall error rates, but they are the most commonly reported.}
 
 
 \subsection{Source-specific error rates}
+\svp{
+The source specific error rates, or the error rates conditional on the source of the evidence, are useful to characterize the errors which are made during the evidence recording and evaluation process. 
+}
 <<source-spec-cis, echo=FALSE, fig.width=8, fig.height=4.5, fig.cap="Pearson-Clopper 95\\% confidence intervals for the probability of same source evidence given an examiner's conclusion. Expected values for each of the probabilities as discussed in \\autoref{sec:ideal} are shown as grey targets. No assessments can be made about different-source specific probabilities when the total number of comparisons cannot be determined.", out.width=".8\\textwidth">>=
 
 source_spec_cis %>% 
