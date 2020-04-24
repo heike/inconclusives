@@ -235,13 +235,13 @@ For instance, \citet{Dror:2018fp} suggests treating inconclusive results as equi
 \svp{This approach treats inconclusives as neither errors nor correct decisions, but implies that in the presence of a certain amount of data, an inconclusive is not an allowable decision and the examiner must make an identification or elimination.}
 This view has drawn some criticism \citep{Biedermann:2018hr,biedermannAreInconclusiveDecisions2019}. 
 
-\hh{XXX should we cite a paper for each one of these decisions?}\svp{I don't know if we could find a paper that does each of these. I'm not aware of any that actually use the "incorrect" option, and I don't think I've seen even the conditional option used.}
-Inconclusives can be excluded from result calculations, included as correct results, or included as incorrect results; each of these decisions has an impact on the interpretation of the resulting error rates.
+\hh{XXX should we cite a paper for each one of these decisions?}\svp{I don't know if we could find a paper that does each of these. Is there any paper you remember using the excluded from calculations option?}
+Inconclusives can be excluded from result calculations, included as correct results\cite{Duez:2017kha}, or included as incorrect results\cite{chumbleyValidationToolMark2010}; each of these decisions has an impact on the interpretation of the resulting error rates.
 In this paper, we discuss the treatment of inconclusives in the assessment of error rates from a statistical point of view, % We believe that this -- rather than further dividing the different opinions -- provides a unifying framework.
-examining previous error rate studies to assess the technical accuracy and practical utility of the Overall Error Rates. 
+examining previous error rate studies to assess the technical accuracy and practical utility of the \svp{error rates which reported in error rate studies of firearms and toolmark examination}. 
 Before approaching the actual studies, we will define some basic notation to facilitate comparison of studies with different experimental designs and briefly explore the logic behind the numerical calculations.%order
 
-\subsection{Evaluating Classification Decisions}\label{sec:evaluating-classification-decisions}
+Evaluating Classification Decisions%\label{sec:evaluating-classification-decisions}
 When an examiner assesses a set of evidence (generally, a pair of items, one of known provenance and one of unknown provenance) and decides whether the evidence is an identification, inconclusive, or an elimination, they provide a \emph{classification} of the evidence in a set of given categories.  
 The accuracy of a classification method is  often expressed in the form of \emph{success rates} and \emph{error rates}, that is, with numerical quantities indicating how often the process produces correct or incorrect results.
 
@@ -342,7 +342,7 @@ There are several considerations when designing a study of the identification pr
 \item [White box vs. Black Box] A white-box study is one which makes an attempt to understand \emph{why} an examiner came to the decision, in contrast to a black box study, which only evaluates the correctness of the decision (and not the reasoning behind it). 
 \item [Blind testing] A blind (or blinded) study is one in which the participant (in this case the examiner) does not know that they are being tested; that is, a study which appears to be part of a case, rather than research. 
 \svp{Blind testing is often recommended \cite{pcast2016,spiegelmanAnalysisExperimentsForensic2013,koehlerProficiencyTestsEstimate2013}, because the error rates from blind testing better generalize to casework (many studies in a variety of disciplines have shown that people behave differently in situations that are known to be tests) and better assess the process of comparison as a whole (rather than the performance of an individual examiner).}
-Note that the definition of blind studies as used above is different from the definitions of a blind study used in \citet{bunch2003comprehensive} or \citet{Duez:2017kha}; in those papers, the use of the terms blind and/or double blind do not conform to the generally accepted definitions. \citet{kerkhoffPartdeclaredBlindTesting2018} provides a more thorough discussion of the different ways ``blind testing" has been used in forensic error rate studies.
+Note that the definition of blind studies as used above is different from the definitions of a blind study used in \citet{bunch2003comprehensive}, \citet{stromanEmpiricallyDeterminedFrequency2014}, or \citet{Duez:2017kha}; in those papers, the use of the terms blind and/or double blind do not conform to the generally accepted definition of ``double blind" in the forensic sciences\footnote{\citet{stromanEmpiricallyDeterminedFrequency2014} uses the NIH definition of double-blind, in which doctors administering the treatment do not know which treatment the patient is receiving, but the patient knows they are participating in a trial. This is an accurate portrayal of what double-blind means in medical studies, but in forensics, the commonly accepted definition is that a double-blind study is one in which the forensic scientist performing the evaluation does not know they are being tested. In the medical context, the doctor is also the one rating the patient's performance and may be biased by knowing which treatment the patient received. In forensics, the examiner may be biased by knowing that a comparison is part of a test. In both cases, the goal of double-blinding is to reduce external sources of bias, but the methods required to reduce the bias are different because the experimental structure and data collection methods are different.}. \citet{kerkhoffPartdeclaredBlindTesting2018} provides a more thorough discussion of the different ways ``blind testing" has been used in forensic error rate studies.
 \item [Number of knowns from different sources] Some studies \citep{keisler} provide only one known exemplar (or a set of multiple exemplars from the same source). Other studies, such as \citep{brundage, hamby,Hamby:2018hu} and the Houston FSC and Phoenix studies from \citet{case-validation}, include multiple different sources as knowns. 
 \item [Study length] Most crime labs are understaffed and maintain a fairly large backlog of cases; as a consequence, examiner time is limited. While examiners should participate in these studies, they must balance the competing demands of a large and consequential workload \svp{and the benefit to FTE community}. As such, studies which require examiners to make a large number of comparisons may be less likely to find sufficient participants to generate an acceptable sample size.
 \end{description}
@@ -427,7 +427,7 @@ Different source & $d/D$ & $e/D$ & $f/D$ & $D/N$\\\hline
 \multicolumn{1}{Y}{Conclusion probability} & $(a + d)/N$ & $(b + e)/N$ & \multicolumn{1}{r}{$(c + f)/N$} & \multicolumn{1}{Y}{1.00}\\\hline\hline
 \end{tabularx}
 \end{table}
-A google sheets workbook for performing these calculations is available at \url{http://bit.ly/FTE-error-rate-worksheet}.
+A google sheets workbook which will perform all of these calculations when the frequency of each type of comparison is entered is available at \url{http://bit.ly/FTE-error-rate-worksheet}.
 
 Now that we have defined several different metrics for evaluating the errors made in a study, we will consider the role of inconclusives in pattern evidence examination. 
 
@@ -576,12 +576,12 @@ The structure of this section is supposed to mirror the theoretical introduction
 \item inconclusives
 \end{enumerate}
 XXX should we move the individual discussion points for studies into the overall discussion or weave the weaknesses of each study into our assessment here?
-}
+}\svp{My vote is to weave things in. I've already started. Some won't fit with the flow, but that's ok, this thing is already pretty long.}
 
 
 \subsection{Error Rate Studies}
 \svp{
-Here, we summarize the primary findings from our survey of the available literature; while we did not attempt to include every study ever performed, we did aim to include studies which are frequently cited in research or legal proceedings, as well as all studies mentioned in the PCAST and NAS reports concerning firearm and toolmark analysis. XXX make sure that's actually true }
+Here, we summarize the primary findings from our survey of the available literature; while we did not attempt to include every study ever performed, we did aim to include studies which are frequently cited in research or legal proceedings, as well as most of the studies mentioned in the PCAST and NAS reports concerning firearm and toolmark analysis.}
 
 \begin{description}
 \item[Baldwin]\citep{Baldwin:2014bb} is a study of Ruger SR9 cartridge cases. It is an open-set study with 15 comparisons of 3 knowns to 1 questioned cartridge case. Participants received sets with 10 different-source and 5 same-source comparisons.
@@ -591,16 +591,17 @@ Here, we summarize the primary findings from our survey of the available literat
 \item[Duez]\citep{Duez:2017kha} is an open-set study of breech face comparisons using virtual microscopy. Each of 56 participants (46 trained, 10 trainees) received two test sets consisting of one standard (3 scans) and 4 questioned scans In one set, all questioned scans were from the same source as the standard; in the second set, there were two different-source questioned scans and two same-source questioned scans.
 \item[Bunch \& Murphy]\citep{bunch2003comprehensive} is an open-set study of consecutively manufactured Glock breechfaces. In this study, each of 8 participants received 10 cartridge cases and was required to evaluate each possible pairwise comparison. In this study, the number of same-source and different-source cartridge cases varied by test kit from 10 same-source cartridges to 10 different-source cartridges.
 \item[Fadul]\citep{fadul} is a closed-set study of the breech face striations/impressions produced by 10 consecutively manufactured slides. Participants received a set of 10 standards and 15 questioned cases. The design of this study is similar to \citep{Hamby:2018hu}.
-\item [Chumbley]\citep{chumbleyValidationToolMark2010}\svp{XXX need to fill this in}
+\item [Chumbley]\citep{chumbleyValidationToolMark2010} \svp{compared the performance of an automated algorithm with examiners' performance for limited portions of marks made by consecutively manufactured chisles at different angles. The Chumbley study had 50 participants, but did not report the number of same source and different source comparisons in the examiner portion of the study, making it unsuitable for further analysis. }
+\item [Hare]\citep{aoas2} \svp{assessed the performance of a computational algorithm for bullet analysis, using binary classification (no inconclusives). Subsequent studies \cite{case-validation} of the algorithm presented in \citep{aoas2} suggest that on the bullet-to-bullet comparison level, the algorithm perfectly classifies bullets from 3 different external test sets.}
 \end{description}
 
 \svp{ 
-Tables describing the results of each of the studies surveyed in this paper, the source-specific and conclusion-specific error rates, and the overall error rates can be found in \ref{sec:supplement}. 
+Tables summarizing the results of each of the studies examined in this paper, along with all relevant calculated error rates can be found in \ref{sec:supplement}. 
 }
 
 \svp{
 Of the nine studies identified, one \citep{aoas2} presents a method for quantitative comparison of bullets with no experimental lab-based examiner assessments. 
-Two other studies \citep{chumbleyValidationToolMark2010, fadul} did not provide sufficient detail about examiner conclusions to conduct even a partial analysis.
+Two other studies \citep{chumbleyValidationToolMark2010, fadul} did not provide sufficient detail about examiner results and conclusions to conduct a partial analysis based on the AFTE theory of identification.
 }
 
 \svp{In the next sections, we discuss the design and results of each study, including calculation and comparison of source- and decision-specific error rates. }
