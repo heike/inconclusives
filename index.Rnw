@@ -906,10 +906,12 @@ inc <- studies %>% group_by(Study, Ground.truth) %>%
     inc_upper = clopper(0.05, Inconclusive, Comparisons)[2]
   )
 
+max_prob <- inc %>% ungroup() %>% filter(Ground.truth == "Different Source") %>% summarize(prop = max(inc_upper, na.rm = T)) %>% as.numeric()
+
 DontKnow <- data.frame(
-  x = .175, 
+  x = max_prob/2, 
   xmin=c(0,0,0,0), 
-  xmax=.35*c(1,1,1,1), 
+  xmax=max_prob*c(1,1,1,1), 
   Study = c("Lyons (2009)", "Hamby (2019)", "Lyons (2009)", "Hamby (2019)"), 
   Ground.truth="Different Source")
 
@@ -924,90 +926,8 @@ inc %>%
   geom_errorbarh(aes(x = 0, xmin=xmin, xmax=xmax, y=Study),
                  data = DontKnow, linetype=2,
                  size=0.5, height = 0.5, colour = "grey20", alpha =0.9) +
-  geom_point(x = .175,  data = DontKnow, shape='?', size = 3.5)
+  geom_point(x = max_prob/2,  data = DontKnow, shape='?', size = 3.5)
 @
-
-
-\svp{XXX Inconclusives bias}
-
-
-% \paragraph{Baldwin Study}\cite{Baldwin:2014bb}
-% \begin{itemize}
-% \item
-% \hh{The fixed number of same source and different source sets in each kit is a weakness of the design in the Baldwin study. If a participant becomes aware of this fact, the additional information would help in reducing uncertainty about comparisons and might contribute to a reduced error rate. To mitigate this risk, participants were instructed ``to refrain from sharing or discussing the contents or results of their sample sets" (Baldwin et al), but in practice this is out of the hand of the tester. }
-% \item It seems that firearms examiners are more willing to bet on identifications than on eliminations. 
-% \hh{useful information, but not sure where to put it - probably for evaluating the error in the process}
-% Only cartridge cases caught with the cartridge catching device (XXX name?) were used to assemble kits. No other pre-screening of usability for comparisons was done. 
-% 
-% For 3234 comparisons, FTEs evaluated how many of the known cartridge cases were usable for an evaluation: all three specimens were used in 3018 cases, two were used in 207 cases, and only one was used in nine cases.
-
-
-
-
-
-% ``In this report we present our findings on these variations and suggest that this is an area for further study and discussion within the community."
-
-
-\paragraph{Keisler Study} \cite{keisler}
-\begin{itemize}
-% \item \hh{XXX there are two (minor) flaws: margins fixed and additional information. }
-\item Again, inconclusive results are much more indicative of different source results than they should be  based on the setup of the study; we would expect same source results with a probability of 0.60 given an inconclusive result. 
-% \item \svp{The design of the Keisler study is ideal - it allows for the calculation of all of the error and success rates, all conditional probabilities, and precise identification of the number of same-source and different-source comparisons conducted by each examiner. }
-% \item \svp{One major flaw in the Keisler study (that is by no means unique to this study) is the acknowledgement that
-% ``on the response sheet participants were asked if their laboratory had a policy which does not allow examiners to exclude based on individual characteristics. ... many participants answered `yes' to the laboratory policy question and answered `inconclusive' on all within-class comparisons that could have been correctly excluded." }
-\end{itemize}
-
-\paragraph{Duez Study}\cite{Duez:2017kha}
-
-\begin{itemize}
-\item The error rate of certified examiners in making eliminations is much lower than that of the ten trainees. This is reflected in the error rates of the overall process. The process errors are much smaller for certified firearms examiners than for trainees. \svp{XXX add to the conclusion?}
-\item However, the probability to miss eliminations is again high, lab rules contribute to this error (see discussion below).
-\item The set of conditional probabilities are shown at the bottom of \autoref{tab:duez-summary}. As in other studies, the probability of same source pairs given examiners reported an inconclusive result is much lower than the expect 75\% based on the setup of the study.
-% \item \svp{The problems with ... ``The study was blind in that examiners did not know the true source of the cartridge cases."}
-\end{itemize}
-
-% Treatment of the Inconclusives:
-% 
-% The authors report that
-% ``13\% of examiners are not permitted to eliminate on individual characteristics
-% (therefore, their conclusions of inconclusive are perfectly acceptable)."
-% 
-% \hh{It is interesting to note that 7 of the examiners did not report eliminations due to  lab rules. These rules seem to be in contradiction to community accepted AFTE rules and need to be considered during reporting and testimony evaluations. XXX Bias against defense. XXX Needless to say that we do not agree with the authors' assessment that conclusions of inconclusives are perfectly acceptable.}
-
-
-
-
-
-\paragraph{Brundage-Hamby Study }\cite{Hamby:2018hu}
-% \begin{itemize}
-% \item \hh{The study is a closed set study. Closed set study designs go hand-in-hand with an unfortunate emphasis of identifications over eliminations. }
-% \item \hh{The design of the study does not allow for an assessment of all of the error and accuracy rates discussed in \autoref{sec:rates}, but shows a strong focus on evaluating identifications. }
-% In particular, the answer sheets for Brundage-Hamby sets only asks for reports of identifications for each of the questioned bullets. 
-
-% While the number of same source comparison is obviously one for each questioned bullet, i.e.\ each participant made exactly fifteen same source comparisons, the number of different source comparisons that were made  is an open question.
-
-Technically, there are nine different source comparisons for each questioned bullet for a total of 135 (nominal) different source comparisons.  
-
-However, these evaluations are not independent of each other: once a bullet is successfully identified to a pair of knowns, none of the other sets of knowns can possibly be a match. 
-Rather than having to make a call on a comparison, the evaluation shifts to a confirmation of an elimination. We will assume that an examiner will need to make an average of 4.5 different source comparisons before making an identification, resulting in an average of 67.5 different source comparisons for the whole set, and an approximate total of 47047.5 different source comparisons overall. See \ref{sec:brundage} for mathematical details.
-% \item \hh{Given that only identifications had to be reported, we are also} missing  any information on the number of eliminations versus inconclusive results for different source comparisons. 
-% \end{itemize}
-
-
-
-
-
-% \paragraph{Lyons Study}\cite{lyons}
-% \begin{itemize}
-% \item First, the researchers established that there were sufficient individualizing characteristics to identify cartridges ejected by the same tool, and that there were sufficient individualizing characteristics to exclude cartridges ejected by sequentially manufactured tools. 
-% \item It should be noted that there are some methodological problems with the Lyons study - examiners who did not initially include all 12 unknown evaluations were given the chance to correct results; in addition, not every examiner evaluated the same number of unknowns. Excluding these results might provide different estimates, but we have chosen to use the numbers as reported in the paper for this calculation.
-% \end{itemize}
-
-
-% \paragraph{Bunch \& Murphy Study} \cite{bunch2003comprehensive}
-
-% Issues - assume the full number of possible pairwise comparisons (360) was completed; simulations show that in practice, if examiners used logic along with pairwise comparisons, the total number of required comparisons is between 186 and 289 (by simulation - should probably figure out if it's possible to get a hard floor without completely enumerating the sample space). This has pros (no possible information gained from examiners talking to each other), but also has problems - we can only provide bounded estimates for the number of comparisons done.
-
 
 \section{Discussion and Conclusions}
 
@@ -1409,7 +1329,10 @@ Opt. & \multicolumn{1}{c}{Meaning} & Missed Identification & \multicolumn{1}{r}{
 \end{tabularx}
 \end{fmpage}
 
-\end{document}
+
+
+\section{Extra stuff that doesn't have a home}
+
 
 % <!--include marginal distributions of training data and compare to test data-->
 
@@ -1437,3 +1360,85 @@ That is, in legal settings, it is the state of reality that is under debate; the
 
 \hh{XXX Would it be fair to say that FPR and FNR allow us to assess examiners or the firearms matching process, while the predictive values allow us to evaluate the strength of the testimony? Maybe we do not want to go into detail on strength of evidence when the testimony is categorical. }
 
+
+
+% \paragraph{Baldwin Study}\cite{Baldwin:2014bb}
+% \begin{itemize}
+% \item
+% \hh{The fixed number of same source and different source sets in each kit is a weakness of the design in the Baldwin study. If a participant becomes aware of this fact, the additional information would help in reducing uncertainty about comparisons and might contribute to a reduced error rate. To mitigate this risk, participants were instructed ``to refrain from sharing or discussing the contents or results of their sample sets" (Baldwin et al), but in practice this is out of the hand of the tester. }
+% \item It seems that firearms examiners are more willing to bet on identifications than on eliminations. 
+% \hh{useful information, but not sure where to put it - probably for evaluating the error in the process}
+% Only cartridge cases caught with the cartridge catching device (XXX name?) were used to assemble kits. No other pre-screening of usability for comparisons was done. 
+% 
+% For 3234 comparisons, FTEs evaluated how many of the known cartridge cases were usable for an evaluation: all three specimens were used in 3018 cases, two were used in 207 cases, and only one was used in nine cases.
+
+
+
+
+
+% ``In this report we present our findings on these variations and suggest that this is an area for further study and discussion within the community."
+
+
+\paragraph{Keisler Study} \cite{keisler}
+\begin{itemize}
+% \item \hh{XXX there are two (minor) flaws: margins fixed and additional information. }
+\item Again, inconclusive results are much more indicative of different source results than they should be  based on the setup of the study; we would expect same source results with a probability of 0.60 given an inconclusive result. 
+% \item \svp{The design of the Keisler study is ideal - it allows for the calculation of all of the error and success rates, all conditional probabilities, and precise identification of the number of same-source and different-source comparisons conducted by each examiner. }
+% \item \svp{One major flaw in the Keisler study (that is by no means unique to this study) is the acknowledgement that
+% ``on the response sheet participants were asked if their laboratory had a policy which does not allow examiners to exclude based on individual characteristics. ... many participants answered `yes' to the laboratory policy question and answered `inconclusive' on all within-class comparisons that could have been correctly excluded." }
+\end{itemize}
+
+\paragraph{Duez Study}\cite{Duez:2017kha}
+
+\begin{itemize}
+\item The error rate of certified examiners in making eliminations is much lower than that of the ten trainees. This is reflected in the error rates of the overall process. The process errors are much smaller for certified firearms examiners than for trainees. \svp{XXX add to the conclusion?}
+\item However, the probability to miss eliminations is again high, lab rules contribute to this error (see discussion below).
+\item The set of conditional probabilities are shown at the bottom of \autoref{tab:duez-summary}. As in other studies, the probability of same source pairs given examiners reported an inconclusive result is much lower than the expect 75\% based on the setup of the study.
+% \item \svp{The problems with ... ``The study was blind in that examiners did not know the true source of the cartridge cases."}
+\end{itemize}
+
+% Treatment of the Inconclusives:
+% 
+% The authors report that
+% ``13\% of examiners are not permitted to eliminate on individual characteristics
+% (therefore, their conclusions of inconclusive are perfectly acceptable)."
+% 
+% \hh{It is interesting to note that 7 of the examiners did not report eliminations due to  lab rules. These rules seem to be in contradiction to community accepted AFTE rules and need to be considered during reporting and testimony evaluations. XXX Bias against defense. XXX Needless to say that we do not agree with the authors' assessment that conclusions of inconclusives are perfectly acceptable.}
+
+
+
+
+
+\paragraph{Brundage-Hamby Study }\cite{Hamby:2018hu}
+% \begin{itemize}
+% \item \hh{The study is a closed set study. Closed set study designs go hand-in-hand with an unfortunate emphasis of identifications over eliminations. }
+% \item \hh{The design of the study does not allow for an assessment of all of the error and accuracy rates discussed in \autoref{sec:rates}, but shows a strong focus on evaluating identifications. }
+% In particular, the answer sheets for Brundage-Hamby sets only asks for reports of identifications for each of the questioned bullets. 
+
+% While the number of same source comparison is obviously one for each questioned bullet, i.e.\ each participant made exactly fifteen same source comparisons, the number of different source comparisons that were made  is an open question.
+
+Technically, there are nine different source comparisons for each questioned bullet for a total of 135 (nominal) different source comparisons.  
+
+However, these evaluations are not independent of each other: once a bullet is successfully identified to a pair of knowns, none of the other sets of knowns can possibly be a match. 
+Rather than having to make a call on a comparison, the evaluation shifts to a confirmation of an elimination. We will assume that an examiner will need to make an average of 4.5 different source comparisons before making an identification, resulting in an average of 67.5 different source comparisons for the whole set, and an approximate total of 47047.5 different source comparisons overall. See \ref{sec:brundage} for mathematical details.
+% \item \hh{Given that only identifications had to be reported, we are also} missing  any information on the number of eliminations versus inconclusive results for different source comparisons. 
+% \end{itemize}
+
+
+
+
+
+% \paragraph{Lyons Study}\cite{lyons}
+% \begin{itemize}
+% \item First, the researchers established that there were sufficient individualizing characteristics to identify cartridges ejected by the same tool, and that there were sufficient individualizing characteristics to exclude cartridges ejected by sequentially manufactured tools. 
+% \item It should be noted that there are some methodological problems with the Lyons study - examiners who did not initially include all 12 unknown evaluations were given the chance to correct results; in addition, not every examiner evaluated the same number of unknowns. Excluding these results might provide different estimates, but we have chosen to use the numbers as reported in the paper for this calculation.
+% \end{itemize}
+
+
+% \paragraph{Bunch \& Murphy Study} \cite{bunch2003comprehensive}
+
+% Issues - assume the full number of possible pairwise comparisons (360) was completed; simulations show that in practice, if examiners used logic along with pairwise comparisons, the total number of required comparisons is between 186 and 289 (by simulation - should probably figure out if it's possible to get a hard floor without completely enumerating the sample space). This has pros (no possible information gained from examiners talking to each other), but also has problems - we can only provide bounded estimates for the number of comparisons done.
+
+
+
+\end{document}
