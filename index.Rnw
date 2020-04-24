@@ -790,17 +790,18 @@ Regardless of the explanation, it is apparent that when presented with a differe
 }
 <<source-spec-cis, echo=FALSE, fig.width=8, fig.height=5, fig.cap="Pearson-Clopper 95\\% confidence intervals for the probability of same source evidence given an examiner's conclusion. Expected values for each of the probabilities as discussed in \\autoref{sec:ideal} are shown as grey targets. No assessments can be made about different-source specific probabilities when the total number of comparisons cannot be determined.", out.width=".8\\textwidth">>=
 
-source_spec_cis %>% 
+figdata <- source_spec_cis %>% 
   ungroup() %>%
   mutate(
     Decision = factor(Decision, levels=c("Identification", "Inconclusive", "Elimination"))
-  ) %>%
+  ) 
+
+figdata %>%
   ggplot(aes(y = pred_ss, x = Study, colour = Decision, shape = Decision)) +
   facet_grid(Ground.truth~.) +
   ylim(c(0,1)) +
   ylab("Probability of examiner decision given source") +
   theme_bw() +
-  geom_col(aes(x = Study, y = I(1)), width = 0.7, colour = "grey", alpha = 0.1, fill = "grey", linetype = "solid") + 
   geom_hline(yintercept=c(0,1), colour = "grey20", size=0.25) +
   geom_errorbar(position = position_dodge(width = 0.6),
     aes(ymin = pred_ss_lower, ymax=pred_ss_upper, x=Study, group = Decision), 
@@ -811,7 +812,12 @@ source_spec_cis %>%
                  data = DontKnow_source_spec, linetype=2, width = 0.5, colour = "grey20") +
   geom_point(data = DontKnow_source_spec, shape='?', size = 3.5, colour = "grey20") + 
   coord_flip() + 
-  theme(legend.position = "bottom")
+  theme(legend.position = "bottom") +
+  scale_colour_brewer(palette="Dark2") +
+   geom_col(aes(x = Study, y = I(1)), width = 1, colour = NA,
+          alpha = 0.1, fill = "black", linetype = "solid",
+          data = figdata %>%
+ filter(Study %in% c("Lyons (2009)", "Bunch & Murphy (2003)", "Keisler (2018)"))) 
 @
 
 
