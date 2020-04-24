@@ -498,6 +498,13 @@ during the firing process.
 Nonetheless, even though a pair of objects originated from the same physical source, it is not possible to evaluate the evidence and make an identification. 
 The inconclusives are representative of the errors involved in the process of evidence recording, rather than the evaluation. 
 
+\svp{Some studies screen for this possibility, removing evidence with insufficient identifying marks before the study is conducted.}
+\svp{In other studies, however, screening was intentionally not performed, so as to better mimic actual casework conditions. 
+In Baldwin \cite{Baldwin:2014bb}, the only pre-screening of usability was to ensure cartridge cases were caught with the cartridge catching device. }
+\svp{Additionally,} \hh{for 3234 comparisons, FTEs evaluated how many of the known cartridge cases were usable for an evaluation: all three specimens were used in 3018 cases, two were used in 207 cases, and only one was used in nine cases.}
+\svp{The Baldwin study is fairly unique in this regard: most studies make some effort to control the quality of the evidence sent out for assessment.}
+\svp{Studies which tightly control the evidence quality and presence of individualizing marks would under-estimate the process error (though the estimates of examiner error are not necessarily affected) XXX not sure this is true - need to think through it...}
+
 \svp{XXX this transition is a bit rough. Might be worth a bit of a preview between inconclusive and ``ideal" study probabilities, because the connection isn't very obvious from this point in the paper... XXX}
 In the next section, we will examine the results from a number of studies of the error rate of firearms examinations, identifying the results which are reported, converting these results (where possible) into the format used in \autoref{tab:generic-results}, and calculating the conditional probabilities in the format of \autoref{tab:fpr-fnr} and \autoref{tab:pv-prob}. 
 Prior to that, however, it may be useful to develop one more idea: in a perfect world, 
