@@ -776,42 +776,65 @@ errors %>% gather(Type, Number, AFTE, Process) %>%
 
 \subsection{Source-specific error rates}
 \svp{
-The source specific error rates, or the error rates conditional on the source of the evidence, are useful to characterize the errors which are made during the evidence recording and evaluation process. 
+The false positive rate and false negative rate reported in \autoref{fig:errors} are the error rates typically used to characterize a classification method. 
+These rates, however, are functions of a larger set of probabilities which are calculated conditional on the known source of the evidence. 
+In \autoref{fig:source-spec-cis}, we see the full set of source-specific conditional probabilities: the probability that an examiner will make an identification, elimination, or inconclusive determination given that the source of the evidence is the same (or different). 
+Probabilities are shown with 95\% Pearson-Clopper confidence intervals, which provide a visual indication of the estimate's variability.
+From \autoref{fig:source-spec-cis}, it is apparent that examiners are extremely good at working with same-source evidence: there are relatively few inconclusives, almost no missed identifications, and very few false eliminations. 
+It is also evident that examiners have much more difficulty with different source evidence. 
+Closed-set designs (used in \cite{Hamby:2018hu} and \cite{lyons}) do not even allow for the estimation of different-source probabilities due to the fact that it is not possible to estimate the number of different source comparisons which are made; this inherent bias has the unintentional effect of masking the fact that examers are not as accurate when evaluating different-source comparisons. 
+While in most studies (with the exception of Bunch \& Murphy), the probability of making an inconclusive determination for different source evidence is below the probability of making an elimination, the probability that examiners will correctly make an elimination is still extremely low relative to the probability of a correct decision in the evaluation of same source evidence.
+It may be that examiners are trained to look for similarities, instead of differences, or that it is simply more difficult to classify a difference as opposed to a similarity; some labs also do not allow eliminations to be made unless there is a class characteristic mismatch.
+Regardless of the explanation, it is apparent that when presented with a different source comparison, examiners make an elimination much less frequently than an identification when presented with a same source comparison. 
 }
-<<source-spec-cis, echo=FALSE, fig.width=8, fig.height=4.5, fig.cap="Pearson-Clopper 95\\% confidence intervals for the probability of same source evidence given an examiner's conclusion. Expected values for each of the probabilities as discussed in \\autoref{sec:ideal} are shown as grey targets. No assessments can be made about different-source specific probabilities when the total number of comparisons cannot be determined.", out.width=".8\\textwidth">>=
+<<source-spec-cis, echo=FALSE, fig.width=8, fig.height=5, fig.cap="Pearson-Clopper 95\\% confidence intervals for the probability of same source evidence given an examiner's conclusion. Expected values for each of the probabilities as discussed in \\autoref{sec:ideal} are shown as grey targets. No assessments can be made about different-source specific probabilities when the total number of comparisons cannot be determined.", out.width=".8\\textwidth">>=
 
 source_spec_cis %>% 
   ungroup() %>%
   mutate(
     Decision = factor(Decision, levels=c("Identification", "Inconclusive", "Elimination"))
   ) %>%
-  ggplot(aes(y = pred_ss, x = Study, colour = Decision)) +
+  ggplot(aes(y = pred_ss, x = Study, colour = Decision, shape = Decision)) +
   facet_grid(Ground.truth~.) +
   ylim(c(0,1)) +
   ylab("Probability of examiner decision given source") +
   theme_bw() +
-#  geom_point(aes(x = exp_prob, y = Study), data = exp, colour="red", size=4.5) +
-#  geom_point(aes(x = exp_prob, y = Study), data = exp, colour="white", size=3.5) +
-  # geom_point(aes(x = exp_prob, y = Study), data = exp, colour="grey50", size=2.5) +
-  # geom_point(aes(x = exp_prob, y = Study), data = exp, colour="white", size = 1.5) +
-  # geom_point(aes(x = exp_prob, y = Study), data = exp, colour="grey50", size=.5) +
+  geom_col(aes(x = Study, y = I(1)), width = 0.7, colour = "grey", alpha = 0.1, fill = "grey", linetype = "solid") + 
   geom_hline(yintercept=c(0,1), colour = "grey20", size=0.25) +
   geom_errorbar(position = position_dodge(width = 0.6),
     aes(ymin = pred_ss_lower, ymax=pred_ss_upper, x=Study, group = Decision), 
     size=0.5, width = 0.5, alpha =0.9) +
-  geom_point(position = position_dodge(width = 0.6)) +
+  geom_point(position = position_dodge(width = 0.6), ) +
+  scale_shape(solid = F) + 
   geom_errorbar(aes(ymin=xmin, ymax=xmax, x=Study), 
                  data = DontKnow_source_spec, linetype=2, width = 0.5, colour = "grey20") +
   geom_point(data = DontKnow_source_spec, shape='?', size = 3.5, colour = "grey20") + 
   coord_flip() + 
   theme(legend.position = "bottom")
-
-
 @
 
 
 \subsection{Conclusion-specific error rates}
 
+\svp{
+In courtroom testimony, we do not know ground truth - we do not know whether the comparison that is presented actually is from the same source or a different source. 
+As a result, we cannot use the source-specific error rates or probabilities shown in \autoref{fig:source-spec-cis} to justify the testimony and say something like ``the probability of an identification given that the evidence is from the same source is nearly 1".
+In these situations, the information we know is the examiner's decision, so the opposite conditional probability is appropriate: the probability that the evidence is same-source given that the examiner made an identification.
+\autoref{fig:cis} shows the probability of same source evidence conditional on the examiner's assessment.
+Note that because there are two possible sources for the evidence (same or different), the equivalent probabilities for different-source evidence can be obtained by subtracting the same-source probability from 1.
+}
+
+Probabilities are shown with their respective 95\% (Pearson-Clopper) confidence intervals.  
+In light grey, expected probabilities are shown based on the distribution of same source/different source comparisons and the number of participants in each study.
+
+\svp{
+If inconclusives occur because there are insufficient similarities or differences to draw a specific conclusion of identification or elimination, then they should be equally likely for same-source or different source comparisons. 
+As a result, it is possible to calculate the ``target" probability for each decision: the target for identification is 1 - all same source pairs should result in an identification. 
+Similarly the target for elimination is 0 - no same-source pairs should result in an elimination. 
+Same-source pairs should be assessed as inconclusive at the same frequency as same-source comparisons in the study.
+It is very clear that the probability of same-source evidence given an inconclusive evaluation is much lower than the target probability.
+The decision-specific probabilities provide indications that the distribution of inconclusives is much different than hypothesized in \autoref{fig:shape-overview}. %purposefully understated.
+}
 <<cis, echo=FALSE, fig.width=8, fig.height=4.5, fig.cap="Pearson-Clopper 95\\% confidence intervals for the probability of same source evidence given an examiner's conclusion. Expected values for each of the probabilities as discussed in \\autoref{sec:ideal} are shown as grey targets. Some of the studies do not allow an assessment of all of the predictive values.", out.width=".8\\textwidth">>=
 
 cis %>% 
