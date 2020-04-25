@@ -362,9 +362,10 @@ More precisely, in most classification problems, the number of real classes is t
 \svp{While identifications correspond to same-source and eliminations correspond to different-source, i}\hh{nconclusives do not correspond to a real state}.
 \svp{As a result, we must decide how to account for inconclusive decisions} \hh{when assessing error rates}. 
 This difference between forensic evaluation and classification problems which are more commonly evaluated provides an unfortunate opportunity for confusion when the same methods \svp{and metrics} \svp{are used to assess classification problems and } forensic decision making. 
+\svp{Under AFTE guidelines, inconclusives are not errors, but it has been argued that in at least some sense, inconclusives are systematic errors, because the conclusion does not match the known information \citep{koehlerFingerprintErrorRates2007}.}
 
 \autoref{tab:overall-err-rate} shows several different error rate calculations, using the general structure of \autoref{tab:generic-results}. 
-Each of these calculations has a  different meaning and interpretation; as a result, it is important to consider which error rate best suits the purpose of a study \hh{and its interpretation in the larger framework of pattern evidence}. 
+Each of these calculations has a  different meaning and interpretation; as a result, it is important to consider which error rate best suits the purpose of a study and its interpretation in the larger framework of pattern evidence. 
 In \autoref{tab:overall-err-rate}, option 0 corresponds to a definition of the overall error rate of a binary, symmetric decision process consisting of two actual states and two possible decisions. 
 For  simplicity we will assume that the two actual states are SS (same source) and DS (different source) and the two decisions are Identification and Elimination. 
 In this case, the overall error rate is the sum of the false positives and the false negatives, divided by the number of overall comparisons. \svp{This approach was used in \citet{chumbleyValidationToolMark2010}, where examiners were asked to make either a positive identification or a positive elimination, and were not given the option of making an inconclusive decision. }
@@ -414,7 +415,7 @@ One reasonable solution to the inconclusive problem would be to calculate the pr
 Note that if we condition on the decision being either identification or elimination, the probability calculations for scenarios 0 and 1 in \autoref{tab:overall-err-rate} are identical; the only difference between the two is the setup of the scenario: 
 In scenario 1, we allow for inconclusives as a decision category but restrict them from the calculation of the error rate entirely; in scenario 0, inconclusives are not a valid conclusion. 
 This solution does entirely ignore inconclusives, though, and as they are part of the process and can be included in examiner testimony (usually phrased as ``could not be excluded"), this elimination from consideration is not appropriate if the goal of a study is to assess the error rate of the entire evaluation process. 
- \citet{koehlerProficiencyTestsEstimate2013} recommends using the option 1 approach for calculating error rates while  also tracking rates of inconclusive identifications ``for other purposes".
+\citet{koehlerProficiencyTestsEstimate2013} recommends using the option 1 approach for calculating error rates while  also tracking rates of inconclusive identifications ``for other purposes".
 \svp{This would be equivalent to using the quantity in option 1 to assess error rates while tracking $P(Inconclusive)$ or possibly, separately tracking $P(Inconclusive \text{ and } SS)$ and $P(Inconclusive \text{ and } DS)$.}
 
 Under AFTE's Theory of Identification, however, inconclusive results are acceptable outcomes and not considered errors; to give a very extreme example, an examiner could report inconclusives for the rest of their career and never make an error. Option 2 shows this way of treating inconclusives as correct regardless of the actual state.
@@ -422,33 +423,32 @@ What this means in real terms, is that inconclusives are effectively counted as 
 When the goal is to assess the error rate of the examiner under the prevailing guidelines of the AFTE Theory of Identification, this is a reasonable option for assessing error rates of firearm and toolmark examiners, with the slightly odd side-effect that an examiner who marks every comparison as inconclusive does not provide any useful actionable information, but effectively has a zero error rate.
 
 When viewed within the framework of the legal system, error rates calculated using option 2  are  not considering any error introduced by the evidence itself. 
-If e.g. a firearm does not mark well, a firearms examiner might not be able to make an identification or an elimination \svp{for reasons having nothing to do with the examiner's skill}. 
+If e.g. a firearm does not mark well, a firearms examiner might not be able to make an identification or an elimination for reasons having nothing to do with the examiner's skill. 
 However, from the wider perspective of the \emph{system}, it is  important to look at the overall error rate of the entire process.
-This requires that we consider the errors from the perspective of the real-world state: two pieces of evidence are  either from the same source or originate from different sources; an inability to distinguish between those options is an error in the \emph{process} even it if is not an error made on the part of the examiner. \svp{This is consistent with an observation in  \citet{koehlerFingerprintErrorRates2007} in an assessment of errors in fingerprint identification (though he goes on to use an approach more consistent with option 1). }
+This requires that we consider the errors from the perspective of the real-world state: two pieces of evidence are  either from the same source or originate from different sources; an inability to distinguish between those options is an error in the \emph{process} even it if is not an error made on the part of the examiner. 
 
-Option 3 of \autoref{tab:overall-err-rate} reflects this global view by counting  inconclusives as errors. 
+Option 3 of \autoref{tab:overall-err-rate} reflects this global view by counting inconclusives as errors. 
 Practically, option 3 reflects the error of the \emph{examination process} rather than the examiner as an individual. 
-To illustrate why this is the case, consider that an examiner may, upon inspection of a fired bullet, find that there are insufficient individualizing characteristics to make an identification. \svp{XXX we need to make this a comparison example XXX}  \svp{XXX Also, can we get a better definition of unsuitable? XXX}
-This does not reflective negatively on the examiner's skill; it is merely a consequence of the contact made between the \svp{ammunition and the gun components} %change b/c we have cartridges in there too
-during the firing process. 
+To illustrate why this is the case, consider that an examiner may, upon inspection of a fired bullet, find that there are insufficient individualizing characteristics to make an identification.
+This does not reflective negatively on the examiner's skill; it is merely a consequence of the contact made between the ammunition and the gun during the firing process. 
 Nonetheless, even though a pair of objects originated from the same physical source, it is not possible to evaluate the evidence and make an identification. 
 The inconclusives are representative of the errors involved in the process of evidence recording, rather than the evaluation. 
 
 \svp{XXX Not sure this should go here, but not sure if there's a better place for it to go... XXX}
 
-\svp{Some studies screen for this possibility, removing evidence with insufficient identifying marks before the study is conducted.}
-\svp{In other studies, however, screening was intentionally not performed, so as to better mimic actual casework conditions. 
-In Baldwin  \cite{Baldwin:2014bb}, the only pre-screening of usability was to ensure cartridge cases were caught with the cartridge catching device. }
-\svp{Additionally,} \hh{for 3234 comparisons, FTEs evaluated how many of the known cartridge cases were usable for an evaluation: all three specimens were used in 3018 cases, two were used in 207 cases, and only one was used in nine cases.}
-\svp{The Baldwin study is fairly unique in this regard: most studies make some effort to control the quality of the evidence sent out for assessment.}
-\svp{Studies which tightly control the evidence quality and presence of individualizing marks would under-estimate the process error (though the estimates of examiner error are not necessarily affected) XXX not sure this is true - need to think through it...}
+Some studies screen for this possibility, removing evidence with insufficient identifying marks before the study is conducted.
+In other studies, however, screening was intentionally not performed, so as to better mimic actual casework conditions. 
+In Baldwin  \cite{Baldwin:2014bb}, the only pre-screening of usability was to ensure cartridge cases were caught with the cartridge catching device. 
+Additionally, \hh{for 3234 comparisons, FTEs evaluated how many of the known cartridge cases were usable for an evaluation: all three specimens were used in 3018 cases, two were used in 207 cases, and only one was used in nine cases.}
+The Baldwin study is fairly unique in this regard: most studies make some effort to control the quality of the evidence sent out for assessment.
+Studies which tightly control the evidence quality and presence of individualizing marks would under-estimate the process error (though the estimates of examiner error are not necessarily affected) \svp{XXX not sure this is true - need to think through it...}
 
 
-\svp{There are, however, additional methods for assessing the reliability of a classification method, leveraging conditional probabilities.
+\svp{There are, however, additional assessments of the reliability of a classification method which leverage \emph{conditional probabilities}: probabilities which are updated to account for known (or assumed) information.
 The next two sections detail two different sets of conditional probabilities which both assess the accuracy and reliability of the classification process.
 Certain conditional probabilities have the advantage of not requiring inconclusives to be handled as errors or correct decisions. 
 In addition to removing many of the complications of using the AFTE theory of identification on a binary source problem, these conditional probabilities offer some insights into the use of firearms and toolmark analysis during testimony. 
-XXX this is not quite what I'm going for, but it's closer than not having it... XXX
+XXX this is not quite what I'm going for, but it's closer than not having it... trying to allude to the inconclusives stuff... XXX
 }
 
 
