@@ -614,7 +614,7 @@ XXX should we move the individual discussion points for studies into the overall
 
 \subsection{Error Rate Studies}
 \svp{
-Here, we summarize the primary findings from our survey of the available literature; while we did not attempt to include every study ever performed, we did aim to include studies which are frequently cited in research or legal proceedings, as well as most of the studies mentioned in the PCAST and NAS reports concerning firearm and toolmark analysis.}
+While we did not attempt to include every study ever performed, we did include studies which are frequently cited in research or legal proceedings, as well as several of the studies mentioned in the PCAST and NAS reports concerning firearm and toolmark analysis. A brief description of each study is provided here for reference purposes, with summary tables of results and conditional probabilities provided in \ref{sec:supplement}.}
 
 \begin{description}
 \item[Baldwin] \citep{Baldwin:2014bb} is a study of Ruger SR9 cartridge cases. It is an open-set study with 15 comparisons of 3 knowns to 1 questioned cartridge case. Participants received sets with 10 different-source and 5 same-source comparisons.
@@ -627,10 +627,6 @@ Here, we summarize the primary findings from our survey of the available literat
 \item [Chumbley] \citep{chumbleyValidationToolMark2010} \svp{compared the performance of an automated algorithm with examiners' performance for limited portions of marks made by consecutively manufactured chisles at different angles. The Chumbley study had 50 participants, but did not report the number of same source and different source comparisons in the examiner portion of the study, making it unsuitable for further analysis. }
 \item [Hare] \citep{aoas2} \svp{assessed the performance of a computational algorithm for bullet analysis, using binary classification (no inconclusives). Subsequent studies  \cite{case-validation} of the algorithm presented in  \citep{aoas2} suggest that on the bullet-to-bullet comparison level, the algorithm perfectly classifies bullets from 3 different external test sets.}
 \end{description}
-
-\svp{ 
-Tables summarizing the results of each of the studies examined in this paper, along with all relevant calculated error rates can be found in \ref{sec:supplement}. 
-}
 
 \svp{
 Of the nine studies identified, one  \citep{aoas2} presents a method for quantitative comparison of bullets with no experimental lab-based examiner assessments. 
