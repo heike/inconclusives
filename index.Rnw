@@ -238,33 +238,38 @@ Under this framework, an examiner's %default
 decision \hh{starts with} %is
 inconclusive, to be refined to identification or elimination given sufficient evidence in either direction.
 This approach treats inconclusives as neither errors nor correct decisions, but it does imply that in the presence of a certain amount of data, an inconclusive result is not an allowable decision and the examiner must make an identification or elimination.
-\hh{XXX should we keep a criticism to the discussion?}
+\hh{XXX should we keep the criticism to the discussion?}
 This view has drawn some criticism  \citep{Biedermann:2018hr,biedermannAreInconclusiveDecisions2019}. 
-\hh{XXX  That's the computer sciency approach to decision theory, right? I think we should include a statement this approach would imply independence, which is violated.}
+\hh{XXX  That's the computer sciency approach to decision theory, right?}
+\hh{XXX From a statistical point of view the approach would imply independence between inconclusive decisions and source of evidence. Based on the case studies this assumption is violated.}
 
-\hh{XXX this approach might also be symmetric - should we put a tease in here for later?}
+\hh{XXX the approach to start with inconclusives also suggests symmetry - should we put a tease in here for later?}
 
 %\hh{XXX should we cite a paper for each one of these decisions?}\svp{I don't know if we could find a paper that does each of these. Is there any paper you remember using the excluded from calculations option?}
 
-
+\begin{figure}
+\centering
+\includegraphics[width=.5\textwidth]{figures/shape-overview.pdf}
+\caption{\label{fig:shape-overview} Sketch of the relationship between  ground truth of evidence (dots) and examiners' decisions (shaded areas). In a perfect scenario dots only appear on the shaded area of the same color. Any dots on differently colored backgrounds indicate an error in the examination process. }
+\end{figure}
 \hh{There are essentially three ways that inconclusives can be treated in calculating error rates:}
 (1) inconclusives can be excluded from result calculations, (2) included as correct results  \cite{Duez:2017kha}, or (3) included as incorrect results  \cite{chumbleyValidationToolMark2010}; each of these decisions has an impact on the \hh{actual value of the error rate as well as the} interpretation of the resulting error rates.
 In this paper, we discuss the treatment of inconclusives in the assessment of error rates from a statistical point of view. % We believe that this -- rather than further dividing the different opinions -- provides a unifying framework.
-\hh{We examine} examining %previous error rate 
+\hh{We examine} %examining %previous error rate 
  technical accuracy and practical utility of  error rates \hh{published} in \hh{existing} error rate studies of firearms and toolmark examination. 
 Before approaching the actual studies, we will define  basic notation to facilitate comparison of studies with different experimental designs and  explore the logic behind the numerical calculations.%order
 
 %Evaluating Classification Decisions%\label{sec:evaluating-classification-decisions}
 
 
-
+When examiners assess a set of evidence (generally, a pair of items, one of known provenance and one of unknown provenance) and decide whether the evidence is an identification, inconclusive, or an elimination, they provide a \emph{classification} of the evidence in a set of given categories.  
+\hh{\autoref{fig:shape-overview} is a sketch showing the relationship between evidence (dots) and examiners' decisions (areas). The color for both evidence and decisions corresponds to the source of evidence (different/same) and the type of decision made, respectively. The different combinations of colored dots on top of colored regions correspond to the six potential outcomes of evidence assessment and examiner decision. Obviously, not all of these outcomes are correct. } 
+The accuracy of a classification method is  often expressed in the form of \emph{success rates} and \emph{error rates}, that is, with numerical quantities indicating how often the process produces correct or incorrect results.
 
 \subsection{Source-specific assessment}
 
 %\hh{When assessing the accuracy of a classification \emph{success rates} and \emph{error rates} are of interest, i.e.\ the interest shifts from the classification to the numerical quantity indicating how often the process produces correct and incorrect results.}
 
-When examiners assess a set of evidence (generally, a pair of items, one of known provenance and one of unknown provenance) and decide whether the evidence is an identification, inconclusive, or an elimination, they provide a \emph{classification} of the evidence in a set of given categories.  
-The accuracy of a classification method is  often expressed in the form of \emph{success rates} and \emph{error rates}, that is, with numerical quantities indicating how often the process produces correct or incorrect results.
 
 The most common way to assess success rates of a classification method is to calculate its \emph{sensitivity} and \emph{specificity}. 
 Sensitivity, also called the true positive rate (TPR), is an examiner's ability to make an identification when examining same source evidence (SS). 
@@ -278,14 +283,15 @@ $$ TNR = P(\text{Elimination} | DS) = \frac{P(\text{Elimination and } DS)}{P(DS)
 
 \hh{Complementary to accuracy rates, we define two error rates of a classification method:}
 %Another common method of assessing accuracy of a classification method is to calculate the false positive rate (FPR) and the false negative rate (FNR). 
-The \emph{false positive rate} (FPR) -- or failed elimination rate -- is the probability that an examination of different source evidence does not result in an elimination: $FPR = 1 - TNR$.
+The \emph{false positive rate} (FPR) -- or failed elimination rate -- is the probability that an examination of different source evidence does not result in an elimination. %: $FPR = 1 - TNR$.
 
-Similarly, the \emph{false negative rate} (FNR) -- or missed identification rate -- is the probability that an examination of same-source evidence does not result in an identification: $FNR = 1 - TPR$. %makes an elimination from evidence which originates from the same source (SS), $FNR = P(\text{Elimination} | SS)$. 
+Similarly, the \emph{false negative rate} (FNR) -- or missed identification rate -- is the probability that an examination of same-source evidence does not result in an identification. %: $FNR = 1 - TPR$. %makes an elimination from evidence which originates from the same source (SS), $FNR = P(\text{Elimination} | SS)$. 
 
+\hh{Note that we are keeping the definition of error rates a bit vague on purpose. We will pick up the discussion of how to precisely define error rates in~\autoref{error-rates}.}
 %an examiner makes an identification from evidence which is from different sources (DS), $FPR = P(\text{Identification} | DS)$.
 
 %The \emph{false negative rate} is the probability that an examiner makes an elimination from evidence which originates from the same source (SS), $FNR = P(\text{Elimination} | SS)$. 
-In all  of these assessments, the  rates are calculated by conditioning on the origin of the evidence; this process is shown graphically in \autoref{fig:FPR-specific-tree} using a decision tree to describe the comparisons which can be made conditioned on ground truth. 
+In all  of these assessments, the rates are calculated by conditioning on the origin of the evidence; this process is shown graphically in \autoref{fig:FPR-specific-tree} using a decision tree to describe the comparisons which can be made conditioned on ground truth. 
 
 \begin{figure}
 \centering
@@ -293,7 +299,7 @@ In all  of these assessments, the  rates are calculated by conditioning on the o
 \caption{Tree Diagram illustrating the logic of source-specific error rates. \hh{Information flow happens from left to right: we are assessing an examiners decision given that someone (not the examiner) knows the source of the evidence. }. Source-specific rates give the probability of an examiner's decision ( Identification, Inconclusive, or Elimination) given same-source and different-source evidence.}\label{fig:FPR-specific-tree}
 \end{figure}
 
-\hh{XXX should we pull up some of the discussion that only regards these error rates? source-specific probabilities can not be calculated from casework, they allow an assessment of the performance of an examiner, but not an assessment of the evidence. source-specific probabilities are the error rates typically reported. Our argument here is that they are largely irrelevant in legal proeedings}
+\hh{XXX should we pull up some of the discussion that only regards these error rates? source-specific probabilities can not be calculated from casework, they allow an assessment of the performance of an examiner, but not an assessment of the evidence. source-specific probabilities are the error rates typically reported. Our argument here is that they are largely irrelevant in legal proceedings}
 
 
 \subsection{Decision-specific assessment}
@@ -391,11 +397,7 @@ A summary of these evaluations can then be reported
 %The study data would consist of evaluations reported 
 in the form of  \autoref{tab:generic-results}. Note that the table is nothing but a summary of all the possible combinations of examiners' decisions and actual state of the evidence as sketched out in \autoref{fig:shape-overview}.
 
-\begin{figure}
-\centering
-\includegraphics[width=.5\textwidth]{figures/shape-overview.pdf}
-\caption{\label{fig:shape-overview} Sketch of the relationship between  ground truth of evidence (dots) and examiners' decisions (shaded areas). In a perfect scenario dots only appear on the shaded area of the same color. Any dots on differently colored backgrounds indicate an error in the examination process. }
-\end{figure}
+
 
 \begin{table}
 \centering
@@ -457,7 +459,7 @@ A google sheets workbook which will perform all of these calculations when the f
 
 Now that we have defined several different metrics for evaluating the errors made in a study, we will consider the role of inconclusives in pattern evidence examination. 
 
-\subsection{What makes an error?}
+\subsection{What makes an error?}\label{error-rates}
 The sets of conditional probabilities in \autoref{tab:fpr-fnr} and \autoref{tab:pv-prob} are important in the assessment of the process of evidence examination. 
 However, standard evaluations of classification algorithms (or human decision making), such as false positive and false negative rates, or sensitivity and specificity \svp{XXX cite...?} generally involve classification states which mirror reality. 
 More precisely, in most classification problems, the number of real classes is the same as the number of possible decisions. 
