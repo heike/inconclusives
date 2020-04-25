@@ -168,7 +168,7 @@ library(kableExtra)
 \item Discussion of strengths and weaknesses of studies, recommendations
 \end{enumerate}}
 
-
+\tableofcontents
 
 Examiners visually classify similarity of toolmark and firearm evidence according to the AFTE theory of identification  \citep{identification} as one of identification, inconclusive or elimination. \svp{The AFTE definitions of each conclusion are provided in } \autoref{tab:afte}. Exact guidelines for this classification vary from lab to lab; some labs will exclude only on the basis of non-matching class characteristics, such as direction of the twist in rifling, land length or number of lands, or type of rifling\cite{bunch2003comprehensive}. In other labs, CMS (consecutively matching striae) as defined by  \citeauthor{biasotti}  \citep{biasotti} is used as a measure to quantify the similarity of two lands. In virtually all labs, individual characteristics used to identify \svp{similar} bullets are derived from visual assessment. %; some class characteristics may be directly measured, but these are not sufficient for individualization. 
 % Identification using 3D Scanning Technology
