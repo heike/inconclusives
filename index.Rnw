@@ -170,7 +170,7 @@ library(kableExtra)
 
 
 
-Examiners visually classify similarity of toolmark and firearm evidence according to the AFTE theory of identification  \citep{identification} as one of identification, inconclusive or elimination -- see \autoref{tab:afte} for a definition of each of the conclusions. Exact guidelines for this classification vary from lab to lab; some labs will exclude only on the basis of non-matching class characteristics, such as direction of the twist in rifling, land length or number of lands, or type of rifling. In other labs, CMS (consecutively matching striae) as defined by  \citeauthor{biasotti}  \citep{biasotti} is used as a measure to quantify the similarity of two lands. In virtually all labs, individual characteristics used to identify matching bullets are derived from visual assessment. %; some class characteristics may be directly measured, but these are not sufficient for individualization. 
+Examiners visually classify similarity of toolmark and firearm evidence according to the AFTE theory of identification  \citep{identification} as one of identification, inconclusive or elimination. \svp{The AFTE definitions of each conclusion are provided in } \autoref{tab:afte}. Exact guidelines for this classification vary from lab to lab; some labs will exclude only on the basis of non-matching class characteristics, such as direction of the twist in rifling, land length or number of lands, or type of rifling\cite{bunch2003comprehensive}. In other labs, CMS (consecutively matching striae) as defined by  \citeauthor{biasotti}  \citep{biasotti} is used as a measure to quantify the similarity of two lands. In virtually all labs, individual characteristics used to identify \svp{similar} bullets are derived from visual assessment. %; some class characteristics may be directly measured, but these are not sufficient for individualization. 
 % Identification using 3D Scanning Technology
 
 
@@ -202,14 +202,28 @@ Unsuitable for examination.
 
 The identification process -- i.e. the assessment of whether two samples come from the same source (were made by the same tool, the same shoe, the same finger, shot through the same barrel) or from different sources -- is quite complex. 
 In order to assess the accuracy of the identification process, we have to make use of studies where ground truth is known. 
+\svp{Ground truth is the}
+% By ground truth we mean the 
+knowledge of whether two samples come from the same source or two different sources. 
+%Ground truth in studies is only available to the individual setting up the test but not to any of the participants. 
+\svp{In scientific studies of forensic examination, ground truth is only available to the experimenter; the participants do not have access to that information.}
+\svp{Ground truth is necessary in experiments because i}n casework ground truth is not known, \svp{and thus} 
+% it therefore does not allow for an assessment of  error rates 
+\svp{cannot be used to assess the accuracy} of the identification process.
 
-By ground truth we mean the knowledge of whether two samples come from the same source or two different sources. Ground truth in studies is only available to the individual setting up the test but not to any of the participants. 
-In casework ground truth is not known, it therefore does not allow for an assessment of error rates of the identification process.
+\svp{We refer to studies which make use of participants who were not involved in the experimental design as ``single blind" - that is, the participant knows they are participating in a study, but does not know the answers to the study.
+Studies which have the additional constraint that the participant does not know the information under evaluation is part of a study at all (e.g. it is indistinguishable from normal casework) are called ``double blind". 
+There is some variability in what the term ``double blind" refers to in the context of forensic studies: the use in \cite{bunch2003comprehensive, stromanEmpiricallyDeterminedFrequency2014, Duez:2017kha} does not match the use in \cite{pcast2016,spiegelmanAnalysisExperimentsForensic2013,koehlerProficiencyTestsEstimate2013}. 
+\citet{kerkhoffPartdeclaredBlindTesting2018} provides a more thorough discussion of the different ways ``blind testing" has been used in forensic error rate studies.
+\footnote{At least some of the confusion stems from the use of the term in medical contexts, where ``double blind" means that neither the patient nor the doctor knows whether the treatment received is the control or the treatment under investigation. 
+While the terms refer to different blinding methodologies, the underlying goal is the same - to remove any biases which may cause the doctor to evaluate the patient response differently or the examiner to perform differently on a test than on regular casework.}
+In this paper, we will use the term ``double blind" to refer to situations where examiners do not know that the evidence being evaluated is part of a designed experiment.
+}
 
 
-\hh{XXX Blind testing - prevent differences in the process due to knowledge that one is being tested.}
+% \hh{XXX Blind testing - prevent differences in the process due to knowledge that one is being tested.}
 
-\hh{XXX Different approaches to what is considered blind}
+% \hh{XXX Different approaches to what is considered blind}
 
 \section{Calculating Error Rates}\label{sec:rates}
 
@@ -238,12 +252,14 @@ Under this framework, an examiner's %default
 decision \hh{starts with} %is
 inconclusive, to be refined to identification or elimination given sufficient evidence in either direction.
 This approach treats inconclusives as neither errors nor correct decisions, but it does imply that in the presence of a certain amount of data, an inconclusive result is not an allowable decision and the examiner must make an identification or elimination.
-\hh{XXX should we keep the criticism to the discussion?}
+\hh{XXX should we keep the criticism to the discussion?}\svp{Yes, because it makes it clear we're aware of the discussion. Otherwise we'll just get a review telling us we're too new at this because we didn't cite xyz.}
 This view has drawn some criticism  \citep{Biedermann:2018hr,biedermannAreInconclusiveDecisions2019}. 
-\hh{XXX  That's the computer sciency approach to decision theory, right?}
-\hh{XXX From a statistical point of view the approach would imply independence between inconclusive decisions and source of evidence. Based on the case studies this assumption is violated.}
+\hh{Statistically, this would suggest that the decision about the amount of evidence available (inconclusive or not) would be independent of the source of the evidence (same or different source). That is, inconclusives should be equally likely in same-source and different-source assessments.}
 
-\hh{XXX the approach to start with inconclusives also suggests symmetry - should we put a tease in here for later?}
+\hh{XXX  That's the computer sciency approach to decision theory, right?}
+\hh{XXX From a statistical point of view the approach would imply independence between inconclusive decisions and source of evidence. Based on the case studies this assumption is violated.} \svp{That's a point worth making.}
+
+\hh{XXX the approach to start with inconclusives also suggests symmetry - should we put a tease in here for later?}\svp{Yes}
 
 %\hh{XXX should we cite a paper for each one of these decisions?}\svp{I don't know if we could find a paper that does each of these. Is there any paper you remember using the excluded from calculations option?}
 
@@ -374,7 +390,7 @@ There are several considerations when designing a study of the identification pr
 \item [White box vs. Black Box] A white-box study is one which makes an attempt to understand \emph{why} an examiner came to the decision, in contrast to a black box study, which only evaluates the correctness of the decision (and not the reasoning behind it). 
 \item [Blind testing] A blind (or blinded) study is one in which the participant (in this case the examiner) does not know that they are being tested; that is, a study which appears to be part of a case, rather than research. 
 \svp{Blind testing is often recommended  \cite{pcast2016,spiegelmanAnalysisExperimentsForensic2013,koehlerProficiencyTestsEstimate2013}, because the error rates from blind testing better generalize to casework (many studies in a variety of disciplines have shown that people behave differently in situations that are known to be tests) and better assess the process of comparison as a whole (rather than the performance of an individual examiner).}
-Note that the definition of blind studies as used above is different from the definitions of a blind study used in  \citet{bunch2003comprehensive},  \citet{stromanEmpiricallyDeterminedFrequency2014}, or  \citet{Duez:2017kha}; in those papers, the use of the terms blind and/or double blind do not conform to the generally accepted definition of ``double blind" in the forensic sciences\footnote{ \citet{stromanEmpiricallyDeterminedFrequency2014} uses the NIH definition of double-blind, in which doctors administering the treatment do not know which treatment the patient is receiving, but the patient knows they are participating in a trial. This is an accurate portrayal of what double-blind means in medical studies, but in forensics, the commonly accepted definition is that a double-blind study is one in which the forensic scientist performing the evaluation does not know they are being tested. In the medical context, the doctor is also the one rating the patient's performance and may be biased by knowing which treatment the patient received. In forensics, the examiner may be biased by knowing that a comparison is part of a test. In both cases, the goal of double-blinding is to reduce external sources of bias, but the methods required to reduce the bias are different because the experimental structure and data collection methods are different.}.  \citet{kerkhoffPartdeclaredBlindTesting2018} provides a more thorough discussion of the different ways ``blind testing" has been used in forensic error rate studies.
+% Note that the definition of blind studies as used above is different from the definitions of a blind study used in  \citet{bunch2003comprehensive},  \citet{stromanEmpiricallyDeterminedFrequency2014}, or  \citet{Duez:2017kha}; in those papers, the use of the terms blind and/or double blind do not conform to the generally accepted definition of ``double blind" in the forensic sciences\footnote{ \citet{stromanEmpiricallyDeterminedFrequency2014} uses the NIH definition of double-blind, in which doctors administering the treatment do not know which treatment the patient is receiving, but the patient knows they are participating in a trial. This is an accurate portrayal of what double-blind means in medical studies, but in forensics, the commonly accepted definition is that a double-blind study is one in which the forensic scientist performing the evaluation does not know they are being tested. In the medical context, the doctor is also the one rating the patient's performance and may be biased by knowing which treatment the patient received. In forensics, the examiner may be biased by knowing that a comparison is part of a test. In both cases, the goal of double-blinding is to reduce external sources of bias, but the methods required to reduce the bias are different because the experimental structure and data collection methods are different.}.  \citet{kerkhoffPartdeclaredBlindTesting2018} provides a more thorough discussion of the different ways ``blind testing" has been used in forensic error rate studies.
 \item [Number of knowns from different sources] Some studies  \citep{keisler} provide only one known exemplar (or a set of multiple exemplars from the same source). Other studies, such as  \citep{brundage, hamby,Hamby:2018hu} and the Houston FSC and Phoenix studies from  \citet{case-validation}, include multiple different sources as knowns. 
 \item [Study length] Most crime labs are understaffed and maintain a fairly large backlog of cases; as a consequence, examiner time is limited. While examiners should participate in these studies, they must balance the competing demands of a large and consequential workload \svp{and the benefit to FTE community}. As such, studies which require examiners to make a large number of comparisons may be less likely to find sufficient participants to generate an acceptable sample size.
 \end{description}
