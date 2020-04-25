@@ -350,7 +350,7 @@ The accuracy of a classification method is  often expressed in the form of \emph
 
 
 \subsection{What makes an error?}\label{error-rates}
-% The sets of conditional probabilities in \autoref{tab:fpr-fnr} and \autoref{tab:pv-prob} are important in the assessment of the process of evidence examination. 
+% The sets of conditional probabilities in \autoref{tab:ppv-prob} and \autoref{tab:fpr-prob} are important in the assessment of the process of evidence examination. 
 \svp{In a classification problem, we would normally take the results in \autoref{tab:generic-results} and calculate various measures of accuracy and classification error.
 In this situation, however, there is one complication: there are two possibilities to describe the physical state of the evidence, in that the evidence is either from the same source or from different sources, but there are three outcome states: the examiner can make an identification, an elimination, or an inconclusive determination.
 Most (all?) of the typical methods of assessing classification decisions are designed for situations where there are the same number of possible decisions as there are physical classifications; 
@@ -414,7 +414,8 @@ One reasonable solution to the inconclusive problem would be to calculate the pr
 Note that if we condition on the decision being either identification or elimination, the probability calculations for scenarios 0 and 1 in \autoref{tab:overall-err-rate} are identical; the only difference between the two is the setup of the scenario: 
 In scenario 1, we allow for inconclusives as a decision category but restrict them from the calculation of the error rate entirely; in scenario 0, inconclusives are not a valid conclusion. 
 This solution does entirely ignore inconclusives, though, and as they are part of the process and can be included in examiner testimony (usually phrased as ``could not be excluded"), this elimination from consideration is not appropriate if the goal of a study is to assess the error rate of the entire evaluation process. 
- \citet{koehlerProficiencyTestsEstimate2013} recommends using the option 1 approach for calculating error rates while  also tracking rates of inconclusive identifications ``for other purposes". 
+ \citet{koehlerProficiencyTestsEstimate2013} recommends using the option 1 approach for calculating error rates while  also tracking rates of inconclusive identifications ``for other purposes".
+\svp{This would be equivalent to using the quantity in option 1 to assess error rates while tracking $P(Inconclusive)$ or possibly, separately tracking $P(Inconclusive \text{ and } SS)$ and $P(Inconclusive \text{ and } DS)$.}
 
 Under AFTE's Theory of Identification, however, inconclusive results are acceptable outcomes and not considered errors; to give a very extreme example, an examiner could report inconclusives for the rest of their career and never make an error. Option 2 shows this way of treating inconclusives as correct regardless of the actual state.
 What this means in real terms, is that inconclusives are effectively counted as identifications if they are actually from the same source, but counted as eliminations if they are actually from a different source. 
@@ -433,12 +434,22 @@ during the firing process.
 Nonetheless, even though a pair of objects originated from the same physical source, it is not possible to evaluate the evidence and make an identification. 
 The inconclusives are representative of the errors involved in the process of evidence recording, rather than the evaluation. 
 
+\svp{XXX Not sure this should go here, but not sure if there's a better place for it to go... XXX}
+
 \svp{Some studies screen for this possibility, removing evidence with insufficient identifying marks before the study is conducted.}
 \svp{In other studies, however, screening was intentionally not performed, so as to better mimic actual casework conditions. 
 In Baldwin  \cite{Baldwin:2014bb}, the only pre-screening of usability was to ensure cartridge cases were caught with the cartridge catching device. }
 \svp{Additionally,} \hh{for 3234 comparisons, FTEs evaluated how many of the known cartridge cases were usable for an evaluation: all three specimens were used in 3018 cases, two were used in 207 cases, and only one was used in nine cases.}
 \svp{The Baldwin study is fairly unique in this regard: most studies make some effort to control the quality of the evidence sent out for assessment.}
 \svp{Studies which tightly control the evidence quality and presence of individualizing marks would under-estimate the process error (though the estimates of examiner error are not necessarily affected) XXX not sure this is true - need to think through it...}
+
+
+\svp{There are, however, additional methods for assessing the reliability of a classification method, leveraging conditional probabilities.
+The next two sections detail two different sets of conditional probabilities which both assess the accuracy and reliability of the classification process.
+Certain conditional probabilities have the advantage of not requiring inconclusives to be handled as errors or correct decisions. 
+In addition to removing many of the complications of using the AFTE theory of identification on a binary source problem, these conditional probabilities offer some insights into the use of firearms and toolmark analysis during testimony. 
+XXX this is not quite what I'm going for, but it's closer than not having it... XXX
+}
 
 
 \subsection{Source-specific assessment}
@@ -452,9 +463,11 @@ Sensitivity can be expressed as the conditional probability $P (\text{Identifica
 Conversely, specificity, or the true negative rate (TNR), is an examiner's ability to make an elimination given evidence from different sources (DS), $P (\text{Elimination} \mid DS)$. 
 Mathematically, we calculate the true negative rate as the conditional probability of the examiner making an elimination \emph{given} the pair under examination is from different sources. 
 A conditional probability of an event \emph{given} another event is the probability that the two events both occur, divided by the probability of the second event, specifically for the true negative rate:
-$$ TNR = P(\text{Elimination} | DS) = \frac{P(\text{Elimination and } DS)}{P(DS)}.$$
+$$TNR = P(\text{Elimination} | DS) = \frac{P(\text{Elimination and } DS)}{P(DS)}.$$
 
-\hh{XXX before we talk about inconclusives we really can't discuss what an error is.}
+\svp{Note that both the TPR and TNR are measures of the accuracy of a classification method.}
+
+% \hh{XXX before we talk about inconclusives we really can't discuss what an error is.}
 
 \hh{Complementary to accuracy rates, we define two error rates of a classification method:}
 %Another common method of assessing accuracy of a classification method is to calculate the false positive rate (FPR) and the false negative rate (FNR). 
@@ -462,176 +475,120 @@ The \emph{false positive rate} (FPR) -- or failed elimination rate -- is the pro
 
 Similarly, the \emph{false negative rate} (FNR) -- or missed identification rate -- is the probability that an examination of same-source evidence does not result in an identification. %: $FNR = 1 - TPR$. %makes an elimination from evidence which originates from the same source (SS), $FNR = P(\text{Elimination} | SS)$. 
 
-\hh{Note that we are keeping the definition of error rates a bit vague on purpose. We will pick up the discussion of how to precisely define error rates in~\autoref{error-rates}.}
-%an examiner makes an identification from evidence which is from different sources (DS), $FPR = P(\text{Identification} | DS)$.
-
-%The \emph{false negative rate} is the probability that an examiner makes an elimination from evidence which originates from the same source (SS), $FNR = P(\text{Elimination} | SS)$. 
-In all  of these assessments, the rates are calculated by conditioning on the origin of the evidence; this process is shown graphically in \autoref{fig:FPR-specific-tree} using a decision tree to describe the comparisons which can be made conditioned on ground truth. 
-
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth]{figures/Source-specific-tree-diagram.pdf}
 \caption{Tree Diagram illustrating the logic of source-specific error rates. \hh{Information flow happens from left to right: we are assessing an examiners decision given that someone (not the examiner) knows the source of the evidence. }. Source-specific rates give the probability of an examiner's decision ( Identification, Inconclusive, or Elimination) given same-source and different-source evidence.}\label{fig:FPR-specific-tree}
 \end{figure}
 
-\hh{XXX should we pull up some of the discussion that only regards these error rates? source-specific probabilities can not be calculated from casework, they allow an assessment of the performance of an examiner, but not an assessment of the evidence. source-specific probabilities are the error rates typically reported. Our argument here is that they are largely irrelevant in legal proceedings}
-
-
-\subsection{Decision-specific assessment}
-
-%The use of false positive and false negative rates to characterize a classification task is extremely common, however, there are alternate ways to evaluate a classification method.
-An alternate way to evaluate a classification method is to assess \svp{the probability that given an examiner's decision, a certain state of ground truth exists.} \svp{XXX this is awkward... fix}
-% In medicine, in particular, it is common to evaluate tests based on the positive and negative predictive value. 
-The \emph{positive predictive value} (PPV) is the probability that, if an examiner makes an identification, the evidence is from the same source, that is, $P(SS | \text{Identification})$. 
-Its complement, the \emph{false discovery rate} (FDR), is the probability that if an examiner makes an identification, the evidence is from different sources.
-
-The \emph{negative predictive value} (NPV) is the probability that, if an examiner makes an elimination, the evidence is from different sources, or $P(DS | \text{ Elimination})$. 
-Its complement, the \emph{false omission rate} (FOR) is the probability that, if an examiner makes an elimination, the evidence is actually from the same source.
-\footnote{In  \citet{songEstimatingErrorRates2018}, the FDR is referred to as the false identification error rate, and the FOR is called the false exclusion error rate.}
-As before, we can map out the conditional hierarchy using a decision tree, shown in \autoref{fig:PPV-specific-tree}. 
-
-\begin{figure}
-\centering
-\includegraphics[width=\textwidth]{figures/Conclusion-specific-tree-diagram.pdf}
-%\includegraphics[width=\textwidth]{figures/Conclusion_Specific_Tree_Diagram.pdf}
-\caption{
-Tree Diagram illustrating the logic of positive and negative predictive value calculations. Decision-specific values give the probability of evidence coming from the same source or different sources given an examiner's testimony.
-%We must first select which conclusion we are interested in, and then examine the probability of each state of reality (same source or different sources) given that conclusion.
-}\label{fig:PPV-specific-tree}
-\end{figure}
-
-To reduce confusion with the naming or rates and predictive values we have labeled nodes in the trees of \autoref{fig:FPR-specific-tree} and \autoref{fig:PPV-specific-tree} \svp{corresponding to the rates defined in the text.}
-Predictive value assessments are used in assessing the implications of a particular classification label; they inform us about the likely state of the physical evidence. 
-\svp{This makes the PPV, NPV, FDR, and FOR more appropriate for use when evaluating casework, where the true state of the evidence is unknown.
-While mathematically it makes sense to condition on unknown quantities, in practice it is much more informative to condition on quantities whose values are known.}
-\svp{For the same reason, the source-specific assessments may be useful when evaluating the performance of individuals on a designed test, because ground truth is known (and thus, can be conditioned upon) in designed studies.}
-
-\subsection{Practical impact of error rates}
-
-Mathematically, the primary difference between the decision tree diagrams in Figure \ref{fig:FPR-specific-tree} and \ref{fig:PPV-specific-tree} is the conditioned variable. 
-The source-specific error rates,FPR and FNR, are calculated by conditioning on the source of of the evidence (same-source/different source) and give the probability for an examiner's conclusion.
-PPV and NPV, are calculated by conditioning on an examiner's conclusion and give the probability of evidence being same-source or different source.
-
-From a practical point of view, the question of whether source-specific or decision-specific rates are of interest, is where in the overall (legal) decision process we are: 
-\begin{itemize}
-\item as a firearms and toolmark examiner or a lab director, we are interested in assessing accuracy based on ground truth, i.e. we are interested in source-specific rates to answer questions of the form: given this evidence, are  trained firearms examiner more likely than trainees to come to the correct conclusion? (Case studies later show that yes, that is the case.) \svp{Alternately, lab directors might want to know if all of the examiners employed by the lab are performing above a certain threshold.}
-\item as part of courtroom proceedings, we -- the jury, lawyers, and judges -- are interested in assessing accuracy of testimonies, i.e. we are interested in conclusion-specific rates to answer questions of the form: given an expert testified to the evidence as being an identification, what is the probability that the evidence actually does come from the same source? \svp{In this situation, we can update the overall error rate by conditioning on the examiner's conclusion, providing more specific evidence about the scenario under investigation. As we only know the examiner's testimony (and not ground truth), we must work with the conclusion-specific rates. }
-\end{itemize}
-These two forms of questions look deceptively similar, but lead to different mathematical equations. 
-This difficulty is not exclusive to evaluations of firearms evidence -- it is a known and pervasive pitfall in other application areas, such as medical diagnostics  \cite{Casscells:1978ba, Manrai:2014fp}.
-The distinction between these two sources of error rates is perhaps a bit more approachable in the setting of a medical context: a given test has a sensitivity (true positive rate, TPR) and a specificity (true negative rate, TNR) that combined determine the overall accuracy rate. 
-However, if you as a patient receive a positive test result, what you really care about is the probability that, given your positive result, you actually have the disease. 
-
-% \hh{XXX We haven't talked about inconclusives yet - we should put a teaser here that we are going to come back to that.}
-\svp{One additional complication to this evaluation is the treatment of inconclusives: under AFTE guidelines, inconclusives are not errors, but it has been argued that in at least some sense, inconclusives are systematic errors, because the conclusion does not match the known information \citep{koehlerFingerprintErrorRates2007}.
-We will address this complication in \autoref{sec:inconclusive}.
+\hh{Note that we are keeping the definition of error rates a bit vague on purpose. 
+% We will pick up the discussion of how to precisely define error rates in~\autoref{error-rates}.
 }
-  
-% \hh{XXX A sentence on why we need case studies to evaluate and assess all of these error rates. }
+\svp{As in \autoref{sec:error-rates}, there are multiple ways to define an error; the concept holds for both option 1 and option 2 treatment of inconclusives with regard to errors.}
+%an examiner makes an identification from evidence which is from different sources (DS), $FPR = P(\text{Identification} | DS)$.
 
-\svp{In case work, because ground truth is not known, we cannot definitively know that an examiner's evaluation is correct. 
-For that reason, we need designed studies to estimate the error rates of examinations in situations where ground truth is known. 
-As we rely on these designed studies to generalize to casework, it is of great importance that the studies be well designed so as to allow for the estimation of any of the success or error rates discussed above.
-}
-
-
-
-
-
-\section{Assessment of error rates in case studies}\label{sec:inconclusive}
-
-In order to calculate the two sets of conditional probabilities, 
-Then, using the quantities in \autoref{tab:generic-results}, we can calculate the conclusion-specific probabilities as shown in \autoref{tab:fpr-fnr}.
+%The \emph{false negative rate} is the probability that an examiner makes an elimination from evidence which originates from the same source (SS), $FNR = P(\text{Elimination} | SS)$. 
+In all  of these assessments, the rates are calculated by conditioning on the \emph{origin of the evidence}; this process is shown graphically in \autoref{fig:FPR-specific-tree} using a decision tree to describe the comparisons which can be made conditioned on ground truth. Calculations for each value are shown in \autoref{fig:pv-prob}.
 
 \begin{table}\centering
 \caption{
-Conclusion-specific probabilities, calculated using the quantities introduced in \autoref{tab:generic-results}. 
-In each cell in the main body of the table, probabilities shown are the probability of source $X$, if the examiner's conclusion (one of Identification, Inconclusive, or Elimination) is $Y$. 
-In the last row in the table, the marginal probabilities $P(Y)$ are shown, that is, the unconditional probability that the examiner's decision is $Y$. 
-}\label{tab:fpr-fnr}
-\begin{tabularx}{\textwidth}{Y|ccc|Y}
-\multicolumn{5}{c}{\bf Conclusion-Specific Probabilities}\\\hline
-\multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Probability\\\hline
-Same source & $a/(a+d)$ & $b/(b+e)$ & $c/(c+f)$ & $S/N$\\
-Different source & $d/(a+d)$ & $e/(b+e)$ & $f/(c+f)$ & $D/N$\\\hline
-\multicolumn{1}{Y}{Conclusion probability} & $(a + d)/N$ & $(b + e)/N$ & \multicolumn{1}{r}{$(c + f)/N$} & \multicolumn{1}{Y}{1.00}\\\hline\hline
-\end{tabularx}
-\end{table}
-
-Using the same data from \autoref{tab:generic-results}, we could also calculate predictive value probabilities as shown in \autoref{tab:pv-prob}.
-
-\begin{table}\centering
-\caption{
-Predictive value probabilities, calculated using the quantities introduced in \autoref{tab:generic-results}. 
+Source-specific probabilities, calculated using the quantities introduced in \autoref{tab:generic-results}. 
 In each cell in the main body of the table, probabilities shown are the probability of conclusion $Y$ (one of Identification, Inconclusive, or Elimination) if the source is $X$ (same, different). 
 In the last row in the table, the marginal probabilities $P(Y)$ are shown, that is, the unconditional probability that the examiner's decision is $Y$. 
 In the last column of the table, the marginal probabilities $P(X)$ are shown; these are determined by the experimental design.
-}\label{tab:pv-prob}
+}\label{tab:fpr-prob}
 \begin{tabularx}{\textwidth}{Y|ccc|Y}
-\multicolumn{5}{c}{\bf Predictive Value Probabilities}\\
+\multicolumn{5}{c}{\bf Source-specific Probabilities}\\
 \multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Probability\\\hline
 Same source & $a/S$ & $b/S$ & $c/S$ & $S/N$\\
 Different source & $d/D$ & $e/D$ & $f/D$ & $D/N$\\\hline
 \multicolumn{1}{Y}{Conclusion probability} & $(a + d)/N$ & $(b + e)/N$ & \multicolumn{1}{r}{$(c + f)/N$} & \multicolumn{1}{Y}{1.00}\\\hline\hline
 \end{tabularx}
 \end{table}
-A google sheets workbook which will perform all of these calculations when the frequency of each type of comparison is entered is available at \url{http://bit.ly/FTE-error-rate-worksheet}.
+A google sheets workbook which will perform all of these calculations \svp{given counts $a, b, c, d, e, \text{ and } f$} is available at \url{http://bit.ly/FTE-error-rate-worksheet}.
 
-Now that we have defined several different metrics for evaluating the errors made in a study, we will consider the role of inconclusives in pattern evidence examination. 
+\svp{XXX need to provide real-world meaning (e.g. court testimony, if possible) for a couple of these values.}
+
+\hh{XXX should we pull up some of the discussion that only regards these error rates? source-specific probabilities can not be calculated from casework, they allow an assessment of the performance of an examiner, but not an assessment of the evidence. source-specific probabilities are the error rates typically reported. Our argument here is that they are largely irrelevant in legal proceedings}\svp{Let's leave that to the practical impact section - it's close enough to this section that it should still be connectable, and it will make more sense when contrasted against the decision specific assessment.}
 
 
+\subsection{Decision-specific assessment}
 
-\svp{XXX this transition is a bit rough. Might be worth a bit of a preview between inconclusive and ``ideal" study probabilities, because the connection isn't very obvious from this point in the paper... XXX}
-In the next section, we will examine the results from a number of studies of the error rate of firearms examinations, identifying the results which are reported, converting these results (where possible) into the format used in \autoref{tab:generic-results}, and calculating the conditional probabilities in the format of \autoref{tab:fpr-fnr} and \autoref{tab:pv-prob}. 
-Prior to that, however, it may be useful to develop one more idea: in a perfect world, 
-%with examiners who are all-knowing, 
-what should the results of these studies look like?\svp{XXX This could be a bit better transition XXX}
-\hh{XXX we don't need all knowing examiners - then we don't have inconclusives e.g.}
+%The use of false positive and false negative rates to characterize a classification task is extremely common, however, there are alternate ways to evaluate a classification method.
+An alternate way to evaluate a classification method is to assess \svp{the probability of a same-source or diferent-source comparison, given an examiner's decision (or, more generically, a specific general conclusion).}
+The \emph{positive predictive value} (PPV) is the probability that, if an examiner makes an identification, the evidence is from the same source, that is, $P(SS | \text{Identification})$. 
+Its complement, the \emph{false discovery rate} (FDR), is the probability that if an examiner makes an identification, the evidence is from different sources.
 
-\subsection{Ideal study probabilities}\label{sec:ideal}
+The \emph{negative predictive value} (NPV) is the probability that, if an examiner makes an elimination, the evidence is from different sources, or $P(DS | \text{ Elimination})$. 
+Its complement, the \emph{false omission rate} (FOR) is the probability that, if an examiner makes an elimination, the evidence is actually from the same source\footnote{In \citet{songEstimatingErrorRates2018}, the FDR is referred to as the false identification error rate, and the FOR is called the false exclusion error rate.}.
+As before, we can map out the conditional hierarchy using a decision tree, shown in \autoref{fig:PPV-specific-tree}. 
+To reduce confusion with the naming or rates and predictive values we have labeled nodes in the trees of \autoref{fig:FPR-specific-tree} and \autoref{fig:PPV-specific-tree} \svp{corresponding to the rates defined in the text.}
 
-\hh{In the absence of knowing the truth we have to resort to working within a probabilistic framework to assess the likelihood of certain events. 
-Some (XXX? quantify?) evidence is based on questions of pattern matching: does the shoe print from the crime scene match a particular shoe? was the bullet found at a crime scene fired from a particular weapon? does the breech face impression on a cartridge case from the crime scene match the breech face of a particular weapon frame?}
-\svp{Other evidence, such as DNA, is based on formal measurement, but produces a certain signature or pattern which can also be evaluated using probabilistic methods.}
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{figures/Conclusion-specific-tree-diagram.pdf}
+\caption{
+Tree Diagram illustrating the logic of positive and negative predictive value calculations. Decision-specific values give the probability of evidence coming from the same source or different sources given an examiner's testimony.
+}\label{fig:PPV-specific-tree}
+\end{figure}
 
-In these situations the fundamental quantity in question is the probability that two pieces of evidence come from the same source or from different sources. 
-In a legal setting the opinion provided by the expert guides this assessment. 
-So given expert testimony, how does or should the evaluation of the above probability change?  
 
-The AFTE theory of firearms and toolmarks identification as shown in \autoref{tab:afte} allows an expert to come to three main conclusions: make an identification, i.e. two pieces of evidence are thought to come from the same source, make an elimination, i.e. two pieces of evidence are tought to come from different sources, or an inconclusive, i.e. the evidence does not allow either an identification or an elimination. 
+Using the quantities in \autoref{tab:generic-results}, we can calculate the decision-specific or conclusion-specific probabilities from \autoref{fig:PPV-specific-tree} as shown in \autoref{tab:ppv-prob}.
 
-Given these three outcomes, we are interested for each the probability of same source and different sources, resulting in a total of six ($3 \times 2$) conditional probabilities. 
-In a perfect world, we would expect the probabilities shown in \autoref{tab:ideal-probabilities}:
-
-\begin{table}
-\caption{Expected conditional probabilities in a perfect world.}\label{tab:ideal-probabilities}
-{\tabulinesep=1.2mm
-\begin{tabu}{|c|ccc|}\hline
-$P(X | Y)$ & \multicolumn{3}{c|}{$Y = $Examiner Conclusion} \\\hline
-$X = $Reality & Identification & Inconclusive & Elimination \\\hline
-Same source & $P(SS|\text{Identification}) = 1 $& $P(SS|\text{Inconclusive}) = P(SS)$ & $P(SS | \text{Elimination}) = 0$ \\
-Different source & $P(DS| \text{Identification}) = 0$ & $P(DS| \text{Inconclusive}) = P(DS)$ & $P(DS | \text{Elimination})= 1$ \\\hline
-\end{tabu}
-}
+\begin{table}\centering
+\caption{
+Decision-specific probabilities, calculated using the quantities introduced in \autoref{tab:generic-results}. 
+In each cell in the main body of the table, probabilities shown are the probability of source $X$, if the examiner's conclusion (one of Identification, Inconclusive, or Elimination) is $Y$. 
+In the last row in the table, the marginal probabilities $P(Y)$ are shown, that is, the unconditional probability that the examiner's decision is $Y$. 
+}\label{tab:ppv-prob}
+\begin{tabularx}{\textwidth}{Y|ccc|Y}
+\multicolumn{5}{c}{\bf Decision-Specific Probabilities}\\\hline
+\multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Probability\\\hline
+Same source & $a/(a+d)$ & $b/(b+e)$ & $c/(c+f)$ & $S/N$\\
+Different source & $d/(a+d)$ & $e/(b+e)$ & $f/(c+f)$ & $D/N$\\\hline
+\multicolumn{1}{Y}{Decision probability} & $(a + d)/N$ & $(b + e)/N$ & \multicolumn{1}{r}{$(c + f)/N$} & \multicolumn{1}{Y}{1.00}\\\hline\hline
+\end{tabularx}
 \end{table}
 
-Most notably, we would expect inconclusive results to not show any dependence on the type of comparison unless there is some evidence provided by experts that one type of conclusion is more difficult to make than another.
 
-In actual case work we are not able to assess the probabilities for same source or different source.  
-However, those probabilities are easily accessible in formal studies or blinded proficiency testing,\svp{ as $P(SS)$ and $P(DS)$ in these studies are determined by the experimental design.}
+Predictive value assessments are used in assessing the implications of a particular classification label; they inform us about the \emph{likely state of the physical evidence}. 
+\svp{
+This makes the PPV, NPV, FDR, and FOR more appropriate for use when evaluating casework (or in a courtroom setting), because the true state of the evidence is unknown.
+While mathematically it makes sense to condition on unknown quantities, in practice it is much more informative to condition on quantities whose values are known, because this allows us to obtain probabilities that are more accurate for the specified situation.
+}
+\svp{Conversely, source-specific assessments may be useful when evaluating the performance of individuals on a designed test, because ground truth is known (and thus, can be conditioned upon) in designed studies.}
+
+\subsection{Practical impact of error rates}
+
+Mathematically, the primary difference between the decision tree diagrams in Figure \ref{fig:FPR-specific-tree} and \ref{fig:PPV-specific-tree} is the conditioned variable. 
+The source-specific error rates, FPR and FNR, are calculated by conditioning on the source of of the evidence (same-source/different source) and give the probability of an examiner's decision.
+PPV and NPV are calculated by conditioning on an examiner's conclusion and give the probability of evidence being same-source or different source.
+
+From a practical point of view, whether source-specific or decision-specific rates are of interest \svp{depends upon } where in the overall (legal) decision process we are: 
+\begin{itemize}
+\item as a firearms and toolmark examiner or a lab director, we are interested in assessing accuracy based on ground truth, i.e. we are interested in source-specific rates to answer questions of the form: given this evidence, are  trained firearms examiner more likely than trainees to come to the correct conclusion? (Case studies later show that yes, that is the case.) \svp{Alternately, lab directors might want to know if all of the examiners employed by the lab are performing above a certain threshold.}
+\item as part of courtroom proceedings, we -- the jury, lawyers, and judges -- are interested in assessing accuracy of testimonies, i.e. we are interested in conclusion-specific rates to answer questions of the form: given an expert testified to the evidence as being an identification, what is the probability that the evidence actually does come from the same source? \svp{In this situation, we can update the overall error rate by conditioning on the examiner's conclusion, providing more specific evidence about the scenario under scrutiny in court. As we only know the examiner's testimony (and not ground truth), we must work with the decision-specific rates. }
+\end{itemize}
+These two forms of questions look deceptively similar, but lead to different mathematical equations. 
+This difficulty is not exclusive to evaluations of firearms evidence -- it is a known and pervasive pitfall in other application areas, such as medical diagnostics  \cite{Casscells:1978ba, Manrai:2014fp}.
+The distinction between these two sources of error rates is perhaps a bit more approachable in the setting of a medical context: a given test has a sensitivity (true positive rate, TPR) and a specificity (true negative rate, TNR) that combined determine the overall accuracy rate. 
+However, if you as a patient receive a positive test result, what you really care about is the probability that, given your positive result, you actually have the disease. 
+\svp{This probability is the positive predictive value, or PPV of the test, and is equivalent to the decision-specific probability P(SS|Identification). }
+
+% \hh{XXX We haven't talked about inconclusives yet - we should put a teaser here that we are going to come back to that.}
+% \svp{One additional complication to this evaluation is the treatment of inconclusives: under AFTE guidelines, inconclusives are not errors, but it has been argued that in at least some sense, inconclusives are systematic errors, because the conclusion does not match the known information \citep{koehlerFingerprintErrorRates2007}.
+% We will address this complication in \autoref{sec:inconclusive}.
+% }
+  
+% \hh{XXX A sentence on why we need case studies to evaluate and assess all of these error rates. }
+
+\svp{In case work, because ground truth is not known, we cannot definitively know that an examiner's evaluation is correct. 
+For that reason, we need designed studies to estimate the error rates of examinations in situations where ground truth is known. 
+As we rely on these studies to generalize to casework, it is of great importance that the studies be well designed so as to allow for the estimation of any of the success or error rates discussed above.
+}
 
 
-\svp{XXX I think this should go into a different section talking about convention, personally, even possibly citing  \citet{spiegelmanAnalysisExperimentsForensic2013} about standard operating procedures.}
-\hh{reporting of eliminations differs from lab to lab. Some labs do only allow firearm examiners to make eliminations based on differences in class characteristics. XXX quantify: baldwin, }
-
-%The probability to make an identification  could be either reported directly or calculated as a composite of true positive and false positive rates:
-
-% \[
-% P(\text{identification made}) = TPR \times P(\text{same source}) + FPR \times P(\text{different source}) 
-% \]
-
-\svp{By examining these studies}, we can use existing data to evaluate the conditional probability of same source versus different sources given an expert's testimony directly.
-
+In the next section, we will examine the results from a number of studies of the error rate of firearms examinations, identifying the results which are reported \svp{and presenting error rates and conditional probabilities derived from the results of each study for comparison and discussion.}
 
 
 
@@ -648,7 +605,7 @@ The structure of this section is supposed to mirror the theoretical introduction
 \item Description of studies
 \item How do we calculate error rates in practice and problems related to that that prevent us from having actual numbers in some studies and simulation approaches
 \item source-specific error rates
-\item conclusion-specific error rates
+\item decision-specific error rates
 \item inconclusives
 \end{enumerate}
 XXX should we move the individual discussion points for studies into the overall discussion or weave the weaknesses of each study into our assessment here?
@@ -897,7 +854,7 @@ figdata %>%
 @
 
 
-\subsection{Conclusion-specific error rates}
+\subsection{Decision-specific error rates}
 
 \svp{
 In courtroom testimony, we do not know ground truth - we do not know whether the comparison that is presented actually is from the same source or a different source. 
@@ -948,7 +905,58 @@ cis %>%
 @
 \autoref{fig:cis} shows an overview  of the conditional probability of same source evidence given an examiner's conclusion for five published studies. 
 
-\subsection{Inconclusives}\label{sec:inconclusives}
+\section{Inconclusives}\label{sec:inconclusives}
+Prior to that, however, it may be useful to develop one more idea: in a perfect world, 
+%with examiners who are all-knowing, 
+what should the results of these studies look like?\svp{XXX This could be a bit better transition XXX}
+\hh{XXX we don't need all knowing examiners - then we don't have inconclusives e.g.}
+
+\subsection{Ideal study probabilities}\label{sec:ideal}
+
+\hh{In the absence of knowing the truth we have to resort to working within a probabilistic framework to assess the likelihood of certain events. 
+Some (XXX? quantify?) evidence is based on questions of pattern matching: does the shoe print from the crime scene match a particular shoe? was the bullet found at a crime scene fired from a particular weapon? does the breech face impression on a cartridge case from the crime scene match the breech face of a particular weapon frame?}
+\svp{Other evidence, such as DNA, is based on formal measurement, but produces a certain signature or pattern which can also be evaluated using probabilistic methods.}
+
+In these situations the fundamental quantity in question is the probability that two pieces of evidence come from the same source or from different sources. 
+In a legal setting the opinion provided by the expert guides this assessment. 
+So given expert testimony, how does or should the evaluation of the above probability change?  
+
+The AFTE theory of firearms and toolmarks identification as shown in \autoref{tab:afte} allows an expert to come to three main conclusions: make an identification, i.e. two pieces of evidence are thought to come from the same source, make an elimination, i.e. two pieces of evidence are tought to come from different sources, or an inconclusive, i.e. the evidence does not allow either an identification or an elimination. 
+
+Given these three outcomes, we are interested for each the probability of same source and different sources, resulting in a total of six ($3 \times 2$) conditional probabilities. 
+In a perfect world, we would expect the probabilities shown in \autoref{tab:ideal-probabilities}:
+
+\begin{table}
+\caption{Expected conditional probabilities in a perfect world.}\label{tab:ideal-probabilities}
+{\tabulinesep=1.2mm
+\begin{tabu}{|c|ccc|}\hline
+$P(X | Y)$ & \multicolumn{3}{c|}{$Y = $Examiner Conclusion} \\\hline
+$X = $Reality & Identification & Inconclusive & Elimination \\\hline
+Same source & $P(SS|\text{Identification}) = 1 $& $P(SS|\text{Inconclusive}) = P(SS)$ & $P(SS | \text{Elimination}) = 0$ \\
+Different source & $P(DS| \text{Identification}) = 0$ & $P(DS| \text{Inconclusive}) = P(DS)$ & $P(DS | \text{Elimination})= 1$ \\\hline
+\end{tabu}
+}
+\end{table}
+
+Most notably, we would expect inconclusive results to not show any dependence on the type of comparison unless there is some evidence provided by experts that one type of conclusion is more difficult to make than another.
+
+In actual case work we are not able to assess the probabilities for same source or different source.  
+However, those probabilities are easily accessible in formal studies or blinded proficiency testing,\svp{ as $P(SS)$ and $P(DS)$ in these studies are determined by the experimental design.}
+
+
+\svp{XXX I think this should go into a different section talking about convention, personally, even possibly citing  \citet{spiegelmanAnalysisExperimentsForensic2013} about standard operating procedures.}
+\hh{reporting of eliminations differs from lab to lab. Some labs do only allow firearm examiners to make eliminations based on differences in class characteristics. XXX quantify: baldwin, }
+
+%The probability to make an identification  could be either reported directly or calculated as a composite of true positive and false positive rates:
+
+% \[
+% P(\text{identification made}) = TPR \times P(\text{same source}) + FPR \times P(\text{different source}) 
+% \]
+
+\svp{By examining these studies}, we can use existing data to evaluate the conditional probability of same source versus different sources given an expert's testimony directly.
+
+
+\subsection{What will examiners bet on?}
 \svp{In the Baldwin study  \cite{Baldwin:2014bb}}, \hh{we would expect the probabilities for same and different source given an inconclusive result to be: }
 \begin{eqnarray*}
 P(\text{same source} \mid \text{Inconclusive}) &=& P(\text{same source}) = \frac{1}{3},  \\
