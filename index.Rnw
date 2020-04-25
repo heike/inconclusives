@@ -321,21 +321,53 @@ Before approaching the actual studies, we will define  basic notation to facilit
 
 When examiners assess a set of evidence (generally, a pair of items, one of known provenance and one of unknown provenance) and decide whether the evidence is an identification, inconclusive, or an elimination, they provide a \emph{classification} of the evidence in a set of given categories.  
 \hh{\autoref{fig:shape-overview} is a sketch showing the relationship between evidence (dots) and examiners' decisions (areas). The color for both evidence and decisions corresponds to the source of evidence (different/same) and the type of decision made, respectively. The different combinations of colored dots on top of colored regions correspond to the six potential outcomes of evidence assessment and examiner decision. Obviously, not all of these outcomes are correct. } 
+
+\svp{Starting with the} results from a generic experiment, where participants (forensic toolmark examiners) were asked to complete a total of $N$ comparisons, consisting of $S$ same-source comparisons and $D$ different source comparisons, \svp{we can report the aggregate results of } examiner evaluations using \autoref{tab:generic-results}. Note that the table \svp{layout} is nothing but a summary of all the possible combinations of examiners' decisions and actual state of the evidence as sketched out in \autoref{fig:shape-overview}. \svp{The pieces of \autoref{fig:shape-overview} are shown along with letters $a-f$ in \autoref{tab:generic-results}. These letters will be used throughout the paper to calculate various accuracy rates and probabilities. }
+
+\begin{table}
+\centering
+\caption{
+An example results table for a generic experiment where comparisons can be distinguished as either of same source pairs or of pairs from different sources, and examiners classify each comparison as an identification, an inconclusive, or an elimination, as  specified in the AFTE rules of identification. 
+Let $S$ be the total number of same source comparisons, then $S = a + b + c$. Similarly, $D$, the total number of different source comparisons, can be written as $D = d + e + f$. The sum of $S$ and $D$ is the total number  of comparisons, $N$. 
+%The probability of the occurrence of any cell in the interior of the table $(a, b, c, d, e, \text{ or } f)$ can be found by dividing the respective letter by $N$, the total number of comparisons.
+}\label{tab:generic-results}
+\begin{tabularx}{\textwidth}{Y|YYY|Y}
+\multicolumn{5}{c}{\bf Experiment Count Data}\\\hline
+\multicolumn{1}{c}{} & Identification & Inconclusive & \multicolumn{1}{c}{Elimination} & Source Total\\\hline
+Same Source & \begin{minipage}[c]{1em}$\bm{a}$ \end{minipage}\begin{minipage}[c]{1em} \includegraphics[width=.25cm]{figures/a.pdf} \end{minipage} & 
+              \begin{minipage}[c]{1em}$\bm{b}$ \end{minipage}\begin{minipage}[c]{1em} \includegraphics[width=.3cm]{figures/b.pdf} \end{minipage} & 
+              \begin{minipage}[c]{1em}$\bm{c}$ \end{minipage}\begin{minipage}[c]{1em} \includegraphics[width=.35cm]{figures/c.pdf} \end{minipage}& $S = a + b + c$\\
+Different source & \begin{minipage}[c]{1em}$\bm{d}$ \end{minipage}\begin{minipage}[c]{1em} \includegraphics[width=.25cm]{figures/d.pdf} \end{minipage}& 
+              \begin{minipage}[c]{1em}$\bm{e}$ \end{minipage}\begin{minipage}[c]{1em} \includegraphics[width=.3cm]{figures/e.pdf} \end{minipage}& 
+              \begin{minipage}[c]{1em}$\bm{f}$ \end{minipage}\begin{minipage}[c]{1em} \includegraphics[width=.35cm]{figures/f.pdf} \end{minipage}&  $D = e + f + g$\\\hline
+\multicolumn{1}{Y}{Conclusion Total} & $a + d$ & $b + e$ & \multicolumn{1}{c}{$c + f$} & \multicolumn{1}{Y}{$N = S + D$}\\\hline\hline
+\end{tabularx}
+\end{table}
+
+The \emph{joint probability} of any source condition and any examiner conclusion can be found by taking the corresponding cell in \autoref{tab:generic-results} and dividing by $N$, the total number of comparisons evaluated in the study.\footnote{\svp{The joint probability of events A and B is the probabilty that both A and B occur. Here, the joint probability of an examiner identification and a same-source comparison would be equivalent to $a/N$.}} 
+Thus, the joint probability of a same-source comparison and examiner identification would be $a/N$, while the joint probability of a different-source comparison and examiner identification would be $d/N$. 
 The accuracy of a classification method is  often expressed in the form of \emph{success rates} and \emph{error rates}, that is, with numerical quantities indicating how often the process produces correct or incorrect results.
 
-\subsection{What makes an error?}\label{error-rates}
-The sets of conditional probabilities in \autoref{tab:fpr-fnr} and \autoref{tab:pv-prob} are important in the assessment of the process of evidence examination. 
-However, standard evaluations of classification algorithms (or human decision making), such as false positive and false negative rates, or sensitivity and specificity \svp{XXX cite...?} generally involve classification states which mirror reality. 
-More precisely, in most classification problems, the number of real classes is the same as the number of possible decisions. 
-\hh{The AFTE Rules of Identification introduce inconclusives as a  third decision into the process. Inconclusives do not correspond to a real state, we therefore} 
-have to decide how to handle them \hh{when assessing error rates}. 
-This difference between forensic evaluation and classification problems which are more commonly evaluated provides an unfortunate opportunity for confusion when using the same methods for assessing forensic decision making. 
 
-\autoref{tab:overall-err-rate} shows several different  error rate calculations, using the general structure of \autoref{tab:generic-results}. 
-Each of these calculations has a  different meaning and interpretation; as a result, it is important to consider which error rate best suits the purpose of a  study \hh{and its interpretation in the larger framework of pattern evidence}. 
+\subsection{What makes an error?}\label{error-rates}
+% The sets of conditional probabilities in \autoref{tab:fpr-fnr} and \autoref{tab:pv-prob} are important in the assessment of the process of evidence examination. 
+\svp{In a classification problem, we would normally take the results in \autoref{tab:generic-results} and calculate various measures of accuracy and classification error.
+In this situation, however, there is one complication: there are two possibilities to describe the physical state of the evidence, in that the evidence is either from the same source or from different sources, but there are three outcome states: the examiner can make an identification, an elimination, or an inconclusive determination.
+Most (all?) of the typical methods of assessing classification decisions are designed for situations where there are the same number of possible decisions as there are physical classifications; 
+}
+
+However, standard evaluations of classification \svp{methods}, such as false positive and false negative rates, or sensitivity and specificity generally involve classification states which mirror reality.  \svp{XXX cite FPR,FNR, sensitivity, specificity...?}
+More precisely, in most classification problems, the number of real classes is the same as the number of possible decisions. 
+\hh{The AFTE Rules of Identification introduce inconclusives as a third decision into the process. }
+\svp{While identifications correspond to same-source and eliminations correspond to different-source, i}\hh{nconclusives do not correspond to a real state}.
+\svp{As a result, we must decide how to account for inconclusive decisions} \hh{when assessing error rates}. 
+This difference between forensic evaluation and classification problems which are more commonly evaluated provides an unfortunate opportunity for confusion when the same methods \svp{and metrics} \svp{are used to assess classification problems and } forensic decision making. 
+
+\autoref{tab:overall-err-rate} shows several different error rate calculations, using the general structure of \autoref{tab:generic-results}. 
+Each of these calculations has a  different meaning and interpretation; as a result, it is important to consider which error rate best suits the purpose of a study \hh{and its interpretation in the larger framework of pattern evidence}. 
 In \autoref{tab:overall-err-rate}, option 0 corresponds to a definition of the overall error rate of a binary, symmetric decision process consisting of two actual states and two possible decisions. 
 For  simplicity we will assume that the two actual states are SS (same source) and DS (different source) and the two decisions are Identification and Elimination. 
-In this case, the overall error rate is the sum of the false positives and the false negatives, divided by the number of overall comparisons. 
+In this case, the overall error rate is the sum of the false positives and the false negatives, divided by the number of overall comparisons. \svp{This approach was used in \citet{chumbleyValidationToolMark2010}, where examiners were asked to make either a positive identification or a positive elimination, and were not given the option of making an inconclusive decision. }
 
 
 \newcommand{\redsqd}[2][.8em]{\protect\fcolorbox{black}{red!50}{\makebox[#1][c]{#2\vphantom{a}}}}
@@ -350,7 +382,7 @@ In this case, the overall error rate is the sum of the false positives and the f
 
 \begin{fmpage}{\textwidth}\protect\captionof{table}{Different ways to calculate the overall error rate.\\
 Reading this table: 
-An arrangement of two rows of three boxes then resembles the interior cells of \autoref{tab:generic-results}. Let \pbox{1.65em}{\small\whitesqd{}} ~correspond to a correct decision, indicating that the box is to be included in the denominator of the calculation, \pbox{1.65em}{\graysqd{}} indicate that the box is to be conditionally excluded from the calculation, and \pbox{1.65em}{\redsqd{}} correspond to an incorrect decision, indicating that the box is to be included in the numerator and denominator of the calculation. 
+An arrangement of two rows of three boxes resembles the interior cells of \autoref{tab:generic-results}. Let \pbox{1.65em}{\small\whitesqd{}} ~correspond to a correct decision, indicating that the box is to be included in the denominator of the calculation, \pbox{1.65em}{\graysqd{}} indicate that the box is to be conditionally excluded from the calculation, and \pbox{1.65em}{\redsqd{}} correspond to an incorrect decision, indicating that the box is to be included in the numerator and denominator of the calculation. 
 }
 
 %, where \pbox{10em}{\mbox{\whitesq{a}\whitesq{b}\whitesq{c}}\\\mbox{\whitesq{d}\whitesq{e}\whitesq{f}}} are the six conditional quantities under discussion. 
@@ -358,16 +390,27 @@ An arrangement of two rows of three boxes then resembles the interior cells of \
 
 \begin{tabularx}{\linewidth}{llcl}
 \# & Type & Illustration & $P(Error) = $\\
-0 & No Inconcl. & \pbox{5em}{\whitesq{a}\redsq{c}\\\redsq{d}\whitesq{f}} & $P(DS\text{ and }Ident.) + P(SS\text{ and }Excl.) = \displaystyle\frac{c + d}{a + c + d + f}$\\\\
-1 & \pbox[l]{8em}{Condition on\\Not Inconcl} & \pbox{5em}{\whitesq{a}\graysq{b}\redsq{c}\\\redsq{d}\graysq{e}\whitesq{f}} & $\displaystyle\frac{P(DS\text{ and }Ident.) + P(SS \text{ and } Excl.)}{P(Ident.) + P(Excl.)} = \displaystyle\frac{c + d}{a + d + c + f}$\\\\
-2 & \pbox[l]{8em}{Inconclusives\\as Correct} & \pbox{5em}{\whitesq{a}\whitesq{b}\redsq{c}\\\redsq{d}\whitesq{e}\whitesq{f}} & $P(DS\text{ and }Ident.) + P(SS\text{ and }Excl.) = \displaystyle\frac{c+d}{N}$\\\\
-3 & \pbox[l]{8em}{Inconclusives\\as Incorrect} & \pbox{5em}{\whitesq{a}\redsq{b}\redsq{c}\\\redsq{d}\redsq{e}\whitesq{f}} & $P(DS\text{ and }Ident.) + P(SS\text{ and }Excl.) + P(Inconcl.) = \displaystyle\frac{b + c + d + e}{N}$\\
+0 & \pbox[l]{8em}{Inconclusives\\Not Allowed} & 
+\pbox{5em}{\whitesq{a}\redsq{c}\\\redsq{d}\whitesq{f}} & 
+$P(DS\text{ and }Ident.) + P(SS\text{ and }Excl.) = \displaystyle\frac{c + d}{a + c + d + f}$\\\\
+%
+1 & \pbox[l]{8em}{Ignore\\Inconclusives} & 
+\pbox{5em}{\whitesq{a}\graysq{b}\redsq{c}\\\redsq{d}\graysq{e}\whitesq{f}} & 
+$\displaystyle\frac{P(DS\text{ and }Ident.) + P(SS \text{ and } Excl.)}{P(Ident.) + P(Excl.)} = \displaystyle\frac{c + d}{a + d + c + f}$\\\\
+%
+2 & \pbox[l]{8em}{Inconclusives\\as Correct} & 
+\pbox{5em}{\whitesq{a}\whitesq{b}\redsq{c}\\\redsq{d}\whitesq{e}\whitesq{f}} & 
+$P(DS\text{ and }Ident.) + P(SS\text{ and }Excl.) = \displaystyle\frac{c+d}{N}$\\\\
+%
+3 & \pbox[l]{8em}{Inconclusives\\as Incorrect} & 
+\pbox{5em}{\whitesq{a}\redsq{b}\redsq{c}\\\redsq{d}\redsq{e}\whitesq{f}} & 
+$P(DS\text{ and }Ident.) + P(SS\text{ and }Excl.) + P(Inconcl.) = \displaystyle\frac{b + c + d + e}{N}$\\
 \end{tabularx}\label{tab:overall-err-rate}
 \end{fmpage}
 
 
 
-One reasonable solution to the inconclusive problem would be to calculate the probability of an error given that the classification was not inconclusive, as in option 1 of \autoref{tab:overall-err-rate}. 
+One reasonable solution to the inconclusive problem would be to calculate the probability of an error, \svp{provided} that the classification was not inconclusive, as in option 1 of \autoref{tab:overall-err-rate}. 
 Note that if we condition on the decision being either identification or elimination, the probability calculations for scenarios 0 and 1 in \autoref{tab:overall-err-rate} are identical; the only difference between the two is the setup of the scenario: 
 In scenario 1, we allow for inconclusives as a decision category but restrict them from the calculation of the error rate entirely; in scenario 0, inconclusives are not a valid conclusion. 
 This solution does entirely ignore inconclusives, though, and as they are part of the process and can be included in examiner testimony (usually phrased as ``could not be excluded"), this elimination from consideration is not appropriate if the goal of a study is to assess the error rate of the entire evaluation process. 
@@ -497,35 +540,7 @@ As we rely on these designed studies to generalize to casework, it is of great i
 
 \section{Assessment of error rates in case studies}\label{sec:inconclusive}
 
-In order to calculate the two sets of conditional probabilities, let us assume that we have the results from a generic experiment, where participants (forensic toolmark examiners) were asked to complete a total of $N$ comparisons, consisting of $S$ same-source comparisons and $D$ different source comparisons.
-A summary of these evaluations can then be reported
-%The study data would consist of evaluations reported 
-in the form of  \autoref{tab:generic-results}. Note that the table is nothing but a summary of all the possible combinations of examiners' decisions and actual state of the evidence as sketched out in \autoref{fig:shape-overview}.
-
-
-
-\begin{table}
-\centering
-\caption{
-An example results table for a generic experiment where comparisons can be distinguished as either of same source pairs or of pairs from different sources, and examiners classify each comparison as an identification, an inconclusive, or an elimination, as  specified in the AFTE rules of identification. 
-Let $S$ be the total number of same source comparisons, then $S = a + b + c$. Similarly, $D$, the total number of different source comparisons, can be written as $D = d + e + f$. The sum of $S$ and $D$ is the total number  of comparisons, $N$. 
-%The probability of the occurrence of any cell in the interior of the table $(a, b, c, d, e, \text{ or } f)$ can be found by dividing the respective letter by $N$, the total number of comparisons.
-}\label{tab:generic-results}
-\begin{tabularx}{\textwidth}{Y|YYY|Y}
-\multicolumn{5}{c}{\bf Experiment Count Data}\\\hline
-\multicolumn{1}{c}{} & Identification & Inconclusive & \multicolumn{1}{c}{Elimination} & Source Total\\\hline
-Same Source & \begin{minipage}[c]{1em}$\bm{a}$ \end{minipage}\begin{minipage}[c]{1em} \includegraphics[width=.25cm]{figures/a.pdf} \end{minipage} & 
-              \begin{minipage}[c]{1em}$\bm{b}$ \end{minipage}\begin{minipage}[c]{1em} \includegraphics[width=.3cm]{figures/b.pdf} \end{minipage} & 
-              \begin{minipage}[c]{1em}$\bm{c}$ \end{minipage}\begin{minipage}[c]{1em} \includegraphics[width=.35cm]{figures/c.pdf} \end{minipage}& $S = a + b + c$\\
-Different source & \begin{minipage}[c]{1em}$\bm{d}$ \end{minipage}\begin{minipage}[c]{1em} \includegraphics[width=.25cm]{figures/d.pdf} \end{minipage}& 
-              \begin{minipage}[c]{1em}$\bm{e}$ \end{minipage}\begin{minipage}[c]{1em} \includegraphics[width=.3cm]{figures/e.pdf} \end{minipage}& 
-              \begin{minipage}[c]{1em}$\bm{f}$ \end{minipage}\begin{minipage}[c]{1em} \includegraphics[width=.35cm]{figures/f.pdf} \end{minipage}&  $D = e + f + g$\\\hline
-\multicolumn{1}{Y}{Conclusion Total} & $a + d$ & $b + e$ & \multicolumn{1}{c}{$c + f$} & \multicolumn{1}{Y}{$N = S + D$}\\\hline\hline
-\end{tabularx}
-\end{table}
-
-The \emph{joint probability} of any source condition and any examiner conclusion can be found by taking the corresponding cell in \autoref{tab:generic-results} and dividing by $N$, the total number of comparisons evaluated in the study. 
-Thus, the joint probability of a same-source comparison and examiner identification would be $a/N$, while the joint probability of a different-source comparison and examiner identification would be $d/N$. 
+In order to calculate the two sets of conditional probabilities, 
 Then, using the quantities in \autoref{tab:generic-results}, we can calculate the conclusion-specific probabilities as shown in \autoref{tab:fpr-fnr}.
 
 \begin{table}\centering
