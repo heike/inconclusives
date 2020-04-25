@@ -850,9 +850,9 @@ In light grey, expected probabilities are shown based on the distribution of sam
 If inconclusives occur because there are insufficient similarities or differences to draw a specific conclusion of identification or elimination, then they should be equally likely for same-source or different source comparisons. 
 As a result, it is possible to calculate the ``target" probability for each decision: the target for identification is 1 - all same source pairs should result in an identification. 
 Similarly the target for elimination is 0 - no same-source pairs should result in an elimination. 
-Same-source pairs should be assessed as inconclusive at the same frequency as same-source comparisons in the study.
-It is very clear that the probability of same-source evidence given an inconclusive evaluation is much lower than the target probability.
-The decision-specific probabilities provide indications that the distribution of inconclusives is much different than hypothesized in \autoref{fig:shape-overview}. %purposefully understated.
+Same-source pairs should be assessed as inconclusive at the same frequency as same-source comparisons in the study (\svp{this is explored in much more detail in the next section}).
+It is very clear that the probability of same-source evidence given an inconclusive evaluation is much lower than the \svp{calculated} target probability.
+The decision-specific probabilities provide indications that the distribution of inconclusives is much different than \svp{the distribution which was} hypothesized in \autoref{fig:shape-overview}. %purposefully understated.
 }
 <<cis, echo=FALSE, fig.width=8, fig.height=4.5, fig.cap="Pearson-Clopper 95\\% confidence intervals for the probability of same source evidence given an examiner's conclusion. Expected values for each of the probabilities as discussed in \\autoref{sec:ideal} are shown as grey targets. Some of the studies do not allow an assessment of all of the predictive values.", out.width=".8\\textwidth">>=
 
@@ -885,25 +885,22 @@ cis %>%
 \autoref{fig:cis} shows an overview  of the conditional probability of same source evidence given an examiner's conclusion for five published studies. 
 
 \section{Inconclusives}\label{sec:inconclusives}
-Prior to that, however, it may be useful to develop one more idea: in a perfect world, 
-%with examiners who are all-knowing, 
-what should the results of these studies look like?\svp{XXX This could be a bit better transition XXX}
-\hh{XXX we don't need all knowing examiners - then we don't have inconclusives e.g.}
+\svp{A lot of this is very repetitive considering all of the stuff that is now ahead of it. I think we can trim down some of the repetition and focus on making the conclusions crystal-clear. So start with why the distribution should be the same, but then show why that's the case for e.g. Baldwin, and what the reality is. Then go through Figure 7, explaining exactly why it's a problem. Survey the actual reasons for this (training focuses on identifications, lab policy, inconclusives are acceptable -- but maybe missing identifications is not?), then follow up with the conclusion: It doesn't matter what the reasons are - this is a fundamentally biased situation that leads to an imbalance in the scales of justice. Possibly introduce the ratio of guilty people freed to innocent people imprisoned. Then lead into the discussion, which can bring this back around to a more general PPV/NPV good, FPR/FNR bad, inconclusives are a problem both for error rate calculations and for a fair legal system. System-wide change is needed. Propose evaluating individual examiners on inconclusive ratios?? Not sure that'd work, but you have to propose something crazy, right?}
 
-\subsection{Ideal study probabilities}\label{sec:ideal}
 
 \hh{In the absence of knowing the truth we have to resort to working within a probabilistic framework to assess the likelihood of certain events. 
-Some (XXX? quantify?) evidence is based on questions of pattern matching: does the shoe print from the crime scene match a particular shoe? was the bullet found at a crime scene fired from a particular weapon? does the breech face impression on a cartridge case from the crime scene match the breech face of a particular weapon frame?}
-\svp{Other evidence, such as DNA, is based on formal measurement, but produces a certain signature or pattern which can also be evaluated using probabilistic methods.}
+Some \svp{types of} evidence \svp{rest on assessments} of pattern matching: does the shoe print from the crime scene match a particular shoe? was the bullet found at a crime scene fired from a particular weapon? does the breech face impression on a cartridge case from the crime scene match the breech face of a particular weapon frame?}
+\svp{Other evidence, such as DNA, is based on formal measurement, but produces a certain signature or pattern which can be evaluated using probabilistic methods.}
 
-In these situations the fundamental quantity in question is the probability that two pieces of evidence come from the same source or from different sources. 
+In \svp{both of} these situations the fundamental quantity in question is the probability that two pieces of evidence come from the same source or from different sources. 
 In a legal setting the opinion provided by the expert guides this assessment. 
+\svp{This testimony is particularly important in pattern matching because there is no objective evaluation of the evidence}. 
 So given expert testimony, how does or should the evaluation of the above probability change?  
 
 The AFTE theory of firearms and toolmarks identification as shown in \autoref{tab:afte} allows an expert to come to three main conclusions: make an identification, i.e. two pieces of evidence are thought to come from the same source, make an elimination, i.e. two pieces of evidence are tought to come from different sources, or an inconclusive, i.e. the evidence does not allow either an identification or an elimination. 
 
-Given these three outcomes, we are interested for each the probability of same source and different sources, resulting in a total of six ($3 \times 2$) conditional probabilities. 
-In a perfect world, we would expect the probabilities shown in \autoref{tab:ideal-probabilities}:
+We are interested \svp{in} the probability of same source and different sources \svp{for each conclusion}, resulting in a total of six ($3 \times 2$) conditional probabilities. 
+\svp{Under ideal conditions?} In a perfect world, we would expect the probabilities shown in \autoref{tab:ideal-probabilities}:
 
 \begin{table}
 \caption{Expected conditional probabilities in a perfect world.}\label{tab:ideal-probabilities}
@@ -917,7 +914,7 @@ Different source & $P(DS| \text{Identification}) = 0$ & $P(DS| \text{Inconclusiv
 }
 \end{table}
 
-Most notably, we would expect inconclusive results to not show any dependence on the type of comparison unless there is some evidence provided by experts that one type of conclusion is more difficult to make than another.
+Most notably, we would expect inconclusive results not to show any dependence on the type of comparison, unless there is some evidence provided by experts that one type of conclusion is more difficult to make than another.\svp{I'm not even sure that would convince me - fundamentally, it's still important that legally the two are on equal footing, and it's the job of the training process to combat any asymmetry in difficulty level.}
 
 In actual case work we are not able to assess the probabilities for same source or different source.  
 However, those probabilities are easily accessible in formal studies or blinded proficiency testing,\svp{ as $P(SS)$ and $P(DS)$ in these studies are determined by the experimental design.}
