@@ -173,7 +173,7 @@ library(kableExtra)
 
 \section{Introduction and Background}
 \subsection{Identification process}
-Examiners visually classify similarity of toolmark and firearm evidence according to the AFTE theory of identification  \citep{identification} as one of identification, inconclusive or elimination. \svp{The AFTE definitions of each conclusion are provided in } \autoref{tab:afte}. Exact guidelines for this classification vary from lab to lab; some labs will exclude only on the basis of non-matching class characteristics, such as direction of the twist in rifling, land length or number of lands, or type of rifling\cite{bunch2003comprehensive}. In other labs, CMS (consecutively matching striae) as defined by  \citeauthor{biasotti}  \citep{biasotti} is used as a measure to quantify the similarity of two lands. In virtually all labs, individual characteristics used to identify \svp{similar} bullets are derived from visual assessment. %; some class characteristics may be directly measured, but these are not sufficient for individualization. 
+Examiners visually classify similarity of toolmark and firearm evidence according to the AFTE theory of identification  \citep{identification} as one of identification, inconclusive or elimination. \svp{The AFTE definitions of each conclusion are provided in } \autoref{tab:afte}. Exact guidelines for this classification vary from lab to lab; some labs will exclude only on the basis of non-matching class characteristics, such as direction of the twist in rifling, land length or number of lands, or type of rifling\cite{bunch2003comprehensive}. In other labs, CMS (consecutively matching striae) as defined by  \citeauthor{biasotti}  \citep{biasotti} is used as a measure to quantify the similarity of two lands. In virtually all labs, the assessment of individual characteristics of bullet markings is done visually. %; some class characteristics may be directly measured, but these are not sufficient for individualization. 
 % Identification using 3D Scanning Technology
 
 
@@ -204,7 +204,7 @@ Unsuitable for examination.
 % \section{Background} % Identification
 
 The identification process -- i.e. the assessment of whether two samples come from the same source (were made by the same tool, the same shoe, the same finger, shot through the same barrel) or from different sources -- is quite complex. 
-\svp{Nevertheless, in order for firearms and toolmark evidence to be admissible in court, we must be able to explicitly characterize the accuracy of the identification process \citep{giannelliDaubertInterpretingFederal1993}.}
+In order for firearms and toolmark evidence to be admissible in court, it must be possible to explicitly characterize the accuracy of the identification process \citep{giannelliDaubertInterpretingFederal1993}.
 
 \subsection{Criticism}
 The need for scientific validation and experimentally-determined error rates has been identified in several reports evaluating the discipline of forensic science in the United States as critical for addressing problems within the field and improving the overall performance of the justice system. 
@@ -216,7 +216,7 @@ The  \citet{pcast2016} identified two important gaps:
 
 \begin{displayquote} (1) the need for clarity on the scientific meaning of "reliable principles and methods" and "scientific validity" in the context of certain forensic disciplines, and (2) the need to evaluate specific forensic methods to determine whether they have been scientifically established to be valid and reliable.\end{displayquote}
 
-Indeed, when jurors are left to form their own conclusions about the error rates of forensic pattern disciplines, they often come up with estimates which are far lower than empirical studies, suggesting that jurors consider forensic evidence (in the absence of error rates determined from scientific studies) as of more determinative value than is warranted by the evidence. The PCAST Report (2016) summarizes the effect:
+When jurors are left to form their own conclusions about the error rates of forensic pattern disciplines, they often come up with estimates which are far lower than empirical studies, suggesting that jurors consider forensic evidence (in the absence of error rates determined from scientific studies) as of more determinative value than is warranted by the evidence. The PCAST Report (2016) summarizes the effect:
 
 \begin{displayquote} In an online experiment, researchers asked mock jurors to estimate the frequency that a qualified, experienced forensic scientist would mistakenly conclude that two samples of specified types came from the same person when they actually came from two different people. The mock jurors believed such errors are likely to occur about 1 in 5.5 million for fingerprint analysis comparison; 1 in 1 million for bitemark comparison; 1 in 1 million for hair comparison; and 1 in 100 thousand for handwriting comparison.\end{displayquote}
 
@@ -238,6 +238,8 @@ There are several considerations when designing a study of the identification pr
 \item [White box vs. Black Box] A white-box study is one which makes an attempt to understand \emph{why} an examiner came to the decision, in contrast to a black box study, which only evaluates the correctness of the decision (and not the reasoning behind it). 
 \item [Blind testing] A blind (or blinded) study is one in which the participant (in this case the examiner) does not know that they are being tested; that is, a study which appears to be part of a case, rather than research. 
 \svp{Blind testing is often recommended  \cite{pcast2016,spiegelmanAnalysisExperimentsForensic2013,koehlerProficiencyTestsEstimate2013}, because the error rates from blind testing better generalize to casework (many studies in a variety of disciplines have shown that people behave differently in situations that are known to be tests) and better assess the process of comparison as a whole (rather than the performance of an individual examiner).}
+
+\hh{XXX The next paragraph seems contradictory to the previous case. Where does this definition of double-blind come from? It seems a bit odd. }
 
 \svp{In this paper, we will refer to studies which make use of participants who were not involved in the experimental design as single blind; that is, the participant knows they are participating in a study, but does not know the answers to the study.
 Studies which have the additional constraint that the participant does not know the information under evaluation is part of a study at all (e.g. it is indistinguishable from normal casework) are called ``double blind". 
@@ -264,10 +266,10 @@ Using a set of different accuracy and error rates, we assess the state of firear
 \section{Calculating Error Rates}\label{sec:rates}
 \svp{It is unfortunate that t}he methods used to establish error rates experimentally and the interpretations of those error rates in the literature are highly variable. 
 In part, this variability is due to the mismatch between the evidence evaluation standards used by different forensic disciplines and the actual origin of the evidence. 
-For instance, the AFTE theory of identification has four possible conclusions; three of which are typically used in comparisons\footnote{The fourth category, unsuitable for examination, is one which should be used when evaluating single pieces of recovered evidence; it does not result from the comparison of an unknown source to a known source.} 
+For instance, the AFTE theory of identification has four possible conclusions; three of which are typically used in comparisons\footnote{The fourth category, unsuitable for examination, is one which should be used when evaluating single pieces of recovered evidence; it does not result from the comparison of an unknown source to a known source.}. 
 As there are more possible classifications than source categories (same or different), it is understandable that the treatment of inconclusives when calculating error rates is the subject of some debate. 
 For instance,  \citet{Dror:2018fp} suggests treating inconclusive results as equivalent to a ``decision with certainty that the quantity and quality of information are not sufficient to draw any conclusion regarding the source". 
-Under this framework, an examiner's assessment starts with inconclusive, \svp{and is} refined to identification or elimination given sufficient evidence in either direction.
+Under this framework, an examiner's assessment starts with inconclusive and is refined to identification or elimination given sufficient evidence in either direction.
 This approach treats inconclusives as neither errors nor correct decisions, but it does imply that in the presence of a certain amount of data, an inconclusive result is not an allowable decision and the examiner must make an identification or elimination.
 % \hh{XXX should we keep the criticism to the discussion?}\svp{Yes, because it makes it clear we're aware of the discussion. Otherwise we'll just get a review telling us we're too new at this because we didn't cite xyz.}
 This view has drawn some criticism  \citep{Biedermann:2018hr,biedermannAreInconclusiveDecisions2019}. 
@@ -279,20 +281,21 @@ This view has drawn some criticism  \citep{Biedermann:2018hr,biedermannAreInconc
 % \hh{XXX the approach to start with inconclusives also suggests symmetry - should we put a tease in here for later?}\svp{Yes}
 %\hh{XXX should we cite a paper for each one of these decisions?}\svp{I don't know if we could find a paper that does each of these. Is there any paper you remember using the excluded from calculations option?}
 \svp{I've changed my opinion on what should go in here a little bit - I think we want to set up the next section without making things too complicated. The (apocryphal) boiling a frog approach, if you will.}
+\hh{I'm OK with that, but the 'this approach has drawn some criticism' is still hanging at the more or less stage. I'm ok with not going into the criticism until later but then this sentence has to go there as well. XXXX}
 
-\hh{There are essentially three ways that inconclusives can be treated in calculating error rates:}
-(1) inconclusives can be excluded from result calculations, (2) included as correct results  \cite{Duez:2017kha}, or (3) included as incorrect results  \cite{chumbleyValidationToolMark2010}; each of these decisions has an impact on the \hh{actual value of the error rate as well as the} interpretation of the resulting error rates. \svp{I'm a bit mixed on whether this still needs to be here - it's a preview of the next section, but the point almost becomes repetitive... which may be good, if we're worried about comprehension, but may be boring if we're not.}
+\hh{Mathematically} there are three ways that inconclusives can be treated in calculating error rates:
+(1) inconclusives can be excluded from error calculations, (2) included as correct results  \cite{Duez:2017kha}, or (3) included as incorrect results  \cite{chumbleyValidationToolMark2010}; each of these decisions has an impact on the actual value of the error rate as well as the interpretation of the resulting error rates. \svp{I'm a bit mixed on whether this still needs to be here - it's a preview of the next section, but the point almost becomes repetitive... which may be good, if we're worried about comprehension, but may be boring if we're not.}
 
 In this paper, we discuss the treatment of inconclusives in the assessment of error rates from a statistical point of view. % We believe that this -- rather than further dividing the different opinions -- provides a unifying framework.
-\hh{We examine} %examining %previous error rate 
- technical accuracy and practical utility of  error rates \hh{published} in \hh{existing} error rate studies of firearms and toolmark examination. 
+We examine 
+ technical accuracy and practical utility of  error rates published in existing error rate studies of firearms and toolmark examination. 
 Before approaching the actual studies, we will define  basic notation to facilitate comparison of studies with different experimental designs and  explore the logic behind the numerical calculations.%order
 
 \subsection{Classification Framework}
 
 
 When examiners assess a set of evidence (generally, a pair of items, one of known provenance and one of unknown provenance) and decide whether the evidence is an identification, inconclusive, or an elimination, they provide a \emph{classification} of the evidence in a set of given categories.  
-\hh{\autoref{fig:shape-overview} is a sketch showing the relationship between evidence (dots) and examiners' decisions (areas). The color for both evidence and decisions corresponds to the source of evidence (different/same) and the type of decision made, respectively. The different combinations of colored dots on top of colored regions correspond to the six potential outcomes of evidence assessment and examiner decision. Obviously, not all of these outcomes are correct. } 
+\autoref{fig:shape-overview} is a sketch showing the relationship between evidence (dots) and examiners' decisions (areas). The color for both evidence and decisions corresponds to the source of evidence (different/same) and the type of decision made, respectively. The different combinations of colored dots on top of colored regions correspond to the six potential outcomes of evidence assessment and examiner decision. Obviously, not all of these outcomes are correct.  
 
 \begin{figure}
 \centering
@@ -303,13 +306,13 @@ When examiners assess a set of evidence (generally, a pair of items, one of know
 
 %Evaluating Classification Decisions%\label{sec:evaluating-classification-decisions}
 
-\svp{Starting with the} results from a generic experiment, where participants (forensic toolmark examiners) were asked to complete a total of $N$ comparisons, consisting of $S$ same-source comparisons and $D$ different source comparisons, \svp{we can report the aggregate results of } examiner evaluations using \autoref{tab:generic-results}. Note that the table \svp{layout} is nothing but a summary of all the possible combinations of examiners' decisions and actual state of the evidence as sketched out in \autoref{fig:shape-overview}. \svp{The pieces of \autoref{fig:shape-overview} are shown along with letters $a-f$ in \autoref{tab:generic-results}. These letters will be used throughout the paper to calculate various accuracy rates and probabilities. }
+Starting with the results from a generic experiment, where forensic toolmark examiners were asked to complete a total of $N$ comparisons, consisting of $S$ same-source comparisons and $D$ different source comparisons,  aggregated results of  examiners' evaluations can be reported as shown in  \autoref{tab:generic-results}. Note that the layout of the table  is nothing but a summary of all the possible combinations of examiners' decisions and actual state of the evidence as sketched out in \autoref{fig:shape-overview}. The pieces of \autoref{fig:shape-overview} are shown along with letters $a$ to $f$ in \autoref{tab:generic-results}. These letters will be used throughout the paper to calculate various accuracy rates and probabilities. 
 
 \begin{table}
 \centering
 \caption{
 An example results table for a generic experiment where comparisons can be distinguished as either of same source pairs or of pairs from different sources, and examiners classify each comparison as an identification, an inconclusive, or an elimination, as  specified in the AFTE rules of identification. 
-Let $S$ be the total number of same source comparisons, then $S = a + b + c$. Similarly, $D$, the total number of different source comparisons, can be written as $D = d + e + f$. The sum of $S$ and $D$ is the total number  of comparisons, $N$. 
+Let $S$ be the total number of same source comparisons, then $S$ is the sum of $a, b,$ and $c$. Similarly, $D$, the total number of different source comparisons, can be written as $D = d + e + f$. The sum of $S$ and $D$ is the total number  of comparisons, $N$. 
 %The probability of the occurrence of any cell in the interior of the table $(a, b, c, d, e, \text{ or } f)$ can be found by dividing the respective letter by $N$, the total number of comparisons.
 }\label{tab:generic-results}
 \begin{tabularx}{.985\textwidth}{Y|YYY|Y}
@@ -331,9 +334,12 @@ The accuracy of a classification method is  often expressed in the form of succe
 
 
 \subsection{What makes an error?}\label{sec:error-rates}
+\hh{this section has a lot of repetitions. XXX are you still writing here?}
+
+
 \svp{In a classification problem, we would normally take the results in \autoref{tab:generic-results} and calculate various measures of accuracy and classification error.}
 In firearms and toolmark examination, however, this is \svp{complicated by a mismatch between the classification scheme and the state of reality.} There are two possibilities to describe the physical state of the evidence, in that the evidence is either from the same source or from different sources, but there are three outcome states: the examiner can make an identification, an elimination, or an inconclusive determination.
-\svp{Most (all?) of the typical methods of assessing classification decisions are designed for situations where there are the same number of possible decisions as there are physical classifications; 
+%\svp{Most (all?) of the typical methods of assessing classification decisions are designed for situations where there are the same number of possible decisions as there are physical classifications; 
 }
 
 However, standard evaluations of classification \svp{methods}, such as false positive and false negative rates, or sensitivity and specificity generally involve classification states which mirror reality.  \svp{XXX cite FPR,FNR, sensitivity, specificity...?}
