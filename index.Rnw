@@ -146,6 +146,7 @@ knitr::opts_chunk$set(
   fig.path = "figures/",
   echo = FALSE
 )
+knit_hooks$set(document = function(x) {sub('\\usepackage[]{color}', '\\usepackage[table,dvipsnames]{xcolor}', x, fixed = TRUE)})
 options(knitr.table.format = "latex")
 
 library(stringr)
@@ -264,7 +265,6 @@ Using a set of different accuracy and error rates, we assess the state of firear
 
 
 \section{Calculating Error Rates}\label{sec:rates}
-
 \svp{It is unfortunate that t}he methods used to establish error rates experimentally and the interpretations of those error rates in the literature are highly variable. 
 In part, this variability is due to the mismatch between the evidence evaluation standards used by different forensic disciplines and the actual origin of the evidence. 
 For instance, the AFTE theory of identification has four possible conclusions; three of which are typically used in comparisons\footnote{The fourth category, unsuitable for examination, is one which should be used when evaluating single pieces of recovered evidence; it does not result from the comparison of an unknown source to a known source.} 
@@ -364,31 +364,30 @@ In this case, the overall error rate is the sum of the false positives and the f
 % \newcommand{\blacksq}{\fcolorbox{black}{black!100}{\phantom{x}}}
 \newcommand{\xsq}{\protect\fcolorbox{black}{white!100}{\makebox[1.25em][c]{x\vphantom{dp}}}}
 
-\begin{fmpage}{\textwidth}\protect\captionof{table}{Different ways to calculate the overall error rate.\\
-Reading this table: 
+\begin{fmpage}{\textwidth}\captionsetup{type=table}\protect\captionof{table}{Different ways to calculate the overall error rate. 
 An arrangement of two rows of three boxes resembles the interior cells of \autoref{tab:generic-results}. Let \pbox{1.65em}{\small\whitesqd{}} ~correspond to a correct decision, indicating that the box is to be included in the denominator of the calculation, \pbox{1.65em}{\graysqd{}} indicate that the box is to be conditionally excluded from the calculation, and \pbox{1.65em}{\redsqd{}} correspond to an incorrect decision, indicating that the box is to be included in the numerator and denominator of the calculation. 
 }
 
 %, where \pbox{10em}{\mbox{\whitesq{a}\whitesq{b}\whitesq{c}}\\\mbox{\whitesq{d}\whitesq{e}\whitesq{f}}} are the six conditional quantities under discussion. 
 
 
-\begin{tabularx}{\linewidth}{llcl}
+\begin{tabularx}{\textwidth}{llcl}
 \# & Type & Illustration & $P(Error) = $\\
-0 & \pbox[l]{8em}{Inconclusives\\Not Allowed} & 
-\pbox{5em}{\whitesq{a}\redsq{c}\\\redsq{d}\whitesq{f}} & 
-$P(DS\text{ and }Ident.) + P(SS\text{ and }Excl.) = \displaystyle\frac{c + d}{a + c + d + f}$\\\\
+0 & \pbox[l]{9em}{Inconclusives\\Not Allowed} & 
+\pbox{6em}{\whitesq{a}\redsq{c}\\\redsq{d}\whitesq{f}} & 
+$P(DS\text{ \& }Ident.) + P(SS\text{ \& }Excl.) = \displaystyle\frac{c + d}{a + c + d + f}$\\\\
 %
-1 & \pbox[l]{8em}{Ignore\\Inconclusives} & 
-\pbox{5em}{\whitesq{a}\graysq{b}\redsq{c}\\\redsq{d}\graysq{e}\whitesq{f}} & 
-$\displaystyle\frac{P(DS\text{ and }Ident.) + P(SS \text{ and } Excl.)}{P(Ident.) + P(Excl.)} = \displaystyle\frac{c + d}{a + d + c + f}$\\\\
+1 & \pbox[l]{9em}{Ignore\\Inconclusives} & 
+\pbox{6em}{\whitesq{a}\graysq{b}\redsq{c}\\\redsq{d}\graysq{e}\whitesq{f}} & 
+$\displaystyle\frac{P(DS\text{ \& }Ident.) + P(SS \text{ \& } Excl.)}{P(Ident.) + P(Excl.)} = \displaystyle\frac{c + d}{a + d + c + f}$\\\\
 %
-2 & \pbox[l]{8em}{Inconclusives\\as Correct} & 
-\pbox{5em}{\whitesq{a}\whitesq{b}\redsq{c}\\\redsq{d}\whitesq{e}\whitesq{f}} & 
-$P(DS\text{ and }Ident.) + P(SS\text{ and }Excl.) = \displaystyle\frac{c+d}{N}$\\\\
+2 & \pbox[l]{9em}{Inconclusives\\as Correct} & 
+\pbox{6em}{\whitesq{a}\whitesq{b}\redsq{c}\\\redsq{d}\whitesq{e}\whitesq{f}} & 
+$P(DS\text{ \& }Ident.) + P(SS\text{ \& }Excl.) = \displaystyle\frac{c+d}{N}$\\\\
 %
-3 & \pbox[l]{8em}{Inconclusives\\as Incorrect} & 
-\pbox{5em}{\whitesq{a}\redsq{b}\redsq{c}\\\redsq{d}\redsq{e}\whitesq{f}} & 
-$P(DS\text{ and }Ident.) + P(SS\text{ and }Excl.) + P(Inconcl.) = \displaystyle\frac{b + c + d + e}{N}$\\
+3 & \pbox[l]{9em}{Inconclusives\\as Incorrect} & 
+\pbox{6em}{\whitesq{a}\redsq{b}\redsq{c}\\\redsq{d}\redsq{e}\whitesq{f}} & 
+$P(DS\text{ \& }Ident.) + P(SS\text{ \& }Excl.) + P(Inconcl.) = \displaystyle\frac{b + c + d + e}{N}$\\
 \end{tabularx}\label{tab:overall-err-rate}
 \end{fmpage}
 
@@ -471,7 +470,7 @@ Similarly, the \emph{false negative rate} (FNR) -- or missed identification rate
 %an examiner makes an identification from evidence which is from different sources (DS), $FPR = P(\text{Identification} | DS)$.
 
 %The \emph{false negative rate} is the probability that an examiner makes an elimination from evidence which originates from the same source (SS), $FNR = P(\text{Elimination} | SS)$. 
-In all  of these assessments, the rates are calculated by conditioning on the \emph{origin of the evidence}; this process is shown graphically in \autoref{fig:FPR-specific-tree} using a decision tree to describe the comparisons which can be made conditioned on ground truth. Calculations for each value are shown in \autoref{fig:pv-prob}.
+In all  of these assessments, the rates are calculated by conditioning on the \emph{origin of the evidence}; this process is shown graphically in \autoref{fig:FPR-specific-tree} using a decision tree to describe the comparisons which can be made conditioned on ground truth. Calculations for each value are shown in \autoref{tab:fpr-prob}.
 
 \begin{table}\centering
 \caption{
@@ -800,7 +799,7 @@ While in most studies (with the exception of Bunch \& Murphy), the probability o
 It may be that examiners are trained to look for similarities, instead of differences, or that it is simply more difficult to classify a difference as opposed to a similarity; some labs also do not allow eliminations to be made unless there is a class characteristic mismatch.
 Regardless of the explanation, it is apparent that when presented with a different source comparison, examiners make an elimination much less frequently than an identification when presented with a same source comparison. 
 }
-<<source-spec-cis, echo=FALSE, fig.width=8, fig.height=5, fig.cap="Pearson-Clopper 95\\% confidence intervals for the probability of same source evidence given an examiner's conclusion. Expected values for each of the probabilities as discussed in \\autoref{sec:ideal} are shown as grey targets. No assessments can be made about different-source specific probabilities when the total number of comparisons cannot be determined.", out.width=".8\\textwidth">>=
+<<source-spec-cis, echo=FALSE, fig.width=8, fig.height=5, fig.cap="Pearson-Clopper 95\\% confidence intervals for the probability of same source evidence given an examiner's conclusion. Expected values for each of the probabilities (further discussed in \\autoref{sec:inconclusives}) are shown as grey targets. No assessments can be made about different-source specific probabilities when the total number of comparisons cannot be determined.", out.width=".8\\textwidth">>=
 
 figdata <- source_spec_cis %>% 
   ungroup() %>%
@@ -854,7 +853,7 @@ Same-source pairs should be assessed as inconclusive at the same frequency as sa
 It is very clear that the probability of same-source evidence given an inconclusive evaluation is much lower than the \svp{calculated} target probability.
 The decision-specific probabilities provide indications that the distribution of inconclusives is much different than \svp{the distribution which was} hypothesized in \autoref{fig:shape-overview}. %purposefully understated.
 }
-<<cis, echo=FALSE, fig.width=8, fig.height=4.5, fig.cap="Pearson-Clopper 95\\% confidence intervals for the probability of same source evidence given an examiner's conclusion. Expected values for each of the probabilities as discussed in \\autoref{sec:ideal} are shown as grey targets. Some of the studies do not allow an assessment of all of the predictive values.", out.width=".8\\textwidth">>=
+<<cis, echo=FALSE, fig.width=8, fig.height=4.5, fig.cap="Pearson-Clopper 95\\% confidence intervals for the probability of same source evidence given an examiner's conclusion. Expected values for each of the probabilities as discussed in \\autoref{sec:inconclusives} are shown as grey targets. Some of the studies do not allow an assessment of all of the predictive values.", out.width=".8\\textwidth">>=
 
 cis %>% 
   ungroup() %>%
@@ -1029,7 +1028,7 @@ Implications for court process - examiner states error rate, defense asks for in
 Results are summarized in \autoref{tab:baldwin-summary}. 
 
 \noindent\begin{fmpage}{\textwidth}\centering % Checked for accuracy on 2020-04-24
-\captionof{table}{Baldwin study results, conclusion-specific and source-specific probabilities, and reported overall error rates. }\label{tab:baldwin-summary}
+\captionsetup{type=table}\captionof{table}{Baldwin study results, conclusion-specific and source-specific probabilities, and reported overall error rates. }\label{tab:baldwin-summary}
 {\large\bf A Study of False-Positive and False-Negative Error Rates in Cartridge Case Comparisons}
 \emph{ \citeauthor{Baldwin:2014bb} ( \citeyear{Baldwin:2014bb})}\\
 \begin{tabularx}{\textwidth}{XrrX}\hline
@@ -1078,7 +1077,7 @@ Kits were assembled using only 9 Smith \& Wesson pistols (i.e. there is a potent
 Results from the study are shown in \autoref{tab:keisler-summary}.
 
 \noindent\begin{fmpage}{\textwidth}\centering % Checked for numerical accuracy 2020-04-24
-\captionof{table}{{\large\bf Isolated Pairs Research Study} \label{tab:keisler-summary}}
+\captionsetup{type=table}\captionof{table}{{\large\bf Isolated Pairs Research Study} \label{tab:keisler-summary}}
 \emph{ \citeauthor{keisler} ( \citeyear{keisler})}\\
 A study of Smith \& Wesson cartridge cases.
 \begin{tabularx}{\textwidth}{XrrX}\hline
@@ -1133,7 +1132,7 @@ The design of the experiment does not allow us to quantify all of the quantities
 %The top of  shows results reported by 56 participants (46 examiners, 10 trainees).
 
 \noindent\begin{fmpage}{\textwidth}\centering % Checked numbers 2020-04-24
-\captionof{table}{Duez study results, conclusion-specific and source-specific probablities, and reported overall error rates. For the conditional probabilities, 
+\captionsetup{type=table}\captionof{table}{Duez study results, conclusion-specific and source-specific probablities, and reported overall error rates. For the conditional probabilities, 
 the differences in certified examiners and trainees are not large, so only the aggregate results are shown. Certified examiners have a perfect identification rate, only evaluations of different source pairs lead to inconclusives. }\label{tab:duez-summary}
 {\large\bf Development and Validation of a Virtual Examination Tool for Firearm Forensics}
 \emph{ \citeauthor{Duez:2017kha} ( \citeyear{Duez:2017kha})}\\
@@ -1183,7 +1182,7 @@ The design of the Brundage-Hamby is well known in the forensics community and ha
 Results reported in the 2019 paper are shown in \autoref{tab:hamby-summary}.
 
 \noindent\begin{fmpage}{\textwidth}\centering % Checked numbers 2020-04-24
-\captionof{table}{Evaluations, conditional error rates, and overall error rates from the combined Brundage-Hamby studies. Note the focus on identifications.}\label{tab:hamby-summary}
+\captionsetup{type=table}\captionof{table}{Evaluations, conditional error rates, and overall error rates from the combined Brundage-Hamby studies. Note the focus on identifications.}\label{tab:hamby-summary}
 {\large\bf A Worldwide Study of Bullets Fired From 10 Consecutively Rifled 9MM RUGER Pistol Barrels - Analysis of Examiner Error Rate}
 \emph{ \citeauthor{Hamby:2018hu} ( \citeyear{Hamby:2018hu})}\\
 \begin{tabularx}{\textwidth}{XrrX}\hline
@@ -1228,7 +1227,7 @@ Opt. & \multicolumn{1}{c}{Meaning} & Missed Identification & \multicolumn{1}{r}{
 \svp{XXX description introduction to study?}
 
 \noindent\begin{fmpage}{\textwidth}\centering % Checked numbers 2020-04-24
-\captionof{table}{Results and summary tables for the Bunch and Murphy study. Values in this table are as reported in the study; however, due to the study's structure, it is possible to perform fewer comparisons, because not all comparisons are independent. Results for independent comparisons are shown in \autoref{tab:bunch-indep}}\label{tab:bunch-summary}
+\captionsetup{type=table}\captionof{table}{Results and summary tables for the Bunch and Murphy study. Values in this table are as reported in the study; however, due to the study's structure, it is possible to perform fewer comparisons, because not all comparisons are independent. Results for independent comparisons are shown in \autoref{tab:bunch-indep}}\label{tab:bunch-summary}
 {\large\bf A Comprehensive Validity Study for the Forensic Examination of Cartridge Cases}\emph{ \citeauthor{bunch2003comprehensive} ( \citeyear{bunch2003comprehensive})}\\
 \begin{tabularx}{\textwidth}{XrrX}\hline
 \multirow{2}{*}{\bf Study Type} & \multicolumn{2}{c}{\bf Test Set} & \multirow{2}{*}{\bf Participants}\\
@@ -1274,7 +1273,7 @@ It is also not possible to determine the total number of independent different s
 \svp{The study results are shown in \autoref{tab:lyons-summary}, along with computed conclusion-specific and source-specific probabilities and error rates.}
 
 \noindent\begin{fmpage}{\textwidth}\centering % Checked numbers 2020-04-24
-\captionof{table}{}\label{tab:lyons-summary}
+\captionsetup{type=table}\captionof{table}{}\label{tab:lyons-summary}
 {\large\bf The Identification of Consecutively Manufactured Extractors} \emph{ \citeauthor{lyons} ( \citeyear{lyons})}\\
 \begin{tabularx}{\textwidth}{XrrX}\hline
 \multirow{2}{*}{\bf Study Type} & \multicolumn{2}{c}{\bf Test Set} & \multirow{2}{*}{\bf Participants}\\
@@ -1329,7 +1328,7 @@ Using this strategy, a total of 1452 different sets can be constructed. These se
 \begin{tabular}{|r|ccc|l|} \hline
  &  one questioned & two questioned & three questioned  & number of \\
 \# barrels & bullet matches & bullets match & bullets match & possibilities\\ \hline
-I & 5 & 5 & 0 & 252 = ${10 \choose 5}{5 \choose 5}$\\
+I & 5 & 5 & 0 & 252 = $\binom{10}{5}\binom{5}{5}$\\
 II & 6 & 3 & 1 & 840\\
 III & 7 & 1 & 2 & 360\\ \hline
 \end{tabular}
@@ -1337,7 +1336,7 @@ III & 7 & 1 & 2 & 360\\ \hline
 
 \autoref{fig:histogram} shows the histogram of the total number of different source comparisons before and identification is made.
 
-<<histogram, fig.width=6, fig.height = 3, outwidth=".5\\textwidth", warning=FALSE, message=FALSE, fig.caption="Histogram of the total number of different source comparisons before an identification is made.", fig.label="fig:histogram">>=
+<<histogram, fig.width=8, fig.height = 3, outwidth="\\textwidth", warning=FALSE, message=FALSE, fig.cap="Histogram of the total number of different source comparisons before an identification is made.">>=
 library(tidyverse)
 sets <- read.csv("data/allpossible-hambysets.csv")
 sets$ds <- rowSums(sets-1)
@@ -1345,6 +1344,7 @@ sets$ds <- rowSums(sets-1)
 sets %>% 
   ggplot(aes(x = ds)) + geom_histogram(binwidth=1, colour="grey50") +
   theme_bw() +
+  theme(axis.title.x = element_blank()) + 
   xlab("Number of different source comparisons in a set before an identification is made") +
   ylab("Number of sets") +
   scale_x_continuous(breaks=c(49, 54.5, 61,  67.5, 74, 80.5, 86), labels=c("49", "54.5", "61", "67.5", "74", "80.5",  "86"))
@@ -1353,12 +1353,12 @@ sets %>%
 
 \subsection{Bunch and Murphy simulation}\label{sec:bunchmurphysim}
 \svp{The exact composition of the test sets in Bunch \& Murphy is not known, though the process for assembling the test kits provides sufficient information to simulate the composition of the eight test kits used in the study.}
-\svp{Using the simulation method, we created 500,000 sets of 8 test kits; from these simulated sets, we identified any which match the reported values of 70 same-source and 290 possible different-source comparisons (287,536). We considered adding the restriction of 45 consecutively manufactured comparisons, but found that this reduced the number of simulations to 6,416; given that we do not assess the consecutively manufactured comparisons separately, adding this restriction was deemed unnecessary. Using these sets, we can then estimate the minimal number of comparisons which are necessary using deductive reasoning in addition to examination. R code to reproduce this simulation (and the deductive reasoning algorithm) can be found at \url{https://gist.github.com/srvanderplas/9cb0268df99e97a9ce327bb1489f7046}. 
-}
+\svp{Using the simulation method, we created 500,000 sets of 8 test kits; from these simulated sets, we identified any which match the reported values of 70 same-source and 290 possible different-source comparisons (287,536). We considered adding the restriction of 45 consecutively manufactured comparisons, but found that this reduced the number of simulations to 6,416; given that we do not assess the consecutively manufactured comparisons separately, adding this restriction was deemed unnecessary. Using these sets, we can then estimate the minimal number of comparisons which are necessary using deductive reasoning in addition to examination. As an independent comparison is one in which the examiner has no relevant prior information about either of the cartridges, the minimal set of comparisons necessary to evaluate all cartridges would also be the set of independent comparisons. }
 
+\svp{R code to reproduce this simulation (and the deductive reasoning algorithm) can be found at \url{https://gist.github.com/srvanderplas/9cb0268df99e97a9ce327bb1489f7046}. }
 
 \noindent\begin{fmpage}{\textwidth}\centering
-\captionof{table}{Results and summary tables for the Bunch and Murphy study, with only independent pairwise comparisons included. An independent comparison is one in which the examiner has no relevant prior information about either of the cartridges. These values were determined using simulation, using the sampling method described in the study, and evaluating comparisons sequentially to determine if they are independent of prior comparisons or if they are confirmatory. Results are derived from the subset of simulations which matched the reported values in the paper (70 total same source conclusions, with 290 total different source conclusions). 95\% bootstrap intervals are provided for quantities  estimated via simulation. To allocate the inconclusives and eliminations, we used the rule stated in  \cite{bunch2003comprehensive}: FBI examiners can exclude only on class characteristic mismatches. It should be noted that in none of the 287,536 simulations which matched the other set criteria did we find a set which had more than 109 class characteristic mismatches, suggesting that there may have been some eliminations made on individual characteristics, but as this cannot be confirmed, estimates of eliminations only include class characteristic mismatches.}\label{tab:bunch-indep}
+\captionsetup{type=table}\captionof{table}{Results and summary tables for the Bunch and Murphy study, with only independent pairwise comparisons included. 95\% bootstrap intervals are provided for quantities  estimated via simulation. To allocate the inconclusives and eliminations, we used the rule stated in  \cite{bunch2003comprehensive}: FBI examiners can exclude only on class characteristic mismatches. It should be noted that in none of the 287,536 simulations which matched the other set criteria did we find a set which had more than 109 class characteristic mismatches, suggesting that there may have been some eliminations made on individual characteristics, but as this cannot be confirmed, estimates of eliminations only include class characteristic mismatches. }\label{tab:bunch-indep}
 {\large\bf A Comprehensive Validity Study for the Forensic Examination of Cartridge Cases}\emph{ \citeauthor{bunch2003comprehensive} ( \citeyear{bunch2003comprehensive})}\\
 \begin{tabularx}{\textwidth}{XrrX}\hline
 \multirow{2}{*}{\bf Study Type} & \multicolumn{2}{c}{\bf Test Set} & \multirow{2}{*}{\bf Participants}\\
