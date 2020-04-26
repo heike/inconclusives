@@ -239,14 +239,11 @@ There are several considerations when designing a study of the identification pr
 \item [Blind testing] A blind (or blinded) study is one in which the participant (in this case the examiner) does not know that they are being tested; that is, a study which appears to be part of a case, rather than research. 
 \svp{Blind testing is often recommended  \cite{pcast2016,spiegelmanAnalysisExperimentsForensic2013,koehlerProficiencyTestsEstimate2013}, because the error rates from blind testing better generalize to casework (many studies in a variety of disciplines have shown that people behave differently in situations that are known to be tests) and better assess the process of comparison as a whole (rather than the performance of an individual examiner).}
 
-\svp{In this paper, we will refer to studies which make use of participants who were not involved in the experimental design as ``single blind" - that is, the participant knows they are participating in a study, but does not know the answers to the study.
+\svp{In this paper, we will refer to studies which make use of participants who were not involved in the experimental design as single blind; that is, the participant knows they are participating in a study, but does not know the answers to the study.
 Studies which have the additional constraint that the participant does not know the information under evaluation is part of a study at all (e.g. it is indistinguishable from normal casework) are called ``double blind". 
-There is some variability in what the term ``double blind" refers to in the context of forensic studies: the use in \cite{bunch2003comprehensive, stromanEmpiricallyDeterminedFrequency2014, Duez:2017kha} does not match the use in \cite{pcast2016,spiegelmanAnalysisExperimentsForensic2013,koehlerProficiencyTestsEstimate2013}. 
-\citet{kerkhoffPartdeclaredBlindTesting2018} provides a more thorough discussion of the different ways ``blind testing" has been used in forensic error rate studies.
-\footnote{At least some of the confusion stems from the use of the term in medical contexts, where ``double blind" means that neither the patient nor the doctor knows whether the treatment received is the control or the treatment under investigation. 
-While the terms refer to different blinding methodologies, the underlying goal is the same - to remove any biases which may cause the doctor to evaluate the patient response differently or the examiner to perform differently on a test than on regular casework.}
-We will use the term ``double blind" to refer to situations where examiners do not know that the evidence being evaluated is part of a designed experiment.
-}
+There is some variability in what the term ``double blind" refers to in the context of forensic studies\footnote{At least some of the confusion stems from the use of the term in medical contexts, where ``double blind" means that neither the patient nor the doctor knows whether the treatment received is the control or the treatment under investigation. 
+While the terms refer to different blinding methodologies, the underlying goal is the same - to remove any biases which may cause the doctor to evaluate the patient response differently or the examiner to perform differently on a test than on regular casework.}: the use in \cite{bunch2003comprehensive, stromanEmpiricallyDeterminedFrequency2014, Duez:2017kha} does not match the use in \cite{pcast2016,spiegelmanAnalysisExperimentsForensic2013,koehlerProficiencyTestsEstimate2013}
+\citet{kerkhoffPartdeclaredBlindTesting2018} provides a more thorough discussion of the different ways ``blind testing" has been used in forensic error rate studies.}
 \item [Number of knowns from different sources] Some studies  \citep{keisler} provide only one known exemplar (or a set of multiple exemplars from the same source). Other studies, such as  \citep{brundage, hamby,Hamby:2018hu} and the Houston FSC and Phoenix studies from  \citet{case-validation}, include multiple different sources as knowns. 
 \item [Study length] Most crime labs are understaffed and maintain a fairly large backlog of cases; as a consequence, examiner time is limited. While examiners should participate in these studies, they must balance the competing demands of a large and consequential workload and the benefit to FTE community. As such, studies which require examiners to make a large number of comparisons may be less likely to find sufficient participants to generate an acceptable sample size.
 \end{description}
@@ -315,7 +312,7 @@ An example results table for a generic experiment where comparisons can be disti
 Let $S$ be the total number of same source comparisons, then $S = a + b + c$. Similarly, $D$, the total number of different source comparisons, can be written as $D = d + e + f$. The sum of $S$ and $D$ is the total number  of comparisons, $N$. 
 %The probability of the occurrence of any cell in the interior of the table $(a, b, c, d, e, \text{ or } f)$ can be found by dividing the respective letter by $N$, the total number of comparisons.
 }\label{tab:generic-results}
-\begin{tabularx}{\textwidth}{Y|YYY|Y}
+\begin{tabularx}{.985\textwidth}{Y|YYY|Y}
 \multicolumn{5}{c}{\bf Experiment Count Data}\\\hline
 \multicolumn{1}{c}{} & Identification & Inconclusive & \multicolumn{1}{c}{Elimination} & Source Total\\\hline
 Same Source & \begin{minipage}[c]{1em}$\bm{a}$ \end{minipage}\begin{minipage}[c]{1em} \includegraphics[width=.25cm]{figures/a.pdf} \end{minipage} & 
@@ -364,14 +361,11 @@ In this case, the overall error rate is the sum of the false positives and the f
 % \newcommand{\blacksq}{\fcolorbox{black}{black!100}{\phantom{x}}}
 \newcommand{\xsq}{\protect\fcolorbox{black}{white!100}{\makebox[1.25em][c]{x\vphantom{dp}}}}
 
-\begin{fmpage}{\textwidth}\captionsetup{type=table}\protect\captionof{table}{Different ways to calculate the overall error rate. 
+\begin{fmpage}{.985\textwidth}\captionsetup{type=table}\protect\captionof{table}{Different ways to calculate the overall error rate. 
 An arrangement of two rows of three boxes resembles the interior cells of \autoref{tab:generic-results}. Let \pbox{1.65em}{\small\whitesqd{}} ~correspond to a correct decision, indicating that the box is to be included in the denominator of the calculation, \pbox{1.65em}{\graysqd{}} indicate that the box is to be conditionally excluded from the calculation, and \pbox{1.65em}{\redsqd{}} correspond to an incorrect decision, indicating that the box is to be included in the numerator and denominator of the calculation. 
 }
 
-%, where \pbox{10em}{\mbox{\whitesq{a}\whitesq{b}\whitesq{c}}\\\mbox{\whitesq{d}\whitesq{e}\whitesq{f}}} are the six conditional quantities under discussion. 
-
-
-\begin{tabularx}{\textwidth}{llcl}
+\begin{tabularx}{.985\textwidth}{llcl}
 \# & Type & Illustration & $P(Error) = $\\
 0 & \pbox[l]{9em}{Inconclusives\\Not Allowed} & 
 \pbox{6em}{\whitesq{a}\redsq{c}\\\redsq{d}\whitesq{f}} & 
@@ -1027,13 +1021,13 @@ Implications for court process - examiner states error rate, defense asks for in
 
 Results are summarized in \autoref{tab:baldwin-summary}. 
 
-\noindent\begin{fmpage}{\textwidth}\centering % Checked for accuracy on 2020-04-24
+\noindent\begin{fmpage}{.985\textwidth}\centering % Checked for accuracy on 2020-04-24
 \captionsetup{type=table}\captionof{table}{Baldwin study results, conclusion-specific and source-specific probabilities, and reported overall error rates. }\label{tab:baldwin-summary}
 {\large\bf A Study of False-Positive and False-Negative Error Rates in Cartridge Case Comparisons}
 \emph{ \citeauthor{Baldwin:2014bb} ( \citeyear{Baldwin:2014bb})}\\
 \begin{tabularx}{\textwidth}{XrrX}\hline
 \multirow{2}{*}{\bf Study Type} & \multicolumn{2}{c}{\bf Test Set} & \multirow{2}{*}{\bf Participants}\\
-& \# Same Source Comparisons & \# Different Source Comparisons & \\\hline
+& \# SS Comparisons & \# DS Comparisons & \\\hline
 Open set & 5 & 10 & 218 examiners\\
 \end{tabularx}
 
@@ -1076,13 +1070,13 @@ Kits were assembled using only 9 Smith \& Wesson pistols (i.e. there is a potent
 
 Results from the study are shown in \autoref{tab:keisler-summary}.
 
-\noindent\begin{fmpage}{\textwidth}\centering % Checked for numerical accuracy 2020-04-24
+\noindent\begin{fmpage}{.985\textwidth}\centering % Checked for numerical accuracy 2020-04-24
 \captionsetup{type=table}\captionof{table}{{\large\bf Isolated Pairs Research Study} \label{tab:keisler-summary}}
 \emph{ \citeauthor{keisler} ( \citeyear{keisler})}\\
 A study of Smith \& Wesson cartridge cases.
 \begin{tabularx}{\textwidth}{XrrX}\hline
 \multirow{2}{*}{\bf Study Type} & \multicolumn{2}{c}{\bf Test Set} & \multirow{2}{*}{\bf Participants}\\
-& \# Same Source Comparisons & \# Different Source Comparisons & \\\hline
+& \# SS Comparisons & \# DS Comparisons & \\\hline
 Open set & 12 & 8 & 126 examiners\\
 \end{tabularx}
 \begin{tabularx}{\textwidth}{Y|rrr|Y}
@@ -1131,14 +1125,14 @@ The design of the experiment does not allow us to quantify all of the quantities
 
 %The top of  shows results reported by 56 participants (46 examiners, 10 trainees).
 
-\noindent\begin{fmpage}{\textwidth}\centering % Checked numbers 2020-04-24
+\noindent\begin{fmpage}{.985\textwidth}\centering % Checked numbers 2020-04-24
 \captionsetup{type=table}\captionof{table}{Duez study results, conclusion-specific and source-specific probablities, and reported overall error rates. For the conditional probabilities, 
 the differences in certified examiners and trainees are not large, so only the aggregate results are shown. Certified examiners have a perfect identification rate, only evaluations of different source pairs lead to inconclusives. }\label{tab:duez-summary}
 {\large\bf Development and Validation of a Virtual Examination Tool for Firearm Forensics}
 \emph{ \citeauthor{Duez:2017kha} ( \citeyear{Duez:2017kha})}\\
 \begin{tabularx}{\textwidth}{XrrX}\hline
 \multirow{2}{*}{\bf Study Type} & \multicolumn{2}{c}{\bf Test Set} & \multirow{2}{*}{\bf Participants}\\
-& \# Same Source Comparisons & \# Different Source Comparisons & \\\hline
+& \# SS Comparisons & \# DS Comparisons & \\\hline
 Open set & 6 & 2 & 46+10 examiners\\
 \end{tabularx}
 \begin{tabularx}{\textwidth}{Y|rrr|Y}
@@ -1181,7 +1175,7 @@ The design of the Brundage-Hamby is well known in the forensics community and ha
 
 Results reported in the 2019 paper are shown in \autoref{tab:hamby-summary}.
 
-\noindent\begin{fmpage}{\textwidth}\centering % Checked numbers 2020-04-24
+\noindent\begin{fmpage}{.985\textwidth}\centering % Checked numbers 2020-04-24
 \captionsetup{type=table}\captionof{table}{Evaluations, conditional error rates, and overall error rates from the combined Brundage-Hamby studies. Note the focus on identifications.}\label{tab:hamby-summary}
 {\large\bf A Worldwide Study of Bullets Fired From 10 Consecutively Rifled 9MM RUGER Pistol Barrels - Analysis of Examiner Error Rate}
 \emph{ \citeauthor{Hamby:2018hu} ( \citeyear{Hamby:2018hu})}\\
@@ -1226,7 +1220,7 @@ Opt. & \multicolumn{1}{c}{Meaning} & Missed Identification & \multicolumn{1}{r}{
 \paragraph{Bunch \& Murphy Study}  \cite{bunch2003comprehensive}
 \svp{XXX description introduction to study?}
 
-\noindent\begin{fmpage}{\textwidth}\centering % Checked numbers 2020-04-24
+\noindent\begin{fmpage}{.985\textwidth}\centering % Checked numbers 2020-04-24
 \captionsetup{type=table}\captionof{table}{Results and summary tables for the Bunch and Murphy study. Values in this table are as reported in the study; however, due to the study's structure, it is possible to perform fewer comparisons, because not all comparisons are independent. Results for independent comparisons are shown in \autoref{tab:bunch-indep}}\label{tab:bunch-summary}
 {\large\bf A Comprehensive Validity Study for the Forensic Examination of Cartridge Cases}\emph{ \citeauthor{bunch2003comprehensive} ( \citeyear{bunch2003comprehensive})}\\
 \begin{tabularx}{\textwidth}{XrrX}\hline
@@ -1272,7 +1266,7 @@ Kits were assembled from 32 cartridge cases: 20 known cartridge cases from pairs
 It is also not possible to determine the total number of independent different source comparisons. 
 \svp{The study results are shown in \autoref{tab:lyons-summary}, along with computed conclusion-specific and source-specific probabilities and error rates.}
 
-\noindent\begin{fmpage}{\textwidth}\centering % Checked numbers 2020-04-24
+\noindent\begin{fmpage}{.985\textwidth}\centering % Checked numbers 2020-04-24
 \captionsetup{type=table}\captionof{table}{}\label{tab:lyons-summary}
 {\large\bf The Identification of Consecutively Manufactured Extractors} \emph{ \citeauthor{lyons} ( \citeyear{lyons})}\\
 \begin{tabularx}{\textwidth}{XrrX}\hline
@@ -1357,7 +1351,7 @@ sets %>%
 
 \svp{R code to reproduce this simulation (and the deductive reasoning algorithm) can be found at \url{https://gist.github.com/srvanderplas/9cb0268df99e97a9ce327bb1489f7046}. }
 
-\noindent\begin{fmpage}{\textwidth}\centering
+\noindent\begin{fmpage}{.985\textwidth}\centering
 \captionsetup{type=table}\captionof{table}{Results and summary tables for the Bunch and Murphy study, with only independent pairwise comparisons included. 95\% bootstrap intervals are provided for quantities  estimated via simulation. To allocate the inconclusives and eliminations, we used the rule stated in  \cite{bunch2003comprehensive}: FBI examiners can exclude only on class characteristic mismatches. It should be noted that in none of the 287,536 simulations which matched the other set criteria did we find a set which had more than 109 class characteristic mismatches, suggesting that there may have been some eliminations made on individual characteristics, but as this cannot be confirmed, estimates of eliminations only include class characteristic mismatches. }\label{tab:bunch-indep}
 {\large\bf A Comprehensive Validity Study for the Forensic Examination of Cartridge Cases}\emph{ \citeauthor{bunch2003comprehensive} ( \citeyear{bunch2003comprehensive})}\\
 \begin{tabularx}{\textwidth}{XrrX}\hline
