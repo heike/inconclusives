@@ -333,7 +333,7 @@ Thus, the joint probability of a same-source comparison and examiner identificat
 The accuracy of a classification method is  often expressed in the form of success (or accuracy) rates and error rates, that is, with numerical quantities indicating how often the process produces correct or incorrect results.
 
 
-\subsection{What makes an error?}\label{error-rates}
+\subsection{What makes an error?}\label{sec:error-rates}
 \svp{In a classification problem, we would normally take the results in \autoref{tab:generic-results} and calculate various measures of accuracy and classification error.}
 In firearms and toolmark examination, however, this is \svp{complicated by a mismatch between the classification scheme and the state of reality.} There are two possibilities to describe the physical state of the evidence, in that the evidence is either from the same source or from different sources, but there are three outcome states: the examiner can make an identification, an elimination, or an inconclusive determination.
 \svp{Most (all?) of the typical methods of assessing classification decisions are designed for situations where there are the same number of possible decisions as there are physical classifications; 
