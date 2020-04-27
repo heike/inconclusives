@@ -239,11 +239,11 @@ There are several considerations when designing a study of the identification pr
 \item [Blind testing] A blind (or blinded) study is one in which the participant (in this case the examiner) does not know that they are being tested; that is, a study which appears to be part of a case, rather than research. 
 \svp{Blind testing is often recommended  \cite{pcast2016,spiegelmanAnalysisExperimentsForensic2013,koehlerProficiencyTestsEstimate2013}, because the error rates from blind testing better generalize to casework (many studies in a variety of disciplines have shown that people behave differently in situations that are known to be tests) and better assess the process of comparison as a whole (rather than the performance of an individual examiner).}
 
-\hh{XXX The next paragraph seems contradictory to the previous case. Where does this definition of double-blind come from? It seems a bit odd. }
+% \hh{XXX The next paragraph seems contradictory to the previous case. Where does this definition of double-blind come from? It seems a bit odd. }
 
-\svp{In this paper, we will refer to studies which make use of participants who were not involved in the experimental design as single blind; that is, the participant knows they are participating in a study, but does not know the answers to the study.
-Studies which have the additional constraint that the participant does not know the information under evaluation is part of a study at all (e.g. it is indistinguishable from normal casework) are called ``double blind". 
-There is some variability in what the term ``double blind" refers to in the context of forensic studies\footnote{At least some of the confusion stems from the use of the term in medical contexts, where ``double blind" means that neither the patient nor the doctor knows whether the treatment received is the control or the treatment under investigation. 
+% \svp{In this paper, we will refer to studies which make use of participants who were not involved in the experimental design as single blind; that is, the participant knows they are participating in a study, but does not know the answers to the study.
+% Studies which have the additional constraint that the participant does not know the information under evaluation is part of a study at all (e.g. it is indistinguishable from normal casework) are called ``double blind". }
+\svp{There is some variability in what the term ``double blind" refers to in the context of forensic studies\footnote{At least some of the confusion stems from the use of the term in medical contexts, where ``double blind" means that neither the patient nor the doctor knows whether the treatment received is the control or the treatment under investigation. 
 While the terms refer to different blinding methodologies, the underlying goal is the same - to remove any biases which may cause the doctor to evaluate the patient response differently or the examiner to perform differently on a test than on regular casework.}: the use in \cite{bunch2003comprehensive, stromanEmpiricallyDeterminedFrequency2014, Duez:2017kha} does not match the use in \cite{pcast2016,spiegelmanAnalysisExperimentsForensic2013,koehlerProficiencyTestsEstimate2013}
 \citet{kerkhoffPartdeclaredBlindTesting2018} provides a more thorough discussion of the different ways ``blind testing" has been used in forensic error rate studies.}
 \item [Number of knowns from different sources] Some studies  \citep{keisler} provide only one known exemplar (or a set of multiple exemplars from the same source). Other studies, such as  \citep{brundage, hamby,Hamby:2018hu} and the Houston FSC and Phoenix studies from  \citet{case-validation}, include multiple different sources as knowns. 
@@ -268,7 +268,7 @@ Using a set of different accuracy and error rates, we assess the state of firear
 In part, this variability is due to the mismatch between the evidence evaluation standards used by different forensic disciplines and the actual origin of the evidence. 
 For instance, the AFTE theory of identification has four possible conclusions; three of which are typically used in comparisons\footnote{The fourth category, unsuitable for examination, is one which should be used when evaluating single pieces of recovered evidence; it does not result from the comparison of an unknown source to a known source.}. 
 As there are more possible classifications than source categories (same or different), it is understandable that the treatment of inconclusives when calculating error rates is the subject of some debate. 
-For instance,  \citet{Dror:2018fp} suggests treating inconclusive results as equivalent to a ``decision with certainty that the quantity and quality of information are not sufficient to draw any conclusion regarding the source". 
+\citet{Dror:2018fp} suggests treating inconclusive results as equivalent to a ``decision with certainty that the quantity and quality of information are not sufficient to draw any conclusion regarding the source". 
 Under this framework, an examiner's assessment starts with inconclusive and is refined to identification or elimination given sufficient evidence in either direction.
 This approach treats inconclusives as neither errors nor correct decisions, but it does imply that in the presence of a certain amount of data, an inconclusive result is not an allowable decision and the examiner must make an identification or elimination.
 % \hh{XXX should we keep the criticism to the discussion?}\svp{Yes, because it makes it clear we're aware of the discussion. Otherwise we'll just get a review telling us we're too new at this because we didn't cite xyz.}
@@ -334,13 +334,13 @@ The accuracy of a classification method is  often expressed in the form of succe
 
 
 \subsection{What makes an error?}\label{sec:error-rates}
-\hh{this section has a lot of repetitions. XXX are you still writing here?}
+\hh{this section has a lot of repetitions. XXX are you still writing here?}\svp{I think the primary issue is that while we mentioned the mismatch above in the context of how inconclusives have been treated, we haven't really discussed why that's a problem in machine learning/algorithm classification. It's hinted at above, but... I think it needs to be *very* explicit. I'm fine combining the two somehow, but I'm not sure how to do that well - 2.1 is important to have before we get into the details, but the ``preview" at the beginning doesn't really need 2.1, and sets up the introduction $\rightarrow$ meat of paper transition really nicely. Thoughts?}
 
 
 \svp{In a classification problem, we would normally take the results in \autoref{tab:generic-results} and calculate various measures of accuracy and classification error.}
 In firearms and toolmark examination, however, this is \svp{complicated by a mismatch between the classification scheme and the state of reality.} There are two possibilities to describe the physical state of the evidence, in that the evidence is either from the same source or from different sources, but there are three outcome states: the examiner can make an identification, an elimination, or an inconclusive determination.
 %\svp{Most (all?) of the typical methods of assessing classification decisions are designed for situations where there are the same number of possible decisions as there are physical classifications; 
-}
+% }
 
 However, standard evaluations of classification \svp{methods}, such as false positive and false negative rates, or sensitivity and specificity generally involve classification states which mirror reality.  \svp{XXX cite FPR,FNR, sensitivity, specificity...?}
 More precisely, in most classification problems, the number of real classes is the same as the number of possible decisions. 
