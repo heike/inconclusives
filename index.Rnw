@@ -264,32 +264,12 @@ Using a set of different accuracy and error rates, we assess the state of firear
 
 
 \section{Calculating Error Rates}\label{sec:rates}
-\svp{It is unfortunate that t}he methods used to establish error rates experimentally and the interpretations of those error rates in the literature are highly variable. 
-In part, this variability is due to the mismatch between the evidence evaluation standards used by different forensic disciplines and the actual origin of the evidence. 
-For instance, the AFTE theory of identification has four possible conclusions; three of which are typically used in comparisons\footnote{The fourth category, unsuitable for examination, is one which should be used when evaluating single pieces of recovered evidence; it does not result from the comparison of an unknown source to a known source.}. 
-As there are more possible classifications than source categories (same or different), it is understandable that the treatment of inconclusives when calculating error rates is the subject of some debate. 
-\citet{Dror:2018fp} suggests treating inconclusive results as equivalent to a ``decision with certainty that the quantity and quality of information are not sufficient to draw any conclusion regarding the source". 
-Under this framework, an examiner's assessment starts with inconclusive and is refined to identification or elimination given sufficient evidence in either direction.
-This approach treats inconclusives as neither errors nor correct decisions, but it does imply that in the presence of a certain amount of data, an inconclusive result is not an allowable decision and the examiner must make an identification or elimination.
-% \hh{XXX should we keep the criticism to the discussion?}\svp{Yes, because it makes it clear we're aware of the discussion. Otherwise we'll just get a review telling us we're too new at this because we didn't cite xyz.}
-This view has drawn some criticism  \citep{Biedermann:2018hr,biedermannAreInconclusiveDecisions2019}. 
-% \hh{Statistically, this would suggest that the decision about the amount of evidence available (inconclusive or not) would be independent of the source of the evidence (same or different source). That is, inconclusives should be equally likely in same-source and different-source assessments.}
-% 
-% \hh{XXX  That's the computer sciency approach to decision theory, right?}
-% \hh{XXX From a statistical point of view the approach would imply independence between inconclusive decisions and source of evidence. Based on the case studies this assumption is violated.} \svp{That's a point worth making.}
-% 
-% \hh{XXX the approach to start with inconclusives also suggests symmetry - should we put a tease in here for later?}\svp{Yes}
-%\hh{XXX should we cite a paper for each one of these decisions?}\svp{I don't know if we could find a paper that does each of these. Is there any paper you remember using the excluded from calculations option?}
-\svp{I've changed my opinion on what should go in here a little bit - I think we want to set up the next section without making things too complicated. The (apocryphal) boiling a frog approach, if you will.}
-\hh{I'm OK with that, but the 'this approach has drawn some criticism' is still hanging at the more or less stage. I'm ok with not going into the criticism until later but then this sentence has to go there as well. XXXX}
 
-\hh{Mathematically} there are three ways that inconclusives can be treated in calculating error rates:
-(1) inconclusives can be excluded from error calculations, (2) included as correct results  \cite{Duez:2017kha}, or (3) included as incorrect results  \cite{chumbleyValidationToolMark2010}; each of these decisions has an impact on the actual value of the error rate as well as the interpretation of the resulting error rates. \svp{I'm a bit mixed on whether this still needs to be here - it's a preview of the next section, but the point almost becomes repetitive... which may be good, if we're worried about comprehension, but may be boring if we're not.}
+% \svp{It is unfortunate that t}he methods used to establish error rates experimentally and the interpretations of those error rates in the literature are highly variable. }% Transition from study design section
 
-In this paper, we discuss the treatment of inconclusives in the assessment of error rates from a statistical point of view. % We believe that this -- rather than further dividing the different opinions -- provides a unifying framework.
-We examine 
- technical accuracy and practical utility of  error rates published in existing error rate studies of firearms and toolmark examination. 
-Before approaching the actual studies, we will define  basic notation to facilitate comparison of studies with different experimental designs and  explore the logic behind the numerical calculations.%order
+% In this paper, we discuss the treatment of inconclusives in the assessment of error rates from a statistical point of view. % We believe that this -- rather than further dividing the different opinions -- provides a unifying framework.
+% We examine technical accuracy and practical utility of  error rates published in existing error rate studies of firearms and toolmark examination. 
+Before approaching the actual studies, we will define \svp{a framework and some} basic notation to facilitate comparison of studies with different experimental designs and  explore the logic behind the numerical calculations.%order
 
 \subsection{Classification Framework}
 
@@ -334,21 +314,55 @@ The accuracy of a classification method is  often expressed in the form of succe
 
 
 \subsection{What makes an error?}\label{sec:error-rates}
-\hh{this section has a lot of repetitions. XXX are you still writing here?}\svp{I think the primary issue is that while we mentioned the mismatch above in the context of how inconclusives have been treated, we haven't really discussed why that's a problem in machine learning/algorithm classification. It's hinted at above, but... I think it needs to be *very* explicit. I'm fine combining the two somehow, but I'm not sure how to do that well - 2.1 is important to have before we get into the details, but the ``preview" at the beginning doesn't really need 2.1, and sets up the introduction $\rightarrow$ meat of paper transition really nicely. Thoughts?}
+% \hh{this section has a lot of repetitions. XXX are you still writing here?}\svp{I think the primary issue is that while we mentioned the mismatch above in the context of how inconclusives have been treated, we haven't really discussed why that's a problem in machine learning/algorithm classification. It's hinted at above, but... I think it needs to be *very* explicit. I'm fine combining the two somehow, but I'm not sure how to do that well - 2.1 is important to have before we get into the details, but the ``preview" at the beginning doesn't really need 2.1, and sets up the introduction $\rightarrow$ meat of paper transition really nicely. Thoughts?}
+
+
+% In part, this variability is due to the mismatch between the evidence evaluation standards used by different forensic disciplines and the actual origin of the evidence. 
+% For instance, the AFTE theory of identification has four possible conclusions; three of which are typically used in comparisons\footnote{The fourth category, unsuitable for examination, is one which should be used when evaluating single pieces of recovered evidence; it does not result from the comparison of an unknown source to a known source.}. 
+% As there are more possible classifications than source categories (same or different), it is understandable that the treatment of inconclusives when calculating error rates is the subject of some debate. 
+% \citet{Dror:2018fp} suggests treating inconclusive results as equivalent to a ``decision with certainty that the quantity and quality of information are not sufficient to draw any conclusion regarding the source". 
+% Under this framework, an examiner's assessment starts with inconclusive and is refined to identification or elimination given sufficient evidence in either direction.
+% This approach treats inconclusives as neither errors nor correct decisions, but it does imply that in the presence of a certain amount of data, an inconclusive result is not an allowable decision and the examiner must make an identification or elimination.
+% % \hh{XXX should we keep the criticism to the discussion?}\svp{Yes, because it makes it clear we're aware of the discussion. Otherwise we'll just get a review telling us we're too new at this because we didn't cite xyz.}
+% This view has drawn some criticism  \citep{Biedermann:2018hr,biedermannAreInconclusiveDecisions2019}. 
+% % \hh{Statistically, this would suggest that the decision about the amount of evidence available (inconclusive or not) would be independent of the source of the evidence (same or different source). That is, inconclusives should be equally likely in same-source and different-source assessments.}
+% % 
+% % \hh{XXX  That's the computer sciency approach to decision theory, right?}
+% % \hh{XXX From a statistical point of view the approach would imply independence between inconclusive decisions and source of evidence. Based on the case studies this assumption is violated.} \svp{That's a point worth making.}
+% % 
+% % \hh{XXX the approach to start with inconclusives also suggests symmetry - should we put a tease in here for later?}\svp{Yes}
+% %\hh{XXX should we cite a paper for each one of these decisions?}\svp{I don't know if we could find a paper that does each of these. Is there any paper you remember using the excluded from calculations option?}
+% \svp{I've changed my opinion on what should go in here a little bit - I think we want to set up the next section without making things too complicated. The (apocryphal) boiling a frog approach, if you will.}
+% \hh{I'm OK with that, but the 'this approach has drawn some criticism' is still hanging at the more or less stage. I'm ok with not going into the criticism until later but then this sentence has to go there as well. XXXX}
+% 
 
 
 \svp{In a classification problem, we would normally take the results in \autoref{tab:generic-results} and calculate various measures of accuracy and classification error.}
-In firearms and toolmark examination, however, this is \svp{complicated by a mismatch between the classification scheme and the state of reality.} There are two possibilities to describe the physical state of the evidence, in that the evidence is either from the same source or from different sources, but there are three outcome states: the examiner can make an identification, an elimination, or an inconclusive determination.
+In firearms and toolmark examination, however, this is \svp{complicated by a mismatch between the classification scheme and the state of reality.} There are two possibilities to describe the physical state of the evidence, in that the evidence is either from the same source or from different sources, but there are three \svp{primary} outcome states: the examiner can make an identification, an elimination, or an inconclusive determination\footnote{The fourth category, unsuitable for examination, is one which should be used when evaluating single pieces of recovered evidence; it does not result from the comparison of an unknown source to a known source.}.
 %\svp{Most (all?) of the typical methods of assessing classification decisions are designed for situations where there are the same number of possible decisions as there are physical classifications; 
 % }
-
-However, standard evaluations of classification \svp{methods}, such as false positive and false negative rates, or sensitivity and specificity generally involve classification states which mirror reality.  \svp{XXX cite FPR,FNR, sensitivity, specificity...?}
-More precisely, in most classification problems, the number of real classes is the same as the number of possible decisions. 
-\hh{The AFTE Rules of Identification introduce inconclusives as a third decision into the process. }
-\svp{While identifications correspond to same-source and eliminations correspond to different-source, i}\hh{nconclusives do not correspond to a real state}.
-\svp{As a result, we must decide how to account for inconclusive decisions} \hh{when assessing error rates}. 
-This difference between forensic evaluation and classification problems which are more commonly evaluated provides an unfortunate opportunity for confusion when the same methods \svp{and metrics} \svp{are used to assess classification problems and } forensic decision making. 
+As there are more possible classifications than source categories (same or different), it is understandable that the treatment of inconclusives when calculating error rates is the subject of some debate. 
 \svp{Under AFTE guidelines, inconclusives are not errors, but it has been argued that in at least some sense, inconclusives are systematic errors, because the conclusion does not match the known information \citep{koehlerFingerprintErrorRates2007}.}
+
+\citet{Dror:2018fp} suggests treating inconclusive results as equivalent to a ``decision with certainty that the quantity and quality of information are not sufficient to draw any conclusion regarding the source".
+Under this framework, an examiner's assessment starts with inconclusive and is refined to identification or elimination given sufficient evidence in either direction.
+This approach treats inconclusives as neither errors nor correct decisions, but it does imply that in the presence of a certain amount of data, an inconclusive result is not an allowable decision and the examiner must make an identification or elimination.
+\hh{Statistically, this would suggest that the decision about the amount of evidence available (inconclusive or not) would be independent of the source of the evidence (same or different source). That is, inconclusives should be equally likely in same-source and different-source assessments.}
+% % \hh{XXX should we keep the criticism to the discussion?}\svp{Yes, because it makes it clear we're aware of the discussion. Otherwise we'll just get a review telling us we're too new at this because we didn't cite xyz.}
+\svp{The view expressed in \citet{Dror:2018fp}} has drawn some criticism  \citep{Biedermann:2018hr,biedermannAreInconclusiveDecisions2019}.
+
+% However, standard evaluations of classification \svp{methods}, such as false positive and false negative rates, or sensitivity and specificity generally involve classification states which mirror reality.  \svp{XXX cite FPR,FNR, sensitivity, specificity...?}
+% More precisely, in most classification problems, the number of real classes is the same as the number of possible decisions. 
+
+
+% \hh{The AFTE Rules of Identification introduce inconclusives as a third decision into the process. }
+% \svp{While identifications correspond to same-source and eliminations correspond to different-source, i}\hh{nconclusives do not correspond to a real state}.
+% \svp{As a result, we must decide how to account for inconclusive decisions} \hh{when assessing error rates}. 
+% This difference between forensic evaluation and classification problems which are more commonly evaluated provides an unfortunate opportunity for confusion when the same methods \svp{and metrics} \svp{are used to assess classification problems and } forensic decision making. 
+% \svp{Under AFTE guidelines, inconclusives are not errors, but it has been argued that in at least some sense, inconclusives are systematic errors, because the conclusion does not match the known information \citep{koehlerFingerprintErrorRates2007}.}
+
+\hh{Mathematically} there are three ways that inconclusives can be treated in calculating error rates:
+(1) inconclusives can be excluded from error calculations, (2) included as correct results  \cite{Duez:2017kha}, or (3) included as incorrect results  \cite{chumbleyValidationToolMark2010}; each of these decisions has an impact on the actual value of the error rate as well as the interpretation of the resulting error rates. 
 
 \autoref{tab:overall-err-rate} shows several different error rate calculations, using the general structure of \autoref{tab:generic-results}. 
 Each of these calculations has a  different meaning and interpretation; as a result, it is important to consider which error rate best suits the purpose of a study and its interpretation in the larger framework of pattern evidence. 
