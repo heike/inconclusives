@@ -344,12 +344,12 @@ In firearms and toolmark examination, however, this is \svp{complicated by a mis
 As there are more possible classifications than source categories (same or different), it is understandable that the treatment of inconclusives when calculating error rates is the subject of some debate. 
 \svp{Under AFTE guidelines, inconclusives are not errors, but it has been argued that in at least some sense, inconclusives are systematic errors, because the conclusion does not match the known information \citep{koehlerFingerprintErrorRates2007}.}
 
-\citet{Dror:2018fp} suggests treating inconclusive results as equivalent to a ``decision with certainty that the quantity and quality of information are not sufficient to draw any conclusion regarding the source".
+\citet{Dror:2018fp} suggest treating inconclusive results as equivalent to a ``decision with certainty that the quantity and quality of information are not sufficient to draw any conclusion regarding the source".
 Under this framework, an examiner's assessment starts with inconclusive and is refined to identification or elimination given sufficient evidence in either direction.
 This approach treats inconclusives as neither errors nor correct decisions, but it does imply that in the presence of a certain amount of data, an inconclusive result is not an allowable decision and the examiner must make an identification or elimination.
 \hh{Statistically, this would suggest that the decision about the amount of evidence available (inconclusive or not) would be independent of the source of the evidence (same or different source). That is, inconclusives should be equally likely in same-source and different-source assessments.}
 % % \hh{XXX should we keep the criticism to the discussion?}\svp{Yes, because it makes it clear we're aware of the discussion. Otherwise we'll just get a review telling us we're too new at this because we didn't cite xyz.}
-\svp{The view expressed in \citet{Dror:2018fp}} has drawn some criticism  \citep{Biedermann:2018hr,biedermannAreInconclusiveDecisions2019}.
+\svp{The view expressed in \citet{Dror:2018fp}} has drawn some criticism  \citep{Biedermann:2018hr,biedermannAreInconclusiveDecisions2019}\svp{, primarily on the grounds that inconclusive decisions may be more ``optimal" under formal decision-theoretic analysis than a forced binary decision. While inconclusives may be preferable in formal decision theory analyses, they pose more of a problem when assessing the accuracy and error rates of the examination process.}
 
 % However, standard evaluations of classification \svp{methods}, such as false positive and false negative rates, or sensitivity and specificity generally involve classification states which mirror reality.  \svp{XXX cite FPR,FNR, sensitivity, specificity...?}
 % More precisely, in most classification problems, the number of real classes is the same as the number of possible decisions. 
