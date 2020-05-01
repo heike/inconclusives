@@ -349,7 +349,7 @@ Under this framework, an examiner's assessment starts with inconclusive and is r
 This approach treats inconclusives as neither errors nor correct decisions, but it does imply that in the presence of a certain amount of data, an inconclusive result is not an allowable decision and the examiner must make an identification or elimination.
 \hh{Statistically, this would suggest that the decision about the amount of evidence available (inconclusive or not) would be independent of the source of the evidence (same or different source). That is, inconclusives should be equally likely in same-source and different-source assessments.}
 % % \hh{XXX should we keep the criticism to the discussion?}\svp{Yes, because it makes it clear we're aware of the discussion. Otherwise we'll just get a review telling us we're too new at this because we didn't cite xyz.}
-\svp{The view expressed in \citet{Dror:2018fp}} has drawn some criticism  \citep{Biedermann:2018hr,biedermannAreInconclusiveDecisions2019}\svp{, primarily on the grounds that inconclusive decisions may be more ``optimal" under formal decision-theoretic analysis than a forced binary decision. While inconclusives may be preferable in formal decision theory analyses, they pose more of a problem when assessing the accuracy and error rates of the examination process.}
+% \svp{The view expressed in \citet{Dror:2018fp}} has drawn some criticism  \citep{Biedermann:2018hr,biedermannAreInconclusiveDecisions2019}\svp{, primarily on the grounds that inconclusive decisions may be more ``optimal" under formal decision-theoretic analysis than a forced binary decision. While inconclusives may be preferable in formal decision theory analyses, they pose more of a problem when assessing the accuracy and error rates of the examination process.}
 
 % However, standard evaluations of classification \svp{methods}, such as false positive and false negative rates, or sensitivity and specificity generally involve classification states which mirror reality.  \svp{XXX cite FPR,FNR, sensitivity, specificity...?}
 % More precisely, in most classification problems, the number of real classes is the same as the number of possible decisions. 
@@ -421,6 +421,7 @@ When the goal is to assess the error rate of the examiner under the prevailing g
 When viewed within the framework of the legal system, error rates calculated using option 2  are  not considering any error introduced by the evidence itself. 
 If e.g. a firearm does not mark well, a firearms examiner might not be able to make an identification or an elimination for reasons having nothing to do with the examiner's skill. 
 However, from the wider perspective of the \emph{system}, it is  important to look at the overall error rate of the entire process.
+\svp{That is, given recovered evidence A and B, what is the probability that }
 This requires that we consider the errors from the perspective of the real-world state: two pieces of evidence are  either from the same source or originate from different sources; an inability to distinguish between those options is an error in the \emph{process} even it if is not an error made on the part of the examiner. 
 
 Option 3 of \autoref{tab:overall-err-rate} reflects this global view by counting inconclusives as errors. 
@@ -646,9 +647,12 @@ In addition, studies with similar designs ensure that it is possible to exactly 
 In what is almost certainly a coincidence, all three studies are also limited to cartridge case comparisons. \svp{As a result, however, we could not identify any studies which assess the error rates of bullet or toolmark examination in a manner that would produce reliable and generalizable measurements.}
 
 
-\svp{As a result, admissibility hearings on other types of toolmark evidence must cite studies which use less reliable designs: }  \citet{lyons},  \citet{Hamby:2018hu} (and the similarly designed  \citet{fadul}), and  \citet{bunch2003comprehensive}. 
-Of these, the study by  \citeauthor{bunch2003comprehensive} is perhaps the least flawed: while it has internal dependencies due to the inclusion of multiple knowns, and as a result, the number of same-source and different-source comparisons cannot be fully determined, it does have one feature not found in even the well designed studies.
-Specifically,  \citeauthor{bunch2003comprehensive} varies the composition of the test kits, so that no kit had the same composition in terms of same and different-source comparisons. This ensures that even if examiners discuss the tests, they cannot gain any additional information from such discussions. 
+\svp{As a result, studies which use less reliable designs, such as} \citet{lyons},  \citet{Hamby:2018hu} (and the similarly designed  \citet{fadul}), and  \citet{bunch2003comprehensive} have historically been frequently referenced in admissibility hearings.}
+Of these, the study by  \citeauthor{bunch2003comprehensive} is perhaps the least flawed.
+\svp{It has also been superceded by studies which have better experimental design, such as \citet{Baldwin:2014bb} and \citet{keisler}.}
+While it has internal dependencies due to the inclusion of multiple knowns, and as a result, the number of same-source and different-source comparisons cannot be fully determined, it does have one \svp{desireable} feature not found in even the well designed studies \svp{which makes it worth discussing here}.
+Specifically,  \citeauthor{bunch2003comprehensive} varies the composition of the test kits, so that no kit had the same composition in terms of same and different-source comparisons. 
+This ensures that even if examiners discuss the tests, they cannot gain any additional information from such discussions. 
 
 The primary problem with  \cite{bunch2003comprehensive} is that it includes multiple known exemplars. 
 As a result, it is possible to use logical reasoning to reduce the set of comparisons.
@@ -1009,6 +1013,8 @@ inc %>%
   geom_point(x = max_prob/2,  data = DontKnow, shape='?', size = 3.5)
 @
 
+\svp{Need to use \citep{Biedermann:2018hr,biedermannAreInconclusiveDecisions2019} in the discussion}
+
 \section{Discussion and Conclusions}
 
 number of firearms very small 
@@ -1329,42 +1335,6 @@ Opt. & \multicolumn{1}{c}{Meaning} & Missed Identification & \multicolumn{1}{r}{
 
 \section{Simulation of comparisons in studies with multiple knowns}\label{sec:sim}
 
-\subsection{Enumeration of all possible Brundage-Hamby set comparisons}\label{sec:brundage}
-\svp{XXX Describe why this section exists as the lead-in to the results}
-Brundage-Hamby sets consist of a set of 20 known bullets (two each from the ten consecutively manufactured barrels) and 15 questioned bullets.
- \citet{brundage} outlines the construction of sets of questioned bullets in detail as follows: ten bullets are chosen, one from each of the ten barrels. The remaining five bullets are picked at random from the barrels, such that at most three questioned bullets are from the same barrel. 
-
-Using this strategy, a total of 1452 different sets can be constructed. These sets have questioned bullets of three main forms, listed in \autoref{tab:sets} from the perspective of the number of barrels with one, two, or three matching questioned bullets. 
-
-\begin{table}
-\caption{\label{tab:sets}Number of all possible sets of questioned bullets for Brundage-Hamby sets.}
-\centering
-\begin{tabular}{|r|ccc|l|} \hline
- &  one questioned & two questioned & three questioned  & number of \\
-\# barrels & bullet matches & bullets match & bullets match & possibilities\\ \hline
-I & 5 & 5 & 0 & 252 = $\binom{10}{5}\binom{5}{5}$\\
-II & 6 & 3 & 1 & 840\\
-III & 7 & 1 & 2 & 360\\ \hline
-\end{tabular}
-\end{table}
-
-\autoref{fig:histogram} shows the histogram of the total number of different source comparisons before and identification is made.
-
-<<histogram, fig.width=8, fig.height = 3, outwidth="\\textwidth", warning=FALSE, message=FALSE, fig.cap="Histogram of the total number of different source comparisons before an identification is made.">>=
-library(tidyverse)
-sets <- read.csv("data/allpossible-hambysets.csv")
-sets$ds <- rowSums(sets-1)
-
-sets %>% 
-  ggplot(aes(x = ds)) + geom_histogram(binwidth=1, colour="grey50") +
-  theme_bw() +
-  theme(axis.title.x = element_blank()) + 
-  xlab("Number of different source comparisons in a set before an identification is made") +
-  ylab("Number of sets") +
-  scale_x_continuous(breaks=c(49, 54.5, 61,  67.5, 74, 80.5, 86), labels=c("49", "54.5", "61", "67.5", "74", "80.5",  "86"))
-@
-
-
 \subsection{Bunch and Murphy simulation}\label{sec:bunchmurphysim}
 \svp{The exact composition of the test sets in Bunch \& Murphy is not known, though the process for assembling the test kits provides sufficient information to simulate the composition of the eight test kits used in the study.}
 \svp{Using the simulation method, we created 500,000 sets of 8 test kits; from these simulated sets, we identified any which match the reported values of 70 same-source and 290 possible different-source comparisons (287,536). We considered adding the restriction of 45 consecutively manufactured comparisons, but found that this reduced the number of simulations to 6,416; given that we do not assess the consecutively manufactured comparisons separately, adding this restriction was deemed unnecessary. Using these sets, we can then estimate the minimal number of comparisons which are necessary using deductive reasoning in addition to examination. As an independent comparison is one in which the examiner has no relevant prior information about either of the cartridges, the minimal set of comparisons necessary to evaluate all cartridges would also be the set of independent comparisons. }
@@ -1409,6 +1379,42 @@ Opt. & \multicolumn{1}{c}{Meaning} & Missed Identification & \multicolumn{1}{r}{
 3 & Process error & 0.000 & 0.787 [0.682, 0.891] & 0.687 [0.587, 0.779] \\
 \end{tabularx}
 \end{fmpage}
+
+
+\subsection{Enumeration of all possible Brundage-Hamby set comparisons}\label{sec:brundage}
+\svp{XXX Describe why this section exists as the lead-in to the results}
+Brundage-Hamby sets consist of a set of 20 known bullets (two each from the ten consecutively manufactured barrels) and 15 questioned bullets.
+ \citet{brundage} outlines the construction of sets of questioned bullets in detail as follows: ten bullets are chosen, one from each of the ten barrels. The remaining five bullets are picked at random from the barrels, such that at most three questioned bullets are from the same barrel. 
+
+Using this strategy, a total of 1452 different sets can be constructed. These sets have questioned bullets of three main forms, listed in \autoref{tab:sets} from the perspective of the number of barrels with one, two, or three matching questioned bullets. 
+
+\begin{table}
+\caption{\label{tab:sets}Number of all possible sets of questioned bullets for Brundage-Hamby sets.}
+\centering
+\begin{tabular}{|r|ccc|l|} \hline
+ &  one questioned & two questioned & three questioned  & number of \\
+\# barrels & bullet matches & bullets match & bullets match & possibilities\\ \hline
+I & 5 & 5 & 0 & 252 = $\binom{10}{5}\binom{5}{5}$\\
+II & 6 & 3 & 1 & 840\\
+III & 7 & 1 & 2 & 360\\ \hline
+\end{tabular}
+\end{table}
+
+\autoref{fig:histogram} shows the histogram of the total number of different source comparisons before and identification is made.
+
+<<histogram, fig.width=8, fig.height = 3, outwidth="\\textwidth", warning=FALSE, message=FALSE, fig.cap="Histogram of the total number of different source comparisons before an identification is made.">>=
+library(tidyverse)
+sets <- read.csv("data/allpossible-hambysets.csv")
+sets$ds <- rowSums(sets-1)
+
+sets %>% 
+  ggplot(aes(x = ds)) + geom_histogram(binwidth=1, colour="grey50") +
+  theme_bw() +
+  theme(axis.title.x = element_blank()) + 
+  xlab("Number of different source comparisons in a set before an identification is made") +
+  ylab("Number of sets") +
+  scale_x_continuous(breaks=c(49, 54.5, 61,  67.5, 74, 80.5, 86), labels=c("49", "54.5", "61", "67.5", "74", "80.5",  "86"))
+@
 
 
 
