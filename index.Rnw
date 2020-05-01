@@ -647,7 +647,7 @@ In addition, studies with similar designs ensure that it is possible to exactly 
 In what is almost certainly a coincidence, all three studies are also limited to cartridge case comparisons. \svp{As a result, however, we could not identify any studies which assess the error rates of bullet or toolmark examination in a manner that would produce reliable and generalizable measurements.}
 
 
-\svp{As a result, studies which use less reliable designs, such as} \citet{lyons},  \citet{Hamby:2018hu} (and the similarly designed  \citet{fadul}), and  \citet{bunch2003comprehensive} have historically been frequently referenced in admissibility hearings.}
+\svp{As a result, studies which use less reliable designs, such as} \citet{lyons},  \citet{Hamby:2018hu} (and the similarly designed  \citet{fadul}), and  \citet{bunch2003comprehensive} \svp{have historically been frequently referenced in admissibility hearings.}
 Of these, the study by  \citeauthor{bunch2003comprehensive} is perhaps the least flawed.
 \svp{It has also been superceded by studies which have better experimental design, such as \citet{Baldwin:2014bb} and \citet{keisler}.}
 While it has internal dependencies due to the inclusion of multiple knowns, and as a result, the number of same-source and different-source comparisons cannot be fully determined, it does have one \svp{desireable} feature not found in even the well designed studies \svp{which makes it worth discussing here}.
@@ -662,6 +662,12 @@ Any study which includes multiple known sources in a single comparison set will 
 In \ref{sec:bunchmurphysim}, we use statistical simulation to explore the likely number of different-source comparisons performed in  \cite{bunch2003comprehensive}; this assessment includes both the effect of deductive reasoning and the sampling procedure used to create the test kits. 
 We also perform a similar assessment for  \cite{Hamby:2018hu} in \ref{sec:brundage}; the design of this study does not include the variability introduced by the test kit assembly procedure used in  \cite{bunch2003comprehensive}. 
 
+While studies which use multiple known sources have been conducted for more than 25 years, such studies are inherently flawed. 
+Multiple-known studies are inherently biased: they provide evidence that examiners can make identifications accurately (and do not make many false eliminations), but do not quantify the probability that examiners make eliminations correctly. 
+As a result, when error rates derived from these studies are cited, they do not include errors which result from different source comparisons, which prevents evaluation of examiners on their ability to distinguish between different sources.
+This fundamentally biases these studies so that in court they provide useful (but misleading) information to the prosecution while offering nothing useful to the defense.
+That is, the fundamental structure of these studies only provides information about how accurate examiners are when providing evidence against the defendent.
+
 The design used in  \cite{Hamby:2018hu} was originally found in  \cite{brundagethesis} and dates back to  \citeyear{brundagethesis}. 
 As such, it was a groundbreaking study, and its longevity makes it the most extensive study in forensic error rates in firearms (and possibly across pattern disciplines). 
 Unfortunately, the study is flawed in two major respects: it uses multiple known sources, and it is a closed set study. 
@@ -671,21 +677,19 @@ In a closed-set design, the structure of the study helps examiners make the corr
 In an open-set study, the examiner might rate the same pairwise comparison as inconclusive, because there is no additional information suggesting that the unknown must match one of the provided knowns.
 In both the multiple known and closed set study designs, the use of deductive reasoning artificially reduces the error rates calculated using the study results.
     
-It might be possible to modify the answer sheet so that examiners record each pairwise comparison.
-Using this mechanism, it might be possible to at least assess the number of different-source comparisons performed. 
-\svp{However, revising the answer sheet would still not prevent the use of deductive reasoning, which gives examiners an advantage in the error rate studies that does not exist in casework.}
+It might be possible to modify the answer sheet so that examiners record each pairwise comparison, \svp{which would allow for assessment of} the number of different-source comparisons performed. 
+However, revising the answer sheet would not prevent the use of deductive reasoning, which gives examiners an advantage in the error rate studies that does not exist in casework.
 Currently, studies patterned after  \cite{brundagethesis,Hamby:2018hu} use an answer sheet where examiners are only asked to report which of the 10 knowns the questioned bullet matches. 
 Because the study does not ask examiners to report eliminations, there is no way to assess elimination error rates or the overall error rate consisting of both missed identifications and false eliminations.
 
-In addition to the design issues which plague the closed-set studies, the execution of some of these studies makes the data even less reliable. Methodological issues, such as those described in  \cite{lyons}, where test sheets were returned to participants who misunderstood instructions, cast even more doubt on the utility of error rates derived from such studies and their ability to generalize to casework. 
+In addition to the design issues which plague the closed-set studies, the execution of some of these studies makes the data even less reliable. 
+Methodological issues, such as those described in  \cite{lyons}, where test sheets were returned to participants who misunderstood instructions, cast even more doubt on the utility of error rates derived from such studies and their ability to generalize to casework. 
 
-Finally, there are some methodological constraints that are common to most studies. Of the studies assessed in this paper, only  \citet{bunch2003comprehensive} uses a variable percent of same and different source comparisons; without varying this percentage, it is possible that examiners could compare notes and gain additional information about the study results. Many studies (but not all) pre-screened kit components to ensure that sufficient markings were present to allow for identification - this differs from casework and artifically inflates the rate of successful identifications and eliminations. In almost all studies, participants use lab rules for determining whether eliminations could be made on individual characteristics; while  \citet{Baldwin:2014bb} instructed participants to use a uniform set of rules, many participants reported that they did not adhere to these guidelines.
+Finally, there are some methodological constraints that are common to most studies. 
+Of the studies assessed in this paper, only  \citet{bunch2003comprehensive} uses a variable percent of same and different source comparisons; without varying this percentage, it is possible that examiners could compare notes and gain additional information about the study results. 
+Many studies (but not all) pre-screened kit components to ensure that sufficient markings were present to allow for identification - this differs from casework and artifically inflates the rate of successful identifications and eliminations. 
+In almost all studies, participants use lab rules for determining whether eliminations could be made on individual characteristics; while  \citet{Baldwin:2014bb} instructed participants to use a uniform set of rules, many participants reported that they did not adhere to these guidelines.
 
-While studies which use multiple known sources have been conducted for more than 25 years, such studies are inherently flawed. 
-Multiple-known studies are inherently biased: they provide evidence that examiners can make identifications accurately (and do not make many false eliminations), but do not quantify the probability that examiners make eliminations correctly. 
-As a result, when error rates derived from these studies are cited, they do not include errors which result from different source comparisons, which prevents evaluation of examiners on their ability to distinguish between different sources.
-This fundamentally biases these studies so that in court they provide useful (but misleading) information to the prosecution while offering nothing useful to the defense.
-That is, the fundamental structure of these studies only provides information about how accurate examiners are when providing evidence against the defendent.
 
 <<data-setup, include = F>>=
 clopper <- function(alpha, success, trials) {
