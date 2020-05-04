@@ -1091,20 +1091,25 @@ There is an order of magnitude difference between the probability of same-source
 % \subsection{Equitable Errors?} % Something that isn't quite as cavalier as "betting" and gets at the heart of the question better - which error is more likely?
 
 \svp{
-In machine learning and statistics, the equal error rate is frequently used to set cutoff thresholds, because at the equal error rate, a false positive and a false negative are equally likely.
-In common law, Blackstone's ratio (``It is better that ten guilty persons escape than that one innocent suffer.") would suggest that the equal error rate is insufficient. 
-Under this principle, found across legal traditions, ideally examiners would be less likely to make a false identification than a false elimination. 
+Under a system with equal consequences for each type of error (false elimination or missed identification), we would ideally want the probability of each type of error to be the same - that is, it should be equally likely to make an error in favor of the prosecution or in favor of the defense. 
+In the legal system, however, there are not equal consequences for each type of error. 
+If a person is guilty, there are usually multiple pieces of evidence which contribute information used by the judge or jury to make a decision; thus, the consequences of an elimination of same-source evidence are generally relatively low. 
+However, there are many examples of convictions which were made on the basis of faulty forensic evidence and led to the unjust imprisonment or execution of individuals who were innocent. 
+As a society, we generally adhere to the principle that false convictions are more heinous than allowing a guilty person to go free.  
+This principle, known as Blackstone's ratio (``It is better that ten guilty persons escape than that one innocent suffer.") would suggest that equal probability of each type of error is insufficient. 
+In accordance with this principle, it would be preferable for $P(\text{SS} | \text{Elimination})$ to be higher than $P(\text{DS} | \text{Identification})$. 
 }
-\svp{XXX The EER is stated in source-specific terms. I'm not sure it holds for decision specific stuff. Thoughts? Is it ok to make the comparison, even if it's not precise?}
 
-\svp{
-%Looking at the predictive value of an inconclusive result led us to the following unexpected (and ugly) realization: 
-Essentially, examiners are willing to gamble on an indentification much more than they are willing to gamble on an elimination. 
+\svp{Unfortunately, this is not what we find. As shown in \autoref{fig:asymmetric-errors}, it is clear that} examiners are willing to gamble on an indentification much more than they are willing to gamble on an elimination. 
 In the courtroom, this results in a clear bias toward the prosecution (or against the defense).
+
+\svp{There are many ways this bias could arise: there are, of course, well documented motivational and cognitive biases \cite{motivationalcognitivebiases, robertson2016blinding} which may affect examiners. 
+In addition, it may be easier to identify similarities than to explicitly identify dissimilarities. 
+Examiner training may primarily focus on making identifications, rather than spending equal time on elimination and identification. 
+Whatever the source of the bias, however, one thing is clear: the discrepancy between the decision-specific conditional probabilities corresponding to errors is fundamentally unjust, in the opposite direction of the ideal expressed by Blackstone.
+This is a systemic problem across many different studies of different firearm and tool marks, and one that must be addressed for forensic firearms and toolmark examination to be used equitably. XXX this is weak.
 }
 
-
-% \svp{Need to use \citep{Biedermann:2018hr,biedermannAreInconclusiveDecisions2019} in the discussion}
 
 \section{Discussion and Conclusions}
 
