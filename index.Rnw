@@ -1104,7 +1104,7 @@ In the courtroom, this results in a clear bias toward the prosecution (or agains
 }
 
 
-\svp{Need to use \citep{Biedermann:2018hr,biedermannAreInconclusiveDecisions2019} in the discussion}
+% \svp{Need to use \citep{Biedermann:2018hr,biedermannAreInconclusiveDecisions2019} in the discussion}
 
 \section{Discussion and Conclusions}
 
