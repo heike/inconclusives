@@ -854,7 +854,7 @@ figdata %>%
 @
 
 
-\subsection{Decision-specific error rates}
+\subsection{Decision-specific error rates}\label{sec:dec-spec-res}
 
 \svp{
 In courtroom testimony, we do not know ground truth - we do not know whether the comparison that is presented actually is from the same source or a different source. 
