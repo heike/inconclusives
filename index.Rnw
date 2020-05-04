@@ -907,18 +907,18 @@ cis %>%
 
 \section{Inconclusives}\label{sec:inconclusives}
 % \svp{A lot of this is very repetitive considering all of the stuff that is now ahead of it. I think we can trim down some of the repetition and focus on making the conclusions crystal-clear. So start with why the distribution should be the same, but then show why that's the case for e.g. Baldwin, and what the reality is. Then go through Figure 7, explaining exactly why it's a problem. Survey the actual reasons for this (training focuses on identifications, lab policy, inconclusives are acceptable -- but maybe missing identifications is not?), then follow up with the conclusion: It doesn't matter what the reasons are - this is a fundamentally biased situation that leads to an imbalance in the scales of justice. Possibly introduce the ratio of guilty people freed to innocent people imprisoned. Then lead into the discussion, which can bring this back around to a more general PPV/NPV good, FPR/FNR bad, inconclusives are a problem both for error rate calculations and for a fair legal system. System-wide change is needed. Propose evaluating individual examiners on inconclusive ratios?? Not sure that'd work, but you have to propose something crazy, right?}
+
 % 
-
-\hh{In the absence of knowing the truth we have to resort to working within a probabilistic framework to assess the likelihood of certain events.
-Some \svp{types of} evidence \svp{rest on assessments} of pattern matching: does the shoe print from the crime scene match a particular shoe? was the bullet found at a crime scene fired from a particular weapon? does the breech face impression on a cartridge case from the crime scene match the breech face of a particular weapon frame?}
-\svp{Other evidence, such as DNA, is based on formal measurement, but produces a certain signature or pattern which can be evaluated using probabilistic methods.}
-
-In \svp{both of} these situations the fundamental quantity in question is the probability that two pieces of evidence come from the same source or from different sources. 
-In a legal setting the opinion provided by the expert guides this assessment. 
-\svp{This testimony is particularly important in pattern matching because there is no objective evaluation of the evidence}. 
-So given expert testimony, how does or should the evaluation of the above probability change?  
-
-The AFTE theory of firearms and toolmarks identification as shown in \autoref{tab:afte} allows an expert to come to three main conclusions: make an identification, i.e. two pieces of evidence are thought to come from the same source, make an elimination, i.e. two pieces of evidence are tought to come from different sources, or an inconclusive, i.e. the evidence does not allow either an identification or an elimination. 
+% \hh{In the absence of knowing the truth we have to resort to working within a probabilistic framework to assess the likelihood of certain events.
+% Some \svp{types of} evidence \svp{rest on assessments} of pattern matching: does the shoe print from the crime scene match a particular shoe? was the bullet found at a crime scene fired from a particular weapon? does the breech face impression on a cartridge case from the crime scene match the breech face of a particular weapon frame?}
+% \svp{Other evidence, such as DNA, is based on formal measurement, but produces a certain signature or pattern which can be evaluated using probabilistic methods.}
+% 
+% In \svp{both of} these situations the fundamental quantity in question is the probability that two pieces of evidence come from the same source or from different sources.
+% In a legal setting the opinion provided by the expert guides this assessment.
+% \svp{This testimony is particularly important in pattern matching because there is no objective evaluation of the evidence}.
+% So given expert testimony, how does or should the evaluation of the above probability change?
+% 
+% The AFTE theory of firearms and toolmarks identification as shown in \autoref{tab:afte} allows an expert to come to three main conclusions: make an identification, i.e. two pieces of evidence are thought to come from the same source, make an elimination, i.e. two pieces of evidence are tought to come from different sources, or an inconclusive, i.e. the evidence does not allow either an identification or an elimination.
 
 We are interested \svp{in} the probability of same source and different sources \svp{for each conclusion}, resulting in a total of six ($3 \times 2$) conditional probabilities. 
 \svp{Under ideal conditions?} In a perfect world, we would expect the probabilities shown in \autoref{tab:ideal-probabilities}:
