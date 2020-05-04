@@ -1006,6 +1006,10 @@ This finding is similar to the implications of \citep{biedermannAreInconclusiveD
 Specifically, they show that there is information in the finding of an inconclusive that is useful: inconclusives are much more likely to occur when the evidence is different-source. 
 We take this conclusion one step further: if inconclusives are essentially another way to say ``different source", then it makes sense to get rid of the category and declare inconclusives to be equivalent to elimination, at least when evaluating error rates. 
 }
+
+% \svp{In the next section, we explore the implications of treating inconclusives as equivalent to elimination for the purposes of evaluating the errors in the firearms examination process. 
+% }
+
 \svp{
 Calculations are shown below for \citep{Baldwin:2014bb}, which is the only study large enough to have nonzero observed counts for all cells.
 }
@@ -1020,6 +1024,80 @@ P (\text{same source} \mid \text{inconclusive or elimination}) &=& \displaystyle
 P (\text{different source} \mid \text{identification}) &=& \displaystyle\frac{22}{1097} &=& 0.0201
 \end{array}
 \end{eqnarray*}
+
+<<asymmetric-errors, echo = F, fig.width = 8, fig.height = 4, fig.cap = "" , eval = F>>=
+# This was to create a similar chart as the calculations for Baldwin, but Baldwin is the only study with enough data for the calculations to be meaningful...
+elimplus <- studies %>%
+  dplyr::filter(Decision != "Identification", Type == "Observed") %>%
+  group_by(Study, Ground.truth) %>%
+  summarize(Decision = "Elimination + Inconclusive", Number = sum(Number))
+
+
+errs <- tibble(
+  Ground.truth = c("Same Source", "Same Source", "Different Source"),
+  Decision = c("Elimination", "Elimination + Inconclusive", "Identification")
+)
+
+# Decision-specific
+studies %>% 
+  filter(Type == "Observed") %>%
+  select(-Type) %>%
+  bind_rows(elimplus) %>%
+  group_by(Study, Decision) %>%
+  mutate(Total = sum(Number)) %>%
+  right_join(errs) %>%
+  mutate(rate = Number/Total) %>%
+  ungroup() %>%
+  arrange(Study)
+
+# Source-specific
+studies %>% 
+  filter(Type == "Observed") %>%
+  select(-Type) %>%
+  bind_rows(elimplus) %>%
+  group_by(Study, Ground.truth) %>%
+  mutate(Total = sum(Number)) %>%
+  right_join(errs) %>%
+  mutate(rate = Number/Total) %>%
+  ungroup() %>%
+  arrange(Study)
+@
+
+\svp{
+Examining the experimentally determined error rates for firearms and toolmark identification, however, led us to a disturbing realization. 
+There is an order of magnitude difference between the probability of same-source evidence given an elimination and the probability of different-source evidence given an identification.
+}
+
+\hh{In fact, even if inconclusives and eliminations are combined,} \svp{that is, if we introduce an artificial binary classification scheme,} \hh{the error rate of making a false elimination is 0.0069, only a third of the error of a false identification.}
+
+% \subsection{What will examiners bet on?}
+% \subsection{Equitable Errors?} % Something that isn't quite as cavalier as "betting" and gets at the heart of the question better - which error is more likely?
+
+\svp{
+In machine learning and statistics, the equal error rate is frequently used to set cutoff thresholds, because at the equal error rate, a false positive and a false negative are equally likely.
+In common law, Blackstone's ratio (``It is better that ten guilty persons escape than that one innocent suffer.") would suggest that the equal error rate is insufficient. 
+Under this principle, found across legal traditions, ideally examiners would be less likely to make a false identification than a false elimination. 
+}
+\svp{XXX The EER is stated in source-specific terms. I'm not sure it holds for decision specific stuff. Thoughts? Is it ok to make the comparison, even if it's not precise?}
+
+\svp{
+%Looking at the predictive value of an inconclusive result led us to the following unexpected (and ugly) realization: 
+Essentially, examiners are willing to gamble on an indentification much more than they are willing to gamble on an elimination. 
+In the courtroom, this results in a clear bias toward the prosecution (or against the defense).
+}
+
+\subsection{The Effect of Inconclusive Policies}
+\svp{Note that while the probability of same source given an elimination is affected by lab policies towards the treatment of inconclusives, these policies do not explain the continued discrepancy in error probabilities when inconclusives and eliminations are considered together.
+}
+\svp{Even though  \citet{Baldwin:2014bb} made efforts to control for the effects of lab policy in determination of inconclusive findings, the efforts were apparently not completely successful; the study shows the same biases that are found in every other study we examined.}
+
+\svp{This is in spite of the instructions given to participants:} ``A very important aspect of this work  \cite{Baldwin:2014bb} that needs to be clearly understood is that the study specifically asked participants not to use their laboratory or agency peer review process... Some [participants] indicated that the design of our study with all cartridges fired from the same model of firearm using the same type of ammunition would prohibit the use of a finding of elimination, while others used a mixture of inconclusive and elimination or did not use inconclusive at all to indicate a finding other than identification."
+
+In  \citet{Duez:2017kha}, the authors report that ``13\% of examiners are not permitted to eliminate on individual characteristics (therefore, their conclusions of inconclusive are perfectly acceptable)." \hh{It is interesting to note that 7 of the examiners did not report eliminations due to  lab rules. These rules seem to be in contradiction to community accepted AFTE rules and need to be considered during reporting and testimony evaluations. XXX Bias against defense. XXX Needless to say that we do not agree with the authors' assessment that conclusions of inconclusives are perfectly acceptable.}
+
+
+\hh{\autoref{fig:inconclusives} are too high for different source comparisons.}
+
 \svp{Need to use \citep{Biedermann:2018hr,biedermannAreInconclusiveDecisions2019} in the discussion}
 
 \section{Discussion and Conclusions}
