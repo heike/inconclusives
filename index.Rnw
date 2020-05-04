@@ -1136,6 +1136,8 @@ Discuss the systematic biases which all work against the defendant:
 \end{itemize}
 
 
+Future work: Examine the distribution of automated scores (RF score, CCF) and cutoff-based classifications compared to examiner decisions. Are algorithms less biased than examiners? (yes, duh). 
+
 % \svp{Some mentions of quality considerations in  \cite{epsteinPreferringWiseMan2014} -  \cite{UNITEDSTATESAmerica2011} (fingerprints) - need for a precise standard of what makes something high-quality enough for analysis/comparison}
 % 
 % \svp{Design problems: PCAST Report addendum \cite{pcast-addendum2017}: }
