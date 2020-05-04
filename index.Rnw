@@ -920,8 +920,13 @@ cis %>%
 % 
 % The AFTE theory of firearms and toolmarks identification as shown in \autoref{tab:afte} allows an expert to come to three main conclusions: make an identification, i.e. two pieces of evidence are thought to come from the same source, make an elimination, i.e. two pieces of evidence are tought to come from different sources, or an inconclusive, i.e. the evidence does not allow either an identification or an elimination.
 
-We are interested \svp{in} the probability of same source and different sources \svp{for each conclusion}, resulting in a total of six ($3 \times 2$) conditional probabilities. 
-\svp{Under ideal conditions?} In a perfect world, we would expect the probabilities shown in \autoref{tab:ideal-probabilities}:
+\svp{In \autoref{sec:dec-spec-res}, we refer to the expected distribution of inconclusives, shown as grey targets in \autoref{fig:cis}.
+The expected distribution of inconclusives rests on a fundamental premise: inconclusives should be equally likely to occur in the evaluation of same-source and different-source evidence. 
+This is shown conceptually in \autoref{fig:shape-overview}: the rate of inconclusives is the same for both same-source and different-source evidence.
+That is, under ideal conditions, the expected conditional probabilities in an experiment would match those shown in \autoref{tab:ideal-probabilities}. 
+}
+% We are interested \svp{in} the probability of same source and different sources \svp{for each conclusion}, resulting in a total of six ($3 \times 2$) conditional probabilities. 
+% \svp{Under ideal conditions?} In a perfect world, we would expect the probabilities shown in \autoref{tab:ideal-probabilities}:
 
 \begin{table}
 \caption{Expected conditional probabilities in a perfect world.}\label{tab:ideal-probabilities}
@@ -935,14 +940,14 @@ Different source & $P(DS| \text{Identification}) = 0$ & $P(DS| \text{Inconclusiv
 }
 \end{table}
 
-Most notably, we would expect inconclusive results not to show any dependence on the type of comparison, unless there is some evidence provided by experts that one type of conclusion is more difficult to make than another.\svp{I'm not even sure that would convince me - fundamentally, it's still important that legally the two are on equal footing, and it's the job of the training process to combat any asymmetry in difficulty level.}
+% Most notably, we would expect inconclusive results not to show any dependence on the type of comparison, unless there is some evidence provided by experts that one type of conclusion is more difficult to make than another.\svp{I'm not even sure that would convince me - fundamentally, it's still important that legally the two are on equal footing, and it's the job of the training process to combat any asymmetry in difficulty level.}
 
-In actual case work we are not able to assess the probabilities for same source or different source.  
+In case work we are not able to assess the probability \svp{of} same source or different source \svp{comparisons}.  
 However, those probabilities are easily accessible in formal studies or blinded proficiency testing,\svp{ as $P(SS)$ and $P(DS)$ in these studies are determined by the experimental design.}
 
 
-\svp{XXX I think this should go into a different section talking about convention, personally, even possibly citing  \citet{spiegelmanAnalysisExperimentsForensic2013} about standard operating procedures.}
-\hh{reporting of eliminations differs from lab to lab. Some labs do only allow firearm examiners to make eliminations based on differences in class characteristics. XXX quantify: baldwin, }
+% \svp{XXX I think this should go into a different section talking about convention, personally, even possibly citing  \citet{spiegelmanAnalysisExperimentsForensic2013} about standard operating procedures.}
+% \hh{reporting of eliminations differs from lab to lab. Some labs do only allow firearm examiners to make eliminations based on differences in class characteristics. XXX quantify: baldwin, }
 
 %The probability to make an identification  could be either reported directly or calculated as a composite of true positive and false positive rates:
 
@@ -950,40 +955,19 @@ However, those probabilities are easily accessible in formal studies or blinded 
 % P(\text{identification made}) = TPR \times P(\text{same source}) + FPR \times P(\text{different source}) 
 % \]
 
-\svp{By examining these studies}, we can use existing data to evaluate the conditional probability of same source versus different sources given an expert's testimony directly.
+% \svp{By examining these studies}, we can use existing data to evaluate the conditional probability of same source versus different sources given an expert's testimony directly.
 
 
-\subsection{What will examiners bet on?}
-\svp{In the Baldwin study  \cite{Baldwin:2014bb}}, \hh{we would expect the probabilities for same and different source given an inconclusive result to be: }
+\svp{As an example, in the Baldwin study  \cite{Baldwin:2014bb}}, \hh{we would expect the probabilities for same and different source given an inconclusive result to be: }
 \begin{eqnarray*}
 P(\text{same source} \mid \text{Inconclusive}) &=& P(\text{same source}) = \frac{1}{3},  \\
 P(\text{different source} \mid \text{Inconclusive}) &=& P(\text{different source}) = \frac{2}{3}
 \end{eqnarray*}
 \svp{This expectation is based on the study's design: 5 of the 15 comparisons were same-source; 10 were different-source. }
-\hh{In fact, even if inconclusives and eliminations are combined,} \svp{that is, if we used a binary classification scheme,} \hh{the error rate of making a false elimination is 0.0069, only a third of the error of a false identification:}
-
-\begin{eqnarray*}
-\arraycolsep=1.4pt\def\arraystretch{2.2}
-\begin{array}{rcccr}
-P (\text{same source} \mid \text{inconclusive or elimination}) &=& \displaystyle\frac{11+4}{748+1425} &=& 0.0069 \\
-%P (\text{different source} \mid \text{inconclusive or elimination}) &=& \displaystyle\frac{737+1421}{748+1425} &=& 0.9931 \\ % This isn't mentioned in the text description - I suspect the calc shown below was possibly meant instead?
-P (\text{different source} \mid \text{identification}) &=& \displaystyle\frac{22}{1097} &=& 0.0201
-\end{array}
-\end{eqnarray*}
-\svp{
-Looking at the predictive value of an inconclusive result led us to the following unexpected (and ugly) realization: Examiners are willing to gamble on an indentification much more than they are willing to gamble on an elimination. 
-This is a clear bias toward the prosecution.
+\svp{However, in Baldwin, as in the other studies, the probability of same-source evidence given an inconclusive is much lower than the expectation.
 }
-\svp{This is in spite of the instructions given to participants:} ``A very important aspect of this work  \cite{Baldwin:2014bb} that needs to be clearly understood is that the study specifically asked participants not to use their laboratory or agency peer review process... Some [participants] indicated that the design of our study with all cartridges fired from the same model of firearm using the same type of ammunition would prohibit the use of a finding of elimination, while others used a mixture of inconclusive and elimination or did not use inconclusive at all to indicate a finding other than identification."
 
-\svp{Even though  \citet{Baldwin:2014bb} made efforts to control for the effects of lab policy in determination of inconclusive findings, the efforts were apparently not completely successful; the study shows the same biases that are found in every other study we examined.}
-
-In  \citet{Duez:2017kha}, the authors report that ``13\% of examiners are not permitted to eliminate on individual characteristics (therefore, their conclusions of inconclusive are perfectly acceptable)." \hh{It is interesting to note that 7 of the examiners did not report eliminations due to  lab rules. These rules seem to be in contradiction to community accepted AFTE rules and need to be considered during reporting and testimony evaluations. XXX Bias against defense. XXX Needless to say that we do not agree with the authors' assessment that conclusions of inconclusives are perfectly acceptable.}
-
-
-\hh{\autoref{fig:inconclusives} are too high for different source comparisons.}
-
-<<inconclusives, echo=FALSE, fig.width=8, fig.height=3.75,fig.cap="Probability of inconlusive decisions by same-source/different source comparisons. The probability of inconclusives for same source comparisons is generally low (with a 95\\% confidence interval well below 5\\%). Different source comparisons end up in inconclusive results significantly more often. The Bunch \\& Murphy and Baldwin studies have a particularly high percentage of inconclusive results.", out.width=".8\\textwidth">>=
+<<inconclusives, echo=FALSE, fig.width=8, fig.height=3.75,fig.cap="Probability of inconlusive decisions by same-source/different source comparisons. The probability of inconclusives for same source comparisons is generally low (with a 95\\% confidence interval well below 5\\%). Different source comparisons end up in inconclusive results significantly more often. The Bunch \\& Murphy and Baldwin studies have a particularly high percentage of inconclusive results.", out.width=".8\\textwidth", eval = F, include = F>>=
 
 inc <- studies %>% group_by(Study, Ground.truth) %>% 
   filter(Type == "Observed") %>%
@@ -1017,6 +1001,25 @@ inc %>%
   geom_point(x = max_prob/2,  data = DontKnow, shape='?', size = 3.5)
 @
 
+\svp{
+This finding is similar to the implications of \citep{biedermannAreInconclusiveDecisions2019}, though they do not follow their reported results to the logical conclusion. 
+Specifically, they show that there is information in the finding of an inconclusive that is useful: inconclusives are much more likely to occur when the evidence is different-source. 
+We take this conclusion one step further: if inconclusives are essentially another way to say ``different source", then it makes sense to get rid of the category and declare inconclusives to be equivalent to elimination, at least when evaluating error rates. 
+}
+\svp{
+Calculations are shown below for \citep{Baldwin:2014bb}, which is the only study large enough to have nonzero observed counts for all cells.
+}
+
+
+\begin{eqnarray*}
+\arraycolsep=1.4pt\def\arraystretch{2.2}
+\begin{array}{rcccr}
+P (\text{same source} \mid \text{elimination}) &=& \displaystyle\frac{4}{1425} &=& 0.0028 \\
+P (\text{same source} \mid \text{inconclusive or elimination}) &=& \displaystyle\frac{11+4}{748+1425} &=& 0.0069 \\
+%P (\text{different source} \mid \text{inconclusive or elimination}) &=& \displaystyle\frac{737+1421}{748+1425} &=& 0.9931 \\ % This isn't mentioned in the text description - I suspect the calc shown below was possibly meant instead?
+P (\text{different source} \mid \text{identification}) &=& \displaystyle\frac{22}{1097} &=& 0.0201
+\end{array}
+\end{eqnarray*}
 \svp{Need to use \citep{Biedermann:2018hr,biedermannAreInconclusiveDecisions2019} in the discussion}
 
 \section{Discussion and Conclusions}
