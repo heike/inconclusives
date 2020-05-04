@@ -771,15 +771,29 @@ errors <- studies %>%
 \svp{
 \autoref{fig:errors} shows the false positive and false negative rates for the six studies  investigated in this paper. 
 Both AFTE errors (which do not consider inconclusives as errors and represent examiner errors) and process errors (which include inconclusives and represent errors attributable to evidence quality and lab policy) are shown; examiner error rates are low for both missed elimination and missed identifications in most studies (though intervals reveal the effect of sample size, which was also noted in e.g.  \citet{pcast-addendum2017}. 
-Process errors, however, occur at much higher rates and are particularly concerning for missed eliminations. 
+Process errors, however, occur at higher rates and are particularly concerning for missed eliminations. 
 There is consistently a much larger discrepancy between the two error rates for eliminations than for identifications; this phenomena is examined in more detail in \autoref{sec:inconclusives}.
-Some of the discrepancy between the examiner and process error rates for missed eliminations can be explained by lab policies that only allow eliminations based on mismatches in class characteristics. 
-It should be noted that these policies directly contradict the AFTE Theory of Identification, which allows for eliminations based on ``significant disagreement of discernible class characteristics and/or individual characteristics". 
+Only a portion of the discrepancy between the examiner (AFTE) and process error rates for missed eliminations can be explained by lab policies that only allow eliminations based on mismatches in class characteristics. 
+}
+
 The Bunch \& Murphy study, for instance, was conducted at the FBI, where all examiners followed the same lab policy precluding eliminations based on class characteristic mismatches; as a result, the study has the largest difference between the two missed elimination rates.
-Other studies include examiners from many different labs and thus consist of some evaluations from labs which adhere to the class-characteristic elimination policy and some evaluations from labs which allow eliminations based on mismatch of individualizing characteristics.
+
+\svp{Even though  \citet{Baldwin:2014bb} made efforts to control for the effects of lab policy in determination of inconclusive findings, the efforts were apparently not completely successful.}
+\svp{This is in spite of the instructions given to participants:} ``A very important aspect of this work that needs to be clearly understood is that the study specifically asked participants not to use their laboratory or agency peer review process... Some [participants] indicated that the design of our study with all cartridges fired from the same model of firearm using the same type of ammunition would prohibit the use of a finding of elimination, while others used a mixture of inconclusive and elimination or did not use inconclusive at all to indicate a finding other than identification."
+
+In  \citet{Duez:2017kha}, the authors report that ``13\% of examiners are not permitted to eliminate on individual characteristics (therefore, their conclusions of inconclusive are perfectly acceptable)." 
+\hh{It is interesting to note that 7 of the examiners did not report eliminations due to  lab rules.} 
+%\hh{These rules seem to be in contradiction to community accepted AFTE rules and need to be considered during reporting and testimony evaluations. XXX Bias against defense. XXX Needless to say that we do not agree with the authors' assessment that conclusions of inconclusives are perfectly acceptable.}
+
+%These policies 
+\svp{Policies which forbid elimination based on mismatch of individual characteristics alone} directly contradict the AFTE Theory of Identification, which allows for eliminations based on ``significant disagreement of discernible class characteristics and/or individual characteristics". \svp{XXX Depending on how you read this -- and if you're using the government legalese translator -- either interpretation is allowable under the rules...}
+
+% Other studies include examiners from many different labs and thus consist of some evaluations from labs which adhere to the class-characteristic elimination policy and some evaluations from labs which allow eliminations based on mismatch of individualizing characteristics.
+
+
 The rates reported in this section are calculated directly from information reported in the papers without adjustments accounting for the use of deductive reasoning; as such, they represent the best possible case for error rates in studies which include multiple knowns, such as  \citet{Hamby:2018hu} and  \citet{bunch2003comprehensive}. 
 More realistic estimates of error rates that account for the use of deductive reasoning can be found in \ref{sec:sim}.
-}
+
 
 <<errors, echo=FALSE, fig.width=8, fig.height=3,fig.cap="Percentages of missed eliminations and missed identifications by study. 95\\% Pearson-Clopper confidence intervals are drawn around the error estimates. Missed eliminations cannot be calculated for closed-set studies.", out.width=".8\\textwidth">>=
 
@@ -814,7 +828,7 @@ The false positive rate and false negative rate reported in \autoref{fig:errors}
 These rates, however, are functions of a larger set of probabilities which are calculated conditional on the known source of the evidence. 
 In \autoref{fig:source-spec-cis}, we see the full set of source-specific conditional probabilities: the probability that an examiner will make an identification, elimination, or inconclusive determination given that the source of the evidence is the same (or different). 
 Probabilities are shown with 95\% Pearson-Clopper confidence intervals, which provide a visual indication of the estimate's variability.
-From \autoref{fig:source-spec-cis}, it is apparent that examiners are extremely good at working with same-source evidence: there are relatively few inconclusives, almost no missed identifications, and very few false eliminations. 
+It is apparent that examiners are extremely good at working with same-source evidence: there are relatively few inconclusives, almost no missed identifications, and very few false eliminations. 
 It is also evident that examiners have much more difficulty with different source evidence. 
 Closed-set designs (used in  \cite{Hamby:2018hu} and  \cite{lyons}) do not even allow for the estimation of different-source probabilities due to the fact that it is not possible to estimate the number of different source comparisons which are made; this inherent bias has the unintentional effect of masking the fact that examers are not as accurate when evaluating different-source comparisons. 
 While in most studies (with the exception of Bunch \& Murphy), the probability of making an inconclusive determination for different source evidence is below the probability of making an elimination, the probability that examiners will correctly make an elimination is still extremely low relative to the probability of a correct decision in the evaluation of same source evidence.
@@ -854,6 +868,7 @@ figdata %>%
 @
 
 
+% \hh{\autoref{fig:inconclusives} are too high for different source comparisons.}
 \subsection{Decision-specific error rates}\label{sec:dec-spec-res}
 
 \svp{
@@ -1069,6 +1084,8 @@ There is an order of magnitude difference between the probability of same-source
 }
 
 \hh{In fact, even if inconclusives and eliminations are combined,} \svp{that is, if we introduce an artificial binary classification scheme,} \hh{the error rate of making a false elimination is 0.0069, only a third of the error of a false identification.}
+\svp{Note that while the probability of same source given an elimination is affected by lab policies towards the treatment of inconclusives, these policies do not explain the continued discrepancy in error probabilities when inconclusives and eliminations are considered together.
+}
 
 % \subsection{What will examiners bet on?}
 % \subsection{Equitable Errors?} % Something that isn't quite as cavalier as "betting" and gets at the heart of the question better - which error is more likely?
@@ -1086,17 +1103,6 @@ Essentially, examiners are willing to gamble on an indentification much more tha
 In the courtroom, this results in a clear bias toward the prosecution (or against the defense).
 }
 
-\subsection{The Effect of Inconclusive Policies}
-\svp{Note that while the probability of same source given an elimination is affected by lab policies towards the treatment of inconclusives, these policies do not explain the continued discrepancy in error probabilities when inconclusives and eliminations are considered together.
-}
-\svp{Even though  \citet{Baldwin:2014bb} made efforts to control for the effects of lab policy in determination of inconclusive findings, the efforts were apparently not completely successful; the study shows the same biases that are found in every other study we examined.}
-
-\svp{This is in spite of the instructions given to participants:} ``A very important aspect of this work  \cite{Baldwin:2014bb} that needs to be clearly understood is that the study specifically asked participants not to use their laboratory or agency peer review process... Some [participants] indicated that the design of our study with all cartridges fired from the same model of firearm using the same type of ammunition would prohibit the use of a finding of elimination, while others used a mixture of inconclusive and elimination or did not use inconclusive at all to indicate a finding other than identification."
-
-In  \citet{Duez:2017kha}, the authors report that ``13\% of examiners are not permitted to eliminate on individual characteristics (therefore, their conclusions of inconclusive are perfectly acceptable)." \hh{It is interesting to note that 7 of the examiners did not report eliminations due to  lab rules. These rules seem to be in contradiction to community accepted AFTE rules and need to be considered during reporting and testimony evaluations. XXX Bias against defense. XXX Needless to say that we do not agree with the authors' assessment that conclusions of inconclusives are perfectly acceptable.}
-
-
-\hh{\autoref{fig:inconclusives} are too high for different source comparisons.}
 
 \svp{Need to use \citep{Biedermann:2018hr,biedermannAreInconclusiveDecisions2019} in the discussion}
 
