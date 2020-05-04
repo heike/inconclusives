@@ -920,8 +920,8 @@ cis %>%
 @
 \autoref{fig:cis} shows an overview  of the conditional probability of same source evidence given an examiner's conclusion for five published studies. 
 
-\section{Inconclusives}\label{sec:inconclusives}
-% \svp{A lot of this is very repetitive considering all of the stuff that is now ahead of it. I think we can trim down some of the repetition and focus on making the conclusions crystal-clear. So start with why the distribution should be the same, but then show why that's the case for e.g. Baldwin, and what the reality is. Then go through Figure 7, explaining exactly why it's a problem. Survey the actual reasons for this (training focuses on identifications, lab policy, inconclusives are acceptable -- but maybe missing identifications is not?), then follow up with the conclusion: It doesn't matter what the reasons are - this is a fundamentally biased situation that leads to an imbalance in the scales of justice. Possibly introduce the ratio of guilty people freed to innocent people imprisoned. Then lead into the discussion, which can bring this back around to a more general PPV/NPV good, FPR/FNR bad, inconclusives are a problem both for error rate calculations and for a fair legal system. System-wide change is needed. Propose evaluating individual examiners on inconclusive ratios?? Not sure that'd work, but you have to propose something crazy, right?}
+\section{Inconclusives, Errors, and the Legal System}\label{sec:inconclusives}
+% \svp{A lot of this is very repetitive considering all of the stuff that is now ahead of it. I think we can trim down some of the repetition and focus on making the conclusions crystal-clear. So start with why the distribution should be the same, but then show why that's the case for e.g. Baldwin, and what the reality is. Then go through Figure 7, explaining exactly why it's a problem. Survey the actual reasons for this (training focuses on identifications, lab policy, inconclusives are acceptable -- but maybe missing identifications is not?), then follow up with the conclusion: It doesn't matter what the reasons are - this is a fundamentally biased situation that leads to an imbalance in the scales of justice. Possibly introduce the ratio of guilty people freed to innocent people imprisoned. }
 
 % 
 % \hh{In the absence of knowing the truth we have to resort to working within a probabilistic framework to assess the likelihood of certain events.
@@ -938,13 +938,13 @@ cis %>%
 \svp{In \autoref{sec:dec-spec-res}, we refer to the expected distribution of inconclusives, shown as grey targets in \autoref{fig:cis}.
 The expected distribution of inconclusives rests on a fundamental premise: inconclusives should be equally likely to occur in the evaluation of same-source and different-source evidence. 
 This is shown conceptually in \autoref{fig:shape-overview}: the rate of inconclusives is the same for both same-source and different-source evidence.
-That is, under ideal conditions, the expected conditional probabilities in an experiment would match those shown in \autoref{tab:ideal-probabilities}. 
+That is, under relatively ideal conditions (where there are inconclusives, but no errors according to the AFTE process), the expected conditional probabilities in an experiment would match those shown in \autoref{tab:ideal-probabilities}. 
 }
 % We are interested \svp{in} the probability of same source and different sources \svp{for each conclusion}, resulting in a total of six ($3 \times 2$) conditional probabilities. 
 % \svp{Under ideal conditions?} In a perfect world, we would expect the probabilities shown in \autoref{tab:ideal-probabilities}:
 
 \begin{table}
-\caption{Expected conditional probabilities in a perfect world.}\label{tab:ideal-probabilities}
+\caption{Expected conditional probabilities in a world where examiners do not make mistakes, but do make inconclusive decisions. }\label{tab:ideal-probabilities}
 {\tabulinesep=1.2mm
 \begin{tabu}{|c|ccc|}\hline
 $P(X | Y)$ & \multicolumn{3}{c|}{$Y = $Examiner Conclusion} \\\hline
@@ -1110,6 +1110,7 @@ Whatever the source of the bias, however, one thing is clear: the discrepancy be
 This is a systemic problem across many different studies of different firearm and tool marks, and one that must be addressed for forensic firearms and toolmark examination to be used equitably. XXX this is weak.
 }
 
+%Then lead into the discussion, which can bring this back around to a more general PPV/NPV good, FPR/FNR bad, inconclusives are a problem both for error rate calculations and for a fair legal system. System-wide change is needed. 
 
 \section{Discussion and Conclusions}
 
