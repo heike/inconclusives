@@ -1114,23 +1114,35 @@ This is a systemic problem across many different studies of different firearm an
 
 \section{Discussion and Conclusions}
 
-number of firearms very small 
+Recap study weaknesses: 
+\begin{itemize}
+\item number of firearms and firearm types very small
+\item all good studies are of cartridge cases
+\item well-designed studies are essential for proper assessment of error rates
+\end{itemize}
 
-positive predictive value (control group) vs. post-test rate (for an individual case)
+Recap error rate and inconclusive options, and why these options are suboptimal in source-specific error rate classification. Argue for use of decision-specific probabilities in court because they condition on known information, while using source-specific probabilities to evaluate individual or even lab performance. 
 
-Implications for court process - examiner states error rate, defense asks for inconclusive rate (established during controlled testing?) and elimination rate
+Specifically, in court, we suggest that when the admissibility of an examiner's testimony is assessed, the examiner is asked to state the rate at which they make inconclusive decisions, along with any relevant error rates specific to the lab. We also suggest that during cross-examination after the testimony was presented, the defense ask about the decision-specific probability of an error (relative to the examiner's decision), which will provide specific information which is relevant to the testimony at hand.
 
-\svp{Bias against the defense in inconclusives mirrors biases in admissibility of forensic evidence  \cite{morenoWhatHappensWhen2004, epsteinPreferringWiseMan2014, roachFORENSICSCIENCEMISCARRIAGES2009}}
+Discuss the systematic biases which all work against the defendant: 
+\begin{itemize}
+\item error rate studies often have more same-source comparisons than what would be expected. 
+\item Some studies are designed such that it is not possible to determine the error rate for different-source comparisons.
+\item The discipline as a whole is focused on examiner error rates, rather than the treatment of the entire process. \svp{This is the only one which may not be completely against the defense}
+\item Examiners have a lower threshold for identification than for elimination - so when a comparison is different-source, examiners are more likely to say that it is inconclusive than they are when a comparison is same-source
+\item There is a systematically higher probability of different source evidence given an examiner's identification than the probability of same source evidence given an examiner's elimination. This runs against the principles which form the foundation of our legal system.
+\item This bias \svp{ against the defense in inconclusives mirrors biases in admissibility of forensic evidence  \cite{morenoWhatHappensWhen2004, epsteinPreferringWiseMan2014, roachFORENSICSCIENCEMISCARRIAGES2009}}
+\end{itemize}
 
-\svp{Focus of the discipline on the issues with identifiability, or error rates of the examiners, rather than the treatment of the entire process}
 
-\svp{Some mentions of quality considerations in  \cite{epsteinPreferringWiseMan2014} -  \cite{UNITEDSTATESAmerica2011} (fingerprints) - need for a precise standard of what makes something high-quality enough for analysis/comparison}
-
-\svp{Design problems: PCAST Report addendum \cite{pcast-addendum2017}: }
-\begin{quote}\svp{The firearms discipline clearly recognizes the importance of empirical studies. However, most of these studies used flawed designs. As described in the PCAST report, ``set-based" approaches can inflate examiners' performance by allowing them to take advantage of internal dependencies in the data. The most extreme example is the ``closed-set design", in which the correct source of each questioned sample is always present; studies using the closed-set design have under estimated the false-positive and inconclusive rates by more than 100-fold. This striking discrepancy seriously undermines the validity of the results and underscores the need to test methodsunder appropriate conditions. Other set-based designs also involve internal dependencies that provide hints to examiners, although not to the same extent as closed-set designs.}
-
-\svp{To date, there has been only one appropriately designed black-box study: a 2014 study commissioned by the Defense Forensic Science Center (DFSC) and conducted by the Ames Laboratory, which reported an upper 95\% confidence bound on the false-positive rate of 2.2\%.}
-\end{quote}
+% \svp{Some mentions of quality considerations in  \cite{epsteinPreferringWiseMan2014} -  \cite{UNITEDSTATESAmerica2011} (fingerprints) - need for a precise standard of what makes something high-quality enough for analysis/comparison}
+% 
+% \svp{Design problems: PCAST Report addendum \cite{pcast-addendum2017}: }
+% \begin{quote}\svp{The firearms discipline clearly recognizes the importance of empirical studies. However, most of these studies used flawed designs. As described in the PCAST report, ``set-based" approaches can inflate examiners' performance by allowing them to take advantage of internal dependencies in the data. The most extreme example is the ``closed-set design", in which the correct source of each questioned sample is always present; studies using the closed-set design have under estimated the false-positive and inconclusive rates by more than 100-fold. This striking discrepancy seriously undermines the validity of the results and underscores the need to test methodsunder appropriate conditions. Other set-based designs also involve internal dependencies that provide hints to examiners, although not to the same extent as closed-set designs.}
+% 
+% \svp{To date, there has been only one appropriately designed black-box study: a 2014 study commissioned by the Defense Forensic Science Center (DFSC) and conducted by the Ames Laboratory, which reported an upper 95\% confidence bound on the false-positive rate of 2.2\%.}
+% \end{quote}
 
 \section{References}
 
