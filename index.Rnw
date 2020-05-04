@@ -1064,7 +1064,7 @@ studies %>%
 @
 
 \svp{
-Examining the experimentally determined error rates for firearms and toolmark identification, however, led us to a disturbing realization. 
+Examining the experimentally determined error rates for firearms and toolmark identification leads to a disturbing realization. 
 There is an order of magnitude difference between the probability of same-source evidence given an elimination and the probability of different-source evidence given an identification.
 }
 
