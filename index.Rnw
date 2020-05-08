@@ -336,7 +336,6 @@ The accuracy of a classification method is  often expressed in the form of succe
 % \hh{I'm OK with that, but the 'this approach has drawn some criticism' is still hanging at the more or less stage. I'm ok with not going into the criticism until later but then this sentence has to go there as well. XXXX}
 % 
 
-
 \svp{In a classification problem, we would normally take the results in \autoref{tab:generic-results} and calculate various measures of accuracy and classification error.}
 In firearms and toolmark examination, however, this is \svp{complicated by a mismatch between the classification scheme and the state of reality.} There are two possibilities to describe the physical state of the evidence, in that the evidence is either from the same source or from different sources, but there are three \svp{primary} outcome states: the examiner can make an identification, an elimination, or an inconclusive determination\footnote{The fourth category, unsuitable for examination, is one which should be used when evaluating single pieces of recovered evidence; it does not result from the comparison of an unknown source to a known source.}.
 %\svp{Most (all?) of the typical methods of assessing classification decisions are designed for situations where there are the same number of possible decisions as there are physical classifications; 
