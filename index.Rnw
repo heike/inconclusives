@@ -446,7 +446,6 @@ There are, however, additional assessments of the reliability of a classificatio
 The next two sections detail two different sets of conditional probabilities which both assess the accuracy and reliability of the classification process.
 \svp{Some of these} conditional probabilities have the advantage of not requiring inconclusives to be handled as errors or correct decisions. 
 In addition, \svp{examining the} conditional probabilities offers some \svp{additional insights into the process of firearms examination and the types of errors which are likely to be made.}
-% XXX this is not quite what I'm going for, but it's closer than not having it... trying to allude to the inconclusives stuff... XXX
 
 
 
@@ -505,9 +504,12 @@ Different source & $d/D$ & $e/D$ & $f/D$ & $D/N$\\\hline
 \end{table}
 A google sheets workbook which will perform all of these calculations \svp{given counts $a, b, c, d, e, \text{ and } f$} is available at \url{http://bit.ly/FTE-error-rate-worksheet}.
 
-\svp{XXX need to provide real-world meaning (e.g. court testimony, if possible) for a couple of these values.}
+\svp{Thus, assuming a comparison is same-source, the examiner would make an identification with probability $a/S$. This is equivalent to the true positive rate, or TPR. 
+Assuming a comparison is different source, the examiner would make an elimination with probability $f/D$. This is equivalent to the true negative rate, or TNR.}
 
-\hh{XXX should we pull up some of the discussion that only regards these error rates? source-specific probabilities can not be calculated from casework, they allow an assessment of the performance of an examiner, but not an assessment of the evidence. source-specific probabilities are the error rates typically reported. Our argument here is that they are largely irrelevant in legal proceedings}\svp{Let's leave that to the practical impact section - it's close enough to this section that it should still be connectable, and it will make more sense when contrasted against the decision specific assessment.}
+% \svp{XXX need to provide real-world meaning (e.g. court testimony, if possible) for a couple of these values.}
+
+% \hh{XXX should we pull up some of the discussion that only regards these error rates? source-specific probabilities can not be calculated from casework, they allow an assessment of the performance of an examiner, but not an assessment of the evidence. source-specific probabilities are the error rates typically reported. Our argument here is that they are largely irrelevant in legal proceedings}\svp{Let's leave that to the practical impact section - it's close enough to this section that it should still be connectable, and it will make more sense when contrasted against the decision specific assessment.}
 
 
 \subsection{Decision-specific assessment}
