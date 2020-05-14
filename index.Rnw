@@ -431,22 +431,23 @@ This does not reflective negatively on the examiner's skill; it is merely a cons
 Nonetheless, even though a pair of objects originated from the same physical source, it is not possible to evaluate the evidence and make an identification. 
 The inconclusives are representative of the errors involved in the process of evidence recording, rather than the evaluation. 
 
-\svp{XXX Not sure this should go here, but not sure if there's a better place for it to go... XXX}
+% \svp{XXX Not sure this should go here, but not sure if there's a better place for it to go... XXX}
 
-Some studies screen for this possibility, removing evidence with insufficient identifying marks before the study is conducted.
+Some studies screen for \svp{the} possibility \svp{that there is insufficient information present to make a conclusive assessment}, removing evidence with insufficient identifying marks before the study is conducted.
 In other studies, however, screening was intentionally not performed, so as to better mimic actual casework conditions. 
 In Baldwin  \cite{Baldwin:2014bb}, the only pre-screening of usability was to ensure cartridge cases were caught with the cartridge catching device. 
 Additionally, \hh{for 3234 comparisons, FTEs evaluated how many of the known cartridge cases were usable for an evaluation: all three specimens were used in 3018 cases, two were used in 207 cases, and only one was used in nine cases.}
 The Baldwin study is fairly unique in this regard: most studies make some effort to control the quality of the evidence sent out for assessment.
-Studies which tightly control the evidence quality and presence of individualizing marks would under-estimate the process error (though the estimates of examiner error are not necessarily affected) \svp{XXX not sure this is true - need to think through it...}
+Studies which tightly control the evidence quality and presence of individualizing marks would under-estimate the process error (though the estimates of examiner error are not necessarily affected). %\svp{XXX not sure this is true - need to think through it...}
 
 
-\svp{There are, however, additional assessments of the reliability of a classification method which leverage \emph{conditional probabilities}: probabilities which are updated to account for known (or assumed) information.
+\svp{We have detailed several options for the treatment of inconclusive results when assessing error rates using traditional metrics such as sensitivity and specificity or when calculating an overall error rate}. 
+There are, however, additional assessments of the reliability of a classification method which leverage \emph{conditional probabilities}: probabilities which are updated to account for known (or assumed) information.
 The next two sections detail two different sets of conditional probabilities which both assess the accuracy and reliability of the classification process.
-Certain conditional probabilities have the advantage of not requiring inconclusives to be handled as errors or correct decisions. 
-In addition to removing many of the complications of using the AFTE theory of identification on a binary source problem, these conditional probabilities offer some insights into the use of firearms and toolmark analysis during testimony. 
-XXX this is not quite what I'm going for, but it's closer than not having it... trying to allude to the inconclusives stuff... XXX
-}
+\svp{Some of these} conditional probabilities have the advantage of not requiring inconclusives to be handled as errors or correct decisions. 
+In addition, \svp{examining the} conditional probabilities offers some \svp{additional insights into the process of firearms examination and the types of errors which are likely to be made.}
+% XXX this is not quite what I'm going for, but it's closer than not having it... trying to allude to the inconclusives stuff... XXX
+
 
 
 \subsection{Source-specific assessment}
