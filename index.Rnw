@@ -1451,7 +1451,11 @@ Opt. & \multicolumn{1}{c}{Meaning} & Missed Identification & \multicolumn{1}{r}{
 \section{Simulation of comparisons in studies with multiple knowns}\label{sec:sim}
 
 \subsection{Bunch and Murphy simulation}\label{sec:bunchmurphysim}
-\svp{The exact composition of the test sets in Bunch \& Murphy is not known, though the process for assembling the test kits provides sufficient information to simulate the composition of the eight test kits used in the study.}
+\svp{In \citet{bunch2003comprehensive}, there are two sources of unknown information: the composition of the study test kits, and potential examiner use of deductive logic. 
+While it is possible to assess the effect of deductive logic by eliminating redundant comparisons systematically, because the composition of the test kits was random, there is not a single value for the reduction in comparisons due to the use of deduction.
+As a result, we must first simulate the composition of a test kit, and then evaluate the minimal number of comparisons which must be completed, if deductive reasoning is used.}
+
+\svp{The process for assembling the test kits provides sufficient information to simulate the composition of the eight test kits used in the study.}
 \svp{Using the simulation method, we created 500,000 sets of 8 test kits; from these simulated sets, we identified any which match the reported values of 70 same-source and 290 possible different-source comparisons (287,536). We considered adding the restriction of 45 consecutively manufactured comparisons, but found that this reduced the number of simulations to 6,416; given that we do not assess the consecutively manufactured comparisons separately, adding this restriction was deemed unnecessary. Using these sets, we can then estimate the minimal number of comparisons which are necessary using deductive reasoning in addition to examination. As an independent comparison is one in which the examiner has no relevant prior information about either of the cartridges, the minimal set of comparisons necessary to evaluate all cartridges would also be the set of independent comparisons. }
 
 \svp{R code to reproduce this simulation (and the deductive reasoning algorithm) can be found at \url{https://gist.github.com/srvanderplas/9cb0268df99e97a9ce327bb1489f7046}. }
