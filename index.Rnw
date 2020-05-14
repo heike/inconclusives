@@ -608,8 +608,8 @@ The structure of this section is supposed to mirror the theoretical introduction
 \item decision-specific error rates
 \item inconclusives
 \end{enumerate}
-XXX should we move the individual discussion points for studies into the overall discussion or weave the weaknesses of each study into our assessment here?
-}\svp{My vote is to weave things in. I've already started. Some won't fit with the flow, but that's ok, this thing is already pretty long.}
+% XXX should we move the individual discussion points for studies into the overall discussion or weave the weaknesses of each study into our assessment here?
+}%\svp{My vote is to weave things in. I've already started. Some won't fit with the flow, but that's ok, this thing is already pretty long.}
 
 
 \subsection{Error Rate Studies}
