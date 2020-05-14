@@ -789,7 +789,8 @@ In  \citet{Duez:2017kha}, the authors report that ``13\% of examiners are not pe
 %\hh{These rules seem to be in contradiction to community accepted AFTE rules and need to be considered during reporting and testimony evaluations. XXX Bias against defense. XXX Needless to say that we do not agree with the authors' assessment that conclusions of inconclusives are perfectly acceptable.}
 
 %These policies 
-\svp{Policies which forbid elimination based on mismatch of individual characteristics alone} directly contradict the AFTE Theory of Identification, which allows for eliminations based on ``significant disagreement of discernible class characteristics and/or individual characteristics". \svp{XXX Depending on how you read this -- and if you're using the government legalese translator -- either interpretation is allowable under the rules...}
+Policies which forbid elimination based on mismatch of individual characteristics alone \svp{seem to} directly contradict the AFTE Theory of Identification, which allows for eliminations based on ``significant disagreement of discernible class characteristics and/or individual characteristics". 
+% \svp{XXX Depending on how you read this -- and if you're using the government legalese translator -- either interpretation is allowable under the rules...} % Added weasel words to fix the issue
 
 % Other studies include examiners from many different labs and thus consist of some evaluations from labs which adhere to the class-characteristic elimination policy and some evaluations from labs which allow eliminations based on mismatch of individualizing characteristics.
 
