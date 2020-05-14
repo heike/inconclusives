@@ -977,7 +977,7 @@ However, those probabilities are easily accessible in formal studies or blinded 
 % \svp{By examining these studies}, we can use existing data to evaluate the conditional probability of same source versus different sources given an expert's testimony directly.
 
 
-\svp{As an example, in the Baldwin study  \cite{Baldwin:2014bb}}, \hh{we would expect the probabilities for same and different source given an inconclusive result to be: }
+\svp{As an example, in the Baldwin study  \cite{Baldwin:2014bb}}, we would expect the probabilities for same and different source given an inconclusive result to be: 
 \begin{eqnarray*}
 P(\text{same source} \mid \text{Inconclusive}) &=& P(\text{same source}) = \frac{1}{3},  \\
 P(\text{different source} \mid \text{Inconclusive}) &=& P(\text{different source}) = \frac{2}{3}
