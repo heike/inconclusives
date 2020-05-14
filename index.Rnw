@@ -1111,7 +1111,7 @@ In the courtroom, this results in a clear bias toward the prosecution (or agains
 In addition, it may be easier to identify similarities than to explicitly identify dissimilarities. 
 Examiner training may primarily focus on making identifications, rather than spending equal time on elimination and identification. 
 Whatever the source of the bias, however, one thing is clear: the discrepancy between the decision-specific conditional probabilities corresponding to errors is fundamentally unjust, in the opposite direction of the ideal expressed by Blackstone.
-This is a systemic problem across many different studies of different firearm and tool marks, and one that must be addressed for forensic firearms and toolmark examination to be used equitably. XXX this is weak.
+This is a systemic problem across many different studies of different firearm and tool marks, and one that must be addressed for forensic firearms and toolmark examination to be used equitably. XXX this is weak, and possibly not true given the results from the other studies. How do we make the case better?
 }
 
 %Then lead into the discussion, which can bring this back around to a more general PPV/NPV good, FPR/FNR bad, inconclusives are a problem both for error rate calculations and for a fair legal system. System-wide change is needed. 
