@@ -1047,7 +1047,7 @@ P (\text{different source} \mid \text{identification}) &=& \displaystyle\frac{22
 \end{array}
 \end{eqnarray*}
 
-<<asymmetric-errors, echo = F, fig.width = 8, fig.height = 4, fig.cap = "Decision-specific error rates. XXX needs more text, obviously, but essentially, for all studies errors on identification are higher than errors on eliminations (Same on Keisler). Even if inconclusives are included in eliminations the rates are not significantly higher than for eliminations.  Confidence intervals for wrong identifications do not overlap, indicating that  these errors are significantly higher than wrongful eliminations.">>=
+<<asymmetric-errors, echo = F, fig.width = 8, fig.height = 3, fig.cap = "Decision-specific error rates. XXX needs more text, obviously, but essentially, for all studies errors on identification are higher than errors on eliminations (Same on Keisler). Even if inconclusives are included in eliminations the rates are not significantly higher than for eliminations.  Confidence intervals for wrong identifications do not overlap, indicating that  these errors are significantly higher than wrongful eliminations.">>=
 # This was to create a similar chart as the calculations for Baldwin, but Baldwin is the only study with enough data for the calculations to be meaningful...
 elimplus <- studies %>%
   dplyr::filter(Decision != "Identification", 
@@ -1084,13 +1084,15 @@ errors2 %>%
   arrange(Study) %>%
   mutate(
     Decision = factor(Decision, levels = c("Identification", "Elimination", "Elimination + Inconclusive")),
-    ErrorType = factor(c("Missed Identification", "Missed Elimination", "Missed Elimination (incl. Inconclusives)")[as.numeric(Decision)])
+    ErrorType = factor(c("Missed Identification", "Missed Elimination", "Missed Elimination\n(incl. Inconclusives)")[as.numeric(Decision)])
   ) %>%
   filter(!(Study %in% c("Hamby (2019)", "Lyons (2009)", 
                         "Bunch & Murphy (2003)"))) %>%
   ggplot(aes(x = rate*100, y = Study)) +
-  geom_hline(yintercept="Keisler (2018)", colour = "black",
-             size=22, alpha = 0.1) +
+  geom_hline(yintercept = "Duez (2018)", colour = "black",
+             size=24, alpha = 0.1) +
+  geom_hline(yintercept = "Baldwin (2014)", colour = "black",
+             size=24, alpha = 0.1) +
   geom_point(aes(colour = ErrorType, shape = ErrorType),
              position = position_dodge(width = 0.7),
              size = 2.5) + 
@@ -1098,10 +1100,11 @@ errors2 %>%
     aes(xmin = lower*100, xmax = upper*100, 
         colour = ErrorType), 
     position = position_dodge(width = 0.7)) +
+  scale_shape_discrete("Type of Error") +
   scale_colour_manual("Type of Error", values = c("steelblue", "darkorange", "red")) +
   theme_bw() +
-  theme(legend.position = "bottom",
-        legend.direction = "vertical") + 
+#  theme(legend.position = "bottom",
+#        legend.direction = "vertical") + 
   xlab("(Decision-specific) Error Percentages") 
 
 
