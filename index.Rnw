@@ -1084,7 +1084,8 @@ errors2 %>%
   arrange(Study) %>%
   mutate(
     Decision = factor(Decision, levels = c("Identification", "Elimination", "Elimination + Inconclusive")),
-    ErrorType = factor(c("Missed Identification", "Missed Elimination", "Missed Elimination\n(incl. Inconclusives)")[as.numeric(Decision)])
+    ErrorType = factor(c("Missed Identification", "Missed Elimination", "Missed Elimination\n(incl. Inconclusives)")[as.numeric(Decision)]),
+    ErrorType = factor(ErrorType, levels = c("Missed Identification", "Missed Elimination", "Missed Elimination\n(incl. Inconclusives)"))
   ) %>%
   filter(!(Study %in% c("Hamby (2019)", "Lyons (2009)", 
                         "Bunch & Murphy (2003)"))) %>%
@@ -1101,7 +1102,7 @@ errors2 %>%
         colour = ErrorType), 
     position = position_dodge(width = 0.7)) +
   scale_shape_discrete("Type of Error") +
-  scale_colour_manual("Type of Error", values = c("steelblue", "darkorange", "red")) +
+  scale_colour_manual("Type of Error", values = c("steelblue", "darkorange", "brown")) +
   theme_bw() +
 #  theme(legend.position = "bottom",
 #        legend.direction = "vertical") + 
