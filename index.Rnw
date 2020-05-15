@@ -1083,23 +1083,25 @@ errors2 <- studies %>%
 errors2 %>%
   arrange(Study) %>%
   mutate(
-    Decision = factor(Decision, levels = c("Identification", "Elimination", "Elimination + Inconclusive"))
+    Decision = factor(Decision, levels = c("Identification", "Elimination", "Elimination + Inconclusive")),
+    ErrorType = factor(c("Missed Identification", "Missed Elimination", "Missed Elimination (incl. Inconclusives)")[as.numeric(Decision)])
   ) %>%
   filter(!(Study %in% c("Hamby (2019)", "Lyons (2009)", 
                         "Bunch & Murphy (2003)"))) %>%
   ggplot(aes(x = rate*100, y = Study)) +
   geom_hline(yintercept="Keisler (2018)", colour = "black",
              size=22, alpha = 0.1) +
-  geom_point(aes(colour = Decision, shape = Decision),
+  geom_point(aes(colour = ErrorType, shape = ErrorType),
              position = position_dodge(width = 0.7),
              size = 2.5) + 
   geom_errorbarh(
     aes(xmin = lower*100, xmax = upper*100, 
-        colour = Decision), 
+        colour = ErrorType), 
     position = position_dodge(width = 0.7)) +
-  scale_colour_manual(values = c("steelblue", "darkorange", "red")) +
+  scale_colour_manual("Type of Error", values = c("steelblue", "darkorange", "red")) +
   theme_bw() +
-  theme(legend.position = "bottom") + 
+  theme(legend.position = "bottom",
+        legend.direction = "vertical") + 
   xlab("(Decision-specific) Error Percentages") 
 
 
