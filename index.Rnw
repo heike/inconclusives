@@ -1144,14 +1144,18 @@ This principle, known as Blackstone's ratio (``It is better that ten guilty pers
 In accordance with this principle, it would be preferable for $P(\text{SS} | \text{Elimination})$ to be higher than $P(\text{DS} | \text{Identification})$. 
 }
 
-\svp{Unfortunately, this is not what we find. As shown in \autoref{fig:asymmetric-errors}, it is clear that} examiners are willing to gamble on an indentification much more than they are willing to gamble on an elimination. 
-In the courtroom, this results in a clear bias toward the prosecution (or against the defense).
+\svp{Unfortunately, this is not what we find.}
+\svp{In \autoref{fig:asymmetric-errors}, we see that in every experiment with sufficient data, the point estimate of the probability that an identification is from a different-source pair is higher than the probability that an elimination is from a same-source pair.}
+\svp{Even when inconclusives are treated as as eliminations, the only study with sufficient sample size to show significant differences between error rates still shows that the probability of different source evidence given an examiner identification is significantly higher than the probability of same-source evidence given an examiner elimination or inconclusive.}
+\svp{Note that \citet{Duez:2017kha} and \citet{keisler} have insufficient sample size to distinguish between the probabilities with statistical significance.}
+\svp{However, in \citet{Baldwin:2014bb}, it is clear that} examiners are willing to gamble on an indentification much more than they are willing to gamble on an elimination. 
+In the courtroom \svp{(or before, in a plea bargin situation)}, this results in a clear bias toward the prosecution (or against the defense).
 
 \svp{There are many ways this bias could arise: there are, of course, well documented motivational and cognitive biases \cite{motivationalcognitivebiases, robertson2016blinding} which may affect examiners. 
 In addition, it may be easier to identify similarities than to explicitly identify dissimilarities. 
 Examiner training may primarily focus on making identifications, rather than spending equal time on elimination and identification. 
-Whatever the source of the bias, however, one thing is clear: the discrepancy between the decision-specific conditional probabilities corresponding to errors is fundamentally unjust, in the opposite direction of the ideal expressed by Blackstone.
-This is a systemic problem across many different studies of different firearm and tool marks, and one that must be addressed for forensic firearms and toolmark examination to be used equitably. XXX this is weak, and possibly not true given the results from the other studies. How do we make the case better?
+Whatever the source of the bias, however, one thing is clear: the discrepancy between the decision-specific conditional probabilities corresponding to errors is fundamentally unjust, and the bias is in the opposite direction of the ideal expressed by Blackstone.
+This problem must be addressed for forensic firearms and toolmark examination to be used equitably. 
 }
 
 %Then lead into the discussion, which can bring this back around to a more general PPV/NPV good, FPR/FNR bad, inconclusives are a problem both for error rate calculations and for a fair legal system. System-wide change is needed. 
