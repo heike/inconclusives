@@ -235,19 +235,22 @@ ground truth \hh{means that the experimenter has} the knowledge of whether two s
 However, in scientific studies of forensic examination, ground truth is available to the experimenter because the test and the ``evidence" were explicitly designed.
 %
 \hh{In designed experiments any physical factors that might have an effect on the outcome of a subsequent assessment of pattern similarity must be controlled or systematically varied \citep{spiegelmanAnalysisExperimentsForensic2013}.} 
-\hh{in the specific situation of firearms evidence, }
+\hh{In the specific situation of firearms evidence, }
 %Studies must control for or systematically vary 
 the type of firarm and the ammunition used are of particular interest.
 %the type of implement making the pattern, manufacturing order, maintenance procedures, ammunition or marking surface, and many other factors (see  \citet{spiegelmanAnalysisExperimentsForensic2013} for a thorough review of all of the physical factors which might be controlled for or varied in a comprehensive study). 
 
 In addition to the physical evidence-generation process, experimenters must carefully control the amount of information participants have about the study design and structure. 
-When this information is not strictly controlled, examiners may use deductive reasoning and other strategies that are useful for completing the test but that do not correspond to casework. \hh{XXX reference to later}
+When this information is not strictly controlled, examiners may use deductive reasoning and other strategies that are useful for completing the test but that do not correspond to casework. \hh{We will give an example of this phenomenon in section XXX}
 As a result, studies which attempt to gain insight into the identification process must also navigate these complexities, ideally without becoming too complicated to reasonably execute.
 
-There are several considerations when designing a study of the identification process:
+\hh{XXX guiding sentence XXX}
+\hh{In the remainder of this section we will go into a discussion of terms commonly used in experiments with a specific focus on the forensic identification process:}
+%There are several considerations when designing a study of the identification process:
 \begin{description}
-\item [Closed vs. Open Set] A closed set study is one in which all questioned samples share the same source as one set of  knowns in the test set. Conversely, an open set study is one in which questioned samples may originate from sources which are not part of the known samples provided in the test set.
-\item [White box vs. Black Box] A white-box study is one which makes an attempt to understand \emph{why} an examiner came to the decision, in contrast to a black box study, which only evaluates the correctness of the decision (and not the reasoning behind it). 
+\item [Known and Questioned Samples] \hh{Most studies are set up to mirror casework, i.e.\ there is a set of samples of known origin and a set of questioned samples of unknown origin. The main objective  in a study is then to determine for a pair of known and questioned samples if they share the same source or come from different sources.}
+\item [Closed vs. Open Set] In a closed set study all questioned samples originate from the same source as one  (set of) known sample(s). Conversely, an open set study is one in which questioned samples may originate from sources outside of the known samples provided. \hh{Similarly, not all known samples might have a match among the questioned samples.}
+\item [White box vs. Black Box] In a white-box study the experimenter makes an attempt to understand \emph{why} an examiner came to a specific decision, in contrast to a black box study, which only evaluates the correctness of the decision without assessing the reasoning behind it. 
 \item [Blind testing] A blind (or blinded) study is one in which the participant (in this case the examiner) does not know that they are being tested; that is, a study which appears to be part of a case, rather than research. 
 \svp{Blind testing is often recommended  \cite{pcast2016,spiegelmanAnalysisExperimentsForensic2013,koehlerProficiencyTestsEstimate2013}, because the error rates from blind testing better generalize to casework (many studies in a variety of disciplines have shown that people behave differently in situations that are known to be tests) and better assess the process of comparison as a whole (rather than the performance of an individual examiner).}
 
