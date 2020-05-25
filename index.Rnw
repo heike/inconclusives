@@ -172,11 +172,8 @@ library(kableExtra)
 \tableofcontents
 
 \section{Introduction and Background}
-\subsection{Identification process}
 Examiners visually classify similarity of toolmark and firearm evidence according to the AFTE theory of identification  as one of identification, inconclusive or elimination
-%. \svp{The AFTE definitions of each conclusion are provided in } 
-\citep[][see also \autoref{tab:afte}]{identification}. Exact guidelines for this classification vary from lab to lab; some labs will exclude only on the basis of non-matching class characteristics, such as direction of the twist in rifling, land length or number of lands, or type of rifling \cite{bunch2003comprehensive}. In other labs, CMS (consecutively matching striae) as defined by  \citeauthor{biasotti}  \citep{biasotti} is used as a measure to quantify the similarity of two lands. In virtually all labs, the assessment of individual characteristics of bullet markings is done by visual inspection. %; some class characteristics may be directly measured, but these are not sufficient for individualization. 
-% Identification using 3D Scanning Technology
+\citep[][see also \autoref{tab:afte}]{identification}. Exact guidelines for this classification vary from lab to lab; some labs will exclude only on the basis of non-matching class characteristics, such as direction of the twist in rifling, land length or number of lands, or type of rifling \cite{bunch2003comprehensive}. In other labs, CMS (consecutively matching striae) as defined by  \citeauthor{biasotti}  \citep{biasotti} is used as a measure to quantify the similarity of two lands. In virtually all labs, the assessment of individual characteristics of bullet markings is done by visual inspection. 
 
 
 \begin{table}[hbt]
@@ -199,16 +196,13 @@ Significant disagreement of discernible class characteristics and/or individual 
 \item Unsuitable \hfill\newline
 Unsuitable for examination.
 \end{enumerate}
-    }%
 }
 \caption{\label{tab:afte} AFTE Rules of Toolmark Identifications  \citep{identification}.}
 \end{table}
-% \section{Background} % Identification
 
 The identification process -- i.e. the assessment of whether two samples come from the same source (were made by the same tool, the same shoe, the same finger, shot through the same barrel) or from different sources -- is quite complex. 
 In order for firearms and toolmark evidence to be admissible in court, it must be possible to explicitly characterize the accuracy of the identification process \citep{giannelliDaubertInterpretingFederal1993}.
 
-\subsection{Criticism}
 The need for scientific validation and experimentally-determined error rates has been identified in several reports evaluating the discipline of forensic science in the United States as critical for addressing problems within the field and improving the overall performance of the justice system. 
 According to the  \citet{nrc:2009}:
 
@@ -224,9 +218,6 @@ When jurors are left to form their own conclusions about the error rates of fore
 
 \svp{XXX We need some sort of transition here to blunt the effect of leaving this quote hanging... XXX}
 % In addition to these reports which clearly identify the need for error rate studies, it is often essential to have clearly quantified known or potential error rates \citep{giannelliDaubertInterpretingFederal1993} in order for testimony about the results of forensic examinations to be admitted into evidence.
-
-\subsection{Studies and Design Considerations}
-% \hh{XXX 'we have to make' ... has to go out ... no we against them.}
 
 Studies in form of designed experiments serve as the basis for assessing the accuracy of the identfication process.
 Knowing ground truth means that the experimenter has the knowledge of whether two samples come from the same source or from different sources: in particular, casework can not be used to assess the accuracy of the identification process, because ground truth is not knowable.
