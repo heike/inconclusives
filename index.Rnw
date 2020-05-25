@@ -212,7 +212,7 @@ In order for firearms and toolmark evidence to be admissible in court, it must b
 The need for scientific validation and experimentally-determined error rates has been identified in several reports evaluating the discipline of forensic science in the United States as critical for addressing problems within the field and improving the overall performance of the justice system. 
 According to the  \citet{nrc:2009}:
 
-\begin{displayquote} much forensic evidence—including, for example, bitemarks and firearm and toolmark identifications—is introduced in criminal trials without any meaningful scientific validation, determination of error rates, or reliability testing to explain the limits of the discipline.\end{displayquote}
+\begin{displayquote} much forensic evidence - including, for example, bitemarks and firearm and toolmark identifications - is introduced in criminal trials without any meaningful scientific validation, determination of error rates, or reliability testing to explain the limits of the discipline.\end{displayquote}
 
 The  \citet{pcast2016} identified two important gaps:
 
