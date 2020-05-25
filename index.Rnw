@@ -233,9 +233,6 @@ When this information is not strictly controlled, examiners may use deductive re
 \hh{We will give an example of this phenomenon in section XXX}.
 
 As a result, studies which attempt to gain insight into the identification process must also navigate these complexities, ideally without becoming too complicated to reasonably execute.
-
-\hh{XXX guiding sentence XXX}
-
 In the remainder of this section we will go into a discussion of terms commonly used in experiments with a specific focus on the forensic identification process:
 %There are several considerations when designing a study of the identification process:
 \begin{description}
