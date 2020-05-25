@@ -229,7 +229,7 @@ When jurors are left to form their own conclusions about the error rates of fore
 %In order to assess the accuracy of the identification process, we have to make use of studies where ground truth is known. 
 \hh{Studies in form of designed experiments serve as the basis for assessing the accuracy of the identfication process.}
 \hh{Knowing } 
-ground truth \hh{means that the experimenter has} the knowledge of whether two samples come from the same source or from different sources: in particular that means, that  casework can not be used to assess the accuracy of the identification process, because ground truth is not knowable there.
+ground truth \hh{means that the experimenter has} the knowledge of whether two samples come from the same source or from different sources: in particular, casework can not be used to assess the accuracy of the identification process, because ground truth is not \svp{known}.
 %Assessment of error rates requires designed experiments where ground truth is known: in casework, where ground truth is unknown, it is not possible to assess the accuracy of the identification process.
 \hh{XXX not sure whether we strictly need the next sentence, but I'll give it the benefit of the doubt. XXX}
 However, in scientific studies of forensic examination, ground truth is available to the experimenter because the test and the ``evidence" were explicitly designed.
