@@ -196,7 +196,7 @@ Significant disagreement of discernible class characteristics and/or individual 
 \item Unsuitable \hfill\newline
 Unsuitable for examination.
 \end{enumerate}
-}
+}}
 \caption{\label{tab:afte} AFTE Rules of Toolmark Identifications  \citep{identification}.}
 \end{table}
 
@@ -230,7 +230,7 @@ In the specific situation of firearms evidence, the type of firarm and the ammun
 
 In addition to the physical evidence-generation process, experimenters must carefully control the amount of information participants have about the study design and structure. 
 When this information is not strictly controlled, examiners may use deductive reasoning and other strategies that are useful for completing the test but that do not correspond to casework. 
-\hh{We will give an example of this phenomenon in section XXX}.
+We provide an example of this phenomenon in \autoref{sec:studies}.
 
 As a result, studies which attempt to gain insight into the identification process must also navigate these complexities, ideally without becoming too complicated to reasonably execute.
 In the remainder of this section we will go into a discussion of terms commonly used in experiments with a specific focus on the forensic identification process:
@@ -603,7 +603,7 @@ In the next section, we will examine the results from a number of studies of the
 
 
 
-\section{Studies}
+\section{Studies}\label{sec:studies}
 
 \hh{
 The structure of this section is supposed to mirror the theoretical introduction of different error rates and other aspects of faults in the identification process.
