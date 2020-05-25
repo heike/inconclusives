@@ -266,9 +266,9 @@ Even studies which have a single known source and multiple unknown sources provi
 
 %% Transition to error rates
 Once a study is designed and test samples have been assessed by forensic examiners, error rates can be calculated. 
-\svp{In the remainder of this paper, we discuss the experimentally determined error rates reported in  studies in firearms and toolmark examination. 
+In the remainder of this paper, we discuss the experimentally determined error rates reported in  studies in firearms and toolmark examination. 
 We examine the variability in the methods for calculating and reporting error rates, and the different meanings and utility of different types of error rates. 
-Using a set of different accuracy and error rates, we assess the state of firearms and toolmark analysis, and the implications of currently available data on the legal assessment of the reliability of testimony about firearms and toolmark related evidence.}
+Using a set of different accuracy and error rates, we assess the state of firearms and toolmark analysis, and the implications of currently available data on the legal assessment of the reliability of testimony about firearms and toolmark related evidence.
 
 
 \section{Calculating Error Rates}\label{sec:rates}
@@ -1198,13 +1198,17 @@ This problem must be addressed for forensic firearms and toolmark examination to
 
 %Then lead into the discussion, which can bring this back around to a more general PPV/NPV good, FPR/FNR bad, inconclusives are a problem both for error rate calculations and for a fair legal system. System-wide change is needed. 
 
-\section{Discussion and Conclusions}
+\section{Recommendations and Conclusions}
 % Recap study weaknesses: 
 % \begin{itemize}
 % \item number of firearms and firearm types very small
 % \item all good studies are of cartridge cases
 % \item well-designed studies are essential for proper assessment of error rates
 % \end{itemize}
+
+\hh{Baldwin study is gold standard for administration of a controlled study: open set, single known source for each comparison, limited information which can be shared between participants}
+
+\hh{downside of Baldwin: treatment of inconclusives and error rate}
 
 \svp{It is clear from our assessment of the currently available studies that there is significant work to be done in examining error rates of different components of firearms and toolmark analysis.
 In particular, there is a great need for studies which are both large (many examiners and many evaluations) and well designed (single known source for each comparison, open set, with limited information which can be shared between participants). 
