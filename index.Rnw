@@ -216,11 +216,11 @@ When jurors are left to form their own conclusions about the error rates of fore
 
 \begin{displayquote} In an online experiment, researchers asked mock jurors to estimate the frequency that a qualified, experienced forensic scientist would mistakenly conclude that two samples of specified types came from the same person when they actually came from two different people. The mock jurors believed such errors are likely to occur about 1 in 5.5 million for fingerprint analysis comparison; 1 in 1 million for bitemark comparison; 1 in 1 million for hair comparison; and 1 in 100 thousand for handwriting comparison.\end{displayquote}
 
-\svp{XXX We need some sort of transition here to blunt the effect of leaving this quote hanging... XXX}
 % In addition to these reports which clearly identify the need for error rate studies, it is often essential to have clearly quantified known or potential error rates \citep{giannelliDaubertInterpretingFederal1993} in order for testimony about the results of forensic examinations to be admitted into evidence.
 
 Studies in form of designed experiments serve as the basis for assessing the accuracy of the identfication process.
-Knowing ground truth means that the experimenter has the knowledge of whether two samples come from the same source or from different sources: in particular, casework can not be used to assess the accuracy of the identification process, because ground truth is not knowable.
+Knowing ground truth means that the experimenter has the knowledge of whether two samples come from the same source or from different sources.
+Casework can not be used to assess the accuracy of the identification process, because ground truth is not knowable.
 % \hh{XXX not sure whether we strictly need the next sentence, but I'll give it the benefit of the doubt. XXX}
 However, in scientific studies of forensic examination, ground truth is available to the experimenter because the test and the ``evidence" were explicitly designed.
 
