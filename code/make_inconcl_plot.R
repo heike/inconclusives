@@ -53,7 +53,7 @@ target_plot <- function(a, b, c, d, e, f) {
     mutate(type = paste(gt, concl)) %>%
     left_join(ideal_props) %>%
     st_sf() %>%
-    mutate(points = map2(geometry, value, ~st_sample(st_buffer(.x, -.005), .y, type = "hexagonal"))) %>%
+    mutate(points = map2(geometry, value, ~st_sample(st_buffer(.x, -.01), .y, type = "hexagonal"))) %>%
     st_sf() %>%
     mutate(concl = factor(concl, levels = c("Identification", "Inconclusive", "Elimination"))) %>%
     mutate(border = factor(concl, labels = c("white", "black", "white")) %>% as.character()) %>%

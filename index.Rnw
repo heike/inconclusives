@@ -286,8 +286,8 @@ When examiners assess a set of evidence (generally, a pair of items, one of know
 \autoref{fig:shape-overview} is a sketch showing the relationship between evidence (dots) and examiners' decisions (areas). The color for both evidence and decisions corresponds to the source of evidence (different/same) and the type of decision made, respectively. The different combinations of colored dots on top of colored regions correspond to the six potential outcomes of evidence assessment and examiner decision. Obviously, not all of these outcomes are correct.  
 
 <<shape-overview, fig.cap = "Sketch of the relationship between  ground truth of evidence (dots) and examiners' decisions (shaded areas). In a perfect scenario dots only appear on the shaded area of the same color. Any dots on differently colored backgrounds indicate an error in the examination process.", out.width = "70%", fig.width = 6, fig.height = 4, dpi = 500>>=
-source("code/make_inconcl_plot.R")
-target_plot(100, 30, 15, 15, 30, 100) 
+source("code/make_inconcl_plot.R") 
+target_plot(100, 50, 10, 10, 50, 100) 
 @
 
 % \begin{figure}
