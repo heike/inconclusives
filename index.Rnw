@@ -233,6 +233,7 @@ When this information is not strictly controlled, examiners may use deductive re
 We provide an example of this phenomenon in \autoref{sec:studies}.
 
 As a result, studies which attempt to gain insight into the identification process must also navigate these complexities, ideally without becoming too complicated to reasonably execute.
+
 In the remainder of this section we will go into a discussion of terms commonly used in experiments with a specific focus on the forensic identification process:
 %There are several considerations when designing a study of the identification process:
 \begin{description}
@@ -277,10 +278,9 @@ Using a set of different accuracy and error rates, we assess the state of firear
 
 % In this paper, we discuss the treatment of inconclusives in the assessment of error rates from a statistical point of view. % We believe that this -- rather than further dividing the different opinions -- provides a unifying framework.
 % We examine technical accuracy and practical utility of  error rates published in existing error rate studies of firearms and toolmark examination. 
-Before approaching the actual studies, we will define \svp{a framework and some} basic notation to facilitate comparison of studies with different experimental designs and  explore the logic behind the numerical calculations.%order
+Before approaching the actual studies, we will define a framework and some basic notation to facilitate a comparison of studies with different experimental designs and  explore the logic behind the numerical calculations. %order
 
 \subsection{Classification Framework}
-
 
 When examiners assess a set of evidence (generally, a pair of items, one of known provenance and one of unknown provenance) and decide whether the evidence is an identification, inconclusive, or an elimination, they provide a \emph{classification} of the evidence in a set of given categories.  
 \autoref{fig:shape-overview} is a sketch showing the relationship between evidence (dots) and examiners' decisions (areas). The color for both evidence and decisions corresponds to the source of evidence (different/same) and the type of decision made, respectively. The different combinations of colored dots on top of colored regions correspond to the six potential outcomes of evidence assessment and examiner decision. Obviously, not all of these outcomes are correct.  
@@ -299,12 +299,15 @@ target_plot(100, 50, 10, 10, 50, 100)
 
 %Evaluating Classification Decisions%\label{sec:evaluating-classification-decisions}
 
-Starting with the results from a generic experiment, where forensic toolmark examiners were asked to complete a total of $N$ comparisons, consisting of $S$ same-source comparisons and $D$ different source comparisons,  aggregated results of  examiners' evaluations can be reported as shown in  \autoref{tab:generic-results}. Note that the layout of the table  is nothing but a summary of all the possible combinations of examiners' decisions and actual state of the evidence as sketched out in \autoref{fig:shape-overview}. The pieces of \autoref{fig:shape-overview} are shown along with letters $a$ to $f$ in \autoref{tab:generic-results}. These letters will be used throughout the paper to calculate various accuracy rates and probabilities. 
+\hh{We will introduce the classification framework and the respective error rates at the example of a generic experiment:}
+%Starting with the results from a generic experiment, where
+\hh{let us assume that a representative sample of independent} forensic toolmark examiners were asked to complete a total of $N$ comparisons, consisting of $S$ same-source comparisons and $D$ different source comparisons.
+\hh{An} aggregation of the examiners' evaluations can then be reported as shown in \autoref{tab:generic-results}. Note that the layout of the table  is nothing but a summary of all the possible combinations of examiners' decisions and actual state of the evidence as sketched out in \autoref{fig:shape-overview}. The pieces of \autoref{fig:shape-overview} are shown along with letters $a$ to $f$ in \autoref{tab:generic-results}. These letters will be used throughout this section to calculate various accuracy rates and probabilities. 
 
 \begin{table}
 \centering
 \caption{
-An example results table for a generic experiment where comparisons can be distinguished as either of same source pairs or of pairs from different sources, and examiners classify each comparison as an identification, an inconclusive, or an elimination, as  specified in the AFTE rules of identification. 
+An example results table for a generic experiment where comparisons are pairs known to be either of the same source  or  from different sources, and examiners classify each comparison as an identification, an inconclusive, or an elimination, as  specified in the AFTE rules of identification. 
 Let $S$ be the total number of same source comparisons, then $S$ is the sum of $a, b,$ and $c$. Similarly, $D$, the total number of different source comparisons, can be written as $D = d + e + f$. The sum of $S$ and $D$ is the total number  of comparisons, $N$. 
 %The probability of the occurrence of any cell in the interior of the table $(a, b, c, d, e, \text{ or } f)$ can be found by dividing the respective letter by $N$, the total number of comparisons.
 }\label{tab:generic-results}
@@ -321,10 +324,11 @@ Different source & \begin{minipage}[c]{1em}$\bm{d}$ \end{minipage}\begin{minipag
 \end{tabularx}
 \end{table}
 
-The \emph{joint probability} of any source condition and any examiner conclusion can be found by taking the corresponding cell in \autoref{tab:generic-results} and dividing by $N$, the total number of comparisons evaluated in the study.\footnote{\svp{The joint probability of events A and B is the probabilty that both A and B occur. Here, the joint probability of an examiner identification and a same-source comparison would be equivalent to $a/N$.}} 
-Thus, the joint probability of a same-source comparison and examiner identification would be $a/N$, while the joint probability of a different-source comparison and examiner identification would be $d/N$. 
-The accuracy of a classification method is  often expressed in the form of success (or accuracy) rates and error rates, that is, with numerical quantities indicating how often the process produces correct or incorrect results.
-
+The \emph{joint probability} of any source condition and any examiner conclusion can be found by taking the corresponding cell in \autoref{tab:generic-results} and dividing it by $N$, the total number of comparisons  in the study.\footnote{The joint probability of events A and B is the probability that both A and B occur. Here, the joint probability of an examiner identification and a same-source comparison would be equivalent to $a/N$.} 
+Thus, the joint probability of a same-source comparison and examiner identification is $a/N$, while the joint probability of a different-source comparison and examiner identification would be $d/N$. 
+The accuracy (or error rate) of a classification method \hh{can then be determined by assessing}
+%is  often expressed in the form of success (or accuracy) rates and error rates, that is, with numerical quantities indicating 
+how often the process produces a correct (or incorrect) result.
 
 \subsection{What makes an error?}\label{sec:error-rates}
 % \hh{this section has a lot of repetitions. XXX are you still writing here?}\svp{I think the primary issue is that while we mentioned the mismatch above in the context of how inconclusives have been treated, we haven't really discussed why that's a problem in machine learning/algorithm classification. It's hinted at above, but... I think it needs to be *very* explicit. I'm fine combining the two somehow, but I'm not sure how to do that well - 2.1 is important to have before we get into the details, but the ``preview" at the beginning doesn't really need 2.1, and sets up the introduction $\rightarrow$ meat of paper transition really nicely. Thoughts?}
@@ -348,14 +352,23 @@ The accuracy of a classification method is  often expressed in the form of succe
 % \svp{I've changed my opinion on what should go in here a little bit - I think we want to set up the next section without making things too complicated. The (apocryphal) boiling a frog approach, if you will.}
 % \hh{I'm OK with that, but the 'this approach has drawn some criticism' is still hanging at the more or less stage. I'm ok with not going into the criticism until later but then this sentence has to go there as well. XXXX}
 % 
-
-\svp{In a classification problem, we would normally take the results in \autoref{tab:generic-results} and calculate various measures of accuracy and classification error.}
-In firearms and toolmark examination, however, this is \svp{complicated by a mismatch between the classification scheme and the state of reality.} There are two possibilities to describe the physical state of the evidence, in that the evidence is either from the same source or from different sources, but there are three \svp{primary} outcome states: the examiner can make an identification, an elimination, or an inconclusive determination\footnote{The fourth category, unsuitable for examination, is one which should be used when evaluating single pieces of recovered evidence; it does not result from the comparison of an unknown source to a known source.}.
+In a classification problem, we would normally take the results in \autoref{tab:generic-results} and calculate various measures of accuracy and classification error.
+In firearms and toolmark examination, however, this is complicated by a mismatch between the %classification scheme and the state of reality.
+\hh{sourceness of the evidence and the set of examiners' decisions.}
+There are two possibilities to describe the physical state of the evidence: two pieces of evidence are either from the same source or from different sources;  but there are three primary outcomes \hh{from an examiner's decision}: the examiner can make an identification, an elimination, or an inconclusive determination\footnote{The fourth category, unsuitable for examination, is one which should be used when evaluating single pieces of recovered evidence; it does not result from the comparison of an unknown source to a known source.}.
 %\svp{Most (all?) of the typical methods of assessing classification decisions are designed for situations where there are the same number of possible decisions as there are physical classifications; 
 % }
-As there are more possible classifications than source categories (same or different), it is understandable that the treatment of inconclusives when calculating error rates is the subject of some debate. 
-\svp{Under AFTE guidelines, inconclusives are not errors, but it has been argued that in at least some sense, inconclusives are systematic errors, because the conclusion does not match the known information \citep{koehlerFingerprintErrorRates2007}.}
+\hh{The difference in number of possible source categories and resulting decisions}
+%As there are more possible classifications than source categories (same or different), it is understandable 
+\hh{raises some questions on how inconclusive results should be dealt with when calculating error rates.}
+%that the treatment of inconclusives when calculating error rates is the subject of some debate. 
+Under AFTE guidelines, an inconclusive \hh{result is an acceptable outcome of a comparison and  therefore can not considered to be an error made by the examiner.}
+It has been argued \hh{, however,} that %in at least some sense,
+inconclusives are systematic errors \hh{of the identification process}, because the conclusion does not match the known information \citep{koehlerFingerprintErrorRates2007}.
 
+\hh{While these two statements are seemingly directly contradictory, we argue that XXX urgh. phrasing. what I want to say is that we can bring these statements together, and our guidance should be to determine what is closest to the truth. }
+
+\hh{XXX I feel like that Dror gets us on a different path - more of a bayesian classification problem with inconclusives as a prior and an updated posterior based on additional information available. I really like the thought, though - it would also fit well with quality of scans; need to think about it.}
 \citet{Dror:2018fp} suggest treating inconclusive results as equivalent to a ``decision with certainty that the quantity and quality of information are not sufficient to draw any conclusion regarding the source".
 Under this framework, an examiner's assessment starts with inconclusive and is refined to identification or elimination given sufficient evidence in either direction.
 This approach treats inconclusives as neither errors nor correct decisions, but it does imply that in the presence of a certain amount of data, an inconclusive result is not an allowable decision and the examiner must make an identification or elimination.
