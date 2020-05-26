@@ -1147,10 +1147,22 @@ baldwin <- c(a = 1075, b = 11, c = 4, d = 22, e = 737, f = 1421)
 do.call(target_plot, as.list(c(round(baldwin/2), pointsize = .5, bordersize = 0.001)))
 # target_plot(1075, 11, 4, 22, 737, 1421, pointsize = .5, bordersize = .001) # too dense
 @
-<<keisler-shape-overview, eval = F, include = F, fig.cap = "Sketch of the relationship between  ground truth of evidence (dots) and examiners' decisions (shaded areas) as reported in \\cite{Baldwin:2014bb}. Each dot represents approximately 2 examiner evaluations. Unlike in \\autoref{fig:shape-overview}, there is a significant difference in the probability of an inconclusive evaluation when a pair is different source or same source. ", fig.width = 6, fig.height = 4, dpi = 1000, dev="pdf", out.width = "70%">>=
+<<keisler-shape-overview, eval = T, include = F, fig.cap = "Sketch of the relationship between  ground truth of evidence (dots) and examiners' decisions (shaded areas) as reported in \\cite{Baldwin:2014bb}. Each dot represents approximately 2 examiner evaluations. Unlike in \\autoref{fig:shape-overview}, there is a significant difference in the probability of an inconclusive evaluation when a pair is different source or same source. ", fig.width = 6, fig.height = 4, dpi = 1000, dev="pdf", out.width = "70%">>=
 keisler <- c(a = 1508, b = 4, c = 0, d = 0, e = 203, f = 805)
 
 do.call(target_plot, as.list(c(keisler, pointsize = .5, bordersize = 0.001)))
+# target_plot(1075, 11, 4, 22, 737, 1421, pointsize = .5, bordersize = .001) # too dense
+@
+<<duez-shape-overview, eval = T, include = F, fig.cap = "Sketch of the relationship between  ground truth of evidence (dots) and examiners' decisions (shaded areas) as reported in \\cite{Baldwin:2014bb}. Each dot represents approximately 2 examiner evaluations. Unlike in \\autoref{fig:shape-overview}, there is a significant difference in the probability of an inconclusive evaluation when a pair is different source or same source. ", fig.width = 6, fig.height = 4, dpi = 1000, dev="pdf", out.width = "70%">>=
+duez <- c(a = 276+59, b = 1, c = 0, d = 2, e = 25, f = 85)
+
+do.call(target_plot, as.list(c(duez, pointsize = .5, bordersize = 0.001)))
+# target_plot(1075, 11, 4, 22, 737, 1421, pointsize = .5, bordersize = .001) # too dense
+@
+<<bunch-shape-overview, eval = T, include = F, fig.cap = "Sketch of the relationship between  ground truth of evidence (dots) and examiners' decisions (shaded areas) as reported in \\cite{Baldwin:2014bb}. Each dot represents approximately 2 examiner evaluations. Unlike in \\autoref{fig:shape-overview}, there is a significant difference in the probability of an inconclusive evaluation when a pair is different source or same source. ", fig.width = 6, fig.height = 4, dpi = 1000, dev="pdf", out.width = "70%">>=
+bunch <- c(a = 70, b = 0, c = 0, d = 0, e = 172, f = 118)
+
+do.call(target_plot, as.list(c(bunch, pointsize = .5, bordersize = 0.001)))
 # target_plot(1075, 11, 4, 22, 737, 1421, pointsize = .5, bordersize = .001) # too dense
 @
 \hh{In fact, even if inconclusives and eliminations are combined,} \svp{that is, if we introduce an artificial binary classification scheme,} \hh{the error rate of making a false elimination is 0.0069, only a third of the error of a false identification.}

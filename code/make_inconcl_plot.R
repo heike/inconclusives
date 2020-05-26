@@ -48,13 +48,16 @@ target_plot <- function(a, b, c, d, e, f, pointsize = 1, bordersize = .005) {
     mutate(type = paste(gt, concl)) %>%
     left_join(ideal_props) %>%
     st_sf() %>%
-    mutate(points = map2(geometry, value, ~st_sample(st_buffer(.x, -bordersize), .y, type = "hexagonal"))) %>%
+    mutate(value2 = ifelse(value == 0, 2, value)) %>%
+    mutate(points = map2(geometry, value2, ~st_sample(st_buffer(.x, -bordersize), .y, type = "hexagonal"))) %>%
     st_sf() %>%
     mutate(concl = factor(concl, levels = c("Identification", "Inconclusive", "Elimination"))) %>%
     mutate(border = factor(concl, labels = c("white", "black", "white")) %>% as.character()) %>%
     mutate(gt = factor(gt, levels = c("DS", "SS"), labels = c("Different Source", "Same Source")))
   
-  points <- select(frame, gt, concl, type, border, points) %>% unnest(points) %>%
+  points <- select(frame, gt, concl, type, border, value, points) %>% 
+    filter(value > 0) %>% 
+    unnest(points) %>%
     st_set_geometry("points")
 
   ggplot(frame, aes(geometry = geometry, fill = concl)) + 
