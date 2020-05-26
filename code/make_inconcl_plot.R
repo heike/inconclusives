@@ -69,8 +69,8 @@ target_plot <- function(a, b, c, d, e, f) {
     scale_fill_manual("Conclusion", values = c("Identification" = "steelblue", "Inconclusive" = "white", "Elimination" = "darkorange")) + 
     scale_color_manual("Ground Truth", values = c("Same Source" = "steelblue4", "Different Source" = "darkorange4")) +
     geom_vline(xintercept = 0) + 
-    annotate(geom = "text", x=-.05, y=.55, label = "Different Source", hjust = 1, size = 6, color = "darkorange4") + 
-    annotate(geom = "text", x=.05, y=.55, label = "Same Source", hjust = 0, size = 6, color = "steelblue4") + 
+    annotate(geom = "text", x=-.05, y=.55, label = "Different Source", hjust = 1, size = 5, color = "darkorange4") + 
+    annotate(geom = "text", x=.05, y=.55, label = "Same Source", hjust = 0, size = 5, color = "steelblue4") + 
     guides(color = guide_legend(override.aes = list(size = 3)), fill = guide_legend(override.aes = list(shape = NA))) + 
     theme(axis.text = element_blank(), axis.ticks = element_blank(), 
           axis.title = element_blank(), axis.line = element_blank(),
