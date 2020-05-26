@@ -1,5 +1,5 @@
 \documentclass{elsarticle}
-
+\usepackage[utf8]{inputenc}
 
 \usepackage{lineno,hyperref}
 \modulolinenumbers[5]
@@ -285,7 +285,7 @@ Before approaching the actual studies, we will define \svp{a framework and some}
 When examiners assess a set of evidence (generally, a pair of items, one of known provenance and one of unknown provenance) and decide whether the evidence is an identification, inconclusive, or an elimination, they provide a \emph{classification} of the evidence in a set of given categories.  
 \autoref{fig:shape-overview} is a sketch showing the relationship between evidence (dots) and examiners' decisions (areas). The color for both evidence and decisions corresponds to the source of evidence (different/same) and the type of decision made, respectively. The different combinations of colored dots on top of colored regions correspond to the six potential outcomes of evidence assessment and examiner decision. Obviously, not all of these outcomes are correct.  
 
-<<shape-overview, fig.cap = "Sketch of the relationship between  ground truth of evidence (dots) and examiners' decisions (shaded areas). In a perfect scenario dots only appear on the shaded area of the same color. Any dots on differently colored backgrounds indicate an error in the examination process.", out.width = "70%", fig.width = 6, fig.height = 4, dpi = 500>>=
+<<shape-overview, fig.cap = "Sketch of the relationship between  ground truth of evidence (dots) and examiners' decisions (shaded areas). In a perfect scenario dots only appear on the shaded area of the same color. Any dots on differently colored backgrounds indicate an error in the examination process.", out.width = "70%", fig.width = 6, fig.height = 4, dpi = 500, cache = F>>=
 source("code/make_inconcl_plot.R") 
 target_plot(100, 50, 10, 10, 50, 100) 
 @
@@ -1138,7 +1138,15 @@ errors2 %>%
 \svp{
 Examining the experimentally determined error rates for firearms and toolmark identification leads to a disturbing realization. 
 There is an order of magnitude difference between the probability of same-source evidence given an elimination and the probability of different-source evidence given an identification.
+\autoref{fig:baldwin-shape-overview} provides a visual demonstration of this discrepancy: unlike in \autoref{fig:shape-overview}, there is a difference in the density of points in the inconclusive sections of the chart.
 }
+
+<<baldwin-shape-overview, fig.cap = "Sketch of the relationship between  ground truth of evidence (dots) and examiners' decisions (shaded areas) as reported in \\cite{Baldwin:2014bb}. Each dot represents approximately 2 examiner evaluations. Unlike in \\autoref{fig:shape-overview}, there is a significant difference in the probability of an inconclusive evaluation when a pair is different source or same source. ", fig.width = 6, fig.height = 4, dpi = 1000, dev="pdf", out.width = "70%">>=
+baldwin <- c(a = 1075, b = 11, c = 4, d = 22, e = 737, f = 1421)
+
+do.call(target_plot, as.list(c(round(baldwin/2), pointsize = .5, bordersize = 0.001)))
+# target_plot(1075, 11, 4, 22, 737, 1421, pointsize = .5, bordersize = .001) # too dense
+@
 
 \hh{In fact, even if inconclusives and eliminations are combined,} \svp{that is, if we introduce an artificial binary classification scheme,} \hh{the error rate of making a false elimination is 0.0069, only a third of the error of a false identification.}
 \svp{Note that while the probability of same source given an elimination is affected by lab policies towards the treatment of inconclusives, these policies do not explain the continued discrepancy in error probabilities when inconclusives and eliminations are considered together.

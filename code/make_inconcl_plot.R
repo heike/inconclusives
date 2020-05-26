@@ -1,7 +1,7 @@
 library(sf)
 library(tidyverse)
 
-target_plot <- function(a, b, c, d, e, f) {
+target_plot <- function(a, b, c, d, e, f, pointsize = 1, bordersize = .005) {
   N <- a + b + c + d + e + f
   center_cir <- (a + d)/N
   incon_cir <- (a + d + b + e)/N
@@ -42,18 +42,13 @@ target_plot <- function(a, b, c, d, e, f) {
                         gt = rep(c("SS", "DS"), each = 3),
                         concl = rep(c("Identification", "Inconclusive", "Elimination"), times = 2))
   
-  geo_rm_buffer <- function(reg, dist) {
-    bf <- st_buffer(reg, dist = -dist)
-    st_difference(bf, reg)
-  }
-  
   frame <- crossing(conclusions, ground_truth) %>%
     mutate(geometry = map2(geometry_concl, geometry_gt, st_intersection)) %>%
     select(-geometry_gt, -geometry_concl) %>%
     mutate(type = paste(gt, concl)) %>%
     left_join(ideal_props) %>%
     st_sf() %>%
-    mutate(points = map2(geometry, value, ~st_sample(st_buffer(.x, -.01), .y, type = "hexagonal"))) %>%
+    mutate(points = map2(geometry, value, ~st_sample(st_buffer(.x, -bordersize), .y, type = "hexagonal"))) %>%
     st_sf() %>%
     mutate(concl = factor(concl, levels = c("Identification", "Inconclusive", "Elimination"))) %>%
     mutate(border = factor(concl, labels = c("white", "black", "white")) %>% as.character()) %>%
@@ -64,14 +59,16 @@ target_plot <- function(a, b, c, d, e, f) {
 
   ggplot(frame, aes(geometry = geometry, fill = concl)) + 
     geom_sf(alpha = .6, color = "black") + 
-    geom_sf(data = filter(points, concl != "Inconclusive"), aes(geometry = points), color = "white", alpha = .5, size = 1.5, legend = F) +
-    geom_sf(data = points, aes(geometry = points, color = gt), size = 1) +
+    geom_sf(data = filter(points, concl != "Inconclusive"), aes(geometry = points), color = "white", alpha = .5, size = 1.5*pointsize, legend = F) +
+    geom_sf(data = points, aes(geometry = points, color = gt), size = pointsize) +
     scale_fill_manual("Conclusion", values = c("Identification" = "steelblue", "Inconclusive" = "white", "Elimination" = "darkorange")) + 
     scale_color_manual("Ground Truth", values = c("Same Source" = "steelblue4", "Different Source" = "darkorange4")) +
-    geom_vline(xintercept = 0) + 
+
     annotate(geom = "text", x=-.05, y=.55, label = "Different Source", hjust = 1, size = 5, color = "darkorange4") + 
     annotate(geom = "text", x=.05, y=.55, label = "Same Source", hjust = 0, size = 5, color = "steelblue4") + 
     guides(color = guide_legend(override.aes = list(size = 3)), fill = guide_legend(override.aes = list(shape = NA))) + 
+    geom_sf(aes(geometry = geometry), fill = "transparent", size = .75, color = "black") +     
+    geom_vline(xintercept = 0, size = .75) + 
     theme(axis.text = element_blank(), axis.ticks = element_blank(), 
           axis.title = element_blank(), axis.line = element_blank(),
           panel.background = element_rect(fill = "white", color = "white"),
@@ -79,4 +76,4 @@ target_plot <- function(a, b, c, d, e, f) {
           )
 }
 
-target_plot(100, 40, 15, 15, 40, 100)
+# target_plot(100, 40, 15, 15, 40, 100)
