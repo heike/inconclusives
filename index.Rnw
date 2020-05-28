@@ -386,15 +386,15 @@ Under this framework, an examiner's assessment starts with inconclusive and is r
 % This difference between forensic evaluation and classification problems which are more commonly evaluated provides an unfortunate opportunity for confusion when the same methods \svp{and metrics} \svp{are used to assess classification problems and } forensic decision making. 
 % \svp{Under AFTE guidelines, inconclusives are not errors, but it has been argued that in at least some sense, inconclusives are systematic errors, because the conclusion does not match the known information \citep{koehlerFingerprintErrorRates2007}.}
 
-\hh{Mathematically} there are three ways that inconclusives can be treated in calculating error rates:
+Mathematically, there are three ways that inconclusives can be treated in calculating error rates:
 (1) inconclusives can be excluded from error calculations, (2) included as correct results  \cite{Duez:2017kha}, or (3) included as incorrect results  \cite{chumbleyValidationToolMark2010}; each of these decisions has an impact on the actual value of the error rate as well as the interpretation of the resulting error rates. 
-
-\autoref{tab:overall-err-rate} shows several different error rate calculations, using the general structure of \autoref{tab:generic-results}. 
-Each of these calculations has a  different meaning and interpretation; as a result, it is important to consider which error rate best suits the purpose of a study and its interpretation in the larger framework of pattern evidence. 
-In \autoref{tab:overall-err-rate}, option 0 corresponds to a definition of the overall error rate of a binary, symmetric decision process consisting of two actual states and two possible decisions. 
-For  simplicity we will assume that the two actual states are SS (same source) and DS (different source) and the two decisions are Identification and Elimination. 
-In this case, the overall error rate is the sum of the false positives and the false negatives, divided by the number of overall comparisons. \svp{This approach was used in \citet{chumbleyValidationToolMark2010}, where examiners were asked to make either a positive identification or a positive elimination, and were not given the option of making an inconclusive decision. }
-
+\hh{\autoref{tab:overall-err-rate} shows an overview of these three approaches to calculating the error rate based on} the general structure of \autoref{tab:generic-results}. \hh{Note that there is a fourth option listed, which treats inconclusive results as eliminations.} \hh{While this at the moment seems quite arbitrary, we will come back to this option at a later point in section XXX. }
+Each of \hh{the approaches to calculating the error rate} has a  different meaning and interpretation; as a result, it is important to consider which error rate best suits the purpose of a study and its interpretation in the larger framework of pattern evidence. 
+\hh{There are two main scenarios resulting in error rate calculations of type 1:}
+\svp{ in \citet{chumbleyValidationToolMark2010} examiners were asked to make either a positive identification or a positive elimination, and were not given the option of making an inconclusive decision. } 
+\hh{This results in cell values $b$ and $e$ of zero, i.e.\ the calculation of the overall error rate simplifies to a binary, symmetric decision process consisting of two actual states and two possible decisions. }
+%For  simplicity we will assume that the two actual states are SS (same source) and DS (different source) and the two decisions are Identification and Elimination. 
+In this case, the overall error rate is the sum of the false positives and the false negatives, divided by the number of overall comparisons. 
 
 \newcommand{\redsqd}[2][.8em]{\protect\fcolorbox{black}{red!50}{\makebox[#1][c]{#2\vphantom{a}}}}
 \newcommand{\graysqd}[2][.8em]{\protect\fcolorbox{black}{black!30}{\makebox[#1][c]{#2\vphantom{a}}}}
@@ -407,41 +407,53 @@ In this case, the overall error rate is the sum of the false positives and the f
 \newcommand{\xsq}{\protect\fcolorbox{black}{white!100}{\makebox[1.25em][c]{x\vphantom{dp}}}}
 
 \begin{fmpage}{.985\textwidth}\captionsetup{type=table}\protect\captionof{table}{Different ways to calculate the overall error rate. 
-An arrangement of two rows of three boxes resembles the interior cells of \autoref{tab:generic-results}. Let \pbox{1.65em}{\small\whitesqd{}} ~correspond to a correct decision, indicating that the box is to be included in the denominator of the calculation, \pbox{1.65em}{\graysqd{}} indicate that the box is to be conditionally excluded from the calculation, and \pbox{1.65em}{\redsqd{}} correspond to an incorrect decision, indicating that the box is to be included in the numerator and denominator of the calculation. 
+An arrangement of two rows of three boxes resembles the interior cells of \autoref{tab:generic-results}.
+We use the following convention:\\
+\hfill\pbox{1.65em}{\small\whitesqd{}} correct decisions, cell values are included in the denominator\\
+\hfill\pbox{1.65em}{\graysqd{}} cell value is zero or excluded from the calculation\\
+\hfill\pbox{1.65em}{\redsqd{}} incorrect decision, cell values are included in the numerator and denominator of the error ratio.
 }
 
-\begin{tabularx}{.985\textwidth}{llcl}
+\begin{tabularx}{.99\textwidth}{llcl}
 \# & Type & Illustration & $P(Error) = $\\
-0 & \pbox[l]{9em}{Inconclusives\\Not Allowed} & 
-\pbox{6em}{\whitesq{a}\redsq{c}\\\redsq{d}\whitesq{f}} & 
-$P(DS\text{ \& }Ident.) + P(SS\text{ \& }Excl.) = \displaystyle\frac{c + d}{a + c + d + f}$\\\\
+%0 & \pbox[l]{9em}{Inconclusives\\Not Allowed} & 
+%\pbox{6em}{\whitesq{a}\redsq{c}\\\redsq{d}\whitesq{f}} & 
+%$P(DS\text{ \& }Ident.) + P(SS\text{ \& }Elim) = \displaystyle\frac{c + d}{a + c + d + f}$\\\\
 %
-1 & \pbox[l]{9em}{Ignore\\Inconclusives} & 
+1 & \pbox[l]{9em}{No Inconclusives\\or Incl. Ignored} & 
 \pbox{6em}{\whitesq{a}\graysq{b}\redsq{c}\\\redsq{d}\graysq{e}\whitesq{f}} & 
-$\displaystyle\frac{P(DS\text{ \& }Ident.) + P(SS \text{ \& } Excl.)}{P(Ident.) + P(Excl.)} = \displaystyle\frac{c + d}{a + d + c + f}$\\\\
+$\displaystyle\frac{P(DS\text{ \& }Ident.) + P(SS \text{ \& } Elim.)}{P(Ident.) + P(Elim.)} = \displaystyle\frac{c + d}{a + c + d + f}$\\\\
 %
 2 & \pbox[l]{9em}{Inconclusives\\as Correct} & 
 \pbox{6em}{\whitesq{a}\whitesq{b}\redsq{c}\\\redsq{d}\whitesq{e}\whitesq{f}} & 
-$P(DS\text{ \& }Ident.) + P(SS\text{ \& }Excl.) = \displaystyle\frac{c+d}{N}$\\\\
+$P(DS\text{ \& }Ident.) + P(SS\text{ \& }Elim.) = \displaystyle\frac{c+d}{N}$\\\\
 %
 3 & \pbox[l]{9em}{Inconclusives\\as Incorrect} & 
 \pbox{6em}{\whitesq{a}\redsq{b}\redsq{c}\\\redsq{d}\redsq{e}\whitesq{f}} & 
-$P(DS\text{ \& }Ident.) + P(SS\text{ \& }Excl.) + P(Inconcl.) = \displaystyle\frac{b + c + d + e}{N}$\\
+$\begin{array}{r}
+P(DS\text{ \& }Ident.) + P(SS\text{ \& }Elim.) + P(Inconclusives) =  \\
+= \displaystyle\frac{b + c + d + e}{N} 
+\end{array}$\\\\
+4 & \pbox[l]{9em}{Inconclusives\\as Eliminations} & 
+\pbox{6em}{\whitesq{a}\redsq{b}\redsq{c}\\\redsq{d}\whitesq{e}\whitesq{f}} & 
+$\begin{array}{r}
+P(DS\text{ \& }Ident.) + P(SS\text{ \& }Elim.) + P(SS\text{ \& }Inconcl.) =  \\
+= \displaystyle\frac{b + c + d}{N} 
+\end{array}$ \\
 \end{tabularx}\label{tab:overall-err-rate}
 \end{fmpage}
 
-
-
-One reasonable solution to the inconclusive problem would be to calculate the probability of an error, \svp{provided} that the classification was not inconclusive, as in option 1 of \autoref{tab:overall-err-rate}. 
-Note that if we condition on the decision being either identification or elimination, the probability calculations for scenarios 0 and 1 in \autoref{tab:overall-err-rate} are identical; the only difference between the two is the setup of the scenario: 
-In scenario 1, we allow for inconclusives as a decision category but restrict them from the calculation of the error rate entirely; in scenario 0, inconclusives are not a valid conclusion. 
+%One reasonable solution to the inconclusive problem would be to calculate the probability of an error, \svp{provided} that the classification was not inconclusive, as in option 1 of \autoref{tab:overall-err-rate}. 
+%Note that if we condition on the decision being either identification or elimination, the probability calculations for scenarios 0 and 1 in \autoref{tab:overall-err-rate} are identical; the only difference between the two is the setup of the scenario: 
+\hh{The second scenario arriving at option 1 is to} allow for inconclusives as a decision category but restrict them from the calculation of the error rate entirely.%; in scenario 0, inconclusives are not a valid conclusion. 
 This solution does entirely ignore inconclusives, though, and as they are part of the process and can be included in examiner testimony (usually phrased as ``could not be excluded"), this elimination from consideration is not appropriate if the goal of a study is to assess the error rate of the entire evaluation process. 
-\citet{koehlerProficiencyTestsEstimate2013} recommends using the option 1 approach for calculating error rates while  also tracking rates of inconclusive identifications ``for other purposes".
-\svp{This would be equivalent to using the quantity in option 1 to assess error rates while tracking $P(Inconclusive)$ or possibly, separately tracking $P(Inconclusive \text{ and } SS)$ and $P(Inconclusive \text{ and } DS)$.}
+\citet{koehlerProficiencyTestsEstimate2013} recommends using  option 1 approach for calculating error rates while  also tracking rates of inconclusive identifications ``for other purposes".
+%\svp{This would be equivalent to using the quantity in option 1 to assess error rates while tracking $P(Inconclusive)$ or possibly, separately tracking $P(Inconclusive \text{ and } SS)$ and $P(Inconclusive \text{ and } DS)$.}
 
-Under AFTE's Theory of Identification, however, inconclusive results are acceptable outcomes and not considered errors; to give a very extreme example, an examiner could report inconclusives for the rest of their career and never make an error. Option 2 shows this way of treating inconclusives as correct regardless of the actual state.
-What this means in real terms, is that inconclusives are effectively counted as identifications if they are actually from the same source, but counted as eliminations if they are actually from a different source. 
-When the goal is to assess the error rate of the examiner under the prevailing guidelines of the AFTE Theory of Identification, this is a reasonable option for assessing error rates of firearm and toolmark examiners, with the slightly odd side-effect that an examiner who marks every comparison as inconclusive does not provide any useful actionable information, but effectively has a zero error rate.
+Under AFTE's Theory of Identification, however, inconclusive results are acceptable outcomes and not considered errors. Option 2 shows this way of treating inconclusives as correct regardless of the actual state.
+What this means in real terms, is that inconclusives are effectively counted as identifications if they are actually from the same source, but counted as eliminations if they are actually from a different source. \hh{Note that this approach is exploitable in a strange way: to give} a very extreme example, an examiner could report inconclusives for the rest of their career and never make an error.
+\hh{However,} when the goal is to assess the error rate of the examiner under the prevailing guidelines of the AFTE Theory of Identification, option 2 is a reasonable option for assessing error rates of firearm and toolmark examiners.
+%, with the slightly odd side-effect that an examiner who marks every comparison as inconclusive does not provide any useful actionable information, but effectively has a zero error rate.
 
 When viewed within the framework of the legal system, error rates calculated using option 2  are  not considering any error introduced by the evidence itself. 
 If e.g. a firearm does not mark well, a firearms examiner might not be able to make an identification or an elimination for reasons having nothing to do with the examiner's skill. 
