@@ -285,7 +285,7 @@ Before approaching the actual studies, we will define a framework and some basic
 When examiners assess a set of evidence (generally, a pair of items, one of known provenance and one of unknown provenance) and decide whether the evidence is an identification, inconclusive, or an elimination, they provide a \emph{classification} of the evidence in a set of given categories.  
 \autoref{fig:shape-overview} is a sketch showing the relationship between evidence (dots) and examiners' decisions (areas). The color for both evidence and decisions corresponds to the source of evidence (different/same) and the type of decision made, respectively. The different combinations of colored dots on top of colored regions correspond to the six potential outcomes of evidence assessment and examiner decision. Obviously, not all of these outcomes are correct.  
 
-<<shape-overview, fig.cap = "Sketch of the relationship between  ground truth of evidence (dots) and examiners' decisions (shaded areas). In a perfect scenario dots only appear on the shaded area of the same color. Any dots on differently colored backgrounds indicate an error in the examination process.", out.width = "70%", fig.width = 6, fig.height = 4, dpi = 500, cache = F>>=
+<<shape-overview, fig.cap = "Sketch of the relationship between  ground truth of evidence (dots) and examiners' decisions (shaded areas). In a perfect scenario dots only appear on the shaded area of the same color. Any dots on differently colored backgrounds indicate an error in the examination process.", out.width = "60%", fig.width = 6, fig.height = 4, dpi = 500, cache = F>>=
 source("code/make_inconcl_plot.R") 
 target_plot(100, 50, 10, 10, 50, 100) 
 @
@@ -363,15 +363,15 @@ There are two possibilities to describe the physical state of the evidence: two 
 \hh{raises some questions on how inconclusive results should be dealt with when calculating error rates.}
 %that the treatment of inconclusives when calculating error rates is the subject of some debate. 
 Under AFTE guidelines, an inconclusive \hh{result is an acceptable outcome of a comparison and  therefore can not considered to be an error made by the examiner.}
-It has been argued \hh{, however,} that %in at least some sense,
-inconclusives are systematic errors \hh{of the identification process}, because the conclusion does not match the known information \citep{koehlerFingerprintErrorRates2007}.
+It has been argued, however, that %in at least some sense,
+inconclusives are systematic errors \hh{occurring during the identification process}, because the final conclusion does not match the known information \citep{koehlerFingerprintErrorRates2007}.
 
 \hh{While these two statements are seemingly directly contradictory, we argue that XXX urgh. phrasing. what I want to say is that we can bring these statements together, and our guidance should be to determine what is closest to the truth. }
 
-\hh{XXX I feel like that Dror gets us on a different path - more of a bayesian classification problem with inconclusives as a prior and an updated posterior based on additional information available. I really like the thought, though - it would also fit well with quality of scans; need to think about it.}
+%\hh{XXX I feel like that Dror gets us on a different path - more of a bayesian classification problem with inconclusives as a prior and an updated posterior based on additional information available. I really like the thought, though - it would also fit well with quality of scans; need to think about it. HH: new day, let's keep Dror for now. }
 \citet{Dror:2018fp} suggest treating inconclusive results as equivalent to a ``decision with certainty that the quantity and quality of information are not sufficient to draw any conclusion regarding the source".
 Under this framework, an examiner's assessment starts with inconclusive and is refined to identification or elimination given sufficient evidence in either direction.
-This approach treats inconclusives as neither errors nor correct decisions, but it does imply that in the presence of a certain amount of data, an inconclusive result is not an allowable decision and the examiner must make an identification or elimination.
+%This approach treats inconclusives as neither errors nor correct decisions, but it does imply that in the presence of a certain amount of data, an inconclusive result is not an allowable \hh{XXX I don't quite agree with the 'not allowable' - I think it just gets very unlikely} decision and the examiner must make an identification or elimination.
 \hh{Statistically, this would suggest that the decision about the amount of evidence available (inconclusive or not) would be independent of the source of the evidence (same or different source). That is, inconclusives should be equally likely in same-source and different-source assessments.}
 % % \hh{XXX should we keep the criticism to the discussion?}\svp{Yes, because it makes it clear we're aware of the discussion. Otherwise we'll just get a review telling us we're too new at this because we didn't cite xyz.}
 % \svp{The view expressed in \citet{Dror:2018fp}} has drawn some criticism  \citep{Biedermann:2018hr,biedermannAreInconclusiveDecisions2019}\svp{, primarily on the grounds that inconclusive decisions may be more ``optimal" under formal decision-theoretic analysis than a forced binary decision. While inconclusives may be preferable in formal decision theory analyses, they pose more of a problem when assessing the accuracy and error rates of the examination process.}
