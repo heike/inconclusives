@@ -803,18 +803,21 @@ DontKnow <- data.frame(
   Decision=rep(c("Inconclusive", "Elimination"), each=2))
 
 errors <- studies %>% 
-  mutate(
+  mutate( # note, this is defining CORRECT decisions
     AFTE = (Ground.truth=="Same Source" & Decision != "Elimination") | 
       (Ground.truth=="Different Source" & Decision != "Identification"),
     Process = ((Ground.truth=="Same Source" & Decision == "Identification") | 
-      (Ground.truth=="Different Source" & Decision == "Elimination"))
+      (Ground.truth=="Different Source" & Decision == "Elimination")),
+    Elimination = ((Ground.truth=="Same Source" & Decision == "Identification") | 
+      (Ground.truth=="Different Source" & Decision %in% c("Inconclusive", "Elimination")))
          ) %>%
   group_by(Study, Ground.truth) %>% 
   filter(Type == "Observed") %>%
   summarize(
     Comparisons = sum(Number),
     AFTE = sum(Number[!AFTE]),
-    Process = sum(Number[!Process])
+    Process = sum(Number[!Process]),
+    Elimination = sum(Number[!Elimination])
   ) %>% 
   mutate(
     Error = c("Missed Elimination", "Missed Identification")[as.numeric(Ground.truth=="Same Source")+1]
@@ -851,11 +854,19 @@ The rates reported in this section are calculated directly from information repo
 More realistic estimates of error rates that account for the use of deductive reasoning can be found in \ref{sec:sim}.
 
 
-<<errors, echo=FALSE, fig.width=8, fig.height=3,fig.cap="Percentages of missed eliminations and missed identifications by study. 95\\% Pearson-Clopper confidence intervals are drawn around the error estimates. Missed eliminations cannot be calculated for closed-set studies.", out.width=".8\\textwidth">>=
+<<errors, echo=FALSE, fig.width=8, fig.height=4,fig.cap="Percentages of missed eliminations and missed identifications by study. 95\\% Pearson-Clopper confidence intervals are drawn around the error estimates. Missed eliminations cannot be calculated for closed-set studies.", out.width=".8\\textwidth">>=
 
 
-errors %>% gather(Type, Number, AFTE, Process) %>% 
-  mutate(Type = factor(Type, levels=c("AFTE", "Process"))) %>%
+gg <- errors %>% gather(Type, Number, AFTE, Process, Elimination) %>% 
+  mutate(
+    Type = factor(Type, levels=c("AFTE", "Process", "Elimination"))
+    ) 
+levels(gg$Type) <- c(
+  "AFTE error (Option 2)",
+  "Process error (Option 3)",
+  "Inconclusives are Eliminations (Option 4)")
+
+gg %>%
   group_by(Type, Study, Error) %>%
   mutate(
     err_lower = clopper(0.05, Number, Comparisons)[1]*100,
@@ -865,14 +876,15 @@ errors %>% gather(Type, Number, AFTE, Process) %>%
   geom_point(aes(shape=Type, colour = Type, y = as.numeric(Study)+0.3*(as.numeric(Type)-1.5)) ) +
   facet_grid(.~Error, scale = "free_x") + #, space="free") +
   theme_bw() +
-  theme(legend.position = "bottom") +
+#  theme(legend.position = "bottom") +
   xlab("(Source-specific) Error Percentages") +
   xlim(c(0, NA)) +
   geom_errorbarh(aes(xmin=err_lower, xmax=err_upper, colour = Type, y=as.numeric(Study)+0.3*(as.numeric(Type)-1.5)),
                  size=0.5, height = 0.3,  alpha =0.9) +
   scale_y_continuous(breaks=1:6, labels=levels(errors$Study), minor_breaks = NULL) +
-  scale_colour_brewer(palette="Dark2") 
-  
+  scale_colour_brewer(palette="Dark2") +
+  theme(legend.position = "bottom") +
+  guides(colour=guide_legend(ncol=1))
 @
 
 
