@@ -474,6 +474,27 @@ Practically, option 3 reflects the error of the \emph{examination process} rathe
 %Nonetheless, even though a pair of objects originated from the same physical source, it is not possible to evaluate the evidence and make an identification. 
 %The inconclusives are representative of the errors involved in the process of evidence recording, rather than the evaluation. 
 
+\hh{XXX do we need to say something about option 4 here? }
+
+\hh{The errors introduced in this section summarize the overall error rate. While these errors are informative, most studies allow us a deeper insight into different aspects of the examination process by taking additional information into account.
+%
+In the next two sections we are introducing two  sets of error rates: {\it source-specific} and {\it decision-specific} error rates.}
+
+
+%\svp{We have detailed several options for the treatment of inconclusive results when assessing error rates using traditional metrics such as sensitivity and specificity or when calculating an overall error rate}. 
+%There are, however, 
+\hh{Both of these approaches are}
+additional 
+assessments of the reliability of a classification method which leverage \emph{conditional probabilities}, i.e.\ probabilities which are updated to account for known (or assumed) information.
+%The next two sections detail two different sets of conditional probabilities which both assess the accuracy and reliability of the classification process.
+\svp{Some of these} conditional probabilities have the advantage of not requiring inconclusives to be handled as errors or correct decisions. 
+In addition, \svp{examining the} conditional probabilities offers some \svp{additional insights into the process of firearms examination and the types of errors which are likely to be made.}
+
+
+
+
+\hh{XXX  let's find a different spot for the next paragraph.}
+
 % \svp{XXX Not sure this should go here, but not sure if there's a better place for it to go... XXX}
 
 Some studies screen for \svp{the} possibility \svp{that there is insufficient information present to make a conclusive assessment}, removing evidence with insufficient identifying marks before the study is conducted.
@@ -483,21 +504,13 @@ Additionally, \hh{for 3234 comparisons, FTEs evaluated how many of the known car
 The Baldwin study is fairly unique in this regard: most studies make some effort to control the quality of the evidence sent out for assessment.
 Studies which tightly control the evidence quality and presence of individualizing marks would under-estimate the process error (though the estimates of examiner error are not necessarily affected). %\svp{XXX not sure this is true - need to think through it...}
 
-
-\svp{We have detailed several options for the treatment of inconclusive results when assessing error rates using traditional metrics such as sensitivity and specificity or when calculating an overall error rate}. 
-There are, however, additional assessments of the reliability of a classification method which leverage \emph{conditional probabilities}: probabilities which are updated to account for known (or assumed) information.
-The next two sections detail two different sets of conditional probabilities which both assess the accuracy and reliability of the classification process.
-\svp{Some of these} conditional probabilities have the advantage of not requiring inconclusives to be handled as errors or correct decisions. 
-In addition, \svp{examining the} conditional probabilities offers some \svp{additional insights into the process of firearms examination and the types of errors which are likely to be made.}
-
-
-
 \subsection{Source-specific assessment}
 
 %\hh{When assessing the accuracy of a classification \emph{success rates} and \emph{error rates} are of interest, i.e.\ the interest shifts from the classification to the numerical quantity indicating how often the process produces correct and incorrect results.}
 
+%\svp{Note that both the TPR and TNR are measures of the accuracy of a classification method.}
 
-The most common way to assess success rates of a classification method is to calculate its \emph{sensitivity} and \emph{specificity}. 
+The most common way to assess the success (or accuracy)  of a classification method is to calculate its \emph{sensitivity} and \emph{specificity}. 
 Sensitivity, also called the true positive rate (TPR), is an examiner's ability to make an identification when examining same source evidence (SS). 
 Sensitivity can be expressed as the conditional probability $P (\text{Identification} \mid SS)$. 
 Conversely, specificity, or the true negative rate (TNR), is an examiner's ability to make an elimination given evidence from different sources (DS), $P (\text{Elimination} \mid DS)$. 
@@ -505,14 +518,12 @@ Mathematically, we calculate the true negative rate as the conditional probabili
 A conditional probability of an event \emph{given} another event is the probability that the two events both occur, divided by the probability of the second event, specifically for the true negative rate:
 $$TNR = P(\text{Elimination} | DS) = \frac{P(\text{Elimination and } DS)}{P(DS)}.$$
 
-\svp{Note that both the TPR and TNR are measures of the accuracy of a classification method.}
 
 % \hh{XXX before we talk about inconclusives we really can't discuss what an error is.}
 
 \hh{Complementary to accuracy rates, we define two error rates of a classification method:}
 %Another common method of assessing accuracy of a classification method is to calculate the false positive rate (FPR) and the false negative rate (FNR). 
-The \emph{false positive rate} (FPR) -- or failed elimination rate -- is the probability that an examination of different source evidence does not result in an elimination. %: $FPR = 1 - TNR$.
-
+The \emph{false positive rate} (FPR) -- or failed elimination rate -- is the probability that an examination of different source evidence does not result in an elimination. %: $FPR = 1 - TNR$. 
 Similarly, the \emph{false negative rate} (FNR) -- or missed identification rate -- is the probability that an examination of same-source evidence does not result in an identification. %: $FNR = 1 - TPR$. %makes an elimination from evidence which originates from the same source (SS), $FNR = P(\text{Elimination} | SS)$. 
 
 \begin{figure}
@@ -521,14 +532,12 @@ Similarly, the \emph{false negative rate} (FNR) -- or missed identification rate
 \caption{Tree Diagram illustrating the logic of source-specific error rates. \hh{Information flow happens from left to right: we are assessing an examiners decision given that someone (not the examiner) knows the source of the evidence. }. Source-specific rates give the probability of an examiner's decision ( Identification, Inconclusive, or Elimination) given same-source and different-source evidence.}\label{fig:FPR-specific-tree}
 \end{figure}
 
-\hh{Note that we are keeping the definition of error rates a bit vague on purpose. 
-% We will pick up the discussion of how to precisely define error rates in~\autoref{error-rates}.
-}
-\svp{As in \autoref{sec:error-rates}, there are multiple ways to define an error; the concept holds for both option 1 and option 2 treatment of inconclusives with regard to errors.}
-%an examiner makes an identification from evidence which is from different sources (DS), $FPR = P(\text{Identification} | DS)$.
+Note that we are keeping the definition of error rates a bit vague on purpose. 
+As discussed in \autoref{sec:error-rates}, there are multiple ways to define an error; but the concepts of FPR and FNR hold for all of the  options of treating  inconclusives \hh{outlined in \autoref{tab:overall-err-rate}}.
 
-%The \emph{false negative rate} is the probability that an examiner makes an elimination from evidence which originates from the same source (SS), $FNR = P(\text{Elimination} | SS)$. 
-In all  of these assessments, the rates are calculated by conditioning on the \emph{origin of the evidence}; this process is shown graphically in \autoref{fig:FPR-specific-tree} using a decision tree to describe the comparisons which can be made conditioned on ground truth. Calculations for each value are shown in \autoref{tab:fpr-prob}.
+
+In all  of these assessments, the
+rates are calculated by conditioning on the \emph{origin of the evidence}. This process is shown graphically in \autoref{fig:FPR-specific-tree} using a decision tree to describe the comparisons which can be made conditioned on ground truth. Calculations for each value are shown in \autoref{tab:fpr-prob}.
 
 \begin{table}\centering
 \caption{
@@ -545,7 +554,7 @@ Different source & $d/D$ & $e/D$ & $f/D$ & $D/N$\\\hline
 \multicolumn{1}{Y}{Conclusion probability} & $(a + d)/N$ & $(b + e)/N$ & \multicolumn{1}{r}{$(c + f)/N$} & \multicolumn{1}{Y}{1.00}\\\hline\hline
 \end{tabularx}
 \end{table}
-A google sheets workbook which will perform all of these calculations \svp{given counts $a, b, c, d, e, \text{ and } f$} is available at \url{http://bit.ly/FTE-error-rate-worksheet}.
+A google sheets workbook which  performs all of these calculations given counts $a, b, c, d, e, \text{ and } f$ is available at \url{http://bit.ly/FTE-error-rate-worksheet}.
 
 \svp{Thus, assuming a comparison is same-source, the examiner would make an identification with probability $a/S$. This is equivalent to the true positive rate, or TPR. 
 Assuming a comparison is different source, the examiner would make an elimination with probability $f/D$. This is equivalent to the true negative rate, or TNR.}
@@ -553,7 +562,6 @@ Assuming a comparison is different source, the examiner would make an eliminatio
 % \svp{XXX need to provide real-world meaning (e.g. court testimony, if possible) for a couple of these values.}
 
 % \hh{XXX should we pull up some of the discussion that only regards these error rates? source-specific probabilities can not be calculated from casework, they allow an assessment of the performance of an examiner, but not an assessment of the evidence. source-specific probabilities are the error rates typically reported. Our argument here is that they are largely irrelevant in legal proceedings}\svp{Let's leave that to the practical impact section - it's close enough to this section that it should still be connectable, and it will make more sense when contrasted against the decision specific assessment.}
-
 
 \subsection{Decision-specific assessment}
 
