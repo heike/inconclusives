@@ -610,7 +610,7 @@ While mathematically it makes sense to condition on unknown quantities, in pract
 \svp{Conversely, source-specific assessments may be useful when evaluating the performance of individuals on a designed test, because ground truth is known (and thus, can be conditioned upon) in designed studies.}
 
 
-\subsection{Practical impact of error rates}
+\subsection{Practical interpretation of error rates}
 
 Mathematically, the primary difference between the decision tree diagrams in Figure \ref{fig:FPR-specific-tree} and \ref{fig:PPV-specific-tree} is the conditioned variable. 
 The source-specific error rates, FPR and FNR, are calculated by conditioning on the source of of the evidence (same-source/different source) and give the probability of an examiner's decision.
