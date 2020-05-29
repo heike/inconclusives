@@ -445,7 +445,7 @@ P(DS\text{ \& }Ident.) + P(SS\text{ \& }Elim.) + P(SS\text{ \& }Inconcl.) =  \\
 
 %One reasonable solution to the inconclusive problem would be to calculate the probability of an error, \svp{provided} that the classification was not inconclusive, as in option 1 of \autoref{tab:overall-err-rate}. 
 %Note that if we condition on the decision being either identification or elimination, the probability calculations for scenarios 0 and 1 in \autoref{tab:overall-err-rate} are identical; the only difference between the two is the setup of the scenario: 
-\hh{The second scenario arriving at option 1 is to} allow for inconclusives as a decision category but restrict them from the calculation of the error rate entirely.%; in scenario 0, inconclusives are not a valid conclusion. 
+\hh{The second scenario arriving at option 1 is to} allow for inconclusives as a decision category but restrict them from the calculation of the error rate entirely. %; in scenario 0, inconclusives are not a valid conclusion. 
 This solution does entirely ignore inconclusives, though, and as they are part of the process and can be included in examiner testimony (usually phrased as ``could not be excluded"), this elimination from consideration is not appropriate if the goal of a study is to assess the error rate of the entire evaluation process. 
 \citet{koehlerProficiencyTestsEstimate2013} recommends using  option 1 approach for calculating error rates while  also tracking rates of inconclusive identifications ``for other purposes".
 %\svp{This would be equivalent to using the quantity in option 1 to assess error rates while tracking $P(Inconclusive)$ or possibly, separately tracking $P(Inconclusive \text{ and } SS)$ and $P(Inconclusive \text{ and } DS)$.}
@@ -455,18 +455,24 @@ What this means in real terms, is that inconclusives are effectively counted as 
 \hh{However,} when the goal is to assess the error rate of the examiner under the prevailing guidelines of the AFTE Theory of Identification, option 2 is a reasonable option for assessing error rates of firearm and toolmark examiners.
 %, with the slightly odd side-effect that an examiner who marks every comparison as inconclusive does not provide any useful actionable information, but effectively has a zero error rate.
 
-When viewed within the framework of the legal system, error rates calculated using option 2  are  not considering any error introduced by the evidence itself. 
-If e.g. a firearm does not mark well, a firearms examiner might not be able to make an identification or an elimination for reasons having nothing to do with the examiner's skill. 
-However, from the wider perspective of the \emph{system}, it is  important to look at the overall error rate of the entire process.
-\svp{That is, given recovered evidence A and B, what is the probability that }
-This requires that we consider the errors from the perspective of the real-world state: two pieces of evidence are  either from the same source or originate from different sources; an inability to distinguish between those options is an error in the \emph{process} even it if is not an error made on the part of the examiner. 
+\hh{Option 3 provides an approach to view inconclusive results and the corresponding error rates }
+%When viewed 
+within the wider framework of the legal system:
+%error rates calculated using option 2  are  not considering any error introduced by the evidence itself. 
+if e.g. a firearm does not mark well, a firearms examiner might not be able to make an identification or an elimination for reasons having nothing to do with the examiner's skill.  
+From the  perspective of the \emph{identification process}, though, \hh{an inconclusive result does not result in a decision of identification or elimination and can therefore not be considered a successful assessment:}
+%it is  important to look at the overall error rate of the entire process.
+%\svp{That is, given recovered evidence A and B, what is the probability that }
+%This requires that we consider the errors from the perspective of the real-world state: 
+two pieces of evidence are  either from the same source or originate from different sources and an inability to distinguish between those options is an error. %in the \emph{examination process} even  if it is not an error made on the part of the examiner. 
 
-Option 3 of \autoref{tab:overall-err-rate} reflects this global view by counting inconclusives as errors. 
+%Option 3 of \autoref{tab:overall-err-rate} reflects this global view by counting inconclusives as errors. 
 Practically, option 3 reflects the error of the \emph{examination process} rather than the examiner as an individual. 
-To illustrate why this is the case, consider that an examiner may, upon inspection of a fired bullet, find that there are insufficient individualizing characteristics to make an identification.
-This does not reflective negatively on the examiner's skill; it is merely a consequence of the contact made between the ammunition and the gun during the firing process. 
-Nonetheless, even though a pair of objects originated from the same physical source, it is not possible to evaluate the evidence and make an identification. 
-The inconclusives are representative of the errors involved in the process of evidence recording, rather than the evaluation. 
+%\hh{XXX The next couple of sentence only repeat the above}
+%To illustrate why this is the case, consider that an examiner may, upon inspection of a fired bullet, find that there are insufficient individualizing characteristics to make an identification.
+%This does not reflective negatively on the examiner's skill; it is merely a consequence of the contact made between the ammunition and the gun during the firing process. 
+%Nonetheless, even though a pair of objects originated from the same physical source, it is not possible to evaluate the evidence and make an identification. 
+%The inconclusives are representative of the errors involved in the process of evidence recording, rather than the evaluation. 
 
 % \svp{XXX Not sure this should go here, but not sure if there's a better place for it to go... XXX}
 
