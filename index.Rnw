@@ -462,7 +462,7 @@ $$TNR = P(\text{Elimination} | DS) = \frac{P(\text{Elimination and } DS)}{P(DS)}
 
 % \hh{XXX before we talk about inconclusives we really can't discuss what an error is.}
 
-\hh{Complementary to accuracy rates, we define two error rates of a classification method:}
+Complementary to accuracy rates, we define two error rates of a classification method:
 %Another common method of assessing accuracy of a classification method is to calculate the false positive rate (FPR) and the false negative rate (FNR). 
 The \emph{false positive rate} (FPR) -- or failed elimination rate -- is the probability that an examination of different source evidence does not result in an elimination. %: $FPR = 1 - TNR$. 
 Similarly, the \emph{false negative rate} (FNR) -- or missed identification rate -- is the probability that an examination of same-source evidence does not result in an identification. %: $FNR = 1 - TPR$. %makes an elimination from evidence which originates from the same source (SS), $FNR = P(\text{Elimination} | SS)$. 
