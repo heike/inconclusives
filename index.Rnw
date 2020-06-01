@@ -602,8 +602,7 @@ Using these comparisons we assess the state of these error rate studies and prov
 
 
 \subsection{Error Rate Studies}
-\svp{
-While we did not attempt to include every study ever performed, we did include studies which are frequently cited in research or legal proceedings, as well as several of the studies mentioned in the PCAST and NAS reports concerning firearm and toolmark analysis. A brief description of each study is provided here for reference purposes, with summary tables of results and conditional probabilities provided in \ref{sec:supplement}.}
+The studies included in this section are not an exhaustive list of every study ever performed, rather we tried to include the most central and most cited studies, as well as several of the studies mentioned in the PCAST and NAS reports concerning firearm and toolmark analysis. A brief description of each study is provided here for reference purposes, with summary tables of results and conditional probabilities provided in \ref{sec:supplement}.
 
 \begin{description}
 \item[Baldwin] \citep{Baldwin:2014bb} is a study of Ruger SR9 cartridge cases. It is an open-set study with 15 comparisons of 3 knowns to 1 questioned cartridge case. Participants received sets with 10 different-source and 5 same-source comparisons.
@@ -613,25 +612,26 @@ While we did not attempt to include every study ever performed, we did include s
 \item[Duez] \citep{Duez:2017kha} is an open-set study of breech face comparisons using virtual microscopy. Each of 56 participants (46 trained, 10 trainees) received two test sets consisting of one standard (3 scans) and 4 questioned scans In one set, all questioned scans were from the same source as the standard; in the second set, there were two different-source questioned scans and two same-source questioned scans.
 \item[Bunch \& Murphy] \citep{bunch2003comprehensive} is an open-set study of consecutively manufactured Glock breechfaces. In this study, each of 8 participants received 10 cartridge cases and was required to evaluate each possible pairwise comparison. In this study, the number of same-source and different-source cartridge cases varied by test kit from 10 same-source cartridges to 10 different-source cartridges.
 \item[Fadul] \citep{fadul} is a closed-set study of the breech face striations/impressions produced by 10 consecutively manufactured slides. Participants received a set of 10 standards and 15 questioned cases. The design of this study is similar to  \citep{Hamby:2018hu}.
-\item [Chumbley] \citep{chumbleyValidationToolMark2010} \svp{compared the performance of an automated algorithm with examiners' performance for limited portions of marks made by consecutively manufactured chisles at different angles. The Chumbley study had 50 participants, but did not report the number of same source and different source comparisons in the examiner portion of the study, making it unsuitable for further analysis. }
-\item [Hare] \citep{aoas2} \svp{assessed the performance of a computational algorithm for bullet analysis, using binary classification (no inconclusives). Subsequent studies  \cite{case-validation} of the algorithm presented in  \citep{aoas2} suggest that on the bullet-to-bullet comparison level, the algorithm perfectly classifies bullets from 3 different external test sets.}
+%\item [Chumbley] \citep{chumbleyValidationToolMark2010} \svp{compared the performance of an automated algorithm with examiners' performance for limited portions of marks made by consecutively manufactured chisles at different angles. The Chumbley study had 50 participants, but did not report the number of same source and different source comparisons in the examiner portion of the study, making it unsuitable for further analysis. }
+%\item [Hare] \citep{aoas2} \svp{assessed the performance of a computational algorithm for bullet analysis, using binary classification (no inconclusives). Subsequent studies  \cite{case-validation} of the algorithm presented in  \citep{aoas2} suggest that on the bullet-to-bullet comparison level, the algorithm perfectly classifies bullets from 3 different external test sets.} \hh{XXX }
 \end{description}
 
+\hh{Besides the seven studies identified here, ... XXX?}
 \svp{
 Of the nine studies identified, one  \citep{aoas2} presents a method for quantitative comparison of bullets with no experimental lab-based examiner assessments. 
 Two other studies  \citep{chumbleyValidationToolMark2010, fadul} did not provide sufficient detail about examiner results and conclusions to conduct a partial analysis based on the AFTE theory of identification.
 }
 
-\svp{In the next sections, we discuss the design and results of each study, including calculation and comparison of source- and decision-specific error rates. }
+In the next sections, we discuss the design and results of each study, including calculation and comparison of source- and decision-specific error rates. 
 
 \subsection{Consequences of Study Designs for Error Rate Estimation}
-\svp{Our survey of the most commonly cited studies reveals a list of experimental design concerns similar to those identified in the 2017 addendum to the PCAST report \cite{pcast-addendum2017}}. 
+Our survey of the most commonly cited studies reveals a list of experimental design concerns similar to those identified in the 2017 addendum to the PCAST report \cite{pcast-addendum2017}. 
 
 \begin{displayquote}
 As described in the PCAST report, ``set-based" approaches can inflate examiners performance by allowing them to take advantage of internal dependencies in the data. The most extreme example is the ``closed-set design", in which the correct source of each questioned sample is always present; studies using the closed-set design have underestimated the false-positive and inconclusive rates by more than 100-fold. This striking discrepancy seriously undermines the validity of the results and underscores the need to test methods under appropriate conditions. Other set-based designs also involve internal dependencies that provide hints to examiners, although not to the same extent as closed-set designs.
 \end{displayquote}
 
-The PCAST response, isued in  \citeyear{pcast-addendum2017}, identifies only one study \cite{Baldwin:2014bb} as appropriately designed to evaluate the validity and reliability of firearms analysis methods. 
+The PCAST response, issued in  \citeyear{pcast-addendum2017}, identifies only one study \cite{Baldwin:2014bb} as appropriately designed to evaluate the validity and reliability of firearms analysis methods. 
 Shortly after the report was issued, two more studies were published which also meet the criteria for reliable studies in the report:  \citet{keisler} and  \citet{Duez:2017kha}. 
 All three ``good" studies used slightly different designs, but maintained certain essentials: each kit consisted of multiple comparisons composed of one or more samples from exactly one known source and one unknown source.
 These designs substantially reduce or eliminate the internal dependencies which provide ``hints" to examiners by ensuring that each comparison of samples is considered independently.
