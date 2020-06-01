@@ -336,7 +336,7 @@ The examiner can make an identification, an elimination, or an inconclusive dete
 The difference in number of possible source categories and resulting decisions raises some questions on how inconclusive results should be dealt with when calculating error rates.
 Under AFTE guidelines, an inconclusive result is an acceptable outcome of a comparison and  therefore can not considered to be an error made by the examiner.
 It has been argued, however, that inconclusives are systematic errors which occur during the identification process, because the final conclusion does not match the known information \citep{koehlerFingerprintErrorRates2007}.
-\svp{While these two statements seem to be contradictory, in this paper, we provide a foundation under which the two approaches can be partially reconciled in a way that provides additional insight in to the examination process.} % my attempt
+While these two statements seem to be contradictory, in this paper, we provide a foundation under which the two approaches can be partially reconciled in a way that provides additional insight into the examination process. % my attempt % HH I like it :)
 % \hh{While these two statements are seemingly directly contradictory, we argue that XXX urgh. phrasing. what I want to say is that we can bring these statements together, and our guidance should be to determine what is closest to the truth. }
 
 %\hh{XXX I feel like that Dror gets us on a different path - more of a bayesian classification problem with inconclusives as a prior and an updated posterior based on additional information available. I really like the thought, though - it would also fit well with quality of scans; need to think about it. HH: new day, let's keep Dror for now. }
@@ -345,9 +345,10 @@ Under this framework, an examiner's assessment starts with inconclusive and is r
 Statistically, this would suggest that the decision about the amount of evidence available (inconclusive or not) would be independent of the source of the evidence (same or different source). That is, inconclusives should be equally likely in same-source and different-source assessments.
 
 \svp{XXX Statistically, Mathematically - we sound like we're trying to emphasize different approaches here, and the two statements aren't synchronous XXX}
-Mathematically, there are three ways that inconclusives can be treated in calculating error rates:
+%Mathematically, t
+There are three main ways that inconclusives can be treated in calculating error rates:
 (1) inconclusives can be excluded from error calculations, (2) included as correct results  \cite{Duez:2017kha}, or (3) included as incorrect results  \cite{chumbleyValidationToolMark2010}; each of these decisions has an impact on the actual value of the error rate as well as the interpretation of the resulting error rates. 
-\autoref{tab:overall-err-rate} shows an overview of these three approaches to calculating the error rate based on the general structure of \autoref{tab:generic-results}, \svp{with a fourth option which will be addressed in more detail in \autoref{sec:inconclusives}}. 
+\autoref{tab:overall-err-rate} shows an overview of these three approaches to calculating the error rate based on the general structure of \autoref{tab:generic-results}, with a fourth option which will be addressed in more detail in \autoref{sec:inconclusives}. 
 % Note that there is a fourth option listed, which treats inconclusive results as eliminations. 
 % While this at the moment seems quite arbitrary, we will come back to this option at a later point in \hh{XXX}. %\autoref{sec:}. 
 Each of the approaches to calculating the error rate has a  different meaning and interpretation; as a result, it is important to consider which error rate best suits the purpose of a study and its interpretation in the larger framework of pattern evidence. 
@@ -467,7 +468,7 @@ Similarly, the \emph{false negative rate} (FNR) -- or missed identification rate
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth]{figures/Source-specific-tree-diagram.pdf}
-\caption{Tree Diagram illustrating the logic of source-specific error rates. \hh{Information flow happens from left to right: we are assessing an examiners decision given that someone (not the examiner) knows the source of the evidence. }. Source-specific rates give the probability of an examiner's decision ( Identification, Inconclusive, or Elimination) given same-source and different-source evidence.}\label{fig:FPR-specific-tree}
+\caption{Tree Diagram illustrating the logic of source-specific error rates. \hh{Information flow happens from left to right: we are assessing an examiners decision given that someone (not the examiner) knows the source of the evidence.} Source-specific rates give the probability of an examiner's decision (Identification, Inconclusive, or Elimination) given same-source and different-source evidence.}\label{fig:FPR-specific-tree}
 \end{figure}
 
 Note that we are keeping the definition of error rates a bit vague on purpose. 
