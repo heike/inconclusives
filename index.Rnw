@@ -410,7 +410,9 @@ This solution does entirely ignore inconclusives, though, as they are part of th
 
 
 Under AFTE's Theory of Identification, however, inconclusive results are acceptable outcomes and not considered errors. Option 2 shows this way of treating inconclusives as correct regardless of the actual state.
-What this means in real terms, is that inconclusives are effectively counted as identifications if they are actually from the same source, but counted as eliminations if they are actually from a different source. Note that this approach is \svp{XXX do we really want to use exploitable instead of making it a bit less personal?} exploitable in a strange way: to give a very extreme example, an examiner could report inconclusives for the rest of their career and never make an error.
+What this means in real terms, is that inconclusives are effectively counted as identifications if they are actually from the same source, but counted as eliminations if they are actually from a different source. Note that this approach is 
+%\svp{XXX do we really want to use exploitable instead of making it a bit less personal?} 
+exploitable in a strange way: to give a very extreme example, an examiner could report inconclusives for the rest of their career and never make an error.
 However, when the goal is to assess the error rate of the examiner under the prevailing guidelines of the AFTE Theory of Identification, option 2 is a reasonable option for assessing error rates of firearm and toolmark examiners.
 %, with the slightly odd side-effect that an examiner who marks every comparison as inconclusive does not provide any useful actionable information, but effectively has a zero error rate.
 
