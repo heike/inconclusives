@@ -431,17 +431,19 @@ Practically, option 3 reflects the error of the \emph{examination process} rathe
 
 %\hh{XXX do we need to say something about option 4 here? }
 
-\svp{In option 4, which will become more relevant in \autoref{sec:inconclusives}, inconclusives are treated the same as eliminations. 
-This option places the primary focus of the examiner's assessment on identification, and treats any failure to make an identification as equivalent to an elimination.}
+In option 4, which will become more relevant in \autoref{sec:inconclusives}, inconclusives are treated the same as eliminations. 
+This option places the primary focus of the examiner's assessment on identification, and treats any failure to make an identification as equivalent to an elimination.
 
 The errors introduced in this section summarize the overall error rate. While these errors are informative, most studies allow us a deeper insight into different aspects of the examination process by taking additional information into account.
 %
-In the next two sections we introduce two \svp{additional types} of error rates: {\it source-specific} and {\it decision-specific} error rates.
+In the next two sections we introduce two additional types of error rates: {\it source-specific} and {\it decision-specific} error rates.
 Both of these approaches are additional assessments of the reliability of a classification method which leverage \emph{conditional probabilities}, i.e.\ probabilities which are updated to account for known (or assumed) information.
-\svp{These conditional probabilities provide more specific information about certain scenarios, but do not broadly summarize an experiment using a single number.}
+Rather than summarizing an experiment in a single number reflecting error or accuracy like before, 
+these conditional probabilities allow us to provide a more specific assessment of the error accounting for known information, such as the examiner's decision or the source of the evidence. This allows us in particular to calculate separate accuracy rates for comparisons of same-source or different-source evidence. 
+%about certain scenarios, but do not broadly summarize an experiment using a single number.
 %The next two sections detail two different sets of conditional probabilities which both assess the accuracy and reliability of the classification process.
-\svp{However, some of these} conditional probabilities have the advantage of not requiring inconclusives to be explicitly handled as errors or correct decisions. 
-In addition, \svp{examining the} conditional probabilities offers some \svp{additional insights into the process of firearms examination and the types of errors which are likely to be made.}
+This has the additional advantage that some of these conditional probabilities do not require inconclusives to be explicitly handled as errors or correct decisions. 
+%In addition, examining the conditional probabilities offers some additional insights into the process of firearms examination and the types of errors which are likely to be made.
 
 
 
