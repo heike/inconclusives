@@ -474,7 +474,7 @@ Similarly, the \emph{false negative rate} (FNR) -- or missed identification rate
 \end{figure}
 
 Note that we are keeping the definition of error rates a bit vague on purpose. 
-As discussed in \autoref{sec:error-rates}, there are multiple ways to define an error; but the concepts of FPR and FNR hold for all of the  options of treating  inconclusives \hh{outlined in \autoref{tab:overall-err-rate}}.
+As discussed in \autoref{sec:error-rates}, there are multiple ways to define an error; but the concepts of FPR and FNR hold for all of the  options of treating  inconclusives outlined in \autoref{tab:overall-err-rate}.
 
 
 In all  of these assessments, the
