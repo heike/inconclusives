@@ -821,13 +821,16 @@ gg %>%
   group_by(Type, Study, Error) %>%
   mutate(
     err_lower = clopper(0.05, Number, Comparisons)[1]*100,
-    err_upper = clopper(0.05, Number, Comparisons)[2]*100  
+    err_upper = clopper(0.05, Number, Comparisons)[2]*100,
+    pos = c("white", "grey")[1 + as.numeric(Study) %% 2]
   ) %>%
   ggplot(aes(x = Number/Comparisons*100, y = Study)) +
+  geom_rect(aes(xmin = -Inf, xmax = Inf, ymin =1 - 0.3, ymax = 1 + 0.6), fill = "grey90", alpha = .25, inherit.aes = F) + 
+  geom_rect(aes(xmin = -Inf, xmax = Inf, ymin =3 - 0.3, ymax = 3 + 0.6), fill = "grey90", alpha = .25, inherit.aes = F) + 
+  geom_rect(aes(xmin = -Inf, xmax = Inf, ymin =5 - 0.3, ymax = 5 + 0.6), fill = "grey90", alpha = .25, inherit.aes = F) + 
   geom_point(aes(shape=Type, colour = Type, y = as.numeric(Study)+0.3*(as.numeric(Type)-1.5)) ) +
-  facet_grid(.~Error, scale = "free_x") + #, space="free") +
+  facet_grid(Error~.) + #, space="free") +
   theme_bw() +
-#  theme(legend.position = "bottom") +
   xlab("(Source-specific) Error Percentages") +
   xlim(c(0, NA)) +
   geom_errorbarh(aes(xmin=err_lower, xmax=err_upper, colour = Type, y=as.numeric(Study)+0.3*(as.numeric(Type)-1.5)),
