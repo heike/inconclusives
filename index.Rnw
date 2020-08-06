@@ -605,7 +605,7 @@ Using these comparisons we assess the state of these error rate studies and prov
 
 
 \subsection{Error Rate Studies}
-The studies included in this section are not an exhaustive list of every study ever performed, rather we tried to include the most central and most cited studies, as well as several of the studies mentioned in the PCAST and NAS reports concerning firearm and toolmark analysis. A brief description of each study is provided here for reference purposes, with summary tables of results and conditional probabilities provided in \ref{sec:supplement}.
+The studies included in this section are not an exhaustive list of every \svp{error rate} study ever performed; rather, we \svp{have included} the most central and most cited studies, as well as several of the studies mentioned in the PCAST and NAS reports concerning firearm and toolmark analysis. A brief description of each study is provided here for reference purposes, with summary tables of results and conditional probabilities provided in \ref{sec:supplement}.
 
 \begin{description}
 \item[Baldwin] \citep{Baldwin:2014bb} is a study of Ruger SR9 cartridge cases. It is an open-set study with 15 comparisons of 3 knowns to 1 questioned cartridge case. Participants received sets with 10 different-source and 5 same-source comparisons.
@@ -619,11 +619,13 @@ The studies included in this section are not an exhaustive list of every study e
 %\item [Hare] \citep{aoas2} \svp{assessed the performance of a computational algorithm for bullet analysis, using binary classification (no inconclusives). Subsequent studies  \cite{case-validation} of the algorithm presented in  \citep{aoas2} suggest that on the bullet-to-bullet comparison level, the algorithm perfectly classifies bullets from 3 different external test sets.} \hh{XXX }
 \end{description}
 
-\hh{Besides the seven studies identified here, ... XXX?}
-\svp{
-Of the nine studies identified, one  \citep{aoas2} presents a method for quantitative comparison of bullets with no experimental lab-based examiner assessments. 
-Two other studies  \citep{chumbleyValidationToolMark2010, fadul} did not provide sufficient detail about examiner results and conclusions to conduct a partial analysis based on the AFTE theory of identification.
-}
+\svp{Of the studies listed above, we have examined all but \citet{fadul}, which contained insufficient detail about examiner results and conclusions to calculate the quantities discussed in the previous section. 
+Two other important studies, \citet{aoas2} and \citep{chumbleyValidationToolMark2010}, have also been excluded from this analysis. \citet{aoas2} presents a quantitative method for comparison of bullets (but has no experimental lab based examiner assessments), and \citep{chumbleyValidationToolMark2010} compares a computational method for bullet analysis to examiner evaluations, but does not provide the results of the examiner study in sufficient detail for our purposes. }
+% \hh{Besides the seven studies identified here, ... XXX?}
+% \svp{
+% Of the seven studies identified, one  \citep{aoas2} presents a method for quantitative comparison of bullets with no experimental lab-based examiner assessments. 
+% Two other studies  \citep{chumbleyValidationToolMark2010, fadul} did not provide sufficient detail about examiner results and conclusions to conduct a partial analysis based on the AFTE theory of identification.
+% }
 
 In the next sections, we discuss the design and results of each study, including calculation and comparison of source- and decision-specific error rates. 
 
