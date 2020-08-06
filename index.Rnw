@@ -581,7 +581,8 @@ This probability is the positive predictive value, or PPV of the test, and is eq
 
 In case work, because ground truth is not known, we cannot definitively know that an examiner's evaluation is correct. 
 For that reason, we need designed studies to estimate the error rates of examinations in situations where ground truth is known. 
-As we rely on these studies to generalize to casework, it is of great importance that the studies be well designed so as to allow for the estimation of any of the success or error rates discussed above.
+As we rely on these studies to generalize to casework, it is of great importance that these studies are well designed \svp{so that it is possible to estimate any of the success and error rates discussed above.}
+%so as to allow for the estimation of any of the success or error rates discussed above.
 
 \section{Studies}\label{sec:studies}
 
