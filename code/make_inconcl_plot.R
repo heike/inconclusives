@@ -42,12 +42,14 @@ target_plot <- function(a, b, c, d, e, f, pointsize = 1, bordersize = .005) {
                         gt = rep(c("SS", "DS"), each = 3),
                         concl = rep(c("Identification", "Inconclusive", "Elimination"), times = 2))
   
-  frame <- crossing(conclusions, ground_truth) %>%
+  frame <- crossing(st_drop_geometry(conclusions), st_drop_geometry(ground_truth)) %>% # workaround to deal with sf strangeness
+    left_join(conclusions) %>%
+    left_join(ground_truth) %>%
     mutate(geometry = map2(geometry_concl, geometry_gt, st_intersection)) %>%
     select(-geometry_gt, -geometry_concl) %>%
     mutate(type = paste(gt, concl)) %>%
     left_join(ideal_props) %>%
-    st_sf() %>%
+    # st_sf() %>%
     mutate(value2 = ifelse(value == 0, 2, value)) %>%
     mutate(points = map2(geometry, value2, ~st_sample(st_buffer(.x, -bordersize), .y, type = "hexagonal"))) %>%
     st_sf() %>%
@@ -62,11 +64,10 @@ target_plot <- function(a, b, c, d, e, f, pointsize = 1, bordersize = .005) {
 
   ggplot(frame, aes(geometry = geometry, fill = concl)) + 
     geom_sf(alpha = .6, color = "black") + 
-    geom_sf(data = filter(points, concl != "Inconclusive"), aes(geometry = points), color = "white", alpha = .5, size = 1.5*pointsize, legend = F) +
-    geom_sf(data = points, aes(geometry = points, color = gt), size = pointsize) +
+    # geom_sf(data = filter(points, concl != "Inconclusive"), aes(geometry = points), color = "white", alpha = .5, size = 1.5*pointsize, legend = F) +
+    geom_sf(data = points, aes(geometry = points, color = gt), size = pointsize, shape = 19) +
     scale_fill_manual("Conclusion", values = c("Identification" = "steelblue", "Inconclusive" = "white", "Elimination" = "darkorange")) + 
     scale_color_manual("Ground Truth", values = c("Same Source" = "steelblue4", "Different Source" = "darkorange4")) +
-
     annotate(geom = "text", x=-.05, y=.55, label = "Different Source", hjust = 1, size = 5, color = "darkorange4") + 
     annotate(geom = "text", x=.05, y=.55, label = "Same Source", hjust = 0, size = 5, color = "steelblue4") + 
     guides(color = guide_legend(override.aes = list(size = 3)), fill = guide_legend(override.aes = list(shape = NA))) + 
@@ -79,4 +80,4 @@ target_plot <- function(a, b, c, d, e, f, pointsize = 1, bordersize = .005) {
           )
 }
 
-# target_plot(100, 40, 15, 15, 40, 100)
+#' target_plot(100, 40, 15, 15, 40, 100)
