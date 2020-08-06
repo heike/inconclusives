@@ -646,7 +646,7 @@ In what is almost certainly a coincidence, all three studies are also limited to
 
 \svp{As a result, studies which use less reliable designs, such as} \citet{lyons},  \citet{Hamby:2018hu} (and the similarly designed  \citet{fadul}), and  \citet{bunch2003comprehensive} \svp{have historically been frequently referenced in admissibility hearings.}
 Of these, the study by  \citeauthor{bunch2003comprehensive} is perhaps the least flawed.
-\svp{It has also been superceded by studies which have better experimental design, such as \citet{Baldwin:2014bb} and \citet{keisler}.}
+\svp{It has also been superceded by studies that have better experimental design, such as \citet{Baldwin:2014bb} and \citet{keisler}.}
 While it has internal dependencies due to the inclusion of multiple knowns, and as a result, the number of same-source and different-source comparisons cannot be fully determined, it does have one \svp{desireable} feature not found in even the well designed studies \svp{which makes it worth discussing here}.
 Specifically,  \citeauthor{bunch2003comprehensive} varies the composition of the test kits, so that no kit had the same composition in terms of same and different-source comparisons. 
 This ensures that even if examiners discuss the tests, they cannot gain any additional information from such discussions. 
@@ -683,7 +683,7 @@ In addition to the design issues which plague the closed-set studies, the execut
 Methodological issues, such as those described in  \cite{lyons}, where test sheets were returned to participants who misunderstood instructions, cast even more doubt on the utility of error rates derived from such studies and their ability to generalize to casework. 
 
 Finally, there are some methodological constraints that are common to most studies. 
-Of the studies assessed in this paper, only  \citet{bunch2003comprehensive} uses a variable percent of same and different source comparisons; without varying this percentage, it is possible that examiners could compare notes and gain additional information about the study results. 
+Of the studies assessed in this paper, only  \citet{bunch2003comprehensive} uses a variable \svp{proportion} of same and different source comparisons; without varying this percentage, it is possible that examiners could compare notes and gain additional information about the study results. 
 Many studies (but not all, \cite{Baldwin:2014bb}) pre-screened kit components to ensure that sufficient markings were present to allow for identification - this differs from casework and artifically inflates the rate of successful identifications and eliminations
 \footnote{
 % \hh{XXX  let's find a different spot for the next paragraph.}
