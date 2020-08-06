@@ -247,7 +247,7 @@ Similarly, not all known samples might have a match among the questioned samples
 There is some variability in what the term ``double blind" refers to in the context of forensic studies. 
 The use in \cite{bunch2003comprehensive, stromanEmpiricallyDeterminedFrequency2014, Duez:2017kha} does not match the use in \cite{pcast2016,spiegelmanAnalysisExperimentsForensic2013,koehlerProficiencyTestsEstimate2013}.
 At least some of the confusion stems from the use of the term in medical contexts, where ``double blind" means that neither the patient nor the doctor knows whether the treatment received is the control or the treatment under investigation. 
-In both uses of "double blind", the underlying goal is to remove any biases which may cause the evaluation of the available evidence differently.
+In both uses of ``double blind", the underlying goal is to remove any biases which may cause the evaluation of the available evidence differently.
 In drug trials, the doctor judges whether the patient has improved or not, and thus, the doctor cannot know which treatment the patient has received, because the knowledge may affect his decision subconsciously. 
 In forensic studies, the examiner is assessing the provided evidence and making a determination; thus, in a double-blind forensic study, the examiner cannot know that the evidence is part of a designed study rather than casework, because knowing that extra information may subconsciously affect the examiner's assessment. 
 \citet{kerkhoffPartdeclaredBlindTesting2018} provides a more thorough discussion of the different ways the term ``blind testing" has been used in forensic error rate studies.
