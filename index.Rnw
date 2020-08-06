@@ -457,7 +457,8 @@ The most common way to assess the success (or accuracy)  of a classification met
 Sensitivity, also called the true positive rate (TPR), is an examiner's ability to make an identification when examining same source evidence (SS). 
 Sensitivity can be expressed as the conditional probability $P (\text{Identification} \mid SS)$. 
 Conversely, specificity, or the true negative rate (TNR), is an examiner's ability to make an elimination given evidence from different sources (DS), $P (\text{Elimination} \mid DS)$. 
-Mathematically, we calculate the true negative rate as the conditional probability of the examiner making an elimination \emph{given} the pair under examination is from different sources. 
+%Mathematically, w
+We calculate the true negative rate as the conditional probability of the examiner making an elimination \emph{given} the pair under examination is from different sources. 
 A conditional probability of an event \emph{given} another event is the probability that the two events both occur, divided by the probability of the second event, specifically for the true negative rate:
 $$TNR = P(\text{Elimination} | DS) = \frac{P(\text{Elimination and } DS)}{P(DS)}.$$
 
@@ -555,7 +556,8 @@ Conversely, source-specific assessments are useful when evaluating the performan
 
 \subsection{Practical interpretation of error rates}
 
-Mathematically, the primary difference between the decision tree diagrams in Figure \ref{fig:FPR-specific-tree} and \ref{fig:PPV-specific-tree} is the conditioned variable. 
+%Mathematically, t
+The primary difference between the decision tree diagrams in Figure \ref{fig:FPR-specific-tree} and \ref{fig:PPV-specific-tree} is the conditioned variable. 
 The source-specific error rates, FPR and FNR, are calculated by conditioning on the source of of the evidence (same-source/different source) and give the probability of an examiner's decision.
 PPV and NPV are calculated by conditioning on an examiner's conclusion and give the probability of evidence being same-source or different source.
 
@@ -565,7 +567,7 @@ From a practical point of view, whether source-specific or decision-specific rat
 \item as part of courtroom proceedings, we -- the jury, lawyers, and judges -- are interested in assessing accuracy of testimonies, i.e. we are interested in conclusion-specific rates to answer questions of the form: given an expert testified to the evidence as being an identification, what is the probability that the evidence actually does come from the same source? In this situation, we can update the overall error rate by conditioning on the examiner's conclusion, providing more specific evidence about the scenario under scrutiny in court. As we only know the examiner's testimony (and not ground truth), we must work with the decision-specific rates. 
 \end{itemize}
 These two forms of questions look deceptively similar, but lead to different mathematical equations. 
-This difficulty is not exclusive to evaluations of firearms evidence -- it is a known and pervasive pitfall in other application areas, such as medical diagnostics  \cite{Casscells:1978ba, Manrai:2014fp}.
+This difficulty is not exclusive to evaluations of firearms evidence -- it is a known and pervasive pitfall in other application areas, such as medical diagnostic \svp{testing}  \cite{Casscells:1978ba, Manrai:2014fp}.
 The distinction between these two sources of error rates is perhaps a bit more approachable in the setting of a medical context: a given test has a sensitivity (true positive rate, TPR) and a specificity (true negative rate, TNR) that combined determine the overall accuracy rate. 
 However, if you as a patient receive a positive test result, what you really care about is the probability that, given your positive result, you actually have the disease. 
 This probability is the positive predictive value, or PPV of the test, and is equivalent to the decision-specific probability $P(SS\mid \text{Identification})$. 
