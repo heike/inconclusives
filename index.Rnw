@@ -576,10 +576,16 @@ From a practical point of view, whether source-specific or decision-specific rat
 \item as part of courtroom proceedings, we -- the jury, lawyers, and judges -- are interested in assessing accuracy of testimonies, i.e. we are interested in conclusion-specific rates to answer questions of the form: given an expert testified to the evidence as being an identification, what is the probability that the evidence actually does come from the same source? In this situation, we can update the overall error rate by conditioning on the examiner's conclusion, providing more specific evidence about the scenario under scrutiny in court. As we only know the examiner's testimony (and not ground truth), we must work with the decision-specific rates. 
 \end{itemize}
 These two forms of questions look deceptively similar, but lead to different mathematical equations. 
-This difficulty is not exclusive to evaluations of firearms evidence -- it is a known and pervasive pitfall in other application areas, such as medical diagnostic \svp{testing}  \cite{Casscells:1978ba, Manrai:2014fp}.
-The distinction between these two sources of error rates is perhaps a bit more approachable in the setting of a medical context: a given test has a sensitivity (true positive rate, TPR) and a specificity (true negative rate, TNR) that combined determine the overall accuracy rate. \hh{Similarly, we might also interested in the false negative rate, i.e. if we, 
- as patients receive a negative test result, what is the probability that, given this negative result, we actually do have the disease (and could be contagious)?}
-This probability is the false omission rate, or FOR of the test, and is equivalent to the decision-specific probability $P(SS\mid \text{Exclusion})$. 
+This difficulty is not exclusive to evaluations of firearms evidence -- it is a known and pervasive pitfall in other application areas, such as medical diagnostic \svp{testing} \cite{Casscells:1978ba, Manrai:2014fp}.
+The distinction between these two sources of error rates is perhaps a bit more approachable in the setting of a medical context: 
+\begin{itemize}\item A given test has a sensitivity (true positive rate, TPR) and a specificity (true negative rate, TNR) that combined determine the overall accuracy rate. \svp{These quantities are useful for an accrediting agency or company, which is interested in whether the test works as claimed.} 
+\item \svp{A patient who has received a negative test result is more interested in a different value: the probability that we actually have the disease 
+%(and could be contagious) 
+considering that the patient has received a negative test result.} \svp{At the individual level, we want to use tailored information to guide our specific actions; at the system level, we are more interested in gross measures of performance.}
+\end{itemize}
+% \hh{Similarly, we might also interested in the false negative rate, i.e. if we, 
+ % as patients receive a negative test result, what is the probability that, given this negative result, we actually do have the disease (and could be contagious)?}
+% This probability is the false omission rate, or FOR of the test, and is equivalent to the decision-specific probability $P(SS\mid \text{Exclusion})$. 
 
 % \hh{XXX We haven't talked about inconclusives yet - we should put a teaser here that we are going to come back to that.}
 % \svp{One additional complication to this evaluation is the treatment of inconclusives: under AFTE guidelines, inconclusives are not errors, but it has been argued that in at least some sense, inconclusives are systematic errors, because the conclusion does not match the known information \citep{koehlerFingerprintErrorRates2007}.
