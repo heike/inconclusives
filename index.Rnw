@@ -679,7 +679,7 @@ The multiple known source problem was described above, but this problem is magni
 
 In a closed-set design, the structure of the study helps examiners make the correct conclusion: if unknown source A is most similar to exemplars from source 8, then after the 10 comparisons are done, the examiner would rationally make an identification for source 8. 
 In an open-set study, the examiner might rate the same pairwise comparison as inconclusive, because there is no additional information suggesting that the unknown must match one of the provided knowns.
-In both the multiple known and closed set study designs, the use of deductive reasoning artificially reduces the error rates calculated using the study results. \hh{XXX that has been pointed out in the PCAST report XXX}
+In both the multiple known and closed set study designs, the use of deductive reasoning artificially reduces the error rates calculated using the study results, as discussed in the PCAST report and addendum \citep{pcast2016,pcast-addendum2017}. %\hh{XXX that has been pointed out in the PCAST report XXX}
     
 It might be possible to modify the answer sheet so that examiners record each pairwise comparison, which would allow for assessment of the number of different-source comparisons performed. 
 However, revising the answer sheet would not prevent the use of deductive reasoning, which gives examiners an advantage in the error rate studies that does not exist in casework.
