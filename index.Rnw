@@ -826,9 +826,9 @@ gg <- errors %>% gather(Type, Number, AFTE, Process, Elimination) %>%
     Type = factor(Type, levels=c("AFTE", "Process", "Elimination"))
     ) 
 levels(gg$Type) <- c(
-  "AFTE error (Option 2)",
-  "Process error (Option 3)",
-  "Inconclusives are Eliminations (Option 4)")
+  "AFTE error\n(Option 2)",
+  "Process error\n(Option 3)",
+  "Inconclusives are\nEliminations (Option 4)")
 
 gg %>%
   group_by(Type, Study, Error) %>%
@@ -850,8 +850,8 @@ gg %>%
                  size=0.5, height = 0.3,  alpha =0.9) +
   scale_y_continuous(breaks=1:6, labels=levels(errors$Study), minor_breaks = NULL) +
   scale_colour_brewer(palette="Dark2") +
-  theme(legend.position = "bottom") +
-  guides(colour=guide_legend(ncol=1))
+  theme(legend.position = "bottom", legend.direction = "horizontal") #+
+  # guides(colour=guide_legend(ncol=1))
 @
 
 
