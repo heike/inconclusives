@@ -578,10 +578,10 @@ From a practical point of view, whether source-specific or decision-specific rat
 These two forms of questions look deceptively similar, but lead to different mathematical equations. 
 This difficulty is not exclusive to evaluations of firearms evidence -- it is a known and pervasive pitfall in other application areas, such as medical diagnostic \svp{testing} \cite{Casscells:1978ba, Manrai:2014fp}.
 The distinction between these two sources of error rates is perhaps a bit more approachable in the setting of a medical context: 
-\begin{itemize}\item A given test has a sensitivity (true positive rate, TPR) and a specificity (true negative rate, TNR) that combined determine the overall accuracy rate. \svp{These quantities are useful for an accrediting agency or company, which is interested in whether the test works as claimed.} 
-\item \svp{A patient who has received a negative test result is more interested in a different value: the probability that we actually have the disease 
+\begin{itemize}\item A given test has a sensitivity (true positive rate, TPR) and a specificity (true negative rate, TNR) that combined determine the overall accuracy rate. \svp{These quantities are useful for an accrediting agency such as the FDA, or a company; both are interested in whether the test works as claimed.} 
+\item \svp{A patient who has received a negative test result is more interested in a different value: the probability that the patient actually has the disease 
 %(and could be contagious) 
-considering that the patient has received a negative test result.} \svp{At the individual level, we want to use tailored information to guide our specific actions; at the system level, we are more interested in gross measures of performance.}
+considering the negative test result.} \svp{At the individual level, we want to use tailored information to guide our specific actions; at the system level, we are more interested in gross measures of performance.}
 \end{itemize}
 % \hh{Similarly, we might also interested in the false negative rate, i.e. if we, 
  % as patients receive a negative test result, what is the probability that, given this negative result, we actually do have the disease (and could be contagious)?}
