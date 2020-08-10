@@ -666,7 +666,7 @@ While studies which use multiple known sources have been conducted for more than
 Multiple-known studies are inherently biased: they provide evidence that examiners can make identifications accurately (and do not make many false eliminations), but do not quantify the probability that examiners make eliminations correctly. 
 As a result, when error rates derived from these studies are cited, they do not include errors which result from different source comparisons, which prevents evaluation of examiners on their ability to distinguish between different sources.
 This fundamentally biases these studies so that in court they provide useful (but misleading) information to the prosecution while offering nothing useful to the defense.
-That is, the fundamental structure of these studies only provides information about how accurate examiners are when providing evidence against the defendant.
+That is, the underlying structure of these studies only provides information about how accurate examiners are when providing evidence against the defendant, \svp{producing a systematic bias when these rates are presented in court}.
 
 The design used in  \cite{Hamby:2018hu} was originally found in  \cite{brundagethesis} and dates back to  \citeyear{brundagethesis}. 
 As such, it was a groundbreaking study, and its longevity makes it the most extensive study in forensic error rates in firearms (and possibly across pattern disciplines). 
