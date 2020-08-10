@@ -262,14 +262,14 @@ Blind testing is often recommended  \cite{pcast2016,spiegelmanAnalysisExperiment
 %Blind tests also better assess the process of comparison as a whole (rather than the performance of an individual examiner).
 
 \item [Number of knowns from different sources] Some studies  \citep{keisler} provide only one known exemplar (or a set of multiple exemplars from the same source). Other studies, such as  \citep{brundage, hamby,Hamby:2018hu} and the Houston FSC and Phoenix studies from  \citet{case-validation}, include multiple different sources as knowns. 
-\item [Study length] Most crime labs are understaffed and maintain a fairly large backlog of cases; as a consequence, examiner time is limited. While examiners should participate in these studies, they must balance the competing demands of a large and consequential workload and the benefit to FTE community. As such, studies which require examiners to make a large number of comparisons may be less likely to find sufficient participants to generate an acceptable sample size.
+\item [Study length] Most crime labs are understaffed and maintain a fairly large backlog of cases; as a consequence, examiner time is limited. While examiners should participate in these studies, they must balance the competing demands of a large and consequential workload and the benefit to FTE community. As such, studies which require examiners to make a large number of comparisons may be less likely to find a sufficient number of participants to generate an acceptable sample size.
 \end{description}
 
 Many of these considerations can be boiled down to limiting the examiner's knowledge about the study as much as possible, so that (ideally) the only information provided is the information in each pairwise comparison. 
 Blind studies, for instance, remove the knowledge that evidence is from a designed test and not casework. 
-Open set studies, which are preferable, remove the knowledge an examiner might have about whether a comparison is guaranteed to match one of the provided knowns. 
+Open set studies, which are preferable to closed set studies, remove the knowledge an examiner might have about whether a comparison is guaranteed to match one of the provided knowns. 
 Studies with designs that limit the number of comparisons by allowing only a single known source and a single unknown source prevent the examiner from using any sort of deductive reasoning. 
-Even studies which have a single known source and multiple unknown sources provide only limited additional information, and only in the case where two or more of the unknown sources match each other.
+However, open set studies provide only limited additional information even in the case where  multiple unknown sources are compared to a single known source. %, and only in the case where two or more of the unknown sources match each other.
 
 %% Transition to error rates
 Once a study is designed and test samples have been assessed by forensic examiners, error rates can be calculated. 
