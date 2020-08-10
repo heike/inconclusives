@@ -526,7 +526,7 @@ Similarly, we can define  predictive values when an examiner has made exclusions
 the \emph{negative predictive value} (NPV) is the probability that evidence is actually from different sources given an examiner has made an exclusion:  $NPV = P(DS | \text{ Elimination})$. 
 Its complement, the \emph{false omission rate} (FOR) is the probability that evidence is actually from the same source\footnote{In \citet{songEstimatingErrorRates2018}, the FDR is referred to as the false identification error rate, and the FOR is called the false exclusion error rate.} given an examiner has made an elimination.
 As before, we can map out the conditional hierarchy using a decision tree, shown in \autoref{fig:PPV-specific-tree}. 
-To reduce confusion with the naming or rates and predictive values we have labeled nodes in the trees of \autoref{fig:FPR-specific-tree} and \autoref{fig:PPV-specific-tree} \svp{corresponding to the rates defined in the text.}
+To reduce confusion with the naming or rates and predictive values we have labeled nodes in the trees of \autoref{fig:FPR-specific-tree} and \autoref{fig:PPV-specific-tree} corresponding to the rates defined in the text.
 
 \begin{figure}
 \centering
@@ -557,7 +557,7 @@ Different source & $d/(a+d)$ & $e/(b+e)$ & $f/(c+f)$ & $D/N$\\\hline
 
 Predictive value assessments are used in assessing the implications of a particular classification label; they inform us about the \emph{likely state of the physical evidence} given the expert's decision or testimony. This makes the PPV, NPV, FDR, and FOR particularly useful when evaluating casework (or in a courtroom setting), because the true state of the evidence is unknown.
 \svp{
-Note that we still cannot directly calculate the probabilities for any individual case or evidence: ground truth is still not knowable; however, the results of designed studies can be used to give information which is tailored to the situation in a particular case. 
+Note that we still cannot directly calculate the probabilities for any individual case or evidence: ground truth is still not knowable; however, the results of designed studies are used to give information  tailored to the situation in a particular case. 
 While it is reasonable to condition on unknown quantities in a mathematical sense, in practice it is much more informative to condition on quantities with known values: in this case, the examiner's decision is the known information and the state of the physical evidence is unknown.}
 
 Conversely, source-specific assessments are useful when evaluating the performance of individuals on a designed test, because ground truth is known (and thus, can be conditioned upon) in designed studies.
@@ -566,7 +566,7 @@ Conversely, source-specific assessments are useful when evaluating the performan
 \subsection{Practical interpretation of error rates}
 
 %Mathematically, t
-The primary difference between the decision tree diagrams in Figure \ref{fig:FPR-specific-tree} and \ref{fig:PPV-specific-tree} is the conditioned variable. 
+The primary difference between the decision tree diagrams in Figures \ref{fig:FPR-specific-tree} and \ref{fig:PPV-specific-tree} is the conditioned variable. 
 The source-specific error rates, FPR and FNR, are calculated by conditioning on the source of of the evidence (same-source/different source) and give the probability of an examiner's decision.
 PPV and NPV are calculated by conditioning on an examiner's conclusion and give the probability of evidence being same-source or different source.
 
@@ -577,9 +577,9 @@ From a practical point of view, whether source-specific or decision-specific rat
 \end{itemize}
 These two forms of questions look deceptively similar, but lead to different mathematical equations. 
 This difficulty is not exclusive to evaluations of firearms evidence -- it is a known and pervasive pitfall in other application areas, such as medical diagnostic \svp{testing}  \cite{Casscells:1978ba, Manrai:2014fp}.
-The distinction between these two sources of error rates is perhaps a bit more approachable in the setting of a medical context: a given test has a sensitivity (true positive rate, TPR) and a specificity (true negative rate, TNR) that combined determine the overall accuracy rate. 
-However, if you as a patient receive a positive test result, what you really care about is the probability that, given your positive result, you actually have the disease. 
-This probability is the positive predictive value, or PPV of the test, and is equivalent to the decision-specific probability $P(SS\mid \text{Identification})$. 
+The distinction between these two sources of error rates is perhaps a bit more approachable in the setting of a medical context: a given test has a sensitivity (true positive rate, TPR) and a specificity (true negative rate, TNR) that combined determine the overall accuracy rate. \hh{Similarly, we might also interested in the false negative rate, i.e. if we, 
+ as patients receive a negative test result, what is the probability that, given this negative result, we actually do have the disease (and could be contagious)?}
+This probability is the false omission rate, or FOR of the test, and is equivalent to the decision-specific probability $P(SS\mid \text{Exclusion})$. 
 
 % \hh{XXX We haven't talked about inconclusives yet - we should put a teaser here that we are going to come back to that.}
 % \svp{One additional complication to this evaluation is the treatment of inconclusives: under AFTE guidelines, inconclusives are not errors, but it has been argued that in at least some sense, inconclusives are systematic errors, because the conclusion does not match the known information \citep{koehlerFingerprintErrorRates2007}.
