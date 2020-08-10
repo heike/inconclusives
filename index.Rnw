@@ -650,12 +650,11 @@ Shortly after the report was issued, two more studies were published which also 
 All three ``good" studies used slightly different designs, but share one essential element: each kit contained multiple comparisons composed of one or more samples from exactly one known source and one unknown source.
 These designs substantially reduce or eliminate the internal dependencies which provide ``hints" to examiners by ensuring that each comparison of samples is considered independently.
 In addition, the design of these studies ensures that it is possible to exactly enumerate the number of same-source and different-source comparisons\footnote{At least, it is possible with the additional assumption that a comparison between a multiple items from the same source and an unknown should count as a single comparison.}.
-In what is almost certainly a coincidence, all three studies are also limited to cartridge case comparisons. \svp{We could not identify any studies which assess the error rates of bullet or toolmark examination in a manner that would produce reliable and generalizable measurements.}
+In what is almost certainly a coincidence, all three studies are also limited to cartridge case comparisons. We could not identify any studies which assess the error rates of bullet or toolmark examination in a manner that would produce reliable and generalizable measurements.
 
-
-\svp{As a result, studies which use less reliable designs, such as} \citet{lyons},  \citet{Hamby:2018hu} (and the similarly designed  \citet{fadul}), and  \citet{bunch2003comprehensive} \svp{have historically been frequently referenced in admissibility hearings.}
-Of these, the study by  \citeauthor{bunch2003comprehensive} is perhaps the least flawed, \svp{but it has been superceded by studies that have better experimental design, such as \citet{Baldwin:2014bb} and \citet{keisler}.}
-While it has internal dependencies due to the inclusion of multiple knowns, and as a result, the number of same-source and different-source comparisons cannot be fully determined, it does have one \svp{desireable} feature not found in even the well designed studies \svp{which makes it worth discussing here}.
+As a result, studies which use less reliable designs, such as \citet{lyons},  \citet{Hamby:2018hu} (and the similarly designed  \citet{fadul}), and  \citet{bunch2003comprehensive} have historically been frequently referenced in admissibility hearings.
+Of these, the study by  \citeauthor{bunch2003comprehensive} is perhaps statistically the most interesting design, but it has been superceded by studies with cleaner experimental designs, such as \citet{Baldwin:2014bb} and \citet{keisler}.
+While \citet{bunch2003comprehensive} has internal dependencies due to the inclusion of multiple knowns, and as a result, the number of same-source and different-source comparisons cannot be fully determined, the study does have one desireable feature not found in even the well designed studies which makes it worth discussing here.
 Specifically,  \citeauthor{bunch2003comprehensive} varies the composition of the test kits, so that no kit had the same composition in terms of same and different-source comparisons. 
 This ensures that even if examiners discuss the tests, they cannot gain any additional information from such discussions. 
 
@@ -668,10 +667,10 @@ In \ref{sec:bunchmurphysim}, we use statistical simulation to explore the likely
 We also perform a similar assessment for  \cite{Hamby:2018hu} in \ref{sec:brundage}; the design of this study does not include the variability introduced by the test kit assembly procedure used in  \cite{bunch2003comprehensive}. 
 
 While studies which use multiple known sources have been conducted for more than 25 years, such studies are inherently flawed. 
-Multiple-known studies are inherently biased: they provide evidence that examiners can make identifications accurately (and do not make many false eliminations), but do not quantify the probability that examiners make eliminations correctly. 
+These studies have an inherent bias, because they provide evidence that examiners can make identifications accurately (and do not make many false eliminations), but do not allow a quantification of the probability that examiners make eliminations correctly. 
 As a result, when error rates derived from these studies are cited, they do not include errors which result from different source comparisons, which prevents evaluation of examiners on their ability to distinguish between different sources.
 This fundamentally biases these studies so that in court they provide useful (but misleading) information to the prosecution while offering nothing useful to the defense.
-That is, the underlying structure of these studies only provides information about how accurate examiners are when providing evidence against the defendant, \svp{producing a systematic bias when these rates are presented in court}.
+That is, the underlying structure of these studies only provides information about how accurate examiners are when providing evidence against the defendant, producing a systematic bias when these rates are presented in court.
 
 The design used in  \cite{Hamby:2018hu} was originally found in  \cite{brundagethesis} and dates back to  \citeyear{brundagethesis}. 
 As such, it was a groundbreaking study, and its longevity makes it the most extensive study in forensic error rates in firearms (and possibly across pattern disciplines). 
@@ -680,9 +679,9 @@ The multiple known source problem was described above, but this problem is magni
 
 In a closed-set design, the structure of the study helps examiners make the correct conclusion: if unknown source A is most similar to exemplars from source 8, then after the 10 comparisons are done, the examiner would rationally make an identification for source 8. 
 In an open-set study, the examiner might rate the same pairwise comparison as inconclusive, because there is no additional information suggesting that the unknown must match one of the provided knowns.
-In both the multiple known and closed set study designs, the use of deductive reasoning artificially reduces the error rates calculated using the study results.
+In both the multiple known and closed set study designs, the use of deductive reasoning artificially reduces the error rates calculated using the study results. \hh{XXX that has been pointed out in the PCAST report XXX}
     
-It might be possible to modify the answer sheet so that examiners record each pairwise comparison, \svp{which would allow for assessment of} the number of different-source comparisons performed. 
+It might be possible to modify the answer sheet so that examiners record each pairwise comparison, which would allow for assessment of the number of different-source comparisons performed. 
 However, revising the answer sheet would not prevent the use of deductive reasoning, which gives examiners an advantage in the error rate studies that does not exist in casework.
 Currently, studies patterned after  \cite{brundagethesis,Hamby:2018hu} use an answer sheet where examiners are only asked to report which of the 10 knowns the questioned bullet matches. 
 Because the study does not ask examiners to report eliminations, there is no way to assess elimination error rates or the overall error rate consisting of both missed identifications and false eliminations.
@@ -690,8 +689,8 @@ Because the study does not ask examiners to report eliminations, there is no way
 In addition to the design issues which plague the closed-set studies, the execution of some of these studies makes the data even less reliable. 
 Methodological issues, such as those described in  \cite{lyons}, where test sheets were returned to participants who misunderstood instructions, cast even more doubt on the utility of error rates derived from such studies and their ability to generalize to casework. 
 
-Finally, there are some \svp{design} constraints that are common to most studies. 
-Of the studies assessed in this paper, only  \citet{bunch2003comprehensive} uses a variable \svp{proportion} of same and different source comparisons; without varying this percentage, it is possible that examiners could compare notes and gain additional information about the study results. 
+Finally, there are some design constraints that are common to most studies. 
+Of the studies assessed in this paper, only  \citet{bunch2003comprehensive} uses a variable proportion of same and different source comparisons; without varying this percentage, it is possible that examiners could compare notes and gain additional information about the study results. 
 Many studies (but not all, \cite{Baldwin:2014bb}) pre-screened kit components to ensure that sufficient markings were present to allow for identification - this differs from casework and artifically inflates the rate of successful identifications and eliminations
 \footnote{
 % \hh{XXX  let's find a different spot for the next paragraph.}
@@ -700,14 +699,13 @@ Many studies (but not all, \cite{Baldwin:2014bb}) pre-screened kit components to
 %Some studies screen for \svp{the} possibility \svp{that there is insufficient information present to make a conclusive assessment}, removing evidence with insufficient identifying marks before the study is conducted.
 %In other studies, however, screening was intentionally not performed, so as to better mimic actual casework conditions. 
 
-\svp{
 In Baldwin  \cite{Baldwin:2014bb}, the only pre-screening of usability was to ensure cartridge cases were caught with the cartridge catching device. 
-Additionally, \hh{for 3234 comparisons, FTEs evaluated how many of the known cartridge cases were usable for an evaluation: all three specimens were used in 3018 cases, two were used in 207 cases, and only one was used in nine cases.}
+Additionally, for 3234 comparisons, FTEs evaluated how many of the known cartridge cases were usable for an evaluation: all three specimens were used in 3018 cases, two were used in 207 cases, and only one was used in nine cases.
 The Baldwin study is fairly unique in this regard: most studies make some effort to control the quality of the evidence sent out for assessment.
-}}. 
-\svp{Studies which tightly control the evidence quality and presence of individualizing marks would under-estimate the process error (though the estimates of examiner error are not necessarily affected).}%\svp{XXX not sure this is true - need to think through it...}
+}. 
+Studies which tightly control the evidence quality and presence of individualizing marks would under-estimate the process error (though the estimates of examiner error are not necessarily affected).%\svp{XXX not sure this is true - need to think through it...}
 
-In almost all studies, participants use lab rules for determining whether eliminations could be made on individual characteristics; while  \citet{Baldwin:2014bb} instructed participants to use a uniform set of rules, many participants reported that they did not adhere to these guidelines.
+In almost all studies, participants use lab rules for determining whether eliminations could be made on individual characteristics; while  \citet{Baldwin:2014bb} instructed participants to use a uniform set of rules, many participants reported that they did not or could not adhere to these guidelines.
 
 
 <<data-setup, include = F>>=
@@ -790,22 +788,21 @@ errors <- studies %>%
 
 \subsection{Assessment of Classification Error}
 
-\svp{
 \autoref{fig:errors} shows the false positive and false negative rates for the six studies  investigated in this paper. 
 Both AFTE errors (which do not consider inconclusives as errors and represent examiner errors) and process errors (which include inconclusives and represent errors attributable to evidence quality and lab policy) are shown; examiner error rates are low for both missed elimination and missed identifications in most studies (though intervals reveal the effect of sample size, which was also noted in e.g.  \citet{pcast-addendum2017}. 
 Process errors, however, occur at higher rates and are particularly concerning for missed eliminations. 
 There is consistently a much larger discrepancy between the two error rates for eliminations than for identifications; this phenomena is examined in more detail in \autoref{sec:inconclusives}.
 Only a portion of the discrepancy between the examiner (AFTE) and process error rates for missed eliminations can be explained by lab policies that only allow eliminations based on mismatches in class characteristics. 
-}
+
 
 The Bunch \& Murphy study, for instance, was conducted at the FBI, where all examiners followed the same lab policy precluding eliminations based on class characteristic mismatches; as a result, the study has the largest difference between the two missed elimination rates.
 
-\svp{Even though  \citet{Baldwin:2014bb} made efforts to control for the effects of lab policy in determination of inconclusive findings, the efforts were apparently not completely successful.}
-\svp{This is in spite of the instructions given to participants:} ``A very important aspect of this work that needs to be clearly understood is that the study specifically asked participants not to use their laboratory or agency peer review process... Some [participants] indicated that the design of our study with all cartridges fired from the same model of firearm using the same type of ammunition would prohibit the use of a finding of elimination, while others used a mixture of inconclusive and elimination or did not use inconclusive at all to indicate a finding other than identification."
+Even though  \citet{Baldwin:2014bb} made efforts to control for the effects of lab policy in determination of inconclusive findings, the efforts were apparently not completely successful.
+This is in spite of the instructions given to participants: ``A very important aspect of this work that needs to be clearly understood is that the study specifically asked participants not to use their laboratory or agency peer review process... Some [participants] indicated that the design of our study with all cartridges fired from the same model of firearm using the same type of ammunition would prohibit the use of a finding of elimination, while others used a mixture of inconclusive and elimination or did not use inconclusive at all to indicate a finding other than identification."
 
 In  \citet{Duez:2017kha}, the authors report that ``13\% of examiners are not permitted to eliminate on individual characteristics (therefore, their conclusions of inconclusive are perfectly acceptable)." 
-\hh{It is interesting to note that 7 of the examiners did not report eliminations due to  lab rules.} 
-Policies which forbid elimination based on mismatch of individual characteristics alone \svp{seem to} directly contradict the AFTE Theory of Identification, which allows for eliminations based on ``significant disagreement of discernible class characteristics and/or individual characteristics". 
+Interestingly, it seems that some examiners reported eliminations in contravention of lab rules.
+Policies which forbid elimination based on mismatch of individual characteristics alone seem to directly contradict the AFTE Theory of Identification, which allows for eliminations based on ``significant disagreement of discernible class characteristics and/or individual characteristics". 
 % \svp{XXX Depending on how you read this -- and if you're using the government legalese translator -- either interpretation is allowable under the rules...} % Added weasel words to fix the issue
 
 % Other studies include examiners from many different labs and thus consist of some evaluations from labs which adhere to the class-characteristic elimination policy and some evaluations from labs which allow eliminations based on mismatch of individualizing characteristics.
@@ -858,7 +855,7 @@ gg %>%
 
 
 \subsection{Source-specific error rates}
-\svp{
+
 The false positive rate and false negative rate reported in \autoref{fig:errors} are the error rates typically used to characterize a classification method. 
 These rates, however, are functions of a larger set of probabilities which are calculated conditional on the known source of the evidence. 
 In \autoref{fig:source-spec-cis}, we see the full set of source-specific conditional probabilities: the probability that an examiner will make an identification, elimination, or inconclusive determination given that the source of the evidence is the same (or different). 
@@ -869,7 +866,7 @@ Closed-set designs (used in  \cite{Hamby:2018hu} and  \cite{lyons}) do not even 
 While in most studies (with the exception of Bunch \& Murphy), the probability of making an inconclusive determination for different source evidence is below the probability of making an elimination, the probability that examiners will correctly make an elimination is still extremely low relative to the probability of a correct decision in the evaluation of same source evidence.
 It may be that examiners are trained to look for similarities, instead of differences, or that it is simply more difficult to classify a difference as opposed to a similarity; some labs also do not allow eliminations to be made unless there is a class characteristic mismatch.
 Regardless of the explanation, it is apparent that when presented with a different source comparison, examiners make an elimination much less frequently than an identification when presented with a same source comparison. 
-}
+
 <<source-spec-cis, echo=FALSE, fig.width=8, fig.height=5, fig.cap="Pearson-Clopper 95\\% confidence intervals for the probability of same source evidence given an examiner's conclusion. Expected values for each of the probabilities (further discussed in \\autoref{sec:inconclusives}) are shown as grey targets. \\hh{XXX there are no expected values} No assessments can be made about different-source specific probabilities when the total number of comparisons cannot be determined.", out.width=".8\\textwidth">>=
 
 figdata <- source_spec_cis %>% 
@@ -906,25 +903,24 @@ figdata %>%
 % \hh{\autoref{fig:inconclusives} are too high for different source comparisons.}
 \subsection{Decision-specific error rates}\label{sec:dec-spec-res}
 
-\svp{
+
 In courtroom testimony, we do not know ground truth - we do not know whether the comparison that is presented actually is from the same source or a different source. 
 As a result, we cannot use the source-specific error rates or probabilities shown in \autoref{fig:source-spec-cis} to justify the testimony and say something like ``the probability of an identification given that the evidence is from the same source is nearly 1".
 In these situations, the information we know is the examiner's decision, so the opposite conditional probability is appropriate: the probability that the evidence is same-source given that the examiner made an identification.
 \autoref{fig:cis} shows the probability of same source evidence conditional on the examiner's assessment.
 Note that because there are two possible sources for the evidence (same or different), the equivalent probabilities for different-source evidence can be obtained by subtracting the same-source probability from 1.
-}
+
 
 Probabilities are shown with their respective 95\% (Pearson-Clopper) confidence intervals.  
 In light grey, expected probabilities are shown based on the distribution of same source/different source comparisons and the number of participants in each study.
 
-\svp{
 If inconclusives occur because there are insufficient similarities or differences to draw a specific conclusion of identification or elimination, then they should be equally likely for same-source or different source comparisons. 
-As a result, it is possible to calculate the ``target" probability for each decision: the target for identification is 1 - all same source pairs should result in an identification. 
-Similarly the target for elimination is 0 - no same-source pairs should result in an elimination. 
-Same-source pairs should be assessed as inconclusive at the same frequency as same-source comparisons in the study (\svp{this is explored in much more detail in the next section}).
-It is very clear that the probability of same-source evidence given an inconclusive evaluation is much lower than the \svp{calculated} target probability.
-The decision-specific probabilities provide indications that the distribution of inconclusives is much different than \svp{the distribution which was} hypothesized in \autoref{fig:shape-overview}. %purposefully understated.
-}
+As a result, it is possible to calculate the ``target" probability for each decision: the target for identification is 1: all same source pairs should result in an identification. 
+Similarly, the target for elimination is 0:  no same-source pairs should result in an elimination. 
+Same-source pairs should be assessed as inconclusive at the same frequency as same-source comparisons in the study (this is explored in much more detail in the next section).
+It is very clear that the probability of same-source evidence given an inconclusive evaluation is much lower than the calculated target probability.
+The decision-specific probabilities provide indications that the distribution of inconclusives is very different from its hypothesized  distribution shown in \autoref{fig:shape-overview}. %purposefully understated.
+
 <<cis, echo=FALSE, fig.width=8, fig.height=4.5, fig.cap="Pearson-Clopper 95\\% confidence intervals for the probability of same source evidence given an examiner's conclusion. Expected values for each of the probabilities as discussed in \\autoref{sec:inconclusives} are shown as grey targets. Some of the studies do not allow an assessment of all of the predictive values.", out.width=".8\\textwidth">>=
 
 cis %>% 
