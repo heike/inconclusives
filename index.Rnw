@@ -288,7 +288,7 @@ Before approaching the actual studies, we will define a framework and some basic
 
 \subsection{Classification Framework}
 
-When examiners assess a set of evidence (generally, a pair of items, one of known provenance and one of unknown provenance) and decide whether the evidence is an identification, inconclusive, or an elimination, they provide a \emph{classification} of the evidence in a set of given categories.  
+When examiners assess a set of evidence (generally, a pair of items, one of known provenance and one of unknown provenance) examiners decide whether the evidence is an identification, inconclusive, or an elimination.  
 \autoref{fig:shape-overview} is a sketch showing the relationship between evidence (dots) and examiners' decisions (areas). The color for both evidence and decisions corresponds to the source of evidence (different/same) and the type of decision made, respectively. The different combinations of colored dots on top of colored regions correspond to the six potential outcomes of evidence assessment and examiner decision. Obviously, not all of these outcomes are correct.  
 
 <<shape-overview, fig.cap = "Sketch of the relationship between  ground truth of evidence (dots) and examiners' decisions (shaded areas). In a perfect scenario dots only appear on the shaded area of the same color. Any dots on differently colored backgrounds indicate an error in the examination process.", out.width = "60%", fig.width = 6, fig.height = 4, dpi = 500, cache = F>>=
@@ -304,7 +304,7 @@ target_plot(100, 50, 10, 10, 50, 100)
 
 
 %Evaluating Classification Decisions%\label{sec:evaluating-classification-decisions}
-
+\hh{Making a decision on evidence as identification, exclusion or inconclusive provides a \emph{classification} of the evidence, which allows us to make use of elements of the larger \emph{classification framework}.}
 We will introduce the classification framework and the respective error rates at the example of a generic experiment:
 %Starting with the results from a generic experiment, where
 let us assume that a representative sample of independent forensic toolmark examiners were asked to complete a total of $N$ comparisons, consisting of $S$ same-source comparisons and $D$ different source comparisons.
@@ -350,7 +350,7 @@ While these two statements seem to be contradictory, in this paper, we provide a
 Under this framework, an examiner's assessment starts with inconclusive and is refined to identification or elimination given sufficient evidence in either direction.
 Statistically, this would suggest that the decision about the amount of evidence available (inconclusive or not) would be independent of the source of the evidence (same or different source). That is, inconclusives should be equally likely in same-source and different-source assessments.
 
-\svp{XXX Statistically, Mathematically - we sound like we're trying to emphasize different approaches here, and the two statements aren't synchronous XXX}
+%\svp{XXX Statistically, Mathematically - we sound like we're trying to emphasize different approaches here, and the two statements aren't synchronous XXX}
 %Mathematically, t
 There are three main ways that inconclusives can be treated in calculating error rates:
 (1) inconclusives can be excluded from error calculations, (2) included as correct results  \cite{Duez:2017kha}, or (3) included as incorrect results  \cite{chumbleyValidationToolMark2010}; each of these decisions has an impact on the actual value of the error rate as well as the interpretation of the resulting error rates. 
@@ -410,13 +410,13 @@ P(DS\text{ \& }Ident.) + P(SS\text{ \& }Elim.) + P(SS\text{ \& }Inconcl.) =  \\
 \end{tabularx}\label{tab:overall-err-rate}
 \end{fmpage}
 
-The second option 1 scenario is to allow for inconclusives as a decision category but restrict them from the calculation of the error rate entirely. 
-This solution does entirely ignore inconclusives, though, as they are part of the process and can be included in examiner testimony (usually phrased as ``could not be excluded"). 
-\svp{Thus,} this elimination from consideration is not appropriate if the goal of a study is to assess the error rate of the entire evaluation process. 
-\citet{koehlerProficiencyTestsEstimate2013} recommends using  option 1 approach for calculating error rates while  also tracking rates of inconclusive identifications ``for other purposes".
+Under scenario 1 inconclusives are treated as a valid decision category but restricted from the calculation of the error rate entirely. 
+This solution  ignores inconclusives entirely. However, in practice inconclusive results are a substantial part of the identification process and are included in examiner testimony (often phrased as ``could not be excluded"). 
+Thus, this elimination from consideration is not appropriate if the goal of a study is to assess the error rate of the entire evaluation process. 
+\citet{koehlerProficiencyTestsEstimate2013} recommends using  the approach of option 1 for calculating error rates while  also tracking rates of inconclusive identifications ``for other purposes".
 
 
-Under AFTE's Theory of Identification, however, inconclusive results are acceptable outcomes and not considered errors. Option 2 shows this way of treating inconclusives as correct regardless of the actual state.
+Under AFTE's Theory of Identification inconclusive results are acceptable outcomes and not considered errors. This approach is captured in option 2:  inconclusives are treated as correct regardless of the actual state.
 What this means in real terms, is that inconclusives are effectively counted as identifications if they are actually from the same source, but counted as eliminations if they are actually from a different source. Note that this approach is 
 %\svp{XXX do we really want to use exploitable instead of making it a bit less personal?} 
 exploitable in a strange way: to give a very extreme example, an examiner could report inconclusives for the rest of their career and never make an error.
@@ -438,7 +438,7 @@ Practically, option 3 reflects the error of the \emph{examination process} rathe
 %\hh{XXX do we need to say something about option 4 here? }
 
 In option 4, which will become more relevant in \autoref{sec:inconclusives}, inconclusives are treated the same as eliminations. 
-This option places the primary focus of the examiner's assessment on identification, and treats any failure to make an identification as equivalent to an elimination.
+This option places the primary focus of the examiner's assessment on identification, and treats any inability to make an identification as equivalent to an elimination.
 
 The errors introduced in this section summarize the overall error rate. While these errors are informative, most studies allow us a deeper insight into different aspects of the examination process by taking additional information into account.
 %
