@@ -546,10 +546,8 @@ Different source & $d/(a+d)$ & $e/(b+e)$ & $f/(c+f)$ & $D/N$\\\hline
 \end{table}
 
 
-Predictive value assessments are used in assessing the implications of a particular classification label; they inform us about the \emph{likely state of the physical evidence} given the expert's decision or testimony. 
-
-This makes the PPV, NPV, FDR, and FOR particularly useful when evaluating casework (or in a courtroom setting), because the true state of the evidence is unknown.
-Mathematically it makes sense to condition on unknown quantities, however, in practice it is much more informative to condition on quantities with known values, because these probabilities are immediately applicable in the specified situation.
+Predictive value assessments are used in assessing the implications of a particular classification label; they inform us about the \emph{likely state of the physical evidence} given the expert's decision or testimony. This makes the PPV, NPV, FDR, and FOR particularly useful when evaluating casework (or in a courtroom setting), because the true state of the evidence is unknown.
+\svp{While it makes sense to condition on unknown quantities in a mathematical sense,} in practice it is much more informative to condition on quantities with known values, because these probabilities are immediately applicable in the specified situation.
 
 Conversely, source-specific assessments are useful when evaluating the performance of individuals on a designed test, because ground truth is known (and thus, can be conditioned upon) in designed studies.
 
