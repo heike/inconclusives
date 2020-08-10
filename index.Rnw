@@ -647,9 +647,9 @@ As described in the PCAST report, ``set-based" approaches can inflate examiners 
 
 The PCAST response, issued in  \citeyear{pcast-addendum2017}, identifies only one study \cite{Baldwin:2014bb} as appropriately designed to evaluate the validity and reliability of firearms analysis methods. 
 Shortly after the report was issued, two more studies were published which also meet the criteria for reliable studies in the report:  \citet{keisler} and  \citet{Duez:2017kha}. 
-All three ``good" studies used slightly different designs, but maintained certain essentials: each kit consisted of multiple comparisons composed of one or more samples from exactly one known source and one unknown source. \svp{XXX can we phrase this to be singular, or cite another feature of the study (I would rather have it singular, personally) XXX}
+All three ``good" studies used slightly different designs, but share one essential element: each kit contained multiple comparisons composed of one or more samples from exactly one known source and one unknown source.
 These designs substantially reduce or eliminate the internal dependencies which provide ``hints" to examiners by ensuring that each comparison of samples is considered independently.
-In addition, studies with similar designs ensure that it is possible to exactly enumerate the number of same-source and different-source comparisons\footnote{At least, it is possible with the additional assumption that a comparison between a multiple items from the same source and an unknown should count as a single comparison.}.
+In addition, the design of these studies ensures that it is possible to exactly enumerate the number of same-source and different-source comparisons\footnote{At least, it is possible with the additional assumption that a comparison between a multiple items from the same source and an unknown should count as a single comparison.}.
 In what is almost certainly a coincidence, all three studies are also limited to cartridge case comparisons. \svp{We could not identify any studies which assess the error rates of bullet or toolmark examination in a manner that would produce reliable and generalizable measurements.}
 
 
