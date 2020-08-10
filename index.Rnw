@@ -526,7 +526,7 @@ Similarly, we can define  predictive values when an examiner has made exclusions
 the \emph{negative predictive value} (NPV) is the probability that evidence is actually from different sources given an examiner has made an exclusion:  $NPV = P(DS | \text{ Elimination})$. 
 Its complement, the \emph{false omission rate} (FOR) is the probability that evidence is actually from the same source\footnote{In \citet{songEstimatingErrorRates2018}, the FDR is referred to as the false identification error rate, and the FOR is called the false exclusion error rate.} given an examiner has made an elimination.
 As before, we can map out the conditional hierarchy using a decision tree, shown in \autoref{fig:PPV-specific-tree}. 
-To reduce confusion with the naming or rates and predictive values we have labeled nodes in the trees of \autoref{fig:FPR-specific-tree} and \autoref{fig:PPV-specific-tree} \svp{corresponding to the rates defined in the text.}
+To reduce confusion with the naming or rates and predictive values we have labeled nodes in the trees of \autoref{fig:FPR-specific-tree} and \autoref{fig:PPV-specific-tree} corresponding to the rates defined in the text.
 
 \begin{figure}
 \centering
