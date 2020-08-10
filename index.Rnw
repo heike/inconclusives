@@ -230,7 +230,7 @@ Casework can not be used to assess the accuracy of the identification process, b
 % \hh{XXX not sure whether we strictly need the next sentence, but I'll give it the benefit of the doubt. XXX}
 However, in scientific studies of forensic examination, ground truth is available to the experimenter because the test and the ``evidence" were explicitly designed.
 
-In designed experiments any physical factors that might have an effect on the outcome of a subsequent assessment of pattern similarity \svp{can} be controlled or systematically varied \citep{spiegelmanAnalysisExperimentsForensic2013}.
+In designed experiments any physical factors that might have an effect on the outcome of a subsequent assessment of pattern similarity can be controlled or systematically varied \citep{spiegelmanAnalysisExperimentsForensic2013}.
 In the specific situation of firearms evidence, the type of firarm and the ammunition used are of particular interest.
 %the type of implement making the pattern, manufacturing order, maintenance procedures, ammunition or marking surface, and many other factors (see  \citet{spiegelmanAnalysisExperimentsForensic2013} for a thorough review of all of the physical factors which might be controlled for or varied in a comprehensive study). 
 
@@ -248,7 +248,7 @@ In the remainder of this section we will go into a discussion of terms commonly 
 Conversely, an open set study is one in which questioned samples may originate from sources outside of the known samples provided. 
 Similarly, not all known samples might have a match among the questioned samples.
 \item [White box vs. Black Box] In a white-box study the experimenter makes an attempt to understand \emph{why} an examiner came to a specific decision, in contrast to a black box study, which only evaluates the correctness of the decision without assessing the reasoning behind it. 
-\item [Blind testing] A blind (or blinded) study is one in which the participant (in this case the examiner) does not know that they are being tested
+\item [Blind testing] A blind (or blinded) study is one in which the participant (in this case the examiner) does not know that they are being tested%
 \footnote{
 There is some variability in what the term ``double blind" refers to in the context of forensic studies. 
 The use in \cite{bunch2003comprehensive, stromanEmpiricallyDeterminedFrequency2014, Duez:2017kha} does not match the use in \cite{pcast2016,spiegelmanAnalysisExperimentsForensic2013,koehlerProficiencyTestsEstimate2013}.
