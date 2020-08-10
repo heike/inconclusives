@@ -643,8 +643,7 @@ In what is almost certainly a coincidence, all three studies are also limited to
 
 
 \svp{As a result, studies which use less reliable designs, such as} \citet{lyons},  \citet{Hamby:2018hu} (and the similarly designed  \citet{fadul}), and  \citet{bunch2003comprehensive} \svp{have historically been frequently referenced in admissibility hearings.}
-Of these, the study by  \citeauthor{bunch2003comprehensive} is perhaps the least flawed.
-\svp{It has also been superceded by studies that have better experimental design, such as \citet{Baldwin:2014bb} and \citet{keisler}.}
+Of these, the study by  \citeauthor{bunch2003comprehensive} is perhaps the least flawed, \svp{but it has been superceded by studies that have better experimental design, such as \citet{Baldwin:2014bb} and \citet{keisler}.}
 While it has internal dependencies due to the inclusion of multiple knowns, and as a result, the number of same-source and different-source comparisons cannot be fully determined, it does have one \svp{desireable} feature not found in even the well designed studies \svp{which makes it worth discussing here}.
 Specifically,  \citeauthor{bunch2003comprehensive} varies the composition of the test kits, so that no kit had the same composition in terms of same and different-source comparisons. 
 This ensures that even if examiners discuss the tests, they cannot gain any additional information from such discussions. 
