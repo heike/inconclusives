@@ -500,8 +500,8 @@ Different source & $d/D$ & $e/D$ & $f/D$ & $D/N$\\\hline
 \end{table}
 A google sheets workbook which  performs all of these calculations given counts $a, b, c, d, e, \text{ and } f$ is available at \url{http://bit.ly/FTE-error-rate-worksheet}.
 
-\svp{Thus, assuming a comparison is same-source, the examiner would make an identification with probability $a/S$. This is equivalent to the true positive rate, or TPR. 
-Assuming a comparison is different source, the examiner would make an elimination with probability $f/D$. This is equivalent to the true negative rate, or TNR.}
+\svp{If a comparison is same-source, the examiner would make an identification with probability $a/S$. This is equivalent to the true positive rate, or TPR. 
+Conversely, if a comparison is different source, the examiner would make an elimination with probability $f/D$. This is equivalent to the true negative rate, or TNR.}
 
 % \svp{XXX need to provide real-world meaning (e.g. court testimony, if possible) for a couple of these values.}
 
