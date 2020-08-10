@@ -479,7 +479,7 @@ Similarly, the \emph{false negative rate} (FNR) -- or missed identification rate
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth]{figures/Source-specific-tree-diagram.pdf}
-\caption{Tree Diagram illustrating the logic of source-specific error rates. \hh{Information flow happens from left to right: we are assessing an examiners decision given that someone (not the examiner) knows the source of the evidence.} Source-specific rates give the probability of an examiner's decision (Identification, Inconclusive, or Elimination) given same-source and different-source evidence.}\label{fig:FPR-specific-tree}
+\caption{Tree Diagram illustrating the logic of source-specific error rates. \hh{Information flow happens from left to right: we are assessing an examiner's decision given that someone (not the examiner) knows the source of the evidence.} Source-specific rates give the probability of an examiner's decision (Identification, Inconclusive, or Elimination) given same-source and different-source evidence.}\label{fig:FPR-specific-tree}
 \end{figure}
 
 Note that we are keeping the definition of error rates a bit vague on purpose. 
@@ -492,9 +492,10 @@ rates are calculated by conditioning on the \emph{origin of the evidence}. This 
 \begin{table}\centering
 \caption{
 Source-specific probabilities, calculated using the quantities introduced in \autoref{tab:generic-results}. 
-In each cell in the main body of the table, probabilities shown are the probability of conclusion $Y$ (one of Identification, Inconclusive, or Elimination) if the source is $X$ (same, different). 
-In the last row in the table, the marginal probabilities $P(Y)$ are shown, that is, the unconditional probability that the examiner's decision is $Y$. 
-In the last column of the table, the marginal probabilities $P(X)$ are shown; these are determined by the experimental design.
+Cells in the main body of the table show conditional probabilities  of conclusion $Y$ (one of Identification, Inconclusive, or Elimination) given known source  $X$ (same, different). 
+The last row in the table contains the marginal probabilities $P(Y)$, that is, the unconditional probability that the examiner's decision is $Y$. 
+%In the last column of the table, the marginal probabilities $P(X)$ are shown; 
+These marginal probabilities are determined by the experimental design.
 }\label{tab:fpr-prob}
 \begin{tabularx}{\textwidth}{Y|ccc|Y}
 \multicolumn{5}{c}{\bf Source-specific Probabilities}\\
@@ -506,8 +507,9 @@ Different source & $d/D$ & $e/D$ & $f/D$ & $D/N$\\\hline
 \end{table}
 A google sheets workbook which  performs all of these calculations given counts $a, b, c, d, e, \text{ and } f$ is available at \url{http://bit.ly/FTE-error-rate-worksheet}.
 
-\svp{If a comparison is same-source, the examiner would make an identification with probability $a/S$. This is equivalent to the true positive rate, or TPR. 
-Conversely, if a comparison is different source, the examiner would make an elimination with probability $f/D$. This is equivalent to the true negative rate, or TNR.}
+\hh{In the context of table~\autoref{tab:fpr-prob} conditional probabilities can be interpreted as follows:}
+given a  same-source pair of evidence, the examiner  makes an identification with probability $a/S$, the true positive rate (TPR). 
+Conversely, for a  different-source evidence pair, the examiner  makes an elimination with probability $f/D$, the true negative rate (TNR).
 
 % \svp{XXX need to provide real-world meaning (e.g. court testimony, if possible) for a couple of these values.}
 
@@ -516,12 +518,13 @@ Conversely, if a comparison is different source, the examiner would make an elim
 \subsection{Decision-specific assessment}
 
 %The use of false positive and false negative rates to characterize a classification task is extremely common, however, there are alternate ways to evaluate a classification method.
-An alternate way to evaluate a classification method is to assess \svp{the probability of a same-source or diferent-source comparison, given an examiner's decision (or, more generically, a specific general conclusion).}
-The \emph{positive predictive value} (PPV) is the probability that, if an examiner makes an identification, the evidence is from the same source, that is, $P(SS | \text{Identification})$. 
-Its complement, the \emph{false discovery rate} (FDR), is the probability that if an examiner makes an identification, the evidence is from different sources.
+An alternate way to evaluate a classification method is to assess the probability of a same-source or diferent-source comparison, given an examiner has  made a  decision (or, more generically, a specific general conclusion).
+The \emph{positive predictive value} (PPV) is the probability that a pair of evidence is from the same source, give the examiner has made an identification, i.e.\ $P(SS | \text{Identification})$. 
+Its complement, the \emph{false discovery rate} (FDR), is the probability that the evidence is from different sources, given the examiner has made an identification, .
 
-The \emph{negative predictive value} (NPV) is the probability that, if an examiner makes an elimination, the evidence is from different sources, or $P(DS | \text{ Elimination})$. 
-Its complement, the \emph{false omission rate} (FOR) is the probability that, if an examiner makes an elimination, the evidence is actually from the same source\footnote{In \citet{songEstimatingErrorRates2018}, the FDR is referred to as the false identification error rate, and the FOR is called the false exclusion error rate.}.
+Similarly, we can define  predictive values when an examiner has made exclusions:
+the \emph{negative predictive value} (NPV) is the probability that evidence is actually from different sources given an examiner has made an exclusion:  $NPV = P(DS | \text{ Elimination})$. 
+Its complement, the \emph{false omission rate} (FOR) is the probability that evidence is actually from the same source\footnote{In \citet{songEstimatingErrorRates2018}, the FDR is referred to as the false identification error rate, and the FOR is called the false exclusion error rate.} given an examiner has made an elimination.
 As before, we can map out the conditional hierarchy using a decision tree, shown in \autoref{fig:PPV-specific-tree}. 
 To reduce confusion with the naming or rates and predictive values we have labeled nodes in the trees of \autoref{fig:FPR-specific-tree} and \autoref{fig:PPV-specific-tree} \svp{corresponding to the rates defined in the text.}
 
