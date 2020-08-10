@@ -629,7 +629,7 @@ The studies included in this section are not an exhaustive list of every \svp{er
 \end{description}
 
 \svp{Of the studies listed above, we have examined all but \citet{fadul}, which contained insufficient detail about examiner results and conclusions to calculate the quantities discussed in the previous section. 
-Two other important studies, \citet{aoas2} and \citep{chumbleyValidationToolMark2010}, have also been excluded from this analysis. \citet{aoas2} presents a quantitative method for comparison of bullets (but has no experimental lab based examiner assessments), and \citep{chumbleyValidationToolMark2010} compares a computational method for bullet analysis to examiner evaluations, but does not provide the results of the examiner study in sufficient detail for our purposes. }
+Two other important studies, \citet{aoas2} and \citet{chumbleyValidationToolMark2010}, have also been excluded from this analysis. \citet{aoas2} presents a quantitative method for comparison of bullets (but has no experimental lab based examiner assessments), and \citep{chumbleyValidationToolMark2010} compares a computational method for bullet analysis to examiner evaluations, but does not provide the results of the examiner study in sufficient detail for our purposes. }
 % \hh{Besides the seven studies identified here, ... XXX?}
 % \svp{
 % Of the seven studies identified, one  \citep{aoas2} presents a method for quantitative comparison of bullets with no experimental lab-based examiner assessments. 
