@@ -1070,7 +1070,9 @@ P (\text{different source} \mid \text{identification}) &=& \displaystyle\frac{22
 \end{array}
 \end{eqnarray*}
 
-<<asymmetric-errors, echo = F, fig.width = 8, fig.height = 3, fig.cap = "Decision-specific error rates. XXX needs more text, obviously, but essentially, for all studies errors on identification are higher than errors on eliminations (Same on Keisler). Even if inconclusives are included in eliminations the rates are not significantly higher than for eliminations.  Confidence intervals for wrong identifications do not overlap, indicating that  these errors are significantly higher than wrongful eliminations.">>=
+<<asymmetric-errors, echo = F, fig.width = 8, fig.height = 3, fig.cap = "Decision-specific error rates. For all studies, errors in identification are more likely than errors in eliminations. In \\citet{baldwin:2014}, which is the only study with a large number of participants and evaluations, confidence intervals for wrong identifications do not overlap, indicating that  these errors are significantly higher than wrongful eliminations.">>=
+# Even if inconclusives are treated as eliminations, error rates are still not higher for eliminations than identifications (removed from caption)
+
 # This was to create a similar chart as the calculations for Baldwin, but Baldwin is the only study with enough data for the calculations to be meaningful...
 elimplus <- studies %>%
   dplyr::filter(Decision != "Identification", 
