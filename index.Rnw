@@ -1235,7 +1235,7 @@ These two separate summary measures would be used differently - the examiner err
 
 \svp{We also argue that a simpler alternative to this treatment of error rates in legal settings would be to report the decision-specific conditional error rates: the probability that, given an examiner's conclusion, the conclusion is incorrect.
 These rates provide the most relevant characterization of error in a court setting, where ground truth is not known, but the examiner's decision is known information. 
-In addition, using decision-specific error rates is advantageous because it side-steps the need to treat inconclusives differently than identification or elimination. 
+In addition, using decision-specific error rates is advantageous because it side steps the need to treat inconclusives differently than identification or elimination. 
 } 
 
 Specifically, in court, we suggest that when the admissibility of an examiner's testimony is assessed, the examiner is asked to state the rate at which they make inconclusive decisions, along with any relevant error rates specific to the lab. We also suggest that during cross-examination after the testimony was presented, the defense ask about the decision-specific probability of an error (relative to the examiner's decision), which will provide specific information which is relevant to the testimony at hand.
@@ -1264,7 +1264,9 @@ These biases mirror biases in the admissibility of forensic evidence which are a
 
 \svp{
 The biases identified in this paper increase the importance of the development and implementation of automatic, unbiased assessment algorithms in forensic laboratories. 
+Through awareness of the biases that already exist in the evaluation of firearms and toolmark evidence, we can avoid the pitfalls of developing machine learning algorithms using biased training data\citep{howard2018ugly,machinelearninglaw}, ensuring that any automatic processes are as fair as possible.
 It is important that before these algorithms are applied to casework, we examine the distribution of automated scores and cutoff-based classifications compared to examiner decisions to determine whether the algorithms are, in fact, less biased than examiners. 
+While these tools are being developed to assist examiners, however, we should also work to resolve the biases identified here by modifying the way error rates are reported and changing the factors which contribute to the uneven distribution of inconclusives. 
 }
 \svp{
 XXX need to figure out how to draw this to a close more elegantly.
