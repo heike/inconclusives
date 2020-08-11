@@ -638,7 +638,9 @@ The studies included in this section are not an exhaustive list of every error r
 \end{description}
 
 Of the studies listed above, we have examined all but \citet{fadul}, which contained insufficient detail about examiner results and conclusions to calculate the quantities discussed in the previous section. 
-Two other important studies, \citet{aoas2} and \citet{chumbleyValidationToolMark2010}, have also been excluded from this analysis. \citet{aoas2} presents a quantitative method for comparison of bullets (but has no experimental lab based examiner assessments), and \citep{chumbleyValidationToolMark2010} compares a computational method for bullet analysis to examiner evaluations, but does not provide the results of the examiner study in sufficient detail for our purposes. 
+Note that this paper is limited in scope to \emph{error rate studies} conducted using firearms and toolmark examiners. 
+There are several promising automatic analysis tools \citep[][see]{aoas2,case-validation,chumbleyValidationToolMark2010,chuAutomaticIdentificationBullet2013,songEstimatingErrorRates2018,tai2018fully} which can generate error rates from scans of bullet and cartridge cases, but these types of error rates are not easily comparable to error rates derived from black-box studies, if only because algorithmic results will be the same if repeated on a different date. 
+% Two other important studies, \citet{aoas2} and \citet{chumbleyValidationToolMark2010}, have also been excluded from this analysis. \citet{aoas2} presents a quantitative method for comparison of bullets (but has no experimental lab based examiner assessments), and \citep{chumbleyValidationToolMark2010} compares a computational method for bullet analysis to examiner evaluations, but does not provide the results of the examiner study in sufficient detail for our purposes. 
 % \hh{Besides the seven studies identified here, ... XXX?}
 % \svp{
 % Of the seven studies identified, one  \citep{aoas2} presents a method for quantitative comparison of bullets with no experimental lab-based examiner assessments. 
