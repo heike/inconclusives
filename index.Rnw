@@ -657,7 +657,7 @@ The multiple known source problem was described above, but this problem is magni
 
 In a closed-set design, the structure of the study helps examiners make the correct conclusion: if unknown source A is most similar to exemplars from source 8, then after the 10 comparisons are done, the examiner would rationally make an identification for source 8. 
 In an open-set study, the examiner might rate the same pairwise comparison as inconclusive, because there is no additional information suggesting that the unknown must match one of the provided knowns.
-In both the multiple known and closed set study designs, the use of deductive reasoning artificially reduces the error rates calculated using the study results, as discussed in the PCAST report and addendum \citep{pcast2016,pcast-addendum2017}. %\hh{XXX that has been pointed out in the PCAST report XXX}
+In both the multiple known and closed set study designs, the use of deductive reasoning artificially reduces the error rates calculated using the study results, as discussed in the PCAST report and addendum \citep{pcast2016,pcast-addendum2017}.
     
 It might be possible to modify the answer sheet so that examiners record each pairwise comparison, which would allow for assessment of the number of different-source comparisons performed. 
 However, revising the answer sheet would not prevent the use of deductive reasoning, which gives examiners an advantage in the error rate studies that does not exist in casework.
@@ -671,18 +671,12 @@ Finally, there are some design constraints that are common to most studies.
 Of the studies assessed in this paper, only  \citet{bunch2003comprehensive} uses a variable proportion of same and different source comparisons; without varying this percentage, it is possible that examiners could compare notes and gain additional information about the study results. 
 Many studies (but not all, \cite{Baldwin:2014bb}) pre-screened kit components to ensure that sufficient markings were present to allow for identification - this differs from casework and artifically inflates the rate of successful identifications and eliminations
 \footnote{
-% \hh{XXX  let's find a different spot for the next paragraph.}
-
-% \svp{XXX Not sure this should go here, but not sure if there's a better place for it to go... XXX}
-%Some studies screen for \svp{the} possibility \svp{that there is insufficient information present to make a conclusive assessment}, removing evidence with insufficient identifying marks before the study is conducted.
-%In other studies, however, screening was intentionally not performed, so as to better mimic actual casework conditions. 
 
 In Baldwin  \cite{Baldwin:2014bb}, the only pre-screening of usability was to ensure cartridge cases were caught with the cartridge catching device. 
 Additionally, for 3234 comparisons, FTEs evaluated how many of the known cartridge cases were usable for an evaluation: all three specimens were used in 3018 cases, two were used in 207 cases, and only one was used in nine cases.
 The Baldwin study is fairly unique in this regard: most studies make some effort to control the quality of the evidence sent out for assessment.
 }. 
 Studies which tightly control the evidence quality and presence of individualizing marks would under-estimate the process error (though the estimates of examiner error are not necessarily affected).
-%\svp{XXX not sure this is true - need to think through it...}
 In almost all studies, participants use lab rules for determining whether eliminations could be made on individual characteristics; while  \citet{Baldwin:2014bb} instructed participants to use a uniform set of rules, many participants reported that they did not or could not adhere to these guidelines.
 
 
@@ -780,10 +774,7 @@ This is in spite of the instructions given to participants: ``A very important a
 
 In  \citet{Duez:2017kha}, the authors report that ``13\% of examiners are not permitted to eliminate on individual characteristics (therefore, their conclusions of inconclusive are perfectly acceptable)." 
 Interestingly, it seems that some examiners reported eliminations in contravention of lab rules.
-Policies which forbid elimination based on mismatch of individual characteristics alone seem to directly contradict the AFTE Theory of Identification, which allows for eliminations based on ``significant disagreement of discernible class characteristics and/or individual characteristics". 
-% \svp{XXX Depending on how you read this -- and if you're using the government legalese translator -- either interpretation is allowable under the rules...} % Added weasel words to fix the issue
-
-% Other studies include examiners from many different labs and thus consist of some evaluations from labs which adhere to the class-characteristic elimination policy and some evaluations from labs which allow eliminations based on mismatch of individualizing characteristics.
+Policies which forbid elimination based on mismatch of individual characteristics alone seem to directly contradict the AFTE Theory of Identification, which allows for eliminations based on ``significant disagreement of discernible class characteristics and/or individual characteristics".
 
 
 The rates reported in this section are calculated directly from information reported in the papers without adjustments accounting for the use of deductive reasoning; as such, they represent the best possible case for error rates in studies which include multiple knowns, such as  \citet{Hamby:2018hu} and  \citet{bunch2003comprehensive}. 
@@ -877,8 +868,6 @@ figdata %>%
  filter(Study %in% c("Lyons (2009)", "Bunch & Murphy (2003)", "Keisler (2018)"))) 
 @
 
-
-% \hh{\autoref{fig:inconclusives} are too high for different source comparisons.}
 \subsection{Decision-specific error rates}\label{sec:dec-spec-res}
 
 
@@ -930,27 +919,12 @@ cis %>%
 \autoref{fig:cis} shows an overview  of the conditional probability of same source evidence given an examiner's conclusion for five published studies. 
 
 \section{Inconclusives, Errors, and the Legal System}\label{sec:inconclusives}
-% \svp{A lot of this is very repetitive considering all of the stuff that is now ahead of it. I think we can trim down some of the repetition and focus on making the conclusions crystal-clear. So start with why the distribution should be the same, but then show why that's the case for e.g. Baldwin, and what the reality is. Then go through Figure 7, explaining exactly why it's a problem. Survey the actual reasons for this (training focuses on identifications, lab policy, inconclusives are acceptable -- but maybe missing identifications is not?), then follow up with the conclusion: It doesn't matter what the reasons are - this is a fundamentally biased situation that leads to an imbalance in the scales of justice. Possibly introduce the ratio of guilty people freed to innocent people imprisoned. }
-
-% 
-% \hh{In the absence of knowing the truth we have to resort to working within a probabilistic framework to assess the likelihood of certain events.
-% Some \svp{types of} evidence \svp{rest on assessments} of pattern matching: does the shoe print from the crime scene match a particular shoe? was the bullet found at a crime scene fired from a particular weapon? does the breech face impression on a cartridge case from the crime scene match the breech face of a particular weapon frame?}
-% \svp{Other evidence, such as DNA, is based on formal measurement, but produces a certain signature or pattern which can be evaluated using probabilistic methods.}
-% 
-% In \svp{both of} these situations the fundamental quantity in question is the probability that two pieces of evidence come from the same source or from different sources.
-% In a legal setting the opinion provided by the expert guides this assessment.
-% \svp{This testimony is particularly important in pattern matching because there is no objective evaluation of the evidence}.
-% So given expert testimony, how does or should the evaluation of the above probability change?
-% 
-% The AFTE theory of firearms and toolmarks identification as shown in \autoref{tab:afte} allows an expert to come to three main conclusions: make an identification, i.e. two pieces of evidence are thought to come from the same source, make an elimination, i.e. two pieces of evidence are tought to come from different sources, or an inconclusive, i.e. the evidence does not allow either an identification or an elimination.
 
 In \autoref{sec:dec-spec-res}, we refer to the expected distribution of inconclusives. The corresponding values are shown as grey targets in \autoref{fig:cis}.
 The expected distribution of inconclusives rests on a fundamental premise: inconclusives should be equally likely to occur in the evaluation of same-source and different-source evidence. 
 This is shown conceptually in \autoref{fig:shape-overview}: the rate of inconclusives is the same for both same-source and different-source evidence.
 That is, under relatively ideal conditions (where there are inconclusives, but no errors according to the AFTE process), the expected conditional probabilities in an experiment would match those shown in \autoref{tab:ideal-probabilities}. 
 
-% We are interested \svp{in} the probability of same source and different sources \svp{for each conclusion}, resulting in a total of six ($3 \times 2$) conditional probabilities. 
-% \svp{Under ideal conditions?} In a perfect world, we would expect the probabilities shown in \autoref{tab:ideal-probabilities}:
 
 \begin{table}
 \caption{Expected conditional probabilities in a world where examiners do not make mistakes, but do make inconclusive decisions. }\label{tab:ideal-probabilities}
@@ -968,19 +942,6 @@ Different source & $P(DS| \text{Identification}) = 0$ & $P(DS| \text{Inconclusiv
 
 In case work we are not able to assess the probability of same source or different source comparisons.  
 However, those probabilities are easily accessible in formal studies or blinded proficiency testing, as $P(SS)$ and $P(DS)$ in these studies are determined by the experimental design.
-
-
-% \svp{XXX I think this should go into a different section talking about convention, personally, even possibly citing  \citet{spiegelmanAnalysisExperimentsForensic2013} about standard operating procedures.}
-% \hh{reporting of eliminations differs from lab to lab. Some labs do only allow firearm examiners to make eliminations based on differences in class characteristics. XXX quantify: baldwin, }
-
-%The probability to make an identification  could be either reported directly or calculated as a composite of true positive and false positive rates:
-
-% \[
-% P(\text{identification made}) = TPR \times P(\text{same source}) + FPR \times P(\text{different source}) 
-% \]
-
-% \svp{By examining these studies}, we can use existing data to evaluate the conditional probability of same source versus different sources given an expert's testimony directly.
-
 
 As an example, in the Baldwin study  \cite{Baldwin:2014bb}, we would expect the probabilities for same and different source given an inconclusive result to be: 
 \begin{eqnarray*}
@@ -1029,11 +990,6 @@ inc %>%
 This finding is similar to the implications of \citep{biedermannAreInconclusiveDecisions2019}, though they do not follow their reported results to the logical conclusion. 
 Specifically, they show that there is information in the finding of an inconclusive that is useful: inconclusives are much more likely to occur when the evidence is different-source. 
 We take this conclusion one step further: if inconclusives are essentially another way to say ``different source", then it makes sense to get rid of the category and declare inconclusives to be equivalent to an elimination, at least when evaluating error rates. 
-
-
-% \svp{In the next section, we explore the implications of treating inconclusives as equivalent to elimination for the purposes of evaluating the errors in the firearms examination process. 
-% }
-
 
 Calculations are shown below for \citep{Baldwin:2014bb}, which is the only study large enough to have nonzero observed counts for all cells.
 
@@ -1108,22 +1064,8 @@ errors2 %>%
   scale_shape_discrete("Type of Error") +
   scale_colour_manual("Type of Error", values = c("steelblue", "darkorange", "brown")) +
   theme_bw() +
-#  theme(legend.position = "bottom",
-#        legend.direction = "vertical") + 
   xlab("Error Percentages (decision-specific conditional probabilities) ") 
 
-
-# # Source-specific
-# studies %>% 
-#   filter(Type == "Observed") %>%
-#   select(-Type) %>%
-#   bind_rows(elimplus) %>%
-#   group_by(Study, Ground.truth) %>%
-#   mutate(Total = sum(Number)) %>%
-#   right_join(errs) %>%
-#   mutate(rate = Number/Total) %>%
-#   ungroup() %>%
-#   arrange(Study)
 @
 
 
@@ -1186,9 +1128,6 @@ Examiner training  primarily focus on making identifications, rather than spendi
 Whatever the source of the bias, however, one thing is clear: the discrepancy between the decision-specific conditional probabilities corresponding to errors is fundamentally unjust, and the bias is in the opposite direction of the ideal expressed by Blackstone.
 This problem must be addressed for forensic firearms and toolmark examination to be used equitably. 
 
-
-%Then lead into the discussion, which can bring this back around to a more general PPV/NPV good, FPR/FNR bad, inconclusives are a problem both for error rate calculations and for a fair legal system. System-wide change is needed. 
-
 \section{Recommendations and Conclusions}
 % Recap study weaknesses: 
 % \begin{itemize}
@@ -1200,8 +1139,6 @@ This problem must be addressed for forensic firearms and toolmark examination to
 It is clear from our assessment of the currently available studies that there is significant work to be done in examining error rates of different components of firearms and toolmark analysis.
 In particular, there is a great need for studies which are both large (many examiners and many evaluations) and well designed (single known source for each comparison, open set, with limited information which can be shared between participants). 
 All of the published studies which meet the design criteria analyze cartridge cases; it is imperative that similarly well designed studies examining bullets and toolmarks be conducted and published in order to validate the entire discipline of firearms and toolmark analysis.
-
-% Recap error rate and inconclusive options, and why these options are suboptimal in source-specific error rate classification. Argue for use of decision-specific probabilities in court because they condition on known information, while using source-specific probabilities to evaluate individual or even lab performance. 
 
 While published studies vary in their treatment of inconclusive decisions when calculating and reporting error rates or accuracies, in most studies, what are reported as error rates are what we have termed source-specific conditional probabilities. 
 We propose that error rates be calculated for the examiner and the process separately. 
