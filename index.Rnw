@@ -171,13 +171,15 @@ library(kableExtra)
 
 \tableofcontents
 
-\svp{It has now been more than a decade since the publication of the \citet{nrc:2009} report, which discussed the need for better designed studies of error rates in forensic disciplines. 
+
+
+\section{Introduction and Background}
+It has now been more than a decade since the publication of the \citet{nrc:2009} report, which discussed the need for better designed studies of error rates in forensic disciplines. 
 In this paper, we examine several new studies which have been published since the 2009 report, and assess the state of error rate studies in firearms and toolmark analysis. 
 For each study, we calculate the error rates from the study results using standardized methods. 
 We also assess the impact of study design and treatment of inconclusives on the calculated error rates.
-In order to lay a foundation for the common calculation methods used in this paper, we will first introduce some theory and vocabulary before comparing the studies and assessing the state of error rates in firearms and toolmark analysis.}
+In order to lay a foundation for the common calculation methods used in this paper, we will first introduce some theory and vocabulary before comparing the studies and assessing the state of error rates in firearms and toolmark analysis.
 
-\section{Introduction and Background}
 Examiners visually classify similarity of toolmark and firearm evidence according to the AFTE theory of identification  as one of identification, inconclusive or elimination
 \citep[][see also \autoref{tab:afte}]{identification}. Exact guidelines for this classification vary from lab to lab; some labs will exclude only on the basis of non-matching class characteristics, such as direction of rifling, number of lands and their width, or type of rifling \cite{bunch2003comprehensive}. In other labs, CMS (consecutively matching striae) as defined by  \citeauthor{biasotti}  \citep{biasotti} is used as a measure to quantify the similarity of two lands. In virtually all labs, the assessment of individual characteristics of bullet markings is done by visual inspection. 
 
@@ -972,11 +974,11 @@ cis %>%
 % 
 % The AFTE theory of firearms and toolmarks identification as shown in \autoref{tab:afte} allows an expert to come to three main conclusions: make an identification, i.e. two pieces of evidence are thought to come from the same source, make an elimination, i.e. two pieces of evidence are tought to come from different sources, or an inconclusive, i.e. the evidence does not allow either an identification or an elimination.
 
-\svp{In \autoref{sec:dec-spec-res}, we refer to the expected distribution of inconclusives, shown as grey targets in \autoref{fig:cis}.
+In \autoref{sec:dec-spec-res}, we refer to the expected distribution of inconclusives. The corresponding values are shown as grey targets in \autoref{fig:cis}.
 The expected distribution of inconclusives rests on a fundamental premise: inconclusives should be equally likely to occur in the evaluation of same-source and different-source evidence. 
 This is shown conceptually in \autoref{fig:shape-overview}: the rate of inconclusives is the same for both same-source and different-source evidence.
 That is, under relatively ideal conditions (where there are inconclusives, but no errors according to the AFTE process), the expected conditional probabilities in an experiment would match those shown in \autoref{tab:ideal-probabilities}. 
-}
+
 % We are interested \svp{in} the probability of same source and different sources \svp{for each conclusion}, resulting in a total of six ($3 \times 2$) conditional probabilities. 
 % \svp{Under ideal conditions?} In a perfect world, we would expect the probabilities shown in \autoref{tab:ideal-probabilities}:
 
@@ -994,8 +996,8 @@ Different source & $P(DS| \text{Identification}) = 0$ & $P(DS| \text{Inconclusiv
 
 % Most notably, we would expect inconclusive results not to show any dependence on the type of comparison, unless there is some evidence provided by experts that one type of conclusion is more difficult to make than another.\svp{I'm not even sure that would convince me - fundamentally, it's still important that legally the two are on equal footing, and it's the job of the training process to combat any asymmetry in difficulty level.}
 
-In case work we are not able to assess the probability \svp{of} same source or different source \svp{comparisons}.  
-However, those probabilities are easily accessible in formal studies or blinded proficiency testing,\svp{ as $P(SS)$ and $P(DS)$ in these studies are determined by the experimental design.}
+In case work we are not able to assess the probability of same source or different source comparisons.  
+However, those probabilities are easily accessible in formal studies or blinded proficiency testing, as $P(SS)$ and $P(DS)$ in these studies are determined by the experimental design.
 
 
 % \svp{XXX I think this should go into a different section talking about convention, personally, even possibly citing  \citet{spiegelmanAnalysisExperimentsForensic2013} about standard operating procedures.}
@@ -1010,14 +1012,14 @@ However, those probabilities are easily accessible in formal studies or blinded 
 % \svp{By examining these studies}, we can use existing data to evaluate the conditional probability of same source versus different sources given an expert's testimony directly.
 
 
-\svp{As an example, in the Baldwin study  \cite{Baldwin:2014bb}}, we would expect the probabilities for same and different source given an inconclusive result to be: 
+As an example, in the Baldwin study  \cite{Baldwin:2014bb}, we would expect the probabilities for same and different source given an inconclusive result to be: 
 \begin{eqnarray*}
 P(\text{same source} \mid \text{Inconclusive}) &=& P(\text{same source}) = \frac{1}{3},  \\
 P(\text{different source} \mid \text{Inconclusive}) &=& P(\text{different source}) = \frac{2}{3}
 \end{eqnarray*}
-\svp{This expectation is based on the study's design: 5 of the 15 comparisons were same-source; 10 were different-source. }
-\svp{However, in Baldwin, as in the other studies, the probability of same-source evidence given an inconclusive is much lower than the expectation.
-}
+This expectation is based on the study's design: 5 of the 15 comparisons were same-source; 10 were different-source. 
+However, in Baldwin, as in the other studies, the probability of same-source evidence given an inconclusive is much lower than the expectation.
+
 
 <<inconclusives, echo=FALSE, fig.width=8, fig.height=3.75,fig.cap="Probability of inconlusive decisions by same-source/different source comparisons. The probability of inconclusives for same source comparisons is generally low (with a 95\\% confidence interval well below 5\\%). Different source comparisons end up in inconclusive results significantly more often. The Bunch \\& Murphy and Baldwin studies have a particularly high percentage of inconclusive results.", out.width=".8\\textwidth", eval = F, include = F>>=
 
@@ -1053,18 +1055,18 @@ inc %>%
   geom_point(x = max_prob/2,  data = DontKnow, shape='?', size = 3.5)
 @
 
-\svp{
+
 This finding is similar to the implications of \citep{biedermannAreInconclusiveDecisions2019}, though they do not follow their reported results to the logical conclusion. 
 Specifically, they show that there is information in the finding of an inconclusive that is useful: inconclusives are much more likely to occur when the evidence is different-source. 
-We take this conclusion one step further: if inconclusives are essentially another way to say ``different source", then it makes sense to get rid of the category and declare inconclusives to be equivalent to elimination, at least when evaluating error rates. 
-}
+We take this conclusion one step further: if inconclusives are essentially another way to say ``different source", then it makes sense to get rid of the category and declare inconclusives to be equivalent to an elimination, at least when evaluating error rates. 
+
 
 % \svp{In the next section, we explore the implications of treating inconclusives as equivalent to elimination for the purposes of evaluating the errors in the firearms examination process. 
 % }
 
-\svp{
+
 Calculations are shown below for \citep{Baldwin:2014bb}, which is the only study large enough to have nonzero observed counts for all cells.
-}
+
 
 
 \begin{eqnarray*}
@@ -1154,11 +1156,11 @@ errors2 %>%
 #   arrange(Study)
 @
 
-\svp{
+
 Examining the experimentally determined error rates for firearms and toolmark identification leads to a disturbing realization. 
 There is an order of magnitude difference between the probability of same-source evidence given an elimination and the probability of different-source evidence given an identification.
 \autoref{fig:baldwin-shape-overview} provides a visual demonstration of this discrepancy: unlike in \autoref{fig:shape-overview}, there is a difference in the density of points in the inconclusive sections of the chart.
-}
+
 
 <<baldwin-shape-overview, fig.cap = "Sketch of the relationship between  ground truth of evidence (dots) and examiners' decisions (shaded areas) as reported in \\cite{Baldwin:2014bb}. Each dot represents approximately 2 examiner evaluations. Unlike in \\autoref{fig:shape-overview}, there is a significant difference in the probability of an inconclusive evaluation when a pair is different source or same source. ", fig.width = 6, fig.height = 4, dpi = 1000, dev="pdf", out.width = "70%">>=
 baldwin <- c(a = 1075, b = 11, c = 4, d = 22, e = 737, f = 1421)
@@ -1184,14 +1186,14 @@ bunch <- c(a = 70, b = 0, c = 0, d = 0, e = 172, f = 118)
 do.call(target_plot, as.list(c(bunch, pointsize = .5, bordersize = 0.001)))
 # target_plot(1075, 11, 4, 22, 737, 1421, pointsize = .5, bordersize = .001) # too dense
 @
-\hh{In fact, even if inconclusives and eliminations are combined,} \svp{that is, if we introduce an artificial binary classification scheme,} \hh{the error rate of making a false elimination is 0.0069, only a third of the error of a false identification.}
-\svp{Note that while the probability of same source given an elimination is affected by lab policies towards the treatment of inconclusives, these policies do not explain the continued discrepancy in error probabilities when inconclusives and eliminations are considered together.
-}
+In fact, even if inconclusives and eliminations are combined as under option 4 the error rate of making a false elimination is 0.0069, only a third of the error of a false identification.
+Note that while the probability of same source given an elimination is affected by lab policies towards the treatment of inconclusives, these policies do not explain the continued discrepancy in error probabilities when inconclusives and eliminations are considered together.
+
 
 % \subsection{What will examiners bet on?}
 % \subsection{Equitable Errors?} % Something that isn't quite as cavalier as "betting" and gets at the heart of the question better - which error is more likely?
 
-\svp{
+
 Under a system with equal consequences for each type of error (false elimination or missed identification), we would ideally want the probability of each type of error to be the same - that is, it should be equally likely to make an error in favor of the prosecution or in favor of the defense. 
 In the legal system, however, there are not equal consequences for each type of error. 
 If a person is guilty, there are usually multiple pieces of evidence which contribute information used by the judge or jury to make a decision; thus, the consequences of an elimination of same-source evidence are generally relatively low. 
@@ -1199,21 +1201,21 @@ However, there are many examples of convictions which were made on the basis of 
 As a society, we generally adhere to the principle that false convictions are more heinous than allowing a guilty person to go free.  
 This principle, known as Blackstone's ratio (``It is better that ten guilty persons escape than that one innocent suffer.") would suggest that equal probability of each type of error is insufficient. 
 In accordance with this principle, it would be preferable for $P(\text{SS} | \text{Elimination})$ to be higher than $P(\text{DS} | \text{Identification})$. 
-}
 
-\svp{Unfortunately, this is not what we find.}
-\svp{In \autoref{fig:asymmetric-errors}, we see that in every experiment with sufficient data, the point estimate of the probability that an identification is from a different-source pair is higher than the probability that an elimination is from a same-source pair.}
-\svp{Even when inconclusives are treated as as eliminations, the only study with sufficient sample size to show significant differences between error rates still shows that the probability of different source evidence given an examiner identification is significantly higher than the probability of same-source evidence given an examiner elimination or inconclusive.}
-\svp{Note that \citet{Duez:2017kha} and \citet{keisler} have insufficient sample size to distinguish between the probabilities with statistical significance.}
-\svp{However, in \citet{Baldwin:2014bb}, it is clear that} examiners are willing to gamble on an indentification much more than they are willing to gamble on an elimination. 
-In the courtroom \svp{(or before, in a plea bargin situation)}, this results in a clear bias toward the prosecution (or against the defense).
 
-\svp{There are many ways this bias could arise: there are, of course, well documented motivational and cognitive biases \cite{motivationalcognitivebiases, robertson2016blinding} which may affect examiners. 
+Unfortunately, this is not what we find.
+In \autoref{fig:asymmetric-errors}, we see that in every experiment with sufficient data, the point estimate of the probability that an identification is from a different-source pair is higher than the probability that an elimination is from a same-source pair.
+Even when inconclusives are treated as as eliminations, the only study with sufficient sample size to show significant differences between error rates still shows that the probability of different source evidence given an examiner identification is significantly higher than the probability of same-source evidence given an examiner elimination or inconclusive.
+Note that \citet{Duez:2017kha} and \citet{keisler} have insufficient sample size to distinguish between the probabilities with statistical significance.
+However, in \citet{Baldwin:2014bb}, it is clear that examiners are willing to gamble on an indentification much more than they are willing to gamble on an elimination. 
+In the courtroom (or before, in a plea bargin situation), this results in a clear bias toward the prosecution (or against the defense).
+
+There are many ways this bias could arise: there are, of course, well documented motivational and cognitive biases \cite{motivationalcognitivebiases, robertson2016blinding} which may affect examiners. 
 In addition, it may be easier to identify similarities than to explicitly identify dissimilarities. 
-Examiner training may primarily focus on making identifications, rather than spending equal time on elimination and identification. 
+Examiner training  primarily focus on making identifications, rather than spending an equal amount of time on making eliminations. 
 Whatever the source of the bias, however, one thing is clear: the discrepancy between the decision-specific conditional probabilities corresponding to errors is fundamentally unjust, and the bias is in the opposite direction of the ideal expressed by Blackstone.
 This problem must be addressed for forensic firearms and toolmark examination to be used equitably. 
-}
+
 
 %Then lead into the discussion, which can bring this back around to a more general PPV/NPV good, FPR/FNR bad, inconclusives are a problem both for error rate calculations and for a fair legal system. System-wide change is needed. 
 
@@ -1269,12 +1271,11 @@ These biases mirror biases in the admissibility of forensic evidence which are a
 
 % Future work: Examine the distribution of automated scores (RF score, CCF) and cutoff-based classifications compared to examiner decisions. Are algorithms less biased than examiners? (yes, duh). 
 
-\svp{
 The biases identified in this paper increase the importance of the development and implementation of automatic, unbiased assessment algorithms in forensic laboratories. 
-Through awareness of the biases that already exist in the evaluation of firearms and toolmark evidence, we can avoid the pitfalls of developing machine learning algorithms using biased training data\citep{howard2018ugly,machinelearninglaw}, ensuring that any automatic processes are as fair as possible.
+Through awareness of the biases that already exist in the evaluation of firearms and toolmark evidence, we can avoid the pitfalls of developing machine learning algorithms using biased training data \citep{howard2018ugly,machinelearninglaw}, ensuring that any automatic processes are as fair as possible.
 It is important that before these algorithms are applied to casework, we examine the distribution of automated scores and cutoff-based classifications compared to examiner decisions to determine whether the algorithms are, in fact, less biased than examiners. 
 While these tools are being developed to assist examiners, however, we should also work to resolve the biases identified here by modifying the way error rates are reported and changing the factors which contribute to the uneven distribution of inconclusives. 
-}
+
 
 
 % \svp{Some mentions of quality considerations in  \cite{epsteinPreferringWiseMan2014} -  \cite{UNITEDSTATESAmerica2011} (fingerprints) - need for a precise standard of what makes something high-quality enough for analysis/comparison}
