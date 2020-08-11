@@ -1338,6 +1338,7 @@ Opt. & \multicolumn{1}{c}{Meaning} & Missed Identification & \multicolumn{1}{r}{
 
 \clearpage
 \paragraph{Bunch \& Murphy}  \cite{bunch2003comprehensive}\hfill\newline
+Bunch \& Murphy used a study design that is not conducive to a quick summary. The study consisted of 8 test kits of varying composition; the test kits were evaluated by 8 examiners at the FBI laboratory. 
 
 \noindent\begin{fmpage}{.985\textwidth}\centering % Checked numbers 2020-04-24
 \captionsetup{type=table}\captionof{table}{Results and summary tables for the Bunch and Murphy study. Values in this table are as reported in the study; however, due to the study's structure, it is possible to perform fewer comparisons, because not all comparisons are independent. Results for independent comparisons are shown in \autoref{tab:bunch-indep}}\label{tab:bunch-summary}
