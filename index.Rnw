@@ -509,7 +509,7 @@ Different source & $d/D$ & $e/D$ & $f/D$ & $D/N$\\\hline
 \end{table}
 A google sheets workbook which  performs all of these calculations given counts $a, b, c, d, e, \text{ and } f$ is available at \url{http://bit.ly/FTE-error-rate-worksheet}.
 
-\hh{In the context of table~\autoref{tab:fpr-prob} conditional probabilities can be interpreted as follows:}
+In the context of \autoref{tab:fpr-prob} conditional probabilities can be interpreted as follows:
 given a  same-source pair of evidence, the examiner  makes an identification with probability $a/S$, the true positive rate (TPR). 
 Conversely, for a  different-source evidence pair, the examiner  makes an elimination with probability $f/D$, the true negative rate (TNR).
 
@@ -558,9 +558,9 @@ Different source & $d/(a+d)$ & $e/(b+e)$ & $f/(c+f)$ & $D/N$\\\hline
 
 
 Predictive value assessments are used in assessing the implications of a particular classification label; they inform us about the \emph{likely state of the physical evidence} given the expert's decision or testimony. This makes the PPV, NPV, FDR, and FOR particularly useful when evaluating casework (or in a courtroom setting), because the true state of the evidence is unknown.
-\svp{
+
 Note that we still cannot directly calculate the probabilities for any individual case or evidence: ground truth is still not knowable; however, the results of designed studies are used to give information  tailored to the situation in a particular case. 
-While it is reasonable to condition on unknown quantities in a mathematical sense, in practice it is much more informative to condition on quantities with known values: in this case, the examiner's decision is the known information and the state of the physical evidence is unknown.}
+While it is reasonable to condition on unknown quantities in a mathematical sense, in practice it is much more informative to condition on quantities with known values: in this case, the examiner's decision is the known information and the state of the physical evidence is unknown.
 
 Conversely, source-specific assessments are useful when evaluating the performance of individuals on a designed test, because ground truth is known (and thus, can be conditioned upon) in designed studies.
 
@@ -578,12 +578,13 @@ From a practical point of view, whether source-specific or decision-specific rat
 \item as part of courtroom proceedings, we -- the jury, lawyers, and judges -- are interested in assessing accuracy of testimonies, i.e. we are interested in conclusion-specific rates to answer questions of the form: given an expert testified to the evidence as being an identification, what is the probability that the evidence actually does come from the same source? In this situation, we can update the overall error rate by conditioning on the examiner's conclusion, providing more specific evidence about the scenario under scrutiny in court. As we only know the examiner's testimony (and not ground truth), we must work with the decision-specific rates. 
 \end{itemize}
 These two forms of questions look deceptively similar, but lead to different mathematical equations. 
-This difficulty is not exclusive to evaluations of firearms evidence -- it is a known and pervasive pitfall in other application areas, such as medical diagnostic \svp{testing} \cite{Casscells:1978ba, Manrai:2014fp}.
+This difficulty is not exclusive to evaluations of firearms evidence -- it is a known and pervasive pitfall in other application areas, such as medical diagnostic testing \cite{Casscells:1978ba, Manrai:2014fp}.
 The distinction between these two sources of error rates is perhaps a bit more approachable in the setting of a medical context: 
-\begin{itemize}\item A given test has a sensitivity (true positive rate, TPR) and a specificity (true negative rate, TNR) that combined determine the overall accuracy rate. \svp{These quantities are useful for an accrediting agency such as the FDA, or a company; both are interested in whether the test works as claimed.} 
-\item \svp{A patient who has received a negative test result is more interested in a different value: the probability that the patient actually has the disease 
+\begin{itemize}
+\item A given test has a sensitivity (true positive rate, TPR) and a specificity (true negative rate, TNR) that combined determine the overall accuracy rate. These quantities are useful for an accrediting agency such as the FDA, or a company; both are interested in whether the test works as claimed. 
+\item A patient who has received a negative test result is more interested in a different value: the probability that the patient actually has the disease 
 %(and could be contagious) 
-considering the negative test result.} \svp{At the individual level, we want to use tailored information to guide our specific actions; at the system level, we are more interested in gross measures of performance.}
+considering the negative test result. At the individual level, we want to use tailored information to guide our specific actions; at the system level, we are more interested in gross measures of performance.
 \end{itemize}
 % \hh{Similarly, we might also interested in the false negative rate, i.e. if we, 
  % as patients receive a negative test result, what is the probability that, given this negative result, we actually do have the disease (and could be contagious)?}
@@ -598,7 +599,7 @@ considering the negative test result.} \svp{At the individual level, we want to 
 
 In case work, because ground truth is not known, we cannot definitively know that an examiner's evaluation is correct. 
 For that reason, we need designed studies to estimate the error rates of examinations in situations where ground truth is known. 
-As we rely on these studies to generalize to casework, it is of great importance that these studies are well designed \svp{so that it is possible to estimate any of the success and error rates discussed above.}
+As we rely on these studies to generalize to casework, it is of great importance that these studies are well designed so that it is possible to estimate any of the success and error rates discussed above.
 %so as to allow for the estimation of any of the success or error rates discussed above.
 
 \section{Studies}\label{sec:studies}
@@ -622,7 +623,7 @@ Using these comparisons we assess the state of these error rate studies and prov
 
 
 \subsection{Error Rate Studies}
-The studies included in this section are not an exhaustive list of every \svp{error rate} study ever performed; rather, we \svp{have included} the most central and most cited studies, as well as several of the studies mentioned in the PCAST and NAS reports concerning firearm and toolmark analysis. A brief description of each study is provided here for reference purposes, with summary tables of results and conditional probabilities provided in \ref{sec:supplement}.
+The studies included in this section are not an exhaustive list of every error rate study ever performed; rather, we have included the most central and most cited studies, as well as several of the studies mentioned in the PCAST and NAS reports concerning firearm and toolmark analysis. A brief description of each study is provided here for reference purposes, with summary tables of results and conditional probabilities provided in \ref{sec:supplement}.
 
 \begin{description}
 \item[Baldwin] \citep{Baldwin:2014bb} is a study of Ruger SR9 cartridge cases. It is an open-set study with 15 comparisons of 3 knowns to 1 questioned cartridge case. Participants received sets with 10 different-source and 5 same-source comparisons.
@@ -636,8 +637,8 @@ The studies included in this section are not an exhaustive list of every \svp{er
 %\item [Hare] \citep{aoas2} \svp{assessed the performance of a computational algorithm for bullet analysis, using binary classification (no inconclusives). Subsequent studies  \cite{case-validation} of the algorithm presented in  \citep{aoas2} suggest that on the bullet-to-bullet comparison level, the algorithm perfectly classifies bullets from 3 different external test sets.} \hh{XXX }
 \end{description}
 
-\svp{Of the studies listed above, we have examined all but \citet{fadul}, which contained insufficient detail about examiner results and conclusions to calculate the quantities discussed in the previous section. 
-Two other important studies, \citet{aoas2} and \citet{chumbleyValidationToolMark2010}, have also been excluded from this analysis. \citet{aoas2} presents a quantitative method for comparison of bullets (but has no experimental lab based examiner assessments), and \citep{chumbleyValidationToolMark2010} compares a computational method for bullet analysis to examiner evaluations, but does not provide the results of the examiner study in sufficient detail for our purposes. }
+Of the studies listed above, we have examined all but \citet{fadul}, which contained insufficient detail about examiner results and conclusions to calculate the quantities discussed in the previous section. 
+Two other important studies, \citet{aoas2} and \citet{chumbleyValidationToolMark2010}, have also been excluded from this analysis. \citet{aoas2} presents a quantitative method for comparison of bullets (but has no experimental lab based examiner assessments), and \citep{chumbleyValidationToolMark2010} compares a computational method for bullet analysis to examiner evaluations, but does not provide the results of the examiner study in sufficient detail for our purposes. 
 % \hh{Besides the seven studies identified here, ... XXX?}
 % \svp{
 % Of the seven studies identified, one  \citep{aoas2} presents a method for quantitative comparison of bullets with no experimental lab-based examiner assessments. 
@@ -1227,25 +1228,21 @@ This problem must be addressed for forensic firearms and toolmark examination to
 % \item well-designed studies are essential for proper assessment of error rates
 % \end{itemize}
 
-\hh{Baldwin study is gold standard for administration of a controlled study: open set, single known source for each comparison, limited information which can be shared between participants}
-
-\hh{downside of Baldwin: treatment of inconclusives and error rate}
-
-\svp{It is clear from our assessment of the currently available studies that there is significant work to be done in examining error rates of different components of firearms and toolmark analysis.
+It is clear from our assessment of the currently available studies that there is significant work to be done in examining error rates of different components of firearms and toolmark analysis.
 In particular, there is a great need for studies which are both large (many examiners and many evaluations) and well designed (single known source for each comparison, open set, with limited information which can be shared between participants). 
-All of the published studies which meet the design criteria analyze cartridge cases; it is imperative that similarly well designed studies examining bullets and toolmarks be conducted and published in order to validate the entire discipline of firearms and toolmark analysis.}
+All of the published studies which meet the design criteria analyze cartridge cases; it is imperative that similarly well designed studies examining bullets and toolmarks be conducted and published in order to validate the entire discipline of firearms and toolmark analysis.
 
 % Recap error rate and inconclusive options, and why these options are suboptimal in source-specific error rate classification. Argue for use of decision-specific probabilities in court because they condition on known information, while using source-specific probabilities to evaluate individual or even lab performance. 
 
-\svp{While published studies vary in their treatment of inconclusive decisions when calculating and reporting error rates or accuracies, in most studies, what are reported as error rates are what we have termed source-specific conditional probabilities. 
-We propose that these error rates be calculated for the examiner and the process separately. 
-The examiner-specific error rates would not count inconclusives as errors, but the process-specific error rates would count inconclusives as errors because they reflect the failure of the evidence to record sufficient identifying information to make a correct determination.
-These two separate summary measures would be used differently - the examiner error rates would be used for evaluation within the forensics lab setting (for e.g. qualification purposes), but the process error rates would be reported in court, because they are germane to the question of interest in court: how does the evidence contribute to information about the suspect's guilt or innocence?}
+While published studies vary in their treatment of inconclusive decisions when calculating and reporting error rates or accuracies, in most studies, what are reported as error rates are what we have termed source-specific conditional probabilities. 
+We propose that error rates be calculated for the examiner and the process separately. 
+Examiner-specific error rates should not count inconclusives as errors, while  process-specific error rates have to count inconclusives as errors.  Process-specific error rates then reflect the inability due to insufficient identifying information on the evidence to make a correct determination.
+These two separate measures will be used differently:  examiner error rates can be used for evaluation within the forensics lab setting (for e.g. qualification purposes in proficiency tests), but  process error rates are essential for a proper use of firearms evidence in court: process error rates are germane to the question of how evidence informs about the suspect's guilt.
 
-\svp{We also argue that a simpler alternative to this treatment of error rates in legal settings would be to report the decision-specific conditional error rates: the probability that, given an examiner's conclusion, the conclusion is incorrect.
+We also argue that a simpler alternative to this treatment of error rates in legal settings would be to report the decision-specific conditional error rates: the probability that, given an examiner's conclusion, the conclusion is incorrect.
 These rates provide the most relevant characterization of error in a court setting, where ground truth is not known, but the examiner's decision is known information. 
 In addition, using decision-specific error rates is advantageous because it side steps the need to treat inconclusives differently than identification or elimination. 
-} 
+
 
 Specifically, in court, we suggest that when the admissibility of an examiner's testimony is assessed, the examiner is asked to state the rate at which they make inconclusive decisions, along with any relevant error rates specific to the lab. We also suggest that during cross-examination after the testimony was presented, the defense ask about the decision-specific probability of an error (relative to the examiner's decision), which will provide specific information which is relevant to the testimony at hand.
 
@@ -1259,15 +1256,15 @@ Specifically, in court, we suggest that when the admissibility of an examiner's 
 % \item This bias \svp{ against the defense in inconclusives mirrors biases in admissibility of forensic evidence  \cite{morenoWhatHappensWhen2004, epsteinPreferringWiseMan2014, roachFORENSICSCIENCEMISCARRIAGES2009}}
 % \end{itemize}
 
-\svp{In the process of examining these different error rate calculations, we discovered a series of systematic biases in error rate studies and the examination process which all work against the defendant. 
+In the process of examining these different error rate calculations, we discovered a series of systematic biases in error rate studies and the examination process which all work against the defendant. 
 In many studies, there are more same-source comparisons than what would be expected in case work: this ensures that false elimination error rates can be estimated more precisely than false identification error rates. 
 In fact, in some common study designs, it is only possible to estimate the false elimination error rate; the rate of false identifications cannot be estimated at all. 
 This, too, ensures that there is no way to invalidate the examiner's testimony on the basis that it might contribute to a false conviction of the defendant. 
 In addition, examiners clearly have a lower threshold for identification than for elimination; when evidence is different-source, examiners are more likely to say that it is inconclusive than they are when the evidence is same-source. 
 As a result, there is a systematically higher probability of different-source evidence given an examiner's identification than the probability of same-source evidence given an examiner's elimination. 
 This fundamentally contradicts the principles which form the foundation of our legal system. 
-These biases mirror biases in the admissibility of forensic evidence which are also more likely to favor the prosecution\cite{morenoWhatHappensWhen2004, epsteinPreferringWiseMan2014, roachFORENSICSCIENCEMISCARRIAGES2009}.
-}
+These biases mirror biases in the admissibility of forensic evidence which are also more likely to favor the prosecution \cite{morenoWhatHappensWhen2004, epsteinPreferringWiseMan2014, roachFORENSICSCIENCEMISCARRIAGES2009}.
+
 
 % Future work: Examine the distribution of automated scores (RF score, CCF) and cutoff-based classifications compared to examiner decisions. Are algorithms less biased than examiners? (yes, duh). 
 
@@ -1292,7 +1289,7 @@ While these tools are being developed to assist examiners, however, we should al
 \clearpage
 \appendix
 \section{Study Summaries and Results}\label{sec:supplement}
-\paragraph{Baldwin} \svp{The Baldwin study  \cite{Baldwin:2014bb} was designed such that each test} kit consists of 15 sets of 3 known cartridge cases and 1 questioned cartridge case. In 5 of the 15 sets the questioned cartridge was from the same source as the knowns, while the other 10 questioned cartridges were from different sources as their respective knowns.
+\paragraph{Baldwin} The Baldwin study  \cite{Baldwin:2014bb} was designed such that each test kit consists of 15 sets of 3 known cartridge cases and 1 questioned cartridge case. In 5 of the 15 sets the questioned cartridge was from the same source as the knowns, while the other 10 questioned cartridges were from different sources as their respective knowns.
 
 25 firearms were used for the study, such that within each kit no firearm was re-used for either knowns or questioned cartridge cases, i.e. no additional information could be gained by comparing any cartridge cases across sets.
 
@@ -1494,10 +1491,11 @@ Opt. & \multicolumn{1}{c}{Meaning} & Missed Identification & \multicolumn{1}{r}{
 \end{fmpage}
 
 \clearpage
-\paragraph{Bunch \& Murphy}  \cite{bunch2003comprehensive}\\
+\paragraph{Bunch \& Murphy}  \cite{bunch2003comprehensive}\hfill\newline
+
 \noindent\begin{fmpage}{.985\textwidth}\centering % Checked numbers 2020-04-24
 \captionsetup{type=table}\captionof{table}{Results and summary tables for the Bunch and Murphy study. Values in this table are as reported in the study; however, due to the study's structure, it is possible to perform fewer comparisons, because not all comparisons are independent. Results for independent comparisons are shown in \autoref{tab:bunch-indep}}\label{tab:bunch-summary}
-{\large\bf A Comprehensive Validity Study for the Forensic Examination of Cartridge Cases}\emph{ \citeauthor{bunch2003comprehensive} ( \citeyear{bunch2003comprehensive})}\\
+{\large\bf A Comprehensive Validity Study for the Forensic Examination of Cartridge Cases}\emph{ \citeauthor{bunch2003comprehensive} (\citeyear{bunch2003comprehensive})}\\
 \begin{tabularx}{\textwidth}{XrrX}\hline
 \multirow{2}{*}{\bf Study Type} & \multicolumn{2}{c}{\bf Test Set} & \multirow{2}{*}{\bf Participants}\\
 & \# Knowns & \# Unknowns & \\\hline
