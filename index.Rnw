@@ -709,8 +709,8 @@ In Baldwin  \cite{Baldwin:2014bb}, the only pre-screening of usability was to en
 Additionally, for 3234 comparisons, FTEs evaluated how many of the known cartridge cases were usable for an evaluation: all three specimens were used in 3018 cases, two were used in 207 cases, and only one was used in nine cases.
 The Baldwin study is fairly unique in this regard: most studies make some effort to control the quality of the evidence sent out for assessment.
 }. 
-Studies which tightly control the evidence quality and presence of individualizing marks would under-estimate the process error (though the estimates of examiner error are not necessarily affected).%\svp{XXX not sure this is true - need to think through it...}
-
+Studies which tightly control the evidence quality and presence of individualizing marks would under-estimate the process error (though the estimates of examiner error are not necessarily affected).
+%\svp{XXX not sure this is true - need to think through it...}
 In almost all studies, participants use lab rules for determining whether eliminations could be made on individual characteristics; while  \citet{Baldwin:2014bb} instructed participants to use a uniform set of rules, many participants reported that they did not or could not adhere to these guidelines.
 
 
