@@ -1494,7 +1494,7 @@ Opt. & \multicolumn{1}{c}{Meaning} & Missed Identification & \multicolumn{1}{r}{
 \end{fmpage}
 
 \clearpage
-\paragraph{Bunch \& Murphy Study}  \cite{bunch2003comprehensive}
+\paragraph{Bunch \& Murphy}  \cite{bunch2003comprehensive}\\
 \noindent\begin{fmpage}{.985\textwidth}\centering % Checked numbers 2020-04-24
 \captionsetup{type=table}\captionof{table}{Results and summary tables for the Bunch and Murphy study. Values in this table are as reported in the study; however, due to the study's structure, it is possible to perform fewer comparisons, because not all comparisons are independent. Results for independent comparisons are shown in \autoref{tab:bunch-indep}}\label{tab:bunch-summary}
 {\large\bf A Comprehensive Validity Study for the Forensic Examination of Cartridge Cases}\emph{ \citeauthor{bunch2003comprehensive} ( \citeyear{bunch2003comprehensive})}\\
@@ -1633,9 +1633,10 @@ Opt. & \multicolumn{1}{c}{Meaning} & Missed Identification & \multicolumn{1}{r}{
 \end{tabularx}
 \end{fmpage}
 
-
+\clearpage
 \subsection{Enumeration of all possible Brundage-Hamby set comparisons}\label{sec:brundage}
-\svp{As discussed in \autoref{sec:design-consequences}, closed-set studies like \citet{Hamby:2018hu} do not allow us to easily calculate the number of different-source comparisons performed. However, we can estimate the number of comparisons that might need to be performed using logic similar to that employed in \autoref{sec:bunchmurphysim} (but without the variability introduced by the unique experimental design in \citet{bunch2003comprehensive}). }
+
+\svp{As discussed in \autoref{sec:design-consequences}, closed-set studies like \citet{Hamby:2018hu} do not allow us to easily calculate the number of different-source comparisons performed. However, we can estimate the number of comparisons that might need to be performed using logic similar to that employed in \autoref{sec:bunchmurphysim} (but without the variability introduced by the unique experimental design in \citet{bunch2003comprehensive}).}
 
 Brundage-Hamby sets consist of a set of 20 known bullets (two each from the ten consecutively manufactured barrels) and 15 questioned bullets.
  \citet{brundage} outlines the construction of sets of questioned bullets in detail as follows: ten bullets are chosen, one from each of the ten barrels. The remaining five bullets are picked at random from the barrels, such that at most three questioned bullets are from the same barrel. 
