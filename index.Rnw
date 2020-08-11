@@ -158,18 +158,18 @@ library(bulletxtrctr) # install_github("csafe-isu/bulletxtrctr")
 library(gridExtra)
 library(kableExtra)
 @
-
-\hh{Big picture of the paper:
-\begin{enumerate}
-\item Error rates in firearms and toolmark examination are needed
-\item Theoretical discussion of error rates: error rates and predictive values
-\item Discussion of studies: naming conventions and testing procedures
-\item Evaluation of error rates: inconclusive results and a uniform evaluation sheet
-\item Summary of studies using the uniform evaluation sheet
-\item Discussion of strengths and weaknesses of studies, recommendations
-\end{enumerate}}
-
-\tableofcontents
+% 
+% \hh{Big picture of the paper:
+% \begin{enumerate}
+% \item Error rates in firearms and toolmark examination are needed
+% \item Theoretical discussion of error rates: error rates and predictive values
+% \item Discussion of studies: naming conventions and testing procedures
+% \item Evaluation of error rates: inconclusive results and a uniform evaluation sheet
+% \item Summary of studies using the uniform evaluation sheet
+% \item Discussion of strengths and weaknesses of studies, recommendations
+% \end{enumerate}}
+% 
+% \tableofcontents
 
 
 
@@ -287,7 +287,7 @@ source("code/make_inconcl_plot.R")
 target_plot(100, 50, 10, 10, 50, 100) 
 @
 
-\hh{Making a decision on evidence as identification, exclusion or inconclusive provides a \emph{classification} of the evidence, which allows us to make use of elements of the larger \emph{classification framework}.}
+Making a decision that evidence is an identification, exclusion, or inconclusive provides a \emph{classification} of the evidence, allowing us to make use of elements of the larger \emph{classification framework}.
 We will introduce the classification framework and the respective error rates at the example of a generic experiment:
 let us assume that a representative sample of independent forensic toolmark examiners were asked to complete a total of $N$ comparisons, consisting of $S$ same-source comparisons and $D$ different source comparisons.
 An aggregation of the examiners' evaluations can then be reported as shown in \autoref{tab:generic-results}. Note that the layout of the table  is nothing but a summary of all the possible combinations of examiners' decisions and actual state of the evidence as sketched out in \autoref{fig:shape-overview}. The pieces of \autoref{fig:shape-overview} are shown along with letters $a$ to $f$ in \autoref{tab:generic-results}. These letters will be used throughout this section to calculate various accuracy rates and probabilities. 
@@ -428,7 +428,7 @@ Similarly, the \emph{false negative rate} (FNR) -- or missed identification rate
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth]{figures/Source-specific-tree-diagram.pdf}
-\caption{Tree Diagram illustrating the logic of source-specific error rates. \hh{Information flow happens from left to right: we are assessing an examiner's decision given that someone (not the examiner) knows the source of the evidence.} Source-specific rates give the probability of an examiner's decision (Identification, Inconclusive, or Elimination) given same-source and different-source evidence.}\label{fig:FPR-specific-tree}
+\caption{Tree Diagram illustrating the logic of source-specific error rates. Information flow happens from left to right: we are assessing an examiner's decision given that someone (not the examiner) knows the source of the evidence. Source-specific rates give the probability of an examiner's decision (Identification, Inconclusive, or Elimination) given same-source and different-source evidence.}\label{fig:FPR-specific-tree}
 \end{figure}
 
 Note that we are keeping the definition of error rates a bit vague on purpose. 
@@ -1185,9 +1185,9 @@ Opt. & \multicolumn{1}{c}{Meaning} & Missed Identification & \multicolumn{1}{r}{
 \end{fmpage}
 
 \clearpage
-\paragraph{Keisler} \svp{The Keisler Study  \cite{keisler} was designed so that} each test kit consisted of sets of 20 pairs of cartridge cases from Smith \& Wesson pistols, where 12 of the pairs were from the same source and 8 pairs were from different sources. 
+\paragraph{Keisler} The Keisler Study  \cite{keisler} was designed so that each test kit consisted of sets of 20 pairs of cartridge cases from Smith \& Wesson pistols, where 12 of the pairs were from the same source and 8 pairs were from different sources. 
 
-Kits were assembled using only 9 Smith \& Wesson pistols (i.e. there is a potential to gain additional information by making comparisons across sets). However, \svp{participants were instructed to only compare single pairs.} 
+Kits were assembled using only 9 Smith \& Wesson pistols (i.e. there is a potential to gain additional information by making comparisons across sets). However, participants were instructed to only compare single pairs.
 
 Results from the study are shown in \autoref{tab:keisler-summary}.
 
@@ -1385,7 +1385,7 @@ Opt. & \multicolumn{1}{c}{Meaning} & Missed Identification & \multicolumn{1}{r}{
 
 Kits were assembled from 32 cartridge cases: 20 known cartridge cases from pairs of 2 cartridges from each of the 10 extractors (the knowns) and 12 questioned cartridges, such that each known corresponded to at least one questioned, with some replication in most of the kits (one kit accidentally only had ten questioned cartridges). Thus, the setup of this study is similar to the Brundage-Hamby study. This study suffers from the same problems as the Brundage-Hamby study: it is a closed set study with multiple knowns and asks for identifications only. We can therefore only estimate a fraction of the relevant error rates. 
 It is also not possible to determine the total number of independent different source comparisons. 
-\svp{The study results are shown in \autoref{tab:lyons-summary}, along with computed conclusion-specific and source-specific probabilities and error rates.}
+The study results are shown in \autoref{tab:lyons-summary}, along with computed conclusion-specific and source-specific probabilities and error rates.
 
 \noindent\begin{fmpage}{.985\textwidth}\centering % Checked numbers 2020-04-24
 \captionsetup{type=table}\captionof{table}{}\label{tab:lyons-summary}
@@ -1431,14 +1431,14 @@ Opt. & \multicolumn{1}{c}{Meaning} & Missed Identification & \multicolumn{1}{r}{
 \section{Simulation of comparisons in studies with multiple knowns}\label{sec:sim}
 
 \subsection{Bunch and Murphy simulation}\label{sec:bunchmurphysim}
-\svp{In \citet{bunch2003comprehensive}, there are two sources of unknown information: the composition of the study test kits, and potential examiner use of deductive logic. 
+In \citet{bunch2003comprehensive}, there are two sources of unknown information: the composition of the study test kits, and potential examiner use of deductive logic. 
 While it is possible to assess the effect of deductive logic by eliminating redundant comparisons systematically, because the composition of the test kits was random, there is not a single value for the reduction in comparisons due to the use of deduction.
-As a result, we must first simulate the composition of a test kit, and then evaluate the minimal number of comparisons which must be completed, if deductive reasoning is used.}
+As a result, we must first simulate the composition of a test kit, and then evaluate the minimal number of comparisons which must be completed using deductive reasoning.
 
-\svp{The process for assembling the test kits provides sufficient information to simulate the composition of the eight test kits used in the study.}
-\svp{Using the simulation method, we created 500,000 sets of 8 test kits; from these simulated sets, we identified any which match the reported values of 70 same-source and 290 possible different-source comparisons (287,536). We considered adding the restriction of 45 consecutively manufactured comparisons, but found that this reduced the number of simulations to 6,416; given that we do not assess the consecutively manufactured comparisons separately, adding this restriction was deemed unnecessary. Using these sets, we can then estimate the minimal number of comparisons which are necessary using deductive reasoning in addition to examination. As an independent comparison is one in which the examiner has no relevant prior information about either of the cartridges, the minimal set of comparisons necessary to evaluate all cartridges would also be the set of independent comparisons. }
+The process for assembling the test kits provides sufficient information to simulate the composition of the eight test kits used in the study.
+Using the simulation method, we created 500,000 sets of 8 test kits; from these simulated sets, we identified any which match the reported values of 70 same-source and 290 possible different-source comparisons (287,536). We considered adding the restriction of 45 consecutively manufactured comparisons, but found that this reduced the number of simulations to 6,416; given that we do not assess the consecutively manufactured comparisons separately, adding this restriction was deemed unnecessary. Using these sets, we can then estimate the minimal number of comparisons which are necessary using deductive reasoning in addition to examination. As an independent comparison is one in which the examiner has no relevant prior information about either of the cartridges, the minimal set of comparisons necessary to evaluate all cartridges would also be the set of independent comparisons.
 
-\svp{R code to reproduce this simulation (and the deductive reasoning algorithm) can be found at \url{https://gist.github.com/srvanderplas/9cb0268df99e97a9ce327bb1489f7046}. }
+R code to reproduce this simulation (and the deductive reasoning algorithm) can be found at \url{https://gist.github.com/srvanderplas/9cb0268df99e97a9ce327bb1489f7046}.
 
 \noindent\begin{fmpage}{.985\textwidth}\centering
 \captionsetup{type=table}\captionof{table}{Results and summary tables for the Bunch and Murphy study, with only independent pairwise comparisons included. 95\% bootstrap intervals are provided for quantities  estimated via simulation. To allocate the inconclusives and eliminations, we used the rule stated in  \cite{bunch2003comprehensive}: FBI examiners can exclude only on class characteristic mismatches. It should be noted that in none of the 287,536 simulations which matched the other set criteria did we find a set which had more than 109 class characteristic mismatches, suggesting that there may have been some eliminations made on individual characteristics, but as this cannot be confirmed, estimates of eliminations only include class characteristic mismatches. }\label{tab:bunch-indep}
@@ -1482,7 +1482,7 @@ Opt. & \multicolumn{1}{c}{Meaning} & Missed Identification & \multicolumn{1}{r}{
 \clearpage
 \subsection{Enumeration of all possible Brundage-Hamby set comparisons}\label{sec:brundage}
 
-\svp{As discussed in \autoref{sec:design-consequences}, closed-set studies like \citet{Hamby:2018hu} do not allow us to easily calculate the number of different-source comparisons performed. However, we can estimate the number of comparisons that might need to be performed using logic similar to that employed in \autoref{sec:bunchmurphysim} (but without the variability introduced by the unique experimental design in \citet{bunch2003comprehensive}).}
+As discussed in \autoref{sec:design-consequences}, closed-set studies like \citet{Hamby:2018hu} do not allow us to easily calculate the number of different-source comparisons performed. However, we can estimate the number of comparisons that might need to be performed using logic similar to that employed in \autoref{sec:bunchmurphysim} (but without the variability introduced by the unique experimental design in \citet{bunch2003comprehensive}).
 
 Brundage-Hamby sets consist of a set of 20 known bullets (two each from the ten consecutively manufactured barrels) and 15 questioned bullets.
  \citet{brundage} outlines the construction of sets of questioned bullets in detail as follows: ten bullets are chosen, one from each of the ten barrels. The remaining five bullets are picked at random from the barrels, such that at most three questioned bullets are from the same barrel. 
