@@ -224,17 +224,13 @@ When jurors are left to form their own conclusions about the error rates of fore
 
 \begin{displayquote} In an online experiment, researchers asked mock jurors to estimate the frequency that a qualified, experienced forensic scientist would mistakenly conclude that two samples of specified types came from the same person when they actually came from two different people. The mock jurors believed such errors are likely to occur about 1 in 5.5 million for fingerprint analysis comparison; 1 in 1 million for bitemark comparison; 1 in 1 million for hair comparison; and 1 in 100 thousand for handwriting comparison.\end{displayquote}
 
-% In addition to these reports which clearly identify the need for error rate studies, it is often essential to have clearly quantified known or potential error rates \citep{giannelliDaubertInterpretingFederal1993} in order for testimony about the results of forensic examinations to be admitted into evidence.
-
 Studies in form of designed experiments serve as the basis for assessing the accuracy of the identfication process.
 Knowing ground truth means that the experimenter has the knowledge of whether two samples come from the same source or from different sources.
 Casework can not be used to assess the accuracy of the identification process, because ground truth is not knowable.
-% \hh{XXX not sure whether we strictly need the next sentence, but I'll give it the benefit of the doubt. XXX}
 However, in scientific studies of forensic examination, ground truth is available to the experimenter because the test and the ``evidence" were explicitly designed.
 
 In designed experiments any physical factors that might have an effect on the outcome of a subsequent assessment of pattern similarity can be controlled or systematically varied \citep{spiegelmanAnalysisExperimentsForensic2013}.
-In the specific situation of firearms evidence, the type of firarm and the ammunition used are of particular interest.
-%the type of implement making the pattern, manufacturing order, maintenance procedures, ammunition or marking surface, and many other factors (see  \citet{spiegelmanAnalysisExperimentsForensic2013} for a thorough review of all of the physical factors which might be controlled for or varied in a comprehensive study). 
+In the specific situation of firearms evidence, the type of firearm and the ammunition used are of particular interest.
 
 In addition to the physical evidence-generation process, experimenters must carefully control the amount of information participants have about the study design and structure. 
 When this information is not strictly controlled, examiners may use deductive reasoning and other strategies that are useful for completing the test but that do not correspond to casework. 
@@ -243,7 +239,6 @@ We provide an example of this phenomenon in \autoref{sec:studies}.
 As a result, studies which attempt to gain insight into the identification process must also navigate these complexities, ideally without becoming too complicated to reasonably execute.
 
 In the remainder of this section we will go into a discussion of terms commonly used in experiments with a specific focus on the forensic identification process:
-%There are several considerations when designing a study of the identification process:
 \begin{description}
 \item [Known and Questioned Samples] Most studies are set up to mirror casework, i.e.\ there is a set of samples of known origin and a set of questioned samples of unknown origin. The main objective  in a study is then to determine for a pair of known and questioned samples if they share the same source or come from different sources.
 \item [Closed vs. Open Set] In a closed set study all questioned samples originate from the same source as one  (set of) known sample(s). 
@@ -261,7 +256,6 @@ In forensic studies, the examiner is assessing the provided evidence and making 
 \citet{kerkhoffPartdeclaredBlindTesting2018} provides a more thorough discussion of the different ways the term ``blind testing" has been used in forensic error rate studies.
 }; that is, a study which appears to be part of a case, rather than research. 
 Blind testing is often recommended  \cite{pcast2016,spiegelmanAnalysisExperimentsForensic2013,koehlerProficiencyTestsEstimate2013}, because the error rates from blind testing better generalize to casework: many studies in a variety of disciplines have shown that people behave differently in situations that are known to be tests. 
-%Blind tests also better assess the process of comparison as a whole (rather than the performance of an individual examiner).
 
 \item [Number of knowns from different sources] Some studies  \citep{keisler} provide only one known exemplar (or a set of multiple exemplars from the same source). Other studies, such as  \citep{brundage, hamby,Hamby:2018hu} and the Houston FSC and Phoenix studies from  \citet{case-validation}, include multiple different sources as knowns. 
 \item [Study length] Most crime labs are understaffed and maintain a fairly large backlog of cases; as a consequence, examiner time is limited. While examiners should participate in these studies, they must balance the competing demands of a large and consequential workload and the benefit to FTE community. As such, studies which require examiners to make a large number of comparisons may be less likely to find a sufficient number of participants to generate an acceptable sample size.
@@ -271,7 +265,7 @@ Many of these considerations can be boiled down to limiting the examiner's knowl
 Blind studies, for instance, remove the knowledge that evidence is from a designed test and not casework. 
 Open set studies, which are preferable to closed set studies, remove the knowledge an examiner might have about whether a comparison is guaranteed to match one of the provided knowns. 
 Studies with designs that limit the number of comparisons by allowing only a single known source and a single unknown source prevent the examiner from using any sort of deductive reasoning. 
-However, open set studies provide only limited additional information even in the case where  multiple unknown sources are compared to a single known source. %, and only in the case where two or more of the unknown sources match each other.
+However, open set studies provide only limited additional information even in the case where  multiple unknown sources are compared to a single known source. 
 
 %% Transition to error rates
 Once a study is designed and test samples have been assessed by forensic examiners, error rates can be calculated. 
@@ -281,11 +275,6 @@ Using a set of different accuracy and error rates, we assess the state of firear
 
 
 \section{Calculating Error Rates}\label{sec:rates}
-
-% \svp{It is unfortunate that t}he methods used to establish error rates experimentally and the interpretations of those error rates in the literature are highly variable. }% Transition from study design section
-
-% In this paper, we discuss the treatment of inconclusives in the assessment of error rates from a statistical point of view. % We believe that this -- rather than further dividing the different opinions -- provides a unifying framework.
-% We examine technical accuracy and practical utility of  error rates published in existing error rate studies of firearms and toolmark examination. 
 Before approaching the actual studies, we will define a framework and some basic notation to facilitate a comparison of studies with different experimental designs and  explore the logic behind the numerical calculations. %order
 
 \subsection{Classification Framework}
@@ -298,17 +287,8 @@ source("code/make_inconcl_plot.R")
 target_plot(100, 50, 10, 10, 50, 100) 
 @
 
-% \begin{figure}
-% \centering
-% % \includegraphics[width=.5\textwidth]{figures/shape-overview.pdf}
-% \caption{\label{fig:shape-overview} Sketch of the relationship between  ground truth of evidence (dots) and examiners' decisions (shaded areas). In a perfect scenario dots only appear on the shaded area of the same color. Any dots on differently colored backgrounds indicate an error in the examination process. }
-% \end{figure}
-
-
-%Evaluating Classification Decisions%\label{sec:evaluating-classification-decisions}
 \hh{Making a decision on evidence as identification, exclusion or inconclusive provides a \emph{classification} of the evidence, which allows us to make use of elements of the larger \emph{classification framework}.}
 We will introduce the classification framework and the respective error rates at the example of a generic experiment:
-%Starting with the results from a generic experiment, where
 let us assume that a representative sample of independent forensic toolmark examiners were asked to complete a total of $N$ comparisons, consisting of $S$ same-source comparisons and $D$ different source comparisons.
 An aggregation of the examiners' evaluations can then be reported as shown in \autoref{tab:generic-results}. Note that the layout of the table  is nothing but a summary of all the possible combinations of examiners' decisions and actual state of the evidence as sketched out in \autoref{fig:shape-overview}. The pieces of \autoref{fig:shape-overview} are shown along with letters $a$ to $f$ in \autoref{tab:generic-results}. These letters will be used throughout this section to calculate various accuracy rates and probabilities. 
 
@@ -317,7 +297,6 @@ An aggregation of the examiners' evaluations can then be reported as shown in \a
 \caption{
 An example results table for a generic experiment where comparisons are pairs known to be either of the same source  or  from different sources, and examiners classify each comparison as an identification, an inconclusive, or an elimination, as  specified in the AFTE rules of identification. 
 Let $S$ be the total number of same source comparisons, then $S$ is the sum of $a, b,$ and $c$. Similarly, $D$, the total number of different source comparisons, can be written as $D = d + e + f$. The sum of $S$ and $D$ is the total number  of comparisons, $N$. 
-%The probability of the occurrence of any cell in the interior of the table $(a, b, c, d, e, \text{ or } f)$ can be found by dividing the respective letter by $N$, the total number of comparisons.
 }\label{tab:generic-results}
 \begin{tabularx}{.985\textwidth}{Y|YYY|Y}
 \multicolumn{5}{c}{\bf Experiment Count Data}\\\hline
@@ -344,21 +323,16 @@ The examiner can make an identification, an elimination, or an inconclusive dete
 The difference in number of possible source categories and resulting decisions raises some questions on how inconclusive results should be dealt with when calculating error rates.
 Under AFTE guidelines, an inconclusive result is an acceptable outcome of a comparison and  therefore can not considered to be an error made by the examiner.
 It has been argued, however, that inconclusives are systematic errors which occur during the identification process, because the final conclusion does not match the known information \citep{koehlerFingerprintErrorRates2007}.
-While these two statements seem to be contradictory, in this paper, we provide a foundation under which the two approaches can be partially reconciled in a way that provides additional insight into the examination process. % my attempt % HH I like it :)
-% \hh{While these two statements are seemingly directly contradictory, we argue that XXX urgh. phrasing. what I want to say is that we can bring these statements together, and our guidance should be to determine what is closest to the truth. }
+While these two statements seem to be contradictory, in this paper, we provide a foundation under which the two approaches can be partially reconciled in a way that provides additional insight into the examination process.
 
-%\hh{XXX I feel like that Dror gets us on a different path - more of a bayesian classification problem with inconclusives as a prior and an updated posterior based on additional information available. I really like the thought, though - it would also fit well with quality of scans; need to think about it. HH: new day, let's keep Dror for now. }
 \citet{Dror:2018fp} suggest treating inconclusive results as equivalent to a ``decision with certainty that the quantity and quality of information are not sufficient to draw any conclusion regarding the source".
 Under this framework, an examiner's assessment starts with inconclusive and is refined to identification or elimination given sufficient evidence in either direction.
 Statistically, this would suggest that the decision about the amount of evidence available (inconclusive or not) would be independent of the source of the evidence (same or different source). That is, inconclusives should be equally likely in same-source and different-source assessments.
 
-%\svp{XXX Statistically, Mathematically - we sound like we're trying to emphasize different approaches here, and the two statements aren't synchronous XXX}
-%Mathematically, t
 There are three main ways that inconclusives can be treated in calculating error rates:
 (1) inconclusives can be excluded from error calculations, (2) included as correct results  \cite{Duez:2017kha}, or (3) included as incorrect results  \cite{chumbleyValidationToolMark2010}; each of these decisions has an impact on the actual value of the error rate as well as the interpretation of the resulting error rates. 
 \autoref{tab:overall-err-rate} shows an overview of these three approaches to calculating the error rate based on the general structure of \autoref{tab:generic-results}, with a fourth option which will be addressed in more detail in \autoref{sec:inconclusives}. 
-% Note that there is a fourth option listed, which treats inconclusive results as eliminations. 
-% While this at the moment seems quite arbitrary, we will come back to this option at a later point in \hh{XXX}. %\autoref{sec:}. 
+
 Each of the approaches to calculating the error rate has a  different meaning and interpretation; as a result, it is important to consider which error rate best suits the purpose of a study and its interpretation in the larger framework of pattern evidence. 
 There are two main scenarios resulting in error rate calculations of type 1:
 in \citet{chumbleyValidationToolMark2010} examiners were asked to make either a positive identification or a positive elimination, and were not given the option of making an inconclusive decision.  
@@ -385,10 +359,6 @@ We use the following convention:\\
 
 \begin{tabularx}{.99\textwidth}{llcl}
 \# & Type & Illustration & $P(Error) = $\\
-%0 & \pbox[l]{9em}{Inconclusives\\Not Allowed} & 
-%\pbox{6em}{\whitesq{a}\redsq{c}\\\redsq{d}\whitesq{f}} & 
-%$P(DS\text{ \& }Ident.) + P(SS\text{ \& }Elim) = \displaystyle\frac{c + d}{a + c + d + f}$\\\\
-%
 1 & \pbox[l]{9em}{No Inconclusives\\or Incl. Ignored} & 
 \pbox{6em}{\whitesq{a}\graysq{b}\redsq{c}\\\redsq{d}\graysq{e}\whitesq{f}} & 
 $\displaystyle\frac{P(DS\text{ \& }Ident.) + P(SS \text{ \& } Elim.)}{P(Ident.) + P(Elim.)} = \displaystyle\frac{c + d}{a + c + d + f}$\\\\
@@ -419,11 +389,8 @@ Thus, this elimination from consideration is not appropriate if the goal of a st
 
 
 Under AFTE's Theory of Identification inconclusive results are acceptable outcomes and not considered errors. This approach is captured in option 2:  inconclusives are treated as correct regardless of the actual state.
-What this means in real terms, is that inconclusives are effectively counted as identifications if they are actually from the same source, but counted as eliminations if they are actually from a different source. Note that this approach is 
-%\svp{XXX do we really want to use exploitable instead of making it a bit less personal?} 
-exploitable in a strange way: to give a very extreme example, an examiner could report inconclusives for the rest of their career and never make an error.
+What this means in real terms, is that inconclusives are effectively counted as identifications if they are actually from the same source, but counted as eliminations if they are actually from a different source. Note that this approach is exploitable in a strange way: to give a very extreme example, an examiner could report inconclusives for the rest of their career and never make an error.
 However, when the goal is to assess the error rate of the examiner under the prevailing guidelines of the AFTE Theory of Identification, option 2 is a reasonable option for assessing error rates of firearm and toolmark examiners.
-%, with the slightly odd side-effect that an examiner who marks every comparison as inconclusive does not provide any useful actionable information, but effectively has a zero error rate.
 
 Option 3 provides an approach to view inconclusive results and the corresponding error rates within the wider framework of the legal system:
 if a firearm does not mark well, a firearms examiner might not be able to make an identification or an elimination for reasons having nothing to do with the examiner's skill.  
@@ -431,14 +398,6 @@ From the  perspective of the \emph{identification process}, though, an inconclus
 two pieces of evidence are  either from the same source or originate from different sources and an inability to distinguish between those options is an error.
 
 Practically, option 3 reflects the error of the \emph{examination process} rather than the examiner as an individual. 
-%\hh{XXX The next couple of sentence only repeat the above}
-%To illustrate why this is the case, consider that an examiner may, upon inspection of a fired bullet, find that there are insufficient individualizing characteristics to make an identification.
-%This does not reflective negatively on the examiner's skill; it is merely a consequence of the contact made between the ammunition and the gun during the firing process. 
-%Nonetheless, even though a pair of objects originated from the same physical source, it is not possible to evaluate the evidence and make an identification. 
-%The inconclusives are representative of the errors involved in the process of evidence recording, rather than the evaluation. 
-
-%\hh{XXX do we need to say something about option 4 here? }
-
 In option 4, which will become more relevant in \autoref{sec:inconclusives}, inconclusives are treated the same as eliminations. 
 This option places the primary focus of the examiner's assessment on identification, and treats any inability to make an identification as equivalent to an elimination.
 
@@ -448,35 +407,23 @@ In the next two sections we introduce two additional types of error rates: {\it 
 Both of these approaches are additional assessments of the reliability of a classification method which leverage \emph{conditional probabilities}, i.e.\ probabilities which are updated to account for known (or assumed) information.
 Rather than summarizing an experiment in a single number reflecting error or accuracy like before, 
 these conditional probabilities allow us to provide a more specific assessment of the error accounting for known information, such as the examiner's decision or the source of the evidence. This allows us in particular to calculate separate accuracy rates for comparisons of same-source or different-source evidence. 
-%about certain scenarios, but do not broadly summarize an experiment using a single number.
-%The next two sections detail two different sets of conditional probabilities which both assess the accuracy and reliability of the classification process.
 This has the additional advantage that some of these conditional probabilities do not require inconclusives to be explicitly handled as errors or correct decisions. 
-%In addition, examining the conditional probabilities offers some additional insights into the process of firearms examination and the types of errors which are likely to be made.
 
 
 
 \subsection{Source-specific assessment}
-
-%\hh{When assessing the accuracy of a classification \emph{success rates} and \emph{error rates} are of interest, i.e.\ the interest shifts from the classification to the numerical quantity indicating how often the process produces correct and incorrect results.}
-
-%\svp{Note that both the TPR and TNR are measures of the accuracy of a classification method.}
-
 The most common way to assess the success (or accuracy)  of a classification method is to calculate its \emph{sensitivity} and \emph{specificity}. 
 Sensitivity, also called the true positive rate (TPR), is an examiner's ability to make an identification when examining same source evidence (SS). 
 Sensitivity can be expressed as the conditional probability $P (\text{Identification} \mid SS)$. 
 Conversely, specificity, or the true negative rate (TNR), is an examiner's ability to make an elimination given evidence from different sources (DS), $P (\text{Elimination} \mid DS)$. 
-%Mathematically, w
 We calculate the true negative rate as the conditional probability of the examiner making an elimination \emph{given} the pair under examination is from different sources. 
 A conditional probability of an event \emph{given} another event is the probability that the two events both occur, divided by the probability of the second event, specifically for the true negative rate:
 $$TNR = P(\text{Elimination} | DS) = \frac{P(\text{Elimination and } DS)}{P(DS)}.$$
 
 
-% \hh{XXX before we talk about inconclusives we really can't discuss what an error is.}
-
 Complementary to accuracy rates, we define two error rates of a classification method:
-%Another common method of assessing accuracy of a classification method is to calculate the false positive rate (FPR) and the false negative rate (FNR). 
-The \emph{false positive rate} (FPR) -- or failed elimination rate -- is the probability that an examination of different source evidence does not result in an elimination. %: $FPR = 1 - TNR$. 
-Similarly, the \emph{false negative rate} (FNR) -- or missed identification rate -- is the probability that an examination of same-source evidence does not result in an identification. %: $FNR = 1 - TPR$. %makes an elimination from evidence which originates from the same source (SS), $FNR = P(\text{Elimination} | SS)$. 
+The \emph{false positive rate} (FPR) -- or failed elimination rate -- is the probability that an examination of different source evidence does not result in an elimination. 
+Similarly, the \emph{false negative rate} (FNR) -- or missed identification rate -- is the probability that an examination of same-source evidence does not result in an identification.
 
 \begin{figure}
 \centering
@@ -513,13 +460,8 @@ In the context of \autoref{tab:fpr-prob} conditional probabilities can be interp
 given a  same-source pair of evidence, the examiner  makes an identification with probability $a/S$, the true positive rate (TPR). 
 Conversely, for a  different-source evidence pair, the examiner  makes an elimination with probability $f/D$, the true negative rate (TNR).
 
-% \svp{XXX need to provide real-world meaning (e.g. court testimony, if possible) for a couple of these values.}
-
-% \hh{XXX should we pull up some of the discussion that only regards these error rates? source-specific probabilities can not be calculated from casework, they allow an assessment of the performance of an examiner, but not an assessment of the evidence. source-specific probabilities are the error rates typically reported. Our argument here is that they are largely irrelevant in legal proceedings}\svp{Let's leave that to the practical impact section - it's close enough to this section that it should still be connectable, and it will make more sense when contrasted against the decision specific assessment.}
-
 \subsection{Decision-specific assessment}
 
-%The use of false positive and false negative rates to characterize a classification task is extremely common, however, there are alternate ways to evaluate a classification method.
 An alternate way to evaluate a classification method is to assess the probability of a same-source or diferent-source comparison, given an examiner has  made a  decision (or, more generically, a specific general conclusion).
 The \emph{positive predictive value} (PPV) is the probability that a pair of evidence is from the same source, give the examiner has made an identification, i.e.\ $P(SS | \text{Identification})$. 
 Its complement, the \emph{false discovery rate} (FDR), is the probability that the evidence is from different sources, given the examiner has made an identification, .
@@ -567,7 +509,6 @@ Conversely, source-specific assessments are useful when evaluating the performan
 
 \subsection{Practical interpretation of error rates}
 
-%Mathematically, t
 The primary difference between the decision tree diagrams in Figures \ref{fig:FPR-specific-tree} and \ref{fig:PPV-specific-tree} is the conditioned variable. 
 The source-specific error rates, FPR and FNR, are calculated by conditioning on the source of of the evidence (same-source/different source) and give the probability of an examiner's decision.
 PPV and NPV are calculated by conditioning on an examiner's conclusion and give the probability of evidence being same-source or different source.
@@ -589,7 +530,6 @@ considering the negative test result. At the individual level, we want to use ta
 In case work, because ground truth is not known, we cannot definitively know that an examiner's evaluation is correct. 
 For that reason, we need designed studies to estimate the error rates of examinations in situations where ground truth is known. 
 As we rely on these studies to generalize to casework, it is of great importance that these studies are well designed so that it is possible to estimate any of the success and error rates discussed above.
-%so as to allow for the estimation of any of the success or error rates discussed above.
 
 \section{Studies}\label{sec:studies}
 
