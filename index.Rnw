@@ -1289,7 +1289,7 @@ While these tools are being developed to assist examiners, however, we should al
 \clearpage
 \appendix
 \section{Study Summaries and Results}\label{sec:supplement}
-\paragraph{Baldwin} \svp{The Baldwin study  \cite{Baldwin:2014bb} was designed such that each test} kit consists of 15 sets of 3 known cartridge cases and 1 questioned cartridge case. In 5 of the 15 sets the questioned cartridge was from the same source as the knowns, while the other 10 questioned cartridges were from different sources as their respective knowns.
+\paragraph{Baldwin} The Baldwin study  \cite{Baldwin:2014bb} was designed such that each test kit consists of 15 sets of 3 known cartridge cases and 1 questioned cartridge case. In 5 of the 15 sets the questioned cartridge was from the same source as the knowns, while the other 10 questioned cartridges were from different sources as their respective knowns.
 
 25 firearms were used for the study, such that within each kit no firearm was re-used for either knowns or questioned cartridge cases, i.e. no additional information could be gained by comparing any cartridge cases across sets.
 
@@ -1491,10 +1491,11 @@ Opt. & \multicolumn{1}{c}{Meaning} & Missed Identification & \multicolumn{1}{r}{
 \end{fmpage}
 
 \clearpage
-\paragraph{Bunch \& Murphy Study}  \cite{bunch2003comprehensive}
+\paragraph{Bunch \& Murphy Study \cite{bunch2003comprehensive}}\hfill\newline
+
 \noindent\begin{fmpage}{.985\textwidth}\centering % Checked numbers 2020-04-24
 \captionsetup{type=table}\captionof{table}{Results and summary tables for the Bunch and Murphy study. Values in this table are as reported in the study; however, due to the study's structure, it is possible to perform fewer comparisons, because not all comparisons are independent. Results for independent comparisons are shown in \autoref{tab:bunch-indep}}\label{tab:bunch-summary}
-{\large\bf A Comprehensive Validity Study for the Forensic Examination of Cartridge Cases}\emph{ \citeauthor{bunch2003comprehensive} ( \citeyear{bunch2003comprehensive})}\\
+{\large\bf A Comprehensive Validity Study for the Forensic Examination of Cartridge Cases}\emph{ \citeauthor{bunch2003comprehensive} (\citeyear{bunch2003comprehensive})}\\
 \begin{tabularx}{\textwidth}{XrrX}\hline
 \multirow{2}{*}{\bf Study Type} & \multicolumn{2}{c}{\bf Test Set} & \multirow{2}{*}{\bf Participants}\\
 & \# Knowns & \# Unknowns & \\\hline
