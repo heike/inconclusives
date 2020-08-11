@@ -552,7 +552,8 @@ The studies included in this section are not an exhaustive list of every error r
 
 Of the studies listed above, we have examined all but \citet{fadul}, which contained insufficient detail about examiner results and conclusions to calculate the quantities discussed in the previous section. 
 Note that this paper is limited in scope to \emph{error rate studies} conducted using firearms and toolmark examiners. 
-There are several promising automatic analysis tools \citep[][see]{aoas2,case-validation,chumbleyValidationToolMark2010,chuAutomaticIdentificationBullet2013,songEstimatingErrorRates2018,tai2018fully} which can generate error rates from scans of bullet and cartridge cases, but these types of error rates are not easily comparable to error rates derived from black-box studies, if only because algorithmic results will be the same if repeated on a different date. 
+There are several promising automatic analysis tools \citep[][see]{aoas2,case-validation,chumbleyValidationToolMark2010,chuAutomaticIdentificationBullet2013,songEstimatingErrorRates2018,tai2018fully} which calculate error rates based on 2d images and 3d scans of bullet and cartridge cases.
+These types of studies are not easily comparable to the  black-box studies under consideration here: none of the automatic matching algorithms employs a category of `inconclusive' as a result, so the discussions on how to deal with inconclusives are not applicable. That also implies, that for algorithms we can not distinguish between errors stemming from insufficient markings on evidence and errors inherent to the algorithm. 
 
 In the next sections, we discuss the design and results of each study, including calculation and comparison of source- and decision-specific error rates. 
 
