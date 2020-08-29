@@ -169,7 +169,7 @@ When jurors are left to form their own conclusions about the error rates of fore
 
 \begin{displayquote} In an online experiment, researchers asked mock jurors to estimate the frequency that a qualified, experienced forensic scientist would mistakenly conclude that two samples of specified types came from the same person when they actually came from two different people. The mock jurors believed such errors are likely to occur about 1 in 5.5 million for fingerprint analysis comparison; 1 in 1 million for bitemark comparison; 1 in 1 million for hair comparison; and 1 in 100 thousand for handwriting comparison.\end{displayquote}
 
-Studies in form of designed experiments serve as the basis for assessing the accuracy of the identification process.
+Studies in \ac{the} form of designed experiments serve as the basis for assessing the accuracy of the identification process.
 Knowing ground truth means that the experimenter has the knowledge of whether two samples come from the same source or from different sources.
 Casework can not be used to assess the accuracy of the identification process, because ground truth is not knowable.
 However, in scientific studies of forensic examination, ground truth is available to the experimenter because the test and the ``evidence" were explicitly designed.
@@ -181,9 +181,9 @@ In addition to the physical evidence-generation process, experimenters must care
 When this information is not strictly controlled, examiners may use deductive reasoning and other strategies that are useful for completing the test but that do not correspond to casework. 
 We provide an example of this phenomenon in \autoref{sec:studies}.
 
-As a result, studies which attempt to gain insight into the identification process must also navigate these complexities, ideally without becoming too complicated to reasonably execute.
+As a result, studies which attempt to gain insight into the identification process must also navigate these complexities, ideally without becoming too complicated to \ac{themselves}.
 
-In the remainder of this section we will go into a discussion of terms commonly used in experiments with a specific focus on the forensic identification process:
+In the remainder of this section we \ac{introduce} terms commonly used in experiments with a specific focus on the forensic identification process:
 \begin{description}
 \item [Known and Questioned Samples] Most studies are set up to mirror casework, i.e.\ there is a set of samples of known origin and a set of questioned samples of unknown origin. The main objective  in a study is then to determine for a pair of known and questioned samples if they share the same source or come from different sources.
 \item [Closed vs. Open Set] In a closed set study all questioned samples originate from the same source as one  (set of) known sample(s). 
@@ -220,11 +220,11 @@ Using a set of different accuracy and error rates, we assess the state of firear
 
 
 \section{Calculating Error Rates}\label{sec:rates}
-Before approaching the actual studies, we will define a framework and some basic notation to facilitate a comparison of studies with different experimental designs and  explore the logic behind the numerical calculations. %order
+Before approaching the actual studies, we define a framework and some basic notation to facilitate a comparison of studies with different experimental designs and  explore the logic behind the numerical calculations. %order
 
 \subsection{Classification Framework}
 
-When examiners assess a set of evidence (generally, a pair of items, one of known provenance and one of unknown provenance) examiners decide whether the evidence is an identification, inconclusive, or an elimination.  
+When \ac{firearms and toolmark} examiners assess a set of evidence (generally, a pair of items, one of known provenance and one of unknown provenance) examiners decide whether the evidence is an identification, inconclusive, or an elimination.  
 \autoref{fig:shape-overview} is a sketch showing the relationship between evidence (dots) and examiners' decisions (areas). The color for both evidence and decisions corresponds to the source of evidence (different/same) and the type of decision made, respectively. The different combinations of colored dots on top of colored regions correspond to the six potential outcomes of evidence assessment and examiner decision. Obviously, not all of these outcomes are correct.  
 
 <<shape-overview, fig.cap = "Sketch of the relationship between  ground truth of evidence (dots) and examiners' decisions (shaded areas). In a perfect scenario dots only appear on the shaded area of the same color. Any dots on differently colored backgrounds indicate an error in the examination process.", out.width = "60%", fig.width = 6, fig.height = 4, dpi = 500, cache = F>>=
@@ -232,8 +232,8 @@ source("code/make_inconcl_plot.R")
 target_plot(100, 50, 10, 10, 50, 100) 
 @
 
-Making a decision that evidence is an identification, exclusion, or inconclusive provides a \emph{classification} of the evidence, allowing us to make use of elements of the larger \emph{classification framework}.
-We will introduce the classification framework and the respective error rates at the example of a generic experiment:
+\ac{Deciding whether} evidence is an identification, exclusion, or inconclusive provides a \emph{classification} of the evidence, allowing us to make use of elements of the larger \emph{classification framework}.
+We will introduce the classification framework and the respective error rates \ac{using as an} example a generic experiment:
 let us assume that a representative sample of independent forensic toolmark examiners were asked to complete a total of $N$ comparisons, consisting of $S$ same-source comparisons and $D$ different source comparisons.
 An aggregation of the examiners' evaluations can then be reported as shown in \autoref{tab:generic-results}. Note that the layout of the table  is nothing but a summary of all the possible combinations of examiners' decisions and actual state of the evidence as sketched out in \autoref{fig:shape-overview}. The pieces of \autoref{fig:shape-overview} are shown along with letters $a$ to $f$ in \autoref{tab:generic-results}. These letters will be used throughout this section to calculate various accuracy rates and probabilities. 
 
