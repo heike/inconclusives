@@ -1,9 +1,9 @@
-\documentclass{elsarticle}
+\documentclass{article}
 \usepackage[utf8]{inputenc}
 
 \usepackage{lineno,hyperref}
-\modulolinenumbers[5]
 
+\usepackage{authblk}
 \usepackage{amsmath,amsthm,amstext}
 \usepackage{bm}
 \usepackage{graphicx,psfrag,epsf,wrapfig,subfig,float,capt-of}
@@ -12,7 +12,9 @@
 \usepackage{adjustbox}
 \usepackage{pdflscape,fullpage}
 \usepackage{pbox}
-\usepackage[numbers]{natbib}
+\usepackage{natbib}
+
+\bibliographystyle{plainnat}
 \usepackage{enumerate}
 
 \usepackage{csquotes}% display/block quotes
@@ -42,40 +44,6 @@
 {\begin{lrbox}{\fmbox}\begin{minipage}[t]{#1}}
 {\end{minipage}\end{lrbox}\fbox{\usebox{\fmbox}}}
 
-\journal{Forensic Science International}
-%%%%%%%%%%%%%%%%%%%%%%%
-%% Elsevier bibliography styles
-%%%%%%%%%%%%%%%%%%%%%%%
-%% To change the style, put a % in front of the second line of the current style and
-%% remove the % from the second line of the style you would like to use.
-%%%%%%%%%%%%%%%%%%%%%%%
-
-%% Numbered
-%\bibliographystyle{model1-num-names}
-
-%% Numbered without titles
-%\bibliographystyle{model1a-num-names}
-
-%% Harvard
-% \bibliographystyle{model2-names.bst}\biboptions{authoryear}
-
-%% Vancouver numbered
-%\usepackage{numcompress}\bibliographystyle{model3-num-names}
-
-%% Vancouver name/year
-%\usepackage{numcompress}\bibliographystyle{model4-names}\biboptions{authoryear}
-
-%% APA style
-% \bibliographystyle{model5-names}\biboptions{authoryear}
-
-%% AMA style
-%\usepackage{numcompress}\bibliographystyle{model6-num-names}
-
-%% `Elsevier LaTeX' style
-\bibliographystyle{elsarticle-num-names}
-%%%%%%%%%%%%%%%%%%%%%%%
-
-
 
 \newcommand{\hh}[1]{{\textcolor{orange}{#1}}}
 \newcommand{\svp}[1]{{\textcolor{teal}{#1}}}
@@ -84,50 +52,22 @@
 \begin{document}
 \noindent
 
-\begin{frontmatter}
-
-\title{Treatment of Inconclusives in the AFTE Range of \ac{Conclusions}\tnoteref{t1}}
-
-\tnotetext[t1]{This work was partially funded by the Center for Statistics and Applications in Forensic Evidence (CSAFE) through Cooperative Agreement \#70NANB15H176 between NIST and Iowa State University, which includes activities carried out at Carnegie Mellon University, University of California Irvine, and University of Virginia.}
+\title{Treatment of Inconclusives in the AFTE Range of \ac{Conclusions}
+\thanks{This work was funded by the Center for Statistics and Applications in Forensic Evidence (CSAFE) through Cooperative Agreement 70NANB20H019 between NIST and Iowa State University, which includes activities carried out at Carnegie Mellon University, Duke University, University of California Irvine, University of Virginia, West Virginia University, University of Pennsylvania, Swarthmore College and University of Nebraska, Lincoln.}
+}
 
 
-%% Group authors per affiliation:
-% \author{Elsevier\fnref{myfootnote}}
-% \address{Radarweg 29, Amsterdam}
-% \fntext[myfootnote]{Since 1880.}
-
-%% or include affiliations in footnotes:
-% \author[mymainaddress,mysecondaryaddress]{Elsevier Inc}
-% \ead[url]{www.elsevier.com}
-% 
-% \author[mysecondaryaddress]{Global Customer Service\corref{mycorrespondingauthor}}
-% \cortext[mycorrespondingauthor]{Corresponding author}
-% \ead{support@elsevier.com}
-% 
-% \address[mymainaddress]{1600 John F Kennedy Boulevard, Philadelphia}
-% \address[mysecondaryaddress]{360 Park Avenue South, New York}
-
-\author[isu,csafe]{Heike Hofmann}
-\author[unl]{Susan Vanderplas\corref{corauthor}}
-\cortext[corauthor]{Corresponding author}\ead{susan.vanderplas@unl.edu}
-\author[isu,csafe]{Alicia Carriquiry}
-\address[isu]{Statistics Department, Iowa State University\\2438 Osborne Dr, Ames, IA 50011}
-\address[csafe]{Center for Statistical Applications in Forensic Evidence, Iowa State University\\613 Morrill Rd, Ames, IA 50011}
-\address[unl]{Statistics Department, University of Nebraska Lincoln\\340 Hardin Hall North Wing, Lincoln, NE 68583-0963}   
+\author[1, 2]{Heike Hofmann}
+\author[3]{Susan Vanderplas}
+\author[1, 2]{Alicia Carriquiry}
+\affil[1]{Statistics Department, Iowa State University\\2438 Osborne Dr, Ames, IA 50011}
+\affil[2]{Center for Statistical Applications in Forensic Evidence, Iowa State University\\613 Morrill Rd, Ames, IA 50011}
+\affil[3]{Statistics Department, University of Nebraska Lincoln\\340 Hardin Hall North Wing, Lincoln, NE 68583-0963}   
+\maketitle
 
 \begin{abstract}
 The treatment of inconclusives in the assessment of errors has been a long-standing issue with far-reaching implications in the legal system. 
 \end{abstract}
-
-\begin{keyword}
-forensic science, black box studies, proficiency testing
-\end{keyword}
-
-\end{frontmatter}
-
-% boxes for illustrations
-
-\noindent
 
 
 \renewcommand{\thefootnote}{\roman{footnote}}
@@ -1135,8 +1075,7 @@ While these tools are being developed to assist examiners, however, we should al
 % \svp{To date, there has been only one appropriately designed black-box study: a 2014 study commissioned by the Defense Forensic Science Center (DFSC) and conducted by the Ames Laboratory, which reported an upper 95\% confidence bound on the false-positive rate of 2.2\%.}
 % \end{quote}
 
-%\section{References}
-
+% \section{References}
 \bibliography{bibfile}
 \clearpage
 \appendix
