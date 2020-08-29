@@ -49,7 +49,7 @@
 
 \newcommand{\hh}[1]{{\textcolor{orange}{#1}}}
 \newcommand{\svp}[1]{{\textcolor{teal}{#1}}}
-\newcommand{\ac}[1]{{\textcolor{pink}{#1}}}
+\newcommand{\ac}[1]{{\textcolor{WildStrawberry}{#1}}}
 
 \begin{document}
 \noindent
