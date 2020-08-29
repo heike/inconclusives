@@ -267,10 +267,10 @@ In a classification problem, we would normally take the results in \Cref{tab:gen
 In firearms and toolmark examination, however, this is complicated by a mismatch between the physical source of the evidence and the set of examiners' decisions.
 There are two possibilities to describe the physical state of the evidence: two pieces of evidence are either from the same source or from different sources, but there are three primary outcomes from an examiner's decision.
 The examiner can make an identification, an elimination, or an inconclusive determination.\footnote{The fourth category, unsuitable for examination, is one which should be used when evaluating single pieces of recovered evidence; it does not result from the comparison of an unknown source to a known source.}
-The difference in number of possible source categories and resulting decisions raises some questions on how inconclusive results should be dealt with when calculating error rates.
+The difference in number of possible source categories and resulting decisions raises \ac{the} question \ac{about} how \ac{to deal with} inconclusive results when calculating error rates.
 Under AFTE guidelines, an inconclusive result is an acceptable outcome of a comparison and  therefore can not considered to be an error made by the examiner.
 It has been argued, however, that inconclusives are systematic errors which occur during the identification process, because the final conclusion does not match the known information \citep{koehlerFingerprintErrorRates2007}.
-While these two statements seem to be contradictory, in this paper, we provide a foundation under which the two approaches can be partially reconciled in a way that provides additional insight into the examination process.
+While these two statements seem to be contradictory, we provide a foundation under which the two approaches can be partially reconciled in a way that provides additional insight into the examination process.
 
 \citet{Dror:2018fp} suggest treating inconclusive results as equivalent to a ``decision with certainty that the quantity and quality of information are not sufficient to draw any conclusion regarding the source".
 Under this framework, an examiner's assessment starts with inconclusive and is refined to identification or elimination given sufficient evidence in either direction.
@@ -354,7 +354,7 @@ In the next two sections we introduce two additional types of error rates: {\it 
 Both of these approaches are additional assessments of the reliability of a classification method which leverage \emph{conditional probabilities}, i.e.\ probabilities which are updated to account for known (or assumed) information.
 Rather than summarizing an experiment in a single number reflecting error or accuracy like before, 
 these conditional probabilities allow us to provide a more specific assessment of the error accounting for known information, such as the examiner's decision or the source of the evidence. This allows us in particular to calculate separate accuracy rates for comparisons of same-source or different-source evidence. 
-This has the additional advantage that some of these conditional probabilities do not require inconclusives to be explicitly handled as errors or correct decisions. 
+\ac{It} has the additional advantage that some of these conditional probabilities do not require inconclusives to be explicitly handled as errors or correct decisions. 
 
 
 
@@ -500,7 +500,7 @@ The studies included in this section are not an exhaustive list of every error r
 Of the studies listed above, we have examined all but \citet{fadul}, which contained insufficient detail about examiner results and conclusions to calculate the quantities discussed in the previous section. 
 Note that this paper is limited in scope to \emph{error rate studies} conducted using firearms and toolmark examiners. 
 There are several promising automatic analysis tools \citep[][see]{aoas2,case-validation,chumbleyValidationToolMark2010,chuAutomaticIdentificationBullet2013,songEstimatingErrorRates2018,tai2018fully} which calculate error rates based on 2d images and 3d scans of bullet and cartridge cases.
-These types of studies are not easily comparable to the  black-box studies under consideration here: none of the automatic matching algorithms employs a category of `inconclusive' as a result, so the discussions on how to deal with inconclusives are not applicable. That also implies, that for algorithms we can not distinguish between errors stemming from insufficient markings on evidence and errors inherent to the algorithm. 
+These types of studies are not easily comparable to the  black-box studies under consideration here: none of the automatic matching algorithms employs a category of `inconclusive' as a result, so the discussions on how to deal with inconclusives are not applicable. That also implies, that for algorithms we can not distinguish between errors stemming from insufficient markings on evidence and errors inherent to the algorithm. %\ac{We could, however, estimate the algorithm error conditional on mark quality; this is left to a future study.}
 
 In the next sections, we discuss the design and results of each study, including calculation and comparison of source- and decision-specific error rates. 
 
@@ -516,7 +516,7 @@ Shortly after the report was issued, two more studies were published which also 
 All three ``good" studies used slightly different designs, but share one essential element: each kit contained multiple comparisons composed of one or more samples from exactly one known source and one unknown source.
 These designs substantially reduce or eliminate the internal dependencies which provide ``hints" to examiners by ensuring that each comparison of samples is considered independently.
 In addition, the design of these studies ensures that it is possible to exactly enumerate the number of same-source and different-source comparisons\footnote{At least, it is possible with the additional assumption that a comparison between a multiple items from the same source and an unknown should count as a single comparison.}.
-In what is almost certainly a coincidence, all three studies are also limited to cartridge case comparisons. We could not identify any studies which assess the error rates of bullet or toolmark examination in a manner that would produce reliable and generalizable measurements.
+\ac{All} three studies are also limited to cartridge case comparisons. We could not identify any studies which assess the error rates of bullet or toolmark examination in a manner that would produce reliable and generalizable measurements.
 
 As a result, studies which use less reliable designs, such as \citet{lyons},  \citet{Hamby:2018hu} (and the similarly designed  \citet{fadul}), and  \citet{bunch2003comprehensive} have historically been frequently referenced in admissibility hearings.
 Of these, the study by  \citeauthor{bunch2003comprehensive} is perhaps statistically the most interesting design, but it has been superseded by studies with cleaner experimental designs, such as \citet{Baldwin:2014bb} and \citet{keisler}.
@@ -651,7 +651,7 @@ errors <- studies %>%
 \Cref{fig:errors} shows the false positive and false negative rates for the six studies  investigated in this paper. 
 Both AFTE errors (which do not consider inconclusives as errors and represent examiner errors) and process errors (which include inconclusives and represent errors attributable to evidence quality and lab policy) are shown; examiner error rates are low for both missed elimination and missed identifications in most studies (though intervals reveal the effect of sample size, which was also noted in e.g.  \citet{pcast-addendum2017}. 
 Process errors, however, occur at higher rates and are particularly concerning for missed eliminations. 
-There is consistently a much larger discrepancy between the two error rates for eliminations than for identifications; this phenomena is examined in more detail in \Cref{sec:inconclusives}.
+There is consistently a much larger discrepancy between the two error rates for eliminations than for identifications; this \ac{phenomenon} is examined in more detail in \Cref{sec:inconclusives}.
 Only a portion of the discrepancy between the examiner (AFTE) and process error rates for missed eliminations can be explained by lab policies that only allow eliminations based on mismatches in class characteristics. 
 
 
