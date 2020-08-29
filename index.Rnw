@@ -14,6 +14,8 @@
 \usepackage{pbox}
 \usepackage{natbib}
 
+\usepackage{cleveref}
+
 \bibliographystyle{plainnat}
 \usepackage{enumerate}
 
@@ -123,7 +125,7 @@ We also assess the impact of study design and treatment of inconclusives on the 
 In order to lay a foundation for the common calculation methods used in this paper, we introduce some theory and vocabulary before comparing the studies and assessing the state of error rates in firearms and toolmark analysis.
 
 Examiners visually classify similarity of toolmark and firearm evidence according to the AFTE theory of identification \ac{using a three-point scale:} identification, inconclusive or elimination
-\citep[][see also \autoref{tab:afte}]{identification}. 
+\citep[][see also \Cref{tab:afte}]{identification}. 
 Exact guidelines for this classification vary from lab to lab; some labs will exclude only on the basis of non-matching class characteristics, such as direction of rifling, number of lands and their width, or type of rifling \cite{bunch2003comprehensive}. 
 In other labs, CMS (consecutively matching striae) as defined by  \citeauthor{biasotti}  \citep{biasotti} is used as a measure to quantify the similarity of two lands. 
 In virtually all labs, the assessment of individual characteristics of bullet markings is done by visual inspection. 
@@ -179,7 +181,7 @@ In the specific situation of firearms evidence, the type of firearm and the ammu
 
 In addition to the physical evidence-generation process, experimenters must carefully control the amount of information participants have about the study design and structure. 
 When this information is not strictly controlled, examiners may use deductive reasoning and other strategies that are useful for completing the test but that do not correspond to casework. 
-We provide an example of this phenomenon in \autoref{sec:studies}.
+We provide an example of this phenomenon in \Cref{sec:studies}.
 
 As a result, studies which attempt to gain insight into the identification process must also navigate these complexities, ideally without becoming too complicated to \ac{themselves}.
 
@@ -225,7 +227,7 @@ Before approaching the actual studies, we define a framework and some basic nota
 \subsection{Classification Framework}
 
 When \ac{firearms and toolmark} examiners assess a set of evidence (generally, a pair of items, one of known provenance and one of unknown provenance) examiners decide whether the evidence is an identification, inconclusive, or an elimination.  
-\autoref{fig:shape-overview} is a sketch showing the relationship between evidence (dots) and examiners' decisions (areas). The color for both evidence and decisions corresponds to the source of evidence (different/same) and the type of decision made, respectively. The different combinations of colored dots on top of colored regions correspond to the six potential outcomes of evidence assessment and examiner decision. Obviously, not all of these outcomes are correct.  
+\Cref{fig:shape-overview} is a sketch showing the relationship between evidence (dots) and examiners' decisions (areas). The color for both evidence and decisions corresponds to the source of evidence (different/same) and the type of decision made, respectively. The different combinations of colored dots on top of colored regions correspond to the six potential outcomes of evidence assessment and examiner decision. Obviously, not all of these outcomes are correct.  
 
 <<shape-overview, fig.cap = "Sketch of the relationship between  ground truth of evidence (dots) and examiners' decisions (shaded areas). In a perfect scenario dots only appear on the shaded area of the same color. Any dots on differently colored backgrounds indicate an error in the examination process.", out.width = "60%", fig.width = 6, fig.height = 4, dpi = 500, cache = F>>=
 source("code/make_inconcl_plot.R") 
@@ -235,7 +237,7 @@ target_plot(100, 50, 10, 10, 50, 100)
 \ac{Deciding whether} evidence is an identification, exclusion, or inconclusive provides a \emph{classification} of the evidence, allowing us to make use of elements of the larger \emph{classification framework}.
 We will introduce the classification framework and the respective error rates \ac{using as an} example a generic experiment:
 let us assume that a representative sample of independent forensic toolmark examiners were asked to complete a total of $N$ comparisons, consisting of $S$ same-source comparisons and $D$ different source comparisons.
-An aggregation of the examiners' evaluations can then be reported as shown in \autoref{tab:generic-results}. Note that the layout of the table  is nothing but a summary of all the possible combinations of examiners' decisions and actual state of the evidence as sketched out in \autoref{fig:shape-overview}. The pieces of \autoref{fig:shape-overview} are shown along with letters $a$ to $f$ in \autoref{tab:generic-results}. These letters will be used throughout this section to calculate various accuracy rates and probabilities. 
+An aggregation of the examiners' evaluations can then be reported as shown in \Cref{tab:generic-results}. Note that the layout of the table  is nothing but a summary of all the possible combinations of examiners' decisions and actual state of the evidence as sketched out in \Cref{fig:shape-overview}. The pieces of \Cref{fig:shape-overview} are shown along with letters $a$ to $f$ in \Cref{tab:generic-results}. These letters will be used throughout this section to calculate various accuracy rates and probabilities. 
 
 \begin{table}
 \centering
@@ -256,12 +258,12 @@ Different source & \begin{minipage}[c]{1em}$\bm{d}$ \end{minipage}\begin{minipag
 \end{tabularx}
 \end{table}
 
-The \emph{joint probability} of any source condition and any examiner conclusion can be found by taking the corresponding cell in \autoref{tab:generic-results} and dividing it by $N$, the total number of comparisons  in the study.\footnote{The joint probability of events A and B is the probability that both A and B occur. Here, the joint probability of an examiner identification and a same-source comparison would be equivalent to $a/N$.} 
+The \emph{joint probability} of any source condition and any examiner conclusion can be found by taking the corresponding cell in \Cref{tab:generic-results} and dividing it by $N$, the total number of comparisons  in the study.\footnote{The joint probability of events A and B is the probability that both A and B occur. Here, the joint probability of an examiner identification and a same-source comparison would be equivalent to $a/N$.} 
 Thus, the joint probability of a same-source comparison and examiner identification is $a/N$, while the joint probability of a different-source comparison and examiner identification would be $d/N$. 
 The accuracy (or error rate) of a classification method can then be determined by assessing how often the process produces a correct (or incorrect) result.
 
 \subsection{What makes an error?}\label{sec:error-rates}
-In a classification problem, we would normally take the results in \autoref{tab:generic-results} and calculate various measures of accuracy and classification error.
+In a classification problem, we would normally take the results in \Cref{tab:generic-results} and calculate various measures of accuracy and classification error.
 In firearms and toolmark examination, however, this is complicated by a mismatch between the physical source of the evidence and the set of examiners' decisions.
 There are two possibilities to describe the physical state of the evidence: two pieces of evidence are either from the same source or from different sources, but there are three primary outcomes from an examiner's decision.
 The examiner can make an identification, an elimination, or an inconclusive determination.\footnote{The fourth category, unsuitable for examination, is one which should be used when evaluating single pieces of recovered evidence; it does not result from the comparison of an unknown source to a known source.}
@@ -276,7 +278,7 @@ Statistically, this would suggest that the decision about the amount of evidence
 
 There are three main ways that inconclusives can be treated in calculating error rates:
 (1) inconclusives can be excluded from error calculations, (2) included as correct results  \cite{Duez:2017kha}, or (3) included as incorrect results  \cite{chumbleyValidationToolMark2010}; each of these decisions has an impact on the actual value of the error rate as well as the interpretation of the resulting error rates. 
-\autoref{tab:overall-err-rate} shows an overview of these three approaches to calculating the error rate based on the general structure of \autoref{tab:generic-results}, with a fourth option which will be addressed in more detail in \autoref{sec:inconclusives}. 
+\Cref{tab:overall-err-rate} shows an overview of these three approaches to calculating the error rate based on the general structure of \Cref{tab:generic-results}, with a fourth option which will be addressed in more detail in \Cref{sec:inconclusives}. 
 
 Each of the approaches to calculating the error rate has a  different meaning and interpretation; as a result, it is important to consider which error rate best suits the purpose of a study and its interpretation in the larger framework of pattern evidence. 
 There are two main scenarios resulting in error rate calculations of type 1:
@@ -295,7 +297,7 @@ In this case, the overall error rate is the sum of the false positives and the f
 \newcommand{\xsq}{\protect\fcolorbox{black}{white!100}{\makebox[1.25em][c]{x\vphantom{dp}}}}
 
 \begin{fmpage}{.985\textwidth}\captionsetup{type=table}\protect\captionof{table}{Different ways to calculate the overall error rate. 
-An arrangement of two rows of three boxes resembles the interior cells of \autoref{tab:generic-results}.
+An arrangement of two rows of three boxes resembles the interior cells of \Cref{tab:generic-results}.
 We use the following convention:\\
 \hfill\pbox{1.65em}{\small\whitesqd{}} correct decisions, cell values are included in the denominator\\
 \hfill\pbox{1.65em}{\graysqd{}} cell value is zero or excluded from the calculation\\
@@ -343,7 +345,7 @@ From the  perspective of the \emph{identification process}, though, an inconclus
 two pieces of evidence are  either from the same source or originate from different sources and an inability to distinguish between those options is an error.
 
 Practically, option 3 reflects the error of the \emph{examination process} rather than the examiner as an individual. 
-In option 4, which will become more relevant in \autoref{sec:inconclusives}, inconclusives are treated the same as eliminations. 
+In option 4, which will become more relevant in \Cref{sec:inconclusives}, inconclusives are treated the same as eliminations. 
 This option places the primary focus of the examiner's assessment on identification, and treats any inability to make an identification as equivalent to an elimination.
 
 The errors introduced in this section summarize the overall error rate. While these errors are informative, most studies allow us a deeper insight into different aspects of the examination process by taking additional information into account.
@@ -377,15 +379,15 @@ Similarly, the \emph{false negative rate} (FNR) -- or missed identification rate
 \end{figure}
 
 Note that we are keeping the definition of error rates a bit vague on purpose. 
-As discussed in \autoref{sec:error-rates}, there are multiple ways to define an error; but the concepts of FPR and FNR hold for all of the  options of treating  inconclusives outlined in \autoref{tab:overall-err-rate}.
+As discussed in \Cref{sec:error-rates}, there are multiple ways to define an error; but the concepts of FPR and FNR hold for all of the  options of treating  inconclusives outlined in \Cref{tab:overall-err-rate}.
 
 
 In all  of these assessments, the
-rates are calculated by conditioning on the \emph{origin of the evidence}. This process is shown graphically in \autoref{fig:FPR-specific-tree} using a decision tree to describe the comparisons which can be made conditioned on ground truth. Calculations for each value are shown in \autoref{tab:fpr-prob}.
+rates are calculated by conditioning on the \emph{origin of the evidence}. This process is shown graphically in \Cref{fig:FPR-specific-tree} using a decision tree to describe the comparisons which can be made conditioned on ground truth. Calculations for each value are shown in \Cref{tab:fpr-prob}.
 
 \begin{table}\centering
 \caption{
-Source-specific probabilities, calculated using the quantities introduced in \autoref{tab:generic-results}. 
+Source-specific probabilities, calculated using the quantities introduced in \Cref{tab:generic-results}. 
 Cells in the main body of the table show conditional probabilities  of conclusion $Y$ (one of Identification, Inconclusive, or Elimination) given known source  $X$ (same, different). 
 The last row in the table contains the marginal probabilities $P(Y)$, that is, the unconditional probability that the examiner's decision is $Y$. 
 %In the last column of the table, the marginal probabilities $P(X)$ are shown; 
@@ -401,7 +403,7 @@ Different source & $d/D$ & $e/D$ & $f/D$ & $D/N$\\\hline
 \end{table}
 A google sheets workbook which  performs all of these calculations given counts $a, b, c, d, e, \text{ and } f$ is available at \url{http://bit.ly/FTE-error-rate-worksheet}.
 
-In the context of \autoref{tab:fpr-prob} conditional probabilities can be interpreted as follows:
+In the context of \Cref{tab:fpr-prob} conditional probabilities can be interpreted as follows:
 given a  same-source pair of evidence, the examiner  makes an identification with probability $a/S$, the true positive rate (TPR). 
 Conversely, for a  different-source evidence pair, the examiner  makes an elimination with probability $f/D$, the true negative rate (TNR).
 
@@ -414,8 +416,8 @@ Its complement, the \emph{false discovery rate} (FDR), is the probability that t
 Similarly, we can define  predictive values when an examiner has made exclusions:
 the \emph{negative predictive value} (NPV) is the probability that evidence is actually from different sources given an examiner has made an exclusion:  $NPV = P(DS | \text{ Elimination})$. 
 Its complement, the \emph{false omission rate} (FOR) is the probability that evidence is actually from the same source\footnote{In \citet{songEstimatingErrorRates2018}, the FDR is referred to as the false identification error rate, and the FOR is called the false exclusion error rate.} given an examiner has made an elimination.
-As before, we can map out the conditional hierarchy using a decision tree, shown in \autoref{fig:PPV-specific-tree}. 
-To reduce confusion with the naming or rates and predictive values we have labeled nodes in the trees of \autoref{fig:FPR-specific-tree} and \autoref{fig:PPV-specific-tree} corresponding to the rates defined in the text.
+As before, we can map out the conditional hierarchy using a decision tree, shown in \Cref{fig:PPV-specific-tree}. 
+To reduce confusion with the naming or rates and predictive values we have labeled nodes in the trees of \Cref{fig:FPR-specific-tree} and \Cref{fig:PPV-specific-tree} corresponding to the rates defined in the text.
 
 \begin{figure}
 \centering
@@ -426,11 +428,11 @@ Tree Diagram illustrating the logic of positive and negative predictive value ca
 \end{figure}
 
 
-Using the quantities in \autoref{tab:generic-results}, we can calculate the decision-specific or conclusion-specific probabilities from \autoref{fig:PPV-specific-tree} as shown in \autoref{tab:ppv-prob}.
+Using the quantities in \Cref{tab:generic-results}, we can calculate the decision-specific or conclusion-specific probabilities from \Cref{fig:PPV-specific-tree} as shown in \Cref{tab:ppv-prob}.
 
 \begin{table}\centering
 \caption{
-Decision-specific probabilities, calculated using the quantities introduced in \autoref{tab:generic-results}. 
+Decision-specific probabilities, calculated using the quantities introduced in \Cref{tab:generic-results}. 
 In each cell in the main body of the table, probabilities shown are the probability of source $X$, if the examiner's conclusion (one of Identification, Inconclusive, or Elimination) is $Y$. 
 In the last row in the table, the marginal probabilities $P(Y)$ are shown, that is, the unconditional probability that the examiner's decision is $Y$. 
 }\label{tab:ppv-prob}
@@ -646,10 +648,10 @@ errors <- studies %>%
 
 \subsection{Assessment of Classification Error}
 
-\autoref{fig:errors} shows the false positive and false negative rates for the six studies  investigated in this paper. 
+\Cref{fig:errors} shows the false positive and false negative rates for the six studies  investigated in this paper. 
 Both AFTE errors (which do not consider inconclusives as errors and represent examiner errors) and process errors (which include inconclusives and represent errors attributable to evidence quality and lab policy) are shown; examiner error rates are low for both missed elimination and missed identifications in most studies (though intervals reveal the effect of sample size, which was also noted in e.g.  \citet{pcast-addendum2017}. 
 Process errors, however, occur at higher rates and are particularly concerning for missed eliminations. 
-There is consistently a much larger discrepancy between the two error rates for eliminations than for identifications; this phenomena is examined in more detail in \autoref{sec:inconclusives}.
+There is consistently a much larger discrepancy between the two error rates for eliminations than for identifications; this phenomena is examined in more detail in \Cref{sec:inconclusives}.
 Only a portion of the discrepancy between the examiner (AFTE) and process error rates for missed eliminations can be explained by lab policies that only allow eliminations based on mismatches in class characteristics. 
 
 
@@ -711,9 +713,9 @@ gg %>%
 
 \subsection{Source-specific error rates}
 
-The false positive rate and false negative rate reported in \autoref{fig:errors} are the error rates typically used to characterize a classification method. 
+The false positive rate and false negative rate reported in \Cref{fig:errors} are the error rates typically used to characterize a classification method. 
 These rates, however, are functions of a larger set of probabilities which are calculated conditional on the known source of the evidence. 
-In \autoref{fig:source-spec-cis}, we see the full set of source-specific conditional probabilities: the probability that an examiner will make an identification, elimination, or inconclusive determination given that the source of the evidence is the same (or different). 
+In \Cref{fig:source-spec-cis}, we see the full set of source-specific conditional probabilities: the probability that an examiner will make an identification, elimination, or inconclusive determination given that the source of the evidence is the same (or different). 
 Probabilities are shown with 95\% Pearson-Clopper confidence intervals, which provide a visual indication of the estimate's variability.
 It is apparent that examiners are extremely good at working with same-source evidence: there are relatively few inconclusives, almost no missed identifications, and very few false eliminations. 
 It is also evident that examiners have much more difficulty with different source evidence. 
@@ -758,9 +760,9 @@ figdata %>%
 
 
 In courtroom testimony, we do not know ground truth - we do not know whether the comparison that is presented actually is from the same source or a different source. 
-As a result, we cannot use the source-specific error rates or probabilities shown in \autoref{fig:source-spec-cis} to justify the testimony and say something like ``the probability of an identification given that the evidence is from the same source is nearly 1".
+As a result, we cannot use the source-specific error rates or probabilities shown in \Cref{fig:source-spec-cis} to justify the testimony and say something like ``the probability of an identification given that the evidence is from the same source is nearly 1".
 In these situations, the information we know is the examiner's decision, so the opposite conditional probability is appropriate: the probability that the evidence is same-source given that the examiner made an identification.
-\autoref{fig:cis} shows the probability of same source evidence conditional on the examiner's assessment.
+\Cref{fig:cis} shows the probability of same source evidence conditional on the examiner's assessment.
 Note that because there are two possible sources for the evidence (same or different), the equivalent probabilities for different-source evidence can be obtained by subtracting the same-source probability from 1.
 
 
@@ -772,9 +774,9 @@ As a result, it is possible to calculate the ``target" probability for each deci
 Similarly, the target for elimination is 0:  no same-source pairs should result in an elimination. 
 Same-source pairs should be assessed as inconclusive at the same frequency as same-source comparisons in the study (this is explored in much more detail in the next section).
 It is very clear that the probability of same-source evidence given an inconclusive evaluation is much lower than the calculated target probability.
-The decision-specific probabilities provide indications that the distribution of inconclusives is very different from its hypothesized  distribution shown in \autoref{fig:shape-overview}. %purposefully understated.
+The decision-specific probabilities provide indications that the distribution of inconclusives is very different from its hypothesized  distribution shown in \Cref{fig:shape-overview}. %purposefully understated.
 
-<<cis, echo=FALSE, fig.width=8, fig.height=4.5, fig.cap="Pearson-Clopper 95\\% confidence intervals for the probability of same source evidence given an examiner's conclusion. Expected values for each of the probabilities as discussed in \\autoref{sec:inconclusives} are shown as grey targets. Some of the studies do not allow an assessment of all of the predictive values.", out.width=".8\\textwidth">>=
+<<cis, echo=FALSE, fig.width=8, fig.height=4.5, fig.cap="Pearson-Clopper 95\\% confidence intervals for the probability of same source evidence given an examiner's conclusion. Expected values for each of the probabilities as discussed in \\Cref{sec:inconclusives} are shown as grey targets. Some of the studies do not allow an assessment of all of the predictive values.", out.width=".8\\textwidth">>=
 
 cis %>% 
   ungroup() %>%
@@ -802,14 +804,14 @@ cis %>%
 
 
 @
-\autoref{fig:cis} shows an overview  of the conditional probability of same source evidence given an examiner's conclusion for five published studies. 
+\Cref{fig:cis} shows an overview  of the conditional probability of same source evidence given an examiner's conclusion for five published studies. 
 
 \section{Inconclusives, Errors, and the Legal System}\label{sec:inconclusives}
 
-In \autoref{sec:dec-spec-res}, we refer to the expected distribution of inconclusives. The corresponding values are shown as grey targets in \autoref{fig:cis}.
+In \Cref{sec:dec-spec-res}, we refer to the expected distribution of inconclusives. The corresponding values are shown as grey targets in \Cref{fig:cis}.
 The expected distribution of inconclusives rests on a fundamental premise: inconclusives should be equally likely to occur in the evaluation of same-source and different-source evidence. 
-This is shown conceptually in \autoref{fig:shape-overview}: the rate of inconclusives is the same for both same-source and different-source evidence.
-That is, under relatively ideal conditions (where there are inconclusives, but no errors according to the AFTE process), the expected conditional probabilities in an experiment would match those shown in \autoref{tab:ideal-probabilities}. 
+This is shown conceptually in \Cref{fig:shape-overview}: the rate of inconclusives is the same for both same-source and different-source evidence.
+That is, under relatively ideal conditions (where there are inconclusives, but no errors according to the AFTE process), the expected conditional probabilities in an experiment would match those shown in \Cref{tab:ideal-probabilities}. 
 
 
 \begin{table}
@@ -957,28 +959,28 @@ errors2 %>%
 
 Examining the experimentally determined error rates for firearms and toolmark identification leads to a disturbing realization. 
 There is an order of magnitude difference between the probability of same-source evidence given an elimination and the probability of different-source evidence given an identification.
-\autoref{fig:baldwin-shape-overview} provides a visual demonstration of this discrepancy: unlike in \autoref{fig:shape-overview}, there is a difference in the density of points in the inconclusive sections of the chart.
+\Cref{fig:baldwin-shape-overview} provides a visual demonstration of this discrepancy: unlike in \Cref{fig:shape-overview}, there is a difference in the density of points in the inconclusive sections of the chart.
 
 
-<<baldwin-shape-overview, fig.cap = "Sketch of the relationship between  ground truth of evidence (dots) and examiners' decisions (shaded areas) as reported in \\cite{Baldwin:2014bb}. Each dot represents approximately 2 examiner evaluations. Unlike in \\autoref{fig:shape-overview}, there is a significant difference in the probability of an inconclusive evaluation when a pair is different source or same source. ", fig.width = 6, fig.height = 4, dpi = 1000, dev="pdf", out.width = "70%">>=
+<<baldwin-shape-overview, fig.cap = "Sketch of the relationship between  ground truth of evidence (dots) and examiners' decisions (shaded areas) as reported in \\cite{Baldwin:2014bb}. Each dot represents approximately 2 examiner evaluations. Unlike in \\Cref{fig:shape-overview}, there is a significant difference in the probability of an inconclusive evaluation when a pair is different source or same source. ", fig.width = 6, fig.height = 4, dpi = 1000, dev="pdf", out.width = "70%">>=
 baldwin <- c(a = 1075, b = 11, c = 4, d = 22, e = 737, f = 1421)
 
 do.call(target_plot, as.list(c(round(baldwin/2), pointsize = .5, bordersize = 0.001)))
 # target_plot(1075, 11, 4, 22, 737, 1421, pointsize = .5, bordersize = .001) # too dense
 @
-<<keisler-shape-overview, eval = T, include = F, fig.cap = "Sketch of the relationship between  ground truth of evidence (dots) and examiners' decisions (shaded areas) as reported in \\cite{Baldwin:2014bb}. Each dot represents approximately 2 examiner evaluations. Unlike in \\autoref{fig:shape-overview}, there is a significant difference in the probability of an inconclusive evaluation when a pair is different source or same source. ", fig.width = 6, fig.height = 4, dpi = 1000, dev="pdf", out.width = "70%">>=
+<<keisler-shape-overview, eval = T, include = F, fig.cap = "Sketch of the relationship between  ground truth of evidence (dots) and examiners' decisions (shaded areas) as reported in \\cite{Baldwin:2014bb}. Each dot represents approximately 2 examiner evaluations. Unlike in \\Cref{fig:shape-overview}, there is a significant difference in the probability of an inconclusive evaluation when a pair is different source or same source. ", fig.width = 6, fig.height = 4, dpi = 1000, dev="pdf", out.width = "70%">>=
 keisler <- c(a = 1508, b = 4, c = 0, d = 0, e = 203, f = 805)
 
 do.call(target_plot, as.list(c(keisler, pointsize = .5, bordersize = 0.001)))
 # target_plot(1075, 11, 4, 22, 737, 1421, pointsize = .5, bordersize = .001) # too dense
 @
-<<duez-shape-overview, eval = T, include = F, fig.cap = "Sketch of the relationship between  ground truth of evidence (dots) and examiners' decisions (shaded areas) as reported in \\cite{Baldwin:2014bb}. Each dot represents approximately 2 examiner evaluations. Unlike in \\autoref{fig:shape-overview}, there is a significant difference in the probability of an inconclusive evaluation when a pair is different source or same source. ", fig.width = 6, fig.height = 4, dpi = 1000, dev="pdf", out.width = "70%">>=
+<<duez-shape-overview, eval = T, include = F, fig.cap = "Sketch of the relationship between  ground truth of evidence (dots) and examiners' decisions (shaded areas) as reported in \\cite{Baldwin:2014bb}. Each dot represents approximately 2 examiner evaluations. Unlike in \\Cref{fig:shape-overview}, there is a significant difference in the probability of an inconclusive evaluation when a pair is different source or same source. ", fig.width = 6, fig.height = 4, dpi = 1000, dev="pdf", out.width = "70%">>=
 duez <- c(a = 276+59, b = 1, c = 0, d = 2, e = 25, f = 85)
 
 do.call(target_plot, as.list(c(duez, pointsize = .5, bordersize = 0.001)))
 # target_plot(1075, 11, 4, 22, 737, 1421, pointsize = .5, bordersize = .001) # too dense
 @
-<<bunch-shape-overview, eval = T, include = F, fig.cap = "Sketch of the relationship between  ground truth of evidence (dots) and examiners' decisions (shaded areas) as reported in \\cite{Baldwin:2014bb}. Each dot represents approximately 2 examiner evaluations. Unlike in \\autoref{fig:shape-overview}, there is a significant difference in the probability of an inconclusive evaluation when a pair is different source or same source. ", fig.width = 6, fig.height = 4, dpi = 1000, dev="pdf", out.width = "70%">>=
+<<bunch-shape-overview, eval = T, include = F, fig.cap = "Sketch of the relationship between  ground truth of evidence (dots) and examiners' decisions (shaded areas) as reported in \\cite{Baldwin:2014bb}. Each dot represents approximately 2 examiner evaluations. Unlike in \\Cref{fig:shape-overview}, there is a significant difference in the probability of an inconclusive evaluation when a pair is different source or same source. ", fig.width = 6, fig.height = 4, dpi = 1000, dev="pdf", out.width = "70%">>=
 bunch <- c(a = 70, b = 0, c = 0, d = 0, e = 172, f = 118)
 
 do.call(target_plot, as.list(c(bunch, pointsize = .5, bordersize = 0.001)))
@@ -1002,7 +1004,7 @@ In accordance with this principle, it would be preferable for $P(\text{SS} | \te
 
 
 Unfortunately, this is not what we find.
-In \autoref{fig:asymmetric-errors}, we see that in every experiment with sufficient data, the point estimate of the probability that an identification is from a different-source pair is higher than the probability that an elimination is from a same-source pair.
+In \Cref{fig:asymmetric-errors}, we see that in every experiment with sufficient data, the point estimate of the probability that an identification is from a different-source pair is higher than the probability that an elimination is from a same-source pair.
 Even when inconclusives are treated as as eliminations, the only study with sufficient sample size to show significant differences between error rates still shows that the probability of different source evidence given an examiner identification is significantly higher than the probability of same-source evidence given an examiner elimination or inconclusive.
 Note that \citet{Duez:2017kha} and \citet{keisler} have insufficient sample size to distinguish between the probabilities with statistical significance.
 However, in \citet{Baldwin:2014bb}, it is clear that examiners are willing to gamble on an identification much more than they are willing to gamble on an elimination. 
@@ -1084,7 +1086,7 @@ While these tools are being developed to assist examiners, however, we should al
 
 25 firearms were used for the study, such that within each kit no firearm was re-used for either knowns or questioned cartridge cases, i.e. no additional information could be gained by comparing any cartridge cases across sets.
 
-Results are summarized in \autoref{tab:baldwin-summary}. 
+Results are summarized in \Cref{tab:baldwin-summary}. 
 
 \noindent\begin{fmpage}{.985\textwidth}\centering % Checked for accuracy on 2020-04-24
 \captionsetup{type=table}\captionof{table}{Baldwin study results, conclusion-specific and source-specific probabilities, and reported overall error rates. }\label{tab:baldwin-summary}
@@ -1133,7 +1135,7 @@ Opt. & \multicolumn{1}{c}{Meaning} & Missed Identification & \multicolumn{1}{r}{
 
 Kits were assembled using only 9 Smith \& Wesson pistols (i.e. there is a potential to gain additional information by making comparisons across sets). However, participants were instructed to only compare single pairs.
 
-Results from the study are shown in \autoref{tab:keisler-summary}.
+Results from the study are shown in \Cref{tab:keisler-summary}.
 
 \noindent\begin{fmpage}{.985\textwidth}\centering % Checked for numerical accuracy 2020-04-24
 \captionsetup{type=table}\captionof{table}{{\large\bf Isolated Pairs Research Study} \label{tab:keisler-summary}}
@@ -1184,7 +1186,7 @@ Opt. & \multicolumn{1}{c}{Meaning} & Missed Identification & \multicolumn{1}{r}{
 \end{itemize}
 
 Both sets were evaluated by 56 participants (46 fully certified examiners and 10 trainees). CCTS1 resulted in 56 x 4 correct identifications.
-The design of the experiment does not allow us to quantify all of the quantities to evaluate examiner performance unless we aggregate performance over both sets. \autoref{tab:duez-summary} shows the results of this aggregation.
+The design of the experiment does not allow us to quantify all of the quantities to evaluate examiner performance unless we aggregate performance over both sets. \Cref{tab:duez-summary} shows the results of this aggregation.
 
 %Combined, the probability for a  same source pair is 6/8 or 75\% and the probability for  a different source  pair is 2/8 or 25\%.
 
@@ -1238,7 +1240,7 @@ Opt. & \multicolumn{1}{c}{Meaning} & Missed Identification & \multicolumn{1}{r}{
 The study was originally reported on by Brundage in 1998  \cite{brundage}. Updates on the study with increasing number of responses have been published several times since   \cite{hamby, Hamby:2018hu}. 
 The design of the Brundage-Hamby is well known in the forensics community and has been copied in  \citet{fadul} for a study of cartridge cases of the same firearms. Slight modifications of the study design are also common  \cite{lyons}. 
 
-Results reported in the 2019 paper are shown in \autoref{tab:hamby-summary}.
+Results reported in the 2019 paper are shown in \Cref{tab:hamby-summary}.
 
 \noindent\begin{fmpage}{.985\textwidth}\centering % Checked numbers 2020-04-24
 \captionsetup{type=table}\captionof{table}{Evaluations, conditional error rates, and overall error rates from the combined Brundage-Hamby studies. Note the focus on identifications.}\label{tab:hamby-summary}
@@ -1286,7 +1288,7 @@ Opt. & \multicolumn{1}{c}{Meaning} & Missed Identification & \multicolumn{1}{r}{
 Bunch \& Murphy used a study design that is not conducive to a quick summary. The study consisted of 8 test kits of varying composition; the test kits were evaluated by 8 examiners at the FBI laboratory. 
 
 \noindent\begin{fmpage}{.985\textwidth}\centering % Checked numbers 2020-04-24
-\captionsetup{type=table}\captionof{table}{Results and summary tables for the Bunch and Murphy study. Values in this table are as reported in the study; however, due to the study's structure, it is possible to perform fewer comparisons, because not all comparisons are independent. Results for independent comparisons are shown in \autoref{tab:bunch-indep}}\label{tab:bunch-summary}
+\captionsetup{type=table}\captionof{table}{Results and summary tables for the Bunch and Murphy study. Values in this table are as reported in the study; however, due to the study's structure, it is possible to perform fewer comparisons, because not all comparisons are independent. Results for independent comparisons are shown in \Cref{tab:bunch-indep}}\label{tab:bunch-summary}
 {\large\bf A Comprehensive Validity Study for the Forensic Examination of Cartridge Cases}\emph{ \citeauthor{bunch2003comprehensive} (\citeyear{bunch2003comprehensive})}\\
 \begin{tabularx}{\textwidth}{XrrX}\hline
 \multirow{2}{*}{\bf Study Type} & \multicolumn{2}{c}{\bf Test Set} & \multirow{2}{*}{\bf Participants}\\
@@ -1329,7 +1331,7 @@ Opt. & \multicolumn{1}{c}{Meaning} & Missed Identification & \multicolumn{1}{r}{
 
 Kits were assembled from 32 cartridge cases: 20 known cartridge cases from pairs of 2 cartridges from each of the 10 extractors (the knowns) and 12 questioned cartridges, such that each known corresponded to at least one questioned, with some replication in most of the kits (one kit accidentally only had ten questioned cartridges). Thus, the setup of this study is similar to the Brundage-Hamby study. This study suffers from the same problems as the Brundage-Hamby study: it is a closed set study with multiple knowns and asks for identifications only. We can therefore only estimate a fraction of the relevant error rates. 
 It is also not possible to determine the total number of independent different source comparisons. 
-The study results are shown in \autoref{tab:lyons-summary}, along with computed conclusion-specific and source-specific probabilities and error rates.
+The study results are shown in \Cref{tab:lyons-summary}, along with computed conclusion-specific and source-specific probabilities and error rates.
 
 \noindent\begin{fmpage}{.985\textwidth}\centering % Checked numbers 2020-04-24
 \captionsetup{type=table}\captionof{table}{}\label{tab:lyons-summary}
@@ -1426,12 +1428,12 @@ Opt. & \multicolumn{1}{c}{Meaning} & Missed Identification & \multicolumn{1}{r}{
 \clearpage
 \subsection{Enumeration of all possible Brundage-Hamby set comparisons}\label{sec:brundage}
 
-As discussed in \autoref{sec:design-consequences}, closed-set studies like \citet{Hamby:2018hu} do not allow us to easily calculate the number of different-source comparisons performed. However, we can estimate the number of comparisons that might need to be performed using logic similar to that employed in \autoref{sec:bunchmurphysim} (but without the variability introduced by the unique experimental design in \citet{bunch2003comprehensive}).
+As discussed in \Cref{sec:design-consequences}, closed-set studies like \citet{Hamby:2018hu} do not allow us to easily calculate the number of different-source comparisons performed. However, we can estimate the number of comparisons that might need to be performed using logic similar to that employed in \Cref{sec:bunchmurphysim} (but without the variability introduced by the unique experimental design in \citet{bunch2003comprehensive}).
 
 Brundage-Hamby sets consist of a set of 20 known bullets (two each from the ten consecutively manufactured barrels) and 15 questioned bullets.
  \citet{brundage} outlines the construction of sets of questioned bullets in detail as follows: ten bullets are chosen, one from each of the ten barrels. The remaining five bullets are picked at random from the barrels, such that at most three questioned bullets are from the same barrel. 
 
-Using this strategy, a total of 1452 different sets can be constructed. These sets have questioned bullets of three main forms, listed in \autoref{tab:sets} from the perspective of the number of barrels with one, two, or three matching questioned bullets. 
+Using this strategy, a total of 1452 different sets can be constructed. These sets have questioned bullets of three main forms, listed in \Cref{tab:sets} from the perspective of the number of barrels with one, two, or three matching questioned bullets. 
 
 \begin{table}
 \caption{\label{tab:sets}Number of all possible sets of questioned bullets for Brundage-Hamby sets.}
@@ -1445,7 +1447,7 @@ III & 7 & 1 & 2 & 360\\ \hline
 \end{tabular}
 \end{table}
 
-\autoref{fig:histogram} shows the histogram of the total number of different source comparisons before and identification is made.
+\Cref{fig:histogram} shows the histogram of the total number of different source comparisons before and identification is made.
 
 <<histogram, fig.width=8, fig.height = 3, outwidth="\\textwidth", warning=FALSE, message=FALSE, fig.cap="Histogram of the total number of different source comparisons before an identification is made.">>=
 library(tidyverse)
