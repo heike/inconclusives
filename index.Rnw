@@ -75,12 +75,18 @@
 \bibliographystyle{elsarticle-num-names}
 %%%%%%%%%%%%%%%%%%%%%%%
 
+
+
+\newcommand{\hh}[1]{{\textcolor{orange}{#1}}}
+\newcommand{\svp}[1]{{\textcolor{teal}{#1}}}
+\newcommand{\ac}[1]{{\textcolor{pink}{#1}}}
+
 \begin{document}
 \noindent
 
 \begin{frontmatter}
 
-\title{Treatment of Inconclusives in the AFTE Range of Identifications\tnoteref{t1}}
+\title{Treatment of Inconclusives in the AFTE Range of \ac{Conclusions}\tnoteref{t1}}
 
 \tnotetext[t1]{This work was partially funded by the Center for Statistics and Applications in Forensic Evidence (CSAFE) through Cooperative Agreement \#70NANB15H176 between NIST and Iowa State University, which includes activities carried out at Carnegie Mellon University, University of California Irvine, and University of Virginia.}
 
@@ -119,10 +125,6 @@ forensic science, black box studies, proficiency testing
 
 \end{frontmatter}
 
-
-
-\newcommand{\hh}[1]{{\textcolor{orange}{#1}}}
-\newcommand{\svp}[1]{{\textcolor{teal}{#1}}}
 % boxes for illustrations
 
 \noindent
@@ -174,14 +176,17 @@ library(kableExtra)
 
 
 \section{Introduction and Background}
-It has now been more than a decade since the publication of the \citet{nrc:2009} report, which discussed the need for better designed studies of error rates in forensic disciplines. 
+It has now been more than a decade since the publication of the \citet{nrc:2009} report, which discussed the need for better designed studies \ac{to estimate} error rates in forensic disciplines. 
 In this paper, we examine several new studies which have been published since the 2009 report, and assess the state of error rate studies in firearms and toolmark analysis. 
-For each study, we calculate the error rates from the study results using standardized methods. 
+For each study, we calculate the error rates from the \ac{published} study results using standardized methods. 
 We also assess the impact of study design and treatment of inconclusives on the calculated error rates.
-In order to lay a foundation for the common calculation methods used in this paper, we will first introduce some theory and vocabulary before comparing the studies and assessing the state of error rates in firearms and toolmark analysis.
+In order to lay a foundation for the common calculation methods used in this paper, we introduce some theory and vocabulary before comparing the studies and assessing the state of error rates in firearms and toolmark analysis.
 
-Examiners visually classify similarity of toolmark and firearm evidence according to the AFTE theory of identification  as one of identification, inconclusive or elimination
-\citep[][see also \autoref{tab:afte}]{identification}. Exact guidelines for this classification vary from lab to lab; some labs will exclude only on the basis of non-matching class characteristics, such as direction of rifling, number of lands and their width, or type of rifling \cite{bunch2003comprehensive}. In other labs, CMS (consecutively matching striae) as defined by  \citeauthor{biasotti}  \citep{biasotti} is used as a measure to quantify the similarity of two lands. In virtually all labs, the assessment of individual characteristics of bullet markings is done by visual inspection. 
+Examiners visually classify similarity of toolmark and firearm evidence according to the AFTE theory of identification \ac{using a three-point scale:} identification, inconclusive or elimination
+\citep[][see also \autoref{tab:afte}]{identification}. 
+Exact guidelines for this classification vary from lab to lab; some labs will exclude only on the basis of non-matching class characteristics, such as direction of rifling, number of lands and their width, or type of rifling \cite{bunch2003comprehensive}. 
+In other labs, CMS (consecutively matching striae) as defined by  \citeauthor{biasotti}  \citep{biasotti} is used as a measure to quantify the similarity of two lands. 
+In virtually all labs, the assessment of individual characteristics of bullet markings is done by visual inspection. 
 
 
 \begin{table}[hbt]
@@ -209,7 +214,7 @@ Unsuitable for examination.
 \end{table}
 
 The identification process -- i.e. the assessment of whether two samples come from the same source (were made by the same tool, the same shoe, the same finger, shot through the same barrel) or from different sources -- is quite complex. 
-In order for firearms and toolmark evidence to be admissible in court, it must be possible to explicitly characterize the accuracy of the identification process \citep{giannelliDaubertInterpretingFederal1993}.
+In order for firearms and toolmark evidence to be admissible in court, it must be possible to explicitly characterize the accuracy of the \ac{examination} process \citep{giannelliDaubertInterpretingFederal1993}.
 
 The need for scientific validation and experimentally-determined error rates has been identified in several reports evaluating the discipline of forensic science in the United States as critical for addressing problems within the field and improving the overall performance of the justice system. 
 According to the  \citet{nrc:2009}:
