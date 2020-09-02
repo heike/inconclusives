@@ -183,7 +183,7 @@ In addition to the physical evidence-generation process, experimenters must care
 When this information is not strictly controlled, examiners may use deductive reasoning and other strategies that are useful for completing the test but that do not correspond to casework. 
 We provide an example of this phenomenon in \Cref{sec:studies}.
 
-As a result, studies which attempt to gain insight into the identification process must also navigate these complexities, ideally without becoming too complicated to \ac{themselves}.
+As a result, studies which attempt to gain insight into the identification process must also navigate these complexities, ideally without becoming too complicated \ac{themselves}.
 
 In the remainder of this section we \ac{introduce} terms commonly used in experiments with a specific focus on the forensic identification process:
 \begin{description}
@@ -471,14 +471,16 @@ The distinction between these two sources of error rates is perhaps a bit more a
 \begin{itemize}
 \item A given \ac{diagnostic} test has an \ac{estimated} sensitivity (true positive rate, TPR) and a specificity (true negative rate, TNR) that combined determine the overall accuracy rate. \ac{The accuracy of the test is established via extensive experimentation.} These quantities are useful for an accrediting agency such as the FDA, or a company; both are interested in whether the test works as claimed. 
 \item A patient who has received a negative test result is more interested in a different value: the probability that the patient actually has the disease 
-%(and could be contagious) 
 \ac{even though the} test \ac{was negative}. 
 \end{itemize}
 At the individual level, we want to use tailored information to guide our specific actions; at the system level, we are more interested in gross measures of performance. 
 
-\ac{The two conditional probabilities that are referred to in the diagnostic test example are $P(\mbox{Test result} | \mbox{Disease status})$ and $P(\mbox{Disease status} | \mbox{Test result})$. Bayes' rule tells us how to move from the former to the latter, assuming that we have additional information. In the case of the patient taking the test, the patient would also need to know about the baseline prevalence of the disease in her particular environment. The parallel we draw here is the following:  the examiner's decision is equivalent to a diagnostic test, and the origin of the evidence is equivalent to the disease status. In contrast to the medical example, however, we do not have information about the sensitivity and specificity of the field of firearms examination as a whole, let alone about a specific examiner.}
-%work we do not know ground truth, so we cannot definitively know wheter an examiner's conclusion is correct.} 
-For that reason, we need designed studies to estimate the error rates of examinations in situations where ground truth is known. \ac{Furthermore, to estimate the probability of same or different source given a specific firearm examiner's conclusion, we also need an estimate of the individual examiner's probability of correct conclusion, which can perhaps be obtained via proficiency tests.}
+\ac{The two conditional probabilities that are referred to in the diagnostic test example are $P(\mbox{Test result} | \mbox{Disease status})$ and $P(\mbox{Disease status} | \mbox{Test result})$}. 
+\svp{Using Bayes' rule, and assuming we also know the prevalence of the disease in the population, we can convert between the two probabilities.}
+% tells us how to move from the former to the latter, assuming that we have additional information. In the case of the patient taking the test, the patient would also need to know about the baseline prevalence of the disease in her particular environment.
+\ac{The parallel we draw here is the following:  the examiner's decision is equivalent to a diagnostic test, and the origin of the evidence is equivalent to the disease status. 
+In contrast to the medical example, however, we do not have information about the sensitivity and specificity of the field of firearms examination as a whole, let alone about a specific examiner.}
+For that reason, we need designed studies to estimate the error rates of examinations in situations where ground truth is known. \ac{Furthermore, to estimate the probability of same or different source given a specific firearm examiner's conclusion, we also need an estimate of the individual examiner's probability of correct conclusion, which can perhaps be obtained via proficiency tests.}\svp{XXX I don't think we want to go here... XXX}
 As we rely on these studies to generalize to casework, it is of great importance that these studies are well designed so that it is possible to estimate any of the success and error rates discussed above.
 
 \section{Studies}\label{sec:studies}
