@@ -1095,6 +1095,7 @@ These biases mirror biases in the admissibility of forensic evidence which are a
 
 %The biases identified in this paper increase the importance of the development and implementation of automatic, unbiased assessment algorithms in forensic laboratories. 
 \ac{An effective approach to eliminate the biases associated with the current approach to firearm and tool examination is to rely on automatic, objective algorithms to compute a \emph{degree of similarity} between two items.  Research and development of algorithms are underway \citep{chumbleyValidationToolMark2010,songEstimatingErrorRates2018,aoas2,tai2018fully}, but more work must be conducted before they can be implemented in real case work.} 
+\svp{These algorithms generally include positive and negative criteria, which may contribute to their ability to make unbiased decisions about the similarity or dissimilarity of the evidence.}
 Through awareness of the biases that already exist in the evaluation of firearms and toolmark evidence, we can avoid the pitfalls of developing machine learning algorithms using biased training data \citep{howard2018ugly,machinelearninglaw}, ensuring that any automatic processes are as fair as possible.
 It is important that before these algorithms are applied to casework, we examine the distribution of automated scores and cutoff-based classifications compared to examiner decisions to determine whether the algorithms are, in fact, less biased than examiners. 
 \ac{Even though the use of algorithms is not far in the future,} 
