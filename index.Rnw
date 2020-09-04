@@ -48,8 +48,9 @@
 
 
 \newcommand{\hh}[1]{{\textcolor{orange}{#1}}}
-\newcommand{\svp}[1]{{\textcolor{teal}{#1}}}
+\newcommand{\svp}[1]{{\textcolor{Fuchsia}{#1}}}
 \newcommand{\ac}[1]{{\textcolor{WildStrawberry}{#1}}}
+\newcommand{\new}[1]{{\textcolor{JungleGreen}{#1}}}
 
 \begin{document}
 \noindent
@@ -480,7 +481,8 @@ At the individual level, we want to use tailored information to guide our specif
 % tells us how to move from the former to the latter, assuming that we have additional information. In the case of the patient taking the test, the patient would also need to know about the baseline prevalence of the disease in her particular environment.
 \ac{The parallel we draw here is the following:  the examiner's decision is equivalent to a diagnostic test, and the origin of the evidence is equivalent to the disease status. 
 In contrast to the medical example, however, we do not have information about the sensitivity and specificity of the field of firearms examination as a whole, let alone about a specific examiner.}
-For that reason, we need designed studies to estimate the error rates of examinations in situations where ground truth is known. \ac{Furthermore, to estimate the probability of same or different source given a specific firearm examiner's conclusion, we also need an estimate of the individual examiner's probability of correct conclusion, which can perhaps be obtained via proficiency tests.}\svp{XXX I don't think we want to go here... XXX}
+For that reason, we need designed studies to estimate the error rates of examinations in situations where ground truth is known.
+% \ac{Furthermore, to estimate the probability of same or different source given a specific firearm examiner's conclusion, we also need an estimate of the individual examiner's probability of correct conclusion, which can perhaps be obtained via proficiency tests.}\svp{XXX I don't think we want to go here... XXX}
 As we rely on these studies to generalize to casework, it is of great importance that these studies are well designed so that it is possible to estimate any of the success and error rates discussed above.
 
 \section{Studies}\label{sec:studies}
@@ -767,25 +769,13 @@ figdata %>%
 In courtroom testimony, we do not know ground truth - we do not know whether the comparison that is presented actually is from the same source or a different source. 
 As a result, we cannot use the source-specific error rates or probabilities shown in \Cref{fig:source-spec-cis} to justify the testimony and say something like ``the probability of an identification given that the evidence is from the same source is nearly 1".
 In these situations, the \ac{``data'' we have} is the examiner's decision, so the reverse conditional probability: the probability of same-source given that the examiner made an identification, is what we wish to compute.
-\Cref{fig:cis} shows the probability of same source evidence conditional on the examiner's assessment.
+\Cref{fig:cis} shows the probability of same source evidence conditional on the examiner's assessment for five published studies. 
 Note that because there are two possible sources for the evidence (same or different), the equivalent probabilities for different-source evidence can be obtained by subtracting the same-source probability from 1.
 
 
-\ac{As before, the }probabilities \ac{computed from the study results} are shown with their respective 95\% (Pearson-Clopper) confidence intervals.  
-\ac{ The circles shown i}n light grey \ac{in the middle panel denote the actual proportion of same source items among those for which the examiner reached an inconclusive decision in each study. For example, in the Baldwin study \citep{Baldwin:2014bb}, the proportion of same source items among those for which examiners made a finding of inconclusive was about 34\%.}
-
-
-%expected probabilities are shown based on the distribution of same source/different source comparisons and the number of participants in each study.
-
-\svp{XXX need to rework this XXX}
-If inconclusives occur because there are insufficient similarities or differences to justify an identification or an elimination, then they should \ac{occur in proportion to the relative number of }
-%be equally likely for 
-same-source or different source comparisons. 
-\ac{Under that assumption,}  it is possible to calculate the ``target" probability for each decision: the target for identification is 1: all same source pairs should result in an identification. 
-Similarly, the target for elimination is 0:  no same-source pairs should result in an elimination. 
-Same-source pairs should be assessed as inconclusive with frequency proportional to the number of same-source comparisons in the study (this is explored in more detail in the next section).
-It is  clear that the probability of same-source evidence given an inconclusive evaluation is much lower than the calculated target probability.
-The decision-specific probabilities provide indications that the distribution of inconclusives is very different from its hypothesized  distribution shown in \Cref{fig:shape-overview}. %purposefully understated.
+As before, the probabilities computed from the study results are shown with their respective 95\% (Pearson-Clopper) confidence intervals. 
+The circles shown in light grey in the middle panel show the expected proportion of inconclusive results which are from the same source. 
+The calculation of these expected values will be discussed in more detail in the next section.
 
 <<cis, echo=FALSE, fig.width=8, fig.height=4.5, fig.cap="Pearson-Clopper 95\\% confidence intervals for the probability of same source evidence given an examiner's conclusion. Expected values for each of the probabilities as discussed in \\Cref{sec:inconclusives} are shown as grey targets. Some of the studies do not allow an assessment of all of the predictive values.", out.width=".8\\textwidth">>=
 
@@ -815,15 +805,29 @@ cis %>%
 
 
 @
-\Cref{fig:cis} shows an overview  of the conditional probability of same source evidence given an examiner's conclusion for five published studies. 
+
+
+In \Cref{fig:cis}, it is  clear that the probability of same-source evidence given an inconclusive evaluation is much lower than the calculated target probability.
+The decision-specific probabilities provide indications that the distribution of inconclusives is very different from our expectations. 
 
 \section{Inconclusives, Errors, and the Legal System}\label{sec:inconclusives}
+\new{
+Before we discuss the results of inconclusive findings in the selected studies, we must explicitly characterize our expectations for decision-specific probabilities of inconclusive findings. 
+That is, given that an examiner states that a finding is inconclusive, what is our expectation for the probability that the evidence is from the same source or from different sources?
+In the absence of any additional information, we have no reason to believe that a finding of inconclusive should be related to either same source or different source origin. 
+An inconclusive finding, according to the AFTE rules, indicates that there is insufficient agreement or disagreement between discernible individual features to come to a conclusion of identification or elimination. 
+This suggests that there is an implicit threshold of the amount of evidence necessary to arrive at a definitive conclusion. \svp{XXX cite paper presence of enough evidence means mandatory definitive conclusion}
+We have no reason to believe that these thresholds are asymmetric; that is, the threshold to go from inconclusive to identification should be the same as the threshold to go from inconclusive to elimination. 
+Statistically, we would express this symmetry as the independence between the source and an inconclusive finding: that is, $P(\text{same source} | \text{inconclusive}) = P(\text{same source})$ and $P(\text{different source} | \text{inconclusive}) = P(\text{different source})$.
+}
 
-%In \Cref{sec:dec-spec-res}, we refer to the expected distribution of inconclusives. The corresponding values are shown as grey targets in \Cref{fig:cis}.
-The expected distribution of inconclusives \ac{shown in \Cref{fig:cis}} rests on a fundamental premise: inconclusives should be equally likely to occur in the evaluation of same-source and different-source evidence. \ac{In other words, the probability of an inconclusive decision should be independent of the source of the evidence.}
-This is shown conceptually in \Cref{fig:shape-overview}: the rate of inconclusives is the same for both same-source and different-source evidence.
+\new{
+This implies that we can calculate the ``target" probability for each decision: the target for identification is 100\%: all same source pairs should result in an identification. 
+Similarly, the target for elimination is 0\%: not even a single same-source pair should result in an elimination. 
+Same-source pairs should be assessed as inconclusive with frequency proportional to the number of same-source comparisons in the study. 
+Conceptually, \Cref{fig:shape-overview} demonstrates this characteristic: the rate of inconclusives is the same for both same-source and different-source evidence.
 That is, under relatively ideal conditions (where there are inconclusives, but no errors according to the AFTE process), the expected conditional probabilities in an experiment would match those shown in \Cref{tab:ideal-probabilities}. 
-
+}
 
 \begin{table}
 \caption{Expected conditional probabilities in a world where examiners do not make mistakes, but do make inconclusive decisions. }\label{tab:ideal-probabilities}
@@ -836,8 +840,6 @@ Different source & $P(DS| \text{Identification}) = 0$ & $P(DS| \text{Inconclusiv
 \end{tabu}
 }
 \end{table}
-
-% Most notably, we would expect inconclusive results not to show any dependence on the type of comparison, unless there is some evidence provided by experts that one type of conclusion is more difficult to make than another.\svp{I'm not even sure that would convince me - fundamentally, it's still important that legally the two are on equal footing, and it's the job of the training process to combat any asymmetry in difficulty level.}
 
 In case work we are not able to assess the probability of same source or different source comparisons.  
 However, those probabilities are easily accessible in formal studies or blinded proficiency testing, as $P(SS)$ and $P(DS)$ in these studies are determined by the experimental design.
@@ -908,7 +910,7 @@ P (\text{different source} \mid \text{identification}) &=& \displaystyle\frac{22
 \end{array}
 \end{eqnarray*}
 
-<<asymmetric-errors, echo = F, fig.width = 8, fig.height = 3, fig.cap = "Decision-specific error rates. For all studies, errors in identification are more likely than errors in eliminations. In \\citet{baldwin:2014}, which is the only study with a large number of participants and evaluations, confidence intervals for wrong identifications do not overlap, indicating that  these errors are significantly higher than wrongful eliminations.">>=
+<<asymmetric-errors, echo = F, fig.width = 8, fig.height = 3, fig.cap = "Decision-specific error rates. For all studies, errors in identification are more likely than errors in eliminations. In \\citet{Baldwin:2014bb}, which is the only study with a large number of participants and evaluations, confidence intervals for wrong identifications do not overlap, indicating that  these errors are significantly higher than wrongful eliminations.">>=
 # Even if inconclusives are treated as eliminations, error rates are still not higher for eliminations than identifications (removed from caption)
 
 # This was to create a similar chart as the calculations for Baldwin, but Baldwin is the only study with enough data for the calculations to be meaningful...
@@ -1095,15 +1097,12 @@ These biases mirror biases in the admissibility of forensic evidence which are a
 % Future work: Examine the distribution of automated scores (RF score, CCF) and cutoff-based classifications compared to examiner decisions. Are algorithms less biased than examiners? (yes, duh). 
 
 %The biases identified in this paper increase the importance of the development and implementation of automatic, unbiased assessment algorithms in forensic laboratories. 
-\ac{An effective approach to eliminate the biases associated with the current approach to firearm and tool examination is to rely on automatic, objective algorithms to compute a \emph{degree of similarity} between two items.  Research and development of algorithms are underway \citep{chumbleyValidationToolMark2010,songEstimatingErrorRates2018,aoas2,tai2018fully}, but more work must be conducted before they can be implemented in real case work.} 
+An effective approach to eliminate the biases associated with the current approach to firearm and tool examination is to rely on automatic, objective algorithms to compute a \emph{degree of similarity} between two items.  Research and development of algorithms are underway \citep{chumbleyValidationToolMark2010,songEstimatingErrorRates2018,aoas2,tai2018fully}, but more work must be conducted before they can be implemented in real case work.
 \svp{These algorithms generally include positive and negative criteria, which may contribute to their ability to make unbiased decisions about the similarity or dissimilarity of the evidence.}
 Through awareness of the biases that already exist in the evaluation of firearms and toolmark evidence, we can avoid the pitfalls of developing machine learning algorithms using biased training data \citep{howard2018ugly,machinelearninglaw}, ensuring that any automatic processes are as fair as possible.
 It is important that before these algorithms are applied to casework, we examine the distribution of automated scores and cutoff-based classifications compared to examiner decisions to determine whether the algorithms are, in fact, less biased than examiners. 
-\ac{Even though the use of algorithms is not far in the future,} 
-%While these tools are being developed to assist examiners, however, 
-we should also work to resolve the biases \ac{associated with the current practice of firearm and toolmark identification. At} \svp{minimum}, \ac{we should re-consider the definition and calculation of error rates and modify some of the}
-%identified here by modifying the way error rates are reported and changing the 
-factors which contribute to the uneven distribution of inconclusives. 
+Even though the use of algorithms is not far in the future,
+we should also work to resolve the biases associated with the current practice of firearm and toolmark identification. At minimum, we should re-consider the definition and calculation of error rates and modify some of the factors which contribute to the uneven distribution of inconclusives. 
 
 
 
