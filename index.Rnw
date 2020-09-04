@@ -336,7 +336,8 @@ Thus, this elimination from consideration is not appropriate if the goal of a st
 
 
 Under AFTE's Theory of Identification inconclusive results are acceptable outcomes and not considered errors. This approach is captured in Option 2:  inconclusives are treated as correct regardless of the actual state.
-What this means in real terms, is that inconclusives are effectively counted as identifications if they are actually from the same source, but counted as eliminations if they are actually from a different source. Note that this approach is exploitable in a strange way: to give a very extreme example, an examiner could report inconclusives for the rest of their career and never make an error.
+What this means in real terms, is that inconclusives are effectively counted as identifications if they are actually from the same source, but counted as eliminations if they are actually from a different source. 
+Note that this approach is exploitable in a strange way: to give a very extreme example, an examiner could report inconclusives for the rest of their career and never make an error.
 However, when the goal is to assess the error rate of the examiner under the prevailing guidelines of the AFTE Theory of Identification, option 2 is a reasonable option for assessing error rates of firearm and toolmark examiners.
 
 Option 3 provides an approach to view inconclusive results and the corresponding error rates within the wider framework of the legal system:
@@ -352,9 +353,8 @@ The errors introduced in this section summarize the overall error rate. While th
 %
 In the next two sections we introduce two additional types of error rates: {\it source-specific} and {\it decision-specific} error rates.
 Both of these approaches are additional assessments of the reliability of a classification method which leverage \emph{conditional probabilities}, i.e.\ probabilities which are updated to account for known (or assumed) information.
-Rather than summarizing an experiment in a single number reflecting error or accuracy like before, 
-these conditional probabilities allow us to provide a more specific assessment of the error accounting for known information, such as the examiner's decision or the source of the evidence. This allows us in particular to calculate separate accuracy rates for comparisons of same-source or different-source evidence. 
-\ac{It} has the additional advantage that some of these conditional probabilities do not require inconclusives to be explicitly handled as errors or correct decisions. 
+Rather than summarizing an experiment in a single number reflecting error or accuracy like before, these conditional probabilities allow us to provide a more specific assessment of the error accounting for known information, such as the examiner's decision or the source of the evidence. This allows us in particular to calculate separate accuracy rates for comparisons of same-source or different-source evidence. 
+\ac{It} has the additional advantage that some of these conditional probabilities do not require inconclusives to be explicitly handled as errors or correct decisions. \svp{XXX It is not clear what it refers to here. Could we rephrase as ``There is the ..." or ``In addition, some of these..."}
 
 
 
@@ -777,12 +777,13 @@ Note that because there are two possible sources for the evidence (same or diffe
 
 %expected probabilities are shown based on the distribution of same source/different source comparisons and the number of participants in each study.
 
+\svp{XXX need to rework this XXX}
 If inconclusives occur because there are insufficient similarities or differences to justify an identification or an elimination, then they should \ac{occur in proportion to the relative number of }
 %be equally likely for 
 same-source or different source comparisons. 
 \ac{Under that assumption,}  it is possible to calculate the ``target" probability for each decision: the target for identification is 1: all same source pairs should result in an identification. 
 Similarly, the target for elimination is 0:  no same-source pairs should result in an elimination. 
-Same-source pairs should be assessed as inconclusive with  frequency proportional to the number of same-source comparisons in the study (this is explored in more detail in the next section).
+Same-source pairs should be assessed as inconclusive with frequency proportional to the number of same-source comparisons in the study (this is explored in more detail in the next section).
 It is  clear that the probability of same-source evidence given an inconclusive evaluation is much lower than the calculated target probability.
 The decision-specific probabilities provide indications that the distribution of inconclusives is very different from its hypothesized  distribution shown in \Cref{fig:shape-overview}. %purposefully understated.
 
