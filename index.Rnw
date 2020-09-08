@@ -353,8 +353,7 @@ The errors introduced in this section summarize the overall error rate. While th
 In the next two sections we introduce two additional types of error rates: {\it source-specific} and {\it decision-specific} error rates.
 Both of these approaches are additional assessments of the reliability of a classification method which leverage \emph{conditional probabilities}, i.e.\ probabilities which are updated to account for known (or assumed) information.
 Rather than summarizing an experiment in a single number reflecting error or accuracy like before, these conditional probabilities allow us to provide a more specific assessment of the error accounting for known information, such as the examiner's decision or the source of the evidence. This allows us in particular to calculate separate accuracy rates for comparisons of same-source or different-source evidence. 
-It has the additional advantage that some of these conditional probabilities do not require inconclusives to be explicitly handled as errors or correct decisions. \svp{XXX It is not clear what it refers to here. Could we rephrase as ``There is the ..." or ``In addition, some of these..."}
-
+\svp{There is} the additional advantage that some of these conditional probabilities do not require inconclusives to be explicitly handled as errors or correct decisions. 
 
 
 \subsection{Source-specific assessment}
@@ -1031,7 +1030,7 @@ In the courtroom (or before, in a plea bargain situation), this results in a  bi
 
 % \ac{Again, consider eliminating this paragraph?}
 There are many ways this bias could arise: there are, of course, well documented motivational and cognitive biases \cite{motivationalcognitivebiases, robertson2016blinding} which may affect examiners.
-In addition, it may be easier to identify similarities than to explicitly identify dissimilarities.\svp{XXX find papers?}
+In addition, it may be easier to identify similarities than to explicitly identify dissimilarities \citep{bagnaraSymmetrySimilarityEffects1983, ashbyUnifiedTheorySimilarity1988}.%\svp{XXX find papers?}
 Examiner training  primarily focus on making identifications, rather than spending an equal amount of time on making eliminations.
 \svp{In the case of bullet examination, there is an objective criteria for sufficient similarity: 6 consecutively matching striae, according to \citet{biasotti}; similar criteria have been proposed for algorithmici assessment of cartridge cases\citep{song3DTopographyMeasurements2014}.
 However, in both instances, there is not a corresponding threshold for dissimilarity.
