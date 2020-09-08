@@ -1071,8 +1071,6 @@ An error rate computed in this way provides the most relevant characterization o
 Further, decision-specific error rates avoid the need to treat inconclusives differently than identification or elimination.
 
 \ac{In practice, using decision-specific error rates depends on the availability of information that is not currently collected. Specifically, we would need to know examiner-specific probabilities of incorrect conclusions as well as examiner-specific historical decisions.  \hh{We might be able to learn the  former} from reliable proficiency testing, \hh{while} the latter could be obtained from past lab reports and testimony.}
-%\svp{XXX it would be feasible to use discipline-specific information (e.g. aggregated from error rate studies) - while it would be better to use examiner information here, we've been specifically shying away from the individual examiner perspective here -- I would like to keep the individual examiner out of it as much as possible and drill down to at most the lab level.}
-%\hh{XXX I think this is hypothetical enough - and it's the conclusions. }
 
 Specifically, in court, we suggest that when the admissibility of an examiner's testimony is assessed, the examiner is asked to state \hh{the lab policy on making eliminations,} the rate at which \hh{the examiner} makes inconclusive decisions, along with any relevant error rates specific to the lab and to themselves. We also suggest that during cross-examination after the testimony was presented, the defense ask about the decision-specific probability of an error (relative to the examiner's decision), which will provide specific information which is relevant to the testimony at hand.
 
