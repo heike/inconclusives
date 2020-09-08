@@ -181,9 +181,8 @@ In designed experiments any physical factors that might have an effect on the ou
 In the specific situation of firearms evidence, the type of firearm and the ammunition used are of particular interest.
 
 In addition to the physical evidence-generation process, experimenters must carefully control the amount of information participants have about the study design and structure. 
-We provide an example of this phenomenon in \Cref{sec:studies}.
-
-As a result, studies which attempt to gain insight into the identification process must also navigate these complexities, ideally without becoming too complicated themselves.
+We provide an example of \svp{the effect of extraneous information on estimated error rates} in \Cref{sec:studies}.
+Studies which attempt to gain insight into the identification process must navigate these complexities, ideally without becoming too complicated themselves.
 
 In the remainder of this section we introduce terms commonly used in experiments with a specific focus on the forensic identification process:
 \begin{description}
