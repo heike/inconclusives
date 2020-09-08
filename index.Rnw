@@ -815,7 +815,7 @@ Before we discuss the results of inconclusive findings in the selected studies, 
 That is, given that an examiner states that a finding is inconclusive, what is our expectation for the probability that the evidence is from the same source or from different sources?
 In the absence of any additional information, we have no reason to believe that a finding of inconclusive should be related to either same source or different source origin. 
 An inconclusive finding, according to the AFTE rules, indicates that there is insufficient agreement or disagreement between discernible individual features to come to a conclusion of identification or elimination. 
-This suggests that there is an implicit threshold of the amount of evidence necessary to arrive at a definitive conclusion. \svp{XXX cite paper presence of enough evidence means mandatory definitive conclusion}
+This suggests that there is an implicit threshold of the amount of evidence necessary to arrive at a definitive conclusion \citep{Dror:2018fp}.
 We have no reason to believe that these thresholds are asymmetric; that is, the threshold to go from inconclusive to identification should be the same as the threshold to go from inconclusive to elimination. 
 Statistically, we would express this symmetry as the independence between the source and an inconclusive finding: that is, $P(\text{same source} | \text{inconclusive}) = P(\text{same source})$ and $P(\text{different source} | \text{inconclusive}) = P(\text{different source})$.
 }
