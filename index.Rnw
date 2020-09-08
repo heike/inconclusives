@@ -181,7 +181,6 @@ In designed experiments any physical factors that might have an effect on the ou
 In the specific situation of firearms evidence, the type of firearm and the ammunition used are of particular interest.
 
 In addition to the physical evidence-generation process, experimenters must carefully control the amount of information participants have about the study design and structure. 
-When this information is not strictly controlled, examiners may use deductive reasoning and other strategies that are useful for completing the test but that do not correspond to casework. 
 We provide an example of this phenomenon in \Cref{sec:studies}.
 
 As a result, studies which attempt to gain insight into the identification process must also navigate these complexities, ideally without becoming too complicated themselves.
@@ -1073,9 +1072,11 @@ We also argue that a simpler alternative to this treatment of error rates in leg
 An error rate computed in this way provides the most relevant characterization of error in a court setting, where ground truth is not known, but the examiner's decision is given. 
 Further, decision-specific error rates avoid the need to treat inconclusives differently than identification or elimination.
 
-\ac{In practice, using decision-specific error rates depends on the availability of information that is not currently collected. Specifically, we would need to know examiner-specific probabilities of incorrect conclusions as well as examiner-specific historical decisions.  The former might be knowable from reliable proficiency testing, and the latter could be obtained from past lab reports and testimony.}\svp{XXX it would be feasible to use discipline-specific information (e.g. aggregated from error rate studies) - while it would be better to use examiner information here, we've been specifically shying away from the individual examiner perspective here -- I would like to keep the individual examiner out of it as much as possible and drill down to at most the lab level.}
+\ac{In practice, using decision-specific error rates depends on the availability of information that is not currently collected. Specifically, we would need to know examiner-specific probabilities of incorrect conclusions as well as examiner-specific historical decisions.  \hh{We might be able to learn the  former} from reliable proficiency testing, \hh{while} the latter could be obtained from past lab reports and testimony.}
+%\svp{XXX it would be feasible to use discipline-specific information (e.g. aggregated from error rate studies) - while it would be better to use examiner information here, we've been specifically shying away from the individual examiner perspective here -- I would like to keep the individual examiner out of it as much as possible and drill down to at most the lab level.}
+%\hh{XXX I think this is hypothetical enough - and it's the conclusions. }
 
-Specifically, in court, we suggest that when the admissibility of an examiner's testimony is assessed, the examiner is asked to state the rate at which they make inconclusive decisions, along with any relevant error rates specific to the lab and to themselves. We also suggest that during cross-examination after the testimony was presented, the defense ask about the decision-specific probability of an error (relative to the examiner's decision), which will provide specific information which is relevant to the testimony at hand.
+Specifically, in court, we suggest that when the admissibility of an examiner's testimony is assessed, the examiner is asked to state \hh{the lab policy on making eliminations,} the rate at which \hh{the examiner} makes inconclusive decisions, along with any relevant error rates specific to the lab and to themselves. We also suggest that during cross-examination after the testimony was presented, the defense ask about the decision-specific probability of an error (relative to the examiner's decision), which will provide specific information which is relevant to the testimony at hand.
 
 % Discuss the systematic biases which all work against the defendant: 
 % \begin{itemize}
@@ -1088,7 +1089,7 @@ Specifically, in court, we suggest that when the admissibility of an examiner's 
 % \end{itemize}
 
 In the process of examining these different error rate calculations, we discovered a series of systematic biases in error rate studies and the examination process which all work against the defendant. For example, 
-in many studies, there are more same-source comparisons than what would be expected in case work. Consequently, false elimination \svp{rates} can be estimated more precisely than false identification rates. 
+in many studies, there are more same-source comparisons than what would be expected in case work. Consequently, false elimination rates can be estimated more precisely than false identification rates. 
 In fact, in some common study designs, it is only possible to estimate the false elimination error rate; the rate of false identifications cannot be estimated at all. 
 This, too, ensures that there is no way to invalidate the examiner's testimony on the basis that it might contribute to a false conviction of the defendant. 
 In addition, examiners appear to have a lower threshold for identification than for elimination; when evidence originates from different sources, examiners are more likely to arrive at an inconclusive decision than they are when the evidence has the same source. 
@@ -1102,6 +1103,7 @@ These biases mirror biases in the admissibility of forensic evidence which are a
 %The biases identified in this paper increase the importance of the development and implementation of automatic, unbiased assessment algorithms in forensic laboratories. 
 An effective approach to eliminate the biases associated with the current approach to firearm and tool examination is to rely on automatic, objective algorithms to compute a \emph{degree of similarity} between two items.  Research and development of algorithms are underway \citep{chumbleyValidationToolMark2010,songEstimatingErrorRates2018,aoas2,tai2018fully}, but more work must be conducted before they can be implemented in real case work.
 \svp{These algorithms generally include positive and negative criteria, which may contribute to their ability to make unbiased decisions about the similarity or dissimilarity of the evidence.}
+\hh{XXX Algorithms generally are symmetric in the assessment of positive and negative criteria -- e.g.\ if a high number of consecutively matching striae is considered evidence in favor of an identification, a low number of consecutively matching striae is consequently evidence in favor of an elimination.   }
 Through awareness of the biases that already exist in the evaluation of firearms and toolmark evidence, we can avoid the pitfalls of developing machine learning algorithms using biased training data \citep{howard2018ugly,machinelearninglaw}, ensuring that any automatic processes are as fair as possible.
 It is important that before these algorithms are applied to casework, we examine the distribution of automated scores and cutoff-based classifications compared to examiner decisions to determine whether the algorithms are, in fact, less biased than examiners. 
 Even though the use of algorithms is not far in the future,
