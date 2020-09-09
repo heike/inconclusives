@@ -181,7 +181,7 @@ In designed experiments any physical factors that might have an effect on the ou
 In the specific situation of firearms evidence, the type of firearm and the ammunition used are of particular interest.
 
 In addition to the physical evidence-generation process, experimenters must carefully control the amount of information participants have about the study design and structure. 
-We provide an example of \svp{the effect of extraneous information on estimated error rates} in \Cref{sec:studies}.
+We provide an example of the effect of extraneous information on estimated error rates in \Cref{sec:studies}.
 Studies which attempt to gain insight into the identification process must navigate these complexities, ideally without becoming too complicated themselves.
 
 In the remainder of this section we introduce terms commonly used in experiments with a specific focus on the forensic identification process:
@@ -353,7 +353,7 @@ The errors introduced in this section summarize the overall error rate. While th
 In the next two sections we introduce two additional types of error rates: {\it source-specific} and {\it decision-specific} error rates.
 Both of these approaches are additional assessments of the reliability of a classification method which leverage \emph{conditional probabilities}, i.e.\ probabilities which are updated to account for known (or assumed) information.
 Rather than summarizing an experiment in a single number reflecting error or accuracy like before, these conditional probabilities allow us to provide a more specific assessment of the error accounting for known information, such as the examiner's decision or the source of the evidence. This allows us in particular to calculate separate accuracy rates for comparisons of same-source or different-source evidence. 
-\svp{There is} the additional advantage that some of these conditional probabilities do not require inconclusives to be explicitly handled as errors or correct decisions. 
+There is the additional advantage that some of these conditional probabilities do not require inconclusives to be explicitly handled as errors or correct decisions. 
 
 
 \subsection{Source-specific assessment}
@@ -474,12 +474,12 @@ even though the test was negative.
 At the individual level, we want to use tailored information to guide our specific actions; at the system level, we are more interested in gross measures of performance. 
 
 The two conditional probabilities that are referred to in the diagnostic test example are $P(\mbox{Test result} | \mbox{Disease status})$ and $P(\mbox{Disease status} | \mbox{Test result})$. 
-\svp{Using Bayes' rule, and assuming we also know the prevalence of the disease in the population, we can convert between the two probabilities.}
+Using Bayes' rule, and assuming we also know the prevalence of the disease in the population, we can convert between the two probabilities.
 % tells us how to move from the former to the latter, assuming that we have additional information. In the case of the patient taking the test, the patient would also need to know about the baseline prevalence of the disease in her particular environment.
 The parallel we draw here is the following:  the examiner's decision is equivalent to a diagnostic test, and the origin of the evidence is equivalent to the disease status. 
 In contrast to the medical example, however, we do not have information about the sensitivity and specificity of the field of firearms examination as a whole, let alone about a specific examiner.
 For that reason, we need designed studies to estimate the error rates of examinations in situations where ground truth is known.
-% \ac{Furthermore, to estimate the probability of same or different source given a specific firearm examiner's conclusion, we also need an estimate of the individual examiner's probability of correct conclusion, which can perhaps be obtained via proficiency tests.}\svp{XXX I don't think we want to go here... XXX}
+% Furthermore, to estimate the probability of same or different source given a specific firearm examiner's conclusion, we also need an estimate of the individual examiner's probability of correct conclusion, which can perhaps be obtained via proficiency tests.\svp{XXX I don't think we want to go here... XXX}
 As we rely on these studies to generalize to casework, it is of great importance that these studies are well designed so that it is possible to estimate any of the success and error rates discussed above.
 
 \section{Studies}\label{sec:studies}
@@ -504,7 +504,7 @@ The studies included in this section are not an exhaustive list of every error r
 Of the studies listed above, we have examined all but \citet{fadul}, which contained insufficient detail about examiner results and conclusions to calculate the quantities discussed in the previous section. 
 Note that this paper is limited in scope to \emph{error rate studies} conducted using firearms and toolmark examiners. 
 There are several promising automatic analysis tools \citep[][see]{aoas2,case-validation,chumbleyValidationToolMark2010,chuAutomaticIdentificationBullet2013,songEstimatingErrorRates2018,tai2018fully} which calculate error rates based on 2d images and 3d scans of bullet and cartridge cases.
-These types of studies are not easily comparable to the  black-box studies under consideration here: none of the automatic matching algorithms employs a category of `inconclusive' as a result, so the discussions on how to deal with inconclusives are not applicable. That also implies, that for algorithms we can not distinguish between errors stemming from insufficient markings on evidence and errors inherent to the algorithm. %\ac{We could, however, estimate the algorithm error conditional on mark quality; this is left to a future study.}
+These types of studies are not easily comparable to the  black-box studies under consideration here: none of the automatic matching algorithms employs a category of `inconclusive' as a result, so the discussions on how to deal with inconclusives are not applicable. That also implies, that for algorithms we can not distinguish between errors stemming from insufficient markings on evidence and errors inherent to the algorithm. %We could, however, estimate the algorithm error conditional on mark quality; this is left to a future study.
 
 In the next sections, we discuss the design and results of each study, including calculation and comparison of source- and decision-specific error rates. 
 
@@ -808,7 +808,6 @@ In \Cref{fig:cis}, it is  clear that the probability of same-source evidence giv
 The decision-specific probabilities provide indications that the distribution of inconclusives is very different from our expectations. 
 
 \section{Inconclusives, Errors, and the Legal System}\label{sec:inconclusives}
-\new{
 Before we discuss the results of inconclusive findings in the selected studies, we must explicitly characterize our expectations for decision-specific probabilities of inconclusive findings. 
 That is, given that an examiner states that a finding is inconclusive, what is our expectation for the probability that the evidence is from the same source or from different sources?
 In the absence of any additional information, we have no reason to believe that a finding of inconclusive should be related to either same source or different source origin. 
@@ -816,15 +815,13 @@ An inconclusive finding, according to the AFTE rules, indicates that there is in
 This suggests that there is an implicit threshold of the amount of evidence necessary to arrive at a definitive conclusion \citep{Dror:2018fp}.
 We have no reason to believe that these thresholds are asymmetric; that is, the threshold to go from inconclusive to identification should be the same as the threshold to go from inconclusive to elimination. 
 Statistically, we would express this symmetry as the independence between the source and an inconclusive finding: that is, $P(\text{same source} | \text{inconclusive}) = P(\text{same source})$ and $P(\text{different source} | \text{inconclusive}) = P(\text{different source})$.
-}
 
-\new{
+
 This implies that we can calculate the ``target" probability for each decision: the target for identification is 100\%: all same source pairs should result in an identification. 
 Similarly, the target for elimination is 0\%: not even a single same-source pair should result in an elimination. 
 Same-source pairs should be assessed as inconclusive with frequency proportional to the number of same-source comparisons in the study. 
 Conceptually, \Cref{fig:shape-overview} demonstrates this characteristic: the rate of inconclusives is the same for both same-source and different-source evidence.
 That is, under relatively ideal conditions (where there are inconclusives, but no errors according to the AFTE process), the expected conditional probabilities in an experiment would match those shown in \Cref{tab:ideal-probabilities}. 
-}
 
 \begin{table}
 \caption{Expected conditional probabilities in a world where examiners do not make mistakes, but do make inconclusive decisions. }\label{tab:ideal-probabilities}
@@ -1007,7 +1004,7 @@ Note that while the probability of same source given an elimination is affected 
 % \subsection{What will examiners bet on?}
 % \subsection{Equitable Errors?} % Something that isn't quite as cavalier as "betting" and gets at the heart of the question better - which error is more likely?
 
-% \ac{Consider taking out this entire paragraph.  Not that I do not agree, I do.  But it is more preachy than scientific, and really does not add much.}
+% Consider taking out this entire paragraph.  Not that I do not agree, I do.  But it is more preachy than scientific, and really does not add much.
 %Under a system with equal consequences for each type of error (false elimination or missed identification), we would ideally want the probability of each type of error to be the same - that is, it should be equally likely to make an error in favor of the prosecution or in favor of the defense. 
 %In the legal system, however, there are not equal consequences for each type of error. 
 %If a person is guilty, there are usually multiple pieces of evidence which contribute information used by the judge or jury to make a decision; thus, the consequences of an elimination of same-source evidence are generally relatively low. 
@@ -1028,13 +1025,13 @@ While the trend is the same in the three studies, \citet{Baldwin:2014bb} suggest
 %are willing to gamble on an identification much more than they are willing to gamble on an elimination. 
 In the courtroom (or before, in a plea bargain situation), this results in a  bias in favor of the prosecution (or against the defense).
 
-% \ac{Again, consider eliminating this paragraph?}
+% Again, consider eliminating this paragraph?
 There are many ways this bias could arise: there are, of course, well documented motivational and cognitive biases \cite{motivationalcognitivebiases, robertson2016blinding} which may affect examiners.
 In addition, it may be easier to identify similarities than to explicitly identify dissimilarities \citep{bagnaraSymmetrySimilarityEffects1983, ashbyUnifiedTheorySimilarity1988}.%\svp{XXX find papers?}
 Examiner training  primarily focus on making identifications, rather than spending an equal amount of time on making eliminations.
-\svp{In the case of bullet examination, there is an objective criteria for sufficient similarity: 6 consecutively matching striae, according to \citet{biasotti}; similar criteria have been proposed for algorithmici assessment of cartridge cases\citep{song3DTopographyMeasurements2014}.
+In the case of bullet examination, there is an objective criteria for sufficient similarity: 6 consecutively matching striae, according to \citet{biasotti}; similar criteria have been proposed for algorithmic assessment of cartridge cases\citep{song3DTopographyMeasurements2014}.
 However, in both instances, there is not a corresponding threshold for dissimilarity.
-Here, we do not attempt to identify the source of the bias; we only identify that there is observable bias in the distribution of inconclusive results and suggest that this bias must be addressed.}
+Here, we do not attempt to identify the source of the bias; we only identify that there is observable bias in the distribution of inconclusive results and suggest that this bias must be addressed.
 %Whatever the source of the bias, however, one thing is clear: the discrepancy between the decision-specific conditional probabilities corresponding to errors is fundamentally unjust, and the bias is in the opposite direction of the ideal expressed by Blackstone.
 %This problem must be addressed for forensic firearms and toolmark examination to be used equitably. 
 
@@ -1051,7 +1048,7 @@ In particular, there is a  need for studies which are both large (many examiners
 \begin{itemize}
 \item Single known source for all comparisons
 \item Open set, so that some questioned items do not originate from any of the sources inclued in the study and so that some sources do not contribute any questioned samples.
-\item Random allocation of different test kits to participants, to minimize the possibility of \svp{information exchange}.
+\item Random allocation of different test kits to participants, to minimize the possibility of information exchange.
 \item Clear instructions, so that every participant follows the same protocol.
 \item Questioned samples that span the range of difficulty, including challenging comparisons.
 \end{itemize}
@@ -1059,7 +1056,7 @@ In particular, there is a  need for studies which are both large (many examiners
 %well designed (single known source for each comparison, open set, with limited information which can be shared between participants). 
 All of the published studies which meet at least some of the design criteria focus only on cartridge cases; it is imperative that similarly well designed studies examining bullets and toolmarks be conducted and published in order to validate the entire discipline of firearms and toolmark analysis.
 
-While published studies vary in their treatment of inconclusive decisions when calculating and reporting error rates or accuracies, \svp{most studies report} 
+While published studies vary in their treatment of inconclusive decisions when calculating and reporting error rates or accuracies, most studies report 
 % what is reported as error rates in most studies is 
 what we have termed source-specific conditional probabilities. 
 We propose that error rates be calculated for the examiner and the process separately. 
@@ -1070,9 +1067,9 @@ We also argue that a simpler alternative to this treatment of error rates in leg
 An error rate computed in this way provides the most relevant characterization of error in a court setting, where ground truth is not known, but the examiner's decision is given. 
 Further, decision-specific error rates avoid the need to treat inconclusives differently than identification or elimination.
 
-\ac{In practice, using decision-specific error rates depends on the availability of information that is not currently collected. Specifically, we would need to know examiner-specific probabilities of incorrect conclusions as well as examiner-specific historical decisions.  \hh{We might be able to learn the  former} from reliable proficiency testing, \hh{while} the latter could be obtained from past lab reports and testimony.}
+In practice, using decision-specific error rates depends on the availability of information that is not currently collected. Specifically, we would need to know examiner-specific probabilities of incorrect conclusions as well as examiner-specific historical decisions. We might be able to learn the  former from reliable proficiency testing, while the latter could be obtained from past lab reports and testimony.
 
-Specifically, in court, we suggest that when the admissibility of an examiner's testimony is assessed, the examiner is asked to state \hh{the lab policy on making eliminations,} the rate at which \hh{the examiner} makes inconclusive decisions, along with any relevant error rates specific to the lab and to themselves. We also suggest that during cross-examination after the testimony was presented, the defense ask about the decision-specific probability of an error (relative to the examiner's decision), which will provide specific information which is relevant to the testimony at hand.
+Specifically, in court, we suggest that when the admissibility of an examiner's testimony is assessed, the examiner is asked to state the lab policy on making eliminations, the rate at which the examiner makes inconclusive decisions, along with any relevant error rates specific to the lab and to themselves. We also suggest that during cross-examination after the testimony was presented, the defense ask about the decision-specific probability of an error (relative to the examiner's decision), which will provide specific information which is relevant to the testimony at hand.
 
 % Discuss the systematic biases which all work against the defendant: 
 % \begin{itemize}
@@ -1098,8 +1095,8 @@ These biases mirror biases in the admissibility of forensic evidence which are a
 
 %The biases identified in this paper increase the importance of the development and implementation of automatic, unbiased assessment algorithms in forensic laboratories. 
 An effective approach to eliminate the biases associated with the current approach to firearm and tool examination is to rely on automatic, objective algorithms to compute a \emph{degree of similarity} between two items.  Research and development of algorithms are underway \citep{chumbleyValidationToolMark2010,songEstimatingErrorRates2018,aoas2,tai2018fully}, but more work must be conducted before they can be implemented in real case work.
-\svp{These algorithms generally include positive and negative criteria, which may contribute to their ability to make unbiased decisions about the similarity or dissimilarity of the evidence.}
-\hh{XXX Algorithms generally are symmetric in the assessment of positive and negative criteria -- e.g.\ if a high number of consecutively matching striae is considered evidence in favor of an identification, a low number of consecutively matching striae is consequently evidence in favor of an elimination.   }
+These algorithms generally include positive and negative criteria, which may contribute to their ability to make unbiased decisions about the similarity or dissimilarity of the evidence.
+Algorithms generally are symmetric in the assessment of positive and negative criteria -- e.g.\ if a high number of consecutively matching striae is considered evidence in favor of an identification, a low number of consecutively matching striae is consequently evidence in favor of an elimination.
 Through awareness of the biases that already exist in the evaluation of firearms and toolmark evidence, we can avoid the pitfalls of developing machine learning algorithms using biased training data \citep{howard2018ugly,machinelearninglaw}, ensuring that any automatic processes are as fair as possible.
 It is important that before these algorithms are applied to casework, we examine the distribution of automated scores and cutoff-based classifications compared to examiner decisions to determine whether the algorithms are, in fact, less biased than examiners. 
 Even though the use of algorithms is not far in the future,
