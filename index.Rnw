@@ -483,9 +483,9 @@ As we rely on these studies to generalize to casework, it is of great importance
 
 \section{Studies}\label{sec:studies}
 
-In this section, we  examine the results from a number of studies designed to assess the error rates of firearms examination. 
-For each study we provide the reported results and present error rates and conditional probabilities discussed in the previous section along with a visual comparison for each study. 
-Using these comparisons we assess the state of these error rate studies and provide an overview of the current status-quo of firearms examination.
+In this section, we  examine the results from several studies designed to assess the error rates of firearms examination. 
+For each study, we provide the reported results and present error rates and conditional probabilities discussed in the previous section along with a visual comparison for each study. 
+Using these comparisons we assess the state of these error rate studies and provide an overview of the current status quo of firearms examination.
 
 \subsection{Error Rate Studies}
 The studies included in this section are not an exhaustive list of every error rate study ever performed; rather, we have included the most central and most cited studies, as well as several of the studies mentioned in the PCAST and NAS reports concerning firearm and toolmark analysis. A brief description of each study is provided here for reference purposes, with summary tables of results and conditional probabilities provided in \ref{sec:supplement}.
@@ -496,14 +496,14 @@ The studies included in this section are not an exhaustive list of every error r
 \item[Brundage-Hamby]  \citep{Hamby:2018hu} is a closed-set study of 10 consecutively manufactured Ruger P-95 barrels. 507 participants received sets consisting of 10 standards (2 bullets each) and 15 questioned bullets. 
 \item[Lyons] \citep{lyons} is a closed-set study of 10 consecutively manufactured Colt 1911A1 extractors. Participants received a set of 10 standards and 12 questioned cases. The design of this study is similar to  \citep{Hamby:2018hu}.
 \item[Duez] \citep{Duez:2017kha} is an open-set study of breech face comparisons using virtual microscopy. Each of 56 participants (46 trained, 10 trainees) received two test sets consisting of one standard (3 scans) and 4 questioned scans In one set, all questioned scans were from the same source as the standard; in the second set, there were two different-source questioned scans and two same-source questioned scans.
-\item[Bunch \& Murphy] \citep{bunch2003comprehensive} is an open-set study of consecutively manufactured Glock breechfaces. In this study, each of 8 participants received 10 cartridge cases and was required to evaluate each possible pairwise comparison. In this study, the number of same-source and different-source cartridge cases varied by test kit from 10 same-source cartridges to 10 different-source cartridges.
+\item[Bunch \& Murphy] \citep{bunch2003comprehensive} is an open-set study of consecutively manufactured Glock breech faces. In this study, 8 participants received 10 cartridge cases each  and were required to evaluate all possible pairwise comparisons. The number of same-source and different-source cartridge cases varied by test kit, ranging from 10 same-source cartridges to 10 different-source cartridges.
 \item[Fadul] \citep{fadul} is a closed-set study of the breech face striations/impressions produced by 10 consecutively manufactured slides. Participants received a set of 10 standards and 15 questioned cases. The design of this study is similar to  \citep{Hamby:2018hu}.
 \end{description}
 
 Of the studies listed above, we have examined all but \citet{fadul}, which contained insufficient detail about examiner results and conclusions to calculate the quantities discussed in the previous section. 
 Note that this paper is limited in scope to \emph{error rate studies} conducted using firearms and toolmark examiners. 
 There are several promising automatic analysis tools \citep[][see]{aoas2,case-validation,chumbleyValidationToolMark2010,chuAutomaticIdentificationBullet2013,songEstimatingErrorRates2018,tai2018fully} which calculate error rates based on 2d images and 3d scans of bullet and cartridge cases.
-These types of studies are not easily comparable to the  black-box studies under consideration here: none of the automatic matching algorithms employs a category of `inconclusive' as a result, so the discussions on how to deal with inconclusives are not applicable. That also implies, that for algorithms we can not distinguish between errors stemming from insufficient markings on evidence and errors inherent to the algorithm. %We could, however, estimate the algorithm error conditional on mark quality; this is left to a future study.
+These types of studies are not easily comparable to the black-box studies under consideration here: none of the automatic matching algorithms employs a category of `inconclusive' as a result, so the discussions on how to deal with inconclusive results are not applicable. That also implies, that for algorithms we can not distinguish between errors stemming from insufficient markings on evidence and errors inherent to the algorithm. %We could, however, estimate the algorithm error conditional on mark quality; this is left to a future study.
 
 In the next sections, we discuss the design and results of each study, including calculation and comparison of source- and decision-specific error rates. 
 
@@ -518,12 +518,12 @@ The PCAST response, issued in  \citeyear{pcast-addendum2017}, identifies only on
 Shortly after the report was issued, two more studies were published which also meet the criteria for reliable studies in the report:  \citet{keisler} and  \citet{Duez:2017kha}. 
 All three ``good" studies used slightly different designs, but share one essential element: each kit contained multiple comparisons composed of one or more samples from exactly one known source and one unknown source.
 These designs substantially reduce or eliminate the internal dependencies which provide ``hints" to examiners by ensuring that each comparison of samples is considered independently.
-In addition, the design of these studies ensures that it is possible to exactly enumerate the number of same-source and different-source comparisons\footnote{At least, it is possible with the additional assumption that a comparison between a multiple items from the same source and an unknown should count as a single comparison.}.
-All three studies are also limited to cartridge case comparisons. We could not identify any studies which assess the error rates of bullet or toolmark examination in a manner that would produce reliable and generalizable measurements.
+In addition, the design of these studies ensures that it is possible to exactly enumerate the number of same-source and different-source comparisons.\footnote{At least, it is possible with the additional assumption that a comparison between a multiple items from the same source and an unknown should count as a single comparison.}
+All three studies are also limited to cartridge case comparisons. We could not identify any studies that assess the error rates of bullet or toolmark examination in a manner that would produce reliable and generalizable measurements.
 
-As a result, studies which use less reliable designs, such as \citet{lyons},  \citet{Hamby:2018hu} (and the similarly designed  \citet{fadul}), and  \citet{bunch2003comprehensive} have historically been frequently referenced in admissibility hearings.
+As a result, studies that use less reliable designs, such as \citet{lyons},  \citet{Hamby:2018hu} (and the similarly designed  \citet{fadul}), and  \citet{bunch2003comprehensive} have historically been frequently referenced in admissibility hearings.
 Of these, the study by  \citeauthor{bunch2003comprehensive} is perhaps statistically the most interesting design, but it has been superseded by studies with cleaner experimental designs, such as \citet{Baldwin:2014bb} and \citet{keisler}.
-While \citet{bunch2003comprehensive} has internal dependencies due to the inclusion of multiple knowns, and as a result, the number of same-source and different-source comparisons cannot be fully determined, the study does have one desirable feature not found in even the well designed studies which makes it worth discussing here.
+While \citet{bunch2003comprehensive} has internal dependencies due to the inclusion of multiple knowns, and as a result, the number of same-source and different-source comparisons cannot be fully determined, the study does have one desirable feature not found in even the well designed studies that makes it worth discussing here.
 Specifically,  \citeauthor{bunch2003comprehensive} varies the composition of the test kits, so that no kit had the same composition in terms of same and different-source comparisons. 
 This ensures that even if examiners discuss the tests, they cannot gain any additional information from such discussions. 
 
@@ -535,7 +535,7 @@ Any study which includes multiple known sources in a single comparison set will 
 In \ref{sec:bunchmurphysim}, we use statistical simulation to explore the likely number of different-source comparisons performed in  \cite{bunch2003comprehensive}; this assessment includes both the effect of deductive reasoning and the sampling procedure used to create the test kits. 
 We also perform a similar assessment for  \cite{Hamby:2018hu} in \ref{sec:brundage}; the design of this study does not include the variability introduced by the test kit assembly procedure used in  \cite{bunch2003comprehensive}. 
 
-While studies which use multiple known sources have been conducted for more than 25 years, such studies are inherently flawed. 
+While studies that use multiple known sources have been conducted for more than 25 years, such studies are inherently flawed. 
 These studies have an inherent bias, because they provide evidence that examiners can make identifications accurately (and do not make many false eliminations), but do not allow a quantification of the probability that examiners make eliminations correctly. 
 As a result, when error rates derived from these studies are cited, they do not include errors which result from different source comparisons, which prevents evaluation of examiners on their ability to distinguish between different sources.
 This fundamentally biases these studies so that in court they provide useful (but misleading) information to the prosecution while offering nothing useful to the defense.
@@ -567,7 +567,7 @@ In Baldwin  \cite{Baldwin:2014bb}, the only pre-screening of usability was to en
 Additionally, for 3234 comparisons, FTEs evaluated how many of the known cartridge cases were usable for an evaluation: all three specimens were used in 3018 cases, two were used in 207 cases, and only one was used in nine cases.
 The Baldwin study is fairly unique in this regard: most studies make some effort to control the quality of the evidence sent out for assessment.
 }. 
-Studies which tightly control the evidence quality and presence of individualizing marks would under-estimate the process error (though the estimates of examiner error are not necessarily affected).
+Studies that tightly control the evidence quality and presence of individualizing marks would under-estimate the process error (though the estimates of examiner error are not necessarily affected).
 In almost all studies, participants use lab rules for determining whether eliminations could be made on individual characteristics; while  \citet{Baldwin:2014bb} instructed participants to use a uniform set of rules, many participants reported that they did not or could not adhere to these guidelines.
 
 
@@ -668,7 +668,7 @@ Interestingly, it seems that some examiners reported eliminations in contraventi
 Policies which forbid elimination based on mismatch of individual characteristics alone seem to directly contradict the AFTE Theory of Identification, which allows for eliminations based on ``significant disagreement of discernible class characteristics and/or individual characteristics".
 
 
-The rates reported in this section are calculated directly from information reported in the papers without adjustments accounting for the use of deductive reasoning; as such, they represent the best possible case for error rates in studies which include multiple knowns, such as  \citet{Hamby:2018hu} and  \citet{bunch2003comprehensive}. 
+The rates reported in this section are calculated directly from information reported in the papers without adjustments accounting for the use of deductive reasoning; as such, they represent the best possible case for error rates in studies that include multiple knowns, such as  \citet{Hamby:2018hu} and  \citet{bunch2003comprehensive}. 
 More realistic estimates of error rates that account for the use of deductive reasoning can be found in \ref{sec:sim}.
 
 
@@ -1007,7 +1007,7 @@ Note that while the probability of same source given an elimination is affected 
 %Under a system with equal consequences for each type of error (false elimination or missed identification), we would ideally want the probability of each type of error to be the same - that is, it should be equally likely to make an error in favor of the prosecution or in favor of the defense. 
 %In the legal system, however, there are not equal consequences for each type of error. 
 %If a person is guilty, there are usually multiple pieces of evidence which contribute information used by the judge or jury to make a decision; thus, the consequences of an elimination of same-source evidence are generally relatively low. 
-%However, there are many examples of convictions which were made on the basis of faulty forensic evidence and led to the unjust imprisonment or execution of individuals who were innocent. 
+%However, there are many examples of convictions which were made based on faulty forensic evidence and led to the unjust imprisonment or execution of individuals who were innocent. 
 %As a society, we generally adhere to the principle that false convictions are more heinous than allowing a guilty person to go free.  
 %This principle, known as Blackstone's ratio (``It is better that ten guilty persons escape than that one innocent suffer.") would suggest that equal probability of each type of error is insufficient. 
 %In accordance with this principle, it would be preferable for $P(\text{SS} | \text{Elimination})$ to be higher than $P(\text{DS} | \text{Identification})$. 
@@ -1043,7 +1043,7 @@ Here, we do not attempt to identify the source of the bias; we only identify tha
 % \end{itemize}
 
 It seems clear from our assessment of the currently available studies that there is significant work to be done before we can confidently state an error rate associated with different components of firearms and toolmark analysis.
-In particular, there is a  need for studies which are both large (many examiners and many evaluations) and that meet the following design criteria:
+In particular, there is a  need for studies that are both large (many examiners and many evaluations) and that meet the following design criteria:
 \begin{itemize}
 \item Single known source for all comparisons
 \item Open set, so that some questioned items do not originate from any of the sources inclued in the study and so that some sources do not contribute any questioned samples.
@@ -1053,7 +1053,7 @@ In particular, there is a  need for studies which are both large (many examiners
 \end{itemize}
 
 %well designed (single known source for each comparison, open set, with limited information which can be shared between participants). 
-All of the published studies which meet at least some of the design criteria focus only on cartridge cases; it is imperative that similarly well designed studies examining bullets and toolmarks be conducted and published in order to validate the entire discipline of firearms and toolmark analysis.
+All of the published studies that meet at least some of the design criteria focus only on cartridge cases; it is imperative that similarly well designed studies examining bullets and toolmarks be conducted and published to validate the entire discipline of firearms and toolmark analysis.
 
 While published studies vary in their treatment of inconclusive decisions when calculating and reporting error rates or accuracies, most studies report 
 % what is reported as error rates in most studies is 
@@ -1378,7 +1378,7 @@ Closed set & 10 & 10~or~12 & 15 examiners\\
 \begin{tabularx}{\textwidth}{Y|rrr|Y}
 \multicolumn{5}{c}{\bf Experiment Count Data}\\
 \multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Total\\\hline
-Same Source & 174\footnote{ \citet{lyons} reports 175 correct identifications, but it is clear from the discussion that one of those same source identifications was actually an inconclusive. 12 answer sheets with 12 correct identifications, one with 10 (out of 10) correct identifications, one with 9 correct identifications and 3 errors, and one with 11 correct identifications and one inconclusive. So 12$\cdot$12 + 10 + 9 + 11 = 174. } &  1 & 3 & 178 \\
+Same Source & 174\footnote{ \citet{lyons} reports 175 correct identifications, but it is clear from the discussion that one of those same source identifications was in fact an inconclusive. 12 answer sheets with 12 correct identifications, one with 10 (out of 10) correct identifications, one with 9 correct identifications and 3 errors, and one with 11 correct identifications and one inconclusive. So 12$\cdot$12 + 10 + 9 + 11 = 174. } &  1 & 3 & 178 \\
 Different source & 3 & ? & ? & ? \\\hline
 \multicolumn{1}{Y}{Conclusion Total} & 177 & ? & \multicolumn{1}{r}{?} & \multicolumn{1}{Y}{?}\\\hline\hline
 
