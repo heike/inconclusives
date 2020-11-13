@@ -13,19 +13,20 @@ knitr::opts_chunk$set(echo = TRUE)
 
 This manuscript provides a systematic and interesting review of several experimental studies conducted to measure error rates in firearm examination. Error rate in the pattern matching disciplines of forensic science is an active and important subject of research. The article thoroughly discusses the various ways that error rates may be calculated and lays out the results from the studies clearly with useful illustrations and tables. Out of this analysis, the article adds an important observation about an asymmetry associated with inconclusive examiner opinions, that they are significantly associated more with different source pairs than same source pairs. This observation seems to point to an bias in the subjective decisions by firearm examiners.
 In my opinion, the article will be acceptable for publication in Law, Probability, and Risk after the authors have considered and responded to five issues described just below. In addition, I provide several other optional suggestions and questions for the authors to consider before publication.
-<<<<<<< HEAD
 
-1. Section 2.3, final two paragraphs on page 7:    
-The two paragraphs below clearly seem to contradict one another and must be reworded: “Complementary to accuracy rates, we define two error rates of a classification method: The false positive rate (FPR) - or failed elimination rate - is the probability that an examination of different source evidence does not result in an elimination. Similarly, the false negative rate (FNR) - or missed identification rate - is the probability that an examination of same-source evidence does not result in an identification.
-Note that we are keeping the definition of error rates a bit vague on purpose. As discussed in Section 2.2, there are multiple ways to define an error, but the concepts of FPR and FNR hold for all of the options of treating inconclusive decisions outlined in Table 3.”
-=======
 1. Section 2.3, final two paragraphs on page 7:
 The two paragraphs below clearly seem to contradict one another and must be reworded: "Complementary to accuracy rates, we define two error rates of a classification method: The false positive rate (FPR) - or failed elimination rate - is the probability that an examination of different source evidence does not result in an elimination. Similarly, the false negative rate (FNR) - or missed identification rate - is the probability that an examination of same-source evidence does not result in an identification.
 Note that we are keeping the definition of error rates a bit vague on purpose. As discussed in Section 2.2, there are multiple ways to define an error, but the concepts of FPR and FNR hold for all of the options of treating inconclusive decisions outlined in Table 3."
->>>>>>> 0c6209f5319393bda855b9650c779e83e75b3ad1
+
 If the FPR is the probability that an examination of different source evidence does not result in an elimination, then inconclusives always count as errors. A similar argument holds for FNR. Therefore, the concepts of FPR and FNR as defined above are only consistent with option 3 in Table 3 and not with all the methods of treating inconclusives as stated in the second paragraph.
 
 > Ok, so we got caught :-p How do we fix it though?
+
+> Thank you for pointing out this inconsistency - we tried to define error rates conceptually first before getting into the more contentious areas of what constitutes an error. 
+> We have rephrased the first paragraph to:
+
+"The \emph{false positive rate} (FPR) -- or failed elimination rate -- is the probability that an examination of different source evidence *results in an error*. 
+Similarly, the \emph{false negative rate} (FNR) -- or missed identification rate -- is the probability that an examination of same-source evidence *results in an error*."
 
 2. Page 19, first paragraph below figure 8:
 The following two sentences seem inconsistent: “There is an order of magnitude difference between the probability of same-source evidence given an elimination and the probability of different-source evidence given an identification. Figure 8 provides a visual demonstration of this discrepancy: unlike in Figure 1, there is a difference in the density of points in the inconclusive sections of the chart.” The first sentence refers to identifications/eliminations whereas the second sentence refers to inconclusives. In addition, Fig. 8 does not show the order of magnitude difference between the probability of same- source evidence given an elimination and the probability of different-source evidence given an identification because there are four dots in the one field and nine dots in the other field. Taking these sentences together, it is not clear whether the disturbing realization in the previous sentence refers to eliminations/identifications or to inconclusives. Since this is one of the most important observations of the manuscript, it is important to state the observation clearly.

@@ -367,8 +367,8 @@ $$TNR = P(\text{Elimination} | DS) = \frac{P(\text{Elimination and } DS)}{P(DS)}
 
 
 Complementary to accuracy rates, we define two error rates of a classification method:
-The \emph{false positive rate} (FPR) -- or failed elimination rate -- is the probability that an examination of different source evidence does not result in an elimination. 
-Similarly, the \emph{false negative rate} (FNR) -- or missed identification rate -- is the probability that an examination of same-source evidence does not result in an identification.
+The \emph{false positive rate} (FPR) -- or failed elimination rate -- is the probability that an examination of different source evidence \hh{results in an error}. 
+Similarly, the \emph{false negative rate} (FNR) -- or missed identification rate -- is the probability that an examination of same-source evidence \hh{results in an error}.
 
 \begin{figure}
 \centering
@@ -376,7 +376,8 @@ Similarly, the \emph{false negative rate} (FNR) -- or missed identification rate
 \caption{Tree Diagram illustrating the logic of source-specific error rates. Information flow happens from left to right: we are assessing an examiner's decision given that someone (not the examiner) knows the source of the evidence. Source-specific rates give the probability of an examiner's decision (Identification, Inconclusive, or Elimination) given same-source and different-source evidence.}\label{fig:FPR-specific-tree}
 \end{figure}
 
-Note that we are keeping the definition of error rates a bit vague on purpose. 
+
+%Note that we are keeping the definition of error rates a bit vague on purpose. 
 As discussed in \Cref{sec:error-rates}, there are multiple ways to define an error, but the concepts of FPR and FNR hold for all of the  options of treating  inconclusive decisions outlined in \Cref{tab:overall-err-rate}.
 
 
