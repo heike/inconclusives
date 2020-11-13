@@ -9,14 +9,20 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-November 10, 2020
-Review of “Treatment of Inconclusives in the AFTE Range of Conclusions” For Law, Probability, and Risk
+### Review of "Treatment of Inconclusives in the AFTE Range of Conclusions" For Law, Probability, and Risk
+
 This manuscript provides a systematic and interesting review of several experimental studies conducted to measure error rates in firearm examination. Error rate in the pattern matching disciplines of forensic science is an active and important subject of research. The article thoroughly discusses the various ways that error rates may be calculated and lays out the results from the studies clearly with useful illustrations and tables. Out of this analysis, the article adds an important observation about an asymmetry associated with inconclusive examiner opinions, that they are significantly associated more with different source pairs than same source pairs. This observation seems to point to an bias in the subjective decisions by firearm examiners.
 In my opinion, the article will be acceptable for publication in Law, Probability, and Risk after the authors have considered and responded to five issues described just below. In addition, I provide several other optional suggestions and questions for the authors to consider before publication.
+<<<<<<< HEAD
 
 1. Section 2.3, final two paragraphs on page 7:    
 The two paragraphs below clearly seem to contradict one another and must be reworded: “Complementary to accuracy rates, we define two error rates of a classification method: The false positive rate (FPR) - or failed elimination rate - is the probability that an examination of different source evidence does not result in an elimination. Similarly, the false negative rate (FNR) - or missed identification rate - is the probability that an examination of same-source evidence does not result in an identification.
 Note that we are keeping the definition of error rates a bit vague on purpose. As discussed in Section 2.2, there are multiple ways to define an error, but the concepts of FPR and FNR hold for all of the options of treating inconclusive decisions outlined in Table 3.”
+=======
+1. Section 2.3, final two paragraphs on page 7:
+The two paragraphs below clearly seem to contradict one another and must be reworded: "Complementary to accuracy rates, we define two error rates of a classification method: The false positive rate (FPR) - or failed elimination rate - is the probability that an examination of different source evidence does not result in an elimination. Similarly, the false negative rate (FNR) - or missed identification rate - is the probability that an examination of same-source evidence does not result in an identification.
+Note that we are keeping the definition of error rates a bit vague on purpose. As discussed in Section 2.2, there are multiple ways to define an error, but the concepts of FPR and FNR hold for all of the options of treating inconclusive decisions outlined in Table 3."
+>>>>>>> 0c6209f5319393bda855b9650c779e83e75b3ad1
 If the FPR is the probability that an examination of different source evidence does not result in an elimination, then inconclusives always count as errors. A similar argument holds for FNR. Therefore, the concepts of FPR and FNR as defined above are only consistent with option 3 in Table 3 and not with all the methods of treating inconclusives as stated in the second paragraph.
 
 > Ok, so we got caught :-p How do we fix it though?
@@ -43,6 +49,7 @@ The numbers 0.2414 and 0.7586 in the right-hand column seem incorrect. I would h
 
 
 In addition, the points below are for optional consideration by the authors before publication
+
 
 - Abstract:
   - The abstract could be improved by stating any important observations there, for example that inconclusive examiner opinions are significantly associated more with different source pairs than same source pairs.
