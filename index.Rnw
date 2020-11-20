@@ -1277,7 +1277,7 @@ Opt. & \multicolumn{1}{c}{Meaning} & Missed Identification & \multicolumn{1}{r}{
 \end{fmpage}
 
 \clearpage
-\paragraph{Lilien} The Lilien study  \citep{lilienFirearmForensicsBlackBox2019} used virtual microscopy to evaluate scans of cartridge cases. Each participant was asked to make sixteen evaluations of breech face impressions. These consisted of forty sets of two known and one unknown bullets: 
+\paragraph{Lilien} The Lilien study  \citep{lilienFirearmForensicsBlackBox2019} used virtual microscopy to evaluate scans of cartridge cases. Each participant was asked to make sixteen evaluations of breech face impressions, selected from a total of forty sets in a balanced incomplete block design. Each set consisted of two exemplars and one questioned bullet. 
 
 \noindent\begin{fmpage}{.985\textwidth}\centering % Checked numbers 2020-04-24
 \captionsetup{type=table}\captionof{table}{Lilien study results, conclusion-specific and source-specific probabilities, and reported overall error rates. }\label{tab:lilien-summary}
