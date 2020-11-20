@@ -33,6 +33,14 @@ The following two sentences seem inconsistent: “There is an order of magnitude
 
 > Ok, so it sounds like we need to elaborate a bit on this. It's not inconsistent, it's just that we're making the point of bias in a roundabout way.
 
+> HH: I think what contributes to the problem that we implicitly talk about Fig 7 and the error rates from Baldwin on the previous page, and only explicitly mention Figure 8, which does not show the order of magnitude difference (directly).
+> Proposed fix: 
+
+- add reference to figure 7, add equation number to error rates, refer to both. 
+- Start a new paragraph before mentioning figure 8
+- Insert a paragraph to explain the need for a sufficient sample size to see a difference between 0.02 and 0.2
+
+
 3. Page 19, paragraph 3, lines 2-4:
 The following statement is false: “We see that in the three studies with a large enough sample size, the point estimate of the probability of a false identification is higher than the probability of a false elimination.” Figure 7 clearly shows that the probability of a false identification and the probability of a false elimination are both equal to zero for the Keisler data.
 
