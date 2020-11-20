@@ -2,7 +2,12 @@
 \usepackage[utf8]{inputenc}
 
 \usepackage{lineno,hyperref}
-
+\hypersetup{
+    colorlinks,
+    linkcolor={red!50!black},
+    citecolor={blue!50!black},
+    urlcolor={blue!80!black}
+}
 \usepackage{authblk}
 \usepackage{amsmath,amsthm,amstext}
 \usepackage{bm}
@@ -276,7 +281,7 @@ Under this framework, an examiner's assessment starts with inconclusive and is r
 Statistically, this would suggest that the decision about the amount of evidence available (inconclusive or not) would be independent of the source of the evidence (same or different source). That is, inconclusive decisions should be equally likely in same-source and different-source assessments.
 
 There are three main ways that inconclusive decisions can be treated in calculating error rates: inconclusive decisions can be
-(1)  excluded from error calculations, (2) included as correct results  \cite{Duez:2017kha}, or (3) included as incorrect results  \cite{chumbleyValidationToolMark2010}; each of these decisions has an impact on the actual value of the error rate as well as the interpretation of the resulting error rates. 
+(1)  excluded from error calculations, (2) included as correct results \cite{Duez:2017kha}, or (3) included as incorrect results  \cite{chumbleyValidationToolMark2010}; each of these decisions has an impact on the actual value of the error rate as well as the interpretation of the resulting error rates. 
 \Cref{tab:overall-err-rate} shows an overview of these three approaches to calculating the error rate based on the general structure of \Cref{tab:generic-results}, with a fourth option which will be addressed in more detail in \Cref{sec:inconclusives}. 
 
 Each of the approaches to calculating the error rate has a  different meaning and interpretation; as a result, it is important to consider which error rate best suits the purpose of a study and its interpretation in the larger framework of pattern evidence. 
@@ -1213,7 +1218,7 @@ Opt. & \multicolumn{1}{c}{Meaning} & Missed Identification & \multicolumn{1}{r}{
 \end{fmpage}
 
 \clearpage
-\paragraph{Duez} The Duez study  \cite{Duez:2017kha} used virtual microscopy to evaluate scans of cartridge cases. Each participant was asked to make eight evaluations of breech face impressions. These consisted of two sets: 
+\paragraph{Lilien} The Lilien study  \cite{lilienFirearmForensicsBlackBox2019} used virtual microscopy to evaluate scans of cartridge cases. Each participant was asked to make eight evaluations of breech face impressions. These consisted of two sets: 
 \begin{itemize}
 \item[CCTS1] set of three knowns, four questioned breech face impressions. All questioned breech face impressions are from the same source as the knowns. 
 \item[CCTS2] set of three knowns, four questioned breech face impressions. Two questioned breech face impressions are from the same source, two are from different sources.
@@ -1227,7 +1232,7 @@ The design of the experiment does not allow us to quantify all of the quantities
 %The top of  shows results reported by 56 participants (46 examiners, 10 trainees).
 
 \noindent\begin{fmpage}{.985\textwidth}\centering % Checked numbers 2020-04-24
-\captionsetup{type=table}\captionof{table}{Lilien study results, conclusion-specific and source-specific probabilities, and reported overall error rates. For the conditional probabilities, 
+\captionsetup{type=table}\captionof{table}{Duez study results, conclusion-specific and source-specific probabilities, and reported overall error rates. For the conditional probabilities, 
 the differences in certified examiners and trainees are not large, so only the aggregate results are shown. Certified examiners have a perfect identification rate, only evaluations of different source pairs lead to inconclusives. }\label{tab:duez-summary}
 {\large\bf Development and Validation of a Virtual Examination Tool for Firearm Forensics}
 \emph{ \citeauthor{Duez:2017kha} ( \citeyear{Duez:2017kha})}\\
@@ -1267,6 +1272,51 @@ Opt. & \multicolumn{1}{c}{Meaning} & Missed Identification & \multicolumn{1}{r}{
 3 & Process error & 0.0000/0.0167 & 0.1304/0.7500 & 0.0326/0.2000\\ \hline
 \end{tabularx}
 \end{fmpage}
+
+
+\noindent\begin{fmpage}{.985\textwidth}\centering % Checked numbers 2020-04-24
+\captionsetup{type=table}\captionof{table}{Lilien study results, conclusion-specific and source-specific probabilities, and reported overall error rates. For the conditional probabilities, 
+the differences in certified examiners and trainees are not large, so only the aggregate results are shown. Certified examiners have a perfect identification rate, only evaluations of different source pairs lead to inconclusives. }\label{tab:lilien-summary}
+{\large\bf Development and Validation of a Virtual Examination Tool for Firearm Forensics}
+\emph{ \citeauthor{lilienFirearmForensicsBlackBox2019} ( \citeyear{lilienFirearmForensicsBlackBox2019})}\\
+\begin{tabularx}{\textwidth}{XrrX}\hline
+\multirow{2}{*}{\bf Study Type} & \multicolumn{2}{c}{\bf Test Set} & \multirow{2}{*}{\bf Participants}\\
+& \# SS Comparisons & \# DS Comparisons & \\\hline
+Open set & 17 & 23 & 76 examiners\\
+\end{tabularx}
+\begin{tabularx}{\textwidth}{Y|rrr|Y}
+\multicolumn{5}{c}{\bf Experiment Count Data}\\
+\multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Total\\\hline
+Same source & 276+59 & 0+1 & 0+0 & 276+60 \\
+Different source & 0+2 & 12+13 & 80+5 & 92+20 \\\hline
+\multicolumn{1}{Y}{Conclusion Total} & 276+61 & 12+14 & \multicolumn{1}{r}{80+5} & \multicolumn{1}{Y}{449}\\\hline\hline
+
+\multicolumn{5}{c}{}\\
+
+\multicolumn{5}{c}{\bf Conclusion-Specific Probabilities}\\
+\multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Probability\\\hline
+Same source & 0.9941 & 0.0385 & 0.0000 & 0.7500 \\
+Different source & 0.0059 & 0.9615 & 1.0000 & 0.2500 \\\hline
+\multicolumn{1}{Y}{Conclusion Probability} & 0.7522 & 0.0580 & \multicolumn{1}{r}{0.1897} & \multicolumn{1}{Y}{}\\\hline\hline
+
+\multicolumn{5}{c}{}\\
+\multicolumn{5}{c}{\bf Source-Specific Probabilities}\\
+\multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Probability\\\hline
+Same source & 0.9970 & 0.0030 & 0.0000 & 0.7500\\
+Different source & 0.0179 & 0.2232 & 0.7589 & 0.2500\\\hline
+\multicolumn{1}{Y}{Conclusion Probability} & 0.7522 & 0.0809 & \multicolumn{1}{r}{0.1897} & \multicolumn{1}{Y}{}\\\hline\hline
+\end{tabularx}
+
+\begin{tabularx}{\textwidth}{lX|rr|Y}
+\multicolumn{5}{c}{}\\
+\multicolumn{5}{c}{\bf Overall Error Rates}\\
+Opt. & \multicolumn{1}{c}{Meaning} & Missed Identification & \multicolumn{1}{r}{Missed Elimination} & Total \\\hline
+2 & FTE error & 0.0000/0.0000  & 0.0000/0.1000 & 0.0000/0.0303\\
+3 & Process error & 0.0000/0.0167 & 0.1304/0.7500 & 0.0326/0.2000\\ \hline
+\end{tabularx}
+\end{fmpage}
+
+
 
 \clearpage
 \paragraph{Brundage-Hamby} The Brundage-Hamby study consists of sets of 20 test fires from known barrels and 15 questioned bullets. The 20 known test fires are 2 bullets from each of ten consecutively manufactured barrels. The Brundage-Hamby study is a closed set study, i.e. the 15 questioned bullets are known to be fired from one of these ten barrels. Participants (firearm examiners) are asked to identify which of the knowns a questioned bullet matches. 
