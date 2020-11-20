@@ -885,7 +885,7 @@ inc %>%
 @
 
 
-This finding is similar to the implications of \citep{biedermannAreInconclusiveDecisions2019}, though they do not follow their reported results to the logical conclusion. 
+This finding is similar to the implications of \citet{biedermannAreInconclusiveDecisions2019}, though the authors do not follow their reported results to the logical conclusion. 
 Specifically, they show that there is information in the finding of an inconclusive that is useful: inconclusive determinations are  more likely to occur when the evidence originates from different sources. 
 In the studies we examined, the vast majority of paired comparisons for which source could not be conclusively established by the participant should have been eliminations. Therefore, we propose the following: 
 %We take this conclusion one step further: 
