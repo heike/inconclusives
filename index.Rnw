@@ -897,19 +897,17 @@ if inconclusive determinations are essentially another way to say ``different so
 % get rid of the category and declare 
  collapse inconclusive evaluations and eliminations, at least when calculating error rates. 
 
-Calculations are shown below for \citep{Baldwin:2014bb}, which is the only study large enough to have nonzero observed counts for all cells.
-
-
-
-\begin{eqnarray*}
+Calculations are shown below for \citep{Baldwin:2014bb}, which is the only study large enough to have nonzero observed counts for all cells:
+%
+\begin{eqnarray}
 \arraycolsep=1.4pt\def\arraystretch{2.2}
 \begin{array}{rcccr}
-P (\text{same source} \mid \text{elimination}) &=& \displaystyle\frac{4}{1425} &=& 0.0028 \\
-P (\text{same source} \mid \text{inconclusive or elimination}) &=& \displaystyle\frac{11+4}{748+1425} &=& 0.0069 \\
+P (\text{same source} \mid \text{elimination}) &=& 4 / 1425 &=& 0.0028 \\
+P (\text{same source} \mid \text{inconclusive or elimination}) &=& (11+4) / (748+1425) &=& 0.0069 \\
 %P (\text{different source} \mid \text{inconclusive or elimination}) &=& \displaystyle\frac{737+1421}{748+1425} &=& 0.9931 \\ % This isn't mentioned in the text description - I suspect the calc shown below was possibly meant instead?
-P (\text{different source} \mid \text{identification}) &=& \displaystyle\frac{22}{1097} &=& 0.0201
+P (\text{different source} \mid \text{identification}) &=& 22 / 1097 &=& 0.0201
 \end{array}
-\end{eqnarray*}
+\end{eqnarray}
 
 <<asymmetric-errors, echo = F, fig.width = 8, fig.height = 3, fig.cap = "Decision-specific error rates. For all studies, errors in identification are more likely than errors in eliminations. In \\citet{Baldwin:2014bb}, which is the only study with a large number of participants and evaluations, confidence intervals for wrong identifications do not overlap, indicating that  these errors are significantly higher than wrongful eliminations.">>=
 # Even if inconclusives are treated as eliminations, error rates are still not higher for eliminations than identifications (removed from caption)
@@ -977,6 +975,8 @@ errors2 %>%
 
 Examining the experimentally determined error rates for firearms and toolmark identification leads to a disturbing realization. 
 There is an order of magnitude difference between the probability of same-source evidence given an elimination and the probability of different-source evidence given an identification.
+In fact, even if inconclusives and eliminations are combined as under Option 4 the probability of a false elimination is 0.0069, only a third of the probability of a false identification.
+
 \Cref{fig:baldwin-shape-overview} provides a visual demonstration of this discrepancy: unlike in \Cref{fig:shape-overview}, there is a difference in the density of points in the inconclusive sections of the chart.
 
 
@@ -1004,8 +1004,9 @@ bunch <- c(a = 70, b = 0, c = 0, d = 0, e = 172, f = 118)
 do.call(target_plot, as.list(c(bunch, pointsize = .5, bordersize = 0.001)))
 # target_plot(1075, 11, 4, 22, 737, 1421, pointsize = .5, bordersize = .001) # too dense
 @
-In fact, even if inconclusives and eliminations are combined as under Option 4 the probability of a false elimination is 0.0069, only a third of the probability of a false identification.
+
 Note that while the probability of same source given an elimination is affected by lab policies towards the treatment of inconclusives, these policies do not explain the continued discrepancy in error probabilities when inconclusives and eliminations are considered together.
+
 
 
 % \subsection{What will examiners bet on?}
