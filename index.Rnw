@@ -494,14 +494,16 @@ For each study, we provide the reported results and present error rates and cond
 Using these comparisons we assess the state of these error rate studies and provide an overview of the current status quo of firearms examination.
 
 \subsection{Error Rate Studies}
-The studies included in this section are not an exhaustive list of every error rate study ever performed; rather, we have included the most central and most cited studies, as well as several of the studies mentioned in the PCAST and NAS reports concerning firearm and toolmark analysis. A brief description of each study is provided here for reference purposes, with summary tables of results and conditional probabilities provided in \ref{sec:supplement}.
+The studies included in this section are not an exhaustive list of every error rate study ever performed; rather, we have included the most central and most cited studies, as well as several of the studies mentioned in the PCAST and NAS reports concerning firearm and toolmark analysis. A brief description of each study is provided here for reference purposes, with summary tables of results and conditional probabilities provided in \Cref{sec:supplement}.
 
 \begin{description}
 \item[Baldwin] \citep{Baldwin:2014bb} is a study of Ruger SR9 cartridge cases. It is an open-set study with 15 comparisons of 3 knowns to 1 questioned cartridge case. Participants received sets with 10 different-source and 5 same-source comparisons.
 \item[Keisler] \citep{keisler} is a study of cartridge case comparisons. It is an open set study with 20 comparisons of 1 known to 1 questioned cartridge cases. 126 participants received sets with 12 same-source and 8 different-source comparisons.
 \item[Brundage-Hamby]  \citep{Hamby:2018hu} is a closed-set study of 10 consecutively manufactured Ruger P-95 barrels. 507 participants received sets consisting of 10 standards (2 bullets each) and 15 questioned bullets. 
 \item[Lyons] \citep{lyons} is a closed-set study of 10 consecutively manufactured Colt 1911A1 extractors. Participants received a set of 10 standards and 12 questioned cases. The design of this study is similar to  \citep{Hamby:2018hu}.
-\item[Duez] \citep{Duez:2017kha} is an open-set study of breech face comparisons using virtual microscopy. Each of 56 participants (46 trained, 10 trainees) received two test sets consisting of one standard (3 scans) and 4 questioned scans In one set, all questioned scans were from the same source as the standard; in the second set, there were two different-source questioned scans and two same-source questioned scans.
+\item[Duez] \citep{Duez:2017kha} is an open-set study of breech face comparisons using virtual microscopy. Each of 56 participants (46 trained, 10 trainees) received two test sets consisting of one standard (3 scans) and 4 questioned scans. In one set, all questioned scans were from the same source as the standard; in the second set, there were two different-source questioned scans and two same-source questioned scans.
+
+\item[Lilien] \citep{lilienFirearmForensicsBlackBox2019} is an open-set study of breech face comparisons using virtual microscopy. Each of 76 participants received 16 test sets consisting of one standard (2 scans) and 1 questioned scans. In 17 sets, the questioned bullet matched the standards, and in 23 sets, the questioned bullet was fired from a different weapon.
 \item[Bunch \& Murphy] \citep{bunch2003comprehensive} is an open-set study of consecutively manufactured Glock breech faces. In this study, 8 participants received 10 cartridge cases each  and were required to evaluate all possible pairwise comparisons. The number of same-source and different-source cartridge cases varied by test kit, ranging from 10 same-source cartridges to 10 different-source cartridges.
 \item[Fadul] \citep{fadul} is a closed-set study of the breech face striations/impressions produced by 10 consecutively manufactured slides. Participants received a set of 10 standards and 15 questioned cases. The design of this study is similar to  \citep{Hamby:2018hu}.
 \end{description}
@@ -587,7 +589,7 @@ library(tidyverse)
 studies <- read.csv("data/studies.csv")
 studies <- studies %>% mutate(
     Study = factor(Study, 
-                    levels=c("Baldwin (2014)", "Keisler (2018)", "Lilien (2019)", "Bunch & Murphy (2003)", "Hamby (2019)", "Lyons (2009)"))
+                    levels=c("Baldwin (2014)", "Keisler (2018)", "Duez (2018)", "Lilien (2019)", "Bunch & Murphy (2003)", "Hamby (2019)", "Lyons (2009)"))
   )
 
 cis <- studies %>% group_by(Study, Decision) %>% 
@@ -647,7 +649,8 @@ errors <- studies %>%
     Comparisons = sum(Number),
     AFTE = sum(Number[!AFTE]),
     Process = sum(Number[!Process]),
-    Elimination = sum(Number[!Elimination])
+    Elimination = sum(Number[!Elimination]),
+    .groups = "drop_last"
   ) %>% 
   mutate(
     Error = c("Missed Elimination", "Missed Identification")[as.numeric(Ground.truth=="Same Source")+1]
@@ -707,7 +710,7 @@ gg %>%
   xlim(c(0, NA)) +
   geom_errorbarh(aes(xmin=err_lower, xmax=err_upper, colour = Type, y=as.numeric(Study)+0.3*(as.numeric(Type)-1.5)),
                  size=0.5, height = 0.3,  alpha =0.9) +
-  scale_y_continuous(breaks=1:6, labels=levels(errors$Study), minor_breaks = NULL) +
+  scale_y_continuous(breaks=1:length(levels(errors$Study)), labels=levels(errors$Study), minor_breaks = NULL) +
   scale_colour_brewer(palette="Dark2") +
   theme(legend.position = "bottom", legend.direction = "horizontal") #+
   # guides(colour=guide_legend(ncol=1))
