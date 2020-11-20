@@ -98,7 +98,7 @@ library(stringr)
 
 library(tidyverse)
 library(scales)
-library(multidplyr) # install_github("hadley/multidplyr")
+# library(multidplyr) # install_github("hadley/multidplyr")
 library(bulletxtrctr) # install_github("csafe-isu/bulletxtrctr")
 library(gridExtra)
 library(kableExtra)
@@ -582,7 +582,7 @@ library(tidyverse)
 studies <- read.csv("data/studies.csv")
 studies <- studies %>% mutate(
     Study = factor(Study, 
-                    levels=c("Baldwin (2014)", "Keisler (2018)", "Duez (2018)", "Bunch & Murphy (2003)", "Hamby (2019)", "Lyons (2009)"))
+                    levels=c("Baldwin (2014)", "Keisler (2018)", "Lilien (2019)", "Bunch & Murphy (2003)", "Hamby (2019)", "Lyons (2009)"))
   )
 
 cis <- studies %>% group_by(Study, Decision) %>% 
@@ -948,7 +948,7 @@ errors2 %>%
   filter(!(Study %in% c("Hamby (2019)", "Lyons (2009)", 
                         "Bunch & Murphy (2003)"))) %>%
   ggplot(aes(x = rate*100, y = Study)) +
-  geom_hline(yintercept = "Duez (2018)", colour = "black",
+  geom_hline(yintercept = "Lilien (2019)", colour = "black",
              size=24, alpha = 0.1) +
   geom_hline(yintercept = "Baldwin (2014)", colour = "black",
              size=24, alpha = 0.1) +
@@ -1227,7 +1227,7 @@ The design of the experiment does not allow us to quantify all of the quantities
 %The top of  shows results reported by 56 participants (46 examiners, 10 trainees).
 
 \noindent\begin{fmpage}{.985\textwidth}\centering % Checked numbers 2020-04-24
-\captionsetup{type=table}\captionof{table}{Duez study results, conclusion-specific and source-specific probabilities, and reported overall error rates. For the conditional probabilities, 
+\captionsetup{type=table}\captionof{table}{Lilien study results, conclusion-specific and source-specific probabilities, and reported overall error rates. For the conditional probabilities, 
 the differences in certified examiners and trainees are not large, so only the aggregate results are shown. Certified examiners have a perfect identification rate, only evaluations of different source pairs lead to inconclusives. }\label{tab:duez-summary}
 {\large\bf Development and Validation of a Virtual Examination Tool for Firearm Forensics}
 \emph{ \citeauthor{Duez:2017kha} ( \citeyear{Duez:2017kha})}\\
