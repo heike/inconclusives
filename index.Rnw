@@ -682,7 +682,6 @@ More realistic estimates of error rates that account for the use of deductive re
 
 <<errors, echo=FALSE, fig.width=8, fig.height=6,fig.cap="Percentages of missed eliminations and missed identifications by study. 95\\% Pearson-Clopper confidence intervals are drawn around the error estimates. Missed eliminations cannot be calculated for closed-set studies.", out.width=".8\\textwidth">>=
 
-
 gg <- errors %>% gather(Type, Number, AFTE, Process, Elimination) %>% 
   mutate(
     Type = factor(Type, levels=c("AFTE", "Process", "Elimination"))
@@ -692,19 +691,23 @@ levels(gg$Type) <- c(
   "Process error\n(Option 3)",
   "Inconclusives are\nEliminations (Option 4)")
 
-gg %>%
-  group_by(Type, Study, Error) %>%
+gg <- gg %>% group_by(Type, Study, Error) %>%
   mutate(
     err_lower = clopper(0.05, Number, Comparisons)[1]*100,
     err_upper = clopper(0.05, Number, Comparisons)[2]*100,
     pos = c("white", "grey")[1 + as.numeric(Study) %% 2]
-  ) %>%
+  ) 
+
+gg %>%
   ggplot(aes(x = Number/Comparisons*100, y = Study)) +
   geom_rect(aes(xmin = -Inf, xmax = Inf, ymin =1 - 0.3, ymax = 1 + 0.6), fill = "grey90", alpha = .25, inherit.aes = F) + 
   geom_rect(aes(xmin = -Inf, xmax = Inf, ymin =3 - 0.3, ymax = 3 + 0.6), fill = "grey90", alpha = .25, inherit.aes = F) + 
   geom_rect(aes(xmin = -Inf, xmax = Inf, ymin =5 - 0.3, ymax = 5 + 0.6), fill = "grey90", alpha = .25, inherit.aes = F) + 
   geom_rect(aes(xmin = -Inf, xmax = Inf, ymin =7 - 0.3, ymax = 7 + 0.6), fill = "grey90", alpha = .25, inherit.aes = F) + 
   geom_point(aes(shape=Type, colour = Type, y = as.numeric(Study)+0.3*(as.numeric(Type)-1.5)) ) +
+  geom_point(aes(x=35, y = as.numeric(Study)),
+                 data = filter(gg, is.na(Comparisons)), shape='?', size = 3.5,
+                 colour = "grey20") +
   facet_grid(Error~.) + #, space="free") +
   theme_bw() +
   xlab("(Source-specific) Error Percentages") +
@@ -713,7 +716,9 @@ gg %>%
                  size=0.5, height = 0.3,  alpha =0.9) +
   scale_y_continuous(breaks=1:length(levels(errors$Study)), labels=levels(errors$Study), minor_breaks = NULL) +
   scale_colour_brewer(palette="Dark2") +
-  theme(legend.position = "bottom", legend.direction = "horizontal") #+
+  theme(legend.position = "bottom", legend.direction = "horizontal")
+
+  #+
   # guides(colour=guide_legend(ncol=1))
 @
 
@@ -765,7 +770,7 @@ figdata %>%
    geom_col(aes(x = Study, y = I(1)), width = 1, colour = NA,
           alpha = 0.1, fill = "black", linetype = "solid",
           data = figdata %>%
- filter(Study %in% c("Lyons (2009)", "Bunch & Murphy (2003)", "Keisler (2018)"))) 
+ filter(Study %in% c("Lyons (2009)", "Bunch & Murphy (2003)", "Keisler (2018)", "VCMER (2020)"))) 
 @
 
 \subsection{Decision-specific error rates}\label{sec:dec-spec-res}
