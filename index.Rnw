@@ -967,7 +967,8 @@ errors2 <- studies %>%
     lower = clopper(0.05, Number, Total)[1],
     upper = clopper(0.05, Number, Total)[2]
     ) %>%
-  ungroup() 
+  ungroup() %>%
+  mutate(Study = str_replace(Study, "Matti", "*Matti"))
 
 errors2 %>%
   arrange(Study) %>%
@@ -979,11 +980,11 @@ errors2 %>%
   filter(!(Study %in% c("Hamby (2019)", "Lyons (2009)", 
                         "Bunch & Murphy (2003)"))) %>%
   ggplot(aes(x = rate*100, y = Study)) +
-  geom_hline(yintercept = "Mattijssen (2020)", colour = "black",
+  geom_hline(yintercept = "*Mattijssen (2020)", colour = "black",
              size=16, alpha = 0.1) +
   geom_hline(yintercept = "Duez (2018)", colour = "black",
              size=16, alpha = 0.1) +
-  geom_hline(yintercept = "Baldwin (2014)", colour = "black",
+  geom_hline(yintercept = "VCMER (2020)", colour = "black",
              size=16, alpha = 0.1) +
   geom_point(aes(colour = ErrorType, shape = ErrorType),
              position = position_dodge(width = 0.7),
