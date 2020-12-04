@@ -999,7 +999,6 @@ errors2 %>%
 
 @
 
-\Cref{fig:baldwin-shape-overview} provides a visual demonstration of this discrepancy: unlike in \Cref{fig:shape-overview}, there is a difference in the density of points in the inconclusive sections of the chart.
 
 
 <<baldwin-shape-overview, fig.cap = "Sketch of the relationship between  ground truth of evidence (dots) and examiners' decisions (shaded areas) as reported in \\citet{Baldwin:2014bb}. Each dot represents approximately 2 examiner evaluations. Unlike in \\Cref{fig:shape-overview}, there is a significant difference in the probability of an inconclusive evaluation when a pair is different source or same source. ", fig.width = 6, fig.height = 4, dpi = 1000, dev="pdf", out.width = "70%">>=
@@ -1027,7 +1026,8 @@ do.call(target_plot, as.list(c(bunch, pointsize = .5, bordersize = 0.001)))
 # target_plot(1075, 11, 4, 22, 737, 1421, pointsize = .5, bordersize = .001) # too dense
 @
 
-Note that while the probability of same source given an elimination is affected by lab policies towards the treatment of inconclusives, these policies do not explain the continued discrepancy in error probabilities when inconclusives and eliminations are considered together.
+
+\Cref{fig:baldwin-shape-overview} provides a visual demonstration of this discrepancy: unlike in \Cref{fig:shape-overview}, there is a difference in the density of points in the inconclusive sections of the chart. Note that while the probability of same source given an elimination is affected by lab policies towards the treatment of inconclusives, these policies do not explain the continued discrepancy in error probabilities when inconclusives and eliminations are considered together.
 
 
 
@@ -1045,7 +1045,7 @@ Note that while the probability of same source given an elimination is affected 
 
 
 %Unfortunately, this is not what we find.
-\Cref{fig:asymmetric-errors} focuses on the three larger studies, and shows the estimated probabilities (and the corresponding confidence intervals) of an incorrect identifications and eliminations.
+\Cref{fig:asymmetric-errors} focuses on the larger studies \svp{with designs which allow for estimation of these error rates}, and shows the estimated probabilities (and the corresponding confidence intervals) of an incorrect identifications and eliminations.
 We see that in the three studies with a large enough sample size, the point estimate of the probability of a false identification is higher than the probability of a false elimination. In the case of the \citet{Baldwin:2014bb}, the difference is statistically significant.
 Even when inconclusives are treated as as eliminations, the same pattern persists.
 %the only study with sufficient sample size to show significant differences between error rates still shows that the probability of different source evidence given an examiner identification is significantly higher than the probability of same-source evidence given an examiner elimination or inconclusive.
