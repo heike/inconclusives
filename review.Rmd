@@ -38,7 +38,7 @@ The following two sentences seem inconsistent: “There is an order of magnitude
 
 - add reference to figure 7, add equation number to error rates, refer to both. (done) 
 - Start a new paragraph before mentioning figure 8 (done)
-- Insert a paragraph to explain the need for a sufficient sample size to see a difference between 0.02 and 0.2
+- Insert a paragraph to explain the need for a sufficient sample size to see a difference between 0.02 and 0.2 (done) 
 
 
 3. Page 19, paragraph 3, lines 2-4:
