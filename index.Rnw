@@ -589,7 +589,7 @@ library(tidyverse)
 studies <- read.csv("data/studies.csv")
 studies <- studies %>% mutate(
     Study = factor(Study, 
-                    levels=c("Baldwin (2014)", "Keisler (2018)", "Duez (2018)", "VCMER (2020)", "Bunch & Murphy (2003)", "Hamby (2019)", "Lyons (2009)"))
+                    levels=c("Baldwin (2014)", "Keisler (2018)", "Duez (2018)", "VCMER (2020)", "Mattijssen (2020)", "Bunch & Murphy (2003)", "Hamby (2019)", "Lyons (2009)"))
   )
 
 cis <- studies %>% group_by(Study, Decision) %>% 
@@ -680,7 +680,7 @@ The rates reported in this section are calculated directly from information repo
 More realistic estimates of error rates that account for the use of deductive reasoning can be found in \ref{sec:sim}.
 
 
-<<errors, echo=FALSE, fig.width=8, fig.height=4,fig.cap="Percentages of missed eliminations and missed identifications by study. 95\\% Pearson-Clopper confidence intervals are drawn around the error estimates. Missed eliminations cannot be calculated for closed-set studies.", out.width=".8\\textwidth">>=
+<<errors, echo=FALSE, fig.width=8, fig.height=6,fig.cap="Percentages of missed eliminations and missed identifications by study. 95\\% Pearson-Clopper confidence intervals are drawn around the error estimates. Missed eliminations cannot be calculated for closed-set studies.", out.width=".8\\textwidth">>=
 
 
 gg <- errors %>% gather(Type, Number, AFTE, Process, Elimination) %>% 
@@ -703,6 +703,7 @@ gg %>%
   geom_rect(aes(xmin = -Inf, xmax = Inf, ymin =1 - 0.3, ymax = 1 + 0.6), fill = "grey90", alpha = .25, inherit.aes = F) + 
   geom_rect(aes(xmin = -Inf, xmax = Inf, ymin =3 - 0.3, ymax = 3 + 0.6), fill = "grey90", alpha = .25, inherit.aes = F) + 
   geom_rect(aes(xmin = -Inf, xmax = Inf, ymin =5 - 0.3, ymax = 5 + 0.6), fill = "grey90", alpha = .25, inherit.aes = F) + 
+  geom_rect(aes(xmin = -Inf, xmax = Inf, ymin =7 - 0.3, ymax = 7 + 0.6), fill = "grey90", alpha = .25, inherit.aes = F) + 
   geom_point(aes(shape=Type, colour = Type, y = as.numeric(Study)+0.3*(as.numeric(Type)-1.5)) ) +
   facet_grid(Error~.) + #, space="free") +
   theme_bw() +

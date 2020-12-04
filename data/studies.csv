@@ -67,12 +67,12 @@ VCMER (2020),Same Source,Inconclusive,0.4147,Expected
 VCMER (2020),Different Source,Inconclusive,0.5853,Expected
 VCMER (2020),Different Source,Elimination,0,Expected
 VCMER (2020),Different Source,Identification,1,Expected
-Mattijssen (2020), Same Source, Identification, 2365, Observed
-Mattijssen (2020), Same Source, Inconclusive, 588, Observed
-Mattijssen (2020), Same Source, Elimination, 95, Observed
-Mattijssen (2020), Different Source, Identification, 95, Observed
-Mattijssen (2020), Different Source, Inconclusive, 714, Observed
-Mattijssen (2020), Different Source, Elimination, 784, Observed
+Mattijssen (2020),Same Source,Identification, 2365,Observed
+Mattijssen (2020),Same Source,Inconclusive, 588,Observed
+Mattijssen (2020),Same Source,Elimination,95,Observed
+Mattijssen (2020),Different Source,Identification, 95,Observed
+Mattijssen (2020),Different Source,Inconclusive, 714,Observed
+Mattijssen (2020),Different Source,Elimination, 784,Observed
 Mattijssen (2020),Same Source,Elimination,0,Expected
 Mattijssen (2020),Same Source,Identification,1,Expected
 Mattijssen (2020),Same Source,Inconclusive,0.6568,Expected
