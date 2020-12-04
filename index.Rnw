@@ -770,7 +770,7 @@ figdata %>%
    geom_col(aes(x = Study, y = I(1)), width = 1, colour = NA,
           alpha = 0.1, fill = "black", linetype = "solid",
           data = figdata %>%
- filter(Study %in% c("Lyons (2009)", "Bunch & Murphy (2003)", "Keisler (2018)"))) 
+ filter(Study %in% c("Lyons (2009)", "Bunch & Murphy (2003)", "Keisler (2018)", "VCMER (2020)"))) 
 @
 
 \subsection{Decision-specific error rates}\label{sec:dec-spec-res}
