@@ -680,7 +680,7 @@ The rates reported in this section are calculated directly from information repo
 More realistic estimates of error rates that account for the use of deductive reasoning can be found in \ref{sec:sim}.
 
 
-<<errors, echo=FALSE, fig.width=8, fig.height=6,fig.cap="Percentages of missed eliminations and missed identifications by study. 95\\% Pearson-Clopper confidence intervals are drawn around the error estimates. Missed eliminations cannot be calculated for closed-set studies.", out.width=".8\\textwidth">>=
+<<errors, echo=FALSE, fig.width=8, fig.height=5,fig.cap="Percentages of missed eliminations and missed identifications by study. 95\\% Pearson-Clopper confidence intervals are drawn around the error estimates. Missed eliminations cannot be calculated for closed-set studies.", out.width=".8\\textwidth">>=
 
 gg <- errors %>% gather(Type, Number, AFTE, Process, Elimination) %>% 
   mutate(
@@ -787,7 +787,7 @@ As before, the probabilities computed from the study results are shown with thei
 The circles shown in light grey in the middle panel show the expected proportion of inconclusive results which are from the same source. 
 The calculation of these expected values will be discussed in more detail in the next section.
 
-<<cis, echo=FALSE, fig.width=8, fig.height=4.5, fig.cap="Pearson-Clopper 95\\% confidence intervals for the probability of same source evidence given an examiner's conclusion. Expected values for each of the probabilities as discussed in \\Cref{sec:inconclusives} are shown as grey targets. Some of the studies do not allow an assessment of all of the predictive values.", out.width=".8\\textwidth">>=
+<<cis, echo=FALSE, fig.width=8, fig.height=6, fig.cap="Pearson-Clopper 95\\% confidence intervals for the probability of same source evidence given an examiner's conclusion. Expected values for each of the probabilities as discussed in \\Cref{sec:inconclusives} are shown as grey targets. Some of the studies do not allow an assessment of all of the predictive values.", out.width=".8\\textwidth">>=
 
 cis %>% 
   ungroup() %>%
