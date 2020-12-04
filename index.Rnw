@@ -133,7 +133,7 @@ To lay a foundation for the common calculation methods used in this paper, we in
 Examiners visually classify the similarity of toolmark and firearm evidence according to the AFTE theory of identification using a three-point scale: identification, inconclusive, or elimination
 \citep[][see also \Cref{tab:afte}]{identification}. 
 Exact guidelines for this classification vary from lab to lab; some labs will exclude only based on non-matching class characteristics, such as the direction of rifling, the number of lands and their width, or the type of rifling \citep{bunch2003comprehensive}. 
-In other labs, CMS (consecutively matching striae) as defined by  \citeauthor{biasotti}  \citep{biasotti} is used as a measure to quantify the similarity of two lands. 
+In other labs, CMS (consecutively matching striae) as defined by   \citet{biasotti} is used as a measure to quantify the similarity of two lands. 
 In virtually all labs, the assessment of individual characteristics of bullet markings is done by visual inspection. 
 
 
@@ -1058,9 +1058,9 @@ In the courtroom (or before, in a plea bargain situation), this results in a  bi
 
 % Again, consider eliminating this paragraph?
 There are many ways this bias could arise: there are, of course, well documented motivational and cognitive biases \citep{motivationalcognitivebiases, robertson2016blinding} which may affect examiners.
-In addition, it may be easier to identify similarities than to explicitly identify dissimilarities \citep{bagnaraSymmetrySimilarityEffects1983, ashbyUnifiedTheorySimilarity1988}.%\svp{XXX find papers?}
+In addition, it may be easier to identify similarities than to explicitly identify dissimilarities \citep{bagnaraSymmetrySimilarityEffects1983, ashbyUnifiedTheorySimilarity1988}. %\svp{XXX find papers?}
 Examiner training  primarily focus on making identifications, rather than spending an equal amount of time on making eliminations.
-In the case of bullet examination, there is an objective criteria for sufficient similarity: 6 consecutively matching striae, according to \citet{biasotti}; similar criteria have been proposed for algorithmic assessment of cartridge cases\citep{song3DTopographyMeasurements2014}.
+In the case of bullet examination, there is an objective criteria for sufficient similarity: 6 consecutively matching striae, according to \citet{biasotti}; similar criteria have been proposed for algorithmic assessment of cartridge cases \citep{song3DTopographyMeasurements2014}.
 However, in both instances, there is not a corresponding threshold for dissimilarity.
 Here, we do not attempt to identify the source of the bias; we only identify that there is observable bias in the distribution of inconclusive results and suggest that this bias must be addressed.
 %Whatever the source of the bias, however, one thing is clear: the discrepancy between the decision-specific conditional probabilities corresponding to errors is fundamentally unjust, and the bias is in the opposite direction of the ideal expressed by Blackstone.
