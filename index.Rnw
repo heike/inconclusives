@@ -934,7 +934,7 @@ In fact, even if inconclusives and eliminations are combined as under Option 4 t
 These observations are shown visually in \Cref{fig:asymmetric-errors} and explicitly calculated in \Cref{eqn:baldwin-calcs,eqn:mattijssen-calcs} for studies with sufficient error counts \citep{Baldwin:2014bb,mattijssenValidityReliabilityForensic2020}. 
 It is necessary to have at least one observation in each cell in order to bound the probabilities as well as sufficient comparisons to be able to differentiate between e.g. 0.02 and 0.2; this is particularly important when we deal with very low and very high probabilities, such as success and error rates. 
 
-<<asymmetric-errors, echo = F, fig.width = 8, fig.height = 3, fig.cap = "Decision-specific error rates. For all AFTE-decision criteria studies (excluding \\citet{mattijssenValidityRealiabilityForensic2020}, which used likelihood ratios as a primary criteria), errors in identification are more likely than errors in eliminations. In \\citet{Baldwin:2014bb} and \\citet{mattijssenValidityReliabilityForensic2020}, which are the only studies with a large number of participants and evaluations, confidence intervals for wrong identifications do not overlap, indicating that  these errors are significantly higher than wrongful eliminations.", cache = F>>=
+<<asymmetric-errors, echo = F, fig.width = 8, fig.height = 3, fig.cap = "Decision-specific error rates. For all AFTE-decision criteria studies (excluding \\citet{mattijssenValidityReliabilityForensic2020}, which used likelihood ratios as a primary criteria), errors in identification are more likely than errors in eliminations. In \\citet{Baldwin:2014bb} and \\citet{mattijssenValidityReliabilityForensic2020}, which are the only studies with a large number of participants and evaluations, confidence intervals for wrong identifications do not overlap, indicating that  these errors are significantly higher than wrongful eliminations.", cache = F>>=
 # Even if inconclusives are treated as eliminations, error rates are still not higher for eliminations than identifications (removed from caption)
 
 # This was to create a similar chart as the calculations for Baldwin, but Baldwin is the only study with enough data for the calculations to be meaningful...
@@ -967,7 +967,8 @@ errors2 <- studies %>%
     lower = clopper(0.05, Number, Total)[1],
     upper = clopper(0.05, Number, Total)[2]
     ) %>%
-  ungroup() 
+  ungroup() %>%
+  mutate(Study = str_replace(Study, "Matti", "*Matti"))
 
 errors2 %>%
   arrange(Study) %>%
@@ -979,11 +980,11 @@ errors2 %>%
   filter(!(Study %in% c("Hamby (2019)", "Lyons (2009)", 
                         "Bunch & Murphy (2003)"))) %>%
   ggplot(aes(x = rate*100, y = Study)) +
-  geom_hline(yintercept = "Mattijssen (2020)", colour = "black",
+  geom_hline(yintercept = "*Mattijssen (2020)", colour = "black",
              size=16, alpha = 0.1) +
   geom_hline(yintercept = "Duez (2018)", colour = "black",
              size=16, alpha = 0.1) +
-  geom_hline(yintercept = "Baldwin (2014)", colour = "black",
+  geom_hline(yintercept = "VCMER (2020)", colour = "black",
              size=16, alpha = 0.1) +
   geom_point(aes(colour = ErrorType, shape = ErrorType),
              position = position_dodge(width = 0.7),
@@ -999,7 +1000,6 @@ errors2 %>%
 
 @
 
-\Cref{fig:baldwin-shape-overview} provides a visual demonstration of this discrepancy: unlike in \Cref{fig:shape-overview}, there is a difference in the density of points in the inconclusive sections of the chart.
 
 
 <<baldwin-shape-overview, fig.cap = "Sketch of the relationship between  ground truth of evidence (dots) and examiners' decisions (shaded areas) as reported in \\citet{Baldwin:2014bb}. Each dot represents approximately 2 examiner evaluations. Unlike in \\Cref{fig:shape-overview}, there is a significant difference in the probability of an inconclusive evaluation when a pair is different source or same source. ", fig.width = 6, fig.height = 4, dpi = 1000, dev="pdf", out.width = "70%">>=
@@ -1027,7 +1027,8 @@ do.call(target_plot, as.list(c(bunch, pointsize = .5, bordersize = 0.001)))
 # target_plot(1075, 11, 4, 22, 737, 1421, pointsize = .5, bordersize = .001) # too dense
 @
 
-Note that while the probability of same source given an elimination is affected by lab policies towards the treatment of inconclusives, these policies do not explain the continued discrepancy in error probabilities when inconclusives and eliminations are considered together.
+
+\Cref{fig:baldwin-shape-overview} provides a visual demonstration of this discrepancy: unlike in \Cref{fig:shape-overview}, there is a difference in the density of points in the inconclusive sections of the chart. Note that while the probability of same source given an elimination is affected by lab policies towards the treatment of inconclusives, these policies do not explain the continued discrepancy in error probabilities when inconclusives and eliminations are considered together.
 
 
 
@@ -1045,7 +1046,7 @@ Note that while the probability of same source given an elimination is affected 
 
 
 %Unfortunately, this is not what we find.
-\Cref{fig:asymmetric-errors} focuses on the three larger studies, and shows the estimated probabilities (and the corresponding confidence intervals) of an incorrect identifications and eliminations.
+\Cref{fig:asymmetric-errors} focuses on the larger studies \svp{with designs which allow for estimation of these error rates}, and shows the estimated probabilities (and the corresponding confidence intervals) of an incorrect identifications and eliminations.
 We see that in the three studies with a large enough sample size, the point estimate of the probability of a false identification is higher than the probability of a false elimination. In the case of the \citet{Baldwin:2014bb}, the difference is statistically significant.
 Even when inconclusives are treated as as eliminations, the same pattern persists.
 %the only study with sufficient sample size to show significant differences between error rates still shows that the probability of different source evidence given an examiner identification is significantly higher than the probability of same-source evidence given an examiner elimination or inconclusive.
