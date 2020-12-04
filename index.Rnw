@@ -40,7 +40,7 @@
 }
 
 \providecommand{\tightlist}{%
-  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 
 % Necessary commands for study-wise summary
 \newcolumntype{Y}{>{\centering\arraybackslash}X}
@@ -1468,7 +1468,7 @@ Opt. & \multicolumn{1}{c}{Meaning} & Missed Identification & \multicolumn{1}{r}{
 Participants were initially shown comparison images (aligned by computer algorithm) with varying degrees of similarity as a calibration step. Then, 60 comparison images were shown (consisting of 60 sets of either matching or non-matching shear marks, aligned by computer algorithm). Participants were first asked to determine the similarity on a 5-point scale from (almost) no similarity to (almost) total similarity. Once these evaluations were complete, participants were shown each comparison image again, and were asked to answer 3 additional questions assessing 1) conclusion consistent with same/different source, 2) degree of support for this conclusion, in 6 stages corresponding to approximate likelihood ratios, and 3) whether the examiner would have provided an inconclusive conclusion in casework. The addition of these 3 questions allowed the authors to frame this study in a way that is consistent with the AFTE theory of identification, and thus, in a way which is compatible with the way study results are analyzed in this analysis (though of course the methodology is different). 
 
 \noindent\begin{fmpage}{.985\textwidth}\centering % Checked numbers 2020-04-24
-\captionsetup{type=table}\captionof{table}{}\label{tab:mattijssen-summary}
+\captionsetup{type=table}\captionof{table}{Results for the study's examination of error rates in firearm examiners}\label{tab:mattijssen-summary}
 {\large\bf Validity and Reliability of Forensic Firearms Examiners} \emph{ \citeauthor{mattijssenValidityReliabilityForensic2020} ( \citeyear{mattijssenValidityReliabilityForensic2020})}\\
 \begin{tabularx}{\textwidth}{XrrX}\hline
 \multirow{2}{*}{\bf Study Type} & \multicolumn{2}{c}{\bf Test Set} & \multirow{2}{*}{\bf Participants}\\
@@ -1510,7 +1510,7 @@ Opt. & \multicolumn{1}{c}{Meaning} & Missed Identification & \multicolumn{1}{r}{
 Interestingly, \citet{mattijssenValidityReliabilityForensic2020} also examined the conclusions drawn from a cross-correlation based similarity assessment in both 2D (images) and 3D (scans). We include the reference comparison tables for these as well, because this allows us to compare the results from an objective algorithm with the results from examiners. Note that the algorithms do not produce inconclusive results. 
 
 \noindent\begin{fmpage}{.985\textwidth}\centering % Checked numbers 2020-04-24
-\captionsetup{type=table}\captionof{table}{}\label{tab:mattijssen-summary2d}
+\captionsetup{type=table}\captionof{table}{Results from a set of comparisons of 2D images evaluated with an automatic algorithm.}\label{tab:mattijssen-summary2d}
 {\large\bf Validity and Reliability of Forensic Firearms Examiners} \emph{ \citeauthor{mattijssenValidityReliabilityForensic2020} ( \citeyear{mattijssenValidityReliabilityForensic2020})}\\
 \begin{tabularx}{\textwidth}{XrrX}\hline
 \multirow{2}{*}{\bf Study Type} & \multicolumn{2}{c}{\bf Test Set} & \multirow{2}{*}{\bf Participants}\\
@@ -1550,7 +1550,7 @@ Opt. & \multicolumn{1}{c}{Meaning} & Missed Identification & \multicolumn{1}{r}{
 \end{fmpage}
 
 \noindent\begin{fmpage}{.985\textwidth}\centering % Checked numbers 2020-04-24
-\captionsetup{type=table}\captionof{table}{}\label{tab:mattijssen-summary3d}
+\captionsetup{type=table}\captionof{table}{Results from a set of comparisons of 3D images evaluated with an automatic algorithm.}\label{tab:mattijssen-summary3d}
 {\large\bf Validity and Reliability of Forensic Firearms Examiners} \emph{ \citeauthor{mattijssenValidityReliabilityForensic2020} ( \citeyear{mattijssenValidityReliabilityForensic2020})}\\
 \begin{tabularx}{\textwidth}{XrrX}\hline
 \multirow{2}{*}{\bf Study Type} & \multicolumn{2}{c}{\bf Test Set} & \multirow{2}{*}{\bf Participants}\\
