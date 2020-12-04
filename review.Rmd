@@ -36,8 +36,8 @@ The following two sentences seem inconsistent: “There is an order of magnitude
 > HH: I think what contributes to the problem that we implicitly talk about Fig 7 and the error rates from Baldwin on the previous page, and only explicitly mention Figure 8, which does not show the order of magnitude difference (directly).
 > Proposed fix: 
 
-- add reference to figure 7, add equation number to error rates, refer to both. 
-- Start a new paragraph before mentioning figure 8
+- add reference to figure 7, add equation number to error rates, refer to both. (done) 
+- Start a new paragraph before mentioning figure 8 (done)
 - Insert a paragraph to explain the need for a sufficient sample size to see a difference between 0.02 and 0.2
 
 

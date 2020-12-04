@@ -899,7 +899,7 @@ if inconclusive determinations are essentially another way to say ``different so
 
 Calculations are shown below for \citep{Baldwin:2014bb}, which is the only study large enough to have nonzero observed counts for all cells:
 %
-\begin{eqnarray}
+\begin{align}\label{eqn:baldwin-calcs}
 \arraycolsep=1.4pt\def\arraystretch{2.2}
 \begin{array}{rcccr}
 P (\text{same source} \mid \text{elimination}) &=& 4 / 1425 &=& 0.0028 \\
@@ -907,7 +907,7 @@ P (\text{same source} \mid \text{inconclusive or elimination}) &=& (11+4) / (748
 %P (\text{different source} \mid \text{inconclusive or elimination}) &=& \displaystyle\frac{737+1421}{748+1425} &=& 0.9931 \\ % This isn't mentioned in the text description - I suspect the calc shown below was possibly meant instead?
 P (\text{different source} \mid \text{identification}) &=& 22 / 1097 &=& 0.0201
 \end{array}
-\end{eqnarray}
+\end{align}
 
 <<asymmetric-errors, echo = F, fig.width = 8, fig.height = 3, fig.cap = "Decision-specific error rates. For all studies, errors in identification are more likely than errors in eliminations. In \\citet{Baldwin:2014bb}, which is the only study with a large number of participants and evaluations, confidence intervals for wrong identifications do not overlap, indicating that  these errors are significantly higher than wrongful eliminations.">>=
 # Even if inconclusives are treated as eliminations, error rates are still not higher for eliminations than identifications (removed from caption)
@@ -974,7 +974,7 @@ errors2 %>%
 
 
 Examining the experimentally determined error rates for firearms and toolmark identification leads to a disturbing realization. 
-There is an order of magnitude difference between the probability of same-source evidence given an elimination and the probability of different-source evidence given an identification.
+There is an order of magnitude difference between the probability of same-source evidence given an elimination and the probability of different-source evidence given an identification, as shown in \Cref{fig:asymmetric-errors} and explicitly calculated in \Cref{eqn:baldwin-calcs} for \citet{Baldwin:2014bb}.
 In fact, even if inconclusives and eliminations are combined as under Option 4 the probability of a false elimination is 0.0069, only a third of the probability of a false identification.
 
 \Cref{fig:baldwin-shape-overview} provides a visual demonstration of this discrepancy: unlike in \Cref{fig:shape-overview}, there is a difference in the density of points in the inconclusive sections of the chart.
