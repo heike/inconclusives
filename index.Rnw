@@ -960,10 +960,12 @@ errors2 %>%
   filter(!(Study %in% c("Hamby (2019)", "Lyons (2009)", 
                         "Bunch & Murphy (2003)"))) %>%
   ggplot(aes(x = rate*100, y = Study)) +
-  geom_hline(yintercept = "VCMER (2020)", colour = "black",
-             size=24, alpha = 0.1) +
+  geom_hline(yintercept = "Mattijssen (2020)", colour = "black",
+             size=16, alpha = 0.1) +
+  geom_hline(yintercept = "Duez (2018)", colour = "black",
+             size=16, alpha = 0.1) +
   geom_hline(yintercept = "Baldwin (2014)", colour = "black",
-             size=24, alpha = 0.1) +
+             size=16, alpha = 0.1) +
   geom_point(aes(colour = ErrorType, shape = ErrorType),
              position = position_dodge(width = 0.7),
              size = 2.5) + 
