@@ -19,6 +19,7 @@
 \usepackage{pbox}
 \usepackage{natbib}
 
+\usepackage{subfig}
 \usepackage{cleveref}
 
 \bibliographystyle{plainnat}
@@ -1002,30 +1003,6 @@ errors2 %>%
 
 
 
-<<baldwin-shape-overview, fig.cap = "Sketch of the relationship between  ground truth of evidence (dots) and examiners' decisions (shaded areas) as reported in \\citet{Baldwin:2014bb}. Each dot represents approximately 2 examiner evaluations. Unlike in \\Cref{fig:shape-overview}, there is a significant difference in the probability of an inconclusive evaluation when a pair is different source or same source. ", fig.width = 6, fig.height = 4, dpi = 1000, dev="pdf", out.width = "70%">>=
-baldwin <- c(a = 1075, b = 11, c = 4, d = 22, e = 737, f = 1421)
-
-do.call(target_plot, as.list(c(round(baldwin/2), pointsize = .5, bordersize = 0.001)))
-# target_plot(1075, 11, 4, 22, 737, 1421, pointsize = .5, bordersize = .001) # too dense
-@
-<<keisler-shape-overview, eval = T, include = F, fig.cap = "Sketch of the relationship between  ground truth of evidence (dots) and examiners' decisions (shaded areas) as reported in \\citet{Baldwin:2014bb}. Each dot represents approximately 2 examiner evaluations. Unlike in \\Cref{fig:shape-overview}, there is a significant difference in the probability of an inconclusive evaluation when a pair is different source or same source. ", fig.width = 6, fig.height = 4, dpi = 1000, dev="pdf", out.width = "70%">>=
-keisler <- c(a = 1508, b = 4, c = 0, d = 0, e = 203, f = 805)
-
-do.call(target_plot, as.list(c(keisler, pointsize = .5, bordersize = 0.001)))
-# target_plot(1075, 11, 4, 22, 737, 1421, pointsize = .5, bordersize = .001) # too dense
-@
-<<duez-shape-overview, eval = T, include = F, fig.cap = "Sketch of the relationship between  ground truth of evidence (dots) and examiners' decisions (shaded areas) as reported in \\citet{Baldwin:2014bb}. Each dot represents approximately 2 examiner evaluations. Unlike in \\Cref{fig:shape-overview}, there is a significant difference in the probability of an inconclusive evaluation when a pair is different source or same source. ", fig.width = 6, fig.height = 4, dpi = 1000, dev="pdf", out.width = "70%">>=
-duez <- c(a = 276+59, b = 1, c = 0, d = 2, e = 25, f = 85)
-
-do.call(target_plot, as.list(c(duez, pointsize = .5, bordersize = 0.001)))
-# target_plot(1075, 11, 4, 22, 737, 1421, pointsize = .5, bordersize = .001) # too dense
-@
-<<bunch-shape-overview, eval = T, include = F, fig.cap = "Sketch of the relationship between  ground truth of evidence (dots) and examiners' decisions (shaded areas) as reported in \\citet{Baldwin:2014bb}. Each dot represents approximately 2 examiner evaluations. Unlike in \\Cref{fig:shape-overview}, there is a significant difference in the probability of an inconclusive evaluation when a pair is different source or same source. ", fig.width = 6, fig.height = 4, dpi = 1000, dev="pdf", out.width = "70%">>=
-bunch <- c(a = 70, b = 0, c = 0, d = 0, e = 172, f = 118)
-
-do.call(target_plot, as.list(c(bunch, pointsize = .5, bordersize = 0.001)))
-# target_plot(1075, 11, 4, 22, 737, 1421, pointsize = .5, bordersize = .001) # too dense
-@
 
 
 \Cref{fig:baldwin-shape-overview} provides a visual demonstration of this discrepancy: unlike in \Cref{fig:shape-overview}, there is a difference in the density of points in the inconclusive sections of the chart. Note that while the probability of same source given an elimination is affected by lab policies towards the treatment of inconclusives, these policies do not explain the continued discrepancy in error probabilities when inconclusives and eliminations are considered together.
@@ -1610,7 +1587,29 @@ Opt. & \multicolumn{1}{c}{Meaning} & Missed Identification & \multicolumn{1}{r}{
 2 & FTE error & 0.01000 & 0.01255 & 0.01254\\
 3 & Process error & 0.01000 & 0.01255 & 0.01254 \\\hline
 \end{tabularx}
-\end{fmpage}
+\end{fmpage}\clearpage
+\section{Visual Examination of Experimental Frequencies}\label{sec:exp-freq}
+This section shows visual equivalents of \Cref{fig:shape-overview}, but for these studies, there is generally a very clear difference between the probability of inconclusive decisions under different and same source comparisons.
+
+<<shape-overview-study, fig.cap = "Sketch of the relationship between  ground truth of evidence (dots) and examiners' decisions (shaded areas). In \\citet{mattijssenValidityReliabilityForensic2020}, each dot represents approximately 4 examiner evaluations; in \\citet{Baldwin:2014bb} each dot represents 2 examiner evaluations.", fig.width = 12, fig.height = 8, dpi = 1000, out.width = "\\textwidth", cache = F>>=
+source("code/make_inconcl_plot.R")
+mattijssen <- as.list(round(c(a = 2365, b = 487, c = 95, d = 74, e = 815, f = 784)/4))
+lilien <- list(a = 453, b = 38, c = 0, d = 3, e = 254, f = 436)
+baldwin <- as.list(round(c(a = 1075, b = 11, c = 4, d = 22, e = 737, f = 1421)/2))
+keisler <- list(a = 1508, b = 4, c = 0, d = 0, e = 203, f = 805)
+duez <- list(a = 276+59, b = 1, c = 0, d = 2, e = 25, f = 85)
+bunch <- list(a = 70, b = 0, c = 0, d = 0, e = 172, f = 118)
+
+grid.arrange(
+do.call(target_plot, c(mattijssen, pointsize = .5, bordersize = 0.001, title = "Mattijssen (2020)", legend = F)),
+do.call(target_plot, c(lilien, pointsize = .5, bordersize = 0.001, title = "VCMER (2020)", legend = F)),
+do.call(target_plot, c(baldwin, pointsize = .5, bordersize = 0.001, title = "Baldwin (2014)", legend = F)),
+do.call(target_plot, c(keisler, pointsize = .5, bordersize = 0.001, title = "Keisler (2018)", legend = F)),
+do.call(target_plot, c(duez, pointsize = .5, bordersize = 0.001, title = "Duez (2018)", legend = F)),
+ncol = 3
+)
+@
+Bunch and Murphy (2003) is not included in this display because the proportion of identifications and the proportion of same-source comparisons are both so low that the figure could not be properly rendered.
 \clearpage
 \section{Simulation of comparisons in studies with multiple knowns}\label{sec:sim}
 
