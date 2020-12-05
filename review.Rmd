@@ -51,6 +51,7 @@ The manuscript does not provide any basis for the observation, “...in many stu
 
 > Isn't this part of the NAS report? I'm going to check...
 
+- I've changed this to say different-source comparisons - the point remains valid, and that I can support with evidence (VCMER, Baldwin, and Bunch/murphy) vs. everything else. 
 
 5. Page 29, table 11:
 The numbers 0.2414 and 0.7586 in the right-hand column seem incorrect. I would have expected to see 0.1944 (=70/360) and 0.8056 (=290/360).
