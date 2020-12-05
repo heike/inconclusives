@@ -1350,15 +1350,15 @@ Diff source & 0 & 172 & 118 & 290 \\\hline
 
 \multicolumn{5}{c}{\bf (Nominal) Conclusion-Specific Probabilities}\\
 \multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Probability\\\hline
-Same source & 1 & 0 & 0 & 0.2414\\
-Diff source & 0 & 1 & 1 & 0.7586\\\hline
+Same source & 1 & 0 & 0 & \svp{0.1944}\\
+Diff source & 0 & 1 & 1 & \svp{0.8056}\\\hline
 \multicolumn{1}{Y}{Conclusion Probability} & 0.1944 & 0.4778 & \multicolumn{1}{r}{0.3278} & \multicolumn{1}{Y}{}\\\hline\hline
 
 \multicolumn{5}{c}{}\\
 \multicolumn{5}{c}{\bf (Nominal) Source-Specific Probabilities}\\
 \multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Probability\\\hline
-Same source & 1.0000 & 0.0000 & 0.0000 & 0.2414\\
-Diff source & 0.0000 & 0.5931 & 0.4069 & 0.7586\\\hline
+Same source & 1.0000 & 0.0000 & 0.0000 & \svp{0.1944}\\
+Diff source & 0.0000 & 0.5931 & 0.4069 & \svp{0.8056}\\\hline
 \multicolumn{1}{Y}{Conclusion Probability} & 0.1944 & 0.4778 & \multicolumn{1}{r}{0.3278} & \multicolumn{1}{Y}{}\\\hline\hline
 \end{tabularx}
 

@@ -55,7 +55,7 @@ The manuscript does not provide any basis for the observation, “...in many stu
 5. Page 29, table 11:
 The numbers 0.2414 and 0.7586 in the right-hand column seem incorrect. I would have expected to see 0.1944 (=70/360) and 0.8056 (=290/360).
 
-
+- Thanks for catching that, we must have checked the numbers 10x or more, but errors still sneak in!
 
 In addition, the points below are for optional consideration by the authors before publication
 
