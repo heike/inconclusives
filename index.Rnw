@@ -236,7 +236,7 @@ When firearms and toolmark examiners assess a set of evidence (generally, a pair
 
 <<shape-overview, fig.cap = "Sketch of the relationship between  ground truth of evidence (dots) and examiners' decisions (shaded areas). In a perfect scenario dots only appear on the shaded area of the same color. Any dots on differently colored backgrounds indicate an error in the examination process.", out.width = "60%", fig.width = 6, fig.height = 4, dpi = 500, cache = F>>=
 source("code/make_inconcl_plot.R") 
-target_plot(100, 50, 10, 10, 50, 100) 
+target_plot(100, 50, 10, 10, 50, 100, side_labels = c("Different Source", "Same Source")) 
 @
 
 Deciding whether evidence is an identification, exclusion, or inconclusive provides a \emph{classification} of the evidence, allowing us to make use of elements of the larger \emph{classification framework}.

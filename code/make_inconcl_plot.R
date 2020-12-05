@@ -1,7 +1,7 @@
 library(sf)
 library(tidyverse)
 
-target_plot <- function(a, b, c, d, e, f, pointsize = 1, bordersize = .005, title = NA, legend = T) {
+target_plot <- function(a, b, c, d, e, f, pointsize = 1, bordersize = .005, title = NA, legend = T, side_labels = c("DS", "SS")) {
   # browser()
   N <- a + b + c + d + e + f
   center_cir <- (a + d)/N
@@ -31,7 +31,7 @@ target_plot <- function(a, b, c, d, e, f, pointsize = 1, bordersize = .005, titl
     geometry_concl = list(ident_sf, inconcl_sf, elim_sf))
   
   prop_ss <- (a + b + c)/N
-  xint <- .5-prop_ss
+  xint <- .5-(.5 + prop_ss)/2
   ground_truth <- st_sf(gt = c("DS", "SS"), 
                         geometry_gt = list(st_polygon(list(cbind(c(-.5, xint, xint, -.5, -.5),
                                                               c(-.5, -.5, .5, .5, -.5)))),
@@ -82,8 +82,8 @@ target_plot <- function(a, b, c, d, e, f, pointsize = 1, bordersize = .005, titl
     geom_sf(alpha = .6, color = "black") + 
     # geom_sf(data = filter(points, concl != "Inconclusive"), aes(geometry = points), color = "white", alpha = .5, size = 1.5*pointsize, legend = F) +
     geom_sf(data = points, aes(geometry = points, color = gt), size = pointsize, shape = 19) +
-    annotate(geom = "text", x=-.5, y=.55, label = "DS", hjust = 0, size = 5, color = "darkorange4") + 
-    annotate(geom = "text", x=.5, y=.55, label = "SS", hjust = 1, size = 5, color = "steelblue4") + 
+    annotate(geom = "text", x=-.5, y=.55, label = side_labels[1], hjust = 0, size = 5, color = "darkorange4") + 
+    annotate(geom = "text", x=.5, y=.55, label = side_labels[2], hjust = 1, size = 5, color = "steelblue4") + 
     geom_sf(aes(geometry = geometry), fill = "transparent", size = .75, color = "black") +     
     geom_vline(xintercept = xint, size = .75) + 
     ggtitle(title) +
