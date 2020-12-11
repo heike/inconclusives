@@ -594,7 +594,7 @@ library(tidyverse)
 studies <- read.csv("data/studies.csv")
 studies <- studies %>% mutate(
     Study = factor(Study, 
-                    levels=c("Baldwin (2014)", "Keisler (2018)", "Duez (2018)", "VCMER (2020)", "Mattijssen (2020)", "Bunch & Murphy (2003)", "Hamby (2019)", "Lyons (2009)"))
+                    levels=c("Baldwin (2014)", "Keisler (2018)", "Duez (2018)", "VCMER (2020)", "Mattijssen (2020)", "Bunch & Murphy (2003)", "Hamby (2019)", "Lyons (2009)", "FAID-2009 Bullets", "FAID-2009 Cartridges"))
   )
 
 cis <- studies %>% group_by(Study, Decision) %>% 
