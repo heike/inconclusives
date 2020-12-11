@@ -1,8 +1,7 @@
 ---
 title: "review"
-author: "Heike Hofmann"
 date: "11/13/2020"
-output: html_document
+output: pdf_document
 ---
 
 ```{r setup, include=FALSE}
@@ -16,71 +15,84 @@ In my opinion, the article will be acceptable for publication in Law, Probabilit
 
 1. Section 2.3, final two paragraphs on page 7:
 The two paragraphs below clearly seem to contradict one another and must be reworded: "Complementary to accuracy rates, we define two error rates of a classification method: The false positive rate (FPR) - or failed elimination rate - is the probability that an examination of different source evidence does not result in an elimination. Similarly, the false negative rate (FNR) - or missed identification rate - is the probability that an examination of same-source evidence does not result in an identification.
-Note that we are keeping the definition of error rates a bit vague on purpose. As discussed in Section 2.2, there are multiple ways to define an error, but the concepts of FPR and FNR hold for all of the options of treating inconclusive decisions outlined in Table 3."
-
+Note that we are keeping the definition of error rates a bit vague on purpose. As discussed in Section 2.2, there are multiple ways to define an error, but the concepts of FPR and FNR hold for all of the options of treating inconclusive decisions outlined in Table 3."    
 If the FPR is the probability that an examination of different source evidence does not result in an elimination, then inconclusives always count as errors. A similar argument holds for FNR. Therefore, the concepts of FPR and FNR as defined above are only consistent with option 3 in Table 3 and not with all the methods of treating inconclusives as stated in the second paragraph.
 
-> Ok, so we got caught :-p How do we fix it though?
-
-> Thank you for pointing out this inconsistency - we tried to define error rates conceptually first before getting into the more contentious areas of what constitutes an error. 
-> We have rephrased the first paragraph to:
-
-"The \emph{false positive rate} (FPR) -- or failed elimination rate -- is the probability that an examination of different source evidence *results in an error*. 
-Similarly, the \emph{false negative rate} (FNR) -- or missed identification rate -- is the probability that an examination of same-source evidence *results in an error*."
+    - Ok, so we got caught :-p How do we fix it though?
+    - Thank you for pointing out this inconsistency - we tried to define error rates conceptually first before getting into the more contentious areas of what constitutes an error. We have rephrased the first paragraph to:    
+    *The \emph{false positive rate} (FPR) -- or failed elimination rate -- is the probability that an examination of different source evidence **results in an error**. Similarly, the \emph{false negative rate} (FNR) -- or missed identification rate -- is the probability that an examination of same-source evidence **results in an error**.*
 
 2. Page 19, first paragraph below figure 8:
 The following two sentences seem inconsistent: “There is an order of magnitude difference between the probability of same-source evidence given an elimination and the probability of different-source evidence given an identification. Figure 8 provides a visual demonstration of this discrepancy: unlike in Figure 1, there is a difference in the density of points in the inconclusive sections of the chart.” The first sentence refers to identifications/eliminations whereas the second sentence refers to inconclusives. In addition, Fig. 8 does not show the order of magnitude difference between the probability of same- source evidence given an elimination and the probability of different-source evidence given an identification because there are four dots in the one field and nine dots in the other field. Taking these sentences together, it is not clear whether the disturbing realization in the previous sentence refers to eliminations/identifications or to inconclusives. Since this is one of the most important observations of the manuscript, it is important to state the observation clearly.
-
-> Ok, so it sounds like we need to elaborate a bit on this. It's not inconsistent, it's just that we're making the point of bias in a roundabout way.
-
-> HH: I think what contributes to the problem that we implicitly talk about Fig 7 and the error rates from Baldwin on the previous page, and only explicitly mention Figure 8, which does not show the order of magnitude difference (directly).
-> Proposed fix: 
-
-- add reference to figure 7, add equation number to error rates, refer to both. (done) 
-- Start a new paragraph before mentioning figure 8 (done)
-- Insert a paragraph to explain the need for a sufficient sample size to see a difference between 0.02 and 0.2 (done) 
+    - Ok, so it sounds like we need to elaborate a bit on this. It's not inconsistent, it's just that we're making the point of bias in a roundabout way.
+    - HH: I think what contributes to the problem that we implicitly talk about Fig 7 and the error rates from Baldwin on the previous page, and only explicitly mention Figure 8, which does not show the order of magnitude difference (directly).
+    - Proposed fix: 
+      - add reference to figure 7, add equation number to error rates, refer to both. (done) 
+      - Start a new paragraph before mentioning figure 8 (done)
+      - Insert a paragraph to explain the need for a sufficient sample size to see a difference between 0.02 and 0.2 (done) 
 
 
 3. Page 19, paragraph 3, lines 2-4:
 The following statement is false: “We see that in the three studies with a large enough sample size, the point estimate of the probability of a false identification is higher than the probability of a false elimination.” Figure 7 clearly shows that the probability of a false identification and the probability of a false elimination are both equal to zero for the Keisler data.
+    - I think the reviewer missed that we're basically saying Keisler wasn't a big enough study (iirc)
+    - This has been rephrased as part of the move to incorporate other studies.
 
-> I think the reviewer missed that we're basically saying Keisler wasn't a big enough study (iirc)
-
-4. Page 21, lines 2-3:
+4. Page 21, lines 2-3:    
 The manuscript does not provide any basis for the observation, “...in many studies, there are more same-source comparisons than what would be expected in case work.” They must eliminate the observation or provide evidence for the relative amounts of same source and different source comparisons found in case work.
 
-> Isn't this part of the NAS report? I'm going to check...
-
-- I've changed this to say different-source comparisons - the point remains valid, and that I can support with evidence (VCMER, Baldwin, and Bunch/murphy) vs. everything else. 
+    - Isn't this part of the NAS report? I'm going to check... (couldn't find it)
+      
+    - I've changed this to say different-source comparisons - the point remains valid, and that I can support with evidence (VCMER, Baldwin, and Bunch/murphy) vs. everything else. 
+    - This got changed again and reduced a bit to     
+  *For example, in many studies, the study is designed such that it is possible to estimate false elimination rates more precisely than false identification rates.  In fact, in some common study designs, it is only possible to estimate the false elimination error rate; the rate of false identifications cannot be estimated at all.*
 
 5. Page 29, table 11:
 The numbers 0.2414 and 0.7586 in the right-hand column seem incorrect. I would have expected to see 0.1944 (=70/360) and 0.8056 (=290/360).
 
-- Thanks for catching that, we must have checked the numbers 10x or more, but errors still sneak in!
+    - Thanks for catching that, we must have checked the numbers 10x or more, but errors still sneak in!
 
 In addition, the points below are for optional consideration by the authors before publication
 
 
-- Abstract:
-  - The abstract could be improved by stating any important observations there, for example that inconclusive examiner opinions are significantly associated more with different source pairs than same source pairs.
+- Abstract: The abstract could be improved by stating any important observations there, for example that inconclusive examiner opinions are significantly associated more with different source pairs than same source pairs.
   
-- Section 2.4, page 10, lines 1-2:
-  - Upon first reading, the clause “however, the results of designed studies are used to give information tailored to the situation in a particular case” gave me the mistaken impression that the studies are designed to give information about case work. This impression could be mitigated by changing the clause to read “however, the results of designed studies are used here to give information for the different decision scenarios,” or by a comparable change.
-  
-- Page 15, section 3.4, last sentence:
-  - The following sentence seems overstated: “Regardless of the explanation, it is apparent that when presented with a different source comparison, examiners make an elimination much less frequently than an identification when presented with a same-source comparison.” Given the elimination data shown in in Fig. 5 where the differences are less than an order of magnitude, I would change “much” to “significantly”.
+- Section 2.4, page 10, lines 1-2:     
+Upon first reading, the clause “however, the results of designed studies are used to give information tailored to the situation in a particular case” gave me the mistaken impression that the studies are designed to give information about case work. This impression could be mitigated by changing the clause to read “however, the results of designed studies are used here to give information for the different decision scenarios,” or by a comparable change.
+  - changed. Thanks!
+
+- Page 15, section 3.4, last sentence:    
+The following sentence seems overstated: “Regardless of the explanation, it is apparent that when presented with a different source comparison, examiners make an elimination much less frequently than an identification when presented with a same-source comparison.” Given the elimination data shown in in Fig. 5 where the differences are less than an order of magnitude, I would change “much” to “significantly”.
+  - changed
   
 - Page 16, last two paragraphs of section 3.5:
   - The term “target probability” is not defined in the last paragraph. Upon review it becomes clear that the term is exchangeable with the term “expected proportion” in the preceding paragraph. I would change “expected proportion” to “expected proportion (target probability)”.
+  - changed
   
-- Page 17, line 8 below Table 6:
-  - To improve clarity, I would change “This implies that we can calculate the “target" probability for each decision” to “This implies that we can calculate the “target" probability for each decision for same source pairs”.
+- Page 17, line 8 below Table 6:    
+To improve clarity, I would change “This implies that we can calculate the “target" probability for each decision” to “This implies that we can calculate the “target" probability for each decision for same source pairs”.
+  - changed (slight variation)
   
-- Page 18, figure caption 7:
-  - The statement that the Baldwin study is the only study with a large number of participants and evaluations is not consistent with a previous statement that the Keisler and Duez studies were also large. I would state rather that the Baldwin study is the largest of the three studies shown in the figure.
+- Page 18, figure caption 7:    
+The statement that the Baldwin study is the only study with a large number of participants and evaluations is not consistent with a previous statement that the Keisler and Duez studies were also large. I would state rather that the Baldwin study is the largest of the three studies shown in the figure.
+  - I'm unable to find previous statements implying that Keisler and Duez are large studies.
   
-- Page 19, line 3 from the bottom:
-  - Change “criteria” to “criterion”, because the intended meaning is singular.
+- Page 19, line 3 from the bottom:    
+Change “criteria” to “criterion”, because the intended meaning is singular.
+  - done
   
-- Page 20, last sentence:
-  - I did not understand the sentence: “We also suggest that during cross-examination after the testimony was presented, the defense ask about the decision specific probability of an error (relative to the examiner's decision), which will provide specific information which is relevant to the testimony at hand.” Please reword.
+- Page 20, last sentence:    
+I did not understand the sentence: “We also suggest that during cross-examination after the testimony was presented, the defense ask about the decision specific probability of an error (relative to the examiner's decision), which will provide specific information which is relevant to the testimony at hand.” Please reword.
+  - done
+  
+
+## Addendum
+
+The authors have not included in their analysis several published studies from European laboratories that dealt with error rate testing.Perhaps these studies were not included because the emphasis of the manuscript is on the AFTE theory of identification, rather than the ENFSI method of estimating likelihood ratios. It would be beneficial to check the results of these studies to make sure that the data do not change the principal observations. It would also add to the usefulness of the manuscript to cite the articles. They are as follows:
+
+- Pauw-Vugts, P., et al., FAID2009: Proficiency Test and Workshop. AFTE Journal, 2013. 45(2 -Spring): p. 115-127.
+- Mattijssen, E., et al., Validity and reliability of forensic firearm examiners. Forensic Sci Int, 2020. 307, 110112.
+
+Finally, more black box test data using VCM have been published by the group that wrote the Duez et al. article. These data would add to or supersede the data shown in Table 9 of the manuscript. See 
+
+- Lilien,R., Firearm Forensics Black-Box Studies for Examiners and Algorithms using Measured 3D Surface Topographies, NIJ Report 254338. 2019, Office of Justice Programs: Washington DC. p. 38.
+- Chapnick, Chad et al., Results of the 3D Virtual Comparison Microscopy Error Rate (VCMER) Study for firearm forensics, J. Forensic Sci., 2020. DOI: 10.1111/1556-4029.14602

@@ -453,7 +453,7 @@ Different source & $d/(a+d)$ & $e/(b+e)$ & $f/(c+f)$ & $D/N$\\\hline
 
 Predictive value assessments are used in assessing the implications of a particular classification label; they inform us about the \emph{likely state of the physical evidence} given the expert's decision or testimony. This makes the PPV, NPV, FDR, and FOR particularly useful when evaluating casework (or in a courtroom setting), because the true state of the evidence is unknown.
 
-Note that we still cannot directly calculate the probabilities for any individual case or evidence: ground truth is still not knowable; however, the results of designed studies are used to give information  tailored to the situation in a particular case. 
+Note that we still cannot directly calculate the probabilities for any individual case or evidence: ground truth is still not knowable; however, the results of designed studies are used to give information tailored \svp{to a specific decision scenario}. 
 While it is reasonable to condition on unknown quantities in a mathematical sense, in practice it is much more informative to condition on quantities with known values: in this case, the examiner's decision is the known information and the state of the physical evidence is unknown.
 
 Conversely, source-specific assessments are useful when evaluating the performance of individuals on a designed test, because ground truth is known (and thus, can be conditioned upon) in designed studies.
@@ -744,7 +744,7 @@ It is also apparent that examiners have much more difficulty when examining evid
 Closed-set designs (used in  \citet{Hamby:2018hu} and  \citet{lyons}) do not even allow for the estimation of different-source probabilities because it is not possible to estimate the number of different source comparisons which are made; this inherent bias has the unintentional effect of masking the fact that examiners are not as accurate when evaluating different-source comparisons. 
 While in most studies (except Bunch \& Murphy), the probability of making an inconclusive determination for different source evidence is below the probability of making an elimination, the probability that examiners will correctly make an elimination is still extremely low relative to the probability of a correct decision in the evaluation of same source evidence.
 It may be that examiners are trained to look for similarities, instead of differences, or that it is simply more difficult to classify a difference as opposed to a similarity; further, some labs inexplicably forbid eliminations  unless there is a class characteristic mismatch.
-Regardless of the explanation, it is apparent that when presented with a different source comparison, examiners make an elimination much less frequently than an identification when presented with a same-source comparison. 
+Regardless of the explanation, it is apparent that when presented with a different source comparison, examiners make an elimination \svp{significantly} less frequently than an identification when presented with a same-source comparison. 
 
 <<source-spec-cis, echo=FALSE, fig.width=8, fig.height=5, fig.cap="Pearson-Clopper 95\\% confidence intervals for the probability of an examiner's conclusion given source of the evidence. No assessments can be made about different-source specific probabilities when the total number of comparisons cannot be determined. The probability of inconclusive determinations on different source evidence is quite high, much higher than for same source evidence, where the probability for an inconclusive result is close to zero. \\svp{\\citet{pauw2013faid} is unique among the rest of the studies: for both sets, the rate of inconclusive decisions is similar for same and different source evidence.}", out.width=".8\\textwidth">>=
 
@@ -822,7 +822,7 @@ cis %>%
 @
 
 
-In \Cref{fig:cis}, it is  clear that the probability of same-source evidence given an inconclusive evaluation is much lower than the calculated target probability \svp{for most studies}.
+In \Cref{fig:cis}, it is  clear that the probability of same-source evidence given an inconclusive evaluation is much lower than the \svp{expected proportion} (target probability) \svp{for most studies}.
 The decision-specific probabilities provide indications that the distribution of inconclusive determinations is very different from our expectations. 
 \svp{One notable exception is \citet{pauw2013faid}, which is a proficiency test (and thus, may be harder than the studies focused on error rates) of examiners in various European laboratories. While we cannot determine \emph{why} this study is so different, it is clear that the discrepancy between inconclusive determinations and evidence source does not exist under all conditions.
 This suggests we may want to examine the source of this bias in more depth.}
@@ -837,7 +837,7 @@ We have no reason to believe that these thresholds are asymmetric; that is, the 
 Statistically, we would express this symmetry as the independence between the source and an inconclusive finding: that is, $P(\text{same source} | \text{inconclusive}) = P(\text{same source})$ and $P(\text{different source} | \text{inconclusive}) = P(\text{different source})$.
 
 
-This implies that we can calculate the ``target" probability for each decision: the target for identification is 100\%: all same source pairs should result in an identification. 
+This implies that we can calculate the ``target" probability for each decision. \svp{For same-source pairs, } the target for identification is 100\%: all same source pairs should result in an identification. 
 Similarly, the target for elimination is 0\%: not even a single same-source pair should result in an elimination. 
 Same-source pairs should be assessed as inconclusive with frequency proportional to the number of same-source comparisons in the study. 
 Conceptually, \Cref{fig:shape-overview} demonstrates this characteristic: the rate of inconclusives is the same for both same-source and different-source evidence.
@@ -936,7 +936,7 @@ P (\text{different source} \mid \text{identification}) &=& 74 / 2439 &=& 0.0303
 \end{align}
 
 
-Examining the experimentally determined error rates for firearms and toolmark identification leads to a disturbing realization. \svp{XXX Mattijssen is directly counter to this. How do we want to address it? Blame AFTE rules? The adversarial system?}
+Examining the experimentally determined error rates for firearms and toolmark identification leads to a disturbing realization. \svp{XXX Mattijssen is directly counter to this. How do we want to address it? Blame AFTE rules? The adversarial system? We still need to smooth this discussion out a bit. XXX}
 There is an order of magnitude difference between the probability of same-source evidence given an elimination and the probability of different-source evidence given an identification. 
 In fact, even if inconclusives and eliminations are combined as under Option 4 the probability of a false elimination is 0.0069, only a third of the probability of a false identification.
 These observations are shown visually in \Cref{fig:asymmetric-errors} and explicitly calculated in \Cref{eqn:baldwin-calcs,eqn:mattijssen-calcs} for studies with sufficient error counts \citep{Baldwin:2014bb,mattijssenValidityReliabilityForensic2020}. 
@@ -1050,7 +1050,7 @@ In the courtroom (or before, in a plea bargain situation), this results in a  bi
 There are many ways this bias could arise: there are, of course, well documented motivational and cognitive biases \citep{motivationalcognitivebiases, robertson2016blinding} which may affect examiners.
 In addition, it may be easier to identify similarities than to explicitly identify dissimilarities \citep{bagnaraSymmetrySimilarityEffects1983, ashbyUnifiedTheorySimilarity1988}. %\svp{XXX find papers?}
 Examiner training  primarily focus on making identifications, rather than spending an equal amount of time on making eliminations.
-In the case of bullet examination, there is an objective criteria for sufficient similarity: 6 consecutively matching striae, according to \citet{biasotti}; similar criteria have been proposed for algorithmic assessment of cartridge cases \citep{song3DTopographyMeasurements2014}.
+In the case of bullet examination, there is an objective criterion for sufficient similarity: 6 consecutively matching striae, according to \citet{biasotti}; similar criteria have been proposed for algorithmic assessment of cartridge cases \citep{song3DTopographyMeasurements2014}.
 However, in both instances, there is not a corresponding threshold for dissimilarity.
 Here, we do not attempt to identify the source of the bias; we only identify that there is observable bias in the distribution of inconclusive results and suggest that this bias must be addressed.
 \svp{It is important to note that when we speak of biases, our conclusions apply to error rate studies, not to case work. In case work, damaged evidence may cause an examiner to make an inconclusive determination; the studies we have examined here do not have this additional complication.}
@@ -1092,7 +1092,7 @@ Further, decision-specific error rates avoid the need to treat inconclusives dif
 
 In practice, using decision-specific error rates depends on the availability of information that is not currently collected. Specifically, we would need to know examiner-specific probabilities of incorrect conclusions as well as examiner-specific historical decisions. We might be able to learn the  former from reliable proficiency testing, while the latter could be obtained from past lab reports and testimony.
 
-Specifically, in court, we suggest that when the admissibility of an examiner's testimony is assessed, the examiner is asked to state the lab policy on making eliminations, the rate at which the examiner makes inconclusive decisions, along with any relevant error rates specific to the lab and to themselves. We also suggest that during cross-examination after the testimony was presented, the defense ask about the decision-specific probability of an error (relative to the examiner's decision), which will provide specific information which is relevant to the testimony at hand.
+Specifically, in court, we suggest that when the admissibility of an examiner's testimony is assessed, the examiner is asked to state the lab policy on making eliminations \svp{and} the rate at which the examiner makes inconclusive decisions, along with any relevant error rates specific to the lab and to themselves. We also suggest that during cross-examination after the testimony was presented, the defense ask about the decision-specific probability of an error (relative to the examiner's decision). \svp{This information will provide error rates which are specific and relevant to the presented testimony.}% which will provide specific information which is relevant to the testimony at hand.
 
 % Discuss the systematic biases which all work against the defendant: 
 % \begin{itemize}
@@ -1104,7 +1104,8 @@ Specifically, in court, we suggest that when the admissibility of an examiner's 
 % \item This bias \svp{ against the defense in inconclusives mirrors biases in admissibility of forensic evidence  \citep{morenoWhatHappensWhen2004, epsteinPreferringWiseMan2014, roachFORENSICSCIENCEMISCARRIAGES2009}}
 % \end{itemize}
 
-In the process of examining these different error rate calculations, we discovered a series of systematic biases in error rate studies and the examination process which all work against the defendant. For example, in many studies, the \svp{study is designed such that it is possible to estimate false elimination rates} more precisely than false identification rates. 
+In the process of examining these different error rate calculations, we discovered a series of systematic biases in error rate studies and the examination process which all work against the defendant. 
+For example, in many studies, the \svp{study is designed such that it is possible to estimate false elimination rates} more precisely than false identification rates. 
 In fact, in some common study designs, it is only possible to estimate the false elimination error rate; the rate of false identifications cannot be estimated at all. 
 This ensures that there is no way to invalidate the examiner's testimony on the basis that it might contribute to a false conviction of the defendant. 
 In addition, examiners \svp{working under the AFTE range of conclusions} appear to have a lower threshold for identification than for elimination; when evidence originates from different sources, examiners are more likely to arrive at an inconclusive decision than they are when the evidence has the same source. 
