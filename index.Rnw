@@ -594,7 +594,7 @@ library(tidyverse)
 studies <- read.csv("data/studies.csv")
 studies <- studies %>% mutate(
     Study = factor(Study, 
-                    levels=c("Baldwin (2014)", "Keisler (2018)", "Duez (2018)", "VCMER (2020)", "Mattijssen (2020)", "Bunch & Murphy (2003)", "Hamby (2019)", "Lyons (2009)", "FAID-2009 Bullets", "FAID-2009 Cartridges"))
+                    levels=c("Bunch & Murphy (2003)", "Lyons (2009)", "Hamby (2019)", "Baldwin (2014)", "Keisler (2018)", "Duez (2018)", "VCMER (2020)", "Mattijssen (2020)", "FAID2009 Bullets", "FAID2009 Cartridges"))
   )
 
 cis <- studies %>% group_by(Study, Decision) %>% 
@@ -627,7 +627,7 @@ DontKnow_source_spec <- tibble(
   pred_ss = 0.5, 
   xmin=c(0,0,0,0,0,0), 
   xmax=c(1,1,1,1,1,1), 
-  Study = c("Lyons (2009)", "Hamby (2019)", "Lyons (2009)", "Hamby (2019)", "Lyons (2009)", "Hamby (2019)"), 
+  Study = c("Lyons (2009)", "Hamby (2019)", "Lyons (2009)", "Hamby (2019)", "Lyons (2009)", "Hamby (2019)") %>% factor(levels = levels(studies$Study)), 
   Decision=rep(c("Identification", "Inconclusive", "Elimination"), each=2),
   Ground.truth = "Different Source") %>%
   dplyr::mutate(Decision = factor(Decision, levels=c("Identification", "Inconclusive", "Elimination")))
@@ -636,7 +636,7 @@ DontKnow <- data.frame(
   pred_ss = 0.5, 
   xmin=c(0,0,0,0), 
   xmax=c(1,1,1,1), 
-  Study = c("Lyons (2009)", "Hamby (2019)", "Lyons (2009)", "Hamby (2019)"), 
+  Study = c("Lyons (2009)", "Hamby (2019)", "Lyons (2009)", "Hamby (2019)") %>% factor(levels = levels(studies$Study)), 
   Decision=rep(c("Inconclusive", "Elimination"), each=2))
 
 errors <- studies %>% 
@@ -703,12 +703,11 @@ gg <- gg %>% group_by(Type, Study, Error) %>%
     pos = c("white", "grey")[1 + as.numeric(Study) %% 2]
   ) 
 
+rects <- tibble(y = c(1, 3, 5, 7, 9))
+
 gg %>%
   ggplot(aes(x = Number/Comparisons*100, y = Study)) +
-  geom_rect(aes(xmin = -Inf, xmax = Inf, ymin =1 - 0.3, ymax = 1 + 0.6), fill = "grey90", alpha = .25, inherit.aes = F) + 
-  geom_rect(aes(xmin = -Inf, xmax = Inf, ymin =3 - 0.3, ymax = 3 + 0.6), fill = "grey90", alpha = .25, inherit.aes = F) + 
-  geom_rect(aes(xmin = -Inf, xmax = Inf, ymin =5 - 0.3, ymax = 5 + 0.6), fill = "grey90", alpha = .25, inherit.aes = F) + 
-  geom_rect(aes(xmin = -Inf, xmax = Inf, ymin =7 - 0.3, ymax = 7 + 0.6), fill = "grey90", alpha = .25, inherit.aes = F) + 
+  geom_rect(aes(xmin = -Inf, xmax = Inf, ymin =y - 0.3, ymax = y + 0.6), fill = "grey90", alpha = .25, inherit.aes = F, data = rects) + 
   geom_point(aes(shape=Type, colour = Type, y = as.numeric(Study)+0.3*(as.numeric(Type)-1.5)) ) +
   geom_point(aes(x=35, y = as.numeric(Study)),
                  data = filter(gg, is.na(Comparisons)), shape='?', size = 3.5,
@@ -717,8 +716,9 @@ gg %>%
   theme_bw() +
   xlab("(Source-specific) Error Percentages") +
   xlim(c(0, NA)) +
-  geom_errorbarh(aes(xmin=err_lower, xmax=err_upper, colour = Type, y=as.numeric(Study)+0.3*(as.numeric(Type)-1.5)),
-                 size=0.5, height = 0.3,  alpha =0.9) +
+  geom_errorbarh(aes(xmin=err_lower, xmax=err_upper, colour = Type, 
+                     y=as.numeric(Study)+0.3*(as.numeric(Type)-1.5)),
+                 size=0.5, height = 0.25,  alpha =0.9) +
   scale_y_continuous(breaks=1:length(levels(errors$Study)), labels=levels(errors$Study), minor_breaks = NULL) +
   scale_colour_brewer(palette="Dark2") +
   theme(legend.position = "bottom", legend.direction = "horizontal")
@@ -746,7 +746,7 @@ While in most studies (except Bunch \& Murphy), the probability of making an inc
 It may be that examiners are trained to look for similarities, instead of differences, or that it is simply more difficult to classify a difference as opposed to a similarity; further, some labs inexplicably forbid eliminations  unless there is a class characteristic mismatch.
 Regardless of the explanation, it is apparent that when presented with a different source comparison, examiners make an elimination much less frequently than an identification when presented with a same-source comparison. 
 
-<<source-spec-cis, echo=FALSE, fig.width=8, fig.height=5, fig.cap="Pearson-Clopper 95\\% confidence intervals for the probability of an examiner's conclusion given source of the evidence. No assessments can be made about different-source specific probabilities when the total number of comparisons cannot be determined. The probability of inconclusive determinations on different source evidence is quite high, much higher than for same source evidence, where the probability for an inconclusive result is close to zero.", out.width=".8\\textwidth">>=
+<<source-spec-cis, echo=FALSE, fig.width=8, fig.height=5, fig.cap="Pearson-Clopper 95\\% confidence intervals for the probability of an examiner's conclusion given source of the evidence. No assessments can be made about different-source specific probabilities when the total number of comparisons cannot be determined. The probability of inconclusive determinations on different source evidence is quite high, much higher than for same source evidence, where the probability for an inconclusive result is close to zero. \\svp{\\citet{pauw2013faid} is unique among the rest of the studies: for both sets, the rate of inconclusive decisions is similar for same and different source evidence.}", out.width=".8\\textwidth">>=
 
 figdata <- source_spec_cis %>% 
   ungroup() %>%
@@ -775,7 +775,7 @@ figdata %>%
    geom_col(aes(x = Study, y = I(1)), width = 1, colour = NA,
           alpha = 0.1, fill = "black", linetype = "solid",
           data = figdata %>%
- filter(Study %in% c("Lyons (2009)", "Bunch & Murphy (2003)", "Keisler (2018)", "VCMER (2020)"))) 
+ filter(as.numeric(Study) %in% c(1, 3, 5, 7, 9))) 
 @
 
 \subsection{Decision-specific error rates}\label{sec:dec-spec-res}
@@ -792,8 +792,8 @@ As before, the probabilities computed from the study results are shown with thei
 The circles shown in light grey in the middle panel show the expected proportion of inconclusive results which are from the same source. 
 The calculation of these expected values will be discussed in more detail in the next section.
 
-<<cis, echo=FALSE, fig.width=8, fig.height=6, fig.cap="Pearson-Clopper 95\\% confidence intervals for the probability of same source evidence given an examiner's conclusion. Expected values for each of the probabilities as discussed in \\Cref{sec:inconclusives} are shown as grey targets. Some of the studies do not allow an assessment of all of the predictive values.", out.width=".8\\textwidth">>=
-
+<<cis, echo=FALSE, fig.width=8, fig.height=6, fig.cap="Pearson-Clopper 95\\% confidence intervals for the probability of same source evidence given an examiner's conclusion. Expected values for each of the probabilities as discussed in \\Cref{sec:inconclusives} are shown as grey targets. Some of the studies do not allow an assessment of all of the predictive values. \\svp{Note that all 3 sets with non-AFTE conclusions \\citep{pauw2013faid, mattijssenValidityReliabilityForensic2020} have much higher rates of same-source elimination errors. Only \\citet{pauw2013faid} has inconclusive rates which are similar to the overall rate of same-source evidence.}", out.width=".8\\textwidth">>=
+ 
 cis %>% 
   ungroup() %>%
   mutate(
@@ -822,8 +822,10 @@ cis %>%
 @
 
 
-In \Cref{fig:cis}, it is  clear that the probability of same-source evidence given an inconclusive evaluation is much lower than the calculated target probability.
+In \Cref{fig:cis}, it is  clear that the probability of same-source evidence given an inconclusive evaluation is much lower than the calculated target probability \svp{for most studies}.
 The decision-specific probabilities provide indications that the distribution of inconclusive determinations is very different from our expectations. 
+\svp{One notable exception is \citet{pauw2013faid}, which is a proficiency test (and thus, may be harder than the studies focused on error rates) of examiners in various European laboratories. While we cannot determine \emph{why} this study is so different, it is clear that the discrepancy between inconclusive determinations and evidence source does not exist under all conditions.
+This suggests we may want to examine the source of this bias in more depth.}
 
 \section{Inconclusive Evaluations, Errors, and the Legal System}\label{sec:inconclusives}
 Before we discuss the results of inconclusive findings in the selected studies, we must explicitly characterize our expectations for decision-specific probabilities of inconclusive findings. 
@@ -885,6 +887,7 @@ DontKnow <- data.frame(
   Study = c("Lyons (2009)", "Hamby (2019)", "Lyons (2009)", "Hamby (2019)"), 
   Ground.truth="Different Source")
 
+
 inc %>% 
   ggplot(aes(x = Inconclusive/Comparisons, y = Study)) +
   geom_errorbarh(aes(xmin = inc_lower, xmax=inc_upper, y=Study),
@@ -896,7 +899,7 @@ inc %>%
   geom_errorbarh(aes(x = 0, xmin=xmin, xmax=xmax, y=Study),
                  data = DontKnow, linetype=2,
                  size=0.5, height = 0.5, colour = "grey20", alpha =0.9) +
-  geom_point(x = max_prob/2,  data = DontKnow, shape='?', size = 3.5)
+  geom_point(x = max_prob/2,  data = DontKnow, shape='?', size = 3.5) 
 @
 
 
@@ -933,13 +936,14 @@ P (\text{different source} \mid \text{identification}) &=& 74 / 2439 &=& 0.0303
 \end{align}
 
 
-Examining the experimentally determined error rates for firearms and toolmark identification leads to a disturbing realization. 
+Examining the experimentally determined error rates for firearms and toolmark identification leads to a disturbing realization. \svp{XXX Mattijssen is directly counter to this. How do we want to address it? Blame AFTE rules? The adversarial system?}
 There is an order of magnitude difference between the probability of same-source evidence given an elimination and the probability of different-source evidence given an identification. 
 In fact, even if inconclusives and eliminations are combined as under Option 4 the probability of a false elimination is 0.0069, only a third of the probability of a false identification.
 These observations are shown visually in \Cref{fig:asymmetric-errors} and explicitly calculated in \Cref{eqn:baldwin-calcs,eqn:mattijssen-calcs} for studies with sufficient error counts \citep{Baldwin:2014bb,mattijssenValidityReliabilityForensic2020}. 
 It is necessary to have at least one observation in each cell in order to bound the probabilities as well as sufficient comparisons to be able to differentiate between e.g. 0.02 and 0.2; this is particularly important when we deal with very low and very high probabilities, such as success and error rates. 
 
-<<asymmetric-errors, echo = F, fig.width = 8, fig.height = 3, fig.cap = "Decision-specific error rates. For all AFTE-decision criteria studies (excluding \\citet{mattijssenValidityReliabilityForensic2020}, which used likelihood ratios as a primary criteria), errors in identification are more likely than errors in eliminations. In \\citet{Baldwin:2014bb} and \\citet{mattijssenValidityReliabilityForensic2020}, which are the only studies with a large number of participants and evaluations, confidence intervals for wrong identifications do not overlap, indicating that  these errors are significantly higher than wrongful eliminations.", cache = F>>=
+
+<<asymmetric-errors, echo = F, fig.width = 8, fig.height = 4, fig.cap = "Decision-specific error rates. For all AFTE-decision criteria studies (excluding \\citet{mattijssenValidityReliabilityForensic2020}, which used likelihood ratios as a primary criteria), errors in identification are more likely than errors in eliminations. In \\citet{Baldwin:2014bb} and \\citet{mattijssenValidityReliabilityForensic2020}, which are the only studies with a large number of participants and evaluations, confidence intervals for wrong identifications do not overlap, \\svp{indicating that we can clearly differentiate between the two classes of errors.}", cache = F>>=
 # Even if inconclusives are treated as eliminations, error rates are still not higher for eliminations than identifications (removed from caption)
 
 # This was to create a similar chart as the calculations for Baldwin, but Baldwin is the only study with enough data for the calculations to be meaningful...
@@ -951,7 +955,7 @@ elimplus <- studies %>%
     Decision = "Elimination + Inconclusive", 
     Number = sum(Number)
     )
-
+ 
 
 errs <- data.frame(
   Ground.truth = c("Same Source", "Same Source", "Different Source"),
@@ -973,10 +977,12 @@ errors2 <- studies %>%
     upper = clopper(0.05, Number, Total)[2]
     ) %>%
   ungroup() %>%
-  mutate(Study = str_replace(Study, "Matti", "*Matti"))
+  mutate(
+    afte = (Study %in% c("Mattijssen (2020)", "FAID2009 Bullets", "FAID2009 Cartridges")) %>% factor(levels = c(FALSE, TRUE), labels = c("AFTE scale", "Non-AFTE Scale"))
+  )
 
 errors2 %>%
-  arrange(Study) %>%
+  arrange(Study) %>% 
   mutate(
     Decision = factor(Decision, levels = c("Identification", "Elimination", "Elimination + Inconclusive")),
     ErrorType = factor(c("Identification of DS", "Elimination of SS", "Elimination or Inconclusive of SS")[as.numeric(Decision)]),
@@ -984,32 +990,34 @@ errors2 %>%
   ) %>%
   filter(!(Study %in% c("Hamby (2019)", "Lyons (2009)", 
                         "Bunch & Murphy (2003)"))) %>%
-  ggplot(aes(x = rate*100, y = Study)) +
-  geom_hline(yintercept = "*Mattijssen (2020)", colour = "black",
+  ggplot(aes(x = rate*100, y = Study)) + 
+  geom_hline(yintercept = "FAID2009 Bullets", colour = "black",
              size=16, alpha = 0.1) +
   geom_hline(yintercept = "Duez (2018)", colour = "black",
              size=16, alpha = 0.1) +
-  geom_hline(yintercept = "VCMER (2020)", colour = "black",
+  geom_hline(yintercept = "Baldwin (2014)", colour = "black",
              size=16, alpha = 0.1) +
   geom_point(aes(colour = ErrorType, shape = ErrorType),
              position = position_dodge(width = 0.7),
              size = 2.5) + 
   geom_errorbarh(
-    aes(xmin = lower*100, xmax = upper*100, 
-        colour = ErrorType), 
-    position = position_dodge(width = 0.7)) +
+    aes(xmin = lower*100, xmax = upper*100, colour = ErrorType), 
+    position = position_dodge(width = 0.7), height = .3) +
   scale_shape_discrete("Type of Error") +
   scale_colour_manual("Type of Error", values = c("steelblue", "darkorange", "brown")) +
   theme_bw() +
-  xlab("Error Percentages (decision-specific conditional probabilities) ") 
+  xlab("Error Percentages (decision-specific conditional probabilities) ") + 
+  facet_grid(afte ~ ., scales = "free_y", space = "free_y")
 
 @
 
 
+Note that while the probability of same source given an elimination is affected by lab policies towards the treatment of inconclusives, these policies do not explain the continued discrepancy in error probabilities when inconclusives and eliminations are considered together. 
+\svp{The fact that all of the AFTE studies and none of the non-AFTE studies display this trend suggests that while lab policies do not explain the discrepancy, the training examiners receive, the scale used to evaluate evidence, and the underlying culture of the legal system (e.g. adversarial vs. non-adversarial) might be factors relevant to this discrepancy. The non-AFTE studies were conducted using worldwide or European participants, who have different training and ongoing evaluation requirements, as well as fundamentally different legal systems. }
 
 
 
-\Cref{fig:baldwin-shape-overview} provides a visual demonstration of this discrepancy: unlike in \Cref{fig:shape-overview}, there is a difference in the density of points in the inconclusive sections of the chart. Note that while the probability of same source given an elimination is affected by lab policies towards the treatment of inconclusives, these policies do not explain the continued discrepancy in error probabilities when inconclusives and eliminations are considered together.
+% \Cref{fig:baldwin-shape-overview} provides a visual demonstration of this discrepancy: unlike in \Cref{fig:shape-overview}, there is a difference in the density of points in the inconclusive sections of the chart. 
 
 
 
@@ -1068,13 +1076,14 @@ In particular, there is a  need for studies that are both large (many examiners 
 \end{itemize}
 
 %well designed (single known source for each comparison, open set, with limited information which can be shared between participants). 
-All of the published studies that meet at least some of the design criteria focus only on cartridge cases; it is imperative that similarly well designed studies examining bullets and toolmarks be conducted and published to validate the entire discipline of firearms and toolmark analysis.
+All of the published \svp{AFTE scale} studies that meet at least some of the design criteria focus only on cartridge cases; it is imperative that similarly well designed studies examining bullets and toolmarks be conducted and published to validate the entire discipline of firearms and toolmark analysis.
 
 While published studies vary in their treatment of inconclusive decisions when calculating and reporting error rates or accuracies, most studies report 
 % what is reported as error rates in most studies is 
 what we have termed source-specific conditional probabilities. 
 We propose that error rates be calculated for the examiner and the process separately. 
-Examiner-specific error rates should not count inconclusives as errors, while  process-specific error rates should have to count inconclusives as errors.  Process-specific error rates would then reflect the inability of the examiner to make a correct determination due to insufficient identifying information on the evidence.
+Examiner-specific error rates should not count inconclusives as errors, while  process-specific error rates should have to count inconclusives as errors.  
+Process-specific error rates would then reflect the inability of the examiner to make a correct determination due to insufficient identifying information on the evidence.
 These two separate measures will be used differently:  examiner error rates can be used for evaluation within the forensics lab setting (for e.g. qualification purposes in proficiency tests), but process error rates are essential for the proper use of firearms evidence in court: process error rates are germane to the question of whether evidence can inform about the suspect's guilt.
 
 We also argue that a simpler alternative to this treatment of error rates in legal settings would be to report the decision-specific conditional error rates: the probability that, given an examiner's conclusion, that conclusion is incorrect.
@@ -1095,14 +1104,15 @@ Specifically, in court, we suggest that when the admissibility of an examiner's 
 % \item This bias \svp{ against the defense in inconclusives mirrors biases in admissibility of forensic evidence  \citep{morenoWhatHappensWhen2004, epsteinPreferringWiseMan2014, roachFORENSICSCIENCEMISCARRIAGES2009}}
 % \end{itemize}
 
-In the process of examining these different error rate calculations, we discovered a series of systematic biases in error rate studies and the examination process which all work against the defendant. For example, 
-in many studies, there are considerably more same-source comparisons than \svp{different-source comparisons}. Consequently, false elimination rates can be estimated more precisely than false identification rates. 
+In the process of examining these different error rate calculations, we discovered a series of systematic biases in error rate studies and the examination process which all work against the defendant. For example, in many studies, the \svp{study is designed such that it is possible to estimate false elimination rates} more precisely than false identification rates. 
 In fact, in some common study designs, it is only possible to estimate the false elimination error rate; the rate of false identifications cannot be estimated at all. 
-This, too, ensures that there is no way to invalidate the examiner's testimony on the basis that it might contribute to a false conviction of the defendant. 
-In addition, examiners appear to have a lower threshold for identification than for elimination; when evidence originates from different sources, examiners are more likely to arrive at an inconclusive decision than they are when the evidence has the same source. 
+This ensures that there is no way to invalidate the examiner's testimony on the basis that it might contribute to a false conviction of the defendant. 
+In addition, examiners \svp{working under the AFTE range of conclusions} appear to have a lower threshold for identification than for elimination; when evidence originates from different sources, examiners are more likely to arrive at an inconclusive decision than they are when the evidence has the same source. 
 As a result, there is a systematically higher probability of different-source evidence given an examiner's identification than the probability of same-source evidence given an examiner's elimination. 
 This fundamentally contradicts the principles which form the foundation of our legal system. 
-These biases mirror biases in the admissibility of forensic evidence which are also more likely to favor the prosecution \citep{morenoWhatHappensWhen2004, epsteinPreferringWiseMan2014, roachFORENSICSCIENCEMISCARRIAGES2009}.
+These biases mirror biases in the admissibility of forensic evidence which are also more likely to favor the prosecution \citep{morenoWhatHappensWhen2004, epsteinPreferringWiseMan2014, roachFORENSICSCIENCEMISCARRIAGES2009}. 
+\svp{This paper briefly examines two non-AFTE studies, \citet{pauw2013faid} and \citet{mattijssenValidityReliabilityForensic2020}; these studies do not demonstrate this bias, but it is not clear whether the difference is the population (examiners from outside the US and Canada), the scales used by the examiners, the legal systems, or some other factor. 
+Additional studies should be performed to investigate possible explanations for this difference and to determine whether the percieved distinction between study types holds up under scruitiny.}
 
 
 % Future work: Examine the distribution of automated scores (RF score, CCF) and cutoff-based classifications compared to examiner decisions. Are algorithms less biased than examiners? (yes, duh). 
