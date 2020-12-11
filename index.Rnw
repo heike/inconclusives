@@ -525,11 +525,14 @@ As described in the PCAST report, ``set-based" approaches can inflate examiners'
 \end{displayquote}
 
 The PCAST response, issued in  \citeyear{pcast-addendum2017}, identifies only one study \citep{Baldwin:2014bb} as appropriately designed to evaluate the validity and reliability of firearms analysis methods. 
-Shortly after the report was issued, two more studies were published which also meet the criteria for reliable studies in the report:  \citet{keisler} and  \citet{Duez:2017kha}. 
+Shortly after the report was issued, additional studies were published which also meet the criteria for reliable studies in the report:  \citet{keisler}, \citet{Duez:2017kha}, \svp{\citet{vcmer}, and \citet{mattijssenValidityReliabilityForensic2020}}. 
 All three ``good" studies used slightly different designs but share one essential element: each kit contained multiple comparisons composed of one or more samples from exactly one known source and one unknown source.
 These designs substantially reduce or eliminate the internal dependencies which provide ``hints" to examiners by ensuring that each comparison of samples is considered independently.
 Also, the design of these studies ensures that it is possible to exactly enumerate the number of same-source and different-source comparisons.\footnote{At least, it is possible with the additional assumption that a comparison between a multiple items from the same source and an unknown should count as a single comparison.}
-All three studies are also limited to cartridge case comparisons. We could not identify any studies that assess the error rates of bullet or toolmark examination in a manner that would produce reliable and generalizable measurements.
+All \svp{five} studies \svp{with reliable designs} are also limited to cartridge case comparisons. 
+We could not identify any studies that assess the error rates of bullet or toolmark examination in a manner that would produce reliable \svp{error rate estimates}. \footnote{\svp{We have included \citet{pauw2013faid}, which examines bullets and cartridge cases, but uses European examiners (who are trained to different standards and some of whom work in non-adversarial systems), and a 5-point categorical range of conclusions. 
+For these reasons, this study is useful but is not necessarily a good representation of studies using the AFTE scale with US and Canadian examiners.}}
+
 
 As a result, studies that use less reliable designs, such as \citet{lyons},  \citet{Hamby:2018hu} (and the similarly designed  \citet{fadul}), and  \citet{bunch2003comprehensive} have historically been frequently referenced in admissibility hearings.
 Of these, the study by  \citeauthor{bunch2003comprehensive} is perhaps statistically the most interesting design, but it has been superseded by studies with cleaner experimental designs, such as \citet{Baldwin:2014bb} and \citet{keisler}.
