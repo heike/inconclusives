@@ -395,17 +395,17 @@ rates are calculated by conditioning on the \emph{origin of the evidence}. This 
 \caption{
 Source-specific probabilities, calculated using the quantities introduced in \Cref{tab:generic-results}. 
 Cells in the main body of the table show conditional probabilities  of conclusion $Y$ (one of Identification, Inconclusive, or Elimination) given known source  $X$ (same, different). 
-The last row in the table contains the marginal probabilities $P(Y)$, that is, the unconditional probability that the examiner's decision is $Y$. 
+\svp{In the final column of the table, the total number of comparisons is shown - this number forms the denominator for each cell when calculating source-specific probabilities.}
 %In the last column of the table, the marginal probabilities $P(X)$ are shown; 
-These marginal probabilities are determined by the experimental design.
+These marginal \svp{total comparison numbers} are determined by the experimental design.
 }\label{tab:fpr-prob}
-\begin{tabularx}{\textwidth}{Y|ccc|Y}
-\multicolumn{5}{c}{\bf Source-specific Probabilities}\\
-\multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Probability\\\hline
-Same source & $a/S$ & $b/S$ & $c/S$ & $S/N$\\
-Different source & $d/D$ & $e/D$ & $f/D$ & $D/N$\\\hline
-\multicolumn{1}{Y}{Conclusion probability} & $(a + d)/N$ & $(b + e)/N$ & \multicolumn{1}{r}{$(c + f)/N$} & \multicolumn{1}{Y}{1.00}\\\hline\hline
-\end{tabularx}
+\begin{tabular}{|r|ccc|c|}
+\multicolumn{5}{c}{\bf Source-specific Probabilities}\\\cline{2-5}
+\multicolumn{1}{r|}{} & Identification & Inconclusive & Elimination & Total \# Comparisons \\\hline
+Same source & $a/S$ & $b/S$ & $c/S$ & $S$\\\hline
+Different source & $d/D$ & $e/D$ & $f/D$ & $D$\\\hline
+% \multicolumn{1}{Y}{Conclusion probability} & $(a + d)/N$ & $(b + e)/N$ & \multicolumn{1}{r}{$(c + f)/N$} & \multicolumn{1}{Y}{1.00}\\\hline\hline
+\end{tabular}
 \end{table}
 A google sheets workbook which  performs all of these calculations given counts $a, b, c, d, e, \text{ and } f$ is available at \url{http://bit.ly/FTE-error-rate-worksheet}.
 
@@ -440,7 +440,8 @@ Using the quantities in \Cref{tab:generic-results}, we can calculate the decisio
 \caption{
 Decision-specific probabilities, calculated using the quantities introduced in \Cref{tab:generic-results}. 
 In each cell in the main body of the table, probabilities shown are the probability of source $X$, if the examiner's conclusion (one of Identification, Inconclusive, or Elimination) is $Y$. 
-In the last row in the table, the marginal probabilities $P(Y)$ are shown, that is, the unconditional probability that the examiner's decision is $Y$. 
+\svp{In the final row of the table, the total number of comparisons is shown - this number forms the denominator for each cell when calculating decision-specific probabilities.}
+% In the last row in the table, the marginal probabilities $P(Y)$ are shown, that is, the unconditional probability that the examiner's decision is $Y$. 
 }\label{tab:ppv-prob}
 % \begin{tabularx}{\textwidth}{Y|ccc|Y}
 % \multicolumn{5}{c}{\bf Decision-Specific Probabilities}\\\hline
@@ -452,10 +453,10 @@ In the last row in the table, the marginal probabilities $P(Y)$ are shown, that 
 % \end{table}
 \begin{tabular}{|r|c|c|c|}
 \multicolumn{4}{c}{\bf Decision-Specific Probabilities}\\\cline{2-4}
-\multicolumn{1}{r|}{} & Identification & Inconclusive & \multicolumn{1}{r|}{Elimination} \\\hline
+\multicolumn{1}{r|}{} & Identification & Inconclusive & Elimination \\\hline
 Same source & $a/(a+d)$ & $b/(b+e)$ & $c/(c+f)$ \\
 Different source & $d/(a+d)$ & $e/(b+e)$ & $f/(c+f)$ \\\hline
-\multicolumn{1}{|r|}{Total \# Decisions} & $a + d$ & $b + e$ & \multicolumn{1}{r|}{$c + f$} \\\hline
+Total \# Decisions & $a + d$ & $b + e$ & $c + f$ \\\hline
 \end{tabular}
 \end{table}
 
@@ -1187,17 +1188,17 @@ Different source & 22 & 735+2\footnote{Two comparisons were not reported and are
 \multicolumn{5}{c}{}\\
 
 \multicolumn{5}{c}{\bf Conclusion-Specific Probabilities}\\
-\multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Probability\\\hline
-Same source & 0.9799 & 0.0147 & 0.0028 & 0.3333\\
-Different source & 0.0201 & 0.9853 & 0.9972 & 0.6667\\\hline
-\multicolumn{1}{Y}{Conclusion Probability} & 0.3355 & 0.2287 & \multicolumn{1}{r}{0.4358} & \multicolumn{1}{Y}{1.0000}\\\hline\hline
+\multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{c}{Elimination} & \\\cline{1-4}
+Same source & \multicolumn{1}{c|}{0.9799} & \multicolumn{1}{c|}{0.0147} & \multicolumn{1}{c|}{0.0028} & \multirow{3}{=}{\emph{Experiment Count Data are divided by Conclusion Totals (3rd row)}}\\
+Different source & \multicolumn{1}{c|}{0.0201} & \multicolumn{1}{c|}{0.9853} & \multicolumn{1}{c|}{0.9972} &\\\cline{1-4}
+Total \# Comparisons & \multicolumn{1}{c}{1097} & \multicolumn{1}{c}{748} & \multicolumn{1}{c|}{1425} & \\\hline\hline
 
 \multicolumn{5}{c}{}\\
 \multicolumn{5}{c}{\bf Source-Specific Probabilities}\\
-\multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Probability\\\hline
-Same source & 0.9862 & 0.0101 & 0.0037 & 0.3333\\
-Different source & 0.0101 & 0.3381 & 0.6518 & 0.6667\\\hline
-\multicolumn{1}{Y}{Conclusion Probability} & 0.3355 & 0.2287 & \multicolumn{1}{r}{0.4358} & \multicolumn{1}{Y}{1.0000}\\\hline\hline
+\multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Total \# Comparisons\\\hline
+Same source & 0.9862 & 0.0101 & 0.0037 & 1090\\\cline{2-4}
+Different source & 0.0101 & 0.3381 & 0.6518 & 2180\\\hline
+\multicolumn{1}{Y}{ } & \multicolumn{4}{l}{\emph{Experiment Count Data are divided by Source Totals (last column)}} \\\hline\hline
 \end{tabularx}
 
 \begin{tabularx}{\textwidth}{lX|rr|Y}
@@ -1206,6 +1207,7 @@ Different source & 0.0101 & 0.3381 & 0.6518 & 0.6667\\\hline
 Opt. & \multicolumn{1}{c}{Meaning} & Missed Identification & \multicolumn{1}{r}{Missed Elimination} & Total \\\hline
 2 & FTE error & 0.0037  & 0.0101 & 0.0080\\
 3 & Process error & 0.0138 & 0.3482 & 0.2367 \\
+4 & Inconcl. = Elim.& 0.0138 & 0.0101 & 0.0113 \\
 \end{tabularx}
 \end{fmpage}
 
@@ -1233,27 +1235,27 @@ Different source & 0 & 203 & 805 & 1008 \\\hline
 \multicolumn{1}{Y}{Conclusion Total} & 1508 & 207 & \multicolumn{1}{r}{805} & \multicolumn{1}{Y}{2520}\\\hline\hline
 
 \multicolumn{5}{c}{}\\
-
 \multicolumn{5}{c}{\bf Conclusion-Specific Probabilities}\\
-\multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Probability\\\hline
-Same source & 1.0000 & 0.0193 & 0.0000 & 0.6000\\
-Different source & 0.0000 & 0.9807 & 1.0000 & 0.4000\\\hline
-\multicolumn{1}{Y}{Conclusion Probability} & 0.5984 & 0.0821 & \multicolumn{1}{r}{0.3194} & \multicolumn{1}{Y}{}\\\hline\hline
+\multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{c}{Elimination} & \\\cline{1-4}
+Same source & \multicolumn{1}{c|}{0.9862} & \multicolumn{1}{c|}{0.0101} & \multicolumn{1}{c|}{0.0037} & \multirow{3}{=}{\emph{Experiment Count Data are divided by Conclusion Totals (3rd row)}}\\
+Different source & \multicolumn{1}{c|}{0.0101} & \multicolumn{1}{c|}{0.3381} & \multicolumn{1}{c|}{0.6518} &\\\cline{1-4}
+Total \# Comparisons & \multicolumn{1}{c}{1508} & \multicolumn{1}{c}{805} & \multicolumn{1}{c|}{2520} & \\\hline\hline
 
 \multicolumn{5}{c}{}\\
 \multicolumn{5}{c}{\bf Source-Specific Probabilities}\\
-\multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Probability\\\hline
-Same source & 0.9974 & 0.0026 & 0.0000 & 0.6000\\
-Different source & 0.0000 & 0.2014 & 0.7986 & 0.4000 \\\hline
-\multicolumn{1}{Y}{Conclusion Probability} & 0.5984 & 0.0821 & \multicolumn{1}{r}{0.3194} & \multicolumn{1}{Y}{}\\\hline\hline
+\multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Total \# Comparisons\\\hline
+Same source & 0.9974 & 0.0026 & 0.0000 & 1512\\\cline{2-4}
+Different source & 0.0000 & 0.2014 & 0.7986 & 1008\\\hline
+\multicolumn{1}{Y}{ } & \multicolumn{4}{l}{\emph{Experiment Count Data are divided by Source Totals (last column)}} \\\hline\hline
 \end{tabularx}
 
 \begin{tabularx}{\textwidth}{lX|rr|Y}
 \multicolumn{5}{c}{}\\
 \multicolumn{5}{c}{\bf Overall Error Rates}\\
 Opt. & \multicolumn{1}{c}{Meaning} & Missed Identification & \multicolumn{1}{r}{Missed Elimination} & Total \\\hline
-2 & FTE error & 0.0000 & 0.0000  & 0.0000 \\
+2 & FTE error & 0.0000  & 0.0000 & 0.0000\\
 3 & Process error & 0.0026 & 0.2014 & 0.0821 \\
+4 & Inconcl. = Elim.& 0.0026 & 0.0000 & 0.0016 \\
 \end{tabularx}
 \end{fmpage}
 
@@ -1286,30 +1288,31 @@ Open set & 6 & 2 & 46+10 examiners\\
 \multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Total\\\hline
 Same source & 276+59 & 0+1 & 0+0 & 276+60 \\
 Different source & 0+2 & 12+13 & 80+5 & 92+20 \\\hline
-\multicolumn{1}{Y}{Conclusion Total} & 276+61 & 12+14 & \multicolumn{1}{r}{80+5} & \multicolumn{1}{Y}{449}\\\hline\hline
+\multicolumn{1}{Y}{Conclusion Total} & 276+61 & 12+14 & \multicolumn{1}{r}{80+5} & \multicolumn{1}{Y}{448}\\\hline\hline
 
 \multicolumn{5}{c}{}\\
 
 \multicolumn{5}{c}{\bf Conclusion-Specific Probabilities}\\
-\multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Probability\\\hline
-Same source & 0.9941 & 0.0385 & 0.0000 & 0.7500 \\
-Different source & 0.0059 & 0.9615 & 1.0000 & 0.2500 \\\hline
-\multicolumn{1}{Y}{Conclusion Probability} & 0.7522 & 0.0580 & \multicolumn{1}{r}{0.1897} & \multicolumn{1}{Y}{}\\\hline\hline
+\multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{c}{Elimination} & \\\cline{1-4}
+Same source & \multicolumn{1}{c|}{0.9941} & \multicolumn{1}{c|}{0.0385} & \multicolumn{1}{c|}{0.0000} & \multirow{3}{=}{\emph{Experiment Count Data are divided by Conclusion Totals (3rd row)}}\\
+Different source & \multicolumn{1}{c|}{0.0059} & \multicolumn{1}{c|}{0.9615} & \multicolumn{1}{c|}{1.0000} &\\\cline{1-4}
+Total \# Comparisons & \multicolumn{1}{c}{337} & \multicolumn{1}{c}{26} & \multicolumn{1}{c|}{85} & \multicolumn{1}{Y}{}\\\hline\hline
 
 \multicolumn{5}{c}{}\\
 \multicolumn{5}{c}{\bf Source-Specific Probabilities}\\
-\multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Probability\\\hline
-Same source & 0.9970 & 0.0030 & 0.0000 & 0.7500\\
-Different source & 0.0179 & 0.2232 & 0.7589 & 0.2500\\\hline
-\multicolumn{1}{Y}{Conclusion Probability} & 0.7522 & 0.0809 & \multicolumn{1}{r}{0.1897} & \multicolumn{1}{Y}{}\\\hline\hline
+\multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Total \# Comparisons\\\hline
+Same source & 0.9970 & 0.0030 & 0.0000 & 336\\\cline{2-4}
+Different source & 0.0179 & 0.2232 & 0.7589 & 112\\\hline
+\multicolumn{1}{Y}{ } & \multicolumn{4}{l}{\emph{Experiment Count Data are divided by Source Totals (last column)}} \\\hline\hline
 \end{tabularx}
 
 \begin{tabularx}{\textwidth}{lX|rr|Y}
 \multicolumn{5}{c}{}\\
 \multicolumn{5}{c}{\bf Overall Error Rates}\\
 Opt. & \multicolumn{1}{c}{Meaning} & Missed Identification & \multicolumn{1}{r}{Missed Elimination} & Total \\\hline
-2 & FTE error & 0.0000/0.0000  & 0.0000/0.1000 & 0.0000/0.0303\\
-3 & Process error & 0.0000/0.0167 & 0.1304/0.7500 & 0.0326/0.2000\\ \hline
+2 & FTE error & 0.0000  & 0.0179 & 0.0045\\
+3 & Process error & 0.0030 & 0.2411 & 0.0625 \\
+4 & Inconcl. = Elim.& 0.0030 & 0.0179 & 0.0067 \\
 \end{tabularx}
 \end{fmpage}
 
@@ -1337,35 +1340,34 @@ Closed set & 10 & 15 & 507 examiners\\
 Same Source & 10447 & 8 & 0 & 10455 \\
 Different source & 0 & ? & ? & 47047.5\footnote{This number is imputed based on the average number of pairwise comparisons an examiner would have to do to complete a Hamby study. Details can be found in the supplemental material.} \\\hline
 \multicolumn{1}{Y}{Conclusion Total} & 10447 & ? & \multicolumn{1}{r}{?} & \multicolumn{1}{Y}{57502.5}\\\hline\hline
-
 \multicolumn{5}{c}{}\\
 
 \multicolumn{5}{c}{\bf Conclusion-Specific Probabilities}\\
-\multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Probability\\\hline
-Same source & 1.0000 & ? & 0.0000 & 0.1818\\
-Different source & 0.0000 & ? & 1\footnote{The elimination-specific conditional probabilities are only identifiable in this case because there were not any false eliminations. In any other situation, we would not be able to calculate these probabilities because we do not have the total number of eliminations.} & 0.8282\\\hline
-\multicolumn{1}{Y}{Conclusion Probability} & 0.1817 & ? & \multicolumn{1}{r}{?} & \multicolumn{1}{Y}{}\\\hline\hline
+\multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{c}{Elimination} & \\\cline{1-4}
+Same source & \multicolumn{1}{c|}{1.0000} & \multicolumn{1}{c|}{?} & \multicolumn{1}{c|}{?} & \multirow{3}{=}{\emph{Experiment Count Data are divided by Conclusion Totals (3rd row)}}\\
+Different source & \multicolumn{1}{c|}{0.0000} & \multicolumn{1}{c|}{?} & \multicolumn{1}{c|}{?} &\\\cline{1-4}
+Total \# Comparisons & \multicolumn{1}{c}{10447} & \multicolumn{1}{c}{?} & \multicolumn{1}{c|}{?} & \multicolumn{1}{Y}{}\\\hline\hline
 
 \multicolumn{5}{c}{}\\
 \multicolumn{5}{c}{\bf Source-Specific Probabilities}\\
-\multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Probability\\\hline
-Same source & 0.9992 & 0.0008 & 0.0000 & 0.1818\\
-Different source & 0.0000 & ? & ? & 0.8282\\\hline
-\multicolumn{1}{Y}{Conclusion Probability} & 0.1817 & ? & \multicolumn{1}{r}{?} & \multicolumn{1}{Y}{}\\\hline\hline
+\multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Total \# Comparisons\\\hline
+Same source & 0.9992 & 0.0008 & ? & 10455\\\cline{2-4}
+Different source & ? & ? & ? & ?\\\hline
+\multicolumn{1}{Y}{ } & \multicolumn{4}{l}{\emph{Experiment Count Data are divided by Source Totals (last column)}} \\\hline\hline
 \end{tabularx}
 
 \begin{tabularx}{\textwidth}{lX|rr|Y}
 \multicolumn{5}{c}{}\\
 \multicolumn{5}{c}{\bf Overall Error Rates}\\
 Opt. & \multicolumn{1}{c}{Meaning} & Missed Identification & \multicolumn{1}{r}{Missed Elimination} & Total \\\hline
-2 & FTE error & 0.0000 & ? & ?\\
-3 & Process error & ? & ? & ? \\\hline
+2 & FTE error & 0.0000  & ? & ?\\
+3 & Process error & 0.0008 & ? & ? \\
+4 & Inconcl. = Elim.& 0.0008 & ? & ? \\\hline
 \end{tabularx}
 \end{fmpage}
 
 \clearpage
-\paragraph{Bunch}  \citep{bunch2003comprehensive}\hfill\newline
-Bunch used a study design that is not conducive to a quick summary. The study consisted of 8 test kits of varying composition; the test kits were evaluated by 8 examiners at the FBI laboratory. 
+\paragraph{Bunch}  \citep{bunch2003comprehensive} used a study design that is not conducive to a quick summary. The study consisted of 8 test kits of varying composition; the test kits were evaluated by 8 examiners at the FBI laboratory. 
 
 \noindent\begin{fmpage}{.985\textwidth}\centering % Checked numbers 2020-04-24
 \captionsetup{type=table}\captionof{table}{Results and summary tables for the Bunch study. Values in this table are as reported in the study; however, due to the study's structure, it is possible to perform fewer comparisons, because not all comparisons are independent. Results for independent comparisons are shown in \Cref{tab:bunch-indep}}\label{tab:bunch-summary}
@@ -1381,29 +1383,29 @@ Open set & variable & variable & 8 FBI examiners\\
 Same source & 70 & 0 & 0 & 70 \\
 Diff source & 0 & 172 & 118 & 290 \\\hline
 \multicolumn{1}{Y}{Conclusion Total} & 70 & 172 & \multicolumn{1}{r}{ 118} & \multicolumn{1}{Y}{}\\\hline\hline
-
 \multicolumn{5}{c}{}\\
 
-\multicolumn{5}{c}{\bf (Nominal) Conclusion-Specific Probabilities}\\
-\multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Probability\\\hline
-Same source & 1 & 0 & 0 & \svp{0.1944}\\
-Diff source & 0 & 1 & 1 & \svp{0.8056}\\\hline
-\multicolumn{1}{Y}{Conclusion Probability} & 0.1944 & 0.4778 & \multicolumn{1}{r}{0.3278} & \multicolumn{1}{Y}{}\\\hline\hline
+\multicolumn{5}{c}{\bf Conclusion-Specific Probabilities}\\
+\multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{c}{Elimination} & \\\cline{1-4}
+Same source & \multicolumn{1}{c|}{1.0000} & \multicolumn{1}{c|}{0.0000} & \multicolumn{1}{c|}{0.0000} & \multirow{3}{=}{\emph{Experiment Count Data are divided by Conclusion Totals (3rd row)}}\\
+Different source & \multicolumn{1}{c|}{0.0000} & \multicolumn{1}{c|}{1.0000} & \multicolumn{1}{c|}{1.0000} &\\\cline{1-4}
+Total \# Comparisons & \multicolumn{1}{c}{70} & \multicolumn{1}{c}{172} & \multicolumn{1}{c|}{118} & \multicolumn{1}{Y}{}\\\hline\hline
 
 \multicolumn{5}{c}{}\\
-\multicolumn{5}{c}{\bf (Nominal) Source-Specific Probabilities}\\
-\multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Probability\\\hline
-Same source & 1.0000 & 0.0000 & 0.0000 & \svp{0.1944}\\
-Diff source & 0.0000 & 0.5931 & 0.4069 & \svp{0.8056}\\\hline
-\multicolumn{1}{Y}{Conclusion Probability} & 0.1944 & 0.4778 & \multicolumn{1}{r}{0.3278} & \multicolumn{1}{Y}{}\\\hline\hline
+\multicolumn{5}{c}{\bf Source-Specific Probabilities}\\
+\multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Total \# Comparisons\\\hline
+Same source & 1.0000 & 0.0000 & 0.0000 & 70\\\cline{2-4}
+Different source & 0.0000 & 0.5931 & 0.4069 & 200\\\hline
+\multicolumn{1}{Y}{ } & \multicolumn{4}{l}{\emph{Experiment Count Data are divided by Source Totals (last column)}} \\\hline\hline
 \end{tabularx}
 
 \begin{tabularx}{\textwidth}{lX|rr|Y}
 \multicolumn{5}{c}{}\\
-\multicolumn{5}{c}{\bf (Nominal) Error Rates}\\
+\multicolumn{5}{c}{\bf Overall Error Rates}\\
 Opt. & \multicolumn{1}{c}{Meaning} & Missed Identification & \multicolumn{1}{r}{Missed Elimination} & Total \\\hline
-2 & FTE error & 0.0000 & 0.0000 & 0.0000\\
-3 & Process error & 0.0000 & 0.5931 & 0.4778 \\
+2 & FTE error & 0.0000  & 0.0000 & 0.0000\\
+3 & Process error & 0.0000 & 0.5931 & 0.4069 \\
+4 & Inconcl. = Elim.& 0.0000 & 0.0000 & 0.0000 \\
 \end{tabularx}
 \end{fmpage}
 \clearpage
@@ -1427,29 +1429,29 @@ Closed set & 10 & 10~or~12 & 15 examiners\\
 Same Source & 174\footnote{ \citet{lyons} reports 175 correct identifications, but it is clear from the discussion that one of those same source identifications was in fact an inconclusive. Twelve answer sheets with 12 correct identifications, one with 10 (out of 10) correct identifications, one with 9 correct identifications and 3 errors, and one with 11 correct identifications and one inconclusive. So 12$\cdot$12 + 10 + 9 + 11 = 174. } &  1 & 3 & 178 \\
 Different source & 3 & ? & ? & ? \\\hline
 \multicolumn{1}{Y}{Conclusion Total} & 177 & ? & \multicolumn{1}{r}{?} & \multicolumn{1}{Y}{?}\\\hline\hline
-
 \multicolumn{5}{c}{}\\
 
 \multicolumn{5}{c}{\bf Conclusion-Specific Probabilities}\\
-\multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Probability\\\hline
-Same source & 0.9831 & ? & ? & ?\\
-Different source & 0.0169 & ? & ? & ?\\\hline
-\multicolumn{1}{Y}{Conclusion Probability} & ? & ? & \multicolumn{1}{r}{?} & \multicolumn{1}{Y}{}\\\hline\hline
+\multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{c}{Elimination} & \\\cline{1-4}
+Same source & \multicolumn{1}{c|}{0.9831} & \multicolumn{1}{c|}{?} & \multicolumn{1}{c|}{?} & \multirow{3}{=}{\emph{Experiment Count Data are divided by Conclusion Totals (3rd row)}}\\
+Different source & \multicolumn{1}{c|}{0.0169} & \multicolumn{1}{c|}{?} & \multicolumn{1}{c|}{?} &\\\cline{1-4}
+Total \# Comparisons & \multicolumn{1}{c}{177} & \multicolumn{1}{c}{?} & \multicolumn{1}{c|}{?} & \multicolumn{1}{Y}{}\\\hline\hline
 
 \multicolumn{5}{c}{}\\
 \multicolumn{5}{c}{\bf Source-Specific Probabilities}\\
-\multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Probability\\\hline
-Same source & 0.9775 & 0.0056 & 0.0169 & ?\\
+\multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Total \# Comparisons\\\hline
+Same source & 0.9775 & 0.0056 & 0.0169 & 178\\\cline{2-4}
 Different source & ? & ? & ? & ?\\\hline
-\multicolumn{1}{Y}{Conclusion Probability} & ? & ? & \multicolumn{1}{r}{?} & \multicolumn{1}{Y}{}\\\hline\hline
+\multicolumn{1}{Y}{ } & \multicolumn{4}{l}{\emph{Experiment Count Data are divided by Source Totals (last column)}} \\\hline\hline
 \end{tabularx}
 
 \begin{tabularx}{\textwidth}{lX|rr|Y}
 \multicolumn{5}{c}{}\\
 \multicolumn{5}{c}{\bf Overall Error Rates}\\
 Opt. & \multicolumn{1}{c}{Meaning} & Missed Identification & \multicolumn{1}{r}{Missed Elimination} & Total \\\hline
-2 & FTE error & 0.0169 & ? & ?\\
-3 & Process error & 0.0225 & ? & ? \\\hline
+2 & FTE error & 0.0169  & ? & ?\\
+3 & Process error & 0.0225 & ? & ? \\
+4 & Inconcl. = Elim.& 0.0225 & ? & ? \\
 \end{tabularx}
 \end{fmpage}
 
@@ -1475,30 +1477,31 @@ Different source & 3 & 254 & 436 & 693 \\\hline
 \multicolumn{5}{c}{}\\
 
 \multicolumn{5}{c}{\bf Conclusion-Specific Probabilities}\\
-\multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Probability\\\hline
-Same source & 0.9934 & 0.1301 & 0.0000 & 0.4147 \\
-Different source & 0.0066 & 0.8699 & 1.0000 & 0.5853 \\\hline
-\multicolumn{1}{Y}{Conclusion Probability} & 0.3851 & 0.2466 & \multicolumn{1}{r}{0.3682} & \multicolumn{1}{Y}{}\\\hline\hline
+\multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{c}{Elimination} & \\\cline{1-4}
+Same source & \multicolumn{1}{c|}{0.9934} & \multicolumn{1}{c|}{0.1301} & \multicolumn{1}{c|}{0.0000} & \multirow{3}{=}{\emph{Experiment Count Data are divided by Conclusion Totals (3rd row)}}\\
+Different source & \multicolumn{1}{c|}{0.0066} & \multicolumn{1}{c|}{0.8699} & \multicolumn{1}{c|}{1.0000} &\\\cline{1-4}
+Total \# Comparisons & \multicolumn{1}{c}{456} & \multicolumn{1}{c}{292} & \multicolumn{1}{c|}{436} & \multicolumn{1}{Y}{}\\\hline\hline
 
 \multicolumn{5}{c}{}\\
 \multicolumn{5}{c}{\bf Source-Specific Probabilities}\\
-\multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Probability\\\hline
-Same source & 0.9226 & 0.0774 & 0.0000 & 0.4147\\
-Different source & 0.0043 & 0.3665 & 0.6291 & 0.5853\\\hline
-\multicolumn{1}{Y}{Conclusion Probability} & 0.3851 & 0.2466 & \multicolumn{1}{r}{0.3682} & \multicolumn{1}{Y}{}\\\hline\hline
+\multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Total \# Comparisons\\\hline
+Same source & 0.9226 & 0.0774 & 0.0000 & 491\\\cline{2-4}
+Different source & 0.0043 & 0.3665 & 0.6291 & 693\\\hline
+\multicolumn{1}{Y}{ } & \multicolumn{4}{l}{\emph{Experiment Count Data are divided by Source Totals (last column)}} \\\hline\hline
 \end{tabularx}
 
 \begin{tabularx}{\textwidth}{lX|rr|Y}
 \multicolumn{5}{c}{}\\
 \multicolumn{5}{c}{\bf Overall Error Rates}\\
 Opt. & \multicolumn{1}{c}{Meaning} & Missed Identification & \multicolumn{1}{r}{Missed Elimination} & Total \\\hline
-2 & FTE error & 0.0000  & 0.0043 & 0.0034\\
-3 & Process error & 0.0774 & 0.3709 & 0.2492\\ \hline
+2 & FTE error & 0.0000  & 0.0043 & 0.0025\\
+3 & Process error & 0.0774 & 0.3709 & 0.2492 \\
+4 & Inconcl. = Elim.& 0.0774 & 0.0043 & 0.0346 \\
 \end{tabularx}
 \end{fmpage}
 
-
 \clearpage
+%XXX stopped here
 \paragraph{Mattijssen} The Mattijssen study  \citep{mattijssenValidityReliabilityForensic2020} examined firing pin aperture shear marks made by 200 9mm Luger Glock pistols confiscated in the Netherlands. The study considered both 3D scans and 2D images; examinations were of the resulting digital representations rather than the actual physical objects. Seventy-seven examiners from 5 continents participated in the study; of these, 75 were fully qualified examiners. Of the participants, 58 indicated that they provided categorical conclusions (exclusion/inclusion/inconclusive), 13 provided probabilistic conclusions, and 6 used a 5-step reporting scale as in FAID09 \citep{pauw2013faid}.
 
 Participants were initially shown comparison images (aligned by computer algorithm) with varying degrees of similarity as a calibration step. Then, 60 comparison images were shown (consisting of 60 sets of either matching or non-matching shear marks, aligned by computer algorithm). Participants were first asked to determine the similarity on a 5-point scale from (almost) no similarity to (almost) total similarity. Once these evaluations were complete, participants were shown each comparison image again, and were asked to answer 3 additional questions assessing 1) conclusion consistent with same/different source, 2) degree of support for this conclusion, in 6 stages corresponding to approximate likelihood ratios, and 3) whether the examiner would have provided an inconclusive conclusion in casework. The addition of these 3 questions allowed the authors to frame this study in a way that is consistent with the AFTE theory of identification, and thus, in a way which is compatible with the way study results are analyzed in this analysis (though of course the methodology is different). 
@@ -1519,27 +1522,27 @@ Different source & 74 & 815 & 784 & 1673 \\\hline
 \multicolumn{1}{Y}{Conclusion Total} & 2439 & 1302 & \multicolumn{1}{r}{879} & \multicolumn{1}{Y}{4620}\\\hline\hline
 
 \multicolumn{5}{c}{}\\
-
 \multicolumn{5}{c}{\bf Conclusion-Specific Probabilities}\\
-\multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Probability\\\hline
-Same source & 0.9697 & 0.3740 & 0.1081 & 0.6379\\
-Different source & 0.0303 & 0.6260 & 0.8919 & 0.3621\\\hline
-\multicolumn{1}{Y}{Conclusion Probability} & 0.5279 & 0.2818 & \multicolumn{1}{r}{0.1903} & \multicolumn{1}{Y}{}\\\hline\hline
+\multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{c}{Elimination} & \\\cline{1-4}
+Same source & \multicolumn{1}{c|}{0.9697} & \multicolumn{1}{c|}{0.3740} & \multicolumn{1}{c|}{0.1081} & \multirow{3}{=}{\emph{Experiment Count Data are divided by Conclusion Totals (3rd row)}}\\
+Different source & \multicolumn{1}{c|}{0.0303} & \multicolumn{1}{c|}{0.6260} & \multicolumn{1}{c|}{0.8919} &\\\cline{1-4}
+Total \# Comparisons & \multicolumn{1}{c}{2439} & \multicolumn{1}{c}{1302} & \multicolumn{1}{c|}{879} & \multicolumn{1}{Y}{}\\\hline\hline
 
 \multicolumn{5}{c}{}\\
 \multicolumn{5}{c}{\bf Source-Specific Probabilities}\\
-\multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Probability\\\hline
-Same source & 0.8025 & 0.1653 & 0.0322 & 0.6379\\
-Different source & 0.0442 & 0.4871 & 0.4686 & 0.3621\\\hline
-\multicolumn{1}{Y}{Conclusion Probability} & 0.4279 & 0.2818 & \multicolumn{1}{r}{0.1903} & \multicolumn{1}{Y}{}\\\hline\hline
+\multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Total \# Comparisons\\\hline
+Same source & 0.8025 & 0.1653 & 0.1081 & 2947\\\cline{2-4}
+Different source & 0.0442 & 0.4871 & 0.4686 & 1673\\\hline
+\multicolumn{1}{Y}{ } & \multicolumn{4}{l}{\emph{Experiment Count Data are divided by Source Totals (last column)}} \\\hline\hline
 \end{tabularx}
 
 \begin{tabularx}{\textwidth}{lX|rr|Y}
 \multicolumn{5}{c}{}\\
 \multicolumn{5}{c}{\bf Overall Error Rates}\\
 Opt. & \multicolumn{1}{c}{Meaning} & Missed Identification & \multicolumn{1}{r}{Missed Elimination} & Total \\\hline
-2 & FTE error & 0.0312 & 0.0442 & 0.0509\\
-3 & Process error & 0.1975 & 0.5314 & 0.3184 \\\hline
+2 & FTE error & 0.0322  & 0.0442 & 0.0366\\
+3 & Process error & 0.0000 & 0.5931 & 0.4069 \\
+4 & Inconcl. = Elim.& 0.0000 & 0.0000 & 0.0000 \\
 \end{tabularx}
 \end{fmpage}
 
@@ -1561,30 +1564,29 @@ Different source & 1012 & 0 & 78588 & 79600 \\\hline
 \multicolumn{1}{Y}{Conclusion Total} & 1210 & 0 & \multicolumn{1}{r}{78590} & \multicolumn{1}{Y}{79800}\\\hline\hline
 
 \multicolumn{5}{c}{}\\
-
 \multicolumn{5}{c}{\bf Conclusion-Specific Probabilities}\\
-\multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Probability\\\hline
-Same source & 0.16364 & - & 0.00003 & 0.00251\\
-Different source & 0.83636 & - & 0.99997 & 0.99749\\\hline
-\multicolumn{1}{Y}{Conclusion Probability} & 0.01516 & - & \multicolumn{1}{r}{0.98484} & \multicolumn{1}{Y}{}\\\hline\hline
+\multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{c}{Elimination} & \\\cline{1-4}
+Same source & \multicolumn{1}{c|}{0.1636} & \multicolumn{1}{c|}{-} & \multicolumn{1}{c|}{0.0000} & \multirow{3}{=}{\emph{Experiment Count Data are divided by Conclusion Totals (3rd row)}}\\
+Different source & \multicolumn{1}{c|}{0.8364} & \multicolumn{1}{c|}{-} & \multicolumn{1}{c|}{1.0000} &\\\cline{1-4}
+Total \# Comparisons & \multicolumn{1}{c}{1210} & \multicolumn{1}{c}{-} & \multicolumn{1}{c|}{78590} & \multicolumn{1}{Y}{}\\\hline\hline
 
 \multicolumn{5}{c}{}\\
 \multicolumn{5}{c}{\bf Source-Specific Probabilities}\\
-\multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Probability\\\hline
-Same source & 0.99000 & - & 0.01000 & 0.00251\\
-Different source & 0.01271 & - & 0.98729 & 0.99749\\\hline
-\multicolumn{1}{Y}{Conclusion Probability} & 0.01516 & - & \multicolumn{1}{r}{0.98484} & \multicolumn{1}{Y}{}\\\hline\hline
+\multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Total \# Comparisons\\\hline
+Same source & 0.9900 & - & 0.0100 & 200\\\cline{2-4}
+Different source & 0.0127 & - & 0.9873 & 79600\\\hline
+\multicolumn{1}{Y}{ } & \multicolumn{4}{l}{\emph{Experiment Count Data are divided by Source Totals (last column)}} \\\hline\hline
 \end{tabularx}
 
 \begin{tabularx}{\textwidth}{lX|rr|Y}
 \multicolumn{5}{c}{}\\
 \multicolumn{5}{c}{\bf Overall Error Rates}\\
 Opt. & \multicolumn{1}{c}{Meaning} & Missed Identification & \multicolumn{1}{r}{Missed Elimination} & Total \\\hline
-2 & FTE error & 0.01000 & 0.01271 & 0.01271\\
-3 & Process error & 0.01000 & 0.01271 & 0.01271 \\\hline
+2 & FTE error & 0.0100  & 0.0127 & 0.0127\\
+3 & Process error & 0.0100 & 0.0127 & 0.0127 \\
+4 & Inconcl. = Elim.& 0.0100 & 0.0127 & 0.0127 \\
 \end{tabularx}
 \end{fmpage}
-
 \noindent\begin{fmpage}{.985\textwidth}\centering % Checked numbers 2020-04-24
 \captionsetup{type=table}\captionof{table}{Results from a set of comparisons of 3D images evaluated with an automatic algorithm.}\label{tab:mattijssen-summary3d}
 {\large\bf Validity and Reliability of Forensic Firearms Examiners} \emph{ \citeauthor{mattijssenValidityReliabilityForensic2020} ( \citeyear{mattijssenValidityReliabilityForensic2020})}\\
@@ -1598,30 +1600,30 @@ Open set & 200 & 79600 & Computer (3D algorithm)\\
 \multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Total\\\hline
 Same Source & 198 &  0 & 2 & 200 \\
 Different source & 999 & 0 & 78601 & 79600 \\\hline
-\multicolumn{1}{Y}{Conclusion Total} & 1197 & 0 & \multicolumn{1}{r}{78590} & \multicolumn{1}{Y}{79800}\\\hline\hline
+\multicolumn{1}{Y}{Conclusion Total} & 1197 & 0 & \multicolumn{1}{r}{78601} & \multicolumn{1}{Y}{79800}\\\hline\hline
 
 \multicolumn{5}{c}{}\\
-
 \multicolumn{5}{c}{\bf Conclusion-Specific Probabilities}\\
-\multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Probability\\\hline
-Same source & 0.16364 & - & 0.00003 & 0.00251\\
-Different source & 0.83459 & - & 0.99997 & 0.99749\\\hline
-\multicolumn{1}{Y}{Conclusion Probability} & 0.01500 & - & \multicolumn{1}{r}{0.98500} & \multicolumn{1}{Y}{}\\\hline\hline
+\multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{c}{Elimination} & \\\cline{1-4}
+Same source & \multicolumn{1}{c|}{0.1654} & \multicolumn{1}{c|}{-} & \multicolumn{1}{c|}{0.0000} & \multirow{3}{=}{\emph{Experiment Count Data are divided by Conclusion Totals (3rd row)}}\\
+Different source & \multicolumn{1}{c|}{0.8346} & \multicolumn{1}{c|}{-} & \multicolumn{1}{c|}{1.0000} &\\\cline{1-4}
+Total \# Comparisons & \multicolumn{1}{c}{1197} & \multicolumn{1}{c}{-} & \multicolumn{1}{c|}{78603} & \multicolumn{1}{Y}{}\\\hline\hline
 
 \multicolumn{5}{c}{}\\
 \multicolumn{5}{c}{\bf Source-Specific Probabilities}\\
-\multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Probability\\\hline
-Same source & 0.99000 & - & 0.01000 & 0.00251\\
-Different source & 0.01255 & - & 0.98745 & 0.99749\\\hline
-\multicolumn{1}{Y}{Conclusion Probability} & 0.01500 & - & \multicolumn{1}{r}{0.98500} & \multicolumn{1}{Y}{}\\\hline\hline
+\multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Total \# Comparisons\\\hline
+Same source & 0.9900 & - & 0.0100 & 200\\\cline{2-4}
+Different source & 0.0126 & - & 0.9874 & 79600\\\hline
+\multicolumn{1}{Y}{ } & \multicolumn{4}{l}{\emph{Experiment Count Data are divided by Source Totals (last column)}} \\\hline\hline
 \end{tabularx}
 
 \begin{tabularx}{\textwidth}{lX|rr|Y}
 \multicolumn{5}{c}{}\\
 \multicolumn{5}{c}{\bf Overall Error Rates}\\
 Opt. & \multicolumn{1}{c}{Meaning} & Missed Identification & \multicolumn{1}{r}{Missed Elimination} & Total \\\hline
-2 & FTE error & 0.01000 & 0.01255 & 0.01254\\
-3 & Process error & 0.01000 & 0.01255 & 0.01254 \\\hline
+2 & FTE error & 0.0100  & 0.0126 & 0.0125\\
+3 & Process error & 0.0100 & 0.0126 & 0.0125 \\
+4 & Inconcl. = Elim.& 0.0100 & 0.0126 & 0.0125 \\
 \end{tabularx}
 \end{fmpage}\clearpage
 
@@ -1644,27 +1646,27 @@ Different source & 5 & 47 & 72 & 124  \\\hline
 \multicolumn{1}{Y}{Conclusion Total} & 88 & 146 & \multicolumn{1}{r}{78} & \multicolumn{1}{Y}{312}\\\hline\hline
 
 \multicolumn{5}{c}{}\\
-
 \multicolumn{5}{c}{\bf Conclusion-Specific Probabilities}\\
-\multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Probability\\\hline
-Same source & 0.9432 & 0.6781 & 0.0769 & 0.6026 \\
-Different source & 0.0568 & 0.3219 & 0.9231 & 0.3974 \\\hline
-\multicolumn{1}{Y}{Conclusion Probability} & 0.2821 & 0.4679 & \multicolumn{1}{r}{0.2500} & \multicolumn{1}{Y}{}\\\hline\hline
+\multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{c}{Elimination} & \\\cline{1-4}
+Same source & \multicolumn{1}{c|}{0.9432} & \multicolumn{1}{c|}{0.6781} & \multicolumn{1}{c|}{0.0769} & \multirow{3}{=}{\emph{Experiment Count Data are divided by Conclusion Totals (3rd row)}}\\
+Different source & \multicolumn{1}{c|}{0.0568} & \multicolumn{1}{c|}{0.3219} & \multicolumn{1}{c|}{0.9231} &\\\cline{1-4}
+Total \# Comparisons & \multicolumn{1}{c}{88} & \multicolumn{1}{c}{146} & \multicolumn{1}{c|}{78} & \multicolumn{1}{Y}{}\\\hline\hline
 
 \multicolumn{5}{c}{}\\
 \multicolumn{5}{c}{\bf Source-Specific Probabilities}\\
-\multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Probability\\\hline
-Same source & 0.4415 & 0.5266 & 0.0319 & 0.6026\\
-Different source & 0.0403 & 0.3790 & 0.5806 & 0.3974\\\hline
-\multicolumn{1}{Y}{Conclusion Probability} & 0.2821 & 0.4679 & \multicolumn{1}{r}{0.2500} & \multicolumn{1}{Y}{}\\\hline\hline
+\multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Total \# Comparisons\\\hline
+Same source & 0.4415 & 0.5266 & 0.0319 & 188\\\cline{2-4}
+Different source & 0.0403 & 0.3790 & 0.5806 & 124\\\hline
+\multicolumn{1}{Y}{ } & \multicolumn{4}{l}{\emph{Experiment Count Data are divided by Source Totals (last column)}} \\\hline\hline
 \end{tabularx}
 
 \begin{tabularx}{\textwidth}{lX|rr|Y}
 \multicolumn{5}{c}{}\\
 \multicolumn{5}{c}{\bf Overall Error Rates}\\
 Opt. & \multicolumn{1}{c}{Meaning} & Missed Identification & \multicolumn{1}{r}{Missed Elimination} & Total \\\hline
-2 & FTE error & 0.0319  & 0.0403 & 0.0663\\
-3 & Process error & 0.5585 & 0.4194 & 0.5032\\ \hline
+2 & FTE error & 0.0319  & 0.0403 & 0.0353\\
+3 & Process error & 0.5585 & 0.4194 & 0.5032 \\
+4 & Inconcl. = Elim.& 0.5585 & 0.0403 & 0.3526 \\
 \end{tabularx}
 \end{fmpage}
 
@@ -1686,27 +1688,27 @@ Different source & 15 & 55 & 119 & 189  \\\hline
 \multicolumn{1}{Y}{Conclusion Total} & 113 & 77 & \multicolumn{1}{r}{126} & \multicolumn{1}{Y}{316}\\\hline\hline
 
 \multicolumn{5}{c}{}\\
-
 \multicolumn{5}{c}{\bf Conclusion-Specific Probabilities}\\
-\multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Probability\\\hline
-Same source & 0.8673 & 0.2857 & 0.0556 & 0.4019 \\
-Different source & 0.1327 & 0.7143 & 0.8444 & 0.5981 \\\hline
-\multicolumn{1}{Y}{Conclusion Probability} & 0.3576 & 0.2437 & \multicolumn{1}{r}{0.3987} & \multicolumn{1}{Y}{}\\\hline\hline
+\multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{c}{Elimination} & \\\cline{1-4}
+Same source & \multicolumn{1}{c|}{0.8673} & \multicolumn{1}{c|}{0.2857} & \multicolumn{1}{c|}{0.0556} & \multirow{3}{=}{\emph{Experiment Count Data are divided by Conclusion Totals (3rd row)}}\\
+Different source & \multicolumn{1}{c|}{0.1327} & \multicolumn{1}{c|}{0.7143} & \multicolumn{1}{c|}{0.9444} &\\\cline{1-4}
+Total \# Comparisons & \multicolumn{1}{c}{113} & \multicolumn{1}{c}{77} & \multicolumn{1}{c|}{126} & \multicolumn{1}{Y}{}\\\hline\hline
 
 \multicolumn{5}{c}{}\\
 \multicolumn{5}{c}{\bf Source-Specific Probabilities}\\
-\multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Probability\\\hline
-Same source & 0.5213 & 0.1170 & 0.0372 & 0.4019\\
-Different source & 0.1210 & 0.4435 & 0.9597 & 0.5981\\\hline
-\multicolumn{1}{Y}{Conclusion Probability} & 0.3576 & 0.2437 & \multicolumn{1}{r}{0.3987} & \multicolumn{1}{Y}{}\\\hline\hline
+\multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Total \# Comparisons\\\hline
+Same source & 0.7717 & 0.1732 & 0.0551 & 127\\\cline{2-4}
+Different source & 0.0794 & 0.2910 & 0.6296 & 189\\\hline
+\multicolumn{1}{Y}{ } & \multicolumn{4}{l}{\emph{Experiment Count Data are divided by Source Totals (last column)}} \\\hline\hline
 \end{tabularx}
 
 \begin{tabularx}{\textwidth}{lX|rr|Y}
 \multicolumn{5}{c}{}\\
 \multicolumn{5}{c}{\bf Overall Error Rates}\\
 Opt. & \multicolumn{1}{c}{Meaning} & Missed Identification & \multicolumn{1}{r}{Missed Elimination} & Total \\\hline
-2 & FTE error & 0.0372  & 0.1210 & 0.0921\\
-3 & Process error & 0.1543 & 0.5645 & 0.3133\\ \hline
+2 & FTE error & 0.0551  & 0.0794 & 0.0696\\
+3 & Process error & 0.2283 & 0.3704 & 0.3133 \\
+4 & Inconcl. = Elim.& 0.2283 & 0.0794 & 0.1392 \\
 \end{tabularx}
 \end{fmpage}
 
@@ -1714,8 +1716,7 @@ Opt. & \multicolumn{1}{c}{Meaning} & Missed Identification & \multicolumn{1}{r}{
 
 
 
-
-
+\clearpage
 
 \section{Visual Examination of Experimental Frequencies}\label{sec:exp-freq}
 This section shows visual equivalents of \Cref{fig:shape-overview}, but for these studies, there is generally a very clear difference between the probability of inconclusive decisions under different and same source comparisons.
