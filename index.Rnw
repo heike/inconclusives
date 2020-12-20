@@ -258,7 +258,7 @@ Same Source & \begin{minipage}[c]{1em}$\bm{a}$ \end{minipage}\begin{minipage}[c]
               \begin{minipage}[c]{1em}$\bm{c}$ \end{minipage}\begin{minipage}[c]{1em} \includegraphics[width=.35cm]{figures/c.pdf} \end{minipage}& $S = a + b + c$\\
 Different source & \begin{minipage}[c]{1em}$\bm{d}$ \end{minipage}\begin{minipage}[c]{1em} \includegraphics[width=.25cm]{figures/d.pdf} \end{minipage}& 
               \begin{minipage}[c]{1em}$\bm{e}$ \end{minipage}\begin{minipage}[c]{1em} \includegraphics[width=.3cm]{figures/e.pdf} \end{minipage}& 
-              \begin{minipage}[c]{1em}$\bm{f}$ \end{minipage}\begin{minipage}[c]{1em} \includegraphics[width=.35cm]{figures/f.pdf} \end{minipage}&  $D = e + f + g$\\\hline
+              \begin{minipage}[c]{1em}$\bm{f}$ \end{minipage}\begin{minipage}[c]{1em} \includegraphics[width=.35cm]{figures/f.pdf} \end{minipage}&  $D = d + e + f$\\\hline
 \multicolumn{1}{Y}{Conclusion Total} & $a + d$ & $b + e$ & \multicolumn{1}{c}{$c + f$} & \multicolumn{1}{Y}{$N = S + D$}\\\hline\hline
 \end{tabularx}
 \end{table}
@@ -343,7 +343,7 @@ Thus, this elimination from consideration is not appropriate if the goal of a st
 Under AFTE's Theory of Identification, inconclusive results are acceptable outcomes and not considered errors. This approach is captured in Option 2:  inconclusive decisions are treated as correct regardless of the actual state.
 What this means in real terms, is that inconclusive decisions are counted as identifications if they are actually from the same source, but counted as eliminations if they are actually from a different source. 
 Note that this approach is exploitable in a strange way: to give a very extreme example, an examiner could report inconclusive decisions for every evaluation over the rest of their career and never make an error.
-However, when the goal is to assess the error rate of the examiner under the prevailing guidelines of the AFTE Theory of Identification, option 2 is a reasonable option for assessing error rates of firearm and toolmark examiners.
+However, when the goal is to assess the error rate of the examiner under the prevailing guidelines of the AFTE Theory of Identification, Option 2 is a reasonable option for assessing error rates of firearm and toolmark examiners.
 
 Option 3 provides an approach to view inconclusive results and the corresponding error rates within the wider framework of the legal system:
 if a firearm does not mark well, a firearms examiner might not be able to make an identification or an elimination for reasons having nothing to do with the examiner's skill.  
@@ -415,14 +415,14 @@ Conversely, for a  different-source evidence pair, the examiner  makes an elimin
 \subsection{Decision-specific assessment}
 
 An alternate way to evaluate a classification method is to assess the probability of a same-source or different-source comparison, given that the examiner has  made a  decision (or, more generically, a specific general conclusion).
-The \emph{positive predictive value} (PPV) is the probability that a pair of evidence items have the same source, give that the examiner has made an identification, i.e.\ $P(SS | \text{Identification})$. 
+The \emph{positive predictive value} (PPV) is the probability that a pair of evidence items have the same source, given that the examiner has made an identification, i.e.\ $P(SS | \text{Identification})$. 
 Its complement, the \emph{false discovery rate} (FDR), is the probability that the evidence is from different sources, given that the examiner has made an identification, .
 
 Similarly, we can define  predictive values when an examiner has made exclusions:
 the \emph{negative predictive value} (NPV) is the probability that evidence is actually from different sources given that the examiner has made an exclusion:  $NPV = P(DS | \text{ Elimination})$. 
 Its complement, the \emph{false omission rate} (FOR) is the probability that evidence is actually from the same source\footnote{In \citet{songEstimatingErrorRates2018}, the FDR is referred to as the false identification error rate, and the FOR is called the false exclusion error rate.} given an examiner has made an elimination.
 As before, we can map out the conditional hierarchy using a decision tree, shown in \Cref{fig:PPV-specific-tree}. 
-To reduce confusion with the naming or rates and predictive values we have labeled nodes in the trees of \Cref{fig:FPR-specific-tree} and \Cref{fig:PPV-specific-tree} corresponding to the rates defined in the text.
+To reduce confusion with the naming of rates and predictive values we have labeled nodes in the trees of \Cref{fig:FPR-specific-tree} and \Cref{fig:PPV-specific-tree} corresponding to the rates defined in the text.
 
 \begin{figure}
 \centering
@@ -1799,7 +1799,7 @@ III & 7 & 1 & 2 & 360\\ \hline
 <<histogram, fig.width=8, fig.height = 3, outwidth="\\textwidth", warning=FALSE, message=FALSE, fig.cap="Histogram of the total number of different source comparisons before an identification is made.">>=
 library(tidyverse)
 sets <- read.csv("data/allpossible-hambysets.csv")
-sets$ds <- rowSums(sets-1)
+sets$ds <- rowSums(sets-1) 
 
 sets %>% 
   ggplot(aes(x = ds)) + geom_histogram(binwidth=1, colour="grey50") +
