@@ -705,11 +705,19 @@ gg <- gg %>% group_by(Type, Study, Training, Error) %>%
     pos = c("white", "grey")[1 + as.numeric(Study) %% 2]
   ) 
 
-rects <- tibble(y = c(1, 3, 5, 7, 9))
+rects <- errors %>%
+  select(Study, Training, Error) %>%
+  unique() %>%
+  mutate(y = as.numeric(Study)) %>%
+  filter(y %in% c(1, 3, 5, 9))
+
+# rects <- crossing(Training = unique(errors$Training), errors = unique(errors$Error), y = c(1, 3, 5, 7, 9)) %>%
+  
 
 gg %>%
   ggplot(aes(x = Number/Comparisons*100, y = Study)) +
-  geom_rect(aes(xmin = -Inf, xmax = Inf, ymin =y - 0.5, ymax = y + 0.5), fill = "grey90", alpha = .5, inherit.aes = F, data = rects) + 
+  geom_rect(aes(xmin = -Inf, xmax = Inf, ymin =y - 0.5, ymax = y + 0.5),
+            fill = "grey90", alpha = .5, inherit.aes = F, data = rects) +
   geom_point(aes(shape=Type, colour = Type, y = as.numeric(Study)+0.3*(as.numeric(Type)-2)) ) +
   geom_point(aes(x=35, y = as.numeric(Study)),
                  data = filter(gg, is.na(Comparisons)), shape='?', size = 3.5,
