@@ -679,7 +679,7 @@ There is consistently a much larger discrepancy between the two error rates for 
 Only a portion of the discrepancy between the examiner (AFTE) and process error rates for missed eliminations can be explained by lab policies that only allow eliminations based on mismatches in class characteristics. 
 
 
-The Bunch \& Murphy study, for instance, was conducted at the FBI, where all examiners followed the same lab policy precluding eliminations based on class characteristic mismatches; as a result, the study has the largest difference between the two missed elimination rates.
+The Bunch study, for instance, was conducted at the FBI, where all examiners followed the same lab policy precluding eliminations based on class characteristic mismatches; as a result, the study has the largest difference between the two missed elimination rates.
 
 \hh{Part of this difference can be attributed to lab policies: in some labs exclusions based on individual characteristics are not allowed (i.e.\ class characteristics match). However, the effect of lab policies does not explain all: }
  \citet{Baldwin:2014bb} made efforts to control for the effects of lab policy in determination of inconclusive findings, the efforts were not completely successful.
@@ -757,9 +757,9 @@ These rates, however, are functions of a larger set of probabilities which are c
 In \Cref{fig:source-spec-cis}, we see the full set of source-specific conditional probabilities: the probability that an examiner will make an identification, elimination, or inconclusive determination given that the source of the evidence is different (top panel) or the same (bottom panel). 
 Probabilities are shown with 95\% Pearson-Clopper confidence intervals, which provide a visual indication of the estimate's variability.
 It is apparent that examiners are extremely good at working with same-source evidence: there are relatively few inconclusive determinations, almost no missed identifications, and very few false eliminations. 
-It is also apparent that examiners have much more difficulty when examining evidence that arises from different sources.  As an example, examiners who participated in the Bunch and Murphy study \citep{bunch2003comprehensive} had a significantly higher probability of reaching an inconclusive conclusion than an elimination when evidence items had a different source.
+It is also apparent that examiners have much more difficulty when examining evidence that arises from different sources.  As an example, examiners who participated in the Bunch study \citep{bunch2003comprehensive} had a significantly higher probability of reaching an inconclusive conclusion than an elimination when evidence items had a different source.
 Closed-set designs (used in  \citet{Hamby:2018hu} and  \citet{lyons}) do not even allow for the estimation of different-source probabilities because it is not possible to estimate the number of different source comparisons which are made; this inherent bias has the unintentional effect of masking the fact that examiners are not as accurate when evaluating different-source comparisons. 
-While in most studies (except Bunch \& Murphy), the probability of making an inconclusive determination for different source evidence is below the probability of making an elimination, the probability that examiners will correctly make an elimination is still extremely low relative to the probability of a correct decision in the evaluation of same source evidence.
+While in most studies (except Bunch), the probability of making an inconclusive determination for different source evidence is below the probability of making an elimination, the probability that examiners will correctly make an elimination is still extremely low relative to the probability of a correct decision in the evaluation of same source evidence.
 It may be that examiners are trained to look for similarities, instead of differences, or that it is simply more difficult to classify a difference as opposed to a similarity; further, some labs inexplicably forbid eliminations  unless there is a class characteristic mismatch.
 Regardless of the explanation, it is apparent that when presented with a different source comparison, examiners make an elimination \svp{significantly} less frequently than an identification when presented with a same-source comparison. 
 
@@ -1364,11 +1364,11 @@ Opt. & \multicolumn{1}{c}{Meaning} & Missed Identification & \multicolumn{1}{r}{
 \end{fmpage}
 
 \clearpage
-\paragraph{Bunch \& Murphy}  \citep{bunch2003comprehensive}\hfill\newline
-Bunch \& Murphy used a study design that is not conducive to a quick summary. The study consisted of 8 test kits of varying composition; the test kits were evaluated by 8 examiners at the FBI laboratory. 
+\paragraph{Bunch}  \citep{bunch2003comprehensive}\hfill\newline
+Bunch used a study design that is not conducive to a quick summary. The study consisted of 8 test kits of varying composition; the test kits were evaluated by 8 examiners at the FBI laboratory. 
 
 \noindent\begin{fmpage}{.985\textwidth}\centering % Checked numbers 2020-04-24
-\captionsetup{type=table}\captionof{table}{Results and summary tables for the Bunch and Murphy study. Values in this table are as reported in the study; however, due to the study's structure, it is possible to perform fewer comparisons, because not all comparisons are independent. Results for independent comparisons are shown in \Cref{tab:bunch-indep}}\label{tab:bunch-summary}
+\captionsetup{type=table}\captionof{table}{Results and summary tables for the Bunch study. Values in this table are as reported in the study; however, due to the study's structure, it is possible to perform fewer comparisons, because not all comparisons are independent. Results for independent comparisons are shown in \Cref{tab:bunch-indep}}\label{tab:bunch-summary}
 {\large\bf A Comprehensive Validity Study for the Forensic Examination of Cartridge Cases}\emph{ \citeauthor{bunch2003comprehensive} (\citeyear{bunch2003comprehensive})}\\
 \begin{tabularx}{\textwidth}{XrrX}\hline
 \multirow{2}{*}{\bf Study Type} & \multicolumn{2}{c}{\bf Test Set} & \multirow{2}{*}{\bf Participants}\\
@@ -1738,7 +1738,7 @@ do.call(target_plot, c(duez, pointsize = .5, bordersize = 0.001, title = "Duez (
 ncol = 3
 )
 @
-Bunch and Murphy (2003) is not included in this display because the proportion of identifications and the proportion of same-source comparisons are both so low that the figure could not be properly rendered.
+Bunch (2003) is not included in this display because the proportion of identifications and the proportion of same-source comparisons are both so low that the figure could not be properly rendered.
 \clearpage
 \section{Simulation of comparisons in studies with multiple knowns}\label{sec:sim}
 
@@ -1753,7 +1753,7 @@ Using the simulation method, we created 500,000 sets of 8 test kits; from these 
 R code to reproduce this simulation (and the deductive reasoning algorithm) can be found at \url{https://gist.github.com/srvanderplas/9cb0268df99e97a9ce327bb1489f7046}.
 
 \noindent\begin{fmpage}{.985\textwidth}\centering
-\captionsetup{type=table}\captionof{table}{Results and summary tables for the Bunch and Murphy study, with only independent pairwise comparisons included. 95\% bootstrap intervals are provided for quantities  estimated via simulation. To allocate the inconclusives and eliminations, we used the rule stated in  \citet{bunch2003comprehensive}: FBI examiners can exclude only on class characteristic mismatches. It should be noted that in none of the 287,536 simulations which matched the other set criteria did we find a set which had more than 109 class characteristic mismatches, suggesting that there may have been some eliminations made on individual characteristics, but as this cannot be confirmed, estimates of eliminations only include class characteristic mismatches. }\label{tab:bunch-indep}
+\captionsetup{type=table}\captionof{table}{Results and summary tables for the Bunch study, with only independent pairwise comparisons included. 95\% bootstrap intervals are provided for quantities  estimated via simulation. To allocate the inconclusives and eliminations, we used the rule stated in  \citet{bunch2003comprehensive}: FBI examiners can exclude only on class characteristic mismatches. It should be noted that in none of the 287,536 simulations which matched the other set criteria did we find a set which had more than 109 class characteristic mismatches, suggesting that there may have been some eliminations made on individual characteristics, but as this cannot be confirmed, estimates of eliminations only include class characteristic mismatches. }\label{tab:bunch-indep}
 {\large\bf A Comprehensive Validity Study for the Forensic Examination of Cartridge Cases}\emph{ \citeauthor{bunch2003comprehensive} ( \citeyear{bunch2003comprehensive})}\\
 \begin{tabularx}{\textwidth}{XrrX}\hline
 \multirow{2}{*}{\bf Study Type} & \multicolumn{2}{c}{\bf Test Set} & \multirow{2}{*}{\bf Participants}\\
