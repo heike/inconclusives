@@ -442,15 +442,22 @@ Decision-specific probabilities, calculated using the quantities introduced in \
 In each cell in the main body of the table, probabilities shown are the probability of source $X$, if the examiner's conclusion (one of Identification, Inconclusive, or Elimination) is $Y$. 
 In the last row in the table, the marginal probabilities $P(Y)$ are shown, that is, the unconditional probability that the examiner's decision is $Y$. 
 }\label{tab:ppv-prob}
-\begin{tabularx}{\textwidth}{Y|ccc|Y}
-\multicolumn{5}{c}{\bf Decision-Specific Probabilities}\\\hline
-\multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Probability\\\hline
-Same source & $a/(a+d)$ & $b/(b+e)$ & $c/(c+f)$ & $S/N$\\
-Different source & $d/(a+d)$ & $e/(b+e)$ & $f/(c+f)$ & $D/N$\\\hline
-\multicolumn{1}{Y}{Decision probability} & $(a + d)/N$ & $(b + e)/N$ & \multicolumn{1}{r}{$(c + f)/N$} & \multicolumn{1}{Y}{1.00}\\\hline\hline
-\end{tabularx}
+% \begin{tabularx}{\textwidth}{Y|ccc|Y}
+% \multicolumn{5}{c}{\bf Decision-Specific Probabilities}\\\hline
+% \multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Probability\\\hline
+% Same source & $a/(a+d)$ & $b/(b+e)$ & $c/(c+f)$ & $S/N$\\
+% Different source & $d/(a+d)$ & $e/(b+e)$ & $f/(c+f)$ & $D/N$\\\hline
+% \multicolumn{1}{Y}{Decision probability} & $(a + d)/N$ & $(b + e)/N$ & \multicolumn{1}{r}{$(c + f)/N$} & \multicolumn{1}{Y}{1.00}\\\hline\hline
+% \end{tabularx}
+% \end{table}
+\begin{tabular}{|r|c|c|c|}
+\multicolumn{4}{c}{\bf Decision-Specific Probabilities}\\\cline{2-4}
+\multicolumn{1}{r|}{} & Identification & Inconclusive & \multicolumn{1}{r|}{Elimination} \\\hline
+Same source & $a/(a+d)$ & $b/(b+e)$ & $c/(c+f)$ \\
+Different source & $d/(a+d)$ & $e/(b+e)$ & $f/(c+f)$ \\\hline
+\multicolumn{1}{|r|}{Total \# Decisions} & $a + d$ & $b + e$ & \multicolumn{1}{r|}{$c + f$} \\\hline
+\end{tabular}
 \end{table}
-
 
 Predictive value assessments are used in assessing the implications of a particular classification label; they inform us about the \emph{likely state of the physical evidence} given the expert's decision or testimony. This makes the PPV, NPV, FDR, and FOR particularly useful when evaluating casework (or in a courtroom setting), because the true state of the evidence is unknown.
 
