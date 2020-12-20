@@ -846,11 +846,11 @@ Conceptually, \Cref{fig:shape-overview} demonstrates this characteristic: the ra
 That is, under relatively ideal conditions (where there are inconclusive evaluations, but no errors according to the AFTE process), the expected conditional probabilities in an experiment would match those shown in \Cref{tab:ideal-probabilities}. 
 
 \begin{table}
-\caption{Expected conditional probabilities in a world where examiners do not make mistakes but do make inconclusive decisions. }\label{tab:ideal-probabilities}
+\caption{Expected (target) conditional probabilities in a world where examiners do not make mistakes but do make inconclusive decisions. }\label{tab:ideal-probabilities}
 {\tabulinesep=1.2mm
 \begin{tabu}{|c|ccc|}\hline
 $P(X | Y)$ & \multicolumn{3}{c|}{$Y = $Examiner Conclusion} \\\hline
-$X = $Reality & Identification & Inconclusive & Elimination \\\hline
+$X = $Ground Truth & Identification & Inconclusive & Elimination \\\hline
 Same source & $P(SS|\text{Identification}) = 1 $& $P(SS|\text{Inconclusive}) = P(SS)$ & $P(SS | \text{Elimination}) = 0$ \\
 Different source & $P(DS| \text{Identification}) = 0$ & $P(DS| \text{Inconclusive}) = P(DS)$ & $P(DS | \text{Elimination})= 1$ \\\hline
 \end{tabu}
@@ -863,10 +863,10 @@ However, those probabilities are easily accessible in formal studies or blinded 
 As an example, in the Baldwin study  \citep{Baldwin:2014bb}, we would expect the probabilities for same and different source given an inconclusive result to be: 
 \begin{eqnarray*}
 P(\text{same source} \mid \text{Inconclusive}) &=& P(\text{same source}) = \frac{1}{3},  \\
-P(\text{different source} \mid \text{Inconclusive}) &=& P(\text{different source}) = \frac{2}{3}
+P(\text{different source} \mid \text{Inconclusive}) &=& P(\text{different source}) = \frac{2}{3}.
 \end{eqnarray*}
 This expectation is based on the study's design: 5 of the 15 comparisons were among same-source pairs and 10 were among different-source pairs. 
-However, in Baldwin, as in the other studies, the probability of same-source evidence given an inconclusive is much lower than the expectation.
+However, in Baldwin, as in the other studies, the probability of same-source evidence given an inconclusive is lower than the expectation.
 
 
 <<inconclusives, echo=FALSE, fig.width=8, fig.height=3.75,fig.cap="Probability of inconlusive decisions by same-source/different source comparisons. The probability of inconclusive determinations for same source comparisons is generally low (with a 95\\% confidence interval well below 5\\%). Different source comparisons end up in inconclusive results significantly more often. The Bunch \\& Murphy and Baldwin studies have a particularly high percentage of inconclusive results.", out.width=".8\\textwidth", eval = F, include = F>>=
@@ -921,12 +921,19 @@ Calculations are shown below for \citet{Baldwin:2014bb}:
 P (\text{same source} \mid \text{elimination}) &=& 4 / 1425 &=& 0.0028 \\
 P (\text{same source} \mid \text{inconclusive or elimination}) &=& (11+4) / (748+1425) &=& 0.0069 \\
 %P (\text{different source} \mid \text{inconclusive or elimination}) &=& \displaystyle\frac{737+1421}{748+1425} &=& 0.9931 \\ % This isn't mentioned in the text description - I suspect the calc shown below was possibly meant instead?
-P (\text{different source} \mid \text{identification}) &=& 22 / 1097 &=& 0.0201
+P (\text{different source} \mid \text{identification}) &=& 22 / 1097 &=& 0.0201.
 \end{array}
 \end{align}
 
-and also for \citet{mattijssenValidityReliabilityForensic2020}:
-%
+
+
+Examining the experimentally determined error rates for firearms and toolmark identification leads to a disturbing realization.
+There is an order of magnitude difference between the probability of same-source evidence given an elimination and the probability of different-source evidence given an identification \svp{in studies conducted using examiners who are primarily from the US and Canada (e.g. excluding \citet{mattijssenValidityReliabilityForensic2020, pauw2013faid}).} 
+In fact, even if inconclusives and eliminations are combined as under Option 4 \svp{in \citet{Baldwin:2014bb}}, the probability of a false elimination is 0.0069, only a third of the probability of a false identification.
+These observations are shown visually in \Cref{fig:asymmetric-errors} and explicitly calculated in \Cref{eqn:baldwin-calcs} for \citet{Baldwin:2014bb}, \svp{the only study from the US or Canada} with sufficient error counts.
+It is necessary to have at least one observation in each cell in order to bound the probabilities as well as sufficient comparisons to be able to differentiate between e.g. 0.02 and 0.2; this is particularly important when we deal with very low and very high probabilities, such as success and error rates. 
+\svp{If we repeat these calculations using another large study, \citet{mattijssenValidityReliabilityForensic2020}, however, we find that this issue is not universal.}
+
 \begin{align}\label{eqn:mattijssen-calcs}
 \arraycolsep=1.4pt\def\arraystretch{2.2}
 \begin{array}{rcccr}
@@ -937,13 +944,8 @@ P (\text{different source} \mid \text{identification}) &=& 74 / 2439 &=& 0.0303
 \end{array}
 \end{align}
 
-
-Examining the experimentally determined error rates for firearms and toolmark identification leads to a disturbing realization. \svp{XXX Mattijssen is directly counter to this. How do we want to address it? Blame AFTE rules? The adversarial system? We still need to smooth this discussion out a bit. XXX}
-There is an order of magnitude difference between the probability of same-source evidence given an elimination and the probability of different-source evidence given an identification. 
-In fact, even if inconclusives and eliminations are combined as under Option 4 the probability of a false elimination is 0.0069, only a third of the probability of a false identification.
-These observations are shown visually in \Cref{fig:asymmetric-errors} and explicitly calculated in \Cref{eqn:baldwin-calcs,eqn:mattijssen-calcs} for studies with sufficient error counts \citep{Baldwin:2014bb,mattijssenValidityReliabilityForensic2020}. 
-It is necessary to have at least one observation in each cell in order to bound the probabilities as well as sufficient comparisons to be able to differentiate between e.g. 0.02 and 0.2; this is particularly important when we deal with very low and very high probabilities, such as success and error rates. 
-
+\svp{While we cannot conclude that this difference is due to the location of the examiners, or the protocol by which the study was conducted, it is clear that the studies conducted primarily on US examiners show a bias that does not exist in \citet{mattijssenValidityReliabilityForensic2020}; that is, we do not have to be content with this bias as the status quo.
+More studies are needed to determine which factors (training, location, legal system, system of reporting conclusions, study protocol) are most important in contributing to the clear bias in the distribution of inconclusives across same-source and different-source comparisons.}
 
 <<asymmetric-errors, echo = F, fig.width = 8, fig.height = 4, fig.cap = "Decision-specific error rates. For all AFTE-decision criteria studies (excluding \\citet{mattijssenValidityReliabilityForensic2020}, which used likelihood ratios as a primary criteria), errors in identification are more likely than errors in eliminations. In \\citet{Baldwin:2014bb} and \\citet{mattijssenValidityReliabilityForensic2020}, which are the only studies with a large number of participants and evaluations, confidence intervals for wrong identifications do not overlap, \\svp{indicating that we can clearly differentiate between the two classes of errors.}", cache = F>>=
 # Even if inconclusives are treated as eliminations, error rates are still not higher for eliminations than identifications (removed from caption)
