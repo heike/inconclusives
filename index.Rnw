@@ -533,7 +533,7 @@ As described in the PCAST report, ``set-based" approaches can inflate examiners'
 \end{displayquote}
 
 The PCAST response, issued in  \citeyear{pcast-addendum2017}, identifies only one study \citep{Baldwin:2014bb} as appropriately designed to evaluate the validity and reliability of firearms analysis methods. 
-Shortly after the report was issued, additional studies were published which also meet the criteria for reliable studies in the report:  \citet{keisler}, \citet{Duez:2017kha}, \svp{\citet{vcmer}, and \citet{mattijssenValidityReliabilityForensic2020}}. 
+Shortly after the report was issued, additional studies were published which also meet the criteria for reliable studies in the report:  \citet{keisler}, \citet{Duez:2017kha}, \svp{VCMER \citep{vcmer}, and \citet{mattijssenValidityReliabilityForensic2020}}. 
 All four ``good" studies used slightly different designs but share one essential element: each kit contained multiple comparisons composed of one or more samples from exactly one known source and one unknown source.
 These designs substantially reduce or eliminate the internal dependencies which provide ``hints" to examiners by ensuring that each comparison of samples is considered independently.
 Also, the design of these studies ensures that it is possible to exactly enumerate the number of same-source and different-source comparisons.\footnote{At least, it is possible with the additional assumption that a comparison between a multiple items from the same source and an unknown should count as a single comparison.}
