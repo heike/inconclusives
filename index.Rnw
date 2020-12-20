@@ -416,12 +416,12 @@ Conversely, for a  different-source evidence pair, the examiner  makes an elimin
 \subsection{Decision-specific assessment}
 
 An alternate way to evaluate a classification method is to assess the probability of a same-source or different-source comparison, given that the examiner has  made a  decision (or, more generically, a specific general conclusion).
-The \emph{positive predictive value} (PPV) is the probability that a pair of evidence items have the same source, given that the examiner has made an identification, i.e.\ $P(SS | \text{Identification})$. 
-Its complement, the \emph{false discovery rate} (FDR), is the probability that the evidence is from different sources, given that the examiner has made an identification, .
+The \emph{positive predictive value} PPV is the probability that a pair of evidence items have the same source, given that the examiner has made an identification, i.e.\ $P(SS | \text{Identification})$. 
+Its complement, the \emph{false discovery rate} FDR, is the probability that the evidence is from different sources, given that the examiner has made an identification, .
 
 Similarly, we can define  predictive values when an examiner has made exclusions:
-the \emph{negative predictive value} (NPV) is the probability that evidence is actually from different sources given that the examiner has made an exclusion:  $NPV = P(DS | \text{ Elimination})$. 
-Its complement, the \emph{false omission rate} (FOR) is the probability that evidence is actually from the same source\footnote{In \citet{songEstimatingErrorRates2018}, the FDR is referred to as the false identification error rate, and the FOR is called the false exclusion error rate.} given an examiner has made an elimination.
+the \emph{negative predictive value} NPV is the probability that evidence is actually from different sources given that the examiner has made an exclusion:  $NPV = P(DS | \text{ Elimination})$. 
+Its complement, the \emph{false omission rate} FOR is the probability that evidence is actually from the same source\footnote{In \citet{songEstimatingErrorRates2018}, the FDR is referred to as the false identification error rate, and the FOR is called the false exclusion error rate.} given an examiner has made an elimination.
 As before, we can map out the conditional hierarchy using a decision tree, shown in \Cref{fig:PPV-specific-tree}. 
 To reduce confusion with the naming of rates and predictive values we have labeled nodes in the trees of \Cref{fig:FPR-specific-tree} and \Cref{fig:PPV-specific-tree} corresponding to the rates defined in the text.
 
