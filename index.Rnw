@@ -516,7 +516,7 @@ The studies included in this section are not an exhaustive list of every error r
 \item[Duez] \citep{Duez:2017kha} is an open-set study of breech face comparisons using virtual microscopy. Each of 56 participants (46 trained, 10 trainees, primarily from the US and Canada) received two test sets consisting of one standard (3 scans) and 4 questioned scans. In one set, all questioned scans were from the same source as the standard; in the second set, there were two different-source questioned scans and two same-source questioned scans.
 \item[\svp{VCMER}] \svp{\citep{vcmer}} is an open-set study of breech face comparisons using virtual microscopy. Each of 76 participants (primarily from the US and Canada) received 16 test sets consisting of one standard (2 scans) and 1 questioned scans. In 17 sets, the questioned bullet matched the standards, and in 23 sets, the questioned bullet was fired from a different weapon.
 \item[\svp{Mattijssen}] \svp{\citep{mattijssenValidityReliabilityForensic2020} is an open-set study of firing pin aperture mark images and scans from 200 Glock pistols. Sixty of the resulting comparisons were shown to 77 firearms examiners, who provided assessments based on a likelihood-ratio scale initially, and were then asked whether they would have returned an inconclusive decision after the fact. The results from the study were reported by the authors in both AFTE and LR formats, which allows us to include it in this assessment. A significant majority (58) of the participants in this study report case work conclusions categorically (e.g. according to AFTE or similar scales).}
-\item[\svp{FAID-2009}] \svp{\citep{pauw2013faid} is an open-set study of bullets and cartridge cases using castings. Each of 64 participants evaluated 10 test sets (5 bullets, 5 cartridge cases) consisting of three standard castings and 1 questioned casting. In 3 bullet and 2 cartridge case sets, the questioned bullet matched the standards, and in 2 bullet and 3 cartridge case sets, the questioned bullet was fired from a different weapon. The examiners  in this study are primarily from Europe, and the study used a 5-class categorical scale. Note that this study was part of a proficiency test, and as such, examiners may have faced different pressures than in the other error-rate studies.}
+\item[\svp{FAID09}] \svp{\citep{pauw2013faid} is an open-set study of bullets and cartridge cases using castings. Each of 64 participants evaluated 10 test sets (5 bullets, 5 cartridge cases) consisting of three standard castings and 1 questioned casting. In 3 bullet and 2 cartridge case sets, the questioned bullet matched the standards, and in 2 bullet and 3 cartridge case sets, the questioned bullet was fired from a different weapon. The examiners  in this study are primarily from Europe, and the study used a 5-class categorical scale. Note that this study was part of a proficiency test, and as such, examiners may have faced different pressures than in the other error-rate studies.}
 \end{description}
 
 Of the studies listed above, we have examined all but \citet{fadul}, which contained insufficient detail about examiner results and conclusions to calculate the quantities discussed in the previous section. 
@@ -1650,10 +1650,10 @@ Opt. & \multicolumn{1}{c}{Meaning} & Missed Identification & \multicolumn{1}{r}{
 \end{tabularx}
 \end{fmpage}\clearpage
 
-\paragraph{FAID2009} \svp{The FAID-2009 study}  \citep{pauw2013faid} consists of 10 sets of 3 knowns and 1 unknown, in both bullets and cartridge cases. Test sets were castings of the original fired bullets and cases, rather than the objects themselves. Examiners reported conclusions on a 5-point (+ unsuitable) scale, where A corresponds to identification, B corresponds to probable identification or AFTE Inconclusive-A, C corresponds to inconclusive or AFTE Inconclusive B, D corresponds to probable exclusion, or AFTE Inconclusive C, and E corresponds to Exclusion; Z corresponds to unsuitable. There were between 62 and 64 evaluations of each set.
+\paragraph{FAID09} \svp{The FAID09 study}  \citep{pauw2013faid} consists of 10 sets of 3 knowns and 1 unknown, in both bullets and cartridge cases. Test sets were castings of the original fired bullets and cases, rather than the objects themselves. Examiners reported conclusions on a 5-point (+ unsuitable) scale, where A corresponds to identification, B corresponds to probable identification or AFTE Inconclusive-A, C corresponds to inconclusive or AFTE Inconclusive B, D corresponds to probable exclusion, or AFTE Inconclusive C, and E corresponds to Exclusion; Z corresponds to unsuitable. There were between 62 and 64 evaluations of each set.
 
 \noindent\begin{fmpage}{.985\textwidth}\centering % Checked numbers 2020-04-24
-\captionsetup{type=table}\captionof{table}{FAID-2009 study results for bullets, conclusion-specific and source-specific probabilities, and reported overall error rates. }\label{tab:FAID-2009-bullet-summary}
+\captionsetup{type=table}\captionof{table}{FAID09 study results for bullets, conclusion-specific and source-specific probabilities, and reported overall error rates. }\label{tab:FAID09-bullet-summary}
 {\large\bf FAID2009 Proficiency Test and Workshop}
 \emph{ \citeauthor{pauw2013faid} ( \citeyear{pauw2013faid})}\\
 \begin{tabularx}{\textwidth}{XrrX}\hline
@@ -1695,7 +1695,7 @@ Opt. & \multicolumn{1}{c}{Meaning} & Missed Identification & \multicolumn{1}{r}{
 
 
 \noindent\begin{fmpage}{.985\textwidth}\centering % Checked numbers 2020-04-24
-\captionsetup{type=table}\captionof{table}{FAID-2009 study results for cartridges, conclusion-specific and source-specific probabilities, and reported overall error rates. }\label{tab:FAID-2009-cartridge-summary}
+\captionsetup{type=table}\captionof{table}{FAID09 study results for cartridges, conclusion-specific and source-specific probabilities, and reported overall error rates. }\label{tab:FAID09-cartridge-summary}
 {\large\bf FAID2009 Proficiency Test and Workshop}
 \emph{ \citeauthor{pauw2013faid} ( \citeyear{pauw2013faid})}\\
 \begin{tabularx}{\textwidth}{XrrX}\hline
