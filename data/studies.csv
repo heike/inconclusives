@@ -29,12 +29,12 @@ Lyons (2009),Same Source,Elimination,3,Observed,US/CA
 Lyons (2009),Different Source,Identification,3,Observed,US/CA
 Lyons (2009),Different Source,Inconclusive,NA,Observed,US/CA
 Lyons (2009),Different Source,Elimination,NA,Observed,US/CA
-Bunch & Murphy (2003),Same Source,Identification,70,Observed,US/CA
-Bunch & Murphy (2003),Same Source,Inconclusive,0,Observed,US/CA
-Bunch & Murphy (2003),Same Source,Elimination,0,Observed,US/CA
-Bunch & Murphy (2003),Different Source,Identification,0,Observed,US/CA
-Bunch & Murphy (2003),Different Source,Inconclusive,172,Observed,US/CA
-Bunch & Murphy (2003),Different Source,Elimination,118,Observed,US/CA
+Bunch (2003),Same Source,Identification,70,Observed,US/CA
+Bunch (2003),Same Source,Inconclusive,0,Observed,US/CA
+Bunch (2003),Same Source,Elimination,0,Observed,US/CA
+Bunch (2003),Different Source,Identification,0,Observed,US/CA
+Bunch (2003),Different Source,Inconclusive,172,Observed,US/CA
+Bunch (2003),Different Source,Elimination,118,Observed,US/CA
 Keisler (2018),Same Source,Elimination,0,Expected,US/CA
 Keisler (2018),Same Source,Identification,1,Expected,US/CA
 Keisler (2018),Same Source,Inconclusive,0.6,Expected,US/CA
@@ -51,10 +51,10 @@ Lyons (2009),Same Source,Elimination,0,Expected,US/CA
 Lyons (2009),Same Source,Identification,1,Expected,US/CA
 Hamby (2019),Same Source,Elimination,0,Expected,US/CA
 Hamby (2019),Same Source,Identification,1,Expected,US/CA
-Bunch & Murphy (2003),Same Source,Identification,1,Expected,US/CA
-Bunch & Murphy (2003),Same Source,Elimination,0,Expected,US/CA
-Bunch & Murphy (2003),Same Source,Inconclusive,0.2414,Expected,US/CA
-Bunch & Murphy (2003),Different Source,Inconclusive,0.7586,Expected,US/CA
+Bunch (2003),Same Source,Identification,1,Expected,US/CA
+Bunch (2003),Same Source,Elimination,0,Expected,US/CA
+Bunch (2003),Same Source,Inconclusive,0.2414,Expected,US/CA
+Bunch (2003),Different Source,Inconclusive,0.7586,Expected,US/CA
 VCMER (2020),Same Source,Identification,453,Observed,US/CA
 VCMER (2020),Same Source,Inconclusive,38,Observed,US/CA
 VCMER (2020),Same Source,Elimination,0,Observed,US/CA

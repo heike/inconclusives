@@ -416,12 +416,12 @@ Conversely, for a  different-source evidence pair, the examiner  makes an elimin
 \subsection{Decision-specific assessment}
 
 An alternate way to evaluate a classification method is to assess the probability of a same-source or different-source comparison, given that the examiner has  made a  decision (or, more generically, a specific general conclusion).
-The \emph{positive predictive value} (PPV) is the probability that a pair of evidence items have the same source, given that the examiner has made an identification, i.e.\ $P(SS | \text{Identification})$. 
-Its complement, the \emph{false discovery rate} (FDR), is the probability that the evidence is from different sources, given that the examiner has made an identification, .
+The \emph{positive predictive value} PPV is the probability that a pair of evidence items have the same source, given that the examiner has made an identification, i.e.\ $P(SS | \text{Identification})$. 
+Its complement, the \emph{false discovery rate} FDR, is the probability that the evidence is from different sources, given that the examiner has made an identification, .
 
 Similarly, we can define  predictive values when an examiner has made exclusions:
-the \emph{negative predictive value} (NPV) is the probability that evidence is actually from different sources given that the examiner has made an exclusion:  $NPV = P(DS | \text{ Elimination})$. 
-Its complement, the \emph{false omission rate} (FOR) is the probability that evidence is actually from the same source\footnote{In \citet{songEstimatingErrorRates2018}, the FDR is referred to as the false identification error rate, and the FOR is called the false exclusion error rate.} given an examiner has made an elimination.
+the \emph{negative predictive value} NPV is the probability that evidence is actually from different sources given that the examiner has made an exclusion:  $NPV = P(DS | \text{ Elimination})$. 
+Its complement, the \emph{false omission rate} FOR is the probability that evidence is actually from the same source\footnote{In \citet{songEstimatingErrorRates2018}, the FDR is referred to as the false identification error rate, and the FOR is called the false exclusion error rate.} given an examiner has made an elimination.
 As before, we can map out the conditional hierarchy using a decision tree, shown in \Cref{fig:PPV-specific-tree}. 
 To reduce confusion with the naming of rates and predictive values we have labeled nodes in the trees of \Cref{fig:FPR-specific-tree} and \Cref{fig:PPV-specific-tree} corresponding to the rates defined in the text.
 
@@ -507,7 +507,7 @@ Using these comparisons we assess the state of these error rate studies and prov
 The studies included in this section are not an exhaustive list of every error rate study ever performed; rather, we have included the most central and most cited studies, as well as several of the studies mentioned in the PCAST and NRC reports concerning firearm and toolmark analysis. A brief description of each study is provided here for reference purposes, with summary tables of results and conditional probabilities provided in \Cref{sec:supplement}.
 
 \begin{description}
-\item[Baldwin] \citep{Baldwin:2014bb} is a study of Ruger SR9 cartridge cases. It is an open-set study with 15 comparisons of 3 knowns to 1 questioned cartridge case. Participants received sets with 10 different-source and 5 same-source comparisons.
+\item[Baldwin] \citep{Baldwin:2014bb} is a study of Ruger SR9 cartridge cases. This is an open-set study. Each participant is asked to make 15 comparisons of 1 standard (3 cartridge cases) to 1 questioned cartridge case.  Participants received sets with 10 different-source and 5 same-source comparisons. 
 \item[Keisler] \citep{keisler} is a study of cartridge case comparisons. It is an open set study with 20 comparisons of 1 known to 1 questioned cartridge cases. Sets consisted of 12 same-source and 8 different-source comparisons; 126 examiners participated.
 \item[Brundage-Hamby]  \citep{Hamby:2018hu} is a closed-set study of 10 consecutively manufactured Ruger P-95 barrels. Sets consisting of 10 standards (2 bullets each) and 15 questioned bullets were provided to 507 study participants over the course of several decades of data collection. 
 \item[Lyons] \citep{lyons} is a closed-set study of 10 consecutively manufactured Colt 1911A1 extractors. Participants received a set of 10 standards and 12 questioned cases. The design of this study is similar to  \citep{Hamby:2018hu}.
@@ -603,7 +603,7 @@ library(tidyverse)
 studies <- read.csv("data/studies.csv")
 studies <- studies %>% mutate(
     Study = factor(Study, 
-                    levels=c("Bunch & Murphy (2003)", "Lyons (2009)", "Hamby (2019)", "Baldwin (2014)", "Keisler (2018)", "Duez (2018)", "VCMER (2020)", "Mattijssen (2020)", "FAID09 (2013) Bull.", "FAID09 (2013) Cartr."))
+                    levels=c("Bunch (2003)", "Lyons (2009)", "Hamby (2019)", "Baldwin (2014)", "Keisler (2018)", "Duez (2018)", "VCMER (2020)", "Mattijssen (2020)", "FAID09 (2013) Bull.", "FAID09 (2013) Cartr."))
   )
 
 cis <- studies %>% group_by(Study, Decision, Training) %>% 
@@ -637,6 +637,7 @@ DontKnow_source_spec <- tibble(
   xmin=c(0,0,0,0,0,0), 
   xmax=c(1,1,1,1,1,1), 
   Study = c("Lyons (2009)", "Hamby (2019)", "Lyons (2009)", "Hamby (2019)", "Lyons (2009)", "Hamby (2019)") %>% factor(levels = levels(studies$Study)), 
+  Training="US/CA",
   Decision=rep(c("Identification", "Inconclusive", "Elimination"), each=2),
   Ground.truth = "Different Source") %>%
   dplyr::mutate(Decision = factor(Decision, levels=c("Identification", "Inconclusive", "Elimination")))
@@ -695,9 +696,16 @@ The rates reported in this section are calculated directly from information repo
 More realistic estimates of error rates that account for the use of deductive reasoning can be found in \Cref{sec:sim}.
 
 
-<<errors, echo=FALSE, fig.width=8, fig.height=5,fig.cap="Percentages of missed eliminations and missed identifications by study. 95\\% Pearson-Clopper confidence intervals are drawn around the error estimates. Missed eliminations cannot be calculated for closed-set studies.", out.width=".8\\textwidth">>=
+<<errors, echo=FALSE, fig.width=8, fig.height=5.85,fig.cap="Percentages of missed eliminations and missed identifications by study. 95\\% Pearson-Clopper confidence intervals are drawn around the error estimates. Missed eliminations cannot be calculated for closed-set studies.", out.width=".8\\textwidth">>=
 
-gg <- errors %>% gather(Type, Number, AFTE, Process, Elimination) %>% 
+errors <- errors %>% 
+  mutate(
+    Error = factor(Error)
+  )
+levels(errors$Error) <- c("Missed\nElimination", "Missed\nIdentification")
+
+gg <- errors %>% 
+  gather(Type, Number, AFTE, Process, Elimination) %>% 
   mutate(
     Type = factor(Type, levels=c("AFTE", "Process", "Elimination"))
     ) 
@@ -717,7 +725,7 @@ rects <- errors %>%
   select(Study, Training, Error) %>%
   unique() %>%
   mutate(y = as.numeric(Study)) %>%
-  filter(y %in% c(1, 3, 5, 9))
+  filter(y %in% c(1, 3, 5, 7, 9))
 
 # rects <- crossing(Training = unique(errors$Training), errors = unique(errors$Error), y = c(1, 3, 5, 7, 9)) %>%
   
@@ -725,7 +733,7 @@ rects <- errors %>%
 gg %>%
   ggplot(aes(x = Number/Comparisons*100, y = Study)) +
   geom_rect(aes(xmin = -Inf, xmax = Inf, ymin =y - 0.5, ymax = y + 0.5),
-            fill = "grey90", alpha = .5, inherit.aes = F, data = rects) +
+            fill = "grey60", alpha = .25, inherit.aes = F, data = rects) +
   geom_point(aes(shape=Type, colour = Type, y = as.numeric(Study)+0.3*(as.numeric(Type)-2)) ) +
   geom_point(aes(x=35, y = as.numeric(Study)),
                  data = filter(gg, is.na(Comparisons)), shape='?', size = 3.5,
@@ -764,7 +772,7 @@ While in most studies (except Bunch), the probability of making an inconclusive 
 It may be that examiners are trained to look for similarities, instead of differences, or that it is simply more difficult to classify a difference as opposed to a similarity; further, some labs inexplicably forbid eliminations  unless there is a class characteristic mismatch.
 Regardless of the explanation, it is apparent that when presented with a different source comparison, examiners make an elimination \svp{significantly} less frequently than an identification when presented with a same-source comparison. 
 
-<<source-spec-cis, echo=FALSE, fig.width=8, fig.height=5, fig.cap="Pearson-Clopper 95\\% confidence intervals for the probability of an examiner's conclusion given source of the evidence. No assessments can be made about different-source specific probabilities when the total number of comparisons cannot be determined. The probability of inconclusive determinations on different source evidence is quite high, much higher than for same source evidence, where the probability for an inconclusive result is close to zero. \\svp{FAID09\\citep{pauw2013faid} is unique among the rest of the studies: for both sets, the rate of inconclusive decisions is similar for same and different source evidence.}", out.width=".8\\textwidth">>=
+<<source-spec-cis, echo=FALSE, fig.width=8, fig.height=5.85, fig.cap="Pearson-Clopper 95\\% confidence intervals for the probability of an examiner's conclusion given source of the evidence. No assessments can be made about different-source specific probabilities when the total number of comparisons cannot be determined. The probability of inconclusive determinations on different source evidence is quite high, much higher than for same source evidence, where the probability for an inconclusive result is close to zero. \\svp{FAID09\\citep{pauw2013faid} is unique among the rest of the studies: for both sets, the rate of inconclusive decisions is similar for same and different source evidence.}", out.width=".8\\textwidth">>=
 
 figdata <- source_spec_cis %>% 
   ungroup() %>%
@@ -772,9 +780,15 @@ figdata <- source_spec_cis %>%
     Decision = factor(Decision, levels=c("Identification", "Inconclusive", "Elimination"))
   ) 
 
+figdata$Ground.truth <- factor(figdata$Ground.truth)
+levels(figdata$Ground.truth) <- c("Diff. Src", "Same Src")
+
+DontKnow_source_spec$Ground.truth <- factor(DontKnow_source_spec$Ground.truth)
+levels(DontKnow_source_spec$Ground.truth) <- c("Diff. Src", "Same Src")
+
 figdata %>%
   ggplot(aes(y = pred_ss, x = Study, colour = Decision, shape = Decision)) +
-  facet_grid(Ground.truth~.) +
+  facet_grid(Ground.truth+Training~., space="free_y", scales="free_y") +
   ylim(c(0,1)) +
   ylab("Probability of examiner decision given source") +
   theme_bw() +
@@ -810,15 +824,23 @@ As before, the probabilities computed from the study results are shown with thei
 The circles shown in light grey in the middle panel show the expected proportion of inconclusive results which are from the same source. 
 The calculation of these expected values will be discussed in more detail in the next section.
 
-<<cis, echo=FALSE, fig.width=8, fig.height=6, fig.cap="Pearson-Clopper 95\\% confidence intervals for the probability of same source evidence given an examiner's conclusion. Expected values for each of the probabilities as discussed in \\Cref{sec:inconclusives} are shown as grey targets. Some of the studies do not allow an assessment of all of the predictive values. \\svp{Note that all 3 sets with non-AFTE conclusions \\citep{pauw2013faid, mattijssenValidityReliabilityForensic2020} have much higher rates of same-source elimination errors. Only FAID09 \\citep{pauw2013faid} has inconclusive rates which are similar to the overall rate of same-source evidence.}", out.width=".8\\textwidth">>=
+<<cis, echo=FALSE, fig.width=8, fig.height=7, fig.cap="Pearson-Clopper 95\\% confidence intervals for the probability of same source evidence given an examiner's conclusion. Expected values for each of the probabilities as discussed in \\Cref{sec:inconclusives} are shown as grey targets. Some of the studies do not allow an assessment of all of the predictive values. \\svp{Note that all 3 sets with non-AFTE conclusions \\citep{pauw2013faid, mattijssenValidityReliabilityForensic2020} have much higher rates of same-source elimination errors. Only FAID09 \\citep{pauw2013faid} has inconclusive rates which are similar to the overall rate of same-source evidence.}", out.width=".8\\textwidth">>=
  
-cis %>% 
+cis <- cis %>% 
   ungroup() %>%
   mutate(
     Decision = factor(Decision, levels=c("Identification", "Inconclusive", "Elimination"))
-  ) %>%
+  ) 
+
+labeltext <- 
+  data.frame(x = c(0.9, 0.1, 0.9), y = 8, label="EU",
+             Decision=c("Elimination", "Identification",
+                        "Inconclusive"))
+
+cis %>%
   ggplot(aes(x = pred_ss, y = Study)) +
   facet_grid(Decision~.) +
+  geom_rect(xmin=-Inf, xmax=Inf, ymin=7.5, ymax=Inf, fill="black", alpha=0.01) +
   xlim(c(0,1)) +
   xlab("Probability for same source given examiner's decision") +
   theme_bw() +
@@ -834,8 +856,9 @@ cis %>%
   geom_point() +
   geom_errorbarh(aes(xmin=xmin, xmax=xmax, y=Study), 
                  data = DontKnow, linetype=2) +
-  geom_point(data = DontKnow, shape='?', size = 3.5)
-
+  geom_point(data = DontKnow, shape='?', size = 3.5) +
+  geom_text(aes(x=x, y=y, label=label),  colour="grey70", 
+            size=10, vjust=-0.15, hjust=0.5, data = labeltext) 
 
 @
 
@@ -998,7 +1021,7 @@ errors2 <- studies %>%
     ) %>%
   ungroup() %>%
   mutate(
-    afte = (Study %in% c("Mattijssen (2020)", "FAID2009 Bullets", "FAID2009 Cartridges")) %>% factor(levels = c(FALSE, TRUE), labels = c("AFTE scale", "Non-AFTE Scale"))
+    afte = (Study %in% c("Mattijssen (2020)", "FAID09 (2013) Bull.", "FAID09 (2013) Cartr.")) %>% factor(levels = c(FALSE, TRUE), labels = c("AFTE scale", "Non-AFTE Scale"))
   )
 
 errors2 %>%
@@ -1011,12 +1034,12 @@ errors2 %>%
   filter(!(Study %in% c("Hamby (2019)", "Lyons (2009)", 
                         "Bunch & Murphy (2003)"))) %>%
   ggplot(aes(x = rate*100, y = Study)) + 
-  geom_hline(yintercept = "FAID2009 Bullets", colour = "black",
-             size=16, alpha = 0.1) +
+  geom_hline(yintercept = "FAID09 (2013) Bull.", colour = "black",
+             size=14, alpha = 0.1) +
   geom_hline(yintercept = "Duez (2018)", colour = "black",
-             size=16, alpha = 0.1) +
+             size=14, alpha = 0.1) +
   geom_hline(yintercept = "Baldwin (2014)", colour = "black",
-             size=16, alpha = 0.1) +
+             size=14, alpha = 0.1) +
   geom_point(aes(colour = ErrorType, shape = ErrorType),
              position = position_dodge(width = 0.7),
              size = 2.5) + 
