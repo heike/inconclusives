@@ -442,15 +442,22 @@ Decision-specific probabilities, calculated using the quantities introduced in \
 In each cell in the main body of the table, probabilities shown are the probability of source $X$, if the examiner's conclusion (one of Identification, Inconclusive, or Elimination) is $Y$. 
 In the last row in the table, the marginal probabilities $P(Y)$ are shown, that is, the unconditional probability that the examiner's decision is $Y$. 
 }\label{tab:ppv-prob}
-\begin{tabularx}{\textwidth}{Y|ccc|Y}
-\multicolumn{5}{c}{\bf Decision-Specific Probabilities}\\\hline
-\multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Probability\\\hline
-Same source & $a/(a+d)$ & $b/(b+e)$ & $c/(c+f)$ & $S/N$\\
-Different source & $d/(a+d)$ & $e/(b+e)$ & $f/(c+f)$ & $D/N$\\\hline
-\multicolumn{1}{Y}{Decision probability} & $(a + d)/N$ & $(b + e)/N$ & \multicolumn{1}{r}{$(c + f)/N$} & \multicolumn{1}{Y}{1.00}\\\hline\hline
-\end{tabularx}
+% \begin{tabularx}{\textwidth}{Y|ccc|Y}
+% \multicolumn{5}{c}{\bf Decision-Specific Probabilities}\\\hline
+% \multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Probability\\\hline
+% Same source & $a/(a+d)$ & $b/(b+e)$ & $c/(c+f)$ & $S/N$\\
+% Different source & $d/(a+d)$ & $e/(b+e)$ & $f/(c+f)$ & $D/N$\\\hline
+% \multicolumn{1}{Y}{Decision probability} & $(a + d)/N$ & $(b + e)/N$ & \multicolumn{1}{r}{$(c + f)/N$} & \multicolumn{1}{Y}{1.00}\\\hline\hline
+% \end{tabularx}
+% \end{table}
+\begin{tabular}{|r|c|c|c|}
+\multicolumn{4}{c}{\bf Decision-Specific Probabilities}\\\cline{2-4}
+\multicolumn{1}{r|}{} & Identification & Inconclusive & \multicolumn{1}{r|}{Elimination} \\\hline
+Same source & $a/(a+d)$ & $b/(b+e)$ & $c/(c+f)$ \\
+Different source & $d/(a+d)$ & $e/(b+e)$ & $f/(c+f)$ \\\hline
+\multicolumn{1}{|r|}{Total \# Decisions} & $a + d$ & $b + e$ & \multicolumn{1}{r|}{$c + f$} \\\hline
+\end{tabular}
 \end{table}
-
 
 Predictive value assessments are used in assessing the implications of a particular classification label; they inform us about the \emph{likely state of the physical evidence} given the expert's decision or testimony. This makes the PPV, NPV, FDR, and FOR particularly useful when evaluating casework (or in a courtroom setting), because the true state of the evidence is unknown.
 
@@ -496,18 +503,18 @@ For each study, we provide the reported results and present error rates and cond
 Using these comparisons we assess the state of these error rate studies and provide an overview of the current status quo of firearms examination.
 
 \subsection{Error Rate Studies}
-The studies included in this section are not an exhaustive list of every error rate study ever performed; rather, we have included the most central and most cited studies, as well as several of the studies mentioned in the PCAST and NAS reports concerning firearm and toolmark analysis. A brief description of each study is provided here for reference purposes, with summary tables of results and conditional probabilities provided in \Cref{sec:supplement}.
+The studies included in this section are not an exhaustive list of every error rate study ever performed; rather, we have included the most central and most cited studies, as well as several of the studies mentioned in the PCAST and NRC reports concerning firearm and toolmark analysis. A brief description of each study is provided here for reference purposes, with summary tables of results and conditional probabilities provided in \Cref{sec:supplement}.
 
 \begin{description}
 \item[Baldwin] \citep{Baldwin:2014bb} is a study of Ruger SR9 cartridge cases. It is an open-set study with 15 comparisons of 3 knowns to 1 questioned cartridge case. Participants received sets with 10 different-source and 5 same-source comparisons.
-\item[Keisler] \citep{keisler} is a study of cartridge case comparisons. It is an open set study with 20 comparisons of 1 known to 1 questioned cartridge cases. 126 participants received sets with 12 same-source and 8 different-source comparisons.
-\item[Brundage-Hamby]  \citep{Hamby:2018hu} is a closed-set study of 10 consecutively manufactured Ruger P-95 barrels. 507 participants received sets consisting of 10 standards (2 bullets each) and 15 questioned bullets. 
+\item[Keisler] \citep{keisler} is a study of cartridge case comparisons. It is an open set study with 20 comparisons of 1 known to 1 questioned cartridge cases. Sets consisted of 12 same-source and 8 different-source comparisons; 126 examiners participated.
+\item[Brundage-Hamby]  \citep{Hamby:2018hu} is a closed-set study of 10 consecutively manufactured Ruger P-95 barrels. Sets consisting of 10 standards (2 bullets each) and 15 questioned bullets were provided to 507 study participants over the course of several decades of data collection. 
 \item[Lyons] \citep{lyons} is a closed-set study of 10 consecutively manufactured Colt 1911A1 extractors. Participants received a set of 10 standards and 12 questioned cases. The design of this study is similar to  \citep{Hamby:2018hu}.
-\item[Bunch \& Murphy] \citep{bunch2003comprehensive} is an open-set study of consecutively manufactured Glock breech faces. In this study, 8 participants from the FBI laboratory received 10 cartridge cases each  and were required to evaluate all possible pairwise comparisons. The number of same-source and different-source cartridge cases varied by test kit, ranging from 10 same-source cartridges to 10 different-source cartridges.
+\item[Bunch] \citep{bunch2003comprehensive} is an open-set study of consecutively manufactured Glock breech faces. In this study, 8 participants from the FBI laboratory received 10 cartridge cases each  and were required to evaluate all possible pairwise comparisons. The number of same-source and different-source cartridge cases varied by test kit, ranging from 10 same-source cartridges to 10 different-source cartridges.
 \item[Fadul] \citep{fadul} is a closed-set study of the breech face striations/impressions produced by 10 consecutively manufactured slides. Participants received a set of 10 standards and 15 questioned cases. The design of this study is similar to  \citep{Hamby:2018hu}.
 \item[Duez] \citep{Duez:2017kha} is an open-set study of breech face comparisons using virtual microscopy. Each of 56 participants (46 trained, 10 trainees, primarily from the US and Canada) received two test sets consisting of one standard (3 scans) and 4 questioned scans. In one set, all questioned scans were from the same source as the standard; in the second set, there were two different-source questioned scans and two same-source questioned scans.
 \item[\svp{VCMER}] \svp{\citep{vcmer}} is an open-set study of breech face comparisons using virtual microscopy. Each of 76 participants (primarily from the US and Canada) received 16 test sets consisting of one standard (2 scans) and 1 questioned scans. In 17 sets, the questioned bullet matched the standards, and in 23 sets, the questioned bullet was fired from a different weapon.
-\item[\svp{Mattijssen}] \svp{\citep{mattijssenValidityReliabilityForensic2020} is an open-set study of firing pin aperture mark images and scans from 200 Glock pistols. 60 of the resulting comparisons were shown to 77 firearms examiners, who provided assessments based on a likelihood-ratio scale initially, and were then asked whether they would have returned an inconclusive decision after the fact. The results from the study were reported by the authors in both AFTE and LR formats, which allows us to include it in this assessment. A significant majority (58) of the participants in this study report case work conclusions categorically (e.g. according to AFTE or similar scales).}
+\item[\svp{Mattijssen}] \svp{\citep{mattijssenValidityReliabilityForensic2020} is an open-set study of firing pin aperture mark images and scans from 200 Glock pistols. Sixty of the resulting comparisons were shown to 77 firearms examiners, who provided assessments based on a likelihood-ratio scale initially, and were then asked whether they would have returned an inconclusive decision after the fact. The results from the study were reported by the authors in both AFTE and LR formats, which allows us to include it in this assessment. A significant majority (58) of the participants in this study report case work conclusions categorically (e.g. according to AFTE or similar scales).}
 \item[\svp{FAID-2009}] \svp{\citep{pauw2013faid} is an open-set study of bullets and cartridge cases using castings. Each of 64 participants evaluated 10 test sets (5 bullets, 5 cartridge cases) consisting of three standard castings and 1 questioned casting. In 3 bullet and 2 cartridge case sets, the questioned bullet matched the standards, and in 2 bullet and 3 cartridge case sets, the questioned bullet was fired from a different weapon. The examiners  in this study are primarily from Europe, and the study used a 5-class categorical scale. Note that this study was part of a proficiency test, and as such, examiners may have faced different pressures than in the other error-rate studies.}
 \end{description}
 
@@ -526,12 +533,12 @@ As described in the PCAST report, ``set-based" approaches can inflate examiners'
 \end{displayquote}
 
 The PCAST response, issued in  \citeyear{pcast-addendum2017}, identifies only one study \citep{Baldwin:2014bb} as appropriately designed to evaluate the validity and reliability of firearms analysis methods. 
-Shortly after the report was issued, additional studies were published which also meet the criteria for reliable studies in the report:  \citet{keisler}, \citet{Duez:2017kha}, \svp{\citet{vcmer}, and \citet{mattijssenValidityReliabilityForensic2020}}. 
+Shortly after the report was issued, additional studies were published which also meet the criteria for reliable studies in the report:  \citet{keisler}, \citet{Duez:2017kha}, \svp{VCMER \citep{vcmer}, and \citet{mattijssenValidityReliabilityForensic2020}}. 
 All four ``good" studies used slightly different designs but share one essential element: each kit contained multiple comparisons composed of one or more samples from exactly one known source and one unknown source.
 These designs substantially reduce or eliminate the internal dependencies which provide ``hints" to examiners by ensuring that each comparison of samples is considered independently.
 Also, the design of these studies ensures that it is possible to exactly enumerate the number of same-source and different-source comparisons.\footnote{At least, it is possible with the additional assumption that a comparison between a multiple items from the same source and an unknown should count as a single comparison.}
-All \svp{five} studies \svp{with reliable designs} are also limited to cartridge case comparisons \svp{(the fifth study is \citet{pauw2013faid}, which was published before PCAST but is a European-focused study)}. 
-We could not identify any studies that assess the error rates of bullet or toolmark examination in a manner that would produce reliable \svp{error rate estimates}. \footnote{\svp{We have included \citet{pauw2013faid}, which examines bullets and cartridge cases, but uses European examiners (who are trained to different standards and some of whom work in non-adversarial systems), and a 5-point categorical range of conclusions. 
+All \svp{five} studies \svp{with reliable designs} are also limited to cartridge case comparisons \svp{(the fifth study is FAID09 \citep{pauw2013faid}, which was published before PCAST but is a European-focused study)}. 
+We could not identify any studies that assess the error rates of bullet or toolmark examination in a manner that would produce reliable \svp{error rate estimates}. \footnote{\svp{We have included FAID09 \citep{pauw2013faid}, which examines bullets and cartridge cases, but uses European examiners (who are trained to different standards and some of whom work in non-adversarial systems), and a 5-point categorical range of conclusions. 
 For these reasons, this study is useful but is not necessarily a good representation of studies using the AFTE scale with US and Canadian examiners.}}
 
 
@@ -673,7 +680,7 @@ There is consistently a much larger discrepancy between the two error rates for 
 Only a portion of the discrepancy between the examiner (AFTE) and process error rates for missed eliminations can be explained by lab policies that only allow eliminations based on mismatches in class characteristics. 
 
 
-The Bunch \& Murphy study, for instance, was conducted at the FBI, where all examiners followed the same lab policy precluding eliminations based on class characteristic mismatches; as a result, the study has the largest difference between the two missed elimination rates.
+The Bunch study, for instance, was conducted at the FBI, where all examiners followed the same lab policy precluding eliminations based on class characteristic mismatches; as a result, the study has the largest difference between the two missed elimination rates.
 
 \hh{Part of this difference can be attributed to lab policies: in some labs exclusions based on individual characteristics are not allowed (i.e.\ class characteristics match). However, the effect of lab policies does not explain all: }
  \citet{Baldwin:2014bb} made efforts to control for the effects of lab policy in determination of inconclusive findings, the efforts were not completely successful.
@@ -758,13 +765,13 @@ These rates, however, are functions of a larger set of probabilities which are c
 In \Cref{fig:source-spec-cis}, we see the full set of source-specific conditional probabilities: the probability that an examiner will make an identification, elimination, or inconclusive determination given that the source of the evidence is different (top panel) or the same (bottom panel). 
 Probabilities are shown with 95\% Pearson-Clopper confidence intervals, which provide a visual indication of the estimate's variability.
 It is apparent that examiners are extremely good at working with same-source evidence: there are relatively few inconclusive determinations, almost no missed identifications, and very few false eliminations. 
-It is also apparent that examiners have much more difficulty when examining evidence that arises from different sources.  As an example, examiners who participated in the Bunch and Murphy study \citep{bunch2003comprehensive} had a significantly higher probability of reaching an inconclusive conclusion than an elimination when evidence items had a different source.
+It is also apparent that examiners have much more difficulty when examining evidence that arises from different sources.  As an example, examiners who participated in the Bunch study \citep{bunch2003comprehensive} had a significantly higher probability of reaching an inconclusive conclusion than an elimination when evidence items had a different source.
 Closed-set designs (used in  \citet{Hamby:2018hu} and  \citet{lyons}) do not even allow for the estimation of different-source probabilities because it is not possible to estimate the number of different source comparisons which are made; this inherent bias has the unintentional effect of masking the fact that examiners are not as accurate when evaluating different-source comparisons. 
-While in most studies (except Bunch \& Murphy), the probability of making an inconclusive determination for different source evidence is below the probability of making an elimination, the probability that examiners will correctly make an elimination is still extremely low relative to the probability of a correct decision in the evaluation of same source evidence.
+While in most studies (except Bunch), the probability of making an inconclusive determination for different source evidence is below the probability of making an elimination, the probability that examiners will correctly make an elimination is still extremely low relative to the probability of a correct decision in the evaluation of same source evidence.
 It may be that examiners are trained to look for similarities, instead of differences, or that it is simply more difficult to classify a difference as opposed to a similarity; further, some labs inexplicably forbid eliminations  unless there is a class characteristic mismatch.
 Regardless of the explanation, it is apparent that when presented with a different source comparison, examiners make an elimination \svp{significantly} less frequently than an identification when presented with a same-source comparison. 
 
-<<source-spec-cis, echo=FALSE, fig.width=8, fig.height=5.85, fig.cap="Pearson-Clopper 95\\% confidence intervals for the probability of an examiner's conclusion given source of the evidence. No assessments can be made about different-source specific probabilities when the total number of comparisons cannot be determined. The probability of inconclusive determinations on different source evidence is quite high, much higher than for same source evidence, where the probability for an inconclusive result is close to zero. \\svp{\\citet{pauw2013faid} is unique among the rest of the studies: for both sets, the rate of inconclusive decisions is similar for same and different source evidence.}", out.width=".8\\textwidth">>=
+<<source-spec-cis, echo=FALSE, fig.width=8, fig.height=5.85, fig.cap="Pearson-Clopper 95\\% confidence intervals for the probability of an examiner's conclusion given source of the evidence. No assessments can be made about different-source specific probabilities when the total number of comparisons cannot be determined. The probability of inconclusive determinations on different source evidence is quite high, much higher than for same source evidence, where the probability for an inconclusive result is close to zero. \\svp{FAID09\\citep{pauw2013faid} is unique among the rest of the studies: for both sets, the rate of inconclusive decisions is similar for same and different source evidence.}", out.width=".8\\textwidth">>=
 
 figdata <- source_spec_cis %>% 
   ungroup() %>%
@@ -816,7 +823,7 @@ As before, the probabilities computed from the study results are shown with thei
 The circles shown in light grey in the middle panel show the expected proportion of inconclusive results which are from the same source. 
 The calculation of these expected values will be discussed in more detail in the next section.
 
-<<cis, echo=FALSE, fig.width=8, fig.height=6, fig.cap="Pearson-Clopper 95\\% confidence intervals for the probability of same source evidence given an examiner's conclusion. Expected values for each of the probabilities as discussed in \\Cref{sec:inconclusives} are shown as grey targets. Some of the studies do not allow an assessment of all of the predictive values. \\svp{Note that all 3 sets with non-AFTE conclusions \\citep{pauw2013faid, mattijssenValidityReliabilityForensic2020} have much higher rates of same-source elimination errors. Only \\citet{pauw2013faid} has inconclusive rates which are similar to the overall rate of same-source evidence.}", out.width=".8\\textwidth">>=
+<<cis, echo=FALSE, fig.width=8, fig.height=6, fig.cap="Pearson-Clopper 95\\% confidence intervals for the probability of same source evidence given an examiner's conclusion. Expected values for each of the probabilities as discussed in \\Cref{sec:inconclusives} are shown as grey targets. Some of the studies do not allow an assessment of all of the predictive values. \\svp{Note that all 3 sets with non-AFTE conclusions \\citep{pauw2013faid, mattijssenValidityReliabilityForensic2020} have much higher rates of same-source elimination errors. Only FAID09 \\citep{pauw2013faid} has inconclusive rates which are similar to the overall rate of same-source evidence.}", out.width=".8\\textwidth">>=
  
 cis %>% 
   ungroup() %>%
@@ -848,7 +855,7 @@ cis %>%
 
 In \Cref{fig:cis}, it is  clear that the probability of same-source evidence given an inconclusive evaluation is much lower than the \svp{expected proportion} (target probability) \svp{for most studies}.
 The decision-specific probabilities provide indications that the distribution of inconclusive determinations is very different from our expectations. 
-\svp{One notable exception is \citet{pauw2013faid}, which is a proficiency test (and thus, may be harder than the studies focused on error rates) of examiners in various European laboratories. While we cannot determine \emph{why} this study is so different, it is clear that the discrepancy between inconclusive determinations and evidence source does not exist under all conditions.
+\svp{One notable exception is FAID09 \citep{pauw2013faid}, which is a proficiency test (and thus, may be harder than the studies focused on error rates) of examiners in various European laboratories. While we cannot determine \emph{why} this study is so different, it is clear that the discrepancy between inconclusive determinations and evidence source does not exist under all conditions.
 This suggests we may want to examine the source of this bias in more depth.}
 
 \section{Inconclusive Evaluations, Errors, and the Legal System}\label{sec:inconclusives}
@@ -1138,7 +1145,7 @@ In addition, examiners \svp{working under the AFTE range of conclusions} appear 
 As a result, there is a systematically higher probability of different-source evidence given an examiner's identification than the probability of same-source evidence given an examiner's elimination. 
 This fundamentally contradicts the principles which form the foundation of our legal system. 
 These biases mirror biases in the admissibility of forensic evidence which are also more likely to favor the prosecution \citep{morenoWhatHappensWhen2004, epsteinPreferringWiseMan2014, roachFORENSICSCIENCEMISCARRIAGES2009}. 
-\svp{This paper briefly examines two non-AFTE studies, \citet{pauw2013faid} and \citet{mattijssenValidityReliabilityForensic2020}; these studies do not demonstrate this bias, but it is not clear whether the difference is the population (examiners from outside the US and Canada), the scales used by the examiners, the legal systems, or some other factor. 
+\svp{This paper briefly examines two non-AFTE studies, FAID09 \citep{pauw2013faid} and \citet{mattijssenValidityReliabilityForensic2020}; these studies do not demonstrate this bias, but it is not clear whether the difference is the population (examiners from outside the US and Canada), the scales used by the examiners, the legal systems, or some other factor. 
 Additional studies should be performed to investigate possible explanations for this difference and to determine whether the percieved distinction between study types holds up under scruitiny.}
 
 
@@ -1371,11 +1378,11 @@ Opt. & \multicolumn{1}{c}{Meaning} & Missed Identification & \multicolumn{1}{r}{
 \end{fmpage}
 
 \clearpage
-\paragraph{Bunch \& Murphy}  \citep{bunch2003comprehensive}\hfill\newline
-Bunch \& Murphy used a study design that is not conducive to a quick summary. The study consisted of 8 test kits of varying composition; the test kits were evaluated by 8 examiners at the FBI laboratory. 
+\paragraph{Bunch}  \citep{bunch2003comprehensive}\hfill\newline
+Bunch used a study design that is not conducive to a quick summary. The study consisted of 8 test kits of varying composition; the test kits were evaluated by 8 examiners at the FBI laboratory. 
 
 \noindent\begin{fmpage}{.985\textwidth}\centering % Checked numbers 2020-04-24
-\captionsetup{type=table}\captionof{table}{Results and summary tables for the Bunch and Murphy study. Values in this table are as reported in the study; however, due to the study's structure, it is possible to perform fewer comparisons, because not all comparisons are independent. Results for independent comparisons are shown in \Cref{tab:bunch-indep}}\label{tab:bunch-summary}
+\captionsetup{type=table}\captionof{table}{Results and summary tables for the Bunch study. Values in this table are as reported in the study; however, due to the study's structure, it is possible to perform fewer comparisons, because not all comparisons are independent. Results for independent comparisons are shown in \Cref{tab:bunch-indep}}\label{tab:bunch-summary}
 {\large\bf A Comprehensive Validity Study for the Forensic Examination of Cartridge Cases}\emph{ \citeauthor{bunch2003comprehensive} (\citeyear{bunch2003comprehensive})}\\
 \begin{tabularx}{\textwidth}{XrrX}\hline
 \multirow{2}{*}{\bf Study Type} & \multicolumn{2}{c}{\bf Test Set} & \multirow{2}{*}{\bf Participants}\\
@@ -1431,7 +1438,7 @@ Closed set & 10 & 10~or~12 & 15 examiners\\
 \begin{tabularx}{\textwidth}{Y|rrr|Y}
 \multicolumn{5}{c}{\bf Experiment Count Data}\\
 \multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Total\\\hline
-Same Source & 174\footnote{ \citet{lyons} reports 175 correct identifications, but it is clear from the discussion that one of those same source identifications was in fact an inconclusive. 12 answer sheets with 12 correct identifications, one with 10 (out of 10) correct identifications, one with 9 correct identifications and 3 errors, and one with 11 correct identifications and one inconclusive. So 12$\cdot$12 + 10 + 9 + 11 = 174. } &  1 & 3 & 178 \\
+Same Source & 174\footnote{ \citet{lyons} reports 175 correct identifications, but it is clear from the discussion that one of those same source identifications was in fact an inconclusive. Twelve answer sheets with 12 correct identifications, one with 10 (out of 10) correct identifications, one with 9 correct identifications and 3 errors, and one with 11 correct identifications and one inconclusive. So 12$\cdot$12 + 10 + 9 + 11 = 174. } &  1 & 3 & 178 \\
 Different source & 3 & ? & ? & ? \\\hline
 \multicolumn{1}{Y}{Conclusion Total} & 177 & ? & \multicolumn{1}{r}{?} & \multicolumn{1}{Y}{?}\\\hline\hline
 
@@ -1506,7 +1513,7 @@ Opt. & \multicolumn{1}{c}{Meaning} & Missed Identification & \multicolumn{1}{r}{
 
 
 \clearpage
-\paragraph{Mattijssen} The Mattijssen study  \citep{mattijssenValidityReliabilityForensic2020} examined firing pin aperture shear marks made by 200 9mm Luger Glock pistols confiscated in the Netherlands. The study considered both 3D scans and 2D images; examinations were of the resulting digital representations rather than the actual physical objects. 77 examiners from 5 continents participated in the study; of these, 75 were fully qualified examiners. Of the participants, 58 indicated that they provided categorical conclusions (exclusion/inclusion/inconclusive), 13 provided probabilistic conclusions, and 6 used a 5-step reporting scale as in \citet{pauw2013faid}.
+\paragraph{Mattijssen} The Mattijssen study  \citep{mattijssenValidityReliabilityForensic2020} examined firing pin aperture shear marks made by 200 9mm Luger Glock pistols confiscated in the Netherlands. The study considered both 3D scans and 2D images; examinations were of the resulting digital representations rather than the actual physical objects. Seventy-seven examiners from 5 continents participated in the study; of these, 75 were fully qualified examiners. Of the participants, 58 indicated that they provided categorical conclusions (exclusion/inclusion/inconclusive), 13 provided probabilistic conclusions, and 6 used a 5-step reporting scale as in FAID09 \citep{pauw2013faid}.
 
 Participants were initially shown comparison images (aligned by computer algorithm) with varying degrees of similarity as a calibration step. Then, 60 comparison images were shown (consisting of 60 sets of either matching or non-matching shear marks, aligned by computer algorithm). Participants were first asked to determine the similarity on a 5-point scale from (almost) no similarity to (almost) total similarity. Once these evaluations were complete, participants were shown each comparison image again, and were asked to answer 3 additional questions assessing 1) conclusion consistent with same/different source, 2) degree of support for this conclusion, in 6 stages corresponding to approximate likelihood ratios, and 3) whether the examiner would have provided an inconclusive conclusion in casework. The addition of these 3 questions allowed the authors to frame this study in a way that is consistent with the AFTE theory of identification, and thus, in a way which is compatible with the way study results are analyzed in this analysis (though of course the methodology is different). 
 
@@ -1745,11 +1752,11 @@ do.call(target_plot, c(duez, pointsize = .5, bordersize = 0.001, title = "Duez (
 ncol = 3
 )
 @
-Bunch and Murphy (2003) is not included in this display because the proportion of identifications and the proportion of same-source comparisons are both so low that the figure could not be properly rendered.
+Bunch (2003) is not included in this display because the proportion of identifications and the proportion of same-source comparisons are both so low that the figure could not be properly rendered.
 \clearpage
 \section{Simulation of comparisons in studies with multiple knowns}\label{sec:sim}
 
-\subsection{Bunch and Murphy simulation}\label{sec:bunchmurphysim}
+\subsection{Bunch simulation}\label{sec:bunchmurphysim}
 In \citet{bunch2003comprehensive}, there are two sources of unknown information: the composition of the study test kits, and potential examiner use of deductive logic. 
 While it is possible to assess the effect of deductive logic by eliminating redundant comparisons systematically, because the composition of the test kits was random, there is not a single value for the reduction in comparisons due to the use of deduction.
 As a result, we must first simulate the composition of a test kit, and then evaluate the minimal number of comparisons which must be completed using deductive reasoning.
@@ -1760,7 +1767,7 @@ Using the simulation method, we created 500,000 sets of 8 test kits; from these 
 R code to reproduce this simulation (and the deductive reasoning algorithm) can be found at \url{https://gist.github.com/srvanderplas/9cb0268df99e97a9ce327bb1489f7046}.
 
 \noindent\begin{fmpage}{.985\textwidth}\centering
-\captionsetup{type=table}\captionof{table}{Results and summary tables for the Bunch and Murphy study, with only independent pairwise comparisons included. 95\% bootstrap intervals are provided for quantities  estimated via simulation. To allocate the inconclusives and eliminations, we used the rule stated in  \citet{bunch2003comprehensive}: FBI examiners can exclude only on class characteristic mismatches. It should be noted that in none of the 287,536 simulations which matched the other set criteria did we find a set which had more than 109 class characteristic mismatches, suggesting that there may have been some eliminations made on individual characteristics, but as this cannot be confirmed, estimates of eliminations only include class characteristic mismatches. }\label{tab:bunch-indep}
+\captionsetup{type=table}\captionof{table}{Results and summary tables for the Bunch study, with only independent pairwise comparisons included. 95\% bootstrap intervals are provided for quantities  estimated via simulation. To allocate the inconclusives and eliminations, we used the rule stated in  \citet{bunch2003comprehensive}: FBI examiners can exclude only on class characteristic mismatches. It should be noted that in none of the 287,536 simulations which matched the other set criteria did we find a set which had more than 109 class characteristic mismatches, suggesting that there may have been some eliminations made on individual characteristics, but as this cannot be confirmed, estimates of eliminations only include class characteristic mismatches. }\label{tab:bunch-indep}
 {\large\bf A Comprehensive Validity Study for the Forensic Examination of Cartridge Cases}\emph{ \citeauthor{bunch2003comprehensive} ( \citeyear{bunch2003comprehensive})}\\
 \begin{tabularx}{\textwidth}{XrrX}\hline
 \multirow{2}{*}{\bf Study Type} & \multicolumn{2}{c}{\bf Test Set} & \multirow{2}{*}{\bf Participants}\\
