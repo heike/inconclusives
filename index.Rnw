@@ -823,15 +823,23 @@ As before, the probabilities computed from the study results are shown with thei
 The circles shown in light grey in the middle panel show the expected proportion of inconclusive results which are from the same source. 
 The calculation of these expected values will be discussed in more detail in the next section.
 
-<<cis, echo=FALSE, fig.width=8, fig.height=6, fig.cap="Pearson-Clopper 95\\% confidence intervals for the probability of same source evidence given an examiner's conclusion. Expected values for each of the probabilities as discussed in \\Cref{sec:inconclusives} are shown as grey targets. Some of the studies do not allow an assessment of all of the predictive values. \\svp{Note that all 3 sets with non-AFTE conclusions \\citep{pauw2013faid, mattijssenValidityReliabilityForensic2020} have much higher rates of same-source elimination errors. Only FAID09 \\citep{pauw2013faid} has inconclusive rates which are similar to the overall rate of same-source evidence.}", out.width=".8\\textwidth">>=
+<<cis, echo=FALSE, fig.width=8, fig.height=7, fig.cap="Pearson-Clopper 95\\% confidence intervals for the probability of same source evidence given an examiner's conclusion. Expected values for each of the probabilities as discussed in \\Cref{sec:inconclusives} are shown as grey targets. Some of the studies do not allow an assessment of all of the predictive values. \\svp{Note that all 3 sets with non-AFTE conclusions \\citep{pauw2013faid, mattijssenValidityReliabilityForensic2020} have much higher rates of same-source elimination errors. Only FAID09 \\citep{pauw2013faid} has inconclusive rates which are similar to the overall rate of same-source evidence.}", out.width=".8\\textwidth">>=
  
-cis %>% 
+cis <- cis %>% 
   ungroup() %>%
   mutate(
     Decision = factor(Decision, levels=c("Identification", "Inconclusive", "Elimination"))
-  ) %>%
+  ) 
+
+labeltext <- 
+  data.frame(x = c(0.9, 0.1, 0.9), y = 8, label="EU",
+             Decision=c("Elimination", "Identification",
+                        "Inconclusive"))
+
+cis %>%
   ggplot(aes(x = pred_ss, y = Study)) +
   facet_grid(Decision~.) +
+  geom_rect(xmin=-Inf, xmax=Inf, ymin=7.5, ymax=Inf, fill="black", alpha=0.01) +
   xlim(c(0,1)) +
   xlab("Probability for same source given examiner's decision") +
   theme_bw() +
@@ -847,8 +855,9 @@ cis %>%
   geom_point() +
   geom_errorbarh(aes(xmin=xmin, xmax=xmax, y=Study), 
                  data = DontKnow, linetype=2) +
-  geom_point(data = DontKnow, shape='?', size = 3.5)
-
+  geom_point(data = DontKnow, shape='?', size = 3.5) +
+  geom_text(aes(x=x, y=y, label=label),  colour="grey70", 
+            size=10, vjust=-0.15, hjust=0.5, data = labeltext) 
 
 @
 
@@ -1011,7 +1020,7 @@ errors2 <- studies %>%
     ) %>%
   ungroup() %>%
   mutate(
-    afte = (Study %in% c("Mattijssen (2020)", "FAID2009 Bullets", "FAID2009 Cartridges")) %>% factor(levels = c(FALSE, TRUE), labels = c("AFTE scale", "Non-AFTE Scale"))
+    afte = (Study %in% c("Mattijssen (2020)", "FAID09 (2013) Bull.", "FAID09 (2013) Cartr.")) %>% factor(levels = c(FALSE, TRUE), labels = c("AFTE scale", "Non-AFTE Scale"))
   )
 
 errors2 %>%
@@ -1024,12 +1033,12 @@ errors2 %>%
   filter(!(Study %in% c("Hamby (2019)", "Lyons (2009)", 
                         "Bunch & Murphy (2003)"))) %>%
   ggplot(aes(x = rate*100, y = Study)) + 
-  geom_hline(yintercept = "FAID2009 Bullets", colour = "black",
-             size=16, alpha = 0.1) +
+  geom_hline(yintercept = "FAID09 (2013) Bull.", colour = "black",
+             size=14, alpha = 0.1) +
   geom_hline(yintercept = "Duez (2018)", colour = "black",
-             size=16, alpha = 0.1) +
+             size=14, alpha = 0.1) +
   geom_hline(yintercept = "Baldwin (2014)", colour = "black",
-             size=16, alpha = 0.1) +
+             size=14, alpha = 0.1) +
   geom_point(aes(colour = ErrorType, shape = ErrorType),
              position = position_dodge(width = 0.7),
              size = 2.5) + 
