@@ -1,105 +1,105 @@
-Study,Ground truth,Decision,Number,Type
-Baldwin (2014),Same Source,Identification,1075,Observed
-Baldwin (2014),Same Source,Inconclusive,11,Observed
-Baldwin (2014),Same Source,Elimination,4,Observed
-Baldwin (2014),Different Source,Identification,22,Observed
-Baldwin (2014),Different Source,Inconclusive,737,Observed
-Baldwin (2014),Different Source,Elimination,1421,Observed
-Keisler (2018),Same Source,Identification,1508,Observed
-Keisler (2018),Same Source,Inconclusive,4,Observed
-Keisler (2018),Same Source,Elimination,0,Observed
-Keisler (2018),Different Source,Identification,0,Observed
-Keisler (2018),Different Source,Inconclusive,203,Observed
-Keisler (2018),Different Source,Elimination,805,Observed
-Duez (2018),Same Source,Identification,335,Observed
-Duez (2018),Same Source,Inconclusive,1,Observed
-Duez (2018),Same Source,Elimination,0,Observed
-Duez (2018),Different Source,Identification,2,Observed
-Duez (2018),Different Source,Inconclusive,25,Observed
-Duez (2018),Different Source,Elimination,85,Observed
-Hamby (2019),Same Source,Identification,10447,Observed
-Hamby (2019),Same Source,Inconclusive,8,Observed
-Hamby (2019),Same Source,Elimination,0,Observed
-Hamby (2019),Different Source,Identification,0,Observed
-Hamby (2019),Different Source,Inconclusive,NA,Observed
-Hamby (2019),Different Source,Elimination,NA,Observed
-Lyons (2009),Same Source,Identification,174,Observed
-Lyons (2009),Same Source,Inconclusive,1,Observed
-Lyons (2009),Same Source,Elimination,3,Observed
-Lyons (2009),Different Source,Identification,3,Observed
-Lyons (2009),Different Source,Inconclusive,NA,Observed
-Lyons (2009),Different Source,Elimination,NA,Observed
-Bunch & Murphy (2003),Same Source,Identification,70,Observed
-Bunch & Murphy (2003),Same Source,Inconclusive,0,Observed
-Bunch & Murphy (2003),Same Source,Elimination,0,Observed
-Bunch & Murphy (2003),Different Source,Identification,0,Observed
-Bunch & Murphy (2003),Different Source,Inconclusive,172,Observed
-Bunch & Murphy (2003),Different Source,Elimination,118,Observed
-Keisler (2018),Same Source,Elimination,0,Expected
-Keisler (2018),Same Source,Identification,1,Expected
-Keisler (2018),Same Source,Inconclusive,0.6,Expected
-Keisler (2018),Different Source,Inconclusive,0.4,Expected
-Duez (2018),Same Source,Elimination,0,Expected
-Duez (2018),Same Source,Identification,1,Expected
-Duez (2018),Same Source,Inconclusive,0.75,Expected
-Duez (2018),Different Source,Inconclusive,0.25,Expected
-Baldwin (2014),Same Source,Elimination,0,Expected
-Baldwin (2014),Same Source,Identification,1,Expected
-Baldwin (2014),Same Source,Inconclusive,0.333333333,Expected
-Baldwin (2014),Different Source,Inconclusive,0.666666667,Expected
-Lyons (2009),Same Source,Elimination,0,Expected
-Lyons (2009),Same Source,Identification,1,Expected
-Hamby (2019),Same Source,Elimination,0,Expected
-Hamby (2019),Same Source,Identification,1,Expected
-Bunch & Murphy (2003),Same Source,Identification,1,Expected
-Bunch & Murphy (2003),Same Source,Elimination,0,Expected
-Bunch & Murphy (2003),Same Source,Inconclusive,0.2414,Expected
-Bunch & Murphy (2003),Different Source,Inconclusive,0.7586,Expected
-VCMER (2020),Same Source,Identification,453,Observed
-VCMER (2020),Same Source,Inconclusive,38,Observed
-VCMER (2020),Same Source,Elimination,0,Observed
-VCMER (2020),Different Source,Identification,3,Observed
-VCMER (2020),Different Source,Inconclusive,254,Observed
-VCMER (2020),Different Source,Elimination,436,Observed
-VCMER (2020),Same Source,Elimination,0,Expected
-VCMER (2020),Same Source,Identification,1,Expected
-VCMER (2020),Same Source,Inconclusive,0.4147,Expected
-VCMER (2020),Different Source,Inconclusive,0.5853,Expected
-VCMER (2020),Different Source,Elimination,0,Expected
-VCMER (2020),Different Source,Identification,1,Expected
-Mattijssen (2020),Same Source,Identification, 2365,Observed
-Mattijssen (2020),Same Source,Inconclusive,487,Observed
-Mattijssen (2020),Same Source,Elimination,95,Observed
-Mattijssen (2020),Different Source,Identification,74,Observed
-Mattijssen (2020),Different Source,Inconclusive,815,Observed
-Mattijssen (2020),Different Source,Elimination,784,Observed
-Mattijssen (2020),Same Source,Elimination,0,Expected
-Mattijssen (2020),Same Source,Identification,1,Expected
-Mattijssen (2020),Same Source,Inconclusive,0.6379,Expected
-Mattijssen (2020),Different Source,Inconclusive,0.3621,Expected
-Mattijssen (2020),Different Source,Elimination,0,Expected
-Mattijssen (2020),Different Source,Identification,1,Expected
-FAID2009 Bullets,Same Source,Identification,83,Observed
-FAID2009 Bullets,Same Source,Inconclusive,99,Observed
-FAID2009 Bullets,Same Source,Elimination,6,Observed
-FAID2009 Bullets,Different Source,Identification,5,Observed
-FAID2009 Bullets,Different Source,Inconclusive,47,Observed
-FAID2009 Bullets,Different Source,Elimination,72,Observed
-FAID2009 Cartridges,Same Source,Identification,98,Observed
-FAID2009 Cartridges,Same Source,Inconclusive,22,Observed
-FAID2009 Cartridges,Same Source,Elimination,7,Observed
-FAID2009 Cartridges,Different Source,Identification,15,Observed
-FAID2009 Cartridges,Different Source,Inconclusive,55,Observed
-FAID2009 Cartridges,Different Source,Elimination,119,Observed
-FAID2009 Bullets,Same Source,Elimination,0,Expected
-FAID2009 Bullets,Same Source,Identification,1,Expected
-FAID2009 Bullets,Same Source,Inconclusive,0.6026,Expected
-FAID2009 Bullets,Different Source,Inconclusive,0.3974,Expected
-FAID2009 Bullets,Different Source,Elimination,0,Expected
-FAID2009 Bullets,Different Source,Identification,1,Expected
-FAID2009 Cartridges,Same Source,Elimination,0,Expected
-FAID2009 Cartridges,Same Source,Identification,1,Expected
-FAID2009 Cartridges,Same Source,Inconclusive,0.4019,Expected
-FAID2009 Cartridges,Different Source,Inconclusive,0.5981,Expected
-FAID2009 Cartridges,Different Source,Elimination,0,Expected
-FAID2009 Cartridges,Different Source,Identification,1,Expected
+Study,Ground truth,Decision,Number,Type,Training
+Baldwin (2014),Same Source,Identification,1075,Observed,US
+Baldwin (2014),Same Source,Inconclusive,11,Observed,US
+Baldwin (2014),Same Source,Elimination,4,Observed,US
+Baldwin (2014),Different Source,Identification,22,Observed,US
+Baldwin (2014),Different Source,Inconclusive,737,Observed,US
+Baldwin (2014),Different Source,Elimination,1421,Observed,US
+Keisler (2018),Same Source,Identification,1508,Observed,US
+Keisler (2018),Same Source,Inconclusive,4,Observed,US
+Keisler (2018),Same Source,Elimination,0,Observed,US
+Keisler (2018),Different Source,Identification,0,Observed,US
+Keisler (2018),Different Source,Inconclusive,203,Observed,US
+Keisler (2018),Different Source,Elimination,805,Observed,US
+Duez (2018),Same Source,Identification,335,Observed,US
+Duez (2018),Same Source,Inconclusive,1,Observed,US
+Duez (2018),Same Source,Elimination,0,Observed,US
+Duez (2018),Different Source,Identification,2,Observed,US
+Duez (2018),Different Source,Inconclusive,25,Observed,US
+Duez (2018),Different Source,Elimination,85,Observed,US
+Hamby (2019),Same Source,Identification,10447,Observed,US
+Hamby (2019),Same Source,Inconclusive,8,Observed,US
+Hamby (2019),Same Source,Elimination,0,Observed,US
+Hamby (2019),Different Source,Identification,0,Observed,US
+Hamby (2019),Different Source,Inconclusive,NA,Observed,US
+Hamby (2019),Different Source,Elimination,NA,Observed,US
+Lyons (2009),Same Source,Identification,174,Observed,US
+Lyons (2009),Same Source,Inconclusive,1,Observed,US
+Lyons (2009),Same Source,Elimination,3,Observed,US
+Lyons (2009),Different Source,Identification,3,Observed,US
+Lyons (2009),Different Source,Inconclusive,NA,Observed,US
+Lyons (2009),Different Source,Elimination,NA,Observed,US
+Bunch & Murphy (2003),Same Source,Identification,70,Observed,US
+Bunch & Murphy (2003),Same Source,Inconclusive,0,Observed,US
+Bunch & Murphy (2003),Same Source,Elimination,0,Observed,US
+Bunch & Murphy (2003),Different Source,Identification,0,Observed,US
+Bunch & Murphy (2003),Different Source,Inconclusive,172,Observed,US
+Bunch & Murphy (2003),Different Source,Elimination,118,Observed,US
+Keisler (2018),Same Source,Elimination,0,Expected,US
+Keisler (2018),Same Source,Identification,1,Expected,US
+Keisler (2018),Same Source,Inconclusive,0.6,Expected,US
+Keisler (2018),Different Source,Inconclusive,0.4,Expected,US
+Duez (2018),Same Source,Elimination,0,Expected,US
+Duez (2018),Same Source,Identification,1,Expected,US
+Duez (2018),Same Source,Inconclusive,0.75,Expected,US
+Duez (2018),Different Source,Inconclusive,0.25,Expected,US
+Baldwin (2014),Same Source,Elimination,0,Expected,US
+Baldwin (2014),Same Source,Identification,1,Expected,US
+Baldwin (2014),Same Source,Inconclusive,0.333333333,Expected,US
+Baldwin (2014),Different Source,Inconclusive,0.666666667,Expected,US
+Lyons (2009),Same Source,Elimination,0,Expected,US
+Lyons (2009),Same Source,Identification,1,Expected,US
+Hamby (2019),Same Source,Elimination,0,Expected,US
+Hamby (2019),Same Source,Identification,1,Expected,US
+Bunch & Murphy (2003),Same Source,Identification,1,Expected,US
+Bunch & Murphy (2003),Same Source,Elimination,0,Expected,US
+Bunch & Murphy (2003),Same Source,Inconclusive,0.2414,Expected,US
+Bunch & Murphy (2003),Different Source,Inconclusive,0.7586,Expected,US
+VCMER (2020),Same Source,Identification,453,Observed,US/CA
+VCMER (2020),Same Source,Inconclusive,38,Observed,US/CA
+VCMER (2020),Same Source,Elimination,0,Observed,US/CA
+VCMER (2020),Different Source,Identification,3,Observed,US/CA
+VCMER (2020),Different Source,Inconclusive,254,Observed,US/CA
+VCMER (2020),Different Source,Elimination,436,Observed,US/CA
+VCMER (2020),Same Source,Elimination,0,Expected,US/CA
+VCMER (2020),Same Source,Identification,1,Expected,US/CA
+VCMER (2020),Same Source,Inconclusive,0.4147,Expected,US/CA
+VCMER (2020),Different Source,Inconclusive,0.5853,Expected,US/CA
+VCMER (2020),Different Source,Elimination,0,Expected,US/CA
+VCMER (2020),Different Source,Identification,1,Expected,US/CA
+Mattijssen (2020),Same Source,Identification,2365,Observed,EU
+Mattijssen (2020),Same Source,Inconclusive,487,Observed,EU
+Mattijssen (2020),Same Source,Elimination,95,Observed,EU
+Mattijssen (2020),Different Source,Identification,74,Observed,EU
+Mattijssen (2020),Different Source,Inconclusive,815,Observed,EU
+Mattijssen (2020),Different Source,Elimination,784,Observed,EU
+Mattijssen (2020),Same Source,Elimination,0,Expected,EU
+Mattijssen (2020),Same Source,Identification,1,Expected,EU
+Mattijssen (2020),Same Source,Inconclusive,0.6379,Expected,EU
+Mattijssen (2020),Different Source,Inconclusive,0.3621,Expected,EU
+Mattijssen (2020),Different Source,Elimination,0,Expected,EU
+Mattijssen (2020),Different Source,Identification,1,Expected,EU
+FAID09 (2013) Bull.,Same Source,Identification,83,Observed,EU
+FAID09 (2013) Bull.,Same Source,Inconclusive,99,Observed,EU
+FAID09 (2013) Bull.,Same Source,Elimination,6,Observed,EU
+FAID09 (2013) Bull.,Different Source,Identification,5,Observed,EU
+FAID09 (2013) Bull.,Different Source,Inconclusive,47,Observed,EU
+FAID09 (2013) Bull.,Different Source,Elimination,72,Observed,EU
+FAID09 (2013) Cartr.,Same Source,Identification,98,Observed,EU
+FAID09 (2013) Cartr.,Same Source,Inconclusive,22,Observed,EU
+FAID09 (2013) Cartr.,Same Source,Elimination,7,Observed,EU
+FAID09 (2013) Cartr.,Different Source,Identification,15,Observed,EU
+FAID09 (2013) Cartr.,Different Source,Inconclusive,55,Observed,EU
+FAID09 (2013) Cartr.,Different Source,Elimination,119,Observed,EU
+FAID09 (2013) Bull.,Same Source,Elimination,0,Expected,EU
+FAID09 (2013) Bull.,Same Source,Identification,1,Expected,EU
+FAID09 (2013) Bull.,Same Source,Inconclusive,0.6026,Expected,EU
+FAID09 (2013) Bull.,Different Source,Inconclusive,0.3974,Expected,EU
+FAID09 (2013) Bull.,Different Source,Elimination,0,Expected,EU
+FAID09 (2013) Bull.,Different Source,Identification,1,Expected,EU
+FAID09 (2013) Cartr.,Same Source,Elimination,0,Expected,EU
+FAID09 (2013) Cartr.,Same Source,Identification,1,Expected,EU
+FAID09 (2013) Cartr.,Same Source,Inconclusive,0.4019,Expected,EU
+FAID09 (2013) Cartr.,Different Source,Inconclusive,0.5981,Expected,EU
+FAID09 (2013) Cartr.,Different Source,Elimination,0,Expected,EU
+FAID09 (2013) Cartr.,Different Source,Identification,1,Expected,EU

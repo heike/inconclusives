@@ -595,10 +595,10 @@ library(tidyverse)
 studies <- read.csv("data/studies.csv")
 studies <- studies %>% mutate(
     Study = factor(Study, 
-                    levels=c("Bunch & Murphy (2003)", "Lyons (2009)", "Hamby (2019)", "Baldwin (2014)", "Keisler (2018)", "Duez (2018)", "VCMER (2020)", "Mattijssen (2020)", "FAID2009 Bullets", "FAID2009 Cartridges"))
+                    levels=c("Bunch & Murphy (2003)", "Lyons (2009)", "Hamby (2019)", "Baldwin (2014)", "Keisler (2018)", "Duez (2018)", "VCMER (2020)", "Mattijssen (2020)", "FAID09 (2013) Bull.", "FAID09 (2013) Cartr."))
   )
 
-cis <- studies %>% group_by(Study, Decision) %>% 
+cis <- studies %>% group_by(Study, Decision, Training) %>% 
   filter(Type == "Observed") %>%
   summarize(
     pred_ss = sum(Number[Ground.truth=="Same Source"])/sum(Number),
@@ -616,7 +616,7 @@ source_spec_cis <- studies %>% group_by(Study, Ground.truth) %>%
 
 exp <- studies %>% 
 #  filter(Decision == "Inconclusive") %>%
-  group_by(Study, Decision) %>% 
+  group_by(Study, Decision, Training) %>% 
   summarize(
     exp_ss = Number[Type=="Expected"][1] * sum(Number[Type == "Observed"]),
     exp_ss_lower = clopper(0.05, exp_ss, sum(Number[Type == "Observed"]))[1],
@@ -649,7 +649,7 @@ errors <- studies %>%
     Elimination = ((Ground.truth=="Same Source" & Decision == "Identification") | 
       (Ground.truth=="Different Source" & Decision %in% c("Inconclusive", "Elimination")))
          ) %>%
-  group_by(Study, Ground.truth) %>% 
+  group_by(Study,Training, Ground.truth) %>% 
   filter(Type == "Observed") %>%
   summarize(
     Comparisons = sum(Number),
@@ -674,7 +674,8 @@ Only a portion of the discrepancy between the examiner (AFTE) and process error 
 
 The Bunch \& Murphy study, for instance, was conducted at the FBI, where all examiners followed the same lab policy precluding eliminations based on class characteristic mismatches; as a result, the study has the largest difference between the two missed elimination rates.
 
-Even though  \citet{Baldwin:2014bb} made efforts to control for the effects of lab policy in determination of inconclusive findings, the efforts were not completely successful.
+\hh{Part of this difference can be attributed to lab policies: in some labs exclusions based on individual characteristics are not allowed (i.e.\ class characteristics match). However, the effect of lab policies does not explain all: }
+ \citet{Baldwin:2014bb} made efforts to control for the effects of lab policy in determination of inconclusive findings, the efforts were not completely successful.
 This is despite instructions given to participants: ``A very important aspect of this work that needs to be clearly understood is that the study specifically asked participants not to use their laboratory or agency peer review process... Some [participants] indicated that the design of our study with all cartridges fired from the same model of firearm using the same type of ammunition would prohibit the use of a finding of elimination, while others used a mixture of inconclusive and elimination or did not use inconclusive at all to indicate a finding other than identification."
 
 In  \citet{Duez:2017kha}, the authors report that ``13\% of examiners are not permitted to eliminate on individual characteristics (therefore, their conclusions of inconclusive are perfectly acceptable)." 
@@ -697,7 +698,7 @@ levels(gg$Type) <- c(
   "Process error\n(Option 3)",
   "Inconclusives are\nEliminations (Option 4)")
 
-gg <- gg %>% group_by(Type, Study, Error) %>%
+gg <- gg %>% group_by(Type, Study, Training, Error) %>%
   mutate(
     err_lower = clopper(0.05, Number, Comparisons)[1]*100,
     err_upper = clopper(0.05, Number, Comparisons)[2]*100,
@@ -708,21 +709,21 @@ rects <- tibble(y = c(1, 3, 5, 7, 9))
 
 gg %>%
   ggplot(aes(x = Number/Comparisons*100, y = Study)) +
-  geom_rect(aes(xmin = -Inf, xmax = Inf, ymin =y - 0.3, ymax = y + 0.6), fill = "grey90", alpha = .25, inherit.aes = F, data = rects) + 
-  geom_point(aes(shape=Type, colour = Type, y = as.numeric(Study)+0.3*(as.numeric(Type)-1.5)) ) +
+  geom_rect(aes(xmin = -Inf, xmax = Inf, ymin =y - 0.5, ymax = y + 0.5), fill = "grey90", alpha = .5, inherit.aes = F, data = rects) + 
+  geom_point(aes(shape=Type, colour = Type, y = as.numeric(Study)+0.3*(as.numeric(Type)-2)) ) +
   geom_point(aes(x=35, y = as.numeric(Study)),
                  data = filter(gg, is.na(Comparisons)), shape='?', size = 3.5,
                  colour = "grey20") +
-  facet_grid(Error~.) + #, space="free") +
   theme_bw() +
   xlab("(Source-specific) Error Percentages") +
   xlim(c(0, NA)) +
   geom_errorbarh(aes(xmin=err_lower, xmax=err_upper, colour = Type, 
-                     y=as.numeric(Study)+0.3*(as.numeric(Type)-1.5)),
+                     y=as.numeric(Study)+0.3*(as.numeric(Type)-2)),
                  size=0.5, height = 0.25,  alpha =0.9) +
   scale_y_continuous(breaks=1:length(levels(errors$Study)), labels=levels(errors$Study), minor_breaks = NULL) +
   scale_colour_brewer(palette="Dark2") +
-  theme(legend.position = "bottom", legend.direction = "horizontal")
+  theme(legend.position = "bottom", legend.direction = "horizontal") +
+    facet_grid(Error+Training~.,scales="free_y", space="free_y")  #, space="free") 
 
   #+
   # guides(colour=guide_legend(ncol=1))
