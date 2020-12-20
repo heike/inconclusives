@@ -1,7 +1,8 @@
 library(sf)
 library(tidyverse)
 
-target_plot <- function(a, b, c, d, e, f, pointsize = 1, bordersize = .005) {
+target_plot <- function(a, b, c, d, e, f, pointsize = 1, bordersize = .005, title = NA, legend = T, side_labels = c("DS", "SS")) {
+  # browser()
   N <- a + b + c + d + e + f
   center_cir <- (a + d)/N
   incon_cir <- (a + d + b + e)/N
@@ -30,7 +31,7 @@ target_plot <- function(a, b, c, d, e, f, pointsize = 1, bordersize = .005) {
     geometry_concl = list(ident_sf, inconcl_sf, elim_sf))
   
   prop_ss <- (a + b + c)/N
-  xint <- 0#-.5+prop_ss
+  xint <- .5-(.5 + prop_ss)/2
   ground_truth <- st_sf(gt = c("DS", "SS"), 
                         geometry_gt = list(st_polygon(list(cbind(c(-.5, xint, xint, -.5, -.5),
                                                               c(-.5, -.5, .5, .5, -.5)))),
@@ -41,6 +42,13 @@ target_plot <- function(a, b, c, d, e, f, pointsize = 1, bordersize = .005) {
                         prop = value/N,
                         gt = rep(c("SS", "DS"), each = 3),
                         concl = rep(c("Identification", "Inconclusive", "Elimination"), times = 2))
+  sample_geo <- function(geo, points, bordersize) {
+    if (is_empty(geo) | points == 0) {
+      return(NULL)
+    }
+    
+    st_sample(st_buffer(geo, -bordersize), points, type = "hexagonal")
+  }
   
   frame <- crossing(st_drop_geometry(conclusions), st_drop_geometry(ground_truth)) %>% # workaround to deal with sf strangeness
     left_join(conclusions) %>%
@@ -51,7 +59,7 @@ target_plot <- function(a, b, c, d, e, f, pointsize = 1, bordersize = .005) {
     left_join(ideal_props) %>%
     # st_sf() %>%
     mutate(value2 = ifelse(value == 0, 2, value)) %>%
-    mutate(points = map2(geometry, value2, ~st_sample(st_buffer(.x, -bordersize), .y, type = "hexagonal"))) %>%
+    mutate(points = map2(geometry, value2, sample_geo, bordersize = bordersize)) %>%
     st_sf() %>%
     mutate(concl = factor(concl, levels = c("Identification", "Inconclusive", "Elimination"))) %>%
     mutate(border = factor(concl, labels = c("white", "black", "white")) %>% as.character()) %>%
@@ -62,22 +70,41 @@ target_plot <- function(a, b, c, d, e, f, pointsize = 1, bordersize = .005) {
     unnest(points) %>%
     st_set_geometry("points")
 
-  ggplot(frame, aes(geometry = geometry, fill = concl)) + 
+  tmp <- ggplot(frame, aes(geometry = geometry, fill = concl))
+  if (is.na(title)) {
+    tt <- list(theme(plot.title = element_blank()))
+  } else {
+    tt <- list(theme(plot.title = element_text(hjust = .5)))
+  }
+    
+  
+  tmp <- tmp  + 
     geom_sf(alpha = .6, color = "black") + 
     # geom_sf(data = filter(points, concl != "Inconclusive"), aes(geometry = points), color = "white", alpha = .5, size = 1.5*pointsize, legend = F) +
     geom_sf(data = points, aes(geometry = points, color = gt), size = pointsize, shape = 19) +
-    scale_fill_manual("Conclusion", values = c("Identification" = "steelblue", "Inconclusive" = "white", "Elimination" = "darkorange")) + 
-    scale_color_manual("Ground Truth", values = c("Same Source" = "steelblue4", "Different Source" = "darkorange4")) +
-    annotate(geom = "text", x=-.05, y=.55, label = "Different Source", hjust = 1, size = 5, color = "darkorange4") + 
-    annotate(geom = "text", x=.05, y=.55, label = "Same Source", hjust = 0, size = 5, color = "steelblue4") + 
-    guides(color = guide_legend(override.aes = list(size = 3)), fill = guide_legend(override.aes = list(shape = NA))) + 
+    annotate(geom = "text", x=-.5, y=.55, label = side_labels[1], hjust = 0, size = 5, color = "darkorange4") + 
+    annotate(geom = "text", x=.5, y=.55, label = side_labels[2], hjust = 1, size = 5, color = "steelblue4") + 
     geom_sf(aes(geometry = geometry), fill = "transparent", size = .75, color = "black") +     
-    geom_vline(xintercept = 0, size = .75) + 
+    geom_vline(xintercept = xint, size = .75) + 
+    ggtitle(title) +
     theme(axis.text = element_blank(), axis.ticks = element_blank(), 
           axis.title = element_blank(), axis.line = element_blank(),
           panel.background = element_rect(fill = "white", color = "white"),
-          legend.key = element_rect(fill = "white", color = "white")
-          )
+          legend.key = element_rect(fill = "white", color = "white")) + 
+    tt
+          
+  if (!legend) {
+    tmp <- tmp + 
+      scale_fill_manual("Conclusion", values = c("Identification" = "steelblue", "Inconclusive" = "white", "Elimination" = "darkorange"), guide = "none") + 
+      scale_color_manual("Ground Truth", values = c("Same Source" = "steelblue4", "Different Source" = "darkorange4"), guide = "none")
+  } else {
+    tmp <- tmp + 
+      scale_fill_manual("Conclusion", values = c("Identification" = "steelblue", "Inconclusive" = "white", "Elimination" = "darkorange")) + 
+      scale_color_manual("Ground Truth", values = c("Same Source" = "steelblue4", "Different Source" = "darkorange4")) +
+      guides(color = guide_legend(override.aes = list(size = 3)), fill = guide_legend(override.aes = list(shape = NA))) 
+  }
+  
+  tmp
 }
 
 #' target_plot(100, 40, 15, 15, 40, 100)
