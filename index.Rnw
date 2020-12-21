@@ -111,18 +111,7 @@ library(bulletxtrctr) # install_github("csafe-isu/bulletxtrctr")
 library(gridExtra)
 library(kableExtra)
 @
-% 
-% \hh{Big picture of the paper:
-% \begin{enumerate}
-% \item Error rates in firearms and toolmark examination are needed
-% \item Theoretical discussion of error rates: error rates and predictive values
-% \item Discussion of studies: naming conventions and testing procedures
-% \item Evaluation of error rates: inconclusive results and a uniform evaluation sheet
-% \item Summary of studies using the uniform evaluation sheet
-% \item Discussion of strengths and weaknesses of studies, recommendations
-% \end{enumerate}}
-% 
-% \tableofcontents
+
 
 \begin{itemize}
 \item[] \hh{
@@ -698,7 +687,7 @@ Only a portion of the discrepancy between the examiner (AFTE) and process error 
 
 The Bunch study, for instance, was conducted at the FBI, where all examiners followed the same lab policy precluding eliminations based on class characteristic mismatches; as a result, the study has the largest difference between the two missed elimination rates.
 
-\hh{Part of this difference can be attributed to lab policies: in some labs exclusions based on individual characteristics are not allowed (i.e.\ class characteristics match). However, the effect of lab policies does not explain all: }
+Part of this difference can be attributed to lab policies: in some labs exclusions based on individual characteristics are not allowed (i.e.\ class characteristics match). However, the effect of lab policies does not explain all: 
  \citet{Baldwin:2014bb} made efforts to control for the effects of lab policy in determination of inconclusive findings, the efforts were not completely successful.
 This is despite instructions given to participants: ``A very important aspect of this work that needs to be clearly understood is that the study specifically asked participants not to use their laboratory or agency peer review process... Some [participants] indicated that the design of our study with all cartridges fired from the same model of firearm using the same type of ammunition would prohibit the use of a finding of elimination, while others used a mixture of inconclusive and elimination or did not use inconclusive at all to indicate a finding other than identification."
 
