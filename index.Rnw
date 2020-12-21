@@ -1279,9 +1279,9 @@ Different source & 0 & 203 & 805 & 1008 \\\hline
 \multicolumn{5}{c}{}\\
 \multicolumn{5}{c}{\bf Conclusion-Specific Probabilities}\\
 \multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{c}{Elimination} & \\\cline{1-4}
-Same source & \multicolumn{1}{c|}{0.9862} & \multicolumn{1}{c|}{0.0101} & \multicolumn{1}{c|}{0.0037} & \multirow{3}{=}{\emph{Experiment Count Data are divided by Conclusion Totals (3rd row)}}\\
-Different source & \multicolumn{1}{c|}{0.0101} & \multicolumn{1}{c|}{0.3381} & \multicolumn{1}{c|}{0.6518} &\\\cline{1-4}
-Total \# Comparisons & \multicolumn{1}{c}{1508} & \multicolumn{1}{c}{805} & \multicolumn{1}{c|}{2520} & \\\hline\hline
+Same source & \multicolumn{1}{c|}{1.0000} & \multicolumn{1}{c|}{0.0193} & \multicolumn{1}{c|}{0.0000} & \multirow{3}{=}{\emph{Experiment Count Data are divided by Conclusion Totals (3rd row)}}\\
+Different source & \multicolumn{1}{c|}{0.0000} & \multicolumn{1}{c|}{0.9807} & \multicolumn{1}{c|}{1.0000} &\\\cline{1-4}
+Total \# Comparisons & \multicolumn{1}{c}{1508} & \multicolumn{1}{c}{207} & \multicolumn{1}{c|}{805} & \\\hline\hline
 
 \multicolumn{5}{c}{}\\
 \multicolumn{5}{c}{\bf Source-Specific Probabilities}\\
@@ -1393,7 +1393,7 @@ Total \# Comparisons & \multicolumn{1}{c}{10447} & \multicolumn{1}{c}{?} & \mult
 \multicolumn{5}{c}{}\\
 \multicolumn{5}{c}{\bf Source-Specific Probabilities}\\
 \multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Total \# Comparisons\\\hline
-Same source & 0.9992 & 0.0008 & ? & 10455\\\cline{2-4}
+Same source & 0.9992 & 0.0008 & 0.0000 & 10455\\\cline{2-4}
 Different source & ? & ? & ? & ?\\\hline
 \multicolumn{1}{Y}{ } & \multicolumn{4}{l}{\emph{Experiment Count Data are divided by Source Totals (last column)}} \\\hline\hline
 \end{tabularx}
@@ -1424,7 +1424,7 @@ Open set & variable & variable & 8 FBI examiners\\
 \multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Total\\\hline
 Same source & 70 & 0 & 0 & 70 \\
 Diff source & 0 & 172 & 118 & 290 \\\hline
-\multicolumn{1}{Y}{Conclusion Total} & 70 & 172 & \multicolumn{1}{r}{ 118} & \multicolumn{1}{Y}{}\\\hline\hline
+\multicolumn{1}{Y}{Conclusion Total} & 70 & 172 & \multicolumn{1}{r}{ 118} & \multicolumn{1}{Y}{360}\\\hline\hline
 \multicolumn{5}{c}{}\\
 
 \multicolumn{5}{c}{\bf Conclusion-Specific Probabilities}\\
@@ -1437,7 +1437,7 @@ Total \# Comparisons & \multicolumn{1}{c}{70} & \multicolumn{1}{c}{172} & \multi
 \multicolumn{5}{c}{\bf Source-Specific Probabilities}\\
 \multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Total \# Comparisons\\\hline
 Same source & 1.0000 & 0.0000 & 0.0000 & 70\\\cline{2-4}
-Different source & 0.0000 & 0.5931 & 0.4069 & 200\\\hline
+Different source & 0.0000 & 0.5931 & 0.4069 & 290\\\hline
 \multicolumn{1}{Y}{ } & \multicolumn{4}{l}{\emph{Experiment Count Data are divided by Source Totals (last column)}} \\\hline\hline
 \end{tabularx}
 
@@ -1446,7 +1446,7 @@ Different source & 0.0000 & 0.5931 & 0.4069 & 200\\\hline
 \multicolumn{5}{c}{\bf Overall Error Rates}\\
 Opt. & \multicolumn{1}{c}{Meaning} & Missed Identification & \multicolumn{1}{r}{Missed Elimination} & Total \\\hline
 2 & FTE error & 0.0000  & 0.0000 & 0.0000\\
-3 & Process error & 0.0000 & 0.5931 & 0.4069 \\
+3 & Process error & 0.0000 & 0.5931 & 0.4778 \\
 4 & Inconcl. = Elim.& 0.0000 & 0.0000 & 0.0000 \\
 \end{tabularx}
 \end{fmpage}
@@ -1573,7 +1573,7 @@ Total \# Comparisons & \multicolumn{1}{c}{2439} & \multicolumn{1}{c}{1302} & \mu
 \multicolumn{5}{c}{}\\
 \multicolumn{5}{c}{\bf Source-Specific Probabilities}\\
 \multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Total \# Comparisons\\\hline
-Same source & 0.8025 & 0.1653 & 0.1081 & 2947\\\cline{2-4}
+Same source & 0.8025 & 0.1653 & 0.0322 & 2947\\\cline{2-4}
 Different source & 0.0442 & 0.4871 & 0.4686 & 1673\\\hline
 \multicolumn{1}{Y}{ } & \multicolumn{4}{l}{\emph{Experiment Count Data are divided by Source Totals (last column)}} \\\hline\hline
 \end{tabularx}
@@ -1583,8 +1583,8 @@ Different source & 0.0442 & 0.4871 & 0.4686 & 1673\\\hline
 \multicolumn{5}{c}{\bf Overall Error Rates}\\
 Opt. & \multicolumn{1}{c}{Meaning} & Missed Identification & \multicolumn{1}{r}{Missed Elimination} & Total \\\hline
 2 & FTE error & 0.0322  & 0.0442 & 0.0366\\
-3 & Process error & 0.0000 & 0.5931 & 0.4069 \\
-4 & Inconcl. = Elim.& 0.0000 & 0.0000 & 0.0000 \\
+3 & Process error & 0.1975 & 0.5314 & 0.3184 \\
+4 & Inconcl. = Elim.& 0.1975 & 0.0442 & 0.1420 \\
 \end{tabularx}
 \end{fmpage}
 
@@ -1642,7 +1642,7 @@ Open set & 200 & 79600 & Computer (3D algorithm)\\
 \multicolumn{1}{r}{} & Identification & Inconclusive & \multicolumn{1}{r}{Elimination} & Source Total\\\hline
 Same Source & 198 &  0 & 2 & 200 \\
 Different source & 999 & 0 & 78601 & 79600 \\\hline
-\multicolumn{1}{Y}{Conclusion Total} & 1197 & 0 & \multicolumn{1}{r}{78601} & \multicolumn{1}{Y}{79800}\\\hline\hline
+\multicolumn{1}{Y}{Conclusion Total} & 1197 & 0 & \multicolumn{1}{r}{78603} & \multicolumn{1}{Y}{79800}\\\hline\hline
 
 \multicolumn{5}{c}{}\\
 \multicolumn{5}{c}{\bf Conclusion-Specific Probabilities}\\
