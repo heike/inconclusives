@@ -95,6 +95,7 @@ knitr::opts_chunk$set(
   fig.align = "center",
   out.width = "\\textwidth",
   cache = TRUE,
+  cache.path = "cache/",
   fig.path = "figures/",
   echo = FALSE
 )
