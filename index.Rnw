@@ -343,8 +343,8 @@ Thus, this elimination from consideration is not appropriate if the goal of a st
 
 Under AFTE's Theory of Identification, inconclusive results are acceptable outcomes and not considered errors. This approach is captured in Option 2:  inconclusive decisions are treated as correct regardless of the actual state.
 What this means in real terms, is that inconclusive decisions are counted as identifications if they are actually from the same source, but counted as eliminations if they are actually from a different source. 
-Note that this approach is exploitable in a strange way: to give a very extreme example, an examiner could report inconclusive decisions for every evaluation over the rest of their career and never make an error.
-However, when the goal is to assess the error rate of the examiner under the prevailing guidelines of the AFTE Theory of Identification, Option 2 is a reasonable option for assessing error rates of firearm and toolmark examiners.
+Note that this approach is exploitable in a strange way: to give a very extreme example, an examiner could report inconclusive decisions for every evaluation over the rest of their career and never make an error. \svp{\citet{drorErrorErrorRate2020} point out this discrepancy in many forensic disciplines and describe the effects of this policy on an individual assessment level as well as a system level.}
+However, when the goal is to assess the error rate of the examiner \emph{under the prevailing guidelines of the AFTE Theory of Identification}, Option 2 \svp{may be} a reasonable option for assessing error rates of \svp{individual} firearm and toolmark examiners.
 
 Option 3 provides an approach to view inconclusive results and the corresponding error rates within the wider framework of the legal system:
 if a firearm does not mark well, a firearms examiner might not be able to make an identification or an elimination for reasons having nothing to do with the examiner's skill.  
@@ -360,6 +360,7 @@ The errors introduced in this section summarize the \emph{overall} error rate of
 In the next two sections we introduce two additional types of error rates: {\it source-specific} and {\it decision-specific} error rates.
 Both of these approaches are additional assessments of the reliability of a classification method that leverage \emph{conditional probabilities}, i.e.\ probabilities which are updated to account for known (or assumed) information.
 Rather than summarizing an experiment in a single number reflecting error or accuracy like before, these conditional probabilities allow us to provide a more specific assessment of the error accounting for known information, such as the examiner's decision or the source of the evidence. This allows us in particular to calculate separate accuracy rates for comparisons of same-source or different-source evidence. 
+\svp{As discussed in \citet{drorErrorErrorRate2020}, additional statistics that provide context to error rates can be extremely beneficial in court.}
 There is an additional advantage: some of these conditional probabilities do not require inconclusive results to be explicitly handled as errors or correct decisions. 
 
 
