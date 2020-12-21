@@ -194,7 +194,7 @@ Studies that attempt to gain insight into the identification process must naviga
 
 In the remainder of this section, we introduce terms commonly used in experiments with a specific focus on the forensic identification process:
 \begin{description}
-\item [Known and Questioned Samples] Most studies are set up to mirror casework, i.e.\ there is a set of samples of known origin and a set of questioned samples of unknown origin. The main objective of a study is to determine for a pair of known and questioned samples if they share the same source or come from different sources.
+\item [Reference and Questioned Samples] Most studies are set up to mirror casework, i.e.\ there is a set of samples of known origin, \svp{used for reference}, and a set of questioned samples of unknown origin. The main objective of a study is to determine for a pair of known and questioned samples if they share the same source or come from different sources.
 \item [Closed vs. Open Set] In a closed set study all questioned samples originate from the same source as one  (set of) known sample(s). 
 Conversely, an open set study is one in which questioned samples may originate from sources outside of the known samples provided. 
 Similarly, not all known samples might have a match among the questioned samples.
