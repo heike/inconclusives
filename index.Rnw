@@ -1629,6 +1629,7 @@ Opt. & \multicolumn{1}{c}{Meaning} & Missed Identification & \multicolumn{1}{r}{
 4 & Inconcl. = Elim.& 0.0100 & 0.0127 & 0.0127 \\
 \end{tabularx}
 \end{fmpage}
+
 \noindent\begin{fmpage}{.985\textwidth}\centering % Checked numbers 2020-04-24
 \captionsetup{type=table}\captionof{table}{Results from a set of comparisons of 3D images evaluated with an automatic algorithm.}\label{tab:mattijssen-summary3d}
 {\large\bf Validity and Reliability of Forensic Firearms Examiners} \emph{ \citeauthor{mattijssenValidityReliabilityForensic2020} ( \citeyear{mattijssenValidityReliabilityForensic2020})}\\
