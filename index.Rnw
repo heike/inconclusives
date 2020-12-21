@@ -76,7 +76,7 @@
 \maketitle
 
 \begin{abstract}
-In the past decade, and in response to the recommendations set forth by the \citet{nrc:2009}, scientists have conducted several black-box studies that attempt to estimate the error rates of firearm examiners. Most of these studies have resulted in vanishingly small error rates, and at least one of them \citep{Baldwin:2014bb} was cited by the President's Council of Advisors in Science and Technology (PCAST) during the Obama administration, as an example of a well-designed experiment. What has received little attention, however, is the actual calculation of error rates and in particular, the effect of inconclusive findings on those error estimates. The treatment of inconclusives in the assessment of errors has far-reaching implications in the legal system. Here, we revisit several black-box studies in the area of firearms examination, \svp{investigating} \hh{their treatment of inconclusive results.} \svp{It is clear that there are stark differences in the rate of inconclusive results in regions with different norms for training and reporting conclusions.} \hh{More surprisingly, the rate of inconclusive decisions for materials from different sources} \svp{is notably higher than the rate of inconclusive decisions for same-source materials in some regions}. To mitigate the effects of this difference we propose a unifying approach to the calculation of error rates that  is directly applicable in forensic laboratories \svp{and in legal settings}.
+In the past decade, and in response to the recommendations set forth by the \citet{nrc:2009}, scientists have conducted several black-box studies that attempt to estimate the error rates of firearm examiners. Most of these studies have resulted in vanishingly small error rates, and at least one of them \citep{Baldwin:2014bb} was cited by the President's Council of Advisors in Science and Technology (PCAST) during the Obama administration, as an example of a well-designed experiment. What has received little attention, however, is the actual calculation of error rates and in particular, the effect of inconclusive findings on those error estimates. The treatment of inconclusives in the assessment of errors has far-reaching implications in the legal system. Here, we revisit several black-box studies in the area of firearms examination, investigating their treatment of inconclusive results. It is clear that there are stark differences in the rate of inconclusive results in regions with different norms for training and reporting conclusions. More surprisingly, the rate of inconclusive decisions for materials from different sources is notably higher than the rate of inconclusive decisions for same-source materials in some regions. To mitigate the effects of this difference we propose a unifying approach to the calculation of error rates that  is directly applicable in forensic laboratories  and in legal settings.
 \end{abstract}
 
 
@@ -112,12 +112,6 @@ library(kableExtra)
 @
 
 
-\begin{itemize}
-\item[] \hh{
-there might be something intrinsically more difficult in determining eliminations - different training? Algorithms don't seem to have problems with eliminations
-}
-\item[] \hh{case studies  deal with largely non-damaged materials - some results based on case studies might not be transferrable to casework}
-\end{itemize}
 \section{Introduction and Background}
 It has now been more than a decade since the publication of the \citet{nrc:2009} report, which discussed the need for better-designed studies to estimate error rates in forensic disciplines. 
 In this paper, we examine several new studies that have been published since the 2009 report and assess the state of error rate studies in firearms and toolmark analysis. 
@@ -186,7 +180,7 @@ Studies that attempt to gain insight into the identification process must naviga
 
 In the remainder of this section, we introduce terms commonly used in experiments with a specific focus on the forensic identification process:
 \begin{description}
-\item [Reference and Questioned Samples] Most studies are set up to mirror casework, i.e.\ there is a set of samples of known origin, \svp{used for reference}, and a set of questioned samples of unknown origin. The main objective of a study is to determine for a pair of known and questioned samples if they share the same source or come from different sources.
+\item [Reference and Questioned Samples] Most studies are set up to mirror casework, i.e.\ there is a set of samples of known origin, used for reference, and a set of questioned samples of unknown origin. The main objective of a study is to determine for a pair of known and questioned samples if they share the same source or come from different sources.
 \item [Closed vs. Open Set] In a closed set study all questioned samples originate from the same source as one  (set of) known sample(s). 
 Conversely, an open set study is one in which questioned samples may originate from sources outside of the known samples provided. 
 Similarly, not all known samples might have a match among the questioned samples.
@@ -336,8 +330,8 @@ Thus, this elimination from consideration is not appropriate if the goal of a st
 
 Under AFTE's Theory of Identification, inconclusive results are acceptable outcomes and not considered errors. This approach is captured in Option 2:  inconclusive decisions are treated as correct regardless of the actual state.
 What this means in real terms, is that inconclusive decisions are counted as identifications if they are actually from the same source, but counted as eliminations if they are actually from a different source. 
-Note that this approach is exploitable in a strange way: to give a very extreme example, an examiner could report inconclusive decisions for every evaluation over the rest of their career and never make an error. \svp{\citet{drorErrorErrorRate2020} point out this discrepancy in many forensic disciplines and describe the effects of this policy on an individual assessment level as well as a system level.}
-However, when the goal is to assess the error rate of the examiner \emph{under the prevailing guidelines of the AFTE Theory of Identification}, Option 2 \svp{may be} a reasonable option for assessing error rates of \svp{individual} firearm and toolmark examiners.
+Note that this approach is exploitable in a strange way: to give a very extreme example, an examiner could report inconclusive decisions for every evaluation over the rest of their career and never make an error. \citet{drorErrorErrorRate2020} point out this discrepancy in many forensic disciplines and describe the effects of this policy on an individual assessment level as well as a system level.
+However, when the goal is to assess the error rate of the examiner \emph{under the prevailing guidelines of the AFTE Theory of Identification}, Option 2 may be a reasonable option for assessing error rates of individual firearm and toolmark examiners.
 
 Option 3 provides an approach to view inconclusive results and the corresponding error rates within the wider framework of the legal system:
 if a firearm does not mark well, a firearms examiner might not be able to make an identification or an elimination for reasons having nothing to do with the examiner's skill.  
@@ -353,7 +347,7 @@ The errors introduced in this section summarize the \emph{overall} error rate of
 In the next two sections we introduce two additional types of error rates: {\it source-specific} and {\it decision-specific} error rates.
 Both of these approaches are additional assessments of the reliability of a classification method that leverage \emph{conditional probabilities}, i.e.\ probabilities which are updated to account for known (or assumed) information.
 Rather than summarizing an experiment in a single number reflecting error or accuracy like before, these conditional probabilities allow us to provide a more specific assessment of the error accounting for known information, such as the examiner's decision or the source of the evidence. This allows us in particular to calculate separate accuracy rates for comparisons of same-source or different-source evidence. 
-\svp{As discussed in \citet{drorErrorErrorRate2020}, additional statistics that provide context to error rates can be extremely beneficial in court.}
+As discussed in \citet{drorErrorErrorRate2020}, additional statistics that provide context to error rates can be extremely beneficial in court.
 There is an additional advantage: some of these conditional probabilities do not require inconclusive results to be explicitly handled as errors or correct decisions. 
 
 
@@ -368,8 +362,8 @@ $$TNR = P(\text{Elimination} | DS) = \frac{P(\text{Elimination and } DS)}{P(DS)}
 
 
 Complementary to accuracy rates, we define two error rates of a classification method:
-The \emph{false positive rate} (FPR) -- or failed elimination rate -- is the probability that an examination of different source evidence \hh{results in an error}. 
-Similarly, the \emph{false negative rate} (FNR) -- or missed identification rate -- is the probability that an examination of same-source evidence \hh{results in an error}.
+The \emph{false positive rate} (FPR) -- or failed elimination rate -- is the probability that an examination of different source evidence results in an error. 
+Similarly, the \emph{false negative rate} (FNR) -- or missed identification rate -- is the probability that an examination of same-source evidence results in an error.
 
 \begin{figure}
 \centering
@@ -389,9 +383,9 @@ rates are calculated by conditioning on the \emph{origin of the evidence}. This 
 \caption{
 Source-specific probabilities, calculated using the quantities introduced in \Cref{tab:generic-results}. 
 Cells in the main body of the table show conditional probabilities  of conclusion $Y$ (one of Identification, Inconclusive, or Elimination) given known source  $X$ (same, different). 
-\svp{In the final column of the table, the total number of comparisons is shown - this number forms the denominator for each cell when calculating source-specific probabilities.}
+In the final column of the table, the total number of comparisons is shown - this number forms the denominator for each cell when calculating source-specific probabilities.
 %In the last column of the table, the marginal probabilities $P(X)$ are shown; 
-These marginal \svp{total comparison numbers} are determined by the experimental design.
+These marginal total comparison numbers are determined by the experimental design.
 }\label{tab:fpr-prob}
 \begin{tabular}{|r|ccc|c|}
 \multicolumn{5}{c}{\bf Source-specific Probabilities}\\\cline{2-5}
@@ -434,7 +428,7 @@ Using the quantities in \Cref{tab:generic-results}, we can calculate the decisio
 \caption{
 Decision-specific probabilities, calculated using the quantities introduced in \Cref{tab:generic-results}. 
 In each cell in the main body of the table, probabilities shown are the probability of source $X$, if the examiner's conclusion (one of Identification, Inconclusive, or Elimination) is $Y$. 
-\svp{In the final row of the table, the total number of comparisons is shown - this number forms the denominator for each cell when calculating decision-specific probabilities.}
+In the final row of the table, the total number of comparisons is shown - this number forms the denominator for each cell when calculating decision-specific probabilities.
 % In the last row in the table, the marginal probabilities $P(Y)$ are shown, that is, the unconditional probability that the examiner's decision is $Y$. 
 }\label{tab:ppv-prob}
 % \begin{tabularx}{\textwidth}{Y|ccc|Y}
@@ -456,7 +450,7 @@ Total \# Decisions & $a + d$ & $b + e$ & $c + f$ \\\hline
 
 Predictive value assessments are used in assessing the implications of a particular classification label; they inform us about the \emph{likely state of the physical evidence} given the expert's decision or testimony. This makes the PPV, NPV, FDR, and FOR particularly useful when evaluating casework (or in a courtroom setting), because the true state of the evidence is unknown.
 
-Note that we still cannot directly calculate the probabilities for any individual case or evidence: ground truth is still not knowable; however, the results of designed studies are used to give information tailored \svp{to a specific decision scenario}. 
+Note that we still cannot directly calculate the probabilities for any individual case or evidence: ground truth is still not knowable; however, the results of designed studies are used to give information tailored to a specific decision scenario. 
 While it is reasonable to condition on unknown quantities in a mathematical sense, in practice it is much more informative to condition on quantities with known values: in this case, the examiner's decision is the known information and the state of the physical evidence is unknown.
 
 Conversely, source-specific assessments are useful when evaluating the performance of individuals on a designed test, because ground truth is known (and thus, can be conditioned upon) in designed studies.
@@ -498,7 +492,7 @@ For each study, we provide the reported results and present error rates and cond
 Using these comparisons we assess the state of these error rate studies and provide an overview of the current status quo of firearms examination.
 
 \subsection{Error Rate Studies}
-The studies included in this section are not an exhaustive list of every error rate study ever performed; rather, we have included the most central and most cited studies, as well as several of the studies mentioned in the PCAST and NRC reports concerning firearm and toolmark analysis. A brief description of each study is provided here for reference purposes, with summary tables of results and conditional probabilities provided in \Cref{sec:supplement}. \svp{A spreadsheet with the same study-specific error rates and calculations is available online at \url{http://bit.ly/fte-study-error-rates} for reference purposes.}
+The studies included in this section are not an exhaustive list of every error rate study ever performed; rather, we have included the most central and most cited studies, as well as several of the studies mentioned in the PCAST and NRC reports concerning firearm and toolmark analysis. A brief description of each study is provided here for reference purposes, with summary tables of results and conditional probabilities provided in \Cref{sec:supplement}. A spreadsheet with the same study-specific error rates and calculations is available online at \url{http://bit.ly/fte-study-error-rates} for reference purposes.
 
 \begin{description}
 \item[Baldwin] \citep{Baldwin:2014bb} is a study of Ruger SR9 cartridge cases. This is an open-set study. Each participant is asked to  evaluate 15 test sets. Each test set consists  of 3 reference cartridge cases and 1 questioned cartridge case. In ten of the 15 test sets the questioned cartridge case matched the references, in five tests the questioned cartridge case was from a different source.
@@ -525,7 +519,7 @@ The studies included in this section are not an exhaustive list of every error r
 Of the studies listed above, we have examined all but \citet{fadul}, which contained insufficient detail about examiner results and conclusions to calculate the quantities discussed in the previous section. 
 Note that this paper is limited in scope to \emph{error rate studies} conducted using firearms and toolmark examiners. 
 There are several promising automatic analysis tools \citep[see][]{aoas2,case-validation,chumbleyValidationToolMark2010,chuAutomaticIdentificationBullet2013,songEstimatingErrorRates2018,tai2018fully} which calculate error rates based on 2d images and 3d scans of bullet and cartridge cases.
-These types of studies are not easily comparable to the black-box studies under consideration here: none of the automatic matching algorithms employs a category of `inconclusive' as a result, so the discussions on how to deal with inconclusive results are not applicable.  \svp{This} implies that for algorithms we cannot distinguish between errors stemming from insufficient markings on evidence and errors inherent to the algorithm. \svp{We have included algorithmic results from \citet{mattijssenValidityReliabilityForensic2020}, which included algorithmic analysis as well as examiner evaluations in the appendix for comparison purposes, but will defer additional examination of algorithmic studies to a future paper.}
+These types of studies are not easily comparable to the black-box studies under consideration here: none of the automatic matching algorithms employs a category of `inconclusive' as a result, so the discussions on how to deal with inconclusive results are not applicable.  This implies that for algorithms we cannot distinguish between errors stemming from insufficient markings on evidence and errors inherent to the algorithm. We have included algorithmic results from \citet{mattijssenValidityReliabilityForensic2020}, which included algorithmic analysis as well as examiner evaluations in the appendix for comparison purposes, but will defer additional examination of algorithmic studies to a future paper.
 
 In the next sections, we discuss the design and results of each study, including calculation and comparison of source- and decision-specific error rates. 
 
@@ -537,8 +531,11 @@ As described in the PCAST report, ``set-based" approaches can inflate examiners'
 \end{displayquote}
 
 The PCAST response, issued in  \citeyear{pcast-addendum2017}, identifies only one study \citep{Baldwin:2014bb} as appropriately designed to evaluate the validity and reliability of firearms analysis methods. 
-Shortly after the report was issued, additional studies were published which also meet the criteria for reliable studies in the report:  \citet{keisler}, \citet{Duez:2017kha}, \svp{VCMER \citep{vcmer}, and \citet{mattijssenValidityReliabilityForensic2020}}. 
-All four ``good" studies used slightly different designs but share one essential element: each kit contained multiple comparisons composed of one or more samples from exactly one known source and one unknown source.
+Shortly after the report was issued, additional studies were published which also meet the criteria for reliable studies in the report:  \citet{keisler}, \citet{Duez:2017kha}, VCMER \citep{vcmer}, and \citet{mattijssenValidityReliabilityForensic2020}. 
+All  ``good" studies used slightly different designs but share one essential element: each kit is made of multiple sets consisting of one or more reference samples (from the same source) and one sample of questioned origin, with samples from different sets having different origins.
+
+
+
 These designs substantially reduce or eliminate the internal dependencies which provide ``hints" to examiners by ensuring that each comparison of samples is considered independently.
 Also, the design of these studies ensures that it is possible to exactly enumerate the number of same-source and different-source comparisons.\footnote{At least, it is possible with the additional assumption that a comparison between a multiple items from the same source and an unknown should count as a single comparison.}
 All studies with reliable designs are also limited to cartridge case comparisons (one exception to that is FAID09  \citep{pauw2013faid}, which was published before the release of the PCAST report, but is a European-focused study). 
@@ -693,7 +690,7 @@ This is despite instructions given to participants: ``A very important aspect of
 In  \citet{Duez:2017kha}, the authors report that ``13\% of examiners are not permitted to eliminate on individual characteristics (therefore, their conclusions of inconclusive are perfectly acceptable)." 
 Interestingly, it seems that some examiners reported eliminations in contravention of lab rules.
 Policies that forbid elimination based on a mismatch between individual characteristics alone seem to directly contradict the AFTE Theory of Identification, which allows for eliminations based on ``significant disagreement of discernible class characteristics and/or individual characteristics". 
-\svp{It is apparent that there is a distinct difference between the error rates and inconclusive rates in US/CA and EU-focused experiments, showing the clear impact of the confluence of training, legal system, reporting scale, and the type of error rate study (proficiency exam vs. error rate assessment).}
+It is apparent that there is a distinct difference between the error rates and inconclusive rates in US/CA and EU-focused experiments, showing the clear impact of the confluence of training, legal system, reporting scale, and the type of error rate study (proficiency exam vs error rate assessment).
 
 The rates reported in this section are calculated directly from information reported in the papers without adjustments accounting for the use of deductive reasoning; as such, they represent the best possible case for error rates in studies that include multiple knowns, such as  \citet{Hamby:2018hu} and  \citet{bunch2003comprehensive}. 
 More realistic estimates of error rates that account for the use of deductive reasoning can be found in \Cref{sec:sim}.
@@ -866,10 +863,10 @@ cis %>%
 @
 
 
-In \Cref{fig:cis}, it is  clear that the probability of same-source evidence given an inconclusive evaluation is much lower than the \svp{expected proportion} (target probability) \svp{for most studies}.
+In \Cref{fig:cis}, it is  clear that the probability of same-source evidence given an inconclusive evaluation is much lower than the expected proportion (target probability) for most studies.
 The decision-specific probabilities provide indications that the distribution of inconclusive determinations is very different from our expectations. 
-\svp{One notable exception is FAID09 \citep{pauw2013faid}, which is a proficiency test (and thus, may be harder than the studies focused on error rates) of examiners in various European laboratories. While we cannot determine \emph{why} this study is so different, it is clear that the discrepancy between inconclusive determinations and evidence source does not exist under all conditions.
-This suggests we may want to examine the source of this bias in more depth.}
+One notable exception is FAID09 \citep{pauw2013faid}, which is a proficiency test (and thus, may be harder than the studies focused on error rates) of examiners in various European laboratories. While we cannot determine \emph{why} this study is so different, it is clear that the discrepancy between inconclusive determinations and evidence source does not exist under all conditions.
+This suggests we may want to examine the source of this bias in more depth.
 
 \section{Inconclusive Evaluations, Errors, and the Legal System}\label{sec:inconclusives}
 Before we discuss the results of inconclusive findings in the selected studies, we must explicitly characterize our expectations for decision-specific probabilities of inconclusive findings. 
@@ -881,7 +878,7 @@ We have no reason to believe that these thresholds are asymmetric; that is, the 
 Statistically, we would express this symmetry as the independence between the source and an inconclusive finding: that is, $P(\text{same source} | \text{inconclusive}) = P(\text{same source})$ and $P(\text{different source} | \text{inconclusive}) = P(\text{different source})$.
 
 
-This implies that we can calculate the ``target" probability for each decision. \svp{For same-source pairs, } the target for identification is 100\%: all same source pairs should result in an identification. 
+This implies that we can calculate the ``target" probability for each decision. For same-source pairs, the target for identification is 100\%: all same source pairs should result in an identification. 
 Similarly, the target for elimination is 0\%: not even a single same-source pair should result in an elimination. 
 Same-source pairs should be assessed as inconclusive with frequency proportional to the number of same-source comparisons in the study. 
 Conceptually, \Cref{fig:shape-overview} demonstrates this characteristic: the rate of inconclusives is the same for both same-source and different-source evidence.
@@ -970,11 +967,11 @@ P (\text{different source} \mid \text{identification}) &=& 22 / 1097 &=& 0.0201.
 
 
 Examining the experimentally determined error rates for firearms and toolmark identification leads to a disturbing realization.
-There is an order of magnitude difference between the probability of same-source evidence given an elimination and the probability of different-source evidence given an identification \svp{in studies conducted using examiners who are primarily from the US and Canada (e.g. excluding \citet{mattijssenValidityReliabilityForensic2020, pauw2013faid}).} 
-In fact, even if inconclusives and eliminations are combined as under Option 4 \svp{in \citet{Baldwin:2014bb}}, the probability of a false elimination is 0.0069, only a third of the probability of a false identification.
-These observations are shown visually in \Cref{fig:asymmetric-errors} and explicitly calculated in \Cref{eqn:baldwin-calcs} for \citet{Baldwin:2014bb}, \svp{the only study from the US or Canada} with sufficient error counts.
+There is an order of magnitude difference between the probability of same-source evidence given an elimination and the probability of different-source evidence given an identification in studies conducted using examiners who are primarily from the US and Canada (e.g. excluding \citet{mattijssenValidityReliabilityForensic2020, pauw2013faid}).
+In fact, even if inconclusives and eliminations are combined as under Option 4 in \citet{Baldwin:2014bb}, the probability of a false elimination is 0.0069, only a third of the probability of a false identification.
+These observations are shown visually in \Cref{fig:asymmetric-errors} and explicitly calculated in \Cref{eqn:baldwin-calcs} for \citet{Baldwin:2014bb}, the only study from the US or Canada with sufficient error counts.
 It is necessary to have at least one observation in each cell in order to bound the probabilities as well as sufficient comparisons to be able to differentiate between e.g. 0.02 and 0.2; this is particularly important when we deal with very low and very high probabilities, such as success and error rates. 
-\svp{If we repeat these calculations using another large study, \citet{mattijssenValidityReliabilityForensic2020}, however, we find that this issue is not universal.}
+If we repeat these calculations using another large study, \citet{mattijssenValidityReliabilityForensic2020}, however, we find that this issue is not universal.
 
 \begin{align}\label{eqn:mattijssen-calcs}
 \arraycolsep=1.4pt\def\arraystretch{2.2}
@@ -986,8 +983,8 @@ P (\text{different source} \mid \text{identification}) &=& 74 / 2439 &=& 0.0303
 \end{array}
 \end{align}
 
-\svp{While we cannot conclude that this difference is due to the location of the examiners, or the protocol by which the study was conducted, it is clear that the studies conducted primarily on US examiners show a bias that does not exist in \citet{mattijssenValidityReliabilityForensic2020}; that is, we do not have to be content with this bias as the status quo.
-More studies are needed to determine which factors (training, location, legal system, system of reporting conclusions, study protocol) are most important in contributing to the clear bias in the distribution of inconclusives across same-source and different-source comparisons.}
+While we cannot conclude that this difference is due to the location of the examiners, or the protocol by which the study was conducted, it is clear that the studies conducted primarily on US examiners show a bias that does not exist in \citet{mattijssenValidityReliabilityForensic2020}; that is, we do not have to be content with this bias as the status quo.
+More studies are needed to determine which factors (training, location, legal system, system of reporting conclusions, study protocol) are most important in contributing to the clear bias in the distribution of inconclusives across same-source and different-source comparisons.
 
 <<asymmetric-errors, echo = F, fig.width = 8, fig.height = 4, fig.cap = "Decision-specific error rates. Note that the error percentages are shown on a log scale to allow visualizing differences in errors for both European studies and studies from he US and Canada. The European studies exhibit errors at an order of magnitude higher than US/CA based studies.  For all US/CA studies in which any errors happened,  errors in identification are more likely than errors in eliminations. This difference is significant in \\citet{Baldwin:2014bb},  the only US/CA study with a large number of participants and evaluations. In all but the VCMER (2020) study, counting inconclusives as eliminations does not significantly increase the corresponding error rate, and makes error rates from both DS and SS materials more similar.", cache = F>>=
 # Even if inconclusives are treated as eliminations, error rates are still not higher for eliminations than identifications (removed from caption)
@@ -1075,7 +1072,7 @@ plot(gg3)
 
 
 Note that while the probability of same source given an elimination is affected by lab policies towards the treatment of inconclusives, these policies do not explain the continued discrepancy in error probabilities when inconclusives and eliminations are considered together. 
-\svp{The fact that all of the AFTE studies and none of the non-AFTE studies display this trend suggests that while lab policies do not explain the discrepancy, the training examiners receive, the scale used to evaluate evidence, and the underlying culture of the legal system (e.g. adversarial vs. non-adversarial) might be factors relevant to this discrepancy. The non-AFTE studies were conducted using worldwide or European participants, who have different training and ongoing evaluation requirements, as well as fundamentally different legal systems. }
+The fact that all of the AFTE studies and none of the non-AFTE studies display this trend suggests that while lab policies do not explain the discrepancy, the training examiners receive, the scale used to evaluate evidence, and the underlying culture of the legal system (e.g. adversarial vs. non-adversarial) might be factors relevant to this discrepancy. The non-AFTE studies were conducted using worldwide or European participants, who have different training and ongoing evaluation requirements, as well as fundamentally different legal systems. 
 
 
 
@@ -1097,10 +1094,10 @@ Note that while the probability of same source given an elimination is affected 
 
 
 %Unfortunately, this is not what we find.
-\Cref{fig:asymmetric-errors} focuses on the larger studies \svp{with designs which allow for estimation of these error rates}, and shows the estimated probabilities (and the corresponding confidence intervals) of an incorrect identifications and eliminations. 
-\svp{We will ignore \citet{mattijssenValidityReliabilityForensic2020} for the moment, as it was conducted using likelihood ratio based reasoning (with inconclusives as an afterthought) and thus is not completely comparable to studies which use an AFTE-like scale with inconclusives by default.} 
-\svp{In addition, we will exclude the Keisler study from consideration here because it did not record any definitive (not-inconclusive) errors; as a result, we cannot precisely estimate the rate of same source eliminations or different-source identifications.}
-\svp{In the three remaining studies conducted using the AFTE range of conclusions that have at least one definitive error, } the point estimate of the probability of a false identification is higher than the probability of a false elimination. In the case of \citet{Baldwin:2014bb}, the difference is statistically significant \svp{(Baldwin is the only study which observed definitive false identifications and false eliminations)}.
+\Cref{fig:asymmetric-errors} focuses on the larger studies with designs which allow for estimation of these error rates, and shows the estimated probabilities (and the corresponding confidence intervals) of an incorrect identifications and eliminations. 
+We will ignore \citet{mattijssenValidityReliabilityForensic2020} for the moment, as it was conducted using likelihood ratio based reasoning (with inconclusives as an afterthought) and thus is not completely comparable to studies which use an AFTE-like scale with inconclusives by default. 
+In addition, we will exclude the Keisler study from consideration here because it did not record any definitive (not-inconclusive) errors; as a result, we cannot precisely estimate the rate of same source eliminations or different-source identifications.
+In the three remaining studies conducted using the AFTE range of conclusions that have at least one definitive error,  the point estimate of the probability of a false identification is higher than the probability of a false elimination. In the case of \citet{Baldwin:2014bb}, the difference is statistically significant (Baldwin is the only study which observed definitive false identifications and false eliminations).
 %the only study with sufficient sample size to show significant differences between error rates still shows that the probability of different source evidence given an examiner identification is significantly higher than the probability of same-source evidence given an examiner elimination or inconclusive.
 %Note that \citet{Duez:2017kha} and \citet{keisler} have insufficient sample size to distinguish between the probabilities with statistical significance.
 %However, 
@@ -1115,7 +1112,7 @@ Examiner training  primarily focus on making identifications, rather than spendi
 In the case of bullet examination, there is an objective criterion for sufficient similarity: 6 consecutively matching striae, according to \citet{biasotti}; similar criteria have been proposed for algorithmic assessment of cartridge cases \citep{song3DTopographyMeasurements2014}.
 However, in both instances, there is not a corresponding threshold for dissimilarity.
 Here, we do not attempt to identify the source of the bias; we only identify that there is observable bias in the distribution of inconclusive results and suggest that this bias must be addressed.
-\svp{It is important to note that when we speak of biases, our conclusions apply to error rate studies, not to case work. In case work, fragmented or damaged evidence may cause an examiner to make an inconclusive determination; the studies we have examined here do not have this additional complication. While it would be interesting to design studies that included these types of comparisons, it is unclear how one would systematically collect such evidence. }
+It is important to note that when we speak of biases, our conclusions apply to error rate studies, not to case work. In case work, fragmented or damaged evidence may cause an examiner to make an inconclusive determination; the studies we have examined here do not have this additional complication. While it would be interesting to design studies that included these types of comparisons, it is unclear how one would systematically collect such evidence. 
 %Whatever the source of the bias, however, one thing is clear: the discrepancy between the decision-specific conditional probabilities corresponding to errors is fundamentally unjust, and the bias is in the opposite direction of the ideal expressed by Blackstone.
 %This problem must be addressed for forensic firearms and toolmark examination to be used equitably. 
 
@@ -1138,7 +1135,7 @@ In particular, there is a  need for studies that are both large (many examiners 
 \end{itemize}
 
 %well designed (single known source for each comparison, open set, with limited information which can be shared between participants). 
-All of the published \svp{AFTE scale} studies that meet at least some of the design criteria focus only on cartridge cases; it is imperative that similarly well designed studies examining bullets and toolmarks be conducted and published to validate the entire discipline of firearms and toolmark analysis.
+All of the published AFTE scale studies that meet at least some of the design criteria focus only on cartridge cases; it is imperative that similarly well designed studies examining bullets and toolmarks be conducted and published to validate the entire discipline of firearms and toolmark analysis.
 
 While published studies vary in their treatment of inconclusive decisions when calculating and reporting error rates or accuracies, most studies report 
 % what is reported as error rates in most studies is 
@@ -1154,7 +1151,7 @@ Further, decision-specific error rates avoid the need to treat inconclusives dif
 
 In practice, using decision-specific error rates depends on the availability of information that is not currently collected. Specifically, we would need to know examiner-specific probabilities of incorrect conclusions as well as examiner-specific historical decisions. We might be able to learn the  former from reliable proficiency testing, while the latter could be obtained from past lab reports and testimony.
 
-Specifically, in court, we suggest that when the admissibility of an examiner's testimony is assessed, the examiner is asked to state the lab policy on making eliminations \svp{and} the rate at which the examiner makes inconclusive decisions, along with any relevant error rates specific to the lab and to themselves. We also suggest that during cross-examination after the testimony was presented, the defense ask about the decision-specific probability of an error (relative to the examiner's decision). \svp{This information will provide error rates which are specific and relevant to the presented testimony.}% which will provide specific information which is relevant to the testimony at hand.
+Specifically, in court, we suggest that when the admissibility of an examiner's testimony is assessed, the examiner is asked to state the lab policy on making eliminations and the rate at which the examiner makes inconclusive decisions, along with any relevant error rates specific to the lab and to themselves. We also suggest that during cross-examination after the testimony was presented, the defense ask about the decision-specific probability of an error (relative to the examiner's decision). This information will provide error rates which are specific and relevant to the presented testimony. % which will provide specific information which is relevant to the testimony at hand.
 
 % Discuss the systematic biases which all work against the defendant: 
 % \begin{itemize}
@@ -1167,15 +1164,15 @@ Specifically, in court, we suggest that when the admissibility of an examiner's 
 % \end{itemize}
 
 In the process of examining these different error rate calculations, we discovered a series of systematic biases in error rate studies and the examination process which all work against the defendant. 
-For example, in many studies, the \svp{study is designed such that it is possible to estimate false elimination rates} more precisely than false identification rates. 
+For example, in many studies, the study is designed such that it is possible to estimate false elimination rates more precisely than false identification rates. 
 In fact, in some common study designs, it is only possible to estimate the false elimination error rate; the rate of false identifications cannot be estimated at all. 
 This ensures that there is no way to invalidate the examiner's testimony on the basis that it might contribute to a false conviction of the defendant. 
-In addition, examiners \svp{working under the AFTE range of conclusions} appear to have a lower threshold for identification than for elimination; when evidence originates from different sources, examiners are more likely to arrive at an inconclusive decision than they are when the evidence has the same source. 
+In addition, examiners working under the AFTE range of conclusions appear to have a lower threshold for identification than for elimination; when evidence originates from different sources, examiners are more likely to arrive at an inconclusive decision than they are when the evidence has the same source. 
 As a result, there is a systematically higher probability of different-source evidence given an examiner's identification than the probability of same-source evidence given an examiner's elimination. 
 This fundamentally contradicts the principles which form the foundation of our legal system. 
 These biases mirror biases in the admissibility of forensic evidence which are also more likely to favor the prosecution \citep{morenoWhatHappensWhen2004, epsteinPreferringWiseMan2014, roachFORENSICSCIENCEMISCARRIAGES2009}. 
-\svp{This paper briefly examines two non-AFTE studies, FAID09 \citep{pauw2013faid} and \citet{mattijssenValidityReliabilityForensic2020}; these studies do not demonstrate this bias, but it is not clear whether the difference is the population (examiners from outside the US and Canada), the scales used by the examiners, the legal systems, or some other factor. 
-Additional studies should be performed to investigate possible explanations for this difference and to determine whether the percieved distinction between study types holds up under scruitiny.}
+This paper briefly examines two non-AFTE studies, FAID09 \citep{pauw2013faid} and \citet{mattijssenValidityReliabilityForensic2020}; these studies do not demonstrate this bias, but it is not clear whether the difference is the population (examiners from outside the US and Canada), the scales used by the examiners, the legal systems, or some other factor. 
+Additional studies should be performed to investigate possible explanations for this difference and to determine whether the percieved distinction between study types holds up under scruitiny.
 
 
 % Future work: Examine the distribution of automated scores (RF score, CCF) and cutoff-based classifications compared to examiner decisions. Are algorithms less biased than examiners? (yes, duh). 
@@ -1498,7 +1495,7 @@ Opt. & \multicolumn{1}{c}{Meaning} & Missed Identification & \multicolumn{1}{r}{
 \end{fmpage}
 
 \clearpage
-\paragraph{VCMER} The VCMER study  \citep{vcmer} used virtual microscopy to evaluate scans of cartridge cases. Each participant was asked to make sixteen evaluations of breech face impressions, selected from a total of forty sets in a balanced incomplete block design. Each set consisted of two exemplars and one questioned bullet. \svp{Data from this study was also reported in \citet{lilienFirearmForensicsBlackBox2019}.}
+\paragraph{VCMER} The VCMER study  \citep{vcmer} used virtual microscopy to evaluate scans of cartridge cases. Each participant was asked to make sixteen evaluations of breech face impressions, selected from a total of forty sets in a balanced incomplete block design. Each set consisted of two exemplars and one questioned bullet. Data from this study was also reported in \citet{lilienFirearmForensicsBlackBox2019}.
 
 \noindent\begin{fmpage}{.985\textwidth}\centering % Checked numbers 2020-04-24
 \captionsetup{type=table}\captionof{table}{VCMER study results, conclusion-specific and source-specific probabilities, and reported overall error rates. }\label{tab:VCMER-summary}
@@ -1670,7 +1667,7 @@ Opt. & \multicolumn{1}{c}{Meaning} & Missed Identification & \multicolumn{1}{r}{
 \end{tabularx}
 \end{fmpage}\clearpage
 
-\paragraph{FAID09} \svp{The FAID09 study}  \citep{pauw2013faid} consists of 10 sets of 3 knowns and 1 unknown, in both bullets and cartridge cases. Test sets were castings of the original fired bullets and cases, rather than the objects themselves. Examiners reported conclusions on a 5-point (+ unsuitable) scale, where A corresponds to identification, B corresponds to probable identification or AFTE Inconclusive-A, C corresponds to inconclusive or AFTE Inconclusive B, D corresponds to probable exclusion, or AFTE Inconclusive C, and E corresponds to Exclusion; Z corresponds to unsuitable. There were between 62 and 64 evaluations of each set.
+\paragraph{FAID09} The FAID09 study  \citep{pauw2013faid} consists of 10 sets of 3 knowns and 1 unknown, in both bullets and cartridge cases. Test sets were castings of the original fired bullets and cases, rather than the objects themselves. Examiners reported conclusions on a 5-point (+ unsuitable) scale, where A corresponds to identification, B corresponds to probable identification or AFTE Inconclusive-A, C corresponds to inconclusive or AFTE Inconclusive B, D corresponds to probable exclusion, or AFTE Inconclusive C, and E corresponds to Exclusion; Z corresponds to unsuitable. There were between 62 and 64 evaluations of each set.
 
 \noindent\begin{fmpage}{.985\textwidth}\centering % Checked numbers 2020-04-24
 \captionsetup{type=table}\captionof{table}{FAID09 study results for bullets, conclusion-specific and source-specific probabilities, and reported overall error rates. }\label{tab:FAID09-bullet-summary}
