@@ -990,7 +990,7 @@ P (\text{different source} \mid \text{identification}) &=& 74 / 2439 &=& 0.0303
 \svp{While we cannot conclude that this difference is due to the location of the examiners, or the protocol by which the study was conducted, it is clear that the studies conducted primarily on US examiners show a bias that does not exist in \citet{mattijssenValidityReliabilityForensic2020}; that is, we do not have to be content with this bias as the status quo.
 More studies are needed to determine which factors (training, location, legal system, system of reporting conclusions, study protocol) are most important in contributing to the clear bias in the distribution of inconclusives across same-source and different-source comparisons.}
 
-<<asymmetric-errors, echo = F, fig.width = 8, fig.height = 4, fig.cap = "Decision-specific error rates. The European studies exhibit errors at an order of magnitude higher than US/CA based studies.  For all US/CA studies in which any errors happened,  errors in identification are more likely than errors in eliminations. This difference is significant in \\citet{Baldwin:2014bb},  the only US/CA study with a large number of participants and evaluations. In all but the VCMER (2020) study, counting inconclusives as eliminations does not significantly increase the corresponding error rate, and makes error rates from both DS and SS materials more similar.", cache = F>>=
+<<asymmetric-errors, echo = F, fig.width = 8, fig.height = 4, fig.cap = "Decision-specific error rates. Note that the error percentages are shown on a log scale to allow visualizing differences in errors for both European studies and studies from he US and Canada. The European studies exhibit errors at an order of magnitude higher than US/CA based studies.  For all US/CA studies in which any errors happened,  errors in identification are more likely than errors in eliminations. This difference is significant in \\citet{Baldwin:2014bb},  the only US/CA study with a large number of participants and evaluations. In all but the VCMER (2020) study, counting inconclusives as eliminations does not significantly increase the corresponding error rate, and makes error rates from both DS and SS materials more similar.", cache = F>>=
 # Even if inconclusives are treated as eliminations, error rates are still not higher for eliminations than identifications (removed from caption)
 
 # This was to create a similar chart as the calculations for Baldwin, but Baldwin is the only study with enough data for the calculations to be meaningful...
@@ -1025,10 +1025,9 @@ errors2 <- studies %>%
     ) %>%
   ungroup() %>%
   mutate(
-    afte = (Study %in% c("Mattijssen (2020)", "FAID09 (2013) Bull.", "FAID09 (2013) Cartr.")) %>% factor(levels = c(FALSE, TRUE), labels = c("US/CA", "EU"))
-  )
-
-errors2 %>%
+    afte = (Study %in% c("Mattijssen (2020)", "FAID09 (2013) Bull.", "FAID09 (2013) Cartr.")) %>% factor(levels = c(FALSE, TRUE), labels = c("US/CA", "EU")),
+    open = rate == 0
+  ) %>%
   arrange(Study) %>% 
   mutate(
     Decision = factor(Decision, levels = c("Identification", "Elimination", "Elimination + Inconclusive")),
@@ -1036,7 +1035,9 @@ errors2 %>%
     ErrorType = factor(ErrorType, levels = c("Identification of DS", "Elimination of SS", "Elimination or Inconclusive of SS"))
   ) %>%
   filter(!(Study %in% c("Hamby (2019)", "Lyons (2009)", 
-                        "Bunch & Murphy (2003)"))) %>%
+                        "Bunch & Murphy (2003)")))
+
+gg2 <- errors2  %>%
   ggplot(aes(x = rate*100, y = Study)) + 
   geom_hline(yintercept = "FAID09 (2013) Bull.", colour = "black",
              size=12, alpha = 0.1) +
@@ -1045,18 +1046,31 @@ errors2 %>%
   geom_hline(yintercept = "Baldwin (2014)", colour = "black",
              size=12, alpha = 0.1) +
   geom_point(aes(colour = ErrorType, shape = ErrorType),
-             position = position_dodge(width = 0.7),
+             position = position_dodge(width = 0.6),
              size = 2.5) + 
   geom_errorbarh(
     aes(xmin = lower*100, xmax = upper*100, colour = ErrorType), 
-    position = position_dodge(width = 0.7), height = .3) +
+    position = position_dodge(width = 0.6), height = .3) +
   scale_shape_discrete("Type of Error") +
   scale_colour_manual("Type of Error", values = c("steelblue", "darkorange", "brown")) +
   theme_bw() +
   theme(legend.position="bottom") + 
   xlab("Error Percentages (decision-specific conditional probabilities) ") + 
   facet_grid(afte ~ ., scales = "free", space = "free") +
-  scale_x_log10()
+  scale_x_log10(minor_breaks=c(0.01*1:10, 0.1*1:10, 1:10,10*(1:10)))
+#  scale_x_log10(minor_breaks=c(0.04, 0.07, 0.4, 0.7, 4, 7, 40, 70))
+
+ggb2 <- ggplot_build(gg2)
+ggb2$data[[4]] <- ggb2$data[[4]] %>% 
+  mutate(
+    shape = ifelse(is.infinite(x) & shape==15, 22, shape),
+    shape = ifelse(is.infinite(x) & shape==16, 21, shape),
+    shape = ifelse(is.infinite(x) & shape==17, 24, shape),
+    size = ifelse(is.infinite(x), 3, size)
+  )
+
+gg3 <- ggplot_gtable(ggb2)
+plot(gg3)
 
 @
 
