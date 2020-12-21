@@ -1021,7 +1021,7 @@ errors2 <- studies %>%
     ) %>%
   ungroup() %>%
   mutate(
-    afte = (Study %in% c("Mattijssen (2020)", "FAID09 (2013) Bull.", "FAID09 (2013) Cartr.")) %>% factor(levels = c(FALSE, TRUE), labels = c("AFTE scale", "Non-AFTE Scale"))
+    afte = (Study %in% c("Mattijssen (2020)", "FAID09 (2013) Bull.", "FAID09 (2013) Cartr.")) %>% factor(levels = c(FALSE, TRUE), labels = c("US/CA", "EU"))
   )
 
 errors2 %>%
