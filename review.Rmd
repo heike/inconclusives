@@ -1,12 +1,12 @@
 ---
 title: "Review of 'Treatment of Inconclusives in the AFTE Range of Conclusions' For Law, Probability, and Risk"
-date: "11/13/2020"
 output: pdf_document
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
+
+# Note to the Reviewer(s)
+
+Thank you very much for your extremely helpful comments. This paper is much better for your comments, and we have reworked portions of the paper to include the additional suggested studies, which makes our overall conclusions more useful and pointed. We have attached a PDF file showing the changes, with the exception of changes made in tables and equations - these have obviously changed, but the change tracking software is less than helpful with these structures. You can see that the figures showing data and the portions of the paper dealing explicitly with error rate studies are the areas which have changed the most in response to your comments and suggestions.
 
 # Review 1
 
