@@ -703,8 +703,8 @@ This is despite instructions given to participants: ``A very important aspect of
 
 In  \citet{Duez:2017kha}, the authors report that ``13\% of examiners are not permitted to eliminate on individual characteristics (therefore, their conclusions of inconclusive are perfectly acceptable)." 
 Interestingly, it seems that some examiners reported eliminations in contravention of lab rules.
-Policies that forbid elimination based on a mismatch between individual characteristics alone seem to directly contradict the AFTE Theory of Identification, which allows for eliminations based on ``significant disagreement of discernible class characteristics and/or individual characteristics".
-
+Policies that forbid elimination based on a mismatch between individual characteristics alone seem to directly contradict the AFTE Theory of Identification, which allows for eliminations based on ``significant disagreement of discernible class characteristics and/or individual characteristics". 
+\svp{It is apparent that there is a distinct difference between the error rates and inconclusive rates in US/CA and EU-focused experiments, showing the clear impact of the confluence of training, legal system, reporting scale, and the type of error rate study (proficiency exam vs. error rate assessment).}
 
 The rates reported in this section are calculated directly from information reported in the papers without adjustments accounting for the use of deductive reasoning; as such, they represent the best possible case for error rates in studies that include multiple knowns, such as  \citet{Hamby:2018hu} and  \citet{bunch2003comprehensive}. 
 More realistic estimates of error rates that account for the use of deductive reasoning can be found in \Cref{sec:sim}.
