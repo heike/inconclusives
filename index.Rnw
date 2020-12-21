@@ -825,7 +825,7 @@ As before, the probabilities computed from the study results are shown with thei
 The circles shown in light grey in the middle panel show the expected proportion of inconclusive results which are from the same source. 
 The calculation of these expected values will be discussed in more detail in the next section.
 
-<<cis, echo=FALSE, fig.width=8, fig.height=7, fig.cap="Pearson-Clopper 95\\% confidence intervals for the probability of same source evidence given an examiner's conclusion. Expected values for each of the probabilities as discussed in \\Cref{sec:inconclusives} are shown as grey targets. Some of the studies do not allow an assessment of all of the predictive values. \\svp{Note that all 3 sets with non-AFTE conclusions \\citep{pauw2013faid, mattijssenValidityReliabilityForensic2020} have much higher rates of same-source elimination errors. Only FAID09 \\citep{pauw2013faid} has inconclusive rates which are similar to the overall rate of same-source evidence.}", out.width=".8\\textwidth">>=
+<<cis, echo=FALSE, fig.width=8, fig.height=7, fig.cap="Pearson-Clopper 95\\% confidence intervals for the probability of same source evidence given an examiner's conclusion. Expected values for each of the probabilities as discussed in \\Cref{sec:inconclusives} are shown as grey targets. Some of the studies do not allow an assessment of all of the predictive values. Note that all 3 sets with non-AFTE conclusions \\citep{pauw2013faid, mattijssenValidityReliabilityForensic2020} have much higher rates of same-source elimination errors. Only FAID09 \\citep{pauw2013faid} has inconclusive rates which are similar to the overall rate of same-source evidence.", out.width=".8\\textwidth">>=
  
 cis <- cis %>% 
   ungroup() %>%
