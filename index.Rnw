@@ -123,8 +123,12 @@ library(kableExtra)
 % 
 % \tableofcontents
 
-
-
+\begin{itemize}
+\item[] \hh{
+there might be something intrinsically more difficult in determining eliminations - different training? Algorithms don't seem to have problems with eliminations
+}
+\item[] \hh{case studies  deal with largely non-damaged materials - some results based on case studies might not be transferrable to casework}
+\end{itemize}
 \section{Introduction and Background}
 It has now been more than a decade since the publication of the \citet{nrc:2009} report, which discussed the need for better-designed studies to estimate error rates in forensic disciplines. 
 In this paper, we examine several new studies that have been published since the 2009 report and assess the state of error rate studies in firearms and toolmark analysis. 
