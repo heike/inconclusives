@@ -1760,7 +1760,7 @@ Opt. & \multicolumn{1}{c}{Meaning} & Missed Identification & \multicolumn{1}{r}{
 \clearpage
 
 \section{Visual Examination of Experimental Frequencies}\label{sec:exp-freq}
-This section shows visual equivalents of \Cref{fig:shape-overview}, but for these studies, there is generally a very clear difference between the probability of inconclusive decisions under different and same source comparisons.
+\Cref{fig:shape-overview-study} shows the visual equivalents of \Cref{fig:shape-overview}, but for these studies, there is generally a very clear difference between the probability of inconclusive decisions under different and same source comparisons.
 
 <<shape-overview-study, fig.cap = "Sketch of the relationship between  ground truth of evidence (dots) and examiners' decisions (shaded areas). In \\citet{mattijssenValidityReliabilityForensic2020}, each dot represents approximately 4 examiner evaluations; in \\citet{Baldwin:2014bb} each dot represents 2 examiner evaluations.", fig.width = 12, fig.height = 8, dpi = 1000, out.width = "\\textwidth", cache = F>>=
 source("code/make_inconcl_plot.R")
