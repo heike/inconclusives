@@ -682,7 +682,7 @@ There is consistently a much larger discrepancy between the two error rates for 
 Only a portion of the discrepancy between the examiner (AFTE) and process error rates for missed eliminations can be explained by lab policies that only allow eliminations based on mismatches in class characteristics. 
 
 
-The Bunch study, for instance, was conducted at the FBI, where all examiners followed the same lab policy precluding eliminations based on class characteristic mismatches; as a result, the study has the largest difference between the two missed elimination rates.
+The Bunch study, for instance, was conducted at the FBI, where all examiners followed the same lab policy allowing eliminations based on class characteristic mismatches but precluding eliminations based on differences in individual characteristics; as a result, the study has the largest difference between the two missed elimination rates.
 
 Part of this difference can be attributed to lab policies: in some labs exclusions based on individual characteristics are not allowed (i.e.\ class characteristics match). However, the effect of lab policies does not explain all: 
  \citet{Baldwin:2014bb} made efforts to control for the effects of lab policy in determination of inconclusive findings, the efforts were not completely successful.
