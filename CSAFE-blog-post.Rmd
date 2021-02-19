@@ -91,6 +91,7 @@ There were so many questions that we couldn't answer all of them, and many quest
 <!-- It seems clear from these results that as difficulty increases so do inconclusives. Duez used test sets so easy as to be meaningless and Keisler was not far off from that (and so they have incredibly low rates), but FAID set out to use more difficult cw style samples (and so has a very high inconclusive rate), What should we make of that reality? -->
 
 There is no doubt that we looked at several studies with different difficulty (as well as different study designs, comparison methods, and examiner populations). When we examine the AFTE error rate (so only eliminations of same-source comparisons, or identifications of different-source comparisons), compared to the rate of inconclusive decisions, we see that there is a clear difference between the studies conducted in Europe/UK and studies conducted in North America. 
+
 ```{r, echo = F, warning = F}
 library(ggrepel)
 tmp <- errors %>%
@@ -107,10 +108,13 @@ ggplot(tmp, aes(x = pct_error_afte, y = pct_inconcl)) +
   scale_y_continuous("Proportion of Inconclusive Results")
 
 ```
+The EU/UK studies were conducted to assess lab proficiency (for the most part), and as a consequence, they seem to have been constructed to be able to distinguish good laboratories from excellent laboratories -- so they do include harder comparisons. But, the more notable result isn't the difference in the error rates, which is relatively small; rather, the largest difference is in the proportion of inconclusives in different-source and same source comparisons. In the EU/UK studies, the proportion of inconclusives is similar for both types of comparisons; in the US/CA studies, the proportion of inconclusives for same-source comparisons is a fraction of the proportion of inconclusives for different-source comparisons. 
 
-** source quotes from the EU studies to show the studies aren't even similar in purpose **
+<!-- ** source quotes from the EU studies to show the studies aren't even similar in purpose ** -->
 
-What we see when we examine this chart is that there is a clear difference in the studies in the EU/UK, compared to those conducted primarily in the US. In the US, there is a very large difference in the proportion of inconclusives for different-source comparisons (compared to inconclusives for same-source comparisons). In the EU/UK, the proportion of inconclusive results is relatively similar for both types of comparisons. There is not much evidence of a linear relationship between the proportion of inconclusives and the proportion of outright incorrect decisions.
+<!-- What we see when we examine this chart is that there is a clear difference in the studies in the EU/UK, compared to those conducted primarily in the US. In the US, there is a very large difference in the proportion of inconclusives for different-source comparisons (compared to inconclusives for same-source comparisons). In the EU/UK, the proportion of inconclusive results is relatively similar for both types of comparisons. There is not much evidence of a linear relationship between the proportion of inconclusives and the proportion of outright incorrect decisions. -->
+
+The real story here seems to be that while studies that are more difficult do seem to have slightly higher error rates (which is expected), the training, location, and lab policies which influence examiner evaluations  has a real impact on the proportion of inconclusive decisions which are reached. The EU/UK studies provide some evidence for the fact that the bias in inconclusive error rates demonstrated in our paper is a solvable problem.
 
 <!-- ** See also q6 answer... ** -->
 
