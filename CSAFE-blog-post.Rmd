@@ -189,8 +189,7 @@ In one respect, studies are much harder than casework: In casework, it is much m
 ## How do you get the predictive probability from a study?
 
 It's important to note that you can only get the predictive probability from a designed study. This is because you need the proportion of same-source and different-source comparisons as baseline information. These proportions are only known in designed studies and are not at all known in casework. 
-
-** add in probability calcs **
+We have created a google sheet which can help calculate not only predictive probabilities but also the examiner and process error rates; the worksheet is available [here](https://docs.google.com/spreadsheets/d/10gupYPsflCDEbAWXywNnB3BJaNG4TVtQWOX-QJr4Ojk/edit?usp=sharing)
 
 ## Why not just exclude inconclusives from all calculations?
 
@@ -200,10 +199,9 @@ One reason is that inconclusive results are still reported in legal settings, bu
 
 First, those policies introduce bias into the examiner's decision - if you can make an identification based on individual characteristics, we think you should also be able to make an elimination based on mismatches in those same characteristics.  But, some studies controlled for this policy by asking participants to follow the same rules, and even in these studies, the same bias against same-source comparisons being labeled as inconclusive is present. This is true in Bunch & Murphy (conducted at the FBI lab, which has such a policy) and is also true in Baldwin, which was a much larger and more heterogeneous study that requested examiners make eliminations based on individual characteristic mismatches. 
 
-## A finding of "no identification" could easily be misinterpreted by a non-firearms examiner, such as a juror or attorney, as an elimination.
+## A finding of "no identification" could easily be misinterpreted by a non-firearms examiner, such as a juror or attorney, as an elimination. 
 
 Under the status quo, an inconclusive can easily be framed as an almost-identification; so this ambiguity is already present in the system, and we rely on attorneys to frame the issue appropriately for the judge and/or jury. Under our proposal to eliminate inconclusives, we would also have to rely on attorneys to correctly contextualize the information presented by the examiner.
-
 
 
 ## You say that inconclusive results occur more frequently when the conclusion is different-source. Could a conviction really occur based on an inconclusive result? Why is this an issue?
