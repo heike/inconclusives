@@ -92,7 +92,7 @@ There were so many questions that we couldn't answer all of them, and many quest
 
 There is no doubt that we looked at several studies with different difficulty (as well as different study designs, comparison methods, and examiner populations). When we examine the AFTE error rate (so only eliminations of same-source comparisons, or identifications of different-source comparisons), compared to the rate of inconclusive decisions, we see that there is a clear difference between the studies conducted in Europe/UK and studies conducted in North America. 
 
-```{r, echo = F, warning = F}
+```{r, echo = F, warning = F, fig.width=8, fig.height = 4}
 library(ggrepel)
 tmp <- errors %>%
   mutate(pct_inconcl = (Process - AFTE)/Comparisons,
@@ -105,10 +105,15 @@ ggplot(tmp, aes(x = pct_error_afte, y = pct_inconcl)) +
   scale_shape_manual("Training", values = c("US/CA" = 2, "EU" = 1)) + 
   facet_wrap(~Ground.truth + Error) + 
   scale_x_continuous(expand = expansion(mult = 0.1, add = 0), name = "AFTE Error Rate") + 
-  scale_y_continuous("Proportion of Inconclusive Results")
+  scale_y_continuous("Proportion of Inconclusive Results") +
+  theme_bw()
 
 ```
+
 The EU/UK studies were conducted to assess lab proficiency (for the most part), and as a consequence, they seem to have been constructed to be able to distinguish good laboratories from excellent laboratories -- so they do include harder comparisons. But, the more notable result isn't the difference in the error rates, which is relatively small; rather, the largest difference is in the proportion of inconclusives in different-source and same source comparisons. In the EU/UK studies, the proportion of inconclusives is similar for both types of comparisons; in the US/CA studies, the proportion of inconclusives for same-source comparisons is a fraction of the proportion of inconclusives for different-source comparisons. 
+
+
+HH: Those visualizations need a ton of explanation - either the explnations are included or the visualizations aren't
 
 ![Results visualized for several different studies](figures/shape-overview-study-1.png)
 
@@ -122,25 +127,26 @@ The real story here seems to be that while studies that are more difficult do se
 
 ## Examiners often report a final answer of "inconclusive", and this is correct according to the AFTE standard. Should inconclusives be allowed as a final answer?
 
-From a statistical perspective, there is a mismatch between the state of reality (same source or different source) and the decision categories. This causes some difficulty when calculating error rates. We proposed multiple ways to handle this confusing situation: using predictive probabilities, distinguishing between process error and examiner error, or reframing the decision to one of identification or not-identification. Any of these options provides a much clearer interpretation of what an error is, and its relevance in legal settings.
+From a statistical perspective, there is a mismatch between the state of reality (same source or different source) and the decision categories. This causes some difficulty when calculating error rates. We proposed multiple ways to handle this  situation: using predictive probabilities, distinguishing between process error and examiner error, or reframing the decision to one of identification or not-identification. Any of these options provides a much clearer interpretation of what an error is, and its relevance in legal settings.
 
-In practice, we recognize that not all evidence collected will be suitable to reach a conclusion of identification or elimination, due to a number of different factors. These factors are often considered "process errors", and examiners are trained to account for these errors, and reach an inconclusive decision. We fully agree that this is a reasonable decision to make based on the circumstances; our issue is that when results are presented in court, all of the errors which could contribute to the process are relevant. Thus, it is important to report the process error as well as the examiner-based (AFTE) error. 
+In practice, we recognize that not all evidence collected will be suitable to reach a conclusion of identification or elimination, due to a number of different factors. These factors are often considered "process errors", and examiners are trained to account for these errors, and reach an inconclusive decision. We fully agree that this is a reasonable decision to make based on the circumstances; the issue with inconclusive decisions arises when results are presented in court, all of the errors which could contribute to the process are relevant. Thus, it is important to report the process error as well as the examiner-based (AFTE) error. 
 
 In some cases, however, the examiner may have noted many differences at individual level, but be uncomfortable making an elimination (in some cases, due to lab policies prohibiting elimination based on individual characteristics). That there is hesitation to make this decision is an example of the bias we have demonstrated: when there is some evidence of similarity, examiners appear to be more willing to "bet" on a identification than on an elimination based on a similar amount of dissimilarity. This higher burden of proof is an issue that has consequences for the overall error rates reported from these studies, as well as the actual errors that may occur in the legal system itself. 
 
 ## How should courts prevent misused error rates?
 
-The critical component to preventing misuse of error rates is to understand which components contribute to the error rate (in both the numerator and denominator). Currently, most error rates reported include inconclusives in the denominator but not in the numerator. As we have demonstrated in this paper (and in this Q&A), this approach leads to misleadingly low error rates. Instead, courts should insist on **predictive error rates**: given the examiner's **decision**, what is the probability that it resulted from a same-source or different-source comparison. These probabilities do not rely on inconclusives in the calculations, and are more relevant to the specific result presented by the examiner in the trial at hand. 
+The critical component to preventing misuse of error rates is to understand how error rates should be interpreted.  Currently, most error rates reported include inconclusives in the denominator but not in the numerator. As we have demonstrated in this paper (and in this Q&A), this approach leads to error rates that are misleadingly low for the overall identification process and not actionable in a legal situation. 
+Instead, courts should insist on **predictive error rates**: given the examiner's **decision**, what is the probability that it resulted from a same-source or different-source comparison? These probabilities do not rely on inconclusives in the calculations, and are actually relevant to the specific result presented by the examiner in the trial at hand. 
 
 <!-- From q8 -->
 
-## What error rate should I use when?
+## What error rate should we use when?
 
-The error rate you want is entirely dependent on your intended use: 
+The error rate we want is entirely dependent on the intended use: 
 
-- In court, you should use predictive probabilities, because they provide specific information which relevant to the individual case under consideration.
+- In court, we should use predictive probabilities, because they provide specific information which relevant to the individual case under consideration.
 
-- In evaluating examiners, the AFTE error rates, which do not include inconclusives, may be much more useful - they identify examiner errors, rather than errors which arise due to situation in which the evidence is recorded and collected. Labs are much more concerned with the possibility that an examiner is not adequately trained. 
+- In evaluating examiners, the AFTE error rates, which do not include inconclusives, may be much more useful - they identify examiner errors, rather than errors which arise due to situation in which the evidence is recorded and collected. For labs it is of eminent concern that all of their examiners are adequately trained. 
 
 It's very important to consider the context that an error rate or probability is used, and to calculate the error rate which is most appropriate for that context. 
 
@@ -176,7 +182,7 @@ The current way errors are reported (when the reporter is being thorough) is to 
 
 First off, we can't know the answer to this question, because we can't ever know ground truth in casework. This is why we have to base everything we know on designed studies -- because ground truth is known. So we will never know whether the proportion of e.g. same source and different source comparisons in experiments is representative of casework. 
 
-What we can know, but do not yet know, is the percentage of decisions that examiners reach that are inconclusive (or identification, or eliminations). We are not aware of any studies which report this data for any lab or jurisdiction; as a result, we have no idea whether the proportion of inconclusive decisions is similar in case work and in designed studies. 
+What we can know, but do not yet know, is the percentage of decisions that examiners reach that are inconclusive (or identification, or eliminations). We are not aware of any studies which report this data for any lab or jurisdiction; as a result, we do not know whether the proportion of inconclusive decisions is similar in case work and in designed studies. 
 
 What we do know, however, is that the proportion of inconclusives is not constant between studies. In particular, there are much higher inconclusive rates for same-source comparisons in studies conducted in Europe and the UK. These studies are intended to assess a lab's skill, and are much harder than designed error rate studies in the US. So we know that the design and intent of a study does influence the inconclusive rate. More  research in this area is needed. 
 
@@ -193,11 +199,14 @@ We have created a google sheet which can help calculate not only predictive prob
 
 ## Why not just exclude inconclusives from all calculations?
 
-One reason is that inconclusive results are still reported in legal settings, but they are not equally likely when examining same-source and different-source evidence, which is informative. Given that an examiner reports an inconclusive result, the source is much more likely to be different than the same. By throwing out inconclusives entirely, you're throwing out data that is informative. This argument has been made by Biedermann et al., but they did not take the assertion to its obvious conclusion. 
+One reason is that inconclusive results are still reported in legal settings, but they are not equally likely when examining same-source and different-source evidence, which is informative. Given that an examiner reports an inconclusive result, the source is much more likely to be different than the same. By ignoring inconclusives entirely, we would be throwing out data that is informative. This argument has been made by Biedermann et al., but they did not take the assertion to its obvious conclusion. 
 
 ## What about lab policies that prohibit elimination on individual characteristics?
 
-First, those policies introduce bias into the examiner's decision - if you can make an identification based on individual characteristics, we think you should also be able to make an elimination based on mismatches in those same characteristics.  But, some studies controlled for this policy by asking participants to follow the same rules, and even in these studies, the same bias against same-source comparisons being labeled as inconclusive is present. This is true in Bunch & Murphy (conducted at the FBI lab, which has such a policy) and is also true in Baldwin, which was a much larger and more heterogeneous study that requested examiners make eliminations based on individual characteristic mismatches. 
+First, those policies are in direct conflict with the AFTE range of conclusions as published at https://afte.org/about-us/what-is-afte/afte-range-of-conclusions.
+These guidelines specify "Significant disagreement of discernible class characteristics and/or individual characteristics." as a reason for an elimination. An interpretation by labs that does not a elimination based on individual characteristics should be addressed and clarified by AFTE.
+
+Those policies also introduce bias into the examiner's decision. As can be seen from the rate at which inconclusive results stem from different-source comparisons in case studies - almost all inconclusive results are from different-source comparisons. Some studies controlled for this policy by asking participants to follow the same rules, and even in these studies, the same bias against same-source comparisons being labeled as inconclusive is present. This is true in Bunch & Murphy (conducted at the FBI lab, which has such a policy) and is also true in Baldwin, which was a much larger and more heterogeneous study that requested examiners make eliminations based on individual characteristic mismatches. 
 
 ## A finding of "no identification" could easily be misinterpreted by a non-firearms examiner, such as a juror or attorney, as an elimination. 
 
