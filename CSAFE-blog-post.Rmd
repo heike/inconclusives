@@ -110,6 +110,8 @@ ggplot(tmp, aes(x = pct_error_afte, y = pct_inconcl)) +
 ```
 The EU/UK studies were conducted to assess lab proficiency (for the most part), and as a consequence, they seem to have been constructed to be able to distinguish good laboratories from excellent laboratories -- so they do include harder comparisons. But, the more notable result isn't the difference in the error rates, which is relatively small; rather, the largest difference is in the proportion of inconclusives in different-source and same source comparisons. In the EU/UK studies, the proportion of inconclusives is similar for both types of comparisons; in the US/CA studies, the proportion of inconclusives for same-source comparisons is a fraction of the proportion of inconclusives for different-source comparisons. 
 
+![Results visualized for several different studies](figures/shape-overview-study-1.png)
+
 <!-- ** source quotes from the EU studies to show the studies aren't even similar in purpose ** -->
 
 <!-- What we see when we examine this chart is that there is a clear difference in the studies in the EU/UK, compared to those conducted primarily in the US. In the US, there is a very large difference in the proportion of inconclusives for different-source comparisons (compared to inconclusives for same-source comparisons). In the EU/UK, the proportion of inconclusive results is relatively similar for both types of comparisons. There is not much evidence of a linear relationship between the proportion of inconclusives and the proportion of outright incorrect decisions. -->
