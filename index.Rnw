@@ -92,6 +92,7 @@ knitr::opts_chunk$set(
   fig.height = 6,
   fig.width = 6,
   dpi = 600,
+  dev = "png",
   fig.align = "center",
   out.width = "\\textwidth",
   cache = TRUE,
@@ -670,8 +671,8 @@ errors <- studies %>%
   ) %>% 
   mutate(
     Error = c("Missed Elimination", "Missed Identification")[as.numeric(Ground.truth=="Same Source")+1]
-  )
-@
+  ) 
+@ 
 
 \subsection{Assessment of Classification Error}
 
@@ -701,7 +702,7 @@ More realistic estimates of error rates that account for the use of deductive re
 
 errors <- errors %>% 
   mutate(
-    Error = factor(Error)
+    Error = factor(Error) 
   )
 levels(errors$Error) <- c("Missed\nElimination", "Missed\nIdentification")
 
@@ -787,7 +788,7 @@ levels(figdata$Ground.truth) <- c("Diff. Src", "Same Src")
 DontKnow_source_spec$Ground.truth <- factor(DontKnow_source_spec$Ground.truth)
 levels(DontKnow_source_spec$Ground.truth) <- c("Diff. Src", "Same Src")
 
-figdata %>%
+figdata %>% 
   ggplot(aes(y = pred_ss, x = Study, colour = Decision, shape = Decision)) +
   facet_grid(Ground.truth+Training~., space="free_y", scales="free_y") +
   ylim(c(0,1)) +
@@ -828,7 +829,7 @@ The calculation of these expected values will be discussed in more detail in the
 <<cis, echo=FALSE, fig.width=8, fig.height=7, fig.cap="Pearson-Clopper 95\\% confidence intervals for the probability of same source evidence given an examiner's conclusion. Expected values for each of the probabilities as discussed in \\Cref{sec:inconclusives} are shown as grey targets. Some of the studies do not allow an assessment of all of the predictive values. Note that all 3 sets with non-AFTE conclusions \\citep{pauw2013faid, mattijssenValidityReliabilityForensic2020} have much higher rates of same-source elimination errors. Only FAID09 \\citep{pauw2013faid} has inconclusive rates which are similar to the overall rate of same-source evidence.", out.width=".8\\textwidth">>=
  
 cis <- cis %>% 
-  ungroup() %>%
+  ungroup() %>% 
   mutate(
     Decision = factor(Decision, levels=c("Identification", "Inconclusive", "Elimination"))
   ) 
@@ -859,7 +860,7 @@ cis %>%
                  data = DontKnow, linetype=2) +
   geom_point(data = DontKnow, shape='?', size = 3.5) +
   geom_text(aes(x=x, y=y, label=label),  colour="grey70", 
-            size=10, vjust=-0.15, hjust=0.5, data = labeltext) 
+            size=10, vjust=-0.15, hjust=0.5, data = labeltext)  
 
 @
 

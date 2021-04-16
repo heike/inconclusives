@@ -81,7 +81,7 @@ target_plot <- function(a, b, c, d, e, f, pointsize = 1, bordersize = .005, titl
   tmp <- tmp  + 
     geom_sf(alpha = .6, color = "black") + 
     # geom_sf(data = filter(points, concl != "Inconclusive"), aes(geometry = points), color = "white", alpha = .5, size = 1.5*pointsize, legend = F) +
-    geom_sf(data = points, aes(geometry = points, color = gt), size = pointsize, shape = 19) +
+    geom_sf(data = points, aes(geometry = points, color = gt, shape = gt), size = pointsize) +
     annotate(geom = "text", x=-.5, y=.55, label = side_labels[1], hjust = 0, size = 5, color = "darkorange4") + 
     annotate(geom = "text", x=.5, y=.55, label = side_labels[2], hjust = 1, size = 5, color = "steelblue4") + 
     geom_sf(aes(geometry = geometry), fill = "transparent", size = .75, color = "black") +     
@@ -96,11 +96,13 @@ target_plot <- function(a, b, c, d, e, f, pointsize = 1, bordersize = .005, titl
   if (!legend) {
     tmp <- tmp + 
       scale_fill_manual("Conclusion", values = c("Identification" = "steelblue", "Inconclusive" = "white", "Elimination" = "darkorange"), guide = "none") + 
-      scale_color_manual("Ground Truth", values = c("Same Source" = "steelblue4", "Different Source" = "darkorange4"), guide = "none")
+      scale_color_manual("Ground Truth", values = c("Same Source" = "steelblue4", "Different Source" = "darkorange4"), guide = "none") +
+      scale_shape_manual("Ground Truth", values = c("Same Source" = 17, "Different Source" = 19), guide = "none")
   } else {
     tmp <- tmp + 
       scale_fill_manual("Conclusion", values = c("Identification" = "steelblue", "Inconclusive" = "white", "Elimination" = "darkorange")) + 
       scale_color_manual("Ground Truth", values = c("Same Source" = "steelblue4", "Different Source" = "darkorange4")) +
+      scale_shape_manual("Ground Truth", values = c("Same Source" = 17, "Different Source" = 19)) +
       guides(color = guide_legend(override.aes = list(size = 3)), fill = guide_legend(override.aes = list(shape = NA))) 
   }
   
