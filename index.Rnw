@@ -281,13 +281,13 @@ in \citet{chumbleyValidationToolMark2010} examiners were asked to make either an
 This results in cell values $b$ and $e$ of zero, i.e.\ the calculation of the overall error rate simplifies to a binary, symmetric decision process consisting of two actual states and two possible decisions. 
 In this case, the overall error rate is the sum of the false positives and the false negatives, divided by the number of overall comparisons. 
 
-\newcommand{\redsqd}[2][.8em]{\protect\fcolorbox{black}{red!50}{\makebox[#1][c]{#2\vphantom{a}}}}
+\newcommand{\redsqd}[2][.8em]{\protect\fcolorbox{black}{red!80}{\makebox[#1][c]{#2\vphantom{a}}}}
 \newcommand{\graysqd}[2][.8em]{\protect\fcolorbox{black}{black!30}{\makebox[#1][c]{#2\vphantom{a}}}}
 \newcommand{\whitesqd}[2][.8em]{\protect\fcolorbox{black}{white!100}{\makebox[#1][c]{#2\vphantom{a}}}}
 
-\newcommand{\redsq}[2][1.15em]{\protect\fcolorbox{black}{red!50}{\makebox[#1][c]{#2\vphantom{dp}}}}
-\newcommand{\graysq}[2][1.15em]{\protect\fcolorbox{black}{black!30}{\makebox[#1][c]{#2\vphantom{dp}}}}
-\newcommand{\whitesq}[2][1.15em]{\protect\fcolorbox{black}{white!100}{\makebox[#1][c]{#2\vphantom{dp}}}}
+\newcommand{\redsq}[2][1.15em]{\protect\fcolorbox{black}{red!80}{\makebox[#1][c]{\textbf{\textcolor{white}#2}\vphantom{dp}}}}
+\newcommand{\graysq}[2][1.15em]{\protect\fcolorbox{black}{black!30}{\makebox[#1][c]{\textbf{#2}\vphantom{dp}}}}
+\newcommand{\whitesq}[2][1.15em]{\protect\fcolorbox{black}{white!100}{\makebox[#1][c]{\textbf{#2}\vphantom{dp}}}}
 % \newcommand{\blacksq}{\fcolorbox{black}{black!100}{\phantom{x}}}
 \newcommand{\xsq}{\protect\fcolorbox{black}{white!100}{\makebox[1.25em][c]{x\vphantom{dp}}}}
 
